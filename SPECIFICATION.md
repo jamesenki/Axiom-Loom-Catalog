@@ -7,7 +7,7 @@
 ## 🎯 Project Overview
 
 ### Purpose
-A **lab marketing portal** serving as a centralized developer experience hub for showcasing EY's innovation repositories, APIs, and documentation to stakeholders and potential clients.
+A **lab marketing portal** serving as a centralized developer experience hub for showcasing EY's innovation repositories, APIs, and documentation to stakeholders and potential clients. The portal will be used to demonstrate EY's innovation capabilities to potential clients and partners. 
 
 ### Primary Stakeholders
 - **EY Innovation Labs**: Marketing and demonstration teams
@@ -63,6 +63,13 @@ A **lab marketing portal** serving as a centralized developer experience hub for
   - [ ] Print/export functionality
   - [ ] Mobile-responsive design
 
+- [ ] **Mermaid Integration**
+  - [ ] Backend JAR rendering endpoint
+  - [ ] Frontend integration with markdown
+  - [ ] C4 diagram support validation
+  - [ ] Error handling for invalid UML
+  - [ ] Caching of rendered diagrams
+  
 - [ ] **PlantUML Integration**
   - [x] Backend JAR rendering endpoint ✅
   - [ ] Frontend integration with markdown
