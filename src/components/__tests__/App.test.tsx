@@ -60,19 +60,21 @@ jest.mock('../SyncStatus', () => ({
 }));
 
 // Mock repository sync service
-const mockSyncResult = {
-  success: true,
-  syncedRepositories: [],
-  failedRepositories: [],
-  message: 'Sync completed'
-};
-
-jest.mock('../../services/repositorySync', () => ({
-  repositorySyncService: {
-    syncOnStartup: jest.fn().mockResolvedValue(mockSyncResult)
-  },
-  SyncResult: jest.fn()
-}));
+jest.mock('../../services/repositorySync', () => {
+  const mockSyncResult = {
+    success: true,
+    syncedRepositories: [],
+    failedRepositories: [],
+    message: 'Sync completed'
+  };
+  
+  return {
+    repositorySyncService: {
+      syncOnStartup: jest.fn().mockResolvedValue(mockSyncResult)
+    },
+    SyncResult: jest.fn()
+  };
+});
 
 // Mock SyncProvider
 const mockUpdateSyncResult = jest.fn();
@@ -88,6 +90,13 @@ jest.mock('../../contexts/SyncContext', () => ({
 // Import additional testing utilities
 import { waitFor, act } from '@testing-library/react';
 import { repositorySyncService } from '../../services/repositorySync';
+
+const mockSyncResult = {
+  success: true,
+  syncedRepositories: [],
+  failedRepositories: [],
+  message: 'Sync completed'
+};
 
 describe('App', () => {
   beforeEach(() => {
@@ -129,7 +138,12 @@ describe('App', () => {
     });
 
     await waitFor(() => {
-      expect(mockUpdateSyncResult).toHaveBeenCalledWith(mockSyncResult);
+      expect(mockUpdateSyncResult).toHaveBeenCalledWith({
+        success: true,
+        syncedRepositories: [],
+        failedRepositories: [],
+        message: 'Sync completed'
+      });
     });
   });
 
