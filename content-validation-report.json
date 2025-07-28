@@ -2,15 +2,15 @@
   "summary": {
     "totalIssues": 1000,
     "byType": {
-      "missing-file": 1,
-      "broken-link": 552,
+      "missing-file": 0,
+      "broken-link": 518,
       "missing-image": 8,
-      "syntax-error": 439
+      "syntax-error": 474
     },
     "byRepository": {
-      "copilot-architecture-template": 342,
-      "ecosystem-platform-architecture": 122,
-      "future-mobility-consumer-platform": 79,
+      "copilot-architecture-template": 346,
+      "ecosystem-platform-architecture": 147,
+      "future-mobility-consumer-platform": 50,
       "future-mobility-fleet-platform": 81,
       "future-mobility-oems-platform": 102,
       "future-mobility-regulatory-platform": 42,
@@ -26,12 +26,6 @@
   },
   "issues": [
     {
-      "type": "missing-file",
-      "repository": "ecosystem-platform-architecture",
-      "file": "README.md",
-      "description": "Missing README.md file"
-    },
-    {
       "type": "broken-link",
       "repository": "copilot-architecture-template",
       "file": "CUSTOMIZATION_GUIDE.md",
@@ -40,320 +34,116 @@
     {
       "type": "broken-link",
       "repository": "copilot-architecture-template",
-      "file": "CUSTOMIZATION_GUIDE.md",
-      "description": "Broken link: [Component Reference](COMPONENT_REFERENCE.md)"
-    },
-    {
-      "type": "broken-link",
-      "repository": "copilot-architecture-template",
-      "file": "CUSTOMIZATION_GUIDE.md",
-      "description": "Broken link: [Best Practices](BEST_PRACTICES.md)"
+      "file": "README.md",
+      "description": "Broken link: [E-commerce Example](./docs/examples/ecommerce-example.md)"
     },
     {
       "type": "broken-link",
       "repository": "copilot-architecture-template",
       "file": "README.md",
-      "description": "Broken link: [Mode System Guide](./docs/MODE_SYSTEM_GUIDE.md)"
+      "description": "Broken link: [Healthcare Example](./docs/examples/healthcare-example.md)"
     },
     {
       "type": "broken-link",
       "repository": "copilot-architecture-template",
       "file": "README.md",
-      "description": "Broken link: [Integration Guide](./docs/INTEGRATION_GUIDE.md)"
+      "description": "Broken link: [FinTech Example](./docs/examples/fintech-example.md)"
     },
     {
       "type": "broken-link",
       "repository": "copilot-architecture-template",
+      "file": "docs/DEVELOPER_USAGE_GUIDE.md",
+      "description": "Broken link: [Developer Guide](./docs/DEVELOPER_GUIDE.md)"
+    },
+    {
+      "type": "broken-link",
+      "repository": "copilot-architecture-template",
+      "file": "docs/INTEGRATION_GUIDE.md",
+      "description": "Broken link: [API Design Guide](./docs/API_DESIGN_GUIDE.md)"
+    },
+    {
+      "type": "broken-link",
+      "repository": "copilot-architecture-template",
+      "file": "docs/INTEGRATION_GUIDE.md",
+      "description": "Broken link: [Architecture Guide](./docs/ARCHITECT_GUIDE.md)"
+    },
+    {
+      "type": "broken-link",
+      "repository": "copilot-architecture-template",
+      "file": "docs/MODE_SYSTEM_GUIDE.md",
+      "description": "Broken link: [Deployment Guide](./docs/DEPLOYMENT_GUIDE.md)"
+    },
+    {
+      "type": "broken-link",
+      "repository": "ecosystem-platform-architecture",
+      "file": "CUSTOMIZATION_GUIDE.md",
+      "description": "Broken link: [Developer Usage Guide](DEVELOPER_USAGE_GUIDE.md)"
+    },
+    {
+      "type": "broken-link",
+      "repository": "ecosystem-platform-architecture",
       "file": "README.md",
       "description": "Broken link: [E-commerce Example](./docs/examples/ECOMMERCE_EXAMPLE.md)"
     },
     {
       "type": "broken-link",
-      "repository": "copilot-architecture-template",
+      "repository": "ecosystem-platform-architecture",
       "file": "README.md",
       "description": "Broken link: [Healthcare Example](./docs/examples/HEALTHCARE_EXAMPLE.md)"
     },
     {
       "type": "broken-link",
-      "repository": "copilot-architecture-template",
+      "repository": "ecosystem-platform-architecture",
       "file": "README.md",
       "description": "Broken link: [FinTech Example](./docs/examples/FINTECH_EXAMPLE.md)"
     },
     {
       "type": "broken-link",
-      "repository": "copilot-architecture-template",
-      "file": "docs/ARCHITECT_GUIDE.md",
-      "description": "Broken link: [GitHub Setup Guide](GITHUB_SETUP_GUIDE.md)"
-    },
-    {
-      "type": "broken-link",
-      "repository": "copilot-architecture-template",
-      "file": "docs/GITHUB_SETUP.md",
-      "description": "Broken link: [Architect's Guide](docs/ARCHITECT_GUIDE.md)"
-    },
-    {
-      "type": "broken-link",
-      "repository": "copilot-architecture-template",
-      "file": "docs/GITHUB_SETUP.md",
-      "description": "Broken link: [Developer's Guide](docs/DEVELOPER_GUIDE.md)"
-    },
-    {
-      "type": "broken-link",
       "repository": "ecosystem-platform-architecture",
-      "file": "CUSTOMIZATION_GUIDE.md",
-      "description": "Broken link: [Template Overview](README.md)"
-    },
-    {
-      "type": "broken-link",
-      "repository": "ecosystem-platform-architecture",
-      "file": "CUSTOMIZATION_GUIDE.md",
-      "description": "Broken link: [Developer Usage Guide](DEVELOPER_USAGE_GUIDE.md)"
-    },
-    {
-      "type": "broken-link",
-      "repository": "ecosystem-platform-architecture",
-      "file": "CUSTOMIZATION_GUIDE.md",
-      "description": "Broken link: [Component Reference](COMPONENT_REFERENCE.md)"
-    },
-    {
-      "type": "broken-link",
-      "repository": "ecosystem-platform-architecture",
-      "file": "CUSTOMIZATION_GUIDE.md",
-      "description": "Broken link: [Best Practices](BEST_PRACTICES.md)"
+      "file": "TEMPLATE-README.md",
+      "description": "Broken link: [E-commerce Example](./docs/examples/ecommerce-example.md)"
     },
     {
       "type": "broken-link",
       "repository": "ecosystem-platform-architecture",
       "file": "TEMPLATE-README.md",
-      "description": "Broken link: [Mode System Guide](./docs/MODE_SYSTEM_GUIDE.md)"
+      "description": "Broken link: [Healthcare Example](./docs/examples/healthcare-example.md)"
     },
     {
       "type": "broken-link",
       "repository": "ecosystem-platform-architecture",
       "file": "TEMPLATE-README.md",
-      "description": "Broken link: [Integration Guide](./docs/INTEGRATION_GUIDE.md)"
+      "description": "Broken link: [FinTech Example](./docs/examples/fintech-example.md)"
     },
     {
       "type": "broken-link",
       "repository": "ecosystem-platform-architecture",
-      "file": "TEMPLATE-README.md",
-      "description": "Broken link: [E-commerce Example](./docs/examples/ECOMMERCE_EXAMPLE.md)"
+      "file": "docs/DEVELOPER_USAGE_GUIDE.md",
+      "description": "Broken link: [Developer Guide](./docs/DEVELOPER_GUIDE.md)"
     },
     {
       "type": "broken-link",
       "repository": "ecosystem-platform-architecture",
-      "file": "TEMPLATE-README.md",
-      "description": "Broken link: [Healthcare Example](./docs/examples/HEALTHCARE_EXAMPLE.md)"
+      "file": "docs/INTEGRATION_GUIDE.md",
+      "description": "Broken link: [API Design Guide](./docs/API_DESIGN_GUIDE.md)"
     },
     {
       "type": "broken-link",
       "repository": "ecosystem-platform-architecture",
-      "file": "TEMPLATE-README.md",
-      "description": "Broken link: [FinTech Example](./docs/examples/FINTECH_EXAMPLE.md)"
+      "file": "docs/INTEGRATION_GUIDE.md",
+      "description": "Broken link: [Architecture Guide](./docs/ARCHITECT_GUIDE.md)"
     },
     {
       "type": "broken-link",
       "repository": "ecosystem-platform-architecture",
-      "file": "docs/ARCHITECT_GUIDE.md",
-      "description": "Broken link: [GitHub Setup Guide](GITHUB_SETUP_GUIDE.md)"
-    },
-    {
-      "type": "broken-link",
-      "repository": "ecosystem-platform-architecture",
-      "file": "docs/GITHUB_SETUP.md",
-      "description": "Broken link: [Architect's Guide](docs/ARCHITECT_GUIDE.md)"
-    },
-    {
-      "type": "broken-link",
-      "repository": "ecosystem-platform-architecture",
-      "file": "docs/GITHUB_SETUP.md",
-      "description": "Broken link: [Developer's Guide](docs/DEVELOPER_GUIDE.md)"
-    },
-    {
-      "type": "broken-link",
-      "repository": "ecosystem-platform-architecture",
-      "file": "docs/QUICK_SETUP_SUMMARY.md",
-      "description": "Broken link: [README.md](../README.md)"
+      "file": "docs/MODE_SYSTEM_GUIDE.md",
+      "description": "Broken link: [Deployment Guide](./docs/DEPLOYMENT_GUIDE.md)"
     },
     {
       "type": "broken-link",
       "repository": "future-mobility-consumer-platform",
       "file": "CUSTOMIZATION_GUIDE.md",
       "description": "Broken link: [Developer Usage Guide](DEVELOPER_USAGE_GUIDE.md)"
-    },
-    {
-      "type": "broken-link",
-      "repository": "future-mobility-consumer-platform",
-      "file": "CUSTOMIZATION_GUIDE.md",
-      "description": "Broken link: [Component Reference](COMPONENT_REFERENCE.md)"
-    },
-    {
-      "type": "broken-link",
-      "repository": "future-mobility-consumer-platform",
-      "file": "CUSTOMIZATION_GUIDE.md",
-      "description": "Broken link: [Best Practices](BEST_PRACTICES.md)"
-    },
-    {
-      "type": "broken-link",
-      "repository": "future-mobility-consumer-platform",
-      "file": "README.md",
-      "description": "Broken link: [📖 Guide](/docs/future-mobility-consumer-platform/docs/api-specs/api-2/implementation-guide.md)"
-    },
-    {
-      "type": "broken-link",
-      "repository": "future-mobility-consumer-platform",
-      "file": "README.md",
-      "description": "Broken link: [🧪 Test](/docs/future-mobility-consumer-platform/docs/api-specs/api-2/postman-collection.json)"
-    },
-    {
-      "type": "broken-link",
-      "repository": "future-mobility-consumer-platform",
-      "file": "README.md",
-      "description": "Broken link: [📖 Guide](/docs/future-mobility-consumer-platform/docs/api-specs/api-8/implementation-guide.md)"
-    },
-    {
-      "type": "broken-link",
-      "repository": "future-mobility-consumer-platform",
-      "file": "README.md",
-      "description": "Broken link: [🧪 Test](/docs/future-mobility-consumer-platform/docs/api-specs/api-8/postman-collection.json)"
-    },
-    {
-      "type": "broken-link",
-      "repository": "future-mobility-consumer-platform",
-      "file": "README.md",
-      "description": "Broken link: [📖 Guide](/docs/future-mobility-consumer-platform/docs/api-specs/api-9/implementation-guide.md)"
-    },
-    {
-      "type": "broken-link",
-      "repository": "future-mobility-consumer-platform",
-      "file": "README.md",
-      "description": "Broken link: [🧪 Test](/docs/future-mobility-consumer-platform/docs/api-specs/api-9/postman-collection.json)"
-    },
-    {
-      "type": "broken-link",
-      "repository": "future-mobility-consumer-platform",
-      "file": "README.md",
-      "description": "Broken link: [📖 Guide](/docs/future-mobility-consumer-platform/docs/api-specs/api-10/implementation-guide.md)"
-    },
-    {
-      "type": "broken-link",
-      "repository": "future-mobility-consumer-platform",
-      "file": "README.md",
-      "description": "Broken link: [🧪 Test](/docs/future-mobility-consumer-platform/docs/api-specs/api-10/postman-collection.json)"
-    },
-    {
-      "type": "broken-link",
-      "repository": "future-mobility-consumer-platform",
-      "file": "README.md",
-      "description": "Broken link: [📖 Guide](/docs/future-mobility-consumer-platform/docs/api-specs/api-14/implementation-guide.md)"
-    },
-    {
-      "type": "broken-link",
-      "repository": "future-mobility-consumer-platform",
-      "file": "README.md",
-      "description": "Broken link: [🧪 Test](/docs/future-mobility-consumer-platform/docs/api-specs/api-14/postman-collection.json)"
-    },
-    {
-      "type": "broken-link",
-      "repository": "future-mobility-consumer-platform",
-      "file": "README.md",
-      "description": "Broken link: [📖 Guide](/docs/future-mobility-consumer-platform/docs/api-specs/api-24/implementation-guide.md)"
-    },
-    {
-      "type": "broken-link",
-      "repository": "future-mobility-consumer-platform",
-      "file": "README.md",
-      "description": "Broken link: [🧪 Test](/docs/future-mobility-consumer-platform/docs/api-specs/api-24/postman-collection.json)"
-    },
-    {
-      "type": "broken-link",
-      "repository": "future-mobility-consumer-platform",
-      "file": "README.md",
-      "description": "Broken link: [📖 Guide](/docs/future-mobility-consumer-platform/docs/api-specs/api-29/implementation-guide.md)"
-    },
-    {
-      "type": "broken-link",
-      "repository": "future-mobility-consumer-platform",
-      "file": "README.md",
-      "description": "Broken link: [🧪 Test](/docs/future-mobility-consumer-platform/docs/api-specs/api-29/postman-collection.json)"
-    },
-    {
-      "type": "broken-link",
-      "repository": "future-mobility-consumer-platform",
-      "file": "README.md",
-      "description": "Broken link: [📖 Guide](/docs/future-mobility-consumer-platform/docs/api-specs/api-31/implementation-guide.md)"
-    },
-    {
-      "type": "broken-link",
-      "repository": "future-mobility-consumer-platform",
-      "file": "README.md",
-      "description": "Broken link: [🧪 Test](/docs/future-mobility-consumer-platform/docs/api-specs/api-31/postman-collection.json)"
-    },
-    {
-      "type": "broken-link",
-      "repository": "future-mobility-consumer-platform",
-      "file": "README.md",
-      "description": "Broken link: [📖 Guide](/docs/future-mobility-consumer-platform/docs/api-specs/api-33/implementation-guide.md)"
-    },
-    {
-      "type": "broken-link",
-      "repository": "future-mobility-consumer-platform",
-      "file": "README.md",
-      "description": "Broken link: [🧪 Test](/docs/future-mobility-consumer-platform/docs/api-specs/api-33/postman-collection.json)"
-    },
-    {
-      "type": "broken-link",
-      "repository": "future-mobility-consumer-platform",
-      "file": "README.md",
-      "description": "Broken link: [📖 Guide](/docs/future-mobility-consumer-platform/docs/api-specs/api-34/implementation-guide.md)"
-    },
-    {
-      "type": "broken-link",
-      "repository": "future-mobility-consumer-platform",
-      "file": "README.md",
-      "description": "Broken link: [🧪 Test](/docs/future-mobility-consumer-platform/docs/api-specs/api-34/postman-collection.json)"
-    },
-    {
-      "type": "broken-link",
-      "repository": "future-mobility-consumer-platform",
-      "file": "README.md",
-      "description": "Broken link: [📋 API Specifications](/docs/future-mobility-consumer-platform/docs/api-specs/)"
-    },
-    {
-      "type": "broken-link",
-      "repository": "future-mobility-consumer-platform",
-      "file": "README.md",
-      "description": "Broken link: [📖 Implementation Guides](/docs/future-mobility-consumer-platform/docs/api-specs/)"
-    },
-    {
-      "type": "broken-link",
-      "repository": "future-mobility-consumer-platform",
-      "file": "README.md",
-      "description": "Broken link: [🏗️ Architecture Diagrams](/docs/future-mobility-consumer-platform/docs/api-specs/)"
-    },
-    {
-      "type": "broken-link",
-      "repository": "future-mobility-consumer-platform",
-      "file": "README.md",
-      "description": "Broken link: [🧪 Testing Resources](/docs/future-mobility-consumer-platform/docs/api-specs/)"
-    },
-    {
-      "type": "broken-link",
-      "repository": "future-mobility-consumer-platform",
-      "file": "README.md",
-      "description": "Broken link: [GitHub Issues](../../issues)"
-    },
-    {
-      "type": "broken-link",
-      "repository": "future-mobility-consumer-platform",
-      "file": "README.md",
-      "description": "Broken link: [Community Discussions](../../discussions)"
-    },
-    {
-      "type": "broken-link",
-      "repository": "future-mobility-consumer-platform",
-      "file": "README.md",
-      "description": "Broken link: [Example Implementations](./examples/)"
     },
     {
       "type": "broken-link",
@@ -545,31 +335,31 @@
       "type": "broken-link",
       "repository": "future-mobility-consumer-platform",
       "file": "Template_README.md",
-      "description": "Broken link: [GitHub Issues](../../issues)"
-    },
-    {
-      "type": "broken-link",
-      "repository": "future-mobility-consumer-platform",
-      "file": "Template_README.md",
-      "description": "Broken link: [Community Discussions](../../discussions)"
-    },
-    {
-      "type": "broken-link",
-      "repository": "future-mobility-consumer-platform",
-      "file": "Template_README.md",
-      "description": "Broken link: [Example Implementations](./examples/)"
-    },
-    {
-      "type": "broken-link",
-      "repository": "future-mobility-consumer-platform",
-      "file": "Template_README.md",
       "description": "Broken link: [Integration Guidelines](./docs/best-practices.md)"
     },
     {
       "type": "broken-link",
       "repository": "future-mobility-consumer-platform",
-      "file": "docs/ARCHITECT_GUIDE.md",
-      "description": "Broken link: [GitHub Setup Guide](GITHUB_SETUP_GUIDE.md)"
+      "file": "docs/DEVELOPER_USAGE_GUIDE.md",
+      "description": "Broken link: [Developer Guide](./docs/DEVELOPER_GUIDE.md)"
+    },
+    {
+      "type": "broken-link",
+      "repository": "future-mobility-consumer-platform",
+      "file": "docs/INTEGRATION_GUIDE.md",
+      "description": "Broken link: [API Design Guide](./docs/API_DESIGN_GUIDE.md)"
+    },
+    {
+      "type": "broken-link",
+      "repository": "future-mobility-consumer-platform",
+      "file": "docs/INTEGRATION_GUIDE.md",
+      "description": "Broken link: [Architecture Guide](./docs/ARCHITECT_GUIDE.md)"
+    },
+    {
+      "type": "broken-link",
+      "repository": "future-mobility-consumer-platform",
+      "file": "docs/MODE_SYSTEM_GUIDE.md",
+      "description": "Broken link: [Deployment Guide](./docs/DEPLOYMENT_GUIDE.md)"
     },
     {
       "type": "broken-link",
@@ -624,6 +414,216 @@
       "repository": "future-mobility-consumer-platform",
       "file": "docs/api-specs/index.md",
       "description": "Broken link: [Postman Collection](../postman-collections/api-33-collection.json)"
+    },
+    {
+      "type": "broken-link",
+      "repository": "future-mobility-consumer-platform",
+      "file": "docs/api-specs/index.md",
+      "description": "Broken link: [Postman Collection](../postman-collections/api-34-collection.json)"
+    },
+    {
+      "type": "broken-link",
+      "repository": "future-mobility-consumer-platform",
+      "file": "docs/architecture/index.md",
+      "description": "Broken link: [Technical Design](technical-design.md)"
+    },
+    {
+      "type": "broken-link",
+      "repository": "future-mobility-consumer-platform",
+      "file": "docs/architecture/index.md",
+      "description": "Broken link: [Security Architecture](security.md)"
+    },
+    {
+      "type": "broken-link",
+      "repository": "future-mobility-consumer-platform",
+      "file": "docs/architecture/index.md",
+      "description": "Broken link: [Deployment Guide](deployment.md)"
+    },
+    {
+      "type": "broken-link",
+      "repository": "future-mobility-fleet-platform",
+      "file": "CUSTOMIZATION_GUIDE.md",
+      "description": "Broken link: [Developer Usage Guide](DEVELOPER_USAGE_GUIDE.md)"
+    },
+    {
+      "type": "broken-link",
+      "repository": "future-mobility-fleet-platform",
+      "file": "CUSTOMIZATION_GUIDE.md",
+      "description": "Broken link: [Component Reference](COMPONENT_REFERENCE.md)"
+    },
+    {
+      "type": "broken-link",
+      "repository": "future-mobility-fleet-platform",
+      "file": "CUSTOMIZATION_GUIDE.md",
+      "description": "Broken link: [Best Practices](BEST_PRACTICES.md)"
+    },
+    {
+      "type": "broken-link",
+      "repository": "future-mobility-fleet-platform",
+      "file": "README.md",
+      "description": "Broken link: [**Technical Specifications**](docs/TECHNICAL_SPECIFICATIONS.md)"
+    },
+    {
+      "type": "broken-link",
+      "repository": "future-mobility-fleet-platform",
+      "file": "README.md",
+      "description": "Broken link: [**Integration Guide**](docs/INTEGRATION_GUIDE.md)"
+    },
+    {
+      "type": "broken-link",
+      "repository": "future-mobility-fleet-platform",
+      "file": "README.md",
+      "description": "Broken link: [**Deployment Guide**](docs/DEPLOYMENT_GUIDE.md)"
+    },
+    {
+      "type": "broken-link",
+      "repository": "future-mobility-fleet-platform",
+      "file": "README.md",
+      "description": "Broken link: [**Business Case**](docs/BUSINESS_CASE.md)"
+    },
+    {
+      "type": "broken-link",
+      "repository": "future-mobility-fleet-platform",
+      "file": "README.md",
+      "description": "Broken link: [**Competitive Analysis**](docs/COMPETITIVE_ANALYSIS.md)"
+    },
+    {
+      "type": "broken-link",
+      "repository": "future-mobility-fleet-platform",
+      "file": "README.md",
+      "description": "Broken link: [**Environment Configuration**](.env.example)"
+    },
+    {
+      "type": "broken-link",
+      "repository": "future-mobility-fleet-platform",
+      "file": "README.md",
+      "description": "Broken link: [**Docker Configuration**](docker-compose.yml)"
+    },
+    {
+      "type": "broken-link",
+      "repository": "future-mobility-fleet-platform",
+      "file": "README.md",
+      "description": "Broken link: [Business Case](docs/BUSINESS_CASE.md)"
+    },
+    {
+      "type": "broken-link",
+      "repository": "future-mobility-fleet-platform",
+      "file": "README.md",
+      "description": "Broken link: [Competitive Analysis](docs/COMPETITIVE_ANALYSIS.md)"
+    },
+    {
+      "type": "broken-link",
+      "repository": "future-mobility-fleet-platform",
+      "file": "README.md",
+      "description": "Broken link: [Integration Guide](docs/INTEGRATION_GUIDE.md)"
+    },
+    {
+      "type": "broken-link",
+      "repository": "future-mobility-fleet-platform",
+      "file": "README.md",
+      "description": "Broken link: [Deployment Guide](docs/DEPLOYMENT_GUIDE.md)"
+    },
+    {
+      "type": "broken-link",
+      "repository": "future-mobility-fleet-platform",
+      "file": "README.md",
+      "description": "Broken link: [Priority 1 Core Automotive APIs](apis/priority-1-core-automotive/)"
+    },
+    {
+      "type": "broken-link",
+      "repository": "future-mobility-fleet-platform",
+      "file": "Template_README.md",
+      "description": "Broken link: [📋 Spec](./docs/api-specs/api-1/)"
+    },
+    {
+      "type": "broken-link",
+      "repository": "future-mobility-fleet-platform",
+      "file": "Template_README.md",
+      "description": "Broken link: [📖 Guide](./docs/api-specs/api-1/implementation-guide.md)"
+    },
+    {
+      "type": "broken-link",
+      "repository": "future-mobility-fleet-platform",
+      "file": "Template_README.md",
+      "description": "Broken link: [🧪 Test](./docs/api-specs/api-1/postman-collection.json)"
+    },
+    {
+      "type": "broken-link",
+      "repository": "future-mobility-fleet-platform",
+      "file": "Template_README.md",
+      "description": "Broken link: [📋 Spec](./docs/api-specs/api-2/)"
+    },
+    {
+      "type": "broken-link",
+      "repository": "future-mobility-fleet-platform",
+      "file": "Template_README.md",
+      "description": "Broken link: [📖 Guide](./docs/api-specs/api-2/implementation-guide.md)"
+    },
+    {
+      "type": "broken-link",
+      "repository": "future-mobility-fleet-platform",
+      "file": "Template_README.md",
+      "description": "Broken link: [🧪 Test](./docs/api-specs/api-2/postman-collection.json)"
+    },
+    {
+      "type": "broken-link",
+      "repository": "future-mobility-fleet-platform",
+      "file": "Template_README.md",
+      "description": "Broken link: [📋 Spec](./docs/api-specs/api-3/)"
+    },
+    {
+      "type": "broken-link",
+      "repository": "future-mobility-fleet-platform",
+      "file": "Template_README.md",
+      "description": "Broken link: [📖 Guide](./docs/api-specs/api-3/implementation-guide.md)"
+    },
+    {
+      "type": "broken-link",
+      "repository": "future-mobility-fleet-platform",
+      "file": "Template_README.md",
+      "description": "Broken link: [🧪 Test](./docs/api-specs/api-3/postman-collection.json)"
+    },
+    {
+      "type": "broken-link",
+      "repository": "future-mobility-fleet-platform",
+      "file": "Template_README.md",
+      "description": "Broken link: [📋 Spec](./docs/api-specs/api-4/)"
+    },
+    {
+      "type": "broken-link",
+      "repository": "future-mobility-fleet-platform",
+      "file": "Template_README.md",
+      "description": "Broken link: [📖 Guide](./docs/api-specs/api-4/implementation-guide.md)"
+    },
+    {
+      "type": "broken-link",
+      "repository": "future-mobility-fleet-platform",
+      "file": "Template_README.md",
+      "description": "Broken link: [🧪 Test](./docs/api-specs/api-4/postman-collection.json)"
+    },
+    {
+      "type": "broken-link",
+      "repository": "future-mobility-fleet-platform",
+      "file": "Template_README.md",
+      "description": "Broken link: [📋 Spec](./docs/api-specs/api-7/)"
+    },
+    {
+      "type": "broken-link",
+      "repository": "future-mobility-fleet-platform",
+      "file": "Template_README.md",
+      "description": "Broken link: [📖 Guide](./docs/api-specs/api-7/implementation-guide.md)"
+    },
+    {
+      "type": "broken-link",
+      "repository": "future-mobility-fleet-platform",
+      "file": "Template_README.md",
+      "description": "Broken link: [🧪 Test](./docs/api-specs/api-7/postman-collection.json)"
+    },
+    {
+      "type": "broken-link",
+      "repository": "future-mobility-fleet-platform",
+      "file": "Template_README.md",
+      "description": "Broken link: [📋 Spec](./docs/api-specs/api-9/)"
     }
   ]
 }
