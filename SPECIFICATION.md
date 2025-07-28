@@ -77,6 +77,7 @@ A **lab marketing portal** serving as a centralized developer experience hub for
   - [ ] Postman collection viewer
   - [ ] REST API documentation
   - [ ] API versioning support
+  - [ ] gRPC UI support
 
 - [ ] **API Explorer Interface**
   - [ ] Interactive API testing

@@ -10,6 +10,7 @@
 - **Total API Specifications**: 224+ OpenAPI/Swagger files
 - **Repositories with APIs**: 7/15 (47%)
 - **GraphQL Schemas**: 19 schemas found in nslabsdashboards (james-update branch)
+- **gRPC Services**: To be detected (*.proto files)
 - **Documentation Coverage**: 15/15 repositories have README files (100%)
 
 ### Technology Stack Overview
@@ -105,7 +106,8 @@
 ### Dynamic API Button Logic
 - **Swagger UI Button**: Show only for repositories with REST/OpenAPI specifications (8 repositories)
 - **GraphQL Playground Button**: Show for GraphQL-only repositories (1 repository: nslabsdashboards)
-- **Postman Collections Button**: Show for repositories with API specs (9 repositories total)
+- **gRPC UI Button**: Show for repositories with gRPC service definitions (*.proto files)
+- **Postman Collections Button**: Show for repositories with API specs (9+ repositories total)
 - **No Buttons**: Show for documentation-only repositories (5 repositories)
 
 ## 📈 Repository Categorization for UI
@@ -137,8 +139,10 @@
 
 ### Phase 1: API Integration (High Impact)
 1. Integrate Swagger UI for 224+ OpenAPI specifications
-2. Generate Postman collections from OpenAPI specs
-3. Create API catalog with search and filtering
+2. Integrate GraphQL Playground for nslabsdashboards (19 schemas)
+3. Install and integrate gRPC UI for gRPC service definitions
+4. Generate Postman collections from API specs
+5. Create API catalog with search and filtering
 
 ### Phase 2: Documentation Enhancement
 1. Enhance markdown rendering for 171+ documentation files
