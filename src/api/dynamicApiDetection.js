@@ -44,6 +44,32 @@ router.get('/detect-apis/:repoName', async (req, res) => {
  * Get API button configuration for a repository
  * GET /api/api-buttons/:repoName
  */
+/**
+ * Get comprehensive API information for documentation hub
+ * GET /api/repository/:repoName/apis
+ */
+router.get('/repository/:repoName/apis', async (req, res) => {
+  try {
+    const { repoName } = req.params;
+    const repoPath = path.join(CLONED_REPOS_PATH, repoName);
+    
+    if (!fs.existsSync(repoPath)) {
+      return res.status(404).json({ error: `Repository not found: ${repoName}` });
+    }
+    
+    const result = await detectRepositoryApis(repoPath, repoName);
+    
+    // Add Postman collections detection
+    const postmanCollections = await detectPostmanCollections(repoPath);
+    result.postmanCollections = postmanCollections;
+    
+    res.json(result);
+  } catch (error) {
+    console.error('API hub detection error:', error);
+    res.status(500).json({ error: 'Failed to detect APIs', details: error.message });
+  }
+});
+
 router.get('/api-buttons/:repoName', async (req, res) => {
   try {
     const { repoName } = req.params;
@@ -468,6 +494,52 @@ function generateSummary(results) {
     repositoriesWithApis: reposWithApis,
     apiCoverage: Math.round((reposWithApis / results.length) * 100)
   };
+}
+
+/**
+ * Detect Postman collections in a repository
+ */
+async function detectPostmanCollections(repoPath) {
+  const collections = [];
+  
+  async function searchDirectory(dir) {
+    try {
+      const entries = fs.readdirSync(dir, { withFileTypes: true });
+      
+      for (const entry of entries) {
+        if (entry.isDirectory() && !entry.name.startsWith('.') && entry.name !== 'node_modules') {
+          await searchDirectory(path.join(dir, entry.name));
+        } else if (entry.isFile()) {
+          const fileName = entry.name.toLowerCase();
+          if (fileName.includes('postman') && fileName.endsWith('.json')) {
+            const filePath = path.join(dir, entry.name);
+            const relativePath = path.relative(repoPath, filePath);
+            
+            try {
+              const content = fs.readFileSync(filePath, 'utf8');
+              const collection = JSON.parse(content);
+              
+              if (collection.info && collection.item) {
+                collections.push({
+                  file: relativePath,
+                  name: collection.info.name || 'Postman Collection',
+                  description: collection.info.description,
+                  version: collection.info.version
+                });
+              }
+            } catch (e) {
+              // Not a valid Postman collection
+            }
+          }
+        }
+      }
+    } catch (error) {
+      console.error(`Error searching directory ${dir}:`, error);
+    }
+  }
+  
+  await searchDirectory(repoPath);
+  return collections;
 }
 
 async function ensureCorrectBranch(repoPath, branchName) {
