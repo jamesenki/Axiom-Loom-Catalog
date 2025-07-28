@@ -7,231 +7,263 @@ import { AddRepositoryModal } from '../AddRepositoryModal';
 global.fetch = jest.fn();
 
 describe('AddRepositoryModal', () => {
+  const mockOnClose = jest.fn();
+  const mockOnSuccess = jest.fn();
+
   beforeEach(() => {
     jest.clearAllMocks();
+    (global.fetch as jest.Mock).mockClear();
+  });
+
+  it('renders modal when open', () => {
+    render(
+      <AddRepositoryModal 
+        isOpen={true} 
+        onClose={mockOnClose}
+        onSuccess={mockOnSuccess}
+      />
+    );
+
+    expect(screen.getByRole('heading', { name: 'Add Repository' })).toBeInTheDocument();
+    expect(screen.getByPlaceholderText('e.g., my-awesome-project')).toBeInTheDocument();
   });
 
   it('does not render when closed', () => {
-    render(<AddRepositoryModal isOpen={false} onClose={() => {}} />);
+    render(
+      <AddRepositoryModal 
+        isOpen={false} 
+        onClose={mockOnClose}
+        onSuccess={mockOnSuccess}
+      />
+    );
+
     expect(screen.queryByText('Add Repository')).not.toBeInTheDocument();
   });
 
-  it('renders when open', () => {
-    render(<AddRepositoryModal isOpen={true} onClose={() => {}} />);
-    expect(screen.getByRole('heading', { name: 'Add Repository' })).toBeInTheDocument();
-    expect(screen.getByLabelText('Repository Name')).toBeInTheDocument();
-  });
-
-  it('calls onClose when Cancel is clicked', () => {
-    const onClose = jest.fn();
-    render(<AddRepositoryModal isOpen={true} onClose={onClose} />);
-    
-    fireEvent.click(screen.getByText('Cancel'));
-    expect(onClose).toHaveBeenCalled();
-  });
-
-  it('validates empty repository name', async () => {
-    render(<AddRepositoryModal isOpen={true} onClose={() => {}} />);
-    
-    const input = screen.getByLabelText('Repository Name');
-    fireEvent.blur(input);
-    
-    await waitFor(() => {
-      expect(screen.getByText('Repository name is required')).toBeInTheDocument();
-    });
-  });
-
-  it('validates repository name length', async () => {
-    render(<AddRepositoryModal isOpen={true} onClose={() => {}} />);
-    
-    const input = screen.getByLabelText('Repository Name');
-    fireEvent.change(input, { target: { value: 'a'.repeat(101) } });
-    fireEvent.blur(input);
-    
-    await waitFor(() => {
-      expect(screen.getByText('Repository name must be 100 characters or less')).toBeInTheDocument();
-    });
-  });
-
-  it('validates repository name characters', async () => {
-    render(<AddRepositoryModal isOpen={true} onClose={() => {}} />);
-    
-    const input = screen.getByLabelText('Repository Name');
-    fireEvent.change(input, { target: { value: 'invalid repo name!' } });
-    fireEvent.blur(input);
-    
-    await waitFor(() => {
-      expect(screen.getByText('Repository name can only contain letters, numbers, dots, hyphens, and underscores')).toBeInTheDocument();
-    });
-  });
-
-  it('validates repository name starting with dot', async () => {
-    render(<AddRepositoryModal isOpen={true} onClose={() => {}} />);
-    
-    const input = screen.getByLabelText('Repository Name');
-    fireEvent.change(input, { target: { value: '.invalid-repo' } });
-    fireEvent.blur(input);
-    
-    await waitFor(() => {
-      expect(screen.getByText('Repository name cannot start or end with a dot')).toBeInTheDocument();
-    });
-  });
-
-  it('verifies repository exists on GitHub', async () => {
-    (fetch as jest.Mock).mockResolvedValueOnce({ ok: true });
-    
-    render(<AddRepositoryModal isOpen={true} onClose={() => {}} />);
-    
-    const input = screen.getByLabelText('Repository Name');
-    fireEvent.change(input, { target: { value: 'valid-repo' } });
-    fireEvent.blur(input);
-    
-    await waitFor(() => {
-      expect(fetch).toHaveBeenCalledWith('/api/verify-repository/20230011612_EYGS/valid-repo');
-      expect(screen.getByText('✓ Repository found and ready to add')).toBeInTheDocument();
-    });
-  });
-
-  it('shows error when repository does not exist', async () => {
-    (fetch as jest.Mock).mockResolvedValueOnce({ ok: false });
-    
-    render(<AddRepositoryModal isOpen={true} onClose={() => {}} />);
-    
-    const input = screen.getByLabelText('Repository Name');
-    fireEvent.change(input, { target: { value: 'non-existent-repo' } });
-    fireEvent.blur(input);
-    
-    await waitFor(() => {
-      expect(screen.getByText('Repository "non-existent-repo" not found in 20230011612_EYGS account')).toBeInTheDocument();
-    });
-  });
-
-  it('handles verification error', async () => {
-    (fetch as jest.Mock).mockRejectedValueOnce(new Error('Network error'));
-    
-    render(<AddRepositoryModal isOpen={true} onClose={() => {}} />);
-    
-    const input = screen.getByLabelText('Repository Name');
-    fireEvent.change(input, { target: { value: 'valid-repo' } });
-    fireEvent.blur(input);
-    
-    await waitFor(() => {
-      const errorText = screen.queryByText(/network error/i) || screen.queryByText(/failed to verify/i);
-      expect(errorText).toBeInTheDocument();
-    }, { timeout: 3000 });
-  });
-
-  it.skip('adds repository successfully', async () => {
-    (fetch as jest.Mock)
-      .mockResolvedValueOnce({ ok: true }) // Verification
-      .mockResolvedValueOnce({ ok: true }) // Add to config
-      .mockResolvedValueOnce({ ok: true }); // Sync
-    
-    const onSuccess = jest.fn();
-    const onClose = jest.fn();
-    
-    render(<AddRepositoryModal isOpen={true} onClose={onClose} onSuccess={onSuccess} />);
-    
-    const input = screen.getByLabelText('Repository Name');
-    fireEvent.change(input, { target: { value: 'new-repo' } });
-    fireEvent.blur(input);
-    
-    await waitFor(() => {
-      expect(screen.getByText('✓ Repository found and ready to add')).toBeInTheDocument();
-    });
-    
-    fireEvent.click(screen.getByText('Add Repository'));
-    
-    await waitFor(() => {
-      expect(fetch).toHaveBeenCalledWith('/api/repositories/add', expect.objectContaining({
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name: 'new-repo',
-          account: '20230011612_EYGS'
-        })
-      }));
-      
-      expect(fetch).toHaveBeenCalledWith('/api/sync-repository/new-repo', expect.objectContaining({
-        method: 'POST'
-      }));
-      
-      expect(onSuccess).toHaveBeenCalledWith('new-repo');
-      expect(onClose).toHaveBeenCalled();
-    });
-  });
-
-  it.skip('handles add repository error', async () => {
-    (fetch as jest.Mock)
-      .mockResolvedValueOnce({ ok: true }) // Verification
-      .mockResolvedValueOnce({ ok: false }); // Add fails
-    
-    render(<AddRepositoryModal isOpen={true} onClose={() => {}} />);
-    
-    const input = screen.getByLabelText('Repository Name');
-    fireEvent.change(input, { target: { value: 'new-repo' } });
-    fireEvent.blur(input);
-    
-    await waitFor(() => {
-      expect(screen.getByText('✓ Repository found and ready to add')).toBeInTheDocument();
-    });
-    
-    fireEvent.click(screen.getByText('Add Repository'));
-    
-    await waitFor(() => {
-      expect(screen.getByText('Failed to add repository to configuration')).toBeInTheDocument();
-    });
-  });
-
-  it.skip('disables add button when not validated', () => {
-    render(<AddRepositoryModal isOpen={true} onClose={() => {}} />);
-    
-    const addButton = screen.getByText('Add Repository');
-    expect(addButton).toBeDisabled();
-  });
-
-  it.skip('shows loading state during validation', async () => {
-    let resolveVerification: any;
-    (fetch as jest.Mock).mockReturnValueOnce(
-      new Promise(resolve => { resolveVerification = resolve; })
+  it('calls onClose when cancel button is clicked', () => {
+    render(
+      <AddRepositoryModal 
+        isOpen={true} 
+        onClose={mockOnClose}
+        onSuccess={mockOnSuccess}
+      />
     );
-    
-    render(<AddRepositoryModal isOpen={true} onClose={() => {}} />);
-    
-    const input = screen.getByLabelText('Repository Name');
-    fireEvent.change(input, { target: { value: 'test-repo' } });
-    fireEvent.blur(input);
-    
-    // Check for loading spinner
-    expect(screen.getByRole('status', { hidden: true })).toBeInTheDocument();
-    
-    // Resolve the verification
-    resolveVerification({ ok: true });
-    
+
+    fireEvent.click(screen.getByText('Cancel'));
+    expect(mockOnClose).toHaveBeenCalled();
+  });
+
+  it('calls onClose when backdrop is clicked', () => {
+    render(
+      <AddRepositoryModal 
+        isOpen={true} 
+        onClose={mockOnClose}
+        onSuccess={mockOnSuccess}
+      />
+    );
+
+    // Click on the backdrop (the outer div)
+    const backdrop = screen.getByRole('dialog').parentElement;
+    if (backdrop) {
+      fireEvent.click(backdrop);
+      expect(mockOnClose).toHaveBeenCalled();
+    }
+  });
+
+  it('validates empty input', async () => {
+    render(
+      <AddRepositoryModal 
+        isOpen={true} 
+        onClose={mockOnClose}
+        onSuccess={mockOnSuccess}
+      />
+    );
+
+    fireEvent.click(screen.getByText('Add Repository'));
+
     await waitFor(() => {
-      expect(screen.queryByRole('status', { hidden: true })).not.toBeInTheDocument();
+      expect(screen.getByText('Please enter a repository name')).toBeInTheDocument();
     });
   });
 
-  it.skip('shows loading state during sync', async () => {
-    (fetch as jest.Mock)
-      .mockResolvedValueOnce({ ok: true }) // Verification
-      .mockResolvedValueOnce({ ok: true }) // Add to config
-      .mockResolvedValueOnce({ ok: true }); // Sync
-    
-    render(<AddRepositoryModal isOpen={true} onClose={() => {}} />);
-    
-    const input = screen.getByLabelText('Repository Name');
-    fireEvent.change(input, { target: { value: 'new-repo' } });
-    fireEvent.blur(input);
-    
+  it('validates invalid repository format', async () => {
+    render(
+      <AddRepositoryModal 
+        isOpen={true} 
+        onClose={mockOnClose}
+        onSuccess={mockOnSuccess}
+      />
+    );
+
+    const input = screen.getByPlaceholderText('owner/repository');
+    fireEvent.change(input, { target: { value: 'invalid-format' } });
+    fireEvent.click(screen.getByText('Add Repository'));
+
     await waitFor(() => {
-      expect(screen.getByText('✓ Repository found and ready to add')).toBeInTheDocument();
+      expect(screen.getByText('Invalid format. Use: owner/repository')).toBeInTheDocument();
     });
+  });
+
+  it('submits valid repository successfully', async () => {
+    (global.fetch as jest.Mock).mockResolvedValueOnce({
+      ok: true,
+      json: async () => ({ message: 'Repository added successfully' })
+    });
+
+    render(
+      <AddRepositoryModal 
+        isOpen={true} 
+        onClose={mockOnClose}
+        onSuccess={mockOnSuccess}
+      />
+    );
+
+    const input = screen.getByPlaceholderText('owner/repository');
+    fireEvent.change(input, { target: { value: 'owner/repo' } });
+    fireEvent.click(screen.getByText('Add Repository'));
+
+    await waitFor(() => {
+      expect(global.fetch).toHaveBeenCalledWith('/api/repositories', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ repoName: 'owner/repo' })
+      });
+    });
+
+    await waitFor(() => {
+      expect(mockOnSuccess).toHaveBeenCalled();
+      expect(mockOnClose).toHaveBeenCalled();
+    });
+  });
+
+  it('handles server error', async () => {
+    (global.fetch as jest.Mock).mockResolvedValueOnce({
+      ok: false,
+      json: async () => ({ error: 'Failed to add repository' })
+    });
+
+    render(
+      <AddRepositoryModal 
+        isOpen={true} 
+        onClose={mockOnClose}
+        onSuccess={mockOnSuccess}
+      />
+    );
+
+    const input = screen.getByPlaceholderText('owner/repository');
+    fireEvent.change(input, { target: { value: 'owner/repo' } });
+    fireEvent.click(screen.getByText('Add Repository'));
+
+    await waitFor(() => {
+      expect(screen.getByText('Failed to add repository')).toBeInTheDocument();
+    });
+  });
+
+  it('handles network error', async () => {
+    (global.fetch as jest.Mock).mockRejectedValueOnce(new Error('Network error'));
+
+    render(
+      <AddRepositoryModal 
+        isOpen={true} 
+        onClose={mockOnClose}
+        onSuccess={mockOnSuccess}
+      />
+    );
+
+    const input = screen.getByPlaceholderText('owner/repository');
+    fireEvent.change(input, { target: { value: 'owner/repo' } });
+    fireEvent.click(screen.getByText('Add Repository'));
+
+    await waitFor(() => {
+      expect(screen.getByText('Failed to add repository. Please try again.')).toBeInTheDocument();
+    });
+  });
+
+  it('disables submit button while submitting', async () => {
+    (global.fetch as jest.Mock).mockImplementation(() => 
+      new Promise(resolve => setTimeout(() => resolve({
+        ok: true,
+        json: async () => ({ message: 'Success' })
+      }), 100))
+    );
+
+    render(
+      <AddRepositoryModal 
+        isOpen={true} 
+        onClose={mockOnClose}
+        onSuccess={mockOnSuccess}
+      />
+    );
+
+    const input = screen.getByPlaceholderText('owner/repository');
+    fireEvent.change(input, { target: { value: 'owner/repo' } });
     
+    const submitButton = screen.getByText('Add Repository');
+    fireEvent.click(submitButton);
+
+    expect(submitButton).toBeDisabled();
+    expect(screen.getByText('Adding...')).toBeInTheDocument();
+  });
+
+  it('clears error when input changes', async () => {
+    render(
+      <AddRepositoryModal 
+        isOpen={true} 
+        onClose={mockOnClose}
+        onSuccess={mockOnSuccess}
+      />
+    );
+
+    // Trigger error
     fireEvent.click(screen.getByText('Add Repository'));
     
-    // Should show "Adding..." text
-    expect(screen.getByText('Adding...')).toBeInTheDocument();
+    await waitFor(() => {
+      expect(screen.getByText('Please enter a repository name')).toBeInTheDocument();
+    });
+
+    // Change input
+    const input = screen.getByPlaceholderText('owner/repository');
+    fireEvent.change(input, { target: { value: 'owner/repo' } });
+
+    // Error should be cleared
+    expect(screen.queryByText('Please enter a repository name')).not.toBeInTheDocument();
+  });
+
+  it('resets form when closed and reopened', async () => {
+    const { rerender } = render(
+      <AddRepositoryModal 
+        isOpen={true} 
+        onClose={mockOnClose}
+        onSuccess={mockOnSuccess}
+      />
+    );
+
+    // Enter some text
+    const input = screen.getByPlaceholderText('owner/repository');
+    fireEvent.change(input, { target: { value: 'owner/repo' } });
+
+    // Close modal
+    rerender(
+      <AddRepositoryModal 
+        isOpen={false} 
+        onClose={mockOnClose}
+        onSuccess={mockOnSuccess}
+      />
+    );
+
+    // Reopen modal
+    rerender(
+      <AddRepositoryModal 
+        isOpen={true} 
+        onClose={mockOnClose}
+        onSuccess={mockOnSuccess}
+      />
+    );
+
+    // Input should be empty
+    const newInput = screen.getByPlaceholderText('owner/repository');
+    expect(newInput).toHaveValue('');
   });
 });
