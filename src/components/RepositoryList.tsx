@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useSyncContext } from '../contexts/SyncContext';
+import AddRepositoryModal from './AddRepositoryModal';
 
 interface Repository {
   id: string;
@@ -18,6 +20,8 @@ const RepositoryList: React.FC = () => {
   const [repositories, setRepositories] = useState<Repository[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [showAddModal, setShowAddModal] = useState(false);
+  const { syncVersion } = useSyncContext();
 
   useEffect(() => {
     const fetchRepositories = async () => {
@@ -36,7 +40,25 @@ const RepositoryList: React.FC = () => {
     };
 
     fetchRepositories();
-  }, []);
+  }, [syncVersion]); // Refresh when sync completes
+
+  const handleRepositoryAdded = (repoName: string) => {
+    // Refresh the repository list
+    const fetchRepositories = async () => {
+      try {
+        const response = await fetch('/api/repositories');
+        if (!response.ok) {
+          throw new Error('Failed to fetch repositories');
+        }
+        const data = await response.json();
+        setRepositories(data);
+      } catch (err) {
+        console.error('Error refreshing repositories:', err);
+      }
+    };
+    
+    fetchRepositories();
+  };
 
   if (loading) return <div className="loading">Loading repositories...</div>;
   if (error) return <div className="error">Error: {error}</div>;
@@ -46,7 +68,15 @@ const RepositoryList: React.FC = () => {
       <div className="header">
         <h1>🚀 EYNS AI Experience Center</h1>
         <p>Developer Portal - Repositories, APIs, Documentation & More</p>
-        <Link to="/sync" className="sync-button">🔄 Repository Sync</Link>
+        <div className="header-actions">
+          <button 
+            onClick={() => setShowAddModal(true)}
+            className="add-button"
+          >
+            ➕ Add Repository
+          </button>
+          <Link to="/sync" className="sync-button">🔄 Repository Sync</Link>
+        </div>
       </div>
       
       <div className="repositories-grid">
@@ -84,6 +114,12 @@ const RepositoryList: React.FC = () => {
           </div>
         ))}
       </div>
+      
+      <AddRepositoryModal
+        isOpen={showAddModal}
+        onClose={() => setShowAddModal(false)}
+        onSuccess={handleRepositoryAdded}
+      />
     </div>
   );
 };
