@@ -1,7 +1,7 @@
 # Repository Content Analysis Report
 
 **Generated**: 2025-07-28T05:46:55Z  
-**Repositories Analyzed**: 15  
+**Repositories Analyzed**: 14 (onprem-server-backstage excluded - moved by user)  
 **Analysis Method**: File system scanning and pattern detection
 
 ## 📊 Executive Summary
@@ -9,7 +9,7 @@
 ### API Specifications Discovery
 - **Total API Specifications**: 224+ OpenAPI/Swagger files
 - **Repositories with APIs**: 7/15 (47%)
-- **GraphQL Schemas**: Limited (primarily in smartpath for data validation)
+- **GraphQL Schemas**: 19 schemas found in nslabsdashboards (james-update branch)
 - **Documentation Coverage**: 15/15 repositories have README files (100%)
 
 ### Technology Stack Overview
@@ -65,11 +65,10 @@
 
 ### Specialized Applications (3 repositories)
 - **smartpath**: Extensive application with 171 README files, schema validation
-- **nslabsdashboards**: Dashboard application (0 APIs, 1 README)
+- **nslabsdashboards**: GraphQL-based IoT dashboard (19 GraphQL schemas, 1 README)
 - **rentalFleets**: Fleet management with VISS specs (26 APIs, 6 READMEs)
 
-### Infrastructure & Backend (3 repositories)
-- **onprem-server-backstage**: Backstage developer portal (0 APIs, 7 READMEs)
+### Infrastructure & Backend (2 repositories)
 - **ecosystem-platform-architecture**: Platform architecture (0 APIs, 3 READMEs)
 - **sovd-diagnostic-ecosystem-platform-architecture**: Diagnostic platform (6 APIs, 4 READMEs)
 
@@ -103,14 +102,16 @@
 2. **onprem-server-backstage**: Backstage integration potential
 3. **Architecture Templates**: Reusable patterns and components
 
-### API Explorer Integration
-- **Swagger UI**: Perfect for 224+ OpenAPI specifications
-- **Postman Collections**: Can be generated from OpenAPI specs
-- **GraphQL Playground**: Limited need (minimal GraphQL usage detected)
+### Dynamic API Button Logic
+- **Swagger UI Button**: Show only for repositories with REST/OpenAPI specifications (8 repositories)
+- **GraphQL Playground Button**: Show for GraphQL-only repositories (1 repository: nslabsdashboards)
+- **Postman Collections Button**: Show for repositories with API specs (9 repositories total)
+- **No Buttons**: Show for documentation-only repositories (5 repositories)
 
 ## 📈 Repository Categorization for UI
 
 ### API-Rich Repositories (Show API Explorer)
+**REST/OpenAPI Repositories (Swagger UI):**
 - future-mobility-oems-platform (64 APIs)
 - future-mobility-fleet-platform (45 APIs)
 - future-mobility-utilities-platform (35 APIs)
@@ -119,6 +120,9 @@
 - future-mobility-tech-platform (20 APIs)
 - future-mobility-regulatory-platform (8 APIs)
 - sovd-diagnostic-ecosystem-platform-architecture (6 APIs)
+
+**GraphQL Repositories (GraphQL Playground):**
+- nslabsdashboards (19 GraphQL schemas)
 
 ### Documentation-Focused Repositories (Show Documentation Viewer)
 - smartpath (171 documentation files)
