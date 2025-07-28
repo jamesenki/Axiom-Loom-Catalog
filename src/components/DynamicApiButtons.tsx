@@ -130,8 +130,8 @@ export const DynamicApiButtons: React.FC<DynamicApiButtonsProps> = ({
   if (loading) {
     return (
       <div className={`flex items-center justify-center p-4 ${className}`}>
-        <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-blue-500"></div>
-        <span className="ml-2 text-gray-600">Detecting APIs...</span>
+        <div data-testid="loading-spinner" className="animate-spin rounded-full h-6 w-6 border-b-2 border-blue-500"></div>
+        <span className="ml-2 text-gray-600">Detecting available APIs...</span>
       </div>
     );
   }
@@ -201,14 +201,14 @@ export const DynamicApiButtons: React.FC<DynamicApiButtonsProps> = ({
           {apiDetection.apis.rest.length > 0 && (
             <div>
               <strong>REST APIs ({apiDetection.apis.rest.length}):</strong>{' '}
-              {apiDetection.apis.rest.slice(0, 3).map(api => api.title || path.basename(api.file)).join(', ')}
+              {apiDetection.apis.rest.slice(0, 3).map(api => api.title || api.file.split('/').pop()).join(', ')}
               {apiDetection.apis.rest.length > 3 && ` and ${apiDetection.apis.rest.length - 3} more`}
             </div>
           )}
           {apiDetection.apis.graphql.length > 0 && (
             <div>
               <strong>GraphQL Schemas ({apiDetection.apis.graphql.length}):</strong>{' '}
-              {apiDetection.apis.graphql.slice(0, 3).map(api => path.basename(api.file)).join(', ')}
+              {apiDetection.apis.graphql.slice(0, 3).map(api => api.file.split('/').pop()).join(', ')}
               {apiDetection.apis.graphql.length > 3 && ` and ${apiDetection.apis.graphql.length - 3} more`}
             </div>
           )}
