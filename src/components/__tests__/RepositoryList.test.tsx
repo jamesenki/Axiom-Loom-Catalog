@@ -1,7 +1,6 @@
 import React from 'react';
-import { render, screen, waitFor } from '@testing-library/react';
+import { render, screen, waitFor } from '../../test-utils';
 import '@testing-library/jest-dom';
-import { BrowserRouter } from 'react-router-dom';
 import RepositoryList from '../RepositoryList';
 
 // Mock fetch
@@ -39,12 +38,8 @@ describe('RepositoryList', () => {
     jest.clearAllMocks();
   });
 
-  const renderWithRouter = () => {
-    return render(
-      <BrowserRouter>
-        <RepositoryList />
-      </BrowserRouter>
-    );
+  const renderComponent = () => {
+    return render(<RepositoryList />);
   };
 
   it('renders loading state initially', () => {
@@ -52,7 +47,7 @@ describe('RepositoryList', () => {
       new Promise(() => {}) // Never resolves
     );
 
-    renderWithRouter();
+    renderComponent();
 
     expect(screen.getByText('Loading repositories...')).toBeInTheDocument();
   });
@@ -60,7 +55,7 @@ describe('RepositoryList', () => {
   it('renders error state on fetch failure', async () => {
     (global.fetch as jest.Mock).mockRejectedValueOnce(new Error('Network error'));
 
-    renderWithRouter();
+    renderComponent();
 
     await waitFor(() => {
       expect(screen.getByText('Error: Network error')).toBeInTheDocument();
@@ -73,7 +68,7 @@ describe('RepositoryList', () => {
       json: async () => mockRepositories
     });
 
-    renderWithRouter();
+    renderComponent();
 
     await waitFor(() => {
       expect(screen.getByText('Test Repository 1')).toBeInTheDocument();
@@ -92,7 +87,7 @@ describe('RepositoryList', () => {
       json: async () => []
     });
 
-    renderWithRouter();
+    renderComponent();
 
     expect(global.fetch).toHaveBeenCalledWith('/api/repositories');
   });
@@ -103,7 +98,7 @@ describe('RepositoryList', () => {
       json: async () => []
     });
 
-    renderWithRouter();
+    renderComponent();
 
     await waitFor(() => {
       expect(screen.queryByText('Test Repository 1')).not.toBeInTheDocument();
@@ -116,7 +111,7 @@ describe('RepositoryList', () => {
       json: async () => mockRepositories
     });
 
-    renderWithRouter();
+    renderComponent();
 
     await waitFor(() => {
       expect(screen.getByText('active')).toBeInTheDocument();
@@ -130,7 +125,7 @@ describe('RepositoryList', () => {
       json: async () => mockRepositories
     });
 
-    renderWithRouter();
+    renderComponent();
 
     await waitFor(() => {
       // Check for all button types
@@ -148,7 +143,7 @@ describe('RepositoryList', () => {
       json: async () => mockRepositories
     });
 
-    renderWithRouter();
+    renderComponent();
 
     await waitFor(() => {
       const repoLink = screen.getAllByText('📁 Repository')[0].closest('a');
@@ -165,7 +160,7 @@ describe('RepositoryList', () => {
       json: async () => mockRepositories
     });
 
-    renderWithRouter();
+    renderComponent();
 
     await waitFor(() => {
       expect(screen.getByText('🕒 Updated: 1/15/2025')).toBeInTheDocument();
@@ -179,7 +174,7 @@ describe('RepositoryList', () => {
       json: async () => mockRepositories
     });
 
-    renderWithRouter();
+    renderComponent();
 
     await waitFor(() => {
       const syncLink = screen.getByText('🔄 Repository Sync');
@@ -194,7 +189,7 @@ describe('RepositoryList', () => {
       status: 500
     });
 
-    renderWithRouter();
+    renderComponent();
 
     await waitFor(() => {
       expect(screen.getByText('Error: Failed to fetch repositories')).toBeInTheDocument();
@@ -207,7 +202,7 @@ describe('RepositoryList', () => {
       json: async () => mockRepositories
     });
 
-    renderWithRouter();
+    renderComponent();
 
     await waitFor(() => {
       expect(screen.getByText('🚀 EYNS AI Experience Center')).toBeInTheDocument();

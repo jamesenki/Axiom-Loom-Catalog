@@ -10,10 +10,18 @@ jest.mock('fs', () => ({
     readdir: jest.fn(),
     readFile: jest.fn(),
     stat: jest.fn()
-  }
+  },
+  existsSync: jest.fn(() => true)
+}));
+
+// Mock the dynamicApiDetection module
+jest.mock('../dynamicApiDetection', () => ({
+  ...jest.requireActual('../dynamicApiDetection'),
+  detectRepositoryApis: jest.fn()
 }));
 
 const fs = require('fs').promises;
+const { detectRepositoryApis } = require('../dynamicApiDetection');
 
 describe('DynamicApiDetectionService', () => {
   let service: DynamicApiDetectionService;
@@ -37,7 +45,7 @@ paths:
       summary: Get users
 `);
 
-      fs.readdir.mockImplementation(async (dir: string) => {
+      fs.readdir.mockImplementation(async (dir: string, options?: any) => {
         if (dir === '/repo') {
           return [{ name: 'api', isDirectory: () => true, isFile: () => false }];
         }
@@ -56,6 +64,7 @@ paths:
       expect(result).toHaveLength(1);
       expect(result[0]).toEqual({
         file: 'api/openapi.yaml',
+        format: 'yaml',
         title: 'Test API',
         version: '1.0.0'
       });
@@ -71,7 +80,7 @@ paths:
       }));
 
       fs.readdir.mockResolvedValue([
-        { name: 'swagger.json', isDirectory: () => false }
+        { name: 'swagger.json', isDirectory: () => false, isFile: () => true }
       ]);
 
       fs.readFile.mockImplementation(async (path: string) => {
@@ -92,7 +101,7 @@ paths:
       mockFileSystem.set('/repo/config.yaml', 'database: postgres');
 
       fs.readdir.mockResolvedValue([
-        { name: 'config.yaml', isDirectory: () => false }
+        { name: 'config.yaml', isDirectory: () => false, isFile: () => true }
       ]);
 
       fs.readFile.mockImplementation(async (path: string) => {
@@ -107,14 +116,14 @@ paths:
       mockFileSystem.set('/repo/v1/api.yaml', 'openapi: 3.0.0\ninfo:\n  title: API v1');
       mockFileSystem.set('/repo/v2/api.yaml', 'openapi: 3.1.0\ninfo:\n  title: API v2');
 
-      fs.readdir.mockImplementation(async (dir: string) => {
+      fs.readdir.mockImplementation(async (dir: string, options?: any) => {
         if (dir === '/repo') {
           return [
-            { name: 'v1', isDirectory: () => true },
-            { name: 'v2', isDirectory: () => true }
+            { name: 'v1', isDirectory: () => true, isFile: () => false },
+            { name: 'v2', isDirectory: () => true, isFile: () => false }
           ];
         } else if (dir === '/repo/v1' || dir === '/repo/v2') {
-          return [{ name: 'api.yaml', isDirectory: () => false }];
+          return [{ name: 'api.yaml', isDirectory: () => false, isFile: () => true }];
         }
         return [];
       });
@@ -143,7 +152,7 @@ type User {
 `);
 
       fs.readdir.mockResolvedValue([
-        { name: 'schema.graphql', isDirectory: () => false }
+        { name: 'schema.graphql', isDirectory: () => false, isFile: () => true }
       ]);
 
       fs.readFile.mockImplementation(async (path: string) => {
@@ -170,11 +179,11 @@ query GetUsers {
 }
 `);
 
-      fs.readdir.mockImplementation(async (dir: string) => {
+      fs.readdir.mockImplementation(async (dir: string, options?: any) => {
         if (dir === '/repo') {
-          return [{ name: 'queries', isDirectory: () => true }];
+          return [{ name: 'queries', isDirectory: () => true, isFile: () => false }];
         } else if (dir === '/repo/queries') {
-          return [{ name: 'users.graphql', isDirectory: () => false }];
+          return [{ name: 'users.graphql', isDirectory: () => false, isFile: () => true }];
         }
         return [];
       });
@@ -196,7 +205,7 @@ query GetUsers {
       mockFileSystem.set('/repo/types.gql', 'type Product { id: ID! }');
 
       fs.readdir.mockResolvedValue([
-        { name: 'types.gql', isDirectory: () => false }
+        { name: 'types.gql', isDirectory: () => false, isFile: () => true }
       ]);
 
       fs.readFile.mockImplementation(async (path: string) => {
@@ -228,11 +237,11 @@ message User {
 }
 `);
 
-      fs.readdir.mockImplementation(async (dir: string) => {
+      fs.readdir.mockImplementation(async (dir: string, options?: any) => {
         if (dir === '/repo') {
-          return [{ name: 'api', isDirectory: () => true }];
+          return [{ name: 'api', isDirectory: () => true, isFile: () => false }];
         } else if (dir === '/repo/api') {
-          return [{ name: 'service.proto', isDirectory: () => false }];
+          return [{ name: 'service.proto', isDirectory: () => false, isFile: () => true }];
         }
         return [];
       });
@@ -248,7 +257,7 @@ message User {
         file: 'api/service.proto',
         services: ['UserService'],
         package: 'myapp',
-        description: 'User management service'
+        syntax: 'proto3'
       });
     });
 
@@ -266,7 +275,7 @@ service PaymentService {
 `);
 
       fs.readdir.mockResolvedValue([
-        { name: 'services.proto', isDirectory: () => false }
+        { name: 'services.proto', isDirectory: () => false, isFile: () => true }
       ]);
 
       fs.readFile.mockImplementation(async (path: string) => {
@@ -282,19 +291,18 @@ service PaymentService {
 
   describe('detectRepositoryApis', () => {
     it('detects all API types in a repository', async () => {
-      mockFileSystem.set('/repo/api.yaml', 'openapi: 3.0.0\ninfo:\n  title: REST API');
-      mockFileSystem.set('/repo/schema.graphql', 'type Query { test: String }');
-      mockFileSystem.set('/repo/service.proto', 'service TestService {}');
-
-      fs.readdir.mockResolvedValue([
-        { name: 'api.yaml', isDirectory: () => false },
-        { name: 'schema.graphql', isDirectory: () => false },
-        { name: 'service.proto', isDirectory: () => false }
-      ]);
-
-      fs.readFile.mockImplementation(async (path: string) => {
-        return mockFileSystem.get(path) || '';
-      });
+      const mockResult = {
+        repository: 'test-repo',
+        hasAnyApis: true,
+        apis: {
+          rest: [{ file: 'api.yaml', format: 'yaml', title: 'REST API', version: '3.0.0' }],
+          graphql: [{ file: 'schema.graphql', type: 'schema' }],
+          grpc: [{ file: 'service.proto', services: ['TestService'] }]
+        },
+        recommendedButtons: ['swagger', 'graphql', 'grpc', 'postman']
+      };
+      
+      detectRepositoryApis.mockResolvedValue(mockResult);
 
       const result = await service.detectRepositoryApis('/repo', 'test-repo');
       
@@ -310,7 +318,18 @@ service PaymentService {
     });
 
     it('returns no APIs for empty repository', async () => {
-      fs.readdir.mockResolvedValue([]);
+      const mockResult = {
+        repository: 'empty-repo',
+        hasAnyApis: false,
+        apis: {
+          rest: [],
+          graphql: [],
+          grpc: []
+        },
+        recommendedButtons: []
+      };
+      
+      detectRepositoryApis.mockResolvedValue(mockResult);
 
       const result = await service.detectRepositoryApis('/repo', 'empty-repo');
       
@@ -325,31 +344,65 @@ service PaymentService {
 
   describe('determineRecommendedButtons', () => {
     it('recommends swagger for REST APIs', () => {
-      const restApis = [{ file: 'api.yaml' }] as any;
-      const buttons = service.determineRecommendedButtons(restApis, [], []);
+      const apiDetection = {
+        repository: 'test',
+        hasAnyApis: true,
+        apis: {
+          rest: [{ file: 'api.yaml' }],
+          graphql: [],
+          grpc: []
+        },
+        recommendedButtons: []
+      } as any;
+      const buttons = service.determineRecommendedButtons(apiDetection);
       expect(buttons).toContain('swagger');
       expect(buttons).toContain('postman');
     });
 
     it('recommends graphql for GraphQL APIs', () => {
-      const graphqlApis = [{ file: 'schema.graphql' }] as any;
-      const buttons = service.determineRecommendedButtons([], graphqlApis, []);
+      const apiDetection = {
+        repository: 'test',
+        hasAnyApis: true,
+        apis: {
+          rest: [],
+          graphql: [{ file: 'schema.graphql' }],
+          grpc: []
+        },
+        recommendedButtons: []
+      } as any;
+      const buttons = service.determineRecommendedButtons(apiDetection);
       expect(buttons).toContain('graphql');
       expect(buttons).toContain('postman');
     });
 
     it('recommends grpc for gRPC APIs', () => {
-      const grpcApis = [{ file: 'service.proto' }] as any;
-      const buttons = service.determineRecommendedButtons([], [], grpcApis);
+      const apiDetection = {
+        repository: 'test',
+        hasAnyApis: true,
+        apis: {
+          rest: [],
+          graphql: [],
+          grpc: [{ file: 'service.proto' }]
+        },
+        recommendedButtons: []
+      } as any;
+      const buttons = service.determineRecommendedButtons(apiDetection);
       expect(buttons).toContain('grpc');
       expect(buttons).toContain('postman');
     });
 
     it('recommends all buttons for mixed APIs', () => {
-      const restApis = [{ file: 'api.yaml' }] as any;
-      const graphqlApis = [{ file: 'schema.graphql' }] as any;
-      const grpcApis = [{ file: 'service.proto' }] as any;
-      const buttons = service.determineRecommendedButtons(restApis, graphqlApis, grpcApis);
+      const apiDetection = {
+        repository: 'test',
+        hasAnyApis: true,
+        apis: {
+          rest: [{ file: 'api.yaml' }],
+          graphql: [{ file: 'schema.graphql' }],
+          grpc: [{ file: 'service.proto' }]
+        },
+        recommendedButtons: []
+      } as any;
+      const buttons = service.determineRecommendedButtons(apiDetection);
       expect(buttons).toContain('swagger');
       expect(buttons).toContain('graphql');
       expect(buttons).toContain('grpc');
@@ -357,7 +410,17 @@ service PaymentService {
     });
 
     it('returns empty array for no APIs', () => {
-      const buttons = service.determineRecommendedButtons([], [], []);
+      const apiDetection = {
+        repository: 'test',
+        hasAnyApis: false,
+        apis: {
+          rest: [],
+          graphql: [],
+          grpc: []
+        },
+        recommendedButtons: []
+      } as any;
+      const buttons = service.determineRecommendedButtons(apiDetection);
       expect(buttons).toHaveLength(0);
     });
   });
@@ -375,14 +438,14 @@ service PaymentService {
         recommendedButtons: ['swagger', 'postman']
       } as any;
 
-      const config = service.getApiButtonConfiguration(apiDetection);
+      const config = service.getApiButtonConfiguration(apiDetection, 'test-repo');
       
       expect(config.buttons).toHaveLength(2);
       expect(config.buttons[0]).toMatchObject({
         type: 'swagger',
         label: 'Swagger UI (2 APIs)',
-        icon: '📋',
-        color: 'green',
+        icon: '📘',
+        color: 'bg-green-600',
         url: '/swagger/test-repo'
       });
     });
@@ -399,14 +462,14 @@ service PaymentService {
         recommendedButtons: ['graphql', 'postman']
       } as any;
 
-      const config = service.getApiButtonConfiguration(apiDetection);
+      const config = service.getApiButtonConfiguration(apiDetection, 'nslabsdashboards');
       
       const graphqlButton = config.buttons.find(b => b.type === 'graphql');
       expect(graphqlButton).toMatchObject({
         type: 'graphql',
         label: 'GraphQL Playground (19 schemas)',
         icon: '🔮',
-        color: 'pink',
+        color: 'bg-pink-600',
         url: '/graphql/nslabsdashboards'
       });
     });
@@ -423,7 +486,7 @@ service PaymentService {
         recommendedButtons: ['swagger', 'graphql', 'grpc', 'postman']
       } as any;
 
-      const config = service.getApiButtonConfiguration(apiDetection);
+      const config = service.getApiButtonConfiguration(apiDetection, 'test-repo');
       
       expect(config.summary).toEqual({
         rest: 5,

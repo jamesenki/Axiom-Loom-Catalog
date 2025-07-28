@@ -53,6 +53,16 @@ jest.mock('../RepositorySync', () => ({
   default: () => <div data-testid="repository-sync">Repository Sync</div>,
 }));
 
+// Mock SyncProvider
+jest.mock('../../contexts/SyncContext', () => ({
+  SyncProvider: ({ children }: { children: React.ReactNode }) => <>{children}</>,
+  useSyncContext: () => ({
+    syncResult: null,
+    isInitialSync: false,
+    updateSyncResult: jest.fn()
+  })
+}));
+
 describe('App', () => {
   it('renders without crashing', () => {
     render(<App />);
