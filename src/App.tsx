@@ -8,6 +8,7 @@ import DocumentationView from './components/DocumentationView';
 import PostmanView from './components/PostmanView';
 import GraphQLView from './components/GraphQLView';
 import APIExplorerView from './components/APIExplorerView';
+import APIDocumentationHub from './components/APIDocumentationHub';
 import RepositorySync from './components/RepositorySync';
 import SyncStatus from './components/SyncStatus';
 import { repositorySyncService, SyncResult } from './services/repositorySync';
@@ -61,6 +62,7 @@ function AppContent() {
             <Route path="/postman/:repoName" element={<PostmanView />} />
             <Route path="/graphql/:repoName" element={<GraphQLView />} />
             <Route path="/api-explorer/:repoName" element={<APIExplorerView />} />
+            <Route path="/api-hub/:repoName" element={<APIDocumentationHub />} />
             <Route path="/sync" element={<RepositorySync />} />
           </Routes>
         </main>

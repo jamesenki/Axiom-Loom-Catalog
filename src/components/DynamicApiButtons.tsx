@@ -68,6 +68,11 @@ export const DynamicApiButtons: React.FC<DynamicApiButtonsProps> = ({
     window.open(`/api/postman/${repositoryName}`, '_blank');
   };
 
+  const handleApiHubClick = () => {
+    // Navigate to comprehensive API documentation hub
+    window.location.href = `/api-hub/${repositoryName}`;
+  };
+
   const getButtonConfigs = (): ApiButtonConfig[] => {
     if (!apiDetection) return [];
 
@@ -124,6 +129,18 @@ export const DynamicApiButtons: React.FC<DynamicApiButtonsProps> = ({
       }
     });
 
+    // Always add API Hub button if any APIs exist
+    if (configs.length > 0) {
+      configs.unshift({
+        type: 'api-hub' as ApiButtonType,
+        label: '📚 API Documentation Hub',
+        icon: '📚',
+        color: 'bg-purple-600 hover:bg-purple-700',
+        description: 'Comprehensive API documentation and exploration',
+        onClick: handleApiHubClick
+      });
+    }
+
     return configs;
   };
 
@@ -175,7 +192,7 @@ export const DynamicApiButtons: React.FC<DynamicApiButtonsProps> = ({
         </span>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
         {buttonConfigs.map((config) => (
           <button
             key={config.type}
