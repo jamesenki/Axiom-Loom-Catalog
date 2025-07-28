@@ -91,3 +91,6 @@ playwright/.cache/
 
 # Local sync cache
 .sync-cache/
+
+# Cloned repositories (not tracked in main repo)
+cloned-repositories/
