@@ -5,26 +5,41 @@
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
-    "@testing-library/user-event": "^13.5.0",
     "@types/jest": "^27.5.2",
     "@types/node": "^16.11.47",
     "@types/react": "^18.0.15",
     "@types/react-dom": "^18.0.6",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "highlight.js": "^11.11.1",
+    "lucide-react": "^0.292.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-markdown": "^8.0.7",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
-    "react-markdown": "^8.0.3",
-    "remark-gfm": "^3.0.1",
+    "rehype-autolink-headings": "^7.1.0",
+    "rehype-highlight": "^7.0.2",
+    "rehype-slug": "^6.0.0",
     "remark-emoji": "^3.0.2",
+    "remark-gfm": "^3.0.1",
+    "styled-jsx": "^5.1.7",
     "typescript": "^4.7.4",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "zustand": "^4.4.6"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test:coverage": "react-scripts test --coverage --watchAll=false",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui",
+    "eject": "react-scripts eject",
+    "server": "node src/server.js",
+    "dev": "concurrently \"npm run server\" \"npm run start\"",
+    "lint": "eslint src --ext .ts,.tsx,.js,.jsx",
+    "type-check": "tsc --noEmit"
   },
   "eslintConfig": {
     "extends": [
@@ -44,5 +59,12 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://localhost:3005"
+  "devDependencies": {
+    "@playwright/test": "^1.54.1",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/supertest": "^6.0.3",
+    "concurrently": "^7.6.0",
+    "supertest": "^7.1.4"
+  },
+  "proxy": "http://localhost:3001"
 }
