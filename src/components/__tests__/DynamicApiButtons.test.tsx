@@ -15,6 +15,10 @@ const mockDetectRepositoryApis = detectRepositoryApis as jest.MockedFunction<typ
 const mockOpen = jest.fn();
 window.open = mockOpen;
 
+// Mock window.location
+delete window.location;
+window.location = { href: '' } as any;
+
 describe('DynamicApiButtons', () => {
   beforeEach(() => {
     jest.clearAllMocks();
@@ -270,8 +274,7 @@ describe('DynamicApiButtons', () => {
     render(<DynamicApiButtons repositoryName="test-repo" />);
 
     await waitFor(() => {
-      expect(screen.getByText(/Error detecting APIs/)).toBeInTheDocument();
-      expect(screen.getByText('Failed to detect APIs')).toBeInTheDocument();
+      expect(screen.getByText(/Error detecting APIs: Failed to detect APIs/)).toBeInTheDocument();
     });
   });
 
@@ -325,9 +328,9 @@ describe('DynamicApiButtons', () => {
 
     await waitFor(() => {
       expect(screen.getByText('API Summary')).toBeInTheDocument();
-      expect(screen.getByText(/REST APIs \(2\)/)).toBeInTheDocument();
-      expect(screen.getByText(/GraphQL Schemas \(1\)/)).toBeInTheDocument();
-      expect(screen.getByText(/gRPC Services \(2\)/)).toBeInTheDocument();
+      expect(screen.getByText(/REST APIs \(2\):/)).toBeInTheDocument();
+      expect(screen.getByText(/GraphQL Schemas \(1\):/)).toBeInTheDocument();
+      expect(screen.getByText(/gRPC Services \(1\):/)).toBeInTheDocument();
     });
   });
 
@@ -348,7 +351,7 @@ describe('DynamicApiButtons', () => {
     render(<DynamicApiButtons repositoryName="test-repo" className="custom-class" />);
 
     await waitFor(() => {
-      const container = screen.getByText('No API specifications found in this repository').closest('div');
+      const container = screen.getByText('Documentation-focused repository (no API specifications detected)').closest('div');
       expect(container?.parentElement).toHaveClass('custom-class');
     });
   });
@@ -406,8 +409,8 @@ describe('DynamicApiButtons', () => {
     render(<DynamicApiButtons repositoryName="test-repo" />);
 
     await waitFor(() => {
-      const button = screen.getByText(/Swagger UI/);
-      expect(button.getAttribute('title')).toBe('Explore REST/OpenAPI specifications');
+      const button = screen.getByText(/Swagger UI/).closest('button');
+      expect(button?.getAttribute('title')).toBe('Explore REST/OpenAPI specifications');
     });
   });
 
@@ -423,6 +426,200 @@ describe('DynamicApiButtons', () => {
 
     await waitFor(() => {
       expect(mockDetectRepositoryApis).toHaveBeenCalledWith('specific-repo');
+    });
+  });
+
+  it('renders API Documentation Hub button when APIs exist', async () => {
+    const mockResponse = {
+      repository: 'test-repo',
+      apis: {
+        rest: [{ file: 'api.yaml' }],
+        graphql: [],
+        grpc: []
+      },
+      hasAnyApis: true,
+      recommendedButtons: ['swagger', 'postman'] as any
+    };
+
+    mockDetectRepositoryApis.mockResolvedValueOnce(mockResponse);
+
+    render(<DynamicApiButtons repositoryName="test-repo" />);
+
+    await waitFor(() => {
+      const apiHubButton = screen.getByText('📚 API Documentation Hub');
+      expect(apiHubButton).toBeInTheDocument();
+      expect(apiHubButton.closest('button')).toHaveClass('bg-purple-600');
+    });
+  });
+
+  it('navigates to API Documentation Hub when clicked', async () => {
+    const mockResponse = {
+      repository: 'test-repo',
+      apis: {
+        rest: [{ file: 'api.yaml' }],
+        graphql: [],
+        grpc: []
+      },
+      hasAnyApis: true,
+      recommendedButtons: ['swagger', 'postman'] as any
+    };
+
+    mockDetectRepositoryApis.mockResolvedValueOnce(mockResponse);
+
+    render(<DynamicApiButtons repositoryName="test-repo" />);
+
+    await waitFor(() => {
+      const apiHubButton = screen.getByText('📚 API Documentation Hub');
+      fireEvent.click(apiHubButton);
+    });
+
+    expect(window.location.href).toBe('/api-hub/test-repo');
+  });
+
+  it('shows API counts in the API Tools section', async () => {
+    const mockResponse = {
+      repository: 'test-repo',
+      apis: {
+        rest: [{ file: 'api1.yaml' }, { file: 'api2.yaml' }],
+        graphql: [{ file: 'schema.graphql' }],
+        grpc: [{ file: 'service.proto', services: ['Service1'] }]
+      },
+      hasAnyApis: true,
+      recommendedButtons: ['swagger', 'graphql', 'grpc', 'postman'] as any
+    };
+
+    mockDetectRepositoryApis.mockResolvedValueOnce(mockResponse);
+
+    render(<DynamicApiButtons repositoryName="test-repo" />);
+
+    await waitFor(() => {
+      expect(screen.getByText('API Tools:')).toBeInTheDocument();
+      expect(screen.getByText('2 REST • 1 GraphQL • 1 gRPC')).toBeInTheDocument();
+    });
+  });
+
+  it('shows truncated API list when there are many APIs', async () => {
+    const mockResponse = {
+      repository: 'test-repo',
+      apis: {
+        rest: [
+          { file: 'api1.yaml', title: 'API 1' },
+          { file: 'api2.yaml', title: 'API 2' },
+          { file: 'api3.yaml', title: 'API 3' },
+          { file: 'api4.yaml', title: 'API 4' },
+          { file: 'api5.yaml', title: 'API 5' }
+        ],
+        graphql: [],
+        grpc: []
+      },
+      hasAnyApis: true,
+      recommendedButtons: ['swagger', 'postman'] as any
+    };
+
+    mockDetectRepositoryApis.mockResolvedValueOnce(mockResponse);
+
+    render(<DynamicApiButtons repositoryName="test-repo" />);
+
+    await waitFor(() => {
+      expect(screen.getByText(/API 1, API 2, API 3/)).toBeInTheDocument();
+      expect(screen.getByText(/and 2 more/)).toBeInTheDocument();
+    });
+  });
+
+  it('shows file names when API titles are not available', async () => {
+    const mockResponse = {
+      repository: 'test-repo',
+      apis: {
+        rest: [
+          { file: 'path/to/api1.yaml' },
+          { file: 'path/to/api2.yaml' }
+        ],
+        graphql: [],
+        grpc: []
+      },
+      hasAnyApis: true,
+      recommendedButtons: ['swagger', 'postman'] as any
+    };
+
+    mockDetectRepositoryApis.mockResolvedValueOnce(mockResponse);
+
+    render(<DynamicApiButtons repositoryName="test-repo" />);
+
+    await waitFor(() => {
+      expect(screen.getByText(/api1.yaml, api2.yaml/)).toBeInTheDocument();
+    });
+  });
+
+  it('shows GraphQL file names in summary', async () => {
+    const mockResponse = {
+      repository: 'test-repo',
+      apis: {
+        rest: [],
+        graphql: [
+          { file: 'path/to/schema1.graphql' },
+          { file: 'path/to/schema2.graphql' }
+        ],
+        grpc: []
+      },
+      hasAnyApis: true,
+      recommendedButtons: ['graphql', 'postman'] as any
+    };
+
+    mockDetectRepositoryApis.mockResolvedValueOnce(mockResponse);
+
+    render(<DynamicApiButtons repositoryName="test-repo" />);
+
+    await waitFor(() => {
+      expect(screen.getByText(/schema1.graphql, schema2.graphql/)).toBeInTheDocument();
+    });
+  });
+
+  it('shows gRPC services in summary', async () => {
+    const mockResponse = {
+      repository: 'test-repo',
+      apis: {
+        rest: [],
+        graphql: [],
+        grpc: [
+          { file: 'service1.proto', services: ['UserService', 'AuthService'] },
+          { file: 'service2.proto', services: ['OrderService'] }
+        ]
+      },
+      hasAnyApis: true,
+      recommendedButtons: ['grpc', 'postman'] as any
+    };
+
+    mockDetectRepositoryApis.mockResolvedValueOnce(mockResponse);
+
+    render(<DynamicApiButtons repositoryName="test-repo" />);
+
+    await waitFor(() => {
+      expect(screen.getByText(/UserService, AuthService, OrderService/)).toBeInTheDocument();
+    });
+  });
+
+  it('all buttons have proper data-testid attributes', async () => {
+    const mockResponse = {
+      repository: 'test-repo',
+      apis: {
+        rest: [{ file: 'api.yaml' }],
+        graphql: [{ file: 'schema.graphql' }],
+        grpc: [{ file: 'service.proto', services: ['TestService'] }]
+      },
+      hasAnyApis: true,
+      recommendedButtons: ['swagger', 'graphql', 'grpc', 'postman'] as any
+    };
+
+    mockDetectRepositoryApis.mockResolvedValueOnce(mockResponse);
+
+    render(<DynamicApiButtons repositoryName="test-repo" />);
+
+    await waitFor(() => {
+      expect(screen.getByTestId('swagger-button')).toBeInTheDocument();
+      expect(screen.getByTestId('graphql-button')).toBeInTheDocument();
+      expect(screen.getByTestId('grpc-button')).toBeInTheDocument();
+      expect(screen.getByTestId('postman-button')).toBeInTheDocument();
+      expect(screen.getByTestId('api-hub-button')).toBeInTheDocument();
     });
   });
 });

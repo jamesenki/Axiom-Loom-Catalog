@@ -29,17 +29,22 @@
     "zustand": "^4.4.6"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "test:coverage": "react-scripts test --coverage --watchAll=false",
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "build:analyze": "ANALYZE=true react-app-rewired build",
+    "test": "react-app-rewired test",
+    "test:coverage": "react-app-rewired test --coverage --watchAll=false",
+    "test:watch": "react-app-rewired test --watchAll",
+    "test:ci": "react-app-rewired test --ci --coverage --watchAll=false",
+    "test:debug": "react-app-rewired --inspect-brk test --runInBand --no-cache",
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
     "eject": "react-scripts eject",
     "server": "node src/server.js",
     "dev": "concurrently \"npm run server\" \"npm run start\"",
     "lint": "eslint src --ext .ts,.tsx,.js,.jsx",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "validate": "npm run lint && npm run type-check && npm run test:ci"
   },
   "eslintConfig": {
     "extends": [
@@ -63,8 +68,14 @@
     "@playwright/test": "^1.54.1",
     "@testing-library/user-event": "^14.6.1",
     "@types/supertest": "^6.0.3",
+    "compression-webpack-plugin": "^11.1.0",
     "concurrently": "^7.6.0",
-    "supertest": "^7.1.4"
+    "image-webpack-loader": "^8.1.0",
+    "react-app-rewired": "^2.2.1",
+    "react-window": "^1.8.11",
+    "supertest": "^7.1.4",
+    "terser-webpack-plugin": "^5.3.14",
+    "webpack-bundle-analyzer": "^4.10.2"
   },
   "proxy": "http://localhost:3001",
   "jest": {

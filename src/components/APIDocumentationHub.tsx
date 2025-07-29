@@ -48,8 +48,8 @@ const APIDocumentationHub: React.FC = () => {
         const specs: ApiSpec[] = [];
         
         // Process REST APIs
-        if (detection.restApis) {
-          detection.restApis.forEach((api: any) => {
+        if (detection.apis?.rest) {
+          detection.apis.rest.forEach((api: any) => {
             specs.push({
               type: 'rest',
               file: api.file,
@@ -61,8 +61,8 @@ const APIDocumentationHub: React.FC = () => {
         }
 
         // Process GraphQL APIs
-        if (detection.graphqlApis) {
-          detection.graphqlApis.forEach((api: any) => {
+        if (detection.apis?.graphql) {
+          detection.apis.graphql.forEach((api: any) => {
             specs.push({
               type: 'graphql',
               file: api.file,
@@ -73,8 +73,8 @@ const APIDocumentationHub: React.FC = () => {
         }
 
         // Process gRPC APIs
-        if (detection.grpcApis) {
-          detection.grpcApis.forEach((api: any) => {
+        if (detection.apis?.grpc) {
+          detection.apis.grpc.forEach((api: any) => {
             specs.push({
               type: 'grpc',
               file: api.file,
@@ -126,7 +126,7 @@ const APIDocumentationHub: React.FC = () => {
             <span className="text-3xl">🔌</span>
           </div>
           <p className="text-3xl font-bold text-blue-400">
-            {apiDetection?.restApis?.length || 0}
+            {apiDetection?.apis?.rest?.length || 0}
           </p>
           <p className="text-gray-400 mt-2">OpenAPI/Swagger</p>
         </div>
@@ -137,7 +137,7 @@ const APIDocumentationHub: React.FC = () => {
             <span className="text-3xl">🔍</span>
           </div>
           <p className="text-3xl font-bold text-pink-400">
-            {apiDetection?.graphqlApis?.length || 0}
+            {apiDetection?.apis?.graphql?.length || 0}
           </p>
           <p className="text-gray-400 mt-2">Schema definitions</p>
         </div>
@@ -148,7 +148,7 @@ const APIDocumentationHub: React.FC = () => {
             <span className="text-3xl">⚡</span>
           </div>
           <p className="text-3xl font-bold text-green-400">
-            {apiDetection?.grpcApis?.length || 0}
+            {apiDetection?.apis?.grpc?.length || 0}
           </p>
           <p className="text-gray-400 mt-2">Protocol buffers</p>
         </div>
@@ -262,8 +262,8 @@ const APIDocumentationHub: React.FC = () => {
     <div className="bg-gray-800 rounded-lg p-6">
       <h3 className="text-xl font-semibold text-white mb-4">Postman Collections</h3>
       <div className="space-y-4">
-        {apiDetection?.postmanCollections?.length > 0 ? (
-          apiDetection.postmanCollections.map((collection: any, index: number) => (
+        {(apiDetection?.apis?.rest?.length ?? 0) > 0 && apiDetection?.apis?.rest ? (
+          apiDetection.apis.rest.filter((api: any) => api.file.endsWith('.postman_collection.json')).map((collection: any, index: number) => (
             <div key={index} className="bg-gray-700/50 rounded-lg p-4">
               <div className="flex items-center justify-between">
                 <div>
@@ -370,8 +370,8 @@ const APIDocumentationHub: React.FC = () => {
           <div className="bg-gray-800 rounded-lg p-6">
             <h3 className="text-xl font-semibold text-white mb-4">GraphQL APIs</h3>
             <div className="space-y-4">
-              {apiDetection?.graphqlApis?.length > 0 ? (
-                apiDetection.graphqlApis.map((api: any, index: number) => (
+              {(apiDetection?.apis?.graphql?.length ?? 0) > 0 && apiDetection?.apis?.graphql ? (
+                apiDetection.apis.graphql.map((api: any, index: number) => (
                   <div key={index} className="bg-gray-700/50 rounded-lg p-4">
                     <div className="flex items-center justify-between">
                       <div>

@@ -10,6 +10,8 @@ const fs = require('fs');
 const dynamicApiRoutes = require('./api/dynamicApiDetection');
 const repositoryManagementRoutes = require('./api/repositoryManagement');
 const repositoryFilesRoutes = require('./api/repositoryFiles');
+const plantUmlRoutes = require('./api/plantUmlRenderer');
+const searchRoutes = require('./api/searchApi');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -22,6 +24,8 @@ app.use(express.json());
 app.use('/api', dynamicApiRoutes);
 app.use('/api', repositoryManagementRoutes);
 app.use('/api', repositoryFilesRoutes);
+app.use('/api', plantUmlRoutes);
+app.use('/api', searchRoutes);
 
 // Repository details endpoint
 app.get('/api/repository/:repoName', (req, res) => {

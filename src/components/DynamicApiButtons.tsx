@@ -6,7 +6,7 @@
  */
 
 import React, { useState, useEffect } from 'react';
-import { detectRepositoryApis, ApiDetectionResult, ApiButtonType } from '../services/dynamicApiDetection';
+import { ApiDetectionResult, ApiButtonType } from '../services/dynamicApiDetection';
 
 interface DynamicApiButtonsProps {
   repositoryName: string;
@@ -38,7 +38,11 @@ export const DynamicApiButtons: React.FC<DynamicApiButtonsProps> = ({
     try {
       setLoading(true);
       setError(null);
-      const result = await detectRepositoryApis(repositoryName);
+      const response = await fetch(`/api/repository/${repositoryName}/detect-apis`);
+      if (!response.ok) {
+        throw new Error('Failed to detect APIs');
+      }
+      const result = await response.json();
       setApiDetection(result);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to detect APIs');

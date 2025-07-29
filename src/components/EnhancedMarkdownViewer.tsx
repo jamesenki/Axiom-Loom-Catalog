@@ -18,6 +18,10 @@ import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import { Components } from 'react-markdown';
 import 'highlight.js/styles/github-dark.css';
 import styles from './EnhancedMarkdownViewer.module.css';
+import { PlantUmlDiagram } from './PlantUmlDiagram';
+import { usePlantUmlRenderer } from '../hooks/usePlantUmlRenderer';
+import { MermaidDiagram } from './MermaidDiagram';
+import { useMermaidRenderer } from '../hooks/useMermaidRenderer';
 
 interface EnhancedMarkdownViewerProps {
   content: string;
@@ -44,12 +48,23 @@ export const EnhancedMarkdownViewer: React.FC<EnhancedMarkdownViewerProps> = ({
   const [currentMatch, setCurrentMatch] = useState<number>(0);
   const contentRef = useRef<HTMLDivElement>(null);
   const [isPrinting, setIsPrinting] = useState(false);
+  
+  // Process PlantUML content
+  const { blocks: plantUmlBlocks, processedContent: plantUmlProcessed, hasPlantUml } = usePlantUmlRenderer(content);
+  
+  // Process Mermaid content
+  const { blocks: mermaidBlocks, processedContent: mermaidProcessed, hasMermaid } = useMermaidRenderer(
+    hasPlantUml ? plantUmlProcessed : content
+  );
+  
+  // Determine final processed content
+  const finalProcessedContent = hasPlantUml || hasMermaid ? mermaidProcessed : content;
 
   // Generate table of contents from content
   const tocItems = useMemo((): TocItem[] => {
     const headingRegex = /^(#{1,6})\s+(.+)$/gm;
     const items: TocItem[] = [];
-    let match;
+    let match: RegExpExecArray | null;
 
     while ((match = headingRegex.exec(content)) !== null) {
       const level = match[1].length;
@@ -212,6 +227,35 @@ export const EnhancedMarkdownViewer: React.FC<EnhancedMarkdownViewerProps> = ({
     },
     code: ({ inline, className, children, ...props }) => {
       const match = /language-(\w+)/.exec(className || '');
+      const language = match?.[1];
+      
+      // Handle PlantUML code blocks
+      if (!inline && (language === 'plantuml' || language === 'puml')) {
+        const content = String(children).trim();
+        const plantUmlContent = content.includes('@startuml') 
+          ? content 
+          : `@startuml\n${content}\n@enduml`;
+        
+        return (
+          <PlantUmlDiagram 
+            content={plantUmlContent}
+            format="svg"
+            className="my-4"
+          />
+        );
+      }
+      
+      // Handle Mermaid code blocks
+      if (!inline && language === 'mermaid') {
+        const content = String(children).trim();
+        return (
+          <MermaidDiagram 
+            content={content}
+            className="my-4"
+          />
+        );
+      }
+      
       return !inline && match ? (
         <pre className={className}>
           <code className={className} {...props}>
@@ -223,6 +267,40 @@ export const EnhancedMarkdownViewer: React.FC<EnhancedMarkdownViewerProps> = ({
           {children}
         </code>
       );
+    },
+    // Custom div handler for PlantUML and Mermaid placeholders
+    div: ({ children, ...props }: any) => {
+      const plantUmlId = props['data-plantuml-id'];
+      const mermaidId = props['data-mermaid-id'];
+      
+      if (plantUmlId) {
+        const block = plantUmlBlocks.find(b => b.id === plantUmlId);
+        if (block) {
+          return (
+            <PlantUmlDiagram
+              content={block.content}
+              title={block.title}
+              format="svg"
+              className="my-4"
+            />
+          );
+        }
+      }
+      
+      if (mermaidId) {
+        const block = mermaidBlocks.find(b => b.id === mermaidId);
+        if (block) {
+          return (
+            <MermaidDiagram
+              content={block.content}
+              title={block.title}
+              className="my-4"
+            />
+          );
+        }
+      }
+      
+      return <div {...props}>{children}</div>;
     }
   };
 
@@ -343,13 +421,13 @@ export const EnhancedMarkdownViewer: React.FC<EnhancedMarkdownViewerProps> = ({
           <ReactMarkdown
             remarkPlugins={[remarkGfm]}
             rehypePlugins={[
-              rehypeHighlight,
-              rehypeSlug,
-              [rehypeAutolinkHeadings, { behavior: 'wrap' }]
+              [rehypeHighlight as any],
+              [rehypeSlug as any],
+              [rehypeAutolinkHeadings as any, { behavior: 'wrap' }]
             ]}
             components={components}
           >
-            {searchTerm ? highlightedContent : content}
+            {searchTerm ? highlightedContent : finalProcessedContent}
           </ReactMarkdown>
         </div>
       </div>

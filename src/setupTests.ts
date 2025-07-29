@@ -4,6 +4,9 @@
 // learn more: https://github.com/testing-library/jest-dom
 import '@testing-library/jest-dom';
 
+// Import test setup configuration
+import './test-utils/testSetup';
+
 // Add TextEncoder/TextDecoder globals for Node.js environment
 import { TextEncoder, TextDecoder } from 'util';
 global.TextEncoder = TextEncoder;

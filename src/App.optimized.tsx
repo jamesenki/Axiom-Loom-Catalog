@@ -5,9 +5,11 @@ import Header from './components/Header';
 import SyncStatus from './components/SyncStatus';
 import { repositorySyncService } from './services/repositorySync';
 import { SyncProvider, useSyncContext } from './contexts/SyncContext';
+import { useWebVitals, useIdleCallback } from './hooks/usePerformanceOptimization';
+import { preloadResources, requestIdleCallback } from './utils/performance';
 
-// Lazy load components for better performance
-const RepositoryList = lazy(() => import('./components/RepositoryList'));
+// Lazy load components for code splitting
+const RepositoryList = lazy(() => import('./components/VirtualizedRepositoryList'));
 const RepositoryView = lazy(() => import('./components/RepositoryView'));
 const DocumentationView = lazy(() => import('./components/DocumentationView'));
 const PostmanView = lazy(() => import('./components/PostmanView'));
@@ -30,6 +32,35 @@ function AppContent() {
   const [showSyncStatus, setShowSyncStatus] = useState(true);
   const { updateSyncResult } = useSyncContext();
 
+  // Monitor web vitals
+  useWebVitals((metric) => {
+    if (process.env.NODE_ENV === 'development') {
+      console.log('Web Vital:', metric);
+    }
+    // Could send to analytics service
+  });
+
+  // Register service worker
+  useEffect(() => {
+    if ('serviceWorker' in navigator && process.env.NODE_ENV === 'production') {
+      navigator.serviceWorker.register('/service-worker.js')
+        .then(registration => {
+          console.log('Service Worker registered:', registration);
+        })
+        .catch(error => {
+          console.error('Service Worker registration failed:', error);
+        });
+    }
+  }, []);
+
+  // Preload critical resources during idle time
+  useIdleCallback(() => {
+    preloadResources([
+      '/static/css/main.css',
+      '/static/js/main.js'
+    ]);
+  }, []);
+
   useEffect(() => {
     // Auto-sync repositories on application load
     const performAutoSync = async () => {
@@ -47,18 +78,10 @@ function AppContent() {
       }
     };
 
-    // Register service worker for caching and offline support
-    if ('serviceWorker' in navigator && process.env.NODE_ENV === 'production') {
-      navigator.serviceWorker.register('/service-worker.js')
-        .then(registration => {
-          console.log('Service Worker registered:', registration);
-        })
-        .catch(error => {
-          console.error('Service Worker registration failed:', error);
-        });
-    }
-
-    performAutoSync();
+    // Perform sync after initial render
+    requestIdleCallback(() => {
+      performAutoSync();
+    });
   }, [updateSyncResult]);
 
   return (
@@ -71,7 +94,7 @@ function AppContent() {
               onSyncComplete={(result) => {
                 updateSyncResult(result);
                 if (result.success && result.failedRepositories.length === 0) {
-                  setTimeout(() => setShowSyncStatus(false), 10000);
+                  setTimeout(() => setShowSyncStatus(false), 3000);
                 }
               }}
             />
@@ -80,15 +103,15 @@ function AppContent() {
         <main className="main-content">
           <Suspense fallback={<PageLoader />}>
             <Routes>
-            <Route path="/" element={<RepositoryList />} />
-            <Route path="/repository/:repoName" element={<RepositoryView />} />
-            <Route path="/docs/:repoName" element={<DocumentationView />} />
-            <Route path="/postman/:repoName" element={<PostmanView />} />
-            <Route path="/graphql/:repoName" element={<GraphQLView />} />
-            <Route path="/api-explorer/:repoName" element={<APIExplorerView />} />
-            <Route path="/api-hub/:repoName" element={<APIDocumentationHub />} />
-            <Route path="/sync" element={<RepositorySync />} />
-          </Routes>
+              <Route path="/" element={<RepositoryList />} />
+              <Route path="/repository/:repoName" element={<RepositoryView />} />
+              <Route path="/docs/:repoName" element={<DocumentationView />} />
+              <Route path="/postman/:repoName" element={<PostmanView />} />
+              <Route path="/graphql/:repoName" element={<GraphQLView />} />
+              <Route path="/api-explorer/:repoName" element={<APIExplorerView />} />
+              <Route path="/api-hub/:repoName" element={<APIDocumentationHub />} />
+              <Route path="/sync" element={<RepositorySync />} />
+            </Routes>
           </Suspense>
         </main>
       </Router>

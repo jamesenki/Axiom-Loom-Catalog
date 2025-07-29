@@ -1,0 +1,40 @@
+{
+  "compilerOptions": {
+    "target": "es2015",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "downlevelIteration": true
+  },
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "src/scripts/**/*",
+    "src/**/*.test.ts",
+    "src/**/*.test.tsx",
+    "src/__tests__/**/*",
+    "src/services/DynamicApiDetectionService.ts",
+    "src/services/*.server.ts",
+    "src/server.js",
+    "src/api/**/*.js",
+    "src/test-utils/**/*",
+    "src/setupTests.ts",
+    "src/test-utils.tsx"
+  ]
+}

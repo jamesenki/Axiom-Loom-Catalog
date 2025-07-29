@@ -14,7 +14,12 @@ interface SyncStatusProps {
 }
 
 export const SyncStatus: React.FC<SyncStatusProps> = ({ onSyncComplete, className = '' }) => {
-  const [syncStatus, setSyncStatus] = useState<ISyncStatus>(repositorySyncService.getSyncStatus());
+  const [syncStatus, setSyncStatus] = useState<ISyncStatus>({
+    isInProgress: false,
+    totalRepositories: 0,
+    completedRepositories: 0,
+    errors: []
+  });
   const [lastSyncInfo, setLastSyncInfo] = useState(repositorySyncService.getLastSyncInfo());
   const [isExpanded, setIsExpanded] = useState(false);
 
@@ -24,7 +29,7 @@ export const SyncStatus: React.FC<SyncStatusProps> = ({ onSyncComplete, classNam
     
     if (syncStatus.isInProgress) {
       interval = setInterval(() => {
-        setSyncStatus(repositorySyncService.getSyncStatus());
+        repositorySyncService.getSyncStatus().then(status => setSyncStatus(status));
       }, 1000);
     }
 
@@ -37,9 +42,10 @@ export const SyncStatus: React.FC<SyncStatusProps> = ({ onSyncComplete, classNam
     setSyncStatus({ ...syncStatus, isInProgress: true });
     try {
       const result = await repositorySyncService.syncOnStartup();
+      repositorySyncService.saveLastSyncInfo(result);
       setLastSyncInfo({
         timestamp: result.timestamp,
-        repositories: result.syncedRepositories
+        result: result
       });
       if (onSyncComplete) {
         onSyncComplete(result);
@@ -47,7 +53,7 @@ export const SyncStatus: React.FC<SyncStatusProps> = ({ onSyncComplete, classNam
     } catch (error) {
       console.error('Sync failed:', error);
     } finally {
-      setSyncStatus(repositorySyncService.getSyncStatus());
+      repositorySyncService.getSyncStatus().then(status => setSyncStatus(status));
     }
   };
 
@@ -126,12 +132,12 @@ export const SyncStatus: React.FC<SyncStatusProps> = ({ onSyncComplete, classNam
               </button>
             )}
 
-            {lastSyncInfo.repositories && lastSyncInfo.repositories.length > 0 && (
+            {lastSyncInfo.result?.syncedRepositories && lastSyncInfo.result.syncedRepositories.length > 0 && (
               <div>
-                <h4 className="text-xs font-medium text-gray-700 mb-2">Synced Repositories ({lastSyncInfo.repositories.length})</h4>
+                <h4 className="text-xs font-medium text-gray-700 mb-2">Synced Repositories ({lastSyncInfo.result.syncedRepositories.length})</h4>
                 <div className="max-h-32 overflow-y-auto">
                   <ul className="text-xs text-gray-600 space-y-1">
-                    {lastSyncInfo.repositories.map((repo, index) => (
+                    {lastSyncInfo.result.syncedRepositories.map((repo, index) => (
                       <li key={index} className="flex items-center space-x-2">
                         <svg className="w-3 h-3 text-green-500" fill="currentColor" viewBox="0 0 20 20">
                           <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />

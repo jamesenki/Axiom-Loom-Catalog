@@ -27,12 +27,9 @@ const RepositorySync: React.FC = () => {
   // Load last sync info on mount
   useEffect(() => {
     const lastSync = repositorySyncService.getLastSyncInfo();
-    if (lastSync.timestamp) {
+    if (lastSync.result && lastSync.timestamp) {
       setLastSyncResult({
-        success: true,
-        syncedRepositories: lastSync.repositories || [],
-        failedRepositories: [],
-        totalTime: 0,
+        ...lastSync.result,
         timestamp: lastSync.timestamp
       });
     }
@@ -52,8 +49,8 @@ const RepositorySync: React.FC = () => {
 
     try {
       // Set up progress monitoring
-      const progressInterval = setInterval(() => {
-        const status = repositorySyncService.getSyncStatus();
+      const progressInterval = setInterval(async () => {
+        const status = await repositorySyncService.getSyncStatus();
         setSyncProgress({
           isRunning: status.isInProgress,
           currentRepo: status.currentRepository,
@@ -72,7 +69,8 @@ const RepositorySync: React.FC = () => {
       // Clear progress monitoring
       clearInterval(progressInterval);
       
-      // Update results
+      // Save and update results
+      repositorySyncService.saveLastSyncInfo(result);
       setLastSyncResult(result);
       updateSyncResult(result);
       
