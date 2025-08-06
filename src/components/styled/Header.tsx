@@ -339,10 +339,10 @@ const Header: React.FC = () => {
         <Nav>
           <Logo to="/">
             <LogoIcon>
-              <EYBrand>EY</EYBrand>
+              <EYBrand>AL</EYBrand>
             </LogoIcon>
             <div>
-              <EYBrand>EYNS</EYBrand> AI Experience Center
+              <EYBrand>Axiom Loom</EYBrand> Catalog
             </div>
           </Logo>
           

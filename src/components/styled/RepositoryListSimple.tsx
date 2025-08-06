@@ -169,10 +169,10 @@ const RepositoryList: React.FC = () => {
         <HeroSection>
           <Container maxWidth='lg'>
             <HeroTitle>
-              <span className="highlight">EYNS</span> AI Experience Center
+              <span className="highlight">Axiom Loom</span> Catalog
             </HeroTitle>
             <HeroDescription>
-              Developer Portal - Repositories, APIs, Documentation & More
+              Architecture Packages and Complete Solutions Built By Axiom Loom AI Agents!
             </HeroDescription>
           </Container>
         </HeroSection>
@@ -194,10 +194,10 @@ const RepositoryList: React.FC = () => {
       <HeroSection>
         <Container maxWidth='lg'>
           <HeroTitle>
-            <span className="highlight">EYNS</span> AI Experience Center
+            <span className="highlight">Axiom Loom</span> Catalog
           </HeroTitle>
           <HeroDescription>
-            Developer Portal - Repositories, APIs, Documentation & More
+            Architecture Packages and Complete Solutions Built By Axiom Loom AI Agents!
           </HeroDescription>
           <ActionButtons>
             <Button 

@@ -1,15 +1,15 @@
-# 🚀 EYNS AI Experience Center
+# 🚀 Axiom Loom Catalog
 
-**Developer Portal for EY Innovation Labs**
+**Architecture Packages and Complete Solutions Built By Axiom Loom AI Agents!**
 
-A centralized hub for showcasing EY's innovation repositories, APIs, and documentation with marketing focus for lab demonstrations.
+A centralized hub for showcasing Axiom Loom Platform repositories, APIs, and documentation with marketing focus for lab demonstrations.
 
 ## 🏆 Gold Standard Certified
 **Quality Score: 95%** - Enterprise-ready with comprehensive features, security, and performance.
 
 ## 🎯 Purpose
 
-**Primary Function**: Lab marketing portal showcasing EY innovation ecosystem
+**Primary Function**: Lab marketing portal showcasing Axiom Loom Platform innovation ecosystem
 - Centralized repository management and exploration
 - API documentation hub (Swagger, GraphQL, Postman)
 - Documentation viewer with emoji and link support
@@ -75,8 +75,8 @@ A centralized hub for showcasing EY's innovation repositories, APIs, and documen
 ### Installation
 ```bash
 # Clone repository
-git clone https://github.com/20230011612_EYGS/eyns-ai-experience-center.git
-cd eyns-ai-experience-center
+git clone https://github.com/axiom-loom/axiom-loom-catalog.git
+cd axiom-loom-catalog
 
 # Install dependencies
 npm install
@@ -92,7 +92,7 @@ npm start
 ### Environment Variables
 ```bash
 REACT_APP_GITHUB_TOKEN=your_github_token_here
-REACT_APP_GITHUB_ORG=20230011612_EYGS
+REACT_APP_GITHUB_ORG=axiom-loom
 ```
 
 ## 🧪 Testing
@@ -146,7 +146,7 @@ The application uses Docker for platform-agnostic deployment:
 - **Current Network URL**: http://10.0.0.109
 
 ### 🔐 Default Credentials
-- **Username**: `admin@ey.com`
+- **Username**: `admin@axiom-loom.ai`
 - **Password**: `admin123`
 
 ### 🚀 Cloud Deployment (Future)
@@ -256,10 +256,10 @@ The platform is designed for easy cloud migration:
 
 For questions or issues:
 - Create GitHub issue
-- Contact EY Innovation Labs team
+- Contact Axiom Loom Platform team
 - Review conversation archives for context
 
 ---
 
-**Built with ❤️ for EY Innovation Labs**  
-*Showcasing the future of mobility and AI-powered architecture*
+**Built with ❤️ for Axiom Loom Platform**  
+*Architecture Packages and Complete Solutions Built By Axiom Loom AI Agents!*

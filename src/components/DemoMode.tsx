@@ -148,7 +148,7 @@ const demoSteps: DemoStep[] = [
   {
     id: 'home',
     route: '/',
-    title: 'Welcome to EY AI Experience Center',
+    title: 'Welcome to Axiom Loom Catalog',
     description: 'Your central hub for repositories, APIs, and documentation',
     duration: 3000,
   },

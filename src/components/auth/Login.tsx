@@ -215,7 +215,7 @@ const Login: React.FC = () => {
     <LoginContainer>
       <LoginCard>
         <Logo>
-          <h1>EY AI Experience Center</h1>
+          <h1>Axiom Loom Catalog</h1>
           <p>Sign in to continue</p>
         </Logo>
 
@@ -224,7 +224,7 @@ const Login: React.FC = () => {
           onClick={handleSSOLogin}
           disabled={isLoading}
         >
-          Sign in with EY SSO
+          Sign in with Axiom Loom SSO
         </Button>
 
         {isDevelopment && (
@@ -273,7 +273,7 @@ const Login: React.FC = () => {
 
             <DevModeWarning>
               <strong>Development Mode:</strong> This login form is only available in development. 
-              In production, only EY SSO authentication is available.
+              In production, only Axiom Loom SSO authentication is available.
             </DevModeWarning>
 
             <TestCredentials>

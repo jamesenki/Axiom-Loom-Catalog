@@ -162,7 +162,7 @@ export const LocalLogin: React.FC = () => {
       <Container maxWidth="sm">
         <LoginCard>
           <Logo>
-            <h1>EYNS AI Experience Center</h1>
+            <h1>Axiom Loom Catalog</h1>
             <p>Local Authentication</p>
           </Logo>
 

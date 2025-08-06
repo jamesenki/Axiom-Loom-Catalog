@@ -7,7 +7,7 @@
     "marketingDescription": "Transform your maintenance operations with AI-powered predictive analytics that prevents equipment failures before they happen. Our advanced machine learning engine analyzes sensor data in real-time to identify anomalies and predict maintenance needs, reducing downtime by up to 70% and extending equipment lifespan.",
     "category": "AI/ML",
     "status": "active",
-    "demoUrl": "https://demo.eyns.com/ai-maintenance",
+    "demoUrl": "https://demo.axiom-loom.com/ai-maintenance",
     "tags": [
       "AI/ML",
       "Predictive Maintenance",
@@ -325,11 +325,11 @@
       "customizationAvailable": true
     }
   },
-  "eyns-ai-experience-center": {
-    "id": "eyns-ai-experience-center",
-    "name": "eyns-ai-experience-center",
+  "axiom-loom-ai-experience-center": {
+    "id": "axiom-loom-ai-experience-center",
+    "name": "axiom-loom-ai-experience-center",
     "displayName": "Eyns Ai Experience Center",
-    "description": "Developer Portal for EY Innovation Labs",
+    "description": "Architecture Packages and Complete Solutions Built By Axiom Loom AI Agents!",
     "marketingDescription": "",
     "category": "repository",
     "status": "active",
@@ -346,7 +346,7 @@
       "hasGrpc": false,
       "hasPostman": false
     },
-    "url": "https://github.com/jamesenki/eyns-ai-experience-center",
+    "url": "https://github.com/jamesenki/axiom-loom-ai-experience-center",
     "pricing": {
       "suggestedRetailPrice": 12000,
       "tier": "Tier 1: Foundation",
@@ -401,7 +401,7 @@
     "marketingDescription": "Empower 2 billion consumers with intelligent electric mobility experiences.",
     "category": "Consumer",
     "status": "active",
-    "demoUrl": "https://demo.eyns.com/consumer-platform",
+    "demoUrl": "https://demo.axiom-loom.com/consumer-platform",
     "tags": [
       "Consumer",
       "AI/ML",

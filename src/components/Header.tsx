@@ -37,7 +37,7 @@ const Header: React.FC = () => {
           fontSize: '1.5rem',
           fontWeight: 'bold'
         }}>
-          🏢 EYNS AI Experience Center
+          🏢 Axiom Loom Catalog
         </Link>
         <div style={{ display: 'flex', gap: '20px' }}>
           <Link to="/" style={{ color: 'white', textDecoration: 'none' }}>

@@ -337,7 +337,7 @@ const ApiKeyManagement: React.FC = () => {
     <Container>
       <Header>
         <h2>API Key Management</h2>
-        <p>Create and manage API keys for programmatic access to the EY AI Experience Center</p>
+        <p>Create and manage API keys for programmatic access to the Axiom Loom Catalog</p>
       </Header>
 
       <Card>

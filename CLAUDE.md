@@ -1,7 +1,7 @@
 # Instructions for Claude AI Assistant
 
 ## Project Overview
-EYNS AI Experience Center is a comprehensive developer portal showcasing repositories, APIs, and documentation.
+Axiom Loom Catalog is a comprehensive developer portal showcasing repositories, APIs, and documentation. Architecture Packages and Complete Solutions Built By Axiom Loom AI Agents!
 
 ## Critical Build and Deployment Requirements
 

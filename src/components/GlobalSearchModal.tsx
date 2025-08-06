@@ -192,7 +192,7 @@ export const GlobalSearchModal: React.FC<GlobalSearchModalProps> = ({
         <ModalHeader>
           <ModalTitle>
             <Search size={24} />
-            Search EYNS AI Experience Center
+            Search Axiom Loom Catalog
           </ModalTitle>
           <CloseButton onClick={onClose} aria-label="Close search modal">
             <X size={20} />

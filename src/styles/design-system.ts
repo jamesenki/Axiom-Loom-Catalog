@@ -1,4 +1,4 @@
-// EYNS AI Experience Center Design System
+// Axiom Loom Catalog Design System
 export const theme = {
   colors: {
     primary: {

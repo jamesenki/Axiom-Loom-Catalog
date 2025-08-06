@@ -279,7 +279,7 @@ const EnhancedSearchModal: React.FC<EnhancedSearchModalProps> = ({ isOpen, onClo
       id: '3',
       type: 'document',
       title: 'API Integration Guide',
-      description: 'Complete guide for integrating with EY APIs',
+      description: 'Complete guide for integrating with Axiom Loom APIs',
       url: '/docs/integration-guide',
     },
   ];

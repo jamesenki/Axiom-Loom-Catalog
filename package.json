@@ -1,6 +1,7 @@
 {
-  "name": "eyns-ai-experience-center",
+  "name": "axiom-loom-catalog",
   "version": "0.1.0",
+  "description": "Architecture Packages and Complete Solutions Built By Axiom Loom AI Agents!",
   "private": true,
   "dependencies": {
     "@sentry/browser": "^7.109.0",

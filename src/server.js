@@ -1,5 +1,5 @@
 /**
- * Express Server for EYNS AI Experience Center
+ * Express Server for Axiom Loom Catalog
  * Provides API endpoints for repository management and dynamic API detection
  * Enhanced with authentication and security features
  */
@@ -734,7 +734,7 @@ app.get('/api/repository/:name/file', authenticate, authorize('read:documentatio
 // Start server only if not in test environment
 if (process.env.NODE_ENV !== 'test') {
   app.listen(PORT, () => {
-    console.log(`EYNS AI Experience Center backend running on port ${PORT}`);
+    console.log(`Axiom Loom Catalog backend running on port ${PORT}`);
   });
 }
 

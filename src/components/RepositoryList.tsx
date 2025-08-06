@@ -67,8 +67,8 @@ const RepositoryList: React.FC = () => {
   return (
     <div className="repository-list">
       <div className="header">
-        <h1>🚀 EYNS AI Experience Center</h1>
-        <p>Developer Portal - Repositories, APIs, Documentation & More</p>
+        <h1>🚀 Axiom Loom Catalog</h1>
+        <p>Architecture Packages and Complete Solutions Built By Axiom Loom AI Agents!</p>
         <div className="header-actions">
           <button 
             onClick={() => setShowAddModal(true)}
