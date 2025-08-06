@@ -8,6 +8,7 @@ import React, { useState, useEffect, useRef, useCallback, useMemo } from 'react'
 import { Link } from 'react-router-dom';
 import { Package, Calendar, Code, FileText, GitBranch, Star } from 'lucide-react';
 import { calculateVisibleRange, throttle } from '../utils/performance';
+import { getApiUrl } from '../utils/apiConfig';
 
 interface Repository {
   name: string;
@@ -42,7 +43,7 @@ export const VirtualizedRepositoryList: React.FC<VirtualizedRepositoryListProps>
   useEffect(() => {
     const fetchRepositories = async () => {
       try {
-        const response = await fetch('/api/repositories');
+        const response = await fetch(getApiUrl('/api/repositories'));
         if (!response.ok) {
           throw new Error('Failed to fetch repositories');
         }

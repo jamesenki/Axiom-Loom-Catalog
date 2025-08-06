@@ -45,7 +45,12 @@ describe('RepositorySync Component', () => {
   it('displays last sync information when available', () => {
     const mockLastSync = {
       timestamp: new Date('2025-01-20T10:00:00'),
-      repositories: ['repo1', 'repo2']
+      result: {
+        success: true,
+        syncedRepositories: ['repo1', 'repo2'],
+        failedRepositories: [],
+        message: 'Sync completed'
+      }
     };
     
     (repositorySyncService.getLastSyncInfo as jest.Mock).mockReturnValue(mockLastSync);
@@ -196,12 +201,13 @@ describe('RepositorySync Component', () => {
   });
 
   it('toggles details visibility', async () => {
-    const mockLastSync = {
-      timestamp: new Date(),
-      repositories: ['repo1', 'repo2']
-    };
-    
-    (repositorySyncService.getLastSyncInfo as jest.Mock).mockReturnValue(mockLastSync);
+    (repositorySyncService.getLastSyncInfo as jest.Mock).mockReturnValue({});
+    (repositorySyncService.getSyncStatus as jest.Mock).mockReturnValue({
+      isInProgress: false,
+      totalRepositories: 0,
+      completedRepositories: 0,
+      errors: []
+    });
     
     const mockSyncResult = {
       success: true,
@@ -211,12 +217,19 @@ describe('RepositorySync Component', () => {
       timestamp: new Date()
     };
     
+    (repositorySyncService.syncOnStartup as jest.Mock).mockResolvedValue(mockSyncResult);
+    
     render(<RepositorySync />);
     
-    // Set last sync result by updating component state
-    const { rerender } = render(<RepositorySync />);
+    // First trigger a sync to have results to show
+    const syncButton = screen.getByText('🔄 Start Sync');
+    fireEvent.click(syncButton);
     
-    // Show details button should be present
+    await waitFor(() => {
+      expect(screen.getByText('Last Sync Results')).toBeInTheDocument();
+    });
+    
+    // Now toggle details
     const showDetailsButton = screen.getByText('Show Details');
     fireEvent.click(showDetailsButton);
     

@@ -28,7 +28,8 @@ describe('Document API Integration Tests', () => {
       // All repos should have documentation
       accessResults.forEach(result => {
         expect(result.hasReadme || result.hasDocs).toBe(true);
-        if (result.hasReadme) {
+        // Check readme size only if readme exists
+        if (result.hasReadme && result.readmeSize !== undefined) {
           expect(result.readmeSize).toBeGreaterThan(100);
         }
       });

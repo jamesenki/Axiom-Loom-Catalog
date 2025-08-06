@@ -3,6 +3,22 @@ import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import RepositorySync from '../RepositorySync';
 
+// Mock the SyncContext
+jest.mock('../../contexts/SyncContext', () => ({
+  useSyncContext: () => ({
+    updateSyncResult: jest.fn(),
+    lastSyncResult: null,
+    syncVersion: 0
+  })
+}));
+
+// Mock repositorySync service
+jest.mock('../../services/repositorySync', () => ({
+  repositorySyncService: {
+    getLastSyncInfo: jest.fn().mockReturnValue({})
+  }
+}));
+
 describe('RepositorySync', () => {
   it('renders sync title with emoji', () => {
     render(<RepositorySync />);
@@ -15,8 +31,8 @@ describe('RepositorySync', () => {
   });
 
   it('has correct text color styling', () => {
-    const { container } = render(<RepositorySync />);
-    const mainDiv = container.querySelector('div');
+    render(<RepositorySync />);
+    const mainDiv = document.querySelector('div');
     expect(mainDiv).toHaveStyle({ color: 'white', padding: '20px' });
   });
 

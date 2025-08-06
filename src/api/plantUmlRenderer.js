@@ -70,11 +70,24 @@ router.post('/plantuml/render', async (req, res) => {
 
     // Create temporary file for PlantUML content
     const tempFile = path.join(CACHE_DIR, `${cacheKey}.puml`);
-    fs.writeFileSync(tempFile, content);
-
-    // Execute PlantUML
+    
+    // Preprocess content to use absolute paths for includes
+    let processedContent = content;
+    const c4Path = path.join(__dirname, '../../lib/plantuml-stdlib/C4-PlantUML');
+    
+    // Replace relative C4 includes with absolute paths
+    processedContent = processedContent.replace(/!include\s+C4_Context\.puml/g, `!include ${c4Path}/C4_Context.puml`);
+    processedContent = processedContent.replace(/!include\s+C4_Container\.puml/g, `!include ${c4Path}/C4_Container.puml`);
+    processedContent = processedContent.replace(/!include\s+C4_Component\.puml/g, `!include ${c4Path}/C4_Component.puml`);
+    processedContent = processedContent.replace(/!include\s+C4_Deployment\.puml/g, `!include ${c4Path}/C4_Deployment.puml`);
+    processedContent = processedContent.replace(/!include\s+C4\.puml/g, `!include ${c4Path}/C4.puml`);
+    
+    // Write processed content
+    fs.writeFileSync(tempFile, processedContent);
+    
+    // Execute PlantUML with RELATIVE_INCLUDE for nested includes
     const outputFormat = format === 'svg' ? '-tsvg' : '-tpng';
-    const command = `java -jar "${PLANTUML_JAR}" ${outputFormat} "${tempFile}"`;
+    const command = `java -jar "${PLANTUML_JAR}" -DRELATIVE_INCLUDE="relative" ${outputFormat} "${tempFile}"`;
 
     exec(command, (error, stdout, stderr) => {
       // Clean up temp file
@@ -142,7 +155,10 @@ router.post('/plantuml/validate', async (req, res) => {
     const tempFile = path.join(CACHE_DIR, `validate-${Date.now()}.puml`);
     fs.writeFileSync(tempFile, content);
 
-    const command = `java -jar "${PLANTUML_JAR}" -syntax "${tempFile}"`;
+    const c4Path = path.join(__dirname, '../../lib/plantuml-stdlib/C4-PlantUML');
+    const includeC4 = `-I"${c4Path}"`;
+    const defineRelative = '-DRELATIVE_INCLUDE="relative"';
+    const command = `java -jar "${PLANTUML_JAR}" ${defineRelative} ${includeC4} -syntax "${tempFile}"`;
 
     exec(command, (error, stdout, stderr) => {
       // Clean up temp file
@@ -198,7 +214,7 @@ Car "1" *-- "1" Engine : has
 @enduml`,
     
     c4Container: `@startuml
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include C4_Container.puml
 
 Person(user, "User", "A user of the system")
 System_Boundary(c1, "Banking System") {
@@ -213,7 +229,7 @@ Rel(api, db, "Reads from and writes to", "SQL")
 @enduml`,
 
     c4Component: `@startuml
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+!include C4_Component.puml
 
 Container_Boundary(api, "API Application") {
     Component(sign_in, "Sign In Controller", "Node.js", "Allows users to sign in")

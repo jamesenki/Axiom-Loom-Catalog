@@ -1,0 +1,161 @@
+{
+  "timestamp": "2025-08-01T14:04:37.895Z",
+  "summary": {
+    "passed": 3,
+    "failed": 1,
+    "warnings": 2
+  },
+  "pageLoadPerformance": {
+    "dnsLookup": 0.533,
+    "tcpConnection": 0.205,
+    "ttfb": 2.443,
+    "totalLoadTime": 2.491,
+    "downloadSize": 768,
+    "estimatedFCP": 102.443,
+    "estimatedLCP": 1.9928000000000001,
+    "estimatedTTI": 2.2419000000000002,
+    "meetsLoadTimeRequirement": true,
+    "pageMetrics": {
+      "/": {
+        "loadTime": 1.345292,
+        "statusCode": 200,
+        "size": 768
+      },
+      "/repositories": {
+        "loadTime": 1.278916,
+        "statusCode": 200,
+        "size": 768
+      },
+      "/api-explorer": {
+        "loadTime": 1.086375,
+        "statusCode": 200,
+        "size": 768
+      },
+      "/documentation": {
+        "loadTime": 0.881292,
+        "statusCode": 200,
+        "size": 768
+      }
+    }
+  },
+  "apiPerformance": {
+    "endpoints": {
+      "/api/health": {
+        "avgResponseTime": 2.5233874999999997,
+        "minResponseTime": 1.914709,
+        "maxResponseTime": 4.240917,
+        "successRate": 100
+      },
+      "/api/repositories": {
+        "avgResponseTime": 2.4391915000000006,
+        "minResponseTime": 1.813666,
+        "maxResponseTime": 3.11325,
+        "successRate": 100
+      },
+      "/api/search?q=test": {
+        "avgResponseTime": 2.3937082,
+        "minResponseTime": 1.847208,
+        "maxResponseTime": 3.164792,
+        "successRate": 100
+      }
+    },
+    "concurrentRequests": {
+      "10_requests": {
+        "totalTime": 14,
+        "successfulRequests": 10,
+        "failedRequests": 0,
+        "avgTimePerRequest": 1.4
+      },
+      "25_requests": {
+        "totalTime": 27,
+        "successfulRequests": 25,
+        "failedRequests": 0,
+        "avgTimePerRequest": 1.08
+      },
+      "50_requests": {
+        "totalTime": 12,
+        "successfulRequests": 50,
+        "failedRequests": 0,
+        "avgTimePerRequest": 0.24
+      }
+    },
+    "rateLimiting": {
+      "totalRequests": 100,
+      "rateLimitedRequests": 0,
+      "isRateLimitingActive": false
+    }
+  },
+  "resourceOptimization": {
+    "compression": {
+      "supportsCompression": false,
+      "encoding": "none",
+      "compressedSize": 768
+    },
+    "caching": {
+      "resources": {
+        "/static/js/main.js": {
+          "hasCacheControl": false,
+          "cacheControl": "none",
+          "hasEtag": false,
+          "maxAge": 0
+        },
+        "/static/css/main.css": {
+          "hasCacheControl": false,
+          "cacheControl": "none",
+          "hasEtag": false,
+          "maxAge": 0
+        },
+        "/favicon.ico": {
+          "hasCacheControl": false,
+          "cacheControl": "none",
+          "hasEtag": false,
+          "maxAge": 0
+        }
+      }
+    },
+    "bundleSizes": {
+      "initialPageSize": 768
+    }
+  },
+  "stressTest": {
+    "loadTest": {
+      "totalRequests": 50000,
+      "failedRequests": 49672,
+      "requestsPerSecond": 4760.84,
+      "timePerRequest": 10.502,
+      "transferRate": 6078.6
+    },
+    "errorRates": {
+      "errorRate": 99.344,
+      "successRate": 0.656
+    },
+    "performanceDegradation": {}
+  },
+  "networkPerformance": {
+    "latency": {
+      "avgLatency": 0.15,
+      "packetLoss": 0,
+      "isLowLatency": true
+    },
+    "bandwidth": {
+      "downloadSize": 0.000732421875,
+      "downloadTime": 0.004174417,
+      "estimatedBandwidth": 1.403639118947628,
+      "unit": "Mbps"
+    },
+    "connectivity": {
+      "HTTP/1.1": {
+        "responseTime": 2.354334,
+        "success": true
+      },
+      "Keep-Alive": {
+        "responseTime": 2.50075,
+        "success": true
+      },
+      "Close": {
+        "responseTime": 3.080916,
+        "success": true
+      }
+    }
+  }
+}

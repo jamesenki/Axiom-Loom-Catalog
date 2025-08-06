@@ -5,9 +5,10 @@
  */
 
 import React, { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useSearchParams } from 'react-router-dom';
 import EnhancedMarkdownViewer from './EnhancedMarkdownViewer';
 import styles from './DocumentationView.module.css';
+import { getApiUrl } from '../utils/apiConfig';
 
 interface FileItem {
   name: string;
@@ -18,28 +19,39 @@ interface FileItem {
 
 const DocumentationView: React.FC = () => {
   const { repoName } = useParams<{ repoName: string }>();
-  const [selectedFile, setSelectedFile] = useState<string>('README.md');
+  const [searchParams] = useSearchParams();
+  const pathParam = searchParams.get('path');
+  const [selectedFile, setSelectedFile] = useState<string>(pathParam || 'README.md');
   const [content, setContent] = useState<string>('');
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [fileTree, setFileTree] = useState<FileItem[]>([]);
   const [expandedDirs, setExpandedDirs] = useState<Set<string>>(new Set());
 
+  // Update selected file when path param changes
+  useEffect(() => {
+    if (pathParam) {
+      setSelectedFile(pathParam);
+    }
+  }, [pathParam]);
+
   // Fetch file tree
   useEffect(() => {
-    fetchFileTree();
+    if (repoName) {
+      fetchFileTree();
+    }
   }, [repoName]);
 
   // Fetch content when file changes
   useEffect(() => {
-    if (selectedFile) {
+    if (selectedFile && repoName) {
       fetchFileContent(selectedFile);
     }
   }, [repoName, selectedFile]);
 
   const fetchFileTree = async () => {
     try {
-      const response = await fetch(`/api/repository/${repoName}/files`);
+      const response = await fetch(getApiUrl(`/api/repository/${repoName}/files`));
       if (!response.ok) {
         throw new Error('Failed to fetch file tree');
       }
@@ -77,9 +89,9 @@ const DocumentationView: React.FC = () => {
     setError(null);
     
     try {
-      const response = await fetch(`/api/repository/${repoName}/file?path=${encodeURIComponent(filePath)}`);
+      const response = await fetch(getApiUrl(`/api/repository/${repoName}/file?path=${encodeURIComponent(filePath)}`));
       if (!response.ok) {
-        throw new Error('Failed to fetch file content');
+        throw new Error(`Failed to fetch file content: ${response.status} ${response.statusText}`);
       }
       const text = await response.text();
       setContent(text);
@@ -157,19 +169,7 @@ const DocumentationView: React.FC = () => {
       </div>
 
       <div className={styles.docContainer}>
-        {/* File Explorer Sidebar */}
-        <aside className={styles.docSidebar}>
-          <div className={styles.sidebarHeader}>
-            <h3>Documentation Files</h3>
-          </div>
-          <div className={styles.fileTree}>
-            {fileTree.length > 0 ? renderFileTree(fileTree) : (
-              <p className={styles.noFiles}>No documentation files found</p>
-            )}
-          </div>
-        </aside>
-
-        {/* Main Content Area */}
+        {/* Main Content Area - No file tree sidebar */}
         <main className={styles.docContent}>
           {loading ? (
             <div className={styles.loadingState}>
@@ -186,6 +186,57 @@ const DocumentationView: React.FC = () => {
             <EnhancedMarkdownViewer
               content={content}
               onContentChange={(newContent) => setContent(newContent)}
+              onNavigate={(path) => {
+                // Handle navigation to other markdown files
+                console.log('Navigating to:', path);
+                
+                // Handle relative paths
+                let targetPath: string;
+                
+                if (path.startsWith('./') || path.startsWith('../')) {
+                  // Relative path - resolve based on current file
+                  const currentDir = selectedFile.includes('/') 
+                    ? selectedFile.substring(0, selectedFile.lastIndexOf('/'))
+                    : '';
+                  
+                  if (path.startsWith('./')) {
+                    targetPath = currentDir ? `${currentDir}/${path.substring(2)}` : path.substring(2);
+                  } else {
+                    // Handle ../ paths
+                    let dir = currentDir;
+                    let relativePath = path;
+                    while (relativePath.startsWith('../')) {
+                      const lastSlash = dir.lastIndexOf('/');
+                      dir = lastSlash > 0 ? dir.substring(0, lastSlash) : '';
+                      relativePath = relativePath.substring(3);
+                    }
+                    targetPath = dir ? `${dir}/${relativePath}` : relativePath;
+                  }
+                } else if (path.startsWith('/')) {
+                  // Absolute path from repo root
+                  targetPath = path.substring(1);
+                } else {
+                  // Plain path - could be relative to current directory or from root
+                  const currentDir = selectedFile.includes('/') 
+                    ? selectedFile.substring(0, selectedFile.lastIndexOf('/'))
+                    : '';
+                  
+                  // First try relative to current directory
+                  if (currentDir) {
+                    targetPath = `${currentDir}/${path}`;
+                  } else {
+                    targetPath = path;
+                  }
+                }
+                
+                // Ensure .md extension only if not already present
+                if (!targetPath.endsWith('.md')) {
+                  targetPath += '.md';
+                }
+                
+                console.log('Resolved target path:', targetPath);
+                setSelectedFile(targetPath);
+              }}
             />
           ) : (
             <div className={styles.emptyState}>

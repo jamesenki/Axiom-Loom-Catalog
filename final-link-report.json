@@ -1,0 +1,1397 @@
+{
+  "totalLinks": 2086,
+  "brokenLinks": [
+    {
+      "repo": "copilot-architecture-template",
+      "file": "BEST_PRACTICES.md",
+      "line": 21,
+      "linkText": "Architecture Guide",
+      "linkPath": "./ARCHITECT_GUIDE.md",
+      "targetPath": "ARCHITECT_GUIDE.md"
+    },
+    {
+      "repo": "copilot-architecture-template",
+      "file": "BEST_PRACTICES.md",
+      "line": 22,
+      "linkText": "Developer Guide",
+      "linkPath": "./DEVELOPER_GUIDE.md",
+      "targetPath": "DEVELOPER_GUIDE.md"
+    },
+    {
+      "repo": "copilot-architecture-template",
+      "file": "DEVELOPER_USAGE_GUIDE.md",
+      "line": 17,
+      "linkText": "Architecture Overview",
+      "linkPath": "./architecture/index.md",
+      "targetPath": "architecture/index.md"
+    },
+    {
+      "repo": "copilot-architecture-template",
+      "file": "README.md",
+      "line": 102,
+      "linkText": "📖 Read the Architect's Guide",
+      "linkPath": "./ARCHITECT_GUIDE.md",
+      "targetPath": "ARCHITECT_GUIDE.md"
+    },
+    {
+      "repo": "copilot-architecture-template",
+      "file": "README.md",
+      "line": 103,
+      "linkText": "⚡ Use AI Command Reference",
+      "linkPath": "./AI_COMMAND_REFERENCE.md",
+      "targetPath": "AI_COMMAND_REFERENCE.md"
+    },
+    {
+      "repo": "copilot-architecture-template",
+      "file": "README.md",
+      "line": 113,
+      "linkText": "📖 Read the Developer's Guide",
+      "linkPath": "./DEVELOPER_GUIDE.md",
+      "targetPath": "DEVELOPER_GUIDE.md"
+    },
+    {
+      "repo": "copilot-architecture-template",
+      "file": "README.md",
+      "line": 125,
+      "linkText": "Architect's Guide",
+      "linkPath": "./ARCHITECT_GUIDE.md",
+      "targetPath": "ARCHITECT_GUIDE.md"
+    },
+    {
+      "repo": "copilot-architecture-template",
+      "file": "README.md",
+      "line": 126,
+      "linkText": "AI Command Reference",
+      "linkPath": "./AI_COMMAND_REFERENCE.md",
+      "targetPath": "AI_COMMAND_REFERENCE.md"
+    },
+    {
+      "repo": "copilot-architecture-template",
+      "file": "README.md",
+      "line": 127,
+      "linkText": "Developer's Guide",
+      "linkPath": "./DEVELOPER_GUIDE.md",
+      "targetPath": "DEVELOPER_GUIDE.md"
+    },
+    {
+      "repo": "copilot-architecture-template",
+      "file": "README.md",
+      "line": 137,
+      "linkText": "Integration Guide",
+      "linkPath": "./INTEGRATION_GUIDE.md",
+      "targetPath": "INTEGRATION_GUIDE.md"
+    },
+    {
+      "repo": "copilot-architecture-template",
+      "file": "docs/architecture/index.md",
+      "line": 9,
+      "linkText": "Technical Design",
+      "linkPath": "./technical-design.md",
+      "targetPath": "docs/architecture/technical-design.md"
+    },
+    {
+      "repo": "copilot-architecture-template",
+      "file": "docs/architecture/index.md",
+      "line": 10,
+      "linkText": "Security Architecture",
+      "linkPath": "./security.md",
+      "targetPath": "docs/architecture/security.md"
+    },
+    {
+      "repo": "copilot-architecture-template",
+      "file": "docs/architecture/index.md",
+      "line": 11,
+      "linkText": "Deployment Guide",
+      "linkPath": "./deployment.md",
+      "targetPath": "docs/architecture/deployment.md"
+    },
+    {
+      "repo": "copilot-architecture-template",
+      "file": "docs/architecture/index.md",
+      "line": 40,
+      "linkText": "Technical Design",
+      "linkPath": "./technical-design.md",
+      "targetPath": "docs/architecture/technical-design.md"
+    },
+    {
+      "repo": "copilot-architecture-template",
+      "file": "docs/architecture/index.md",
+      "line": 41,
+      "linkText": "Security Architecture",
+      "linkPath": "./security.md",
+      "targetPath": "docs/architecture/security.md"
+    },
+    {
+      "repo": "copilot-architecture-template",
+      "file": "docs/architecture/index.md",
+      "line": 42,
+      "linkText": "Deployment Guide",
+      "linkPath": "./deployment.md",
+      "targetPath": "docs/architecture/deployment.md"
+    },
+    {
+      "repo": "ecosystem-platform-architecture",
+      "file": "BEST_PRACTICES.md",
+      "line": 21,
+      "linkText": "Architecture Guide",
+      "linkPath": "./ARCHITECT_GUIDE.md",
+      "targetPath": "ARCHITECT_GUIDE.md"
+    },
+    {
+      "repo": "ecosystem-platform-architecture",
+      "file": "BEST_PRACTICES.md",
+      "line": 22,
+      "linkText": "Developer Guide",
+      "linkPath": "./DEVELOPER_GUIDE.md",
+      "targetPath": "DEVELOPER_GUIDE.md"
+    },
+    {
+      "repo": "ecosystem-platform-architecture",
+      "file": "DEVELOPER_USAGE_GUIDE.md",
+      "line": 17,
+      "linkText": "Architecture Overview",
+      "linkPath": "./architecture/index.md",
+      "targetPath": "architecture/index.md"
+    },
+    {
+      "repo": "ecosystem-platform-architecture",
+      "file": "README.md",
+      "line": 102,
+      "linkText": "📖 Read the Architect's Guide",
+      "linkPath": "./ARCHITECT_GUIDE.md",
+      "targetPath": "ARCHITECT_GUIDE.md"
+    },
+    {
+      "repo": "ecosystem-platform-architecture",
+      "file": "README.md",
+      "line": 103,
+      "linkText": "⚡ Use AI Command Reference",
+      "linkPath": "./AI_COMMAND_REFERENCE.md",
+      "targetPath": "AI_COMMAND_REFERENCE.md"
+    },
+    {
+      "repo": "ecosystem-platform-architecture",
+      "file": "README.md",
+      "line": 113,
+      "linkText": "📖 Read the Developer's Guide",
+      "linkPath": "./DEVELOPER_GUIDE.md",
+      "targetPath": "DEVELOPER_GUIDE.md"
+    },
+    {
+      "repo": "ecosystem-platform-architecture",
+      "file": "README.md",
+      "line": 125,
+      "linkText": "Architect's Guide",
+      "linkPath": "./ARCHITECT_GUIDE.md",
+      "targetPath": "ARCHITECT_GUIDE.md"
+    },
+    {
+      "repo": "ecosystem-platform-architecture",
+      "file": "README.md",
+      "line": 126,
+      "linkText": "AI Command Reference",
+      "linkPath": "./AI_COMMAND_REFERENCE.md",
+      "targetPath": "AI_COMMAND_REFERENCE.md"
+    },
+    {
+      "repo": "ecosystem-platform-architecture",
+      "file": "README.md",
+      "line": 127,
+      "linkText": "Developer's Guide",
+      "linkPath": "./DEVELOPER_GUIDE.md",
+      "targetPath": "DEVELOPER_GUIDE.md"
+    },
+    {
+      "repo": "ecosystem-platform-architecture",
+      "file": "README.md",
+      "line": 137,
+      "linkText": "Integration Guide",
+      "linkPath": "./INTEGRATION_GUIDE.md",
+      "targetPath": "INTEGRATION_GUIDE.md"
+    },
+    {
+      "repo": "ecosystem-platform-architecture",
+      "file": "TEMPLATE-README.md",
+      "line": 102,
+      "linkText": "📖 Read the Architect's Guide",
+      "linkPath": "./ARCHITECT_GUIDE.md",
+      "targetPath": "ARCHITECT_GUIDE.md"
+    },
+    {
+      "repo": "ecosystem-platform-architecture",
+      "file": "TEMPLATE-README.md",
+      "line": 103,
+      "linkText": "⚡ Use AI Command Reference",
+      "linkPath": "./AI_COMMAND_REFERENCE.md",
+      "targetPath": "AI_COMMAND_REFERENCE.md"
+    },
+    {
+      "repo": "ecosystem-platform-architecture",
+      "file": "TEMPLATE-README.md",
+      "line": 113,
+      "linkText": "📖 Read the Developer's Guide",
+      "linkPath": "./DEVELOPER_GUIDE.md",
+      "targetPath": "DEVELOPER_GUIDE.md"
+    },
+    {
+      "repo": "ecosystem-platform-architecture",
+      "file": "TEMPLATE-README.md",
+      "line": 125,
+      "linkText": "Architect's Guide",
+      "linkPath": "./ARCHITECT_GUIDE.md",
+      "targetPath": "ARCHITECT_GUIDE.md"
+    },
+    {
+      "repo": "ecosystem-platform-architecture",
+      "file": "TEMPLATE-README.md",
+      "line": 126,
+      "linkText": "AI Command Reference",
+      "linkPath": "./AI_COMMAND_REFERENCE.md",
+      "targetPath": "AI_COMMAND_REFERENCE.md"
+    },
+    {
+      "repo": "ecosystem-platform-architecture",
+      "file": "TEMPLATE-README.md",
+      "line": 127,
+      "linkText": "Developer's Guide",
+      "linkPath": "./DEVELOPER_GUIDE.md",
+      "targetPath": "DEVELOPER_GUIDE.md"
+    },
+    {
+      "repo": "ecosystem-platform-architecture",
+      "file": "TEMPLATE-README.md",
+      "line": 137,
+      "linkText": "Integration Guide",
+      "linkPath": "./INTEGRATION_GUIDE.md",
+      "targetPath": "INTEGRATION_GUIDE.md"
+    },
+    {
+      "repo": "ecosystem-platform-architecture",
+      "file": "docs/architecture/index.md",
+      "line": 9,
+      "linkText": "Technical Design",
+      "linkPath": "./technical-design.md",
+      "targetPath": "docs/architecture/technical-design.md"
+    },
+    {
+      "repo": "ecosystem-platform-architecture",
+      "file": "docs/architecture/index.md",
+      "line": 10,
+      "linkText": "Security Architecture",
+      "linkPath": "./security.md",
+      "targetPath": "docs/architecture/security.md"
+    },
+    {
+      "repo": "ecosystem-platform-architecture",
+      "file": "docs/architecture/index.md",
+      "line": 11,
+      "linkText": "Deployment Guide",
+      "linkPath": "./deployment.md",
+      "targetPath": "docs/architecture/deployment.md"
+    },
+    {
+      "repo": "ecosystem-platform-architecture",
+      "file": "docs/architecture/index.md",
+      "line": 40,
+      "linkText": "Technical Design",
+      "linkPath": "./technical-design.md",
+      "targetPath": "docs/architecture/technical-design.md"
+    },
+    {
+      "repo": "ecosystem-platform-architecture",
+      "file": "docs/architecture/index.md",
+      "line": 41,
+      "linkText": "Security Architecture",
+      "linkPath": "./security.md",
+      "targetPath": "docs/architecture/security.md"
+    },
+    {
+      "repo": "ecosystem-platform-architecture",
+      "file": "docs/architecture/index.md",
+      "line": 42,
+      "linkText": "Deployment Guide",
+      "linkPath": "./deployment.md",
+      "targetPath": "docs/architecture/deployment.md"
+    },
+    {
+      "repo": "future-mobility-consumer-platform",
+      "file": "BEST_PRACTICES.md",
+      "line": 21,
+      "linkText": "Architecture Guide",
+      "linkPath": "./ARCHITECT_GUIDE.md",
+      "targetPath": "ARCHITECT_GUIDE.md"
+    },
+    {
+      "repo": "future-mobility-consumer-platform",
+      "file": "BEST_PRACTICES.md",
+      "line": 22,
+      "linkText": "Developer Guide",
+      "linkPath": "./DEVELOPER_GUIDE.md",
+      "targetPath": "DEVELOPER_GUIDE.md"
+    },
+    {
+      "repo": "future-mobility-consumer-platform",
+      "file": "docs/implementation-guides/index.md",
+      "line": 40,
+      "linkText": "Integration Guide",
+      "linkPath": "./INTEGRATION_GUIDE.md",
+      "targetPath": "docs/implementation-guides/INTEGRATION_GUIDE.md"
+    },
+    {
+      "repo": "future-mobility-fleet-platform",
+      "file": "BEST_PRACTICES.md",
+      "line": 17,
+      "linkText": "Architecture Overview",
+      "linkPath": "./architecture/index.md",
+      "targetPath": "architecture/index.md"
+    },
+    {
+      "repo": "future-mobility-fleet-platform",
+      "file": "COMPONENT_REFERENCE.md",
+      "line": 17,
+      "linkText": "Architecture Overview",
+      "linkPath": "./architecture/index.md",
+      "targetPath": "architecture/index.md"
+    },
+    {
+      "repo": "future-mobility-fleet-platform",
+      "file": "DEVELOPER_USAGE_GUIDE.md",
+      "line": 17,
+      "linkText": "Architecture Overview",
+      "linkPath": "./architecture/index.md",
+      "targetPath": "architecture/index.md"
+    },
+    {
+      "repo": "future-mobility-fleet-platform",
+      "file": "README.md",
+      "line": 74,
+      "linkText": "Architecture Guide",
+      "linkPath": "./ARCHITECT_GUIDE.md",
+      "targetPath": "ARCHITECT_GUIDE.md"
+    },
+    {
+      "repo": "future-mobility-fleet-platform",
+      "file": "README.md",
+      "line": 82,
+      "linkText": "**Architecture Guide**",
+      "linkPath": "./ARCHITECT_GUIDE.md",
+      "targetPath": "ARCHITECT_GUIDE.md"
+    },
+    {
+      "repo": "future-mobility-fleet-platform",
+      "file": "README.md",
+      "line": 88,
+      "linkText": "**Developer Guide**",
+      "linkPath": "./DEVELOPER_GUIDE.md",
+      "targetPath": "DEVELOPER_GUIDE.md"
+    },
+    {
+      "repo": "future-mobility-fleet-platform",
+      "file": "README.md",
+      "line": 89,
+      "linkText": "**AI Command Reference**",
+      "linkPath": "./AI_COMMAND_REFERENCE.md",
+      "targetPath": "AI_COMMAND_REFERENCE.md"
+    },
+    {
+      "repo": "future-mobility-fleet-platform",
+      "file": "README.md",
+      "line": 90,
+      "linkText": "**Integration Guide**",
+      "linkPath": "./INTEGRATION_GUIDE.md",
+      "targetPath": "INTEGRATION_GUIDE.md"
+    },
+    {
+      "repo": "future-mobility-fleet-platform",
+      "file": "README.md",
+      "line": 116,
+      "linkText": "Architecture Guide",
+      "linkPath": "./ARCHITECT_GUIDE.md",
+      "targetPath": "ARCHITECT_GUIDE.md"
+    },
+    {
+      "repo": "future-mobility-fleet-platform",
+      "file": "README.md",
+      "line": 121,
+      "linkText": "Developer Guide",
+      "linkPath": "./DEVELOPER_GUIDE.md",
+      "targetPath": "DEVELOPER_GUIDE.md"
+    },
+    {
+      "repo": "future-mobility-fleet-platform",
+      "file": "README.md",
+      "line": 122,
+      "linkText": "AI Command Reference",
+      "linkPath": "./AI_COMMAND_REFERENCE.md",
+      "targetPath": "AI_COMMAND_REFERENCE.md"
+    },
+    {
+      "repo": "future-mobility-fleet-platform",
+      "file": "README.md",
+      "line": 123,
+      "linkText": "Integration Guide",
+      "linkPath": "./INTEGRATION_GUIDE.md",
+      "targetPath": "INTEGRATION_GUIDE.md"
+    },
+    {
+      "repo": "future-mobility-fleet-platform",
+      "file": "README.md",
+      "line": 238,
+      "linkText": "Priority 1 Core Automotive APIs",
+      "linkPath": "apis/priority-1-core-automotive/",
+      "targetPath": "apis/priority-1-core-automotive"
+    },
+    {
+      "repo": "future-mobility-fleet-platform",
+      "file": "Template_README.md",
+      "line": 153,
+      "linkText": "Example Implementations",
+      "linkPath": "./examples/",
+      "targetPath": "examples"
+    },
+    {
+      "repo": "future-mobility-oems-platform",
+      "file": "BEST_PRACTICES.md",
+      "line": 17,
+      "linkText": "Architecture Overview",
+      "linkPath": "./architecture/index.md",
+      "targetPath": "architecture/index.md"
+    },
+    {
+      "repo": "future-mobility-oems-platform",
+      "file": "COMPONENT_REFERENCE.md",
+      "line": 17,
+      "linkText": "Architecture Overview",
+      "linkPath": "./architecture/index.md",
+      "targetPath": "architecture/index.md"
+    },
+    {
+      "repo": "future-mobility-oems-platform",
+      "file": "DEVELOPER_USAGE_GUIDE.md",
+      "line": 17,
+      "linkText": "Architecture Overview",
+      "linkPath": "./architecture/index.md",
+      "targetPath": "architecture/index.md"
+    },
+    {
+      "repo": "future-mobility-oems-platform",
+      "file": "README.md",
+      "line": 60,
+      "linkText": "📖 Implementation Guides",
+      "linkPath": "docs/implementation/",
+      "targetPath": "docs/implementation"
+    },
+    {
+      "repo": "future-mobility-oems-platform",
+      "file": "README.md",
+      "line": 61,
+      "linkText": "🏗️ Architecture Diagrams",
+      "linkPath": "architecture/",
+      "targetPath": "architecture"
+    },
+    {
+      "repo": "future-mobility-oems-platform",
+      "file": "README.md",
+      "line": 62,
+      "linkText": "🧪 Testing Resources",
+      "linkPath": "tests/",
+      "targetPath": "tests"
+    },
+    {
+      "repo": "future-mobility-oems-platform",
+      "file": "README.md",
+      "line": 153,
+      "linkText": "Example Implementations",
+      "linkPath": "/docs/future-mobility-oems-platform/examples/",
+      "targetPath": "docs/future-mobility-oems-platform/examples"
+    },
+    {
+      "repo": "future-mobility-oems-platform",
+      "file": "Template_README.md",
+      "line": 153,
+      "linkText": "Example Implementations",
+      "linkPath": "./examples/",
+      "targetPath": "examples"
+    },
+    {
+      "repo": "future-mobility-oems-platform",
+      "file": "docs/index.md",
+      "line": 183,
+      "linkText": "Integration Examples",
+      "linkPath": "../examples/",
+      "targetPath": "examples"
+    },
+    {
+      "repo": "future-mobility-regulatory-platform",
+      "file": "BEST_PRACTICES.md",
+      "line": 17,
+      "linkText": "Architecture Overview",
+      "linkPath": "./architecture/index.md",
+      "targetPath": "architecture/index.md"
+    },
+    {
+      "repo": "future-mobility-regulatory-platform",
+      "file": "COMPONENT_REFERENCE.md",
+      "line": 17,
+      "linkText": "Architecture Overview",
+      "linkPath": "./architecture/index.md",
+      "targetPath": "architecture/index.md"
+    },
+    {
+      "repo": "future-mobility-regulatory-platform",
+      "file": "DEVELOPER_USAGE_GUIDE.md",
+      "line": 17,
+      "linkText": "Architecture Overview",
+      "linkPath": "./architecture/index.md",
+      "targetPath": "architecture/index.md"
+    },
+    {
+      "repo": "future-mobility-regulatory-platform",
+      "file": "README.md",
+      "line": 74,
+      "linkText": "Architecture Guide",
+      "linkPath": "./ARCHITECT_GUIDE.md",
+      "targetPath": "ARCHITECT_GUIDE.md"
+    },
+    {
+      "repo": "future-mobility-regulatory-platform",
+      "file": "README.md",
+      "line": 82,
+      "linkText": "**Architecture Guide**",
+      "linkPath": "./ARCHITECT_GUIDE.md",
+      "targetPath": "ARCHITECT_GUIDE.md"
+    },
+    {
+      "repo": "future-mobility-regulatory-platform",
+      "file": "README.md",
+      "line": 88,
+      "linkText": "**Developer Guide**",
+      "linkPath": "./DEVELOPER_GUIDE.md",
+      "targetPath": "DEVELOPER_GUIDE.md"
+    },
+    {
+      "repo": "future-mobility-regulatory-platform",
+      "file": "README.md",
+      "line": 89,
+      "linkText": "**AI Command Reference**",
+      "linkPath": "./AI_COMMAND_REFERENCE.md",
+      "targetPath": "AI_COMMAND_REFERENCE.md"
+    },
+    {
+      "repo": "future-mobility-regulatory-platform",
+      "file": "README.md",
+      "line": 90,
+      "linkText": "**Integration Guide**",
+      "linkPath": "./INTEGRATION_GUIDE.md",
+      "targetPath": "INTEGRATION_GUIDE.md"
+    },
+    {
+      "repo": "future-mobility-regulatory-platform",
+      "file": "README.md",
+      "line": 116,
+      "linkText": "Architecture Guide",
+      "linkPath": "./ARCHITECT_GUIDE.md",
+      "targetPath": "ARCHITECT_GUIDE.md"
+    },
+    {
+      "repo": "future-mobility-regulatory-platform",
+      "file": "README.md",
+      "line": 121,
+      "linkText": "Developer Guide",
+      "linkPath": "./DEVELOPER_GUIDE.md",
+      "targetPath": "DEVELOPER_GUIDE.md"
+    },
+    {
+      "repo": "future-mobility-regulatory-platform",
+      "file": "README.md",
+      "line": 122,
+      "linkText": "AI Command Reference",
+      "linkPath": "./AI_COMMAND_REFERENCE.md",
+      "targetPath": "AI_COMMAND_REFERENCE.md"
+    },
+    {
+      "repo": "future-mobility-regulatory-platform",
+      "file": "README.md",
+      "line": 123,
+      "linkText": "Integration Guide",
+      "linkPath": "./INTEGRATION_GUIDE.md",
+      "targetPath": "INTEGRATION_GUIDE.md"
+    },
+    {
+      "repo": "future-mobility-regulatory-platform",
+      "file": "Template_README.md",
+      "line": 143,
+      "linkText": "Example Implementations",
+      "linkPath": "./examples/",
+      "targetPath": "examples"
+    },
+    {
+      "repo": "future-mobility-regulatory-platform",
+      "file": "docs/index.md",
+      "line": 207,
+      "linkText": "Policy Templates",
+      "linkPath": "../policies/",
+      "targetPath": "policies"
+    },
+    {
+      "repo": "future-mobility-regulatory-platform",
+      "file": "docs/index.md",
+      "line": 208,
+      "linkText": "Best Practices",
+      "linkPath": "../best-practices/",
+      "targetPath": "best-practices"
+    },
+    {
+      "repo": "future-mobility-tech-platform",
+      "file": "BEST_PRACTICES.md",
+      "line": 17,
+      "linkText": "Architecture Overview",
+      "linkPath": "./architecture/index.md",
+      "targetPath": "architecture/index.md"
+    },
+    {
+      "repo": "future-mobility-tech-platform",
+      "file": "COMPONENT_REFERENCE.md",
+      "line": 17,
+      "linkText": "Architecture Overview",
+      "linkPath": "./architecture/index.md",
+      "targetPath": "architecture/index.md"
+    },
+    {
+      "repo": "future-mobility-tech-platform",
+      "file": "DEVELOPER_USAGE_GUIDE.md",
+      "line": 17,
+      "linkText": "Architecture Overview",
+      "linkPath": "./architecture/index.md",
+      "targetPath": "architecture/index.md"
+    },
+    {
+      "repo": "future-mobility-tech-platform",
+      "file": "README.md",
+      "line": 74,
+      "linkText": "Architecture Guide",
+      "linkPath": "./ARCHITECT_GUIDE.md",
+      "targetPath": "ARCHITECT_GUIDE.md"
+    },
+    {
+      "repo": "future-mobility-tech-platform",
+      "file": "README.md",
+      "line": 82,
+      "linkText": "**Architecture Guide**",
+      "linkPath": "./ARCHITECT_GUIDE.md",
+      "targetPath": "ARCHITECT_GUIDE.md"
+    },
+    {
+      "repo": "future-mobility-tech-platform",
+      "file": "README.md",
+      "line": 88,
+      "linkText": "**Developer Guide**",
+      "linkPath": "./DEVELOPER_GUIDE.md",
+      "targetPath": "DEVELOPER_GUIDE.md"
+    },
+    {
+      "repo": "future-mobility-tech-platform",
+      "file": "README.md",
+      "line": 89,
+      "linkText": "**AI Command Reference**",
+      "linkPath": "./AI_COMMAND_REFERENCE.md",
+      "targetPath": "AI_COMMAND_REFERENCE.md"
+    },
+    {
+      "repo": "future-mobility-tech-platform",
+      "file": "README.md",
+      "line": 90,
+      "linkText": "**Integration Guide**",
+      "linkPath": "./INTEGRATION_GUIDE.md",
+      "targetPath": "INTEGRATION_GUIDE.md"
+    },
+    {
+      "repo": "future-mobility-tech-platform",
+      "file": "README.md",
+      "line": 116,
+      "linkText": "Architecture Guide",
+      "linkPath": "./ARCHITECT_GUIDE.md",
+      "targetPath": "ARCHITECT_GUIDE.md"
+    },
+    {
+      "repo": "future-mobility-tech-platform",
+      "file": "README.md",
+      "line": 121,
+      "linkText": "Developer Guide",
+      "linkPath": "./DEVELOPER_GUIDE.md",
+      "targetPath": "DEVELOPER_GUIDE.md"
+    },
+    {
+      "repo": "future-mobility-tech-platform",
+      "file": "README.md",
+      "line": 122,
+      "linkText": "AI Command Reference",
+      "linkPath": "./AI_COMMAND_REFERENCE.md",
+      "targetPath": "AI_COMMAND_REFERENCE.md"
+    },
+    {
+      "repo": "future-mobility-tech-platform",
+      "file": "README.md",
+      "line": 123,
+      "linkText": "Integration Guide",
+      "linkPath": "./INTEGRATION_GUIDE.md",
+      "targetPath": "INTEGRATION_GUIDE.md"
+    },
+    {
+      "repo": "future-mobility-tech-platform",
+      "file": "Template_README.md",
+      "line": 149,
+      "linkText": "Example Implementations",
+      "linkPath": "./examples/",
+      "targetPath": "examples"
+    },
+    {
+      "repo": "future-mobility-utilities-platform",
+      "file": "BEST_PRACTICES.md",
+      "line": 17,
+      "linkText": "Architecture Overview",
+      "linkPath": "./architecture/index.md",
+      "targetPath": "architecture/index.md"
+    },
+    {
+      "repo": "future-mobility-utilities-platform",
+      "file": "COMPONENT_REFERENCE.md",
+      "line": 17,
+      "linkText": "Architecture Overview",
+      "linkPath": "./architecture/index.md",
+      "targetPath": "architecture/index.md"
+    },
+    {
+      "repo": "future-mobility-utilities-platform",
+      "file": "DEVELOPER_USAGE_GUIDE.md",
+      "line": 17,
+      "linkText": "Architecture Overview",
+      "linkPath": "./architecture/index.md",
+      "targetPath": "architecture/index.md"
+    },
+    {
+      "repo": "future-mobility-utilities-platform",
+      "file": "README.md",
+      "line": 74,
+      "linkText": "Architecture Guide",
+      "linkPath": "./ARCHITECT_GUIDE.md",
+      "targetPath": "ARCHITECT_GUIDE.md"
+    },
+    {
+      "repo": "future-mobility-utilities-platform",
+      "file": "README.md",
+      "line": 82,
+      "linkText": "**Architecture Guide**",
+      "linkPath": "./ARCHITECT_GUIDE.md",
+      "targetPath": "ARCHITECT_GUIDE.md"
+    },
+    {
+      "repo": "future-mobility-utilities-platform",
+      "file": "README.md",
+      "line": 88,
+      "linkText": "**Developer Guide**",
+      "linkPath": "./DEVELOPER_GUIDE.md",
+      "targetPath": "DEVELOPER_GUIDE.md"
+    },
+    {
+      "repo": "future-mobility-utilities-platform",
+      "file": "README.md",
+      "line": 89,
+      "linkText": "**AI Command Reference**",
+      "linkPath": "./AI_COMMAND_REFERENCE.md",
+      "targetPath": "AI_COMMAND_REFERENCE.md"
+    },
+    {
+      "repo": "future-mobility-utilities-platform",
+      "file": "README.md",
+      "line": 90,
+      "linkText": "**Integration Guide**",
+      "linkPath": "./INTEGRATION_GUIDE.md",
+      "targetPath": "INTEGRATION_GUIDE.md"
+    },
+    {
+      "repo": "future-mobility-utilities-platform",
+      "file": "README.md",
+      "line": 116,
+      "linkText": "Architecture Guide",
+      "linkPath": "./ARCHITECT_GUIDE.md",
+      "targetPath": "ARCHITECT_GUIDE.md"
+    },
+    {
+      "repo": "future-mobility-utilities-platform",
+      "file": "README.md",
+      "line": 121,
+      "linkText": "Developer Guide",
+      "linkPath": "./DEVELOPER_GUIDE.md",
+      "targetPath": "DEVELOPER_GUIDE.md"
+    },
+    {
+      "repo": "future-mobility-utilities-platform",
+      "file": "README.md",
+      "line": 122,
+      "linkText": "AI Command Reference",
+      "linkPath": "./AI_COMMAND_REFERENCE.md",
+      "targetPath": "AI_COMMAND_REFERENCE.md"
+    },
+    {
+      "repo": "future-mobility-utilities-platform",
+      "file": "README.md",
+      "line": 123,
+      "linkText": "Integration Guide",
+      "linkPath": "./INTEGRATION_GUIDE.md",
+      "targetPath": "INTEGRATION_GUIDE.md"
+    },
+    {
+      "repo": "future-mobility-utilities-platform",
+      "file": "README.md",
+      "line": 238,
+      "linkText": "Priority 1 Core Automotive APIs",
+      "linkPath": "apis/priority-1-core-automotive/",
+      "targetPath": "apis/priority-1-core-automotive"
+    },
+    {
+      "repo": "future-mobility-utilities-platform",
+      "file": "Template_README.md",
+      "line": 148,
+      "linkText": "Example Implementations",
+      "linkPath": "./examples/",
+      "targetPath": "examples"
+    },
+    {
+      "repo": "mobility-architecture-package-orchestrator",
+      "file": "README.md",
+      "line": 346,
+      "linkText": "Implementation Guides",
+      "linkPath": "docs/implementation/",
+      "targetPath": "docs/implementation"
+    },
+    {
+      "repo": "mobility-architecture-package-orchestrator",
+      "file": "README.md",
+      "line": 347,
+      "linkText": "Architecture Diagrams",
+      "linkPath": "architecture/",
+      "targetPath": "architecture"
+    },
+    {
+      "repo": "mobility-architecture-package-orchestrator",
+      "file": "README.md",
+      "line": 348,
+      "linkText": "Security Framework",
+      "linkPath": "./docs/security/",
+      "targetPath": "docs/security"
+    },
+    {
+      "repo": "mobility-architecture-package-orchestrator",
+      "file": "docs/architecture/index.md",
+      "line": 9,
+      "linkText": "Technical Design",
+      "linkPath": "./technical-design.md",
+      "targetPath": "docs/architecture/technical-design.md"
+    },
+    {
+      "repo": "mobility-architecture-package-orchestrator",
+      "file": "docs/architecture/index.md",
+      "line": 10,
+      "linkText": "Security Architecture",
+      "linkPath": "./security.md",
+      "targetPath": "docs/architecture/security.md"
+    },
+    {
+      "repo": "mobility-architecture-package-orchestrator",
+      "file": "docs/architecture/index.md",
+      "line": 11,
+      "linkText": "Deployment Guide",
+      "linkPath": "./deployment.md",
+      "targetPath": "docs/architecture/deployment.md"
+    },
+    {
+      "repo": "mobility-architecture-package-orchestrator",
+      "file": "docs/architecture/index.md",
+      "line": 40,
+      "linkText": "Technical Design",
+      "linkPath": "./technical-design.md",
+      "targetPath": "docs/architecture/technical-design.md"
+    },
+    {
+      "repo": "mobility-architecture-package-orchestrator",
+      "file": "docs/architecture/index.md",
+      "line": 41,
+      "linkText": "Security Architecture",
+      "linkPath": "./security.md",
+      "targetPath": "docs/architecture/security.md"
+    },
+    {
+      "repo": "mobility-architecture-package-orchestrator",
+      "file": "docs/architecture/index.md",
+      "line": 42,
+      "linkText": "Deployment Guide",
+      "linkPath": "./deployment.md",
+      "targetPath": "docs/architecture/deployment.md"
+    },
+    {
+      "repo": "nslabsdashboards",
+      "file": "README.md",
+      "line": 83,
+      "linkText": "Developer Guide",
+      "linkPath": "./DEVELOPER_GUIDE.md",
+      "targetPath": "DEVELOPER_GUIDE.md"
+    },
+    {
+      "repo": "nslabsdashboards",
+      "file": "docs/architecture/index.md",
+      "line": 9,
+      "linkText": "Technical Design",
+      "linkPath": "./technical-design.md",
+      "targetPath": "docs/architecture/technical-design.md"
+    },
+    {
+      "repo": "nslabsdashboards",
+      "file": "docs/architecture/index.md",
+      "line": 10,
+      "linkText": "Security Architecture",
+      "linkPath": "./security.md",
+      "targetPath": "docs/architecture/security.md"
+    },
+    {
+      "repo": "nslabsdashboards",
+      "file": "docs/architecture/index.md",
+      "line": 11,
+      "linkText": "Deployment Guide",
+      "linkPath": "./deployment.md",
+      "targetPath": "docs/architecture/deployment.md"
+    },
+    {
+      "repo": "nslabsdashboards",
+      "file": "docs/architecture/index.md",
+      "line": 40,
+      "linkText": "Technical Design",
+      "linkPath": "./technical-design.md",
+      "targetPath": "docs/architecture/technical-design.md"
+    },
+    {
+      "repo": "nslabsdashboards",
+      "file": "docs/architecture/index.md",
+      "line": 41,
+      "linkText": "Security Architecture",
+      "linkPath": "./security.md",
+      "targetPath": "docs/architecture/security.md"
+    },
+    {
+      "repo": "nslabsdashboards",
+      "file": "docs/architecture/index.md",
+      "line": 42,
+      "linkText": "Deployment Guide",
+      "linkPath": "./deployment.md",
+      "targetPath": "docs/architecture/deployment.md"
+    },
+    {
+      "repo": "nslabsdashboards",
+      "file": "src/tests/docs/bdd_best_practices.md",
+      "line": 17,
+      "linkText": "Architecture Overview",
+      "linkPath": "../../architecture/index.md",
+      "targetPath": "src/architecture/index.md"
+    },
+    {
+      "repo": "nslabsdashboards",
+      "file": "src/tests/docs/product/personas/personas.md",
+      "line": 17,
+      "linkText": "Architecture Overview",
+      "linkPath": "../../../../architecture/index.md",
+      "targetPath": "src/architecture/index.md"
+    },
+    {
+      "repo": "nslabsdashboards",
+      "file": "src/tests/docs/requirements/specification.md",
+      "line": 17,
+      "linkText": "Architecture Overview",
+      "linkPath": "../../../architecture/index.md",
+      "targetPath": "src/architecture/index.md"
+    },
+    {
+      "repo": "nslabsdashboards",
+      "file": "src/tests/src/domain/ubiquitous_language.md",
+      "line": 17,
+      "linkText": "Architecture Overview",
+      "linkPath": "../../../architecture/index.md",
+      "targetPath": "src/architecture/index.md"
+    },
+    {
+      "repo": "nslabsdashboards",
+      "file": "template/BEST_PRACTICES.md",
+      "line": 17,
+      "linkText": "Architecture Overview",
+      "linkPath": "architecture/index.md",
+      "targetPath": "template/architecture/index.md"
+    },
+    {
+      "repo": "nslabsdashboards",
+      "file": "template/COMPONENT_REFERENCE.md",
+      "line": 17,
+      "linkText": "Architecture Overview",
+      "linkPath": "architecture/index.md",
+      "targetPath": "template/architecture/index.md"
+    },
+    {
+      "repo": "nslabsdashboards",
+      "file": "template/DEVELOPER_USAGE_GUIDE.md",
+      "line": 17,
+      "linkText": "Architecture Overview",
+      "linkPath": "architecture/index.md",
+      "targetPath": "template/architecture/index.md"
+    },
+    {
+      "repo": "rentalFleets",
+      "file": "docs/architecture/index.md",
+      "line": 9,
+      "linkText": "Technical Design",
+      "linkPath": "./technical-design.md",
+      "targetPath": "docs/architecture/technical-design.md"
+    },
+    {
+      "repo": "rentalFleets",
+      "file": "docs/architecture/index.md",
+      "line": 10,
+      "linkText": "Security Architecture",
+      "linkPath": "./security.md",
+      "targetPath": "docs/architecture/security.md"
+    },
+    {
+      "repo": "rentalFleets",
+      "file": "docs/architecture/index.md",
+      "line": 11,
+      "linkText": "Deployment Guide",
+      "linkPath": "./deployment.md",
+      "targetPath": "docs/architecture/deployment.md"
+    },
+    {
+      "repo": "rentalFleets",
+      "file": "docs/architecture/index.md",
+      "line": 40,
+      "linkText": "Technical Design",
+      "linkPath": "./technical-design.md",
+      "targetPath": "docs/architecture/technical-design.md"
+    },
+    {
+      "repo": "rentalFleets",
+      "file": "docs/architecture/index.md",
+      "line": 41,
+      "linkText": "Security Architecture",
+      "linkPath": "./security.md",
+      "targetPath": "docs/architecture/security.md"
+    },
+    {
+      "repo": "rentalFleets",
+      "file": "docs/architecture/index.md",
+      "line": 42,
+      "linkText": "Deployment Guide",
+      "linkPath": "./deployment.md",
+      "targetPath": "docs/architecture/deployment.md"
+    },
+    {
+      "repo": "rentalFleets",
+      "file": "src/docs/API_ARCHITECTURE_GUIDELINES.md",
+      "line": 17,
+      "linkText": "Architecture Overview",
+      "linkPath": "../architecture/index.md",
+      "targetPath": "src/architecture/index.md"
+    },
+    {
+      "repo": "rentalFleets",
+      "file": "src/docs/MAZDA_CVOP_INTERFACE_ARCHITECTURE.md",
+      "line": 17,
+      "linkText": "Architecture Overview",
+      "linkPath": "../architecture/index.md",
+      "targetPath": "src/architecture/index.md"
+    },
+    {
+      "repo": "sample-arch-package",
+      "file": "BEST_PRACTICES.md",
+      "line": 17,
+      "linkText": "Architecture Overview",
+      "linkPath": "./architecture/index.md",
+      "targetPath": "architecture/index.md"
+    },
+    {
+      "repo": "sample-arch-package",
+      "file": "COMPONENT_REFERENCE.md",
+      "line": 17,
+      "linkText": "Architecture Overview",
+      "linkPath": "./architecture/index.md",
+      "targetPath": "architecture/index.md"
+    },
+    {
+      "repo": "sample-arch-package",
+      "file": "DEVELOPER_USAGE_GUIDE.md",
+      "line": 17,
+      "linkText": "Architecture Overview",
+      "linkPath": "./architecture/index.md",
+      "targetPath": "architecture/index.md"
+    },
+    {
+      "repo": "sample-arch-package",
+      "file": "README.md",
+      "line": 130,
+      "linkText": "📖 Read the Architect's Guide",
+      "linkPath": "./ARCHITECT_GUIDE.md",
+      "targetPath": "ARCHITECT_GUIDE.md"
+    },
+    {
+      "repo": "sample-arch-package",
+      "file": "README.md",
+      "line": 131,
+      "linkText": "⚡ Use AI Command Reference",
+      "linkPath": "./AI_COMMAND_REFERENCE.md",
+      "targetPath": "AI_COMMAND_REFERENCE.md"
+    },
+    {
+      "repo": "sample-arch-package",
+      "file": "README.md",
+      "line": 141,
+      "linkText": "📖 Read the Developer's Guide",
+      "linkPath": "./DEVELOPER_GUIDE.md",
+      "targetPath": "DEVELOPER_GUIDE.md"
+    },
+    {
+      "repo": "sample-arch-package",
+      "file": "README.md",
+      "line": 153,
+      "linkText": "Architect's Guide",
+      "linkPath": "./ARCHITECT_GUIDE.md",
+      "targetPath": "ARCHITECT_GUIDE.md"
+    },
+    {
+      "repo": "sample-arch-package",
+      "file": "README.md",
+      "line": 154,
+      "linkText": "AI Command Reference",
+      "linkPath": "./AI_COMMAND_REFERENCE.md",
+      "targetPath": "AI_COMMAND_REFERENCE.md"
+    },
+    {
+      "repo": "sample-arch-package",
+      "file": "README.md",
+      "line": 155,
+      "linkText": "Developer's Guide",
+      "linkPath": "./DEVELOPER_GUIDE.md",
+      "targetPath": "DEVELOPER_GUIDE.md"
+    },
+    {
+      "repo": "sample-arch-package",
+      "file": "README.md",
+      "line": 165,
+      "linkText": "Integration Guide",
+      "linkPath": "./INTEGRATION_GUIDE.md",
+      "targetPath": "INTEGRATION_GUIDE.md"
+    },
+    {
+      "repo": "sample-arch-package",
+      "file": "docs/architecture/index.md",
+      "line": 9,
+      "linkText": "Technical Design",
+      "linkPath": "./technical-design.md",
+      "targetPath": "docs/architecture/technical-design.md"
+    },
+    {
+      "repo": "sample-arch-package",
+      "file": "docs/architecture/index.md",
+      "line": 10,
+      "linkText": "Security Architecture",
+      "linkPath": "./security.md",
+      "targetPath": "docs/architecture/security.md"
+    },
+    {
+      "repo": "sample-arch-package",
+      "file": "docs/architecture/index.md",
+      "line": 11,
+      "linkText": "Deployment Guide",
+      "linkPath": "./deployment.md",
+      "targetPath": "docs/architecture/deployment.md"
+    },
+    {
+      "repo": "sample-arch-package",
+      "file": "docs/architecture/index.md",
+      "line": 40,
+      "linkText": "Technical Design",
+      "linkPath": "./technical-design.md",
+      "targetPath": "docs/architecture/technical-design.md"
+    },
+    {
+      "repo": "sample-arch-package",
+      "file": "docs/architecture/index.md",
+      "line": 41,
+      "linkText": "Security Architecture",
+      "linkPath": "./security.md",
+      "targetPath": "docs/architecture/security.md"
+    },
+    {
+      "repo": "sample-arch-package",
+      "file": "docs/architecture/index.md",
+      "line": 42,
+      "linkText": "Deployment Guide",
+      "linkPath": "./deployment.md",
+      "targetPath": "docs/architecture/deployment.md"
+    },
+    {
+      "repo": "smartpath",
+      "file": "README.md",
+      "line": 49,
+      "linkText": "📝 License",
+      "linkPath": "LICENSE",
+      "targetPath": "LICENSE"
+    },
+    {
+      "repo": "smartpath",
+      "file": "docs/architecture/index.md",
+      "line": 9,
+      "linkText": "Technical Design",
+      "linkPath": "./technical-design.md",
+      "targetPath": "docs/architecture/technical-design.md"
+    },
+    {
+      "repo": "smartpath",
+      "file": "docs/architecture/index.md",
+      "line": 10,
+      "linkText": "Security Architecture",
+      "linkPath": "./security.md",
+      "targetPath": "docs/architecture/security.md"
+    },
+    {
+      "repo": "smartpath",
+      "file": "docs/architecture/index.md",
+      "line": 11,
+      "linkText": "Deployment Guide",
+      "linkPath": "./deployment.md",
+      "targetPath": "docs/architecture/deployment.md"
+    },
+    {
+      "repo": "smartpath",
+      "file": "docs/architecture/index.md",
+      "line": 40,
+      "linkText": "Technical Design",
+      "linkPath": "./technical-design.md",
+      "targetPath": "docs/architecture/technical-design.md"
+    },
+    {
+      "repo": "smartpath",
+      "file": "docs/architecture/index.md",
+      "line": 41,
+      "linkText": "Security Architecture",
+      "linkPath": "./security.md",
+      "targetPath": "docs/architecture/security.md"
+    },
+    {
+      "repo": "smartpath",
+      "file": "docs/architecture/index.md",
+      "line": 42,
+      "linkText": "Deployment Guide",
+      "linkPath": "./deployment.md",
+      "targetPath": "docs/architecture/deployment.md"
+    },
+    {
+      "repo": "sovd-diagnostic-ecosystem-platform-architecture",
+      "file": "CONTRIBUTING.md",
+      "line": 35,
+      "linkText": "Architecture Overview",
+      "linkPath": "./architecture/index.md",
+      "targetPath": "architecture/index.md"
+    },
+    {
+      "repo": "sovd-diagnostic-ecosystem-platform-architecture",
+      "file": "README.md",
+      "line": 128,
+      "linkText": "C4 Model Diagrams",
+      "linkPath": "docs/architecture/c4/",
+      "targetPath": "docs/architecture/c4"
+    },
+    {
+      "repo": "sovd-diagnostic-ecosystem-platform-architecture",
+      "file": "README.md",
+      "line": 129,
+      "linkText": "System Diagrams",
+      "linkPath": "docs/architecture/diagrams/",
+      "targetPath": "docs/architecture/diagrams"
+    },
+    {
+      "repo": "sovd-diagnostic-ecosystem-platform-architecture",
+      "file": "README.md",
+      "line": 132,
+      "linkText": "GraphQL Schemas",
+      "linkPath": "docs/api/graphql/",
+      "targetPath": "docs/api/graphql"
+    },
+    {
+      "repo": "sovd-diagnostic-ecosystem-platform-architecture",
+      "file": "README.md",
+      "line": 134,
+      "linkText": "Postman Collections",
+      "linkPath": "docs/api/postman/",
+      "targetPath": "docs/api/postman"
+    },
+    {
+      "repo": "sovd-diagnostic-ecosystem-platform-architecture",
+      "file": "README.md",
+      "line": 144,
+      "linkText": "Integration Examples",
+      "linkPath": "docs/getting-started/examples/",
+      "targetPath": "docs/getting-started/examples"
+    },
+    {
+      "repo": "sovd-diagnostic-ecosystem-platform-architecture",
+      "file": "docs/architecture/adrs/README.md",
+      "line": 133,
+      "linkText": "C4 Architecture Diagrams",
+      "linkPath": "architecture/",
+      "targetPath": "docs/architecture/adrs/architecture"
+    },
+    {
+      "repo": "sovd-diagnostic-ecosystem-platform-architecture",
+      "file": "docs/architecture/index.md",
+      "line": 9,
+      "linkText": "Technical Design",
+      "linkPath": "./technical-design.md",
+      "targetPath": "docs/architecture/technical-design.md"
+    },
+    {
+      "repo": "sovd-diagnostic-ecosystem-platform-architecture",
+      "file": "docs/architecture/index.md",
+      "line": 10,
+      "linkText": "Security Architecture",
+      "linkPath": "./security.md",
+      "targetPath": "docs/architecture/security.md"
+    },
+    {
+      "repo": "sovd-diagnostic-ecosystem-platform-architecture",
+      "file": "docs/architecture/index.md",
+      "line": 11,
+      "linkText": "Deployment Guide",
+      "linkPath": "./deployment.md",
+      "targetPath": "docs/architecture/deployment.md"
+    },
+    {
+      "repo": "sovd-diagnostic-ecosystem-platform-architecture",
+      "file": "docs/architecture/index.md",
+      "line": 40,
+      "linkText": "Technical Design",
+      "linkPath": "./technical-design.md",
+      "targetPath": "docs/architecture/technical-design.md"
+    },
+    {
+      "repo": "sovd-diagnostic-ecosystem-platform-architecture",
+      "file": "docs/architecture/index.md",
+      "line": 41,
+      "linkText": "Security Architecture",
+      "linkPath": "./security.md",
+      "targetPath": "docs/architecture/security.md"
+    },
+    {
+      "repo": "sovd-diagnostic-ecosystem-platform-architecture",
+      "file": "docs/architecture/index.md",
+      "line": 42,
+      "linkText": "Deployment Guide",
+      "linkPath": "./deployment.md",
+      "targetPath": "docs/architecture/deployment.md"
+    }
+  ]
+}

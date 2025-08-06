@@ -4,9 +4,11 @@
  * Demonstrates testing patterns and best practices
  */
 
-import { render, screen, fireEvent, waitFor } from '../../test-utils';
-import { createMockRepository, createMockApiDetectionResult } from '../../test-utils';
+import { render, screen, fireEvent, waitFor, createMockRepository, createMockApiDetectionResult } from '../../test-utils';
 import { mockApiDetectionService, mockRepositorySyncService } from '../../test-utils/mockServices';
+
+// Import React for the component
+import React from 'react';
 
 // Example component for demonstration
 const ExampleComponent: React.FC<{ repository: string }> = ({ repository }) => {
@@ -46,9 +48,6 @@ const ExampleComponent: React.FC<{ repository: string }> = ({ repository }) => {
     </div>
   );
 };
-
-// Import React for the component
-import React from 'react';
 
 describe('ExampleComponent', () => {
   beforeEach(() => {

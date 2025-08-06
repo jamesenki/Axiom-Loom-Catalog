@@ -7,6 +7,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { AlertCircle, Loader2, RefreshCw, Download } from 'lucide-react';
+import { getApiUrl } from '../utils/apiConfig';
 
 interface PlantUmlDiagramProps {
   content: string;
@@ -57,7 +58,7 @@ export const PlantUmlDiagram: React.FC<PlantUmlDiagramProps> = ({
     abortControllerRef.current = new AbortController();
 
     try {
-      const response = await fetch('http://localhost:3001/api/plantuml/render', {
+      const response = await fetch(getApiUrl('/api/plantuml/render'), {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -116,7 +117,7 @@ export const PlantUmlDiagram: React.FC<PlantUmlDiagramProps> = ({
 
   const validatePlantUml = async () => {
     try {
-      const response = await fetch('http://localhost:3001/api/plantuml/validate', {
+      const response = await fetch(getApiUrl('/api/plantuml/validate'), {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

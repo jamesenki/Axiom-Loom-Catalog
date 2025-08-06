@@ -91,6 +91,143 @@ router.get('/api-buttons/:repoName', async (req, res) => {
 });
 
 /**
+ * Detect APIs for all repositories
+ * GET /api/detect-apis/all
+ */
+router.get('/detect-apis/all', async (req, res) => {
+  try {
+    const repositories = fs.readdirSync(CLONED_REPOS_PATH, { withFileTypes: true })
+      .filter(entry => entry.isDirectory() && !entry.name.startsWith('.'))
+      .map(entry => entry.name);
+    
+    const results = [];
+    
+    for (const repoName of repositories) {
+      try {
+        const repoPath = path.join(CLONED_REPOS_PATH, repoName);
+        const restApis = await detectRestApis(repoPath);
+        const graphqlApis = await detectGraphqlApis(repoPath);
+        const grpcApis = await detectGrpcApis(repoPath);
+        const postmanCollections = await detectPostmanCollections(repoPath);
+        
+        const hasAnyApis = restApis.length > 0 || graphqlApis.length > 0 || grpcApis.length > 0;
+        const recommendedButtons = determineRecommendedButtons(restApis, graphqlApis, grpcApis);
+        
+        results.push({
+          repository: repoName,
+          apis: {
+            rest: restApis,
+            graphql: graphqlApis,
+            grpc: grpcApis
+          },
+          postman: postmanCollections,
+          hasAnyApis,
+          recommendedButtons
+        });
+      } catch (error) {
+        console.error(`Error detecting APIs in ${repoName}:`, error);
+      }
+    }
+    
+    res.json({
+      repositories: results,
+      summary: generateSummary(results)
+    });
+  } catch (error) {
+    console.error('Error detecting APIs:', error);
+    res.status(500).json({ error: 'Failed to detect APIs' });
+  }
+});
+
+/**
+ * Get all APIs across all repositories with optional type filter
+ * GET /api-explorer/all
+ */
+router.get('/api-explorer/all', async (req, res) => {
+  try {
+    const { type } = req.query;
+    const repositories = fs.readdirSync(CLONED_REPOS_PATH, { withFileTypes: true })
+      .filter(entry => entry.isDirectory() && !entry.name.startsWith('.'))
+      .map(entry => entry.name);
+    
+    const allApis = [];
+    
+    for (const repoName of repositories) {
+      try {
+        const repoPath = path.join(CLONED_REPOS_PATH, repoName);
+        const result = await detectRepositoryApis(repoPath, repoName);
+        
+        // Add REST APIs
+        if (result.apis?.rest && (!type || type === 'rest' || type === 'openapi')) {
+          result.apis.rest.forEach(api => {
+            allApis.push({
+              repository: repoName,
+              type: 'OpenAPI',
+              name: api.title || api.file,
+              path: api.file,
+              version: api.version,
+              description: api.description
+            });
+          });
+        }
+        
+        // Add GraphQL APIs
+        if (result.apis?.graphql && (!type || type === 'graphql')) {
+          result.apis.graphql.forEach(api => {
+            allApis.push({
+              repository: repoName,
+              type: 'GraphQL',
+              name: api.file,
+              path: api.file,
+              description: api.description
+            });
+          });
+        }
+        
+        // Add gRPC APIs
+        if (result.apis?.grpc && (!type || type === 'grpc')) {
+          result.apis.grpc.forEach(api => {
+            allApis.push({
+              repository: repoName,
+              type: 'gRPC',
+              name: api.file,
+              path: api.file,
+              services: api.services,
+              package: api.package,
+              description: api.description
+            });
+          });
+        }
+        
+        // Add Postman Collections
+        if (result.postman && (!type || type === 'postman')) {
+          result.postman.forEach(collection => {
+            allApis.push({
+              repository: repoName,
+              type: 'Postman',
+              name: collection.name,
+              path: collection.path,
+              description: `Postman collection: ${collection.name}`
+            });
+          });
+        }
+      } catch (error) {
+        console.error(`Error detecting APIs in ${repoName}:`, error);
+      }
+    }
+    
+    res.json({
+      apis: allApis,
+      total: allApis.length,
+      filter: type || 'all'
+    });
+  } catch (error) {
+    console.error('Error fetching all APIs:', error);
+    res.status(500).json({ error: 'Failed to fetch APIs' });
+  }
+});
+
+/**
  * Batch detect APIs for all repositories
  * GET /api/detect-apis
  */
@@ -134,10 +271,11 @@ router.get('/detect-apis', async (req, res) => {
  * Core API detection logic
  */
 async function detectRepositoryApis(repoPath, repoName) {
-  const [restApis, graphqlApis, grpcApis] = await Promise.all([
+  const [restApis, graphqlApis, grpcApis, postmanCollections] = await Promise.all([
     detectRestApis(repoPath),
     detectGraphqlApis(repoPath),
-    detectGrpcApis(repoPath)
+    detectGrpcApis(repoPath),
+    detectPostmanCollections(repoPath)
   ]);
   
   const hasAnyApis = restApis.length > 0 || graphqlApis.length > 0 || grpcApis.length > 0;
@@ -150,6 +288,7 @@ async function detectRepositoryApis(repoPath, repoName) {
       graphql: graphqlApis,
       grpc: grpcApis
     },
+    postman: postmanCollections,
     hasAnyApis,
     recommendedButtons
   };

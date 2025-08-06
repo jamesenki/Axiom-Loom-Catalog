@@ -1,7 +1,25 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import { EnhancedMarkdownViewer } from '../__mocks__/EnhancedMarkdownViewer';
+import { EnhancedMarkdownViewer } from '../EnhancedMarkdownViewer';
+
+// Mock the EnhancedMarkdownViewer component
+jest.mock('../EnhancedMarkdownViewer', () => ({
+  EnhancedMarkdownViewer: ({ content, className, onContentReady }: any) => {
+    const React = require('react');
+    React.useEffect(() => {
+      if (onContentReady) {
+        onContentReady();
+      }
+    }, [onContentReady]);
+
+    return (
+      <div data-testid="enhanced-markdown-viewer" className={`enhanced-markdown-viewer ${className || ''}`}>
+        <div data-testid="markdown-content">{content}</div>
+      </div>
+    );
+  }
+}));
 
 describe('EnhancedMarkdownViewer (Mock)', () => {
   it('renders content', () => {
@@ -9,7 +27,7 @@ describe('EnhancedMarkdownViewer (Mock)', () => {
     render(<EnhancedMarkdownViewer content={content} />);
     
     expect(screen.getByTestId('enhanced-markdown-viewer')).toBeInTheDocument();
-    expect(screen.getByTestId('markdown-content')).toHaveTextContent(content);
+    expect(screen.getByTestId('markdown-content')).toHaveTextContent('# Test Markdown This is a test.');
   });
 
   it('applies custom className', () => {
@@ -40,7 +58,7 @@ This is a paragraph with **bold** and *italic* text.
     
     render(<EnhancedMarkdownViewer content={content} />);
     
-    expect(screen.getByTestId('markdown-content')).toHaveTextContent(content);
+    expect(screen.getByTestId('markdown-content')).toHaveTextContent('# Heading 1 ## Heading 2 ### Heading 3 This is a paragraph with **bold** and *italic* text. - List item 1 - List item 2 - List item 3');
   });
 
   it('updates when content changes', () => {
@@ -64,7 +82,7 @@ This is a paragraph with **bold** and *italic* text.
     const content = '```javascript\nconst hello = "world";\n```';
     render(<EnhancedMarkdownViewer content={content} />);
     
-    expect(screen.getByTestId('markdown-content')).toHaveTextContent(content);
+    expect(screen.getByTestId('markdown-content')).toHaveTextContent('```javascript const hello = "world"; ```');
   });
 
   it('renders links as plain text', () => {
@@ -88,6 +106,6 @@ This is a paragraph with **bold** and *italic* text.
     
     render(<EnhancedMarkdownViewer content={content} />);
     
-    expect(screen.getByTestId('markdown-content')).toHaveTextContent(content);
+    expect(screen.getByTestId('markdown-content')).toHaveTextContent('| Header 1 | Header 2 | |----------|----------| | Cell 1 | Cell 2 |');
   });
 });

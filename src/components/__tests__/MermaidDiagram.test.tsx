@@ -30,11 +30,12 @@ const mockScript = {
   async: false
 };
 
+const originalCreateElement = document.createElement.bind(document);
 document.createElement = jest.fn((tag) => {
   if (tag === 'script') {
     return mockScript as any;
   }
-  return document.createElement(tag);
+  return originalCreateElement(tag);
 });
 
 document.body.appendChild = jest.fn((element) => {
@@ -60,10 +61,10 @@ describe('MermaidDiagram', () => {
   });
 
   it('renders diagram successfully', async () => {
-    const { container } = render(<MermaidDiagram content="graph TD; A-->B;" />);
+    render(<MermaidDiagram content="graph TD; A-->B;" />);
     
     await waitFor(() => {
-      const diagramContainer = container.querySelector('.mermaid-container');
+      const diagramContainer = document.querySelector('.mermaid-diagram-content');
       expect(diagramContainer).toBeInTheDocument();
       expect(diagramContainer?.innerHTML).toContain('<svg><text>Test Diagram</text></svg>');
     });
@@ -125,7 +126,7 @@ describe('MermaidDiagram', () => {
       if (tag === 'script') {
         return mockScript as any;
       }
-      return document.createElement(tag);
+      return originalCreateElement(tag);
     });
     
     render(

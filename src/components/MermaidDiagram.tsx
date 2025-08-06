@@ -29,6 +29,7 @@ export const MermaidDiagram: React.FC<MermaidDiagramProps> = ({
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [svgContent, setSvgContent] = useState<string | null>(null);
+  const [isMermaidReady, setIsMermaidReady] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const renderIdRef = useRef<string>(`mermaid-${Date.now()}-${Math.random()}`);
 
@@ -37,10 +38,10 @@ export const MermaidDiagram: React.FC<MermaidDiagramProps> = ({
   }, []);
 
   useEffect(() => {
-    if (mermaidAPI && content) {
+    if (isMermaidReady && content) {
       renderDiagram();
     }
-  }, [content, theme]);
+  }, [content, theme, isMermaidReady]);
 
   const loadMermaid = async () => {
     try {
@@ -62,13 +63,30 @@ export const MermaidDiagram: React.FC<MermaidDiagramProps> = ({
           startOnLoad: false,
           theme: theme,
           securityLevel: 'loose',
-          fontFamily: 'monospace'
+          fontFamily: 'monospace',
+          flowchart: {
+            useMaxWidth: true,
+            htmlLabels: true,
+            curve: 'basis'
+          },
+          sequence: {
+            diagramMarginX: 50,
+            diagramMarginY: 10,
+            useMaxWidth: true
+          },
+          gantt: {
+            numberSectionStyles: 4,
+            axisFormat: '%Y-%m-%d'
+          }
         });
         
         mermaidAPI = mermaid.mermaidAPI;
+      } else {
+        // Mermaid already loaded
       }
       
       setLoading(false);
+      setIsMermaidReady(true);
     } catch (err) {
       setError('Failed to load Mermaid library');
       setLoading(false);
@@ -89,14 +107,11 @@ export const MermaidDiagram: React.FC<MermaidDiagramProps> = ({
         containerRef.current.innerHTML = '';
       }
 
-      // Validate syntax
-      const isValid = await mermaidAPI.parse(content);
-      if (!isValid) {
-        throw new Error('Invalid Mermaid syntax');
-      }
+      // Generate a unique ID for this render
+      const uniqueId = `mermaid-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
 
       // Render the diagram
-      const { svg } = await mermaidAPI.render(renderIdRef.current, content);
+      const { svg } = await mermaidAPI.render(uniqueId, content);
       setSvgContent(svg);
       
       if (containerRef.current) {
@@ -106,6 +121,12 @@ export const MermaidDiagram: React.FC<MermaidDiagramProps> = ({
       const errorMessage = err instanceof Error ? err.message : 'Failed to render diagram';
       setError(errorMessage);
       console.error('Mermaid rendering error:', err);
+      console.error('Diagram content:', content);
+      
+      // Try to provide more helpful error messages
+      if (errorMessage.includes('parse')) {
+        setError('Invalid diagram syntax. Please check your Mermaid code.');
+      }
       
       if (err instanceof Error) {
         onError?.(err);

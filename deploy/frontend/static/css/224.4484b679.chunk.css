@@ -1,0 +1,517 @@
+.EnhancedMarkdownViewer_enhancedMarkdownViewer__Kusk0 {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: white;
+  color: #333;
+}
+
+.EnhancedMarkdownViewer_markdownToolbar__B0D59 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background: #f5f5f5;
+  border-bottom: 1px solid #e0e0e0;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.EnhancedMarkdownViewer_toolbarLeft__Q4D5r,
+.EnhancedMarkdownViewer_toolbarRight__eotXM {
+  display: flex;
+  gap: 10px;
+}
+
+.EnhancedMarkdownViewer_toolbarButton__x4YEh {
+  padding: 6px 12px;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s;
+}
+
+.EnhancedMarkdownViewer_toolbarButton__x4YEh:hover {
+  background: #e8e8e8;
+  border-color: #999;
+}
+
+.EnhancedMarkdownViewer_searchBar__P\+Q1J {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  background: #f9f9f9;
+  border-bottom: 1px solid #e0e0e0;
+  gap: 10px;
+}
+
+.EnhancedMarkdownViewer_searchInput__4biHm {
+  flex: 1 1;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.EnhancedMarkdownViewer_searchControls__Nmw\+P {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.EnhancedMarkdownViewer_searchResults__G1FRl {
+  font-size: 13px;
+  color: #666;
+}
+
+.EnhancedMarkdownViewer_searchNavButton__w5v69,
+.EnhancedMarkdownViewer_searchCloseButton__8BpFs {
+  padding: 4px 8px;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.EnhancedMarkdownViewer_searchNavButton__w5v69:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.EnhancedMarkdownViewer_markdownContentWrapper__nVTFD {
+  display: flex;
+  flex: 1 1;
+  overflow: hidden;
+}
+
+.EnhancedMarkdownViewer_markdownToc__E2pIa {
+  width: 250px;
+  padding: 20px;
+  background: #f9f9f9;
+  border-right: 1px solid #e0e0e0;
+  overflow-y: auto;
+}
+
+.EnhancedMarkdownViewer_markdownToc__E2pIa h3 {
+  margin-top: 0;
+  margin-bottom: 16px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.EnhancedMarkdownViewer_markdownToc__E2pIa nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.EnhancedMarkdownViewer_tocItem__I2Lo1 {
+  margin: 4px 0;
+}
+
+.EnhancedMarkdownViewer_tocItem__I2Lo1 a {
+  color: #333;
+  text-decoration: none;
+  font-size: 14px;
+  display: block;
+  padding: 4px 0;
+  transition: color 0.2s;
+}
+
+.EnhancedMarkdownViewer_tocItem__I2Lo1 a:hover {
+  color: #0066cc;
+}
+
+.EnhancedMarkdownViewer_markdownContent__7MPfW {
+  flex: 1 1;
+  padding: 20px 40px;
+  overflow-y: auto;
+  max-width: 900px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Markdown content styles */
+.EnhancedMarkdownViewer_markdownContent__7MPfW h1,
+.EnhancedMarkdownViewer_markdownContent__7MPfW h2,
+.EnhancedMarkdownViewer_markdownContent__7MPfW h3,
+.EnhancedMarkdownViewer_markdownContent__7MPfW h4,
+.EnhancedMarkdownViewer_markdownContent__7MPfW h5,
+.EnhancedMarkdownViewer_markdownContent__7MPfW h6 {
+  margin-top: 24px;
+  margin-bottom: 16px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.EnhancedMarkdownViewer_markdownContent__7MPfW h1 { 
+  font-size: 2em; 
+  border-bottom: 1px solid #eee; 
+  padding-bottom: 0.3em; 
+}
+
+.EnhancedMarkdownViewer_markdownContent__7MPfW h2 { 
+  font-size: 1.5em; 
+  border-bottom: 1px solid #eee; 
+  padding-bottom: 0.3em; 
+}
+
+.EnhancedMarkdownViewer_markdownContent__7MPfW h3 { font-size: 1.25em; }
+.EnhancedMarkdownViewer_markdownContent__7MPfW h4 { font-size: 1em; }
+.EnhancedMarkdownViewer_markdownContent__7MPfW h5 { font-size: 0.875em; }
+.EnhancedMarkdownViewer_markdownContent__7MPfW h6 { font-size: 0.85em; color: #666; }
+
+.EnhancedMarkdownViewer_markdownContent__7MPfW p {
+  margin-bottom: 16px;
+  line-height: 1.6;
+}
+
+.EnhancedMarkdownViewer_markdownContent__7MPfW code {
+  background: #f4f4f4;
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+  font-size: 0.9em;
+}
+
+.EnhancedMarkdownViewer_markdownContent__7MPfW pre {
+  background: #f4f4f4;
+  padding: 16px;
+  overflow-x: auto;
+  border-radius: 6px;
+  line-height: 1.45;
+}
+
+.EnhancedMarkdownViewer_markdownContent__7MPfW pre code {
+  background: none;
+  padding: 0;
+  font-size: 0.9em;
+}
+
+.EnhancedMarkdownViewer_markdownContent__7MPfW blockquote {
+  border-left: 4px solid #ddd;
+  margin: 0 0 16px 0;
+  padding-left: 16px;
+  color: #666;
+}
+
+.EnhancedMarkdownViewer_markdownContent__7MPfW table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.EnhancedMarkdownViewer_markdownContent__7MPfW th,
+.EnhancedMarkdownViewer_markdownContent__7MPfW td {
+  border: 1px solid #ddd;
+  padding: 8px 12px;
+  text-align: left;
+}
+
+.EnhancedMarkdownViewer_markdownContent__7MPfW th {
+  background-color: #f4f4f4;
+  font-weight: 600;
+}
+
+.EnhancedMarkdownViewer_markdownContent__7MPfW ul,
+.EnhancedMarkdownViewer_markdownContent__7MPfW ol {
+  margin-bottom: 16px;
+  padding-left: 2em;
+}
+
+.EnhancedMarkdownViewer_markdownContent__7MPfW li {
+  margin-bottom: 4px;
+}
+
+.EnhancedMarkdownViewer_markdownContent__7MPfW img {
+  max-width: 100%;
+  height: auto;
+}
+
+.EnhancedMarkdownViewer_markdownContent__7MPfW a {
+  color: #0066cc;
+  text-decoration: none;
+}
+
+.EnhancedMarkdownViewer_markdownContent__7MPfW a:hover {
+  text-decoration: underline;
+}
+
+/* Search highlighting */
+.search-match {
+  background-color: yellow;
+  padding: 2px 0;
+}
+
+.current-match {
+  background-color: orange;
+  padding: 2px 0;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .EnhancedMarkdownViewer_markdownToc__E2pIa {
+    position: fixed;
+    left: -250px;
+    top: 0;
+    height: 100%;
+    z-index: 20;
+    transition: left 0.3s;
+  }
+
+  .EnhancedMarkdownViewer_markdownToc__E2pIa.EnhancedMarkdownViewer_active__D-pKM {
+    left: 0;
+  }
+
+  .EnhancedMarkdownViewer_markdownContent__7MPfW {
+    padding: 20px;
+  }
+
+  .EnhancedMarkdownViewer_toolbarButton__x4YEh {
+    padding: 8px;
+    font-size: 12px;
+  }
+}
+
+/* Print styles */
+@media print {
+  .EnhancedMarkdownViewer_markdownToolbar__B0D59,
+  .EnhancedMarkdownViewer_searchBar__P\+Q1J,
+  .EnhancedMarkdownViewer_markdownToc__E2pIa {
+    display: none !important;
+  }
+
+  .EnhancedMarkdownViewer_markdownContent__7MPfW {
+    padding: 0;
+    max-width: none;
+  }
+
+  .EnhancedMarkdownViewer_markdownContent__7MPfW a {
+    color: #000;
+    text-decoration: underline;
+  }
+}
+
+.EnhancedMarkdownViewer_printing__nFfo9 .EnhancedMarkdownViewer_markdownToolbar__B0D59,
+.EnhancedMarkdownViewer_printing__nFfo9 .EnhancedMarkdownViewer_searchBar__P\+Q1J,
+.EnhancedMarkdownViewer_printing__nFfo9 .EnhancedMarkdownViewer_markdownToc__E2pIa {
+  display: none !important;
+}
+.DocumentationView_documentationView__kypH4 {
+  min-height: 100vh;
+  background: #f5f5f5;
+}
+
+.DocumentationView_docHeader__BGTnD {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 20px 40px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.DocumentationView_backLink__\+3a5V {
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 10px;
+  opacity: 0.9;
+  transition: opacity 0.2s;
+}
+
+.DocumentationView_backLink__\+3a5V:hover {
+  opacity: 1;
+}
+
+.DocumentationView_docHeader__BGTnD h1 {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.DocumentationView_docContainer__1HcBJ {
+  display: flex;
+  height: calc(100vh - 100px);
+}
+
+.DocumentationView_docSidebar__D0OgO {
+  width: 300px;
+  background: white;
+  border-right: 1px solid #e0e0e0;
+  overflow-y: auto;
+  padding: 20px;
+}
+
+.DocumentationView_sidebarTitle__1CbxV {
+  margin: 0 0 15px 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+}
+
+.DocumentationView_emptyMessage__dcTAt {
+  color: #666;
+  font-size: 14px;
+  text-align: center;
+  padding: 20px;
+}
+
+.DocumentationView_sidebarHeader__r-eYK {
+  padding: 20px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.DocumentationView_sidebarHeader__r-eYK h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
+
+.DocumentationView_fileTree__pXqLf {
+  padding: 10px;
+}
+
+.DocumentationView_fileTreeList__3e\+dT {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.DocumentationView_fileTreeItem__5HWEQ {
+  margin: 2px 0;
+}
+
+.DocumentationView_fileTreeLabel__p-a6J {
+  display: flex;
+  align-items: center;
+  padding: 6px 8px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+  -webkit-user-select: none;
+          user-select: none;
+}
+
+.DocumentationView_fileTreeLabel__p-a6J:hover {
+  background-color: #f0f0f0;
+}
+
+.DocumentationView_fileTreeLabel__p-a6J.DocumentationView_selected__-sshX {
+  background-color: #e3f2fd;
+  color: #1976d2;
+}
+
+.DocumentationView_fileTreeLabel__p-a6J .DocumentationView_icon__Pbrwz {
+  margin-right: 8px;
+  font-size: 16px;
+}
+
+.DocumentationView_fileTreeLabel__p-a6J .DocumentationView_name__5cPTW {
+  font-size: 14px;
+  flex: 1 1;
+}
+
+.DocumentationView_fileTreeChildren__00OBi {
+  margin-left: 20px;
+}
+
+.DocumentationView_docContent__vOFJi {
+  flex: 1 1;
+  background: white;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.DocumentationView_loadingState__ma1wW,
+.DocumentationView_errorState__11u4m,
+.DocumentationView_emptyState__qmaGO {
+  flex: 1 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  text-align: center;
+}
+
+.DocumentationView_spinner__F8mXr {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #667eea;
+  border-radius: 50%;
+  animation: DocumentationView_spin__c2WLS 1s linear infinite;
+  margin-bottom: 20px;
+}
+
+@keyframes DocumentationView_spin__c2WLS {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.DocumentationView_errorState__11u4m h2,
+.DocumentationView_emptyState__qmaGO h2 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.DocumentationView_errorState__11u4m p,
+.DocumentationView_emptyState__qmaGO p {
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.DocumentationView_errorState__11u4m button {
+  padding: 10px 20px;
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.2s;
+}
+
+.DocumentationView_errorState__11u4m button:hover {
+  background: #5a67d8;
+}
+
+.DocumentationView_noFiles__ub7U9 {
+  text-align: center;
+  color: #666;
+  font-size: 14px;
+  padding: 20px;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .DocumentationView_docContainer__1HcBJ {
+    flex-direction: column;
+  }
+
+  .DocumentationView_docSidebar__D0OgO {
+    width: 100%;
+    height: 200px;
+    border-right: none;
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  .DocumentationView_docHeader__BGTnD {
+    padding: 15px 20px;
+  }
+
+  .DocumentationView_docHeader__BGTnD h1 {
+    font-size: 1.5rem;
+  }
+}
+
+/*# sourceMappingURL=224.4484b679.chunk.css.map*/

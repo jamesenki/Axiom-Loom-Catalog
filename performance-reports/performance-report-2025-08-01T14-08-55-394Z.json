@@ -1,0 +1,179 @@
+{
+  "timestamp": "2025-08-01T14:08:55.234Z",
+  "target": "http://10.0.0.109",
+  "summary": {
+    "score": 100,
+    "passed": 7,
+    "failed": 0,
+    "warnings": 0
+  },
+  "pageLoad": {
+    "pages": {
+      "/": {
+        "loadTime": 3.3245,
+        "ttfb": 3.258208,
+        "size": 768,
+        "success": true
+      },
+      "/repositories": {
+        "loadTime": 1.420167,
+        "ttfb": 1.28975,
+        "size": 768,
+        "success": true
+      },
+      "/api-explorer": {
+        "loadTime": 1.224375,
+        "ttfb": 1.189166,
+        "size": 768,
+        "success": true
+      },
+      "/documentation": {
+        "loadTime": 1.336208,
+        "ttfb": 1.310916,
+        "size": 768,
+        "success": true
+      }
+    },
+    "avgLoadTime": 1.8263125
+  },
+  "api": {
+    "endpoints": {
+      "/api/health": {
+        "avgResponseTime": 2.4433584,
+        "samples": 5,
+        "success": true
+      },
+      "/api/repositories": {
+        "avgResponseTime": 2.2267166,
+        "samples": 5,
+        "success": true
+      },
+      "/api/search?q=test": {
+        "avgResponseTime": 2.3280001999999995,
+        "samples": 5,
+        "success": true
+      }
+    },
+    "avgResponseTime": 2.3326917333333337
+  },
+  "scenarios": {
+    "Homepage Load": {
+      "totalTime": 1,
+      "success": true,
+      "steps": [
+        {
+          "url": "http://10.0.0.109",
+          "duration": 1.584416,
+          "ttfb": 1.562958,
+          "size": 768,
+          "success": true
+        }
+      ]
+    },
+    "API Explorer Flow": {
+      "totalTime": 2,
+      "success": true,
+      "steps": [
+        {
+          "url": "http://10.0.0.109",
+          "duration": 1.073083,
+          "ttfb": 1.0505,
+          "size": 768,
+          "success": true
+        },
+        {
+          "url": "http://10.0.0.109/api-explorer",
+          "duration": 1.079292,
+          "ttfb": 1.058667,
+          "size": 768,
+          "success": true
+        }
+      ]
+    },
+    "Repository Browse": {
+      "totalTime": 3,
+      "success": true,
+      "steps": [
+        {
+          "url": "http://10.0.0.109",
+          "duration": 0.933584,
+          "ttfb": 0.911792,
+          "size": 768,
+          "success": true
+        },
+        {
+          "url": "http://10.0.0.109/repositories",
+          "duration": 1.13225,
+          "ttfb": 1.109334,
+          "size": 768,
+          "success": true
+        }
+      ]
+    },
+    "Documentation Access": {
+      "totalTime": 1,
+      "success": true,
+      "steps": [
+        {
+          "url": "http://10.0.0.109",
+          "duration": 0.962583,
+          "ttfb": 0.943958,
+          "size": 768,
+          "success": true
+        },
+        {
+          "url": "http://10.0.0.109/documentation",
+          "duration": 0.893709,
+          "ttfb": 0.874084,
+          "size": 768,
+          "success": true
+        }
+      ]
+    }
+  },
+  "load": {
+    "tests": {
+      "10_users": {
+        "totalTime": 13,
+        "totalRequests": 10,
+        "successfulRequests": 10,
+        "failedRequests": 0,
+        "errorRate": 0,
+        "avgResponseTime": 10.395387500000002,
+        "requestsPerSecond": 769.2307692307693
+      },
+      "25_users": {
+        "totalTime": 50,
+        "totalRequests": 25,
+        "successfulRequests": 25,
+        "failedRequests": 0,
+        "errorRate": 0,
+        "avgResponseTime": 29.57589004,
+        "requestsPerSecond": 500
+      },
+      "50_users": {
+        "totalTime": 17,
+        "totalRequests": 50,
+        "successfulRequests": 50,
+        "failedRequests": 0,
+        "errorRate": 0,
+        "avgResponseTime": 10.45440248,
+        "requestsPerSecond": 2941.176470588235
+      },
+      "100_users": {
+        "totalTime": 20,
+        "totalRequests": 100,
+        "successfulRequests": 100,
+        "failedRequests": 0,
+        "errorRate": 0,
+        "avgResponseTime": 13.32969832,
+        "requestsPerSecond": 5000
+      }
+    },
+    "maxRPS": 5000
+  },
+  "lighthouse": null,
+  "recommendations": [
+    "All performance metrics are within acceptable thresholds"
+  ]
+}

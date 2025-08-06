@@ -4,6 +4,8 @@
  * Handles synchronization of repository metadata through API calls
  */
 
+import { getApiUrl } from '../utils/apiConfig';
+
 export interface SyncStatus {
   isInProgress: boolean;
   currentRepository?: string;
@@ -43,10 +45,14 @@ class RepositorySyncService {
   /**
    * Start synchronization through API
    */
-  async startSync(): Promise<SyncResult> {
+  async startSync(limit?: number): Promise<SyncResult> {
     try {
-      const response = await fetch('/api/repository/sync', {
-        method: 'POST'
+      const response = await fetch(getApiUrl('/api/repository/sync'), {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ limit })
       });
       
       if (!response.ok) {
@@ -64,16 +70,22 @@ class RepositorySyncService {
    */
   async syncOnStartup(): Promise<SyncResult> {
     try {
-      const response = await fetch('/api/repository/sync/startup', {
-        method: 'POST'
+      const response = await fetch(getApiUrl('/api/repository/sync'), {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({})
       });
       
       if (!response.ok) {
-        throw new Error('Startup sync failed');
+        const errorText = await response.text();
+        throw new Error(`Startup sync failed: ${errorText}`);
       }
       
       return await response.json();
     } catch (error) {
+      console.error('Sync error:', error);
       // Return a default result on error
       return {
         success: false,
@@ -90,7 +102,7 @@ class RepositorySyncService {
    */
   async getSyncStatus(): Promise<SyncStatus> {
     try {
-      const response = await fetch('/api/repository/sync/status');
+      const response = await fetch(getApiUrl('/api/repository/sync/status'));
       
       if (!response.ok) {
         return this.syncStatus;
@@ -109,7 +121,7 @@ class RepositorySyncService {
    */
   async cloneRepository(repoName: string): Promise<void> {
     try {
-      const response = await fetch(`/api/repository/clone/${repoName}`, {
+      const response = await fetch(getApiUrl(`/api/repository/clone/${repoName}`), {
         method: 'POST'
       });
       
@@ -126,7 +138,7 @@ class RepositorySyncService {
    */
   async updateRepositoryMetadata(repoName: string): Promise<void> {
     try {
-      const response = await fetch(`/api/repository/metadata/${repoName}`, {
+      const response = await fetch(getApiUrl(`/api/repository/metadata/${repoName}`), {
         method: 'PUT'
       });
       

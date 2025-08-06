@@ -12,6 +12,18 @@ import { TextEncoder, TextDecoder } from 'util';
 global.TextEncoder = TextEncoder;
 global.TextDecoder = TextDecoder as any;
 
+// Add setImmediate polyfill for test environment
+if (typeof setImmediate === 'undefined') {
+  global.setImmediate = ((fn: any, ...args: any[]) => setTimeout(fn, 0, ...args)) as any;
+}
+
+// Setup DOM environment for tests
+beforeEach(() => {
+  // Ensure clean DOM for each test
+  document.body.innerHTML = '';
+  document.head.innerHTML = '';
+});
+
 // Mock window.matchMedia
 Object.defineProperty(window, 'matchMedia', {
   writable: true,

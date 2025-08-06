@@ -22,6 +22,7 @@ const RepositorySync: React.FC = () => {
   });
   const [lastSyncResult, setLastSyncResult] = useState<SyncResult | null>(null);
   const [showDetails, setShowDetails] = useState(false);
+  const [limitSync, setLimitSync] = useState(true); // Default to limited sync for testing
   const { updateSyncResult } = useSyncContext();
 
   // Load last sync info on mount
@@ -63,8 +64,8 @@ const RepositorySync: React.FC = () => {
         });
       }, 500);
 
-      // Start sync
-      const result = await repositorySyncService.syncOnStartup();
+      // Start sync with optional limit
+      const result = await repositorySyncService.startSync(limitSync ? 10 : undefined);
       
       // Clear progress monitoring
       clearInterval(progressInterval);
@@ -101,11 +102,19 @@ const RepositorySync: React.FC = () => {
       : `${seconds}s`;
   };
 
-  const formatDate = (date: Date): string => {
-    return new Intl.DateTimeFormat('en-US', {
-      dateStyle: 'medium',
-      timeStyle: 'short'
-    }).format(date);
+  const formatDate = (date: Date | string): string => {
+    try {
+      const dateObj = date instanceof Date ? date : new Date(date);
+      if (isNaN(dateObj.getTime())) {
+        return 'Never';
+      }
+      return new Intl.DateTimeFormat('en-US', {
+        dateStyle: 'medium',
+        timeStyle: 'short'
+      }).format(dateObj);
+    } catch (error) {
+      return 'Never';
+    }
   };
 
   return (
@@ -130,6 +139,18 @@ const RepositorySync: React.FC = () => {
                 Last sync: {formatDate(lastSyncResult.timestamp)}
               </p>
             )}
+            <label className="flex items-center gap-2 mt-2">
+              <input
+                type="checkbox"
+                checked={limitSync}
+                onChange={(e) => setLimitSync(e.target.checked)}
+                disabled={syncProgress.isRunning}
+                className="rounded border-gray-600 bg-gray-700 text-blue-500"
+              />
+              <span className="text-sm text-gray-300">
+                Limit to 10 repositories (faster testing)
+              </span>
+            </label>
           </div>
           <button
             onClick={handleManualSync}

@@ -8,12 +8,10 @@ describe('appStore', () => {
   beforeEach(() => {
     jest.clearAllMocks();
     // Reset store state
-    const { result } = renderHook(() => useAppStore());
-    act(() => {
-      result.current.repositories = [];
-      result.current.isLoading = false;
-      result.current.error = null;
-    });
+    const store = useAppStore.getState();
+    store.repositories = [];
+    store.isLoading = false;
+    store.error = null;
   });
 
   it('has initial state', () => {

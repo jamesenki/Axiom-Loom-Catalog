@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { DynamicApiButtons } from './DynamicApiButtons';
 import { ArrowLeft, Folder, GitBranch, Calendar, Info } from 'lucide-react';
+import { getApiUrl } from '../utils/apiConfig';
 
 interface Repository {
   name: string;
@@ -26,7 +27,7 @@ const RepositoryView: React.FC = () => {
       try {
         setLoading(true);
         // Fetch repository details from API
-        const response = await fetch(`/api/repository/${repoName}`);
+        const response = await fetch(getApiUrl(`/api/repository/${repoName}`));
         if (response.ok) {
           const data = await response.json();
           setRepository(data);

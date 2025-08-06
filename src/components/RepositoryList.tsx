@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useSyncContext } from '../contexts/SyncContext';
 import AddRepositoryModal from './AddRepositoryModal';
+import { getApiUrl } from '../utils/apiConfig';
 
 interface Repository {
   id: string;
@@ -26,7 +27,7 @@ const RepositoryList: React.FC = () => {
   useEffect(() => {
     const fetchRepositories = async () => {
       try {
-        const response = await fetch('/api/repositories');
+        const response = await fetch(getApiUrl('/api/repositories'));
         if (!response.ok) {
           throw new Error('Failed to fetch repositories');
         }
@@ -46,7 +47,7 @@ const RepositoryList: React.FC = () => {
     // Refresh the repository list
     const fetchRepositories = async () => {
       try {
-        const response = await fetch('/api/repositories');
+        const response = await fetch(getApiUrl('/api/repositories'));
         if (!response.ok) {
           throw new Error('Failed to fetch repositories');
         }

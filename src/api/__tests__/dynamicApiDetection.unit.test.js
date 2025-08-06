@@ -1,3 +1,8 @@
+// Fix for setImmediate not defined in test environment
+if (typeof setImmediate === 'undefined') {
+  global.setImmediate = (fn, ...args) => setTimeout(fn, 0, ...args);
+}
+
 const request = require('supertest');
 const express = require('express');
 const dynamicApiRoutes = require('../dynamicApiDetection');

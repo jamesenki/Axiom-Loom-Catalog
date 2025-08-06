@@ -6,6 +6,7 @@
  */
 
 import { RepositoryMetadata } from './repositorySync';
+import { getApiUrl } from '../utils/apiConfig';
 
 export interface SearchOptions {
   query: string;
@@ -95,7 +96,7 @@ class SearchService {
   async search(options: SearchOptions): Promise<SearchResponse> {
     try {
       // Use API endpoint for search
-      const response = await fetch('http://localhost:3001/api/search', {
+      const response = await fetch(getApiUrl('/api/search'), {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -188,7 +189,7 @@ class SearchService {
    */
   async getSuggestions(partialQuery: string, limit: number = 5): Promise<string[]> {
     try {
-      const response = await fetch(`http://localhost:3001/api/search/suggestions?q=${encodeURIComponent(partialQuery)}`);
+      const response = await fetch(getApiUrl(`/api/search/suggestions?q=${encodeURIComponent(partialQuery)}`));
       
       if (!response.ok) {
         throw new Error('Suggestions API error');

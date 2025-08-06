@@ -32,7 +32,7 @@ describe('DocumentationView', () => {
 
   it('has correct text color styling', () => {
     const { container } = renderWithRouter();
-    const mainDiv = container.querySelector('div[style]');
+    const mainDiv = document.querySelector('div[style]');
     expect(mainDiv).toHaveStyle({ color: 'white', padding: '20px' });
   });
 

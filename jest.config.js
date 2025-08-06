@@ -33,12 +33,17 @@ module.exports = {
     '^(?!.*\\.(js|jsx|mjs|cjs|ts|tsx|css|json)$)': '<rootDir>/node_modules/react-scripts/config/jest/fileTransform.js'
   },
   transformIgnorePatterns: [
-    '[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs|cjs|ts|tsx)$',
+    '[/\\\\]node_modules[/\\\\](?!(remark-gfm|micromark|mdast|unist|unified|bail|is-plain-obj|trough|vfile|hast|property-information|space-separated-tokens|comma-separated-tokens|estree-util-is-identifier-name|micromark-.*|decode-named-character-reference|character-entities|rehype-.*|remark-.*)[/\\\\]).+\\.(js|jsx|mjs|cjs|ts|tsx)$',
     '^.+\\.module\\.(css|sass|scss)$'
   ],
   moduleNameMapper: {
     '^react-native$': 'react-native-web',
-    '^.+\\.module\\.(css|sass|scss)$': 'identity-obj-proxy'
+    '^.+\\.module\\.(css|sass|scss)$': 'identity-obj-proxy',
+    '^remark-gfm$': '<rootDir>/src/__mocks__/remark-gfm.js',
+    '^rehype-highlight$': '<rootDir>/src/__mocks__/rehype-highlight.js',
+    '^rehype-slug$': '<rootDir>/src/__mocks__/rehype-slug.js',
+    '^rehype-autolink-headings$': '<rootDir>/src/__mocks__/rehype-autolink-headings.js',
+    '^mermaid$': '<rootDir>/src/__mocks__/mermaid.js'
   },
   moduleFileExtensions: [
     'web.js',

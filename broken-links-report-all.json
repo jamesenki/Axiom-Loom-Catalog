@@ -1,0 +1,3403 @@
+{
+  "timestamp": "2025-07-30T18:39:36.974Z",
+  "totalBrokenLinks": 419,
+  "totalFixed": 366,
+  "brokenLinksByRepo": {
+    "copilot-architecture-template": [
+      {
+        "file": "CUSTOMIZATION_GUIDE.md",
+        "line": 591,
+        "linkText": "Developer Usage Guide",
+        "linkPath": "DEVELOPER_USAGE_GUIDE.md",
+        "targetPath": "DEVELOPER_USAGE_GUIDE.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/copilot-architecture-template/DEVELOPER_USAGE_GUIDE.md"
+      },
+      {
+        "file": "README.md",
+        "line": 140,
+        "linkText": "E-commerce Example",
+        "linkPath": "./docs/examples/ecommerce-example.md",
+        "targetPath": "docs/examples/ecommerce-example.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/copilot-architecture-template/docs/examples/ecommerce-example.md"
+      },
+      {
+        "file": "README.md",
+        "line": 141,
+        "linkText": "Healthcare Example",
+        "linkPath": "./docs/examples/healthcare-example.md",
+        "targetPath": "docs/examples/healthcare-example.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/copilot-architecture-template/docs/examples/healthcare-example.md"
+      },
+      {
+        "file": "README.md",
+        "line": 142,
+        "linkText": "FinTech Example",
+        "linkPath": "./docs/examples/fintech-example.md",
+        "targetPath": "docs/examples/fintech-example.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/copilot-architecture-template/docs/examples/fintech-example.md"
+      },
+      {
+        "file": "docs/DEVELOPER_USAGE_GUIDE.md",
+        "line": 19,
+        "linkText": "Developer Guide",
+        "linkPath": "docs/DEVELOPER_GUIDE.md",
+        "targetPath": "docs/docs/DEVELOPER_GUIDE.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/copilot-architecture-template/docs/docs/DEVELOPER_GUIDE.md"
+      },
+      {
+        "file": "docs/INTEGRATION_GUIDE.md",
+        "line": 18,
+        "linkText": "API Design Guide",
+        "linkPath": "./docs/API_DESIGN_GUIDE.md",
+        "targetPath": "docs/docs/API_DESIGN_GUIDE.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/copilot-architecture-template/docs/docs/API_DESIGN_GUIDE.md"
+      },
+      {
+        "file": "docs/MODE_SYSTEM_GUIDE.md",
+        "line": 18,
+        "linkText": "Deployment Guide",
+        "linkPath": "./docs/DEPLOYMENT_GUIDE.md",
+        "targetPath": "docs/docs/DEPLOYMENT_GUIDE.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/copilot-architecture-template/docs/docs/DEPLOYMENT_GUIDE.md"
+      }
+    ],
+    "ecosystem-platform-architecture": [
+      {
+        "file": "CUSTOMIZATION_GUIDE.md",
+        "line": 591,
+        "linkText": "Developer Usage Guide",
+        "linkPath": "DEVELOPER_USAGE_GUIDE.md",
+        "targetPath": "DEVELOPER_USAGE_GUIDE.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/ecosystem-platform-architecture/DEVELOPER_USAGE_GUIDE.md"
+      },
+      {
+        "file": "README.md",
+        "line": 140,
+        "linkText": "E-commerce Example",
+        "linkPath": "./docs/examples/ECOMMERCE_EXAMPLE.md",
+        "targetPath": "docs/examples/ECOMMERCE_EXAMPLE.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/ecosystem-platform-architecture/docs/examples/ECOMMERCE_EXAMPLE.md"
+      },
+      {
+        "file": "README.md",
+        "line": 141,
+        "linkText": "Healthcare Example",
+        "linkPath": "./docs/examples/HEALTHCARE_EXAMPLE.md",
+        "targetPath": "docs/examples/HEALTHCARE_EXAMPLE.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/ecosystem-platform-architecture/docs/examples/HEALTHCARE_EXAMPLE.md"
+      },
+      {
+        "file": "README.md",
+        "line": 142,
+        "linkText": "FinTech Example",
+        "linkPath": "./docs/examples/FINTECH_EXAMPLE.md",
+        "targetPath": "docs/examples/FINTECH_EXAMPLE.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/ecosystem-platform-architecture/docs/examples/FINTECH_EXAMPLE.md"
+      },
+      {
+        "file": "TEMPLATE-README.md",
+        "line": 140,
+        "linkText": "E-commerce Example",
+        "linkPath": "./docs/examples/ecommerce-example.md",
+        "targetPath": "docs/examples/ecommerce-example.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/ecosystem-platform-architecture/docs/examples/ecommerce-example.md"
+      },
+      {
+        "file": "TEMPLATE-README.md",
+        "line": 141,
+        "linkText": "Healthcare Example",
+        "linkPath": "./docs/examples/healthcare-example.md",
+        "targetPath": "docs/examples/healthcare-example.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/ecosystem-platform-architecture/docs/examples/healthcare-example.md"
+      },
+      {
+        "file": "TEMPLATE-README.md",
+        "line": 142,
+        "linkText": "FinTech Example",
+        "linkPath": "./docs/examples/fintech-example.md",
+        "targetPath": "docs/examples/fintech-example.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/ecosystem-platform-architecture/docs/examples/fintech-example.md"
+      },
+      {
+        "file": "docs/DEVELOPER_USAGE_GUIDE.md",
+        "line": 19,
+        "linkText": "Developer Guide",
+        "linkPath": "docs/DEVELOPER_GUIDE.md",
+        "targetPath": "docs/docs/DEVELOPER_GUIDE.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/ecosystem-platform-architecture/docs/docs/DEVELOPER_GUIDE.md"
+      },
+      {
+        "file": "docs/INTEGRATION_GUIDE.md",
+        "line": 18,
+        "linkText": "API Design Guide",
+        "linkPath": "./docs/API_DESIGN_GUIDE.md",
+        "targetPath": "docs/docs/API_DESIGN_GUIDE.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/ecosystem-platform-architecture/docs/docs/API_DESIGN_GUIDE.md"
+      },
+      {
+        "file": "docs/MODE_SYSTEM_GUIDE.md",
+        "line": 18,
+        "linkText": "Deployment Guide",
+        "linkPath": "./docs/DEPLOYMENT_GUIDE.md",
+        "targetPath": "docs/docs/DEPLOYMENT_GUIDE.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/ecosystem-platform-architecture/docs/docs/DEPLOYMENT_GUIDE.md"
+      }
+    ],
+    "future-mobility-fleet-platform": [
+      {
+        "file": "CUSTOMIZATION_GUIDE.md",
+        "line": 591,
+        "linkText": "Developer Usage Guide",
+        "linkPath": "DEVELOPER_USAGE_GUIDE.md",
+        "targetPath": "DEVELOPER_USAGE_GUIDE.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-fleet-platform/DEVELOPER_USAGE_GUIDE.md"
+      },
+      {
+        "file": "CUSTOMIZATION_GUIDE.md",
+        "line": 592,
+        "linkText": "Component Reference",
+        "linkPath": "COMPONENT_REFERENCE.md",
+        "targetPath": "COMPONENT_REFERENCE.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-fleet-platform/COMPONENT_REFERENCE.md"
+      },
+      {
+        "file": "CUSTOMIZATION_GUIDE.md",
+        "line": 593,
+        "linkText": "Best Practices",
+        "linkPath": "BEST_PRACTICES.md",
+        "targetPath": "BEST_PRACTICES.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-fleet-platform/BEST_PRACTICES.md"
+      },
+      {
+        "file": "README.md",
+        "line": 84,
+        "linkText": "**Technical Specifications**",
+        "linkPath": "docs/TECHNICAL_SPECIFICATIONS.md",
+        "targetPath": "docs/TECHNICAL_SPECIFICATIONS.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-fleet-platform/docs/TECHNICAL_SPECIFICATIONS.md"
+      },
+      {
+        "file": "README.md",
+        "line": 90,
+        "linkText": "**Integration Guide**",
+        "linkPath": "docs/INTEGRATION_GUIDE.md",
+        "targetPath": "docs/INTEGRATION_GUIDE.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-fleet-platform/docs/INTEGRATION_GUIDE.md"
+      },
+      {
+        "file": "README.md",
+        "line": 91,
+        "linkText": "**Deployment Guide**",
+        "linkPath": "docs/DEPLOYMENT_GUIDE.md",
+        "targetPath": "docs/DEPLOYMENT_GUIDE.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-fleet-platform/docs/DEPLOYMENT_GUIDE.md"
+      },
+      {
+        "file": "README.md",
+        "line": 100,
+        "linkText": "**Business Case**",
+        "linkPath": "docs/BUSINESS_CASE.md",
+        "targetPath": "docs/BUSINESS_CASE.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-fleet-platform/docs/BUSINESS_CASE.md"
+      },
+      {
+        "file": "README.md",
+        "line": 101,
+        "linkText": "**Competitive Analysis**",
+        "linkPath": "docs/COMPETITIVE_ANALYSIS.md",
+        "targetPath": "docs/COMPETITIVE_ANALYSIS.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-fleet-platform/docs/COMPETITIVE_ANALYSIS.md"
+      },
+      {
+        "file": "README.md",
+        "line": 105,
+        "linkText": "**Environment Configuration**",
+        "linkPath": ".env.example",
+        "targetPath": ".env.example",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-fleet-platform/.env.example"
+      },
+      {
+        "file": "README.md",
+        "line": 106,
+        "linkText": "**Docker Configuration**",
+        "linkPath": "docker-compose.yml",
+        "targetPath": "docker-compose.yml",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-fleet-platform/docker-compose.yml"
+      },
+      {
+        "file": "README.md",
+        "line": 112,
+        "linkText": "Business Case",
+        "linkPath": "docs/BUSINESS_CASE.md",
+        "targetPath": "docs/BUSINESS_CASE.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-fleet-platform/docs/BUSINESS_CASE.md"
+      },
+      {
+        "file": "README.md",
+        "line": 113,
+        "linkText": "Competitive Analysis",
+        "linkPath": "docs/COMPETITIVE_ANALYSIS.md",
+        "targetPath": "docs/COMPETITIVE_ANALYSIS.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-fleet-platform/docs/COMPETITIVE_ANALYSIS.md"
+      },
+      {
+        "file": "README.md",
+        "line": 123,
+        "linkText": "Integration Guide",
+        "linkPath": "docs/INTEGRATION_GUIDE.md",
+        "targetPath": "docs/INTEGRATION_GUIDE.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-fleet-platform/docs/INTEGRATION_GUIDE.md"
+      },
+      {
+        "file": "README.md",
+        "line": 126,
+        "linkText": "Deployment Guide",
+        "linkPath": "docs/DEPLOYMENT_GUIDE.md",
+        "targetPath": "docs/DEPLOYMENT_GUIDE.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-fleet-platform/docs/DEPLOYMENT_GUIDE.md"
+      },
+      {
+        "file": "README.md",
+        "line": 128,
+        "linkText": "observability components",
+        "linkPath": "docs/COMPONENT_REFERENCE.md#monitoring--observability",
+        "targetPath": "docs/COMPONENT_REFERENCE.md#monitoring--observability",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-fleet-platform/docs/COMPONENT_REFERENCE.md#monitoring--observability"
+      },
+      {
+        "file": "README.md",
+        "line": 238,
+        "linkText": "Priority 1 Core Automotive APIs",
+        "linkPath": "apis/priority-1-core-automotive/",
+        "targetPath": "apis/priority-1-core-automotive",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-fleet-platform/apis/priority-1-core-automotive/"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 41,
+        "linkText": "📖 Guide",
+        "linkPath": "./docs/api-specs/api-1/implementation-guide.md",
+        "targetPath": "docs/api-specs/api-1/implementation-guide.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-fleet-platform/docs/api-specs/api-1/implementation-guide.md"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 41,
+        "linkText": "🧪 Test",
+        "linkPath": "./docs/api-specs/api-1/postman-collection.json",
+        "targetPath": "docs/api-specs/api-1/postman-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-fleet-platform/docs/api-specs/api-1/postman-collection.json"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 42,
+        "linkText": "📖 Guide",
+        "linkPath": "./docs/api-specs/api-2/implementation-guide.md",
+        "targetPath": "docs/api-specs/api-2/implementation-guide.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-fleet-platform/docs/api-specs/api-2/implementation-guide.md"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 42,
+        "linkText": "🧪 Test",
+        "linkPath": "./docs/api-specs/api-2/postman-collection.json",
+        "targetPath": "docs/api-specs/api-2/postman-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-fleet-platform/docs/api-specs/api-2/postman-collection.json"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 43,
+        "linkText": "📖 Guide",
+        "linkPath": "./docs/api-specs/api-3/implementation-guide.md",
+        "targetPath": "docs/api-specs/api-3/implementation-guide.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-fleet-platform/docs/api-specs/api-3/implementation-guide.md"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 43,
+        "linkText": "🧪 Test",
+        "linkPath": "./docs/api-specs/api-3/postman-collection.json",
+        "targetPath": "docs/api-specs/api-3/postman-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-fleet-platform/docs/api-specs/api-3/postman-collection.json"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 44,
+        "linkText": "📖 Guide",
+        "linkPath": "./docs/api-specs/api-4/implementation-guide.md",
+        "targetPath": "docs/api-specs/api-4/implementation-guide.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-fleet-platform/docs/api-specs/api-4/implementation-guide.md"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 44,
+        "linkText": "🧪 Test",
+        "linkPath": "./docs/api-specs/api-4/postman-collection.json",
+        "targetPath": "docs/api-specs/api-4/postman-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-fleet-platform/docs/api-specs/api-4/postman-collection.json"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 45,
+        "linkText": "📖 Guide",
+        "linkPath": "./docs/api-specs/api-7/implementation-guide.md",
+        "targetPath": "docs/api-specs/api-7/implementation-guide.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-fleet-platform/docs/api-specs/api-7/implementation-guide.md"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 45,
+        "linkText": "🧪 Test",
+        "linkPath": "./docs/api-specs/api-7/postman-collection.json",
+        "targetPath": "docs/api-specs/api-7/postman-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-fleet-platform/docs/api-specs/api-7/postman-collection.json"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 46,
+        "linkText": "📖 Guide",
+        "linkPath": "./docs/api-specs/api-9/implementation-guide.md",
+        "targetPath": "docs/api-specs/api-9/implementation-guide.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-fleet-platform/docs/api-specs/api-9/implementation-guide.md"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 46,
+        "linkText": "🧪 Test",
+        "linkPath": "./docs/api-specs/api-9/postman-collection.json",
+        "targetPath": "docs/api-specs/api-9/postman-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-fleet-platform/docs/api-specs/api-9/postman-collection.json"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 47,
+        "linkText": "📖 Guide",
+        "linkPath": "./docs/api-specs/api-11/implementation-guide.md",
+        "targetPath": "docs/api-specs/api-11/implementation-guide.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-fleet-platform/docs/api-specs/api-11/implementation-guide.md"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 47,
+        "linkText": "🧪 Test",
+        "linkPath": "./docs/api-specs/api-11/postman-collection.json",
+        "targetPath": "docs/api-specs/api-11/postman-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-fleet-platform/docs/api-specs/api-11/postman-collection.json"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 48,
+        "linkText": "📖 Guide",
+        "linkPath": "./docs/api-specs/api-12/implementation-guide.md",
+        "targetPath": "docs/api-specs/api-12/implementation-guide.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-fleet-platform/docs/api-specs/api-12/implementation-guide.md"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 48,
+        "linkText": "🧪 Test",
+        "linkPath": "./docs/api-specs/api-12/postman-collection.json",
+        "targetPath": "docs/api-specs/api-12/postman-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-fleet-platform/docs/api-specs/api-12/postman-collection.json"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 49,
+        "linkText": "📖 Guide",
+        "linkPath": "./docs/api-specs/api-13/implementation-guide.md",
+        "targetPath": "docs/api-specs/api-13/implementation-guide.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-fleet-platform/docs/api-specs/api-13/implementation-guide.md"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 49,
+        "linkText": "🧪 Test",
+        "linkPath": "./docs/api-specs/api-13/postman-collection.json",
+        "targetPath": "docs/api-specs/api-13/postman-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-fleet-platform/docs/api-specs/api-13/postman-collection.json"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 50,
+        "linkText": "📖 Guide",
+        "linkPath": "./docs/api-specs/api-14/implementation-guide.md",
+        "targetPath": "docs/api-specs/api-14/implementation-guide.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-fleet-platform/docs/api-specs/api-14/implementation-guide.md"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 50,
+        "linkText": "🧪 Test",
+        "linkPath": "./docs/api-specs/api-14/postman-collection.json",
+        "targetPath": "docs/api-specs/api-14/postman-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-fleet-platform/docs/api-specs/api-14/postman-collection.json"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 51,
+        "linkText": "📖 Guide",
+        "linkPath": "./docs/api-specs/api-15/implementation-guide.md",
+        "targetPath": "docs/api-specs/api-15/implementation-guide.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-fleet-platform/docs/api-specs/api-15/implementation-guide.md"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 51,
+        "linkText": "🧪 Test",
+        "linkPath": "./docs/api-specs/api-15/postman-collection.json",
+        "targetPath": "docs/api-specs/api-15/postman-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-fleet-platform/docs/api-specs/api-15/postman-collection.json"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 52,
+        "linkText": "📖 Guide",
+        "linkPath": "./docs/api-specs/api-30/implementation-guide.md",
+        "targetPath": "docs/api-specs/api-30/implementation-guide.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-fleet-platform/docs/api-specs/api-30/implementation-guide.md"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 52,
+        "linkText": "🧪 Test",
+        "linkPath": "./docs/api-specs/api-30/postman-collection.json",
+        "targetPath": "docs/api-specs/api-30/postman-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-fleet-platform/docs/api-specs/api-30/postman-collection.json"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 53,
+        "linkText": "📖 Guide",
+        "linkPath": "./docs/api-specs/api-32/implementation-guide.md",
+        "targetPath": "docs/api-specs/api-32/implementation-guide.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-fleet-platform/docs/api-specs/api-32/implementation-guide.md"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 53,
+        "linkText": "🧪 Test",
+        "linkPath": "./docs/api-specs/api-32/postman-collection.json",
+        "targetPath": "docs/api-specs/api-32/postman-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-fleet-platform/docs/api-specs/api-32/postman-collection.json"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 54,
+        "linkText": "📖 Guide",
+        "linkPath": "./docs/api-specs/api-36/implementation-guide.md",
+        "targetPath": "docs/api-specs/api-36/implementation-guide.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-fleet-platform/docs/api-specs/api-36/implementation-guide.md"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 54,
+        "linkText": "🧪 Test",
+        "linkPath": "./docs/api-specs/api-36/postman-collection.json",
+        "targetPath": "docs/api-specs/api-36/postman-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-fleet-platform/docs/api-specs/api-36/postman-collection.json"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 147,
+        "linkText": "GitHub Issues",
+        "linkPath": "../../issues",
+        "targetPath": "../../issues",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/issues"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 152,
+        "linkText": "Community Discussions",
+        "linkPath": "../../discussions",
+        "targetPath": "../../discussions",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/discussions"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 153,
+        "linkText": "Example Implementations",
+        "linkPath": "./examples/",
+        "targetPath": "examples",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-fleet-platform/examples/"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 154,
+        "linkText": "Integration Guidelines",
+        "linkPath": "./docs/best-practices.md",
+        "targetPath": "docs/best-practices.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-fleet-platform/docs/best-practices.md"
+      },
+      {
+        "file": "docs/ARCHITECT_GUIDE.md",
+        "line": 445,
+        "linkText": "GitHub Setup Guide",
+        "linkPath": "GITHUB_SETUP_GUIDE.md",
+        "targetPath": "docs/GITHUB_SETUP_GUIDE.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-fleet-platform/docs/GITHUB_SETUP_GUIDE.md"
+      },
+      {
+        "file": "docs/api-specs/index.md",
+        "line": 14,
+        "linkText": "Postman Collection",
+        "linkPath": "../postman-collections/api-1-collection.json",
+        "targetPath": "docs/postman-collections/api-1-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-fleet-platform/docs/postman-collections/api-1-collection.json"
+      },
+      {
+        "file": "docs/api-specs/index.md",
+        "line": 21,
+        "linkText": "Postman Collection",
+        "linkPath": "../postman-collections/api-2-collection.json",
+        "targetPath": "docs/postman-collections/api-2-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-fleet-platform/docs/postman-collections/api-2-collection.json"
+      },
+      {
+        "file": "docs/api-specs/index.md",
+        "line": 28,
+        "linkText": "Postman Collection",
+        "linkPath": "../postman-collections/api-3-collection.json",
+        "targetPath": "docs/postman-collections/api-3-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-fleet-platform/docs/postman-collections/api-3-collection.json"
+      },
+      {
+        "file": "docs/api-specs/index.md",
+        "line": 35,
+        "linkText": "Postman Collection",
+        "linkPath": "../postman-collections/api-4-collection.json",
+        "targetPath": "docs/postman-collections/api-4-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-fleet-platform/docs/postman-collections/api-4-collection.json"
+      },
+      {
+        "file": "docs/api-specs/index.md",
+        "line": 42,
+        "linkText": "Postman Collection",
+        "linkPath": "../postman-collections/api-7-collection.json",
+        "targetPath": "docs/postman-collections/api-7-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-fleet-platform/docs/postman-collections/api-7-collection.json"
+      },
+      {
+        "file": "docs/api-specs/index.md",
+        "line": 49,
+        "linkText": "Postman Collection",
+        "linkPath": "../postman-collections/api-9-collection.json",
+        "targetPath": "docs/postman-collections/api-9-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-fleet-platform/docs/postman-collections/api-9-collection.json"
+      },
+      {
+        "file": "docs/api-specs/index.md",
+        "line": 56,
+        "linkText": "Postman Collection",
+        "linkPath": "../postman-collections/api-11-collection.json",
+        "targetPath": "docs/postman-collections/api-11-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-fleet-platform/docs/postman-collections/api-11-collection.json"
+      },
+      {
+        "file": "docs/api-specs/index.md",
+        "line": 63,
+        "linkText": "Postman Collection",
+        "linkPath": "../postman-collections/api-12-collection.json",
+        "targetPath": "docs/postman-collections/api-12-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-fleet-platform/docs/postman-collections/api-12-collection.json"
+      },
+      {
+        "file": "docs/api-specs/index.md",
+        "line": 70,
+        "linkText": "Postman Collection",
+        "linkPath": "../postman-collections/api-13-collection.json",
+        "targetPath": "docs/postman-collections/api-13-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-fleet-platform/docs/postman-collections/api-13-collection.json"
+      },
+      {
+        "file": "docs/api-specs/index.md",
+        "line": 77,
+        "linkText": "Postman Collection",
+        "linkPath": "../postman-collections/api-14-collection.json",
+        "targetPath": "docs/postman-collections/api-14-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-fleet-platform/docs/postman-collections/api-14-collection.json"
+      },
+      {
+        "file": "docs/api-specs/index.md",
+        "line": 84,
+        "linkText": "Postman Collection",
+        "linkPath": "../postman-collections/api-15-collection.json",
+        "targetPath": "docs/postman-collections/api-15-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-fleet-platform/docs/postman-collections/api-15-collection.json"
+      },
+      {
+        "file": "docs/api-specs/index.md",
+        "line": 91,
+        "linkText": "Postman Collection",
+        "linkPath": "../postman-collections/api-30-collection.json",
+        "targetPath": "docs/postman-collections/api-30-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-fleet-platform/docs/postman-collections/api-30-collection.json"
+      },
+      {
+        "file": "docs/api-specs/index.md",
+        "line": 98,
+        "linkText": "Postman Collection",
+        "linkPath": "../postman-collections/api-32-collection.json",
+        "targetPath": "docs/postman-collections/api-32-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-fleet-platform/docs/postman-collections/api-32-collection.json"
+      },
+      {
+        "file": "docs/api-specs/index.md",
+        "line": 105,
+        "linkText": "Postman Collection",
+        "linkPath": "../postman-collections/api-36-collection.json",
+        "targetPath": "docs/postman-collections/api-36-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-fleet-platform/docs/postman-collections/api-36-collection.json"
+      },
+      {
+        "file": "docs/architecture/index.md",
+        "line": 7,
+        "linkText": "Technical Design",
+        "linkPath": "technical-design.md",
+        "targetPath": "docs/architecture/technical-design.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-fleet-platform/docs/architecture/technical-design.md"
+      },
+      {
+        "file": "docs/architecture/index.md",
+        "line": 8,
+        "linkText": "Security Architecture",
+        "linkPath": "security.md",
+        "targetPath": "docs/architecture/security.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-fleet-platform/docs/architecture/security.md"
+      },
+      {
+        "file": "docs/architecture/index.md",
+        "line": 9,
+        "linkText": "Deployment Guide",
+        "linkPath": "deployment.md",
+        "targetPath": "docs/architecture/deployment.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-fleet-platform/docs/architecture/deployment.md"
+      }
+    ],
+    "future-mobility-oems-platform": [
+      {
+        "file": "CUSTOMIZATION_GUIDE.md",
+        "line": 591,
+        "linkText": "Developer Usage Guide",
+        "linkPath": "DEVELOPER_USAGE_GUIDE.md",
+        "targetPath": "DEVELOPER_USAGE_GUIDE.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-oems-platform/DEVELOPER_USAGE_GUIDE.md"
+      },
+      {
+        "file": "CUSTOMIZATION_GUIDE.md",
+        "line": 592,
+        "linkText": "Component Reference",
+        "linkPath": "COMPONENT_REFERENCE.md",
+        "targetPath": "COMPONENT_REFERENCE.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-oems-platform/COMPONENT_REFERENCE.md"
+      },
+      {
+        "file": "CUSTOMIZATION_GUIDE.md",
+        "line": 593,
+        "linkText": "Best Practices",
+        "linkPath": "BEST_PRACTICES.md",
+        "targetPath": "BEST_PRACTICES.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-oems-platform/BEST_PRACTICES.md"
+      },
+      {
+        "file": "README.md",
+        "line": 41,
+        "linkText": "📖 Guide",
+        "linkPath": "/docs/future-mobility-oems-platform/docs/api-specs/api-1/implementation-guide.md",
+        "targetPath": "docs/future-mobility-oems-platform/docs/api-specs/api-1/implementation-guide.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-oems-platform/docs/future-mobility-oems-platform/docs/api-specs/api-1/implementation-guide.md"
+      },
+      {
+        "file": "README.md",
+        "line": 41,
+        "linkText": "🧪 Test",
+        "linkPath": "/docs/future-mobility-oems-platform/docs/api-specs/api-1/postman-collection.json",
+        "targetPath": "docs/future-mobility-oems-platform/docs/api-specs/api-1/postman-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-oems-platform/docs/future-mobility-oems-platform/docs/api-specs/api-1/postman-collection.json"
+      },
+      {
+        "file": "README.md",
+        "line": 42,
+        "linkText": "📖 Guide",
+        "linkPath": "/docs/future-mobility-oems-platform/docs/api-specs/api-6/implementation-guide.md",
+        "targetPath": "docs/future-mobility-oems-platform/docs/api-specs/api-6/implementation-guide.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-oems-platform/docs/future-mobility-oems-platform/docs/api-specs/api-6/implementation-guide.md"
+      },
+      {
+        "file": "README.md",
+        "line": 42,
+        "linkText": "🧪 Test",
+        "linkPath": "/docs/future-mobility-oems-platform/docs/api-specs/api-6/postman-collection.json",
+        "targetPath": "docs/future-mobility-oems-platform/docs/api-specs/api-6/postman-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-oems-platform/docs/future-mobility-oems-platform/docs/api-specs/api-6/postman-collection.json"
+      },
+      {
+        "file": "README.md",
+        "line": 43,
+        "linkText": "📖 Guide",
+        "linkPath": "/docs/future-mobility-oems-platform/docs/api-specs/api-12/implementation-guide.md",
+        "targetPath": "docs/future-mobility-oems-platform/docs/api-specs/api-12/implementation-guide.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-oems-platform/docs/future-mobility-oems-platform/docs/api-specs/api-12/implementation-guide.md"
+      },
+      {
+        "file": "README.md",
+        "line": 43,
+        "linkText": "🧪 Test",
+        "linkPath": "/docs/future-mobility-oems-platform/docs/api-specs/api-12/postman-collection.json",
+        "targetPath": "docs/future-mobility-oems-platform/docs/api-specs/api-12/postman-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-oems-platform/docs/future-mobility-oems-platform/docs/api-specs/api-12/postman-collection.json"
+      },
+      {
+        "file": "README.md",
+        "line": 44,
+        "linkText": "📖 Guide",
+        "linkPath": "/docs/future-mobility-oems-platform/docs/api-specs/api-13/implementation-guide.md",
+        "targetPath": "docs/future-mobility-oems-platform/docs/api-specs/api-13/implementation-guide.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-oems-platform/docs/future-mobility-oems-platform/docs/api-specs/api-13/implementation-guide.md"
+      },
+      {
+        "file": "README.md",
+        "line": 44,
+        "linkText": "🧪 Test",
+        "linkPath": "/docs/future-mobility-oems-platform/docs/api-specs/api-13/postman-collection.json",
+        "targetPath": "docs/future-mobility-oems-platform/docs/api-specs/api-13/postman-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-oems-platform/docs/future-mobility-oems-platform/docs/api-specs/api-13/postman-collection.json"
+      },
+      {
+        "file": "README.md",
+        "line": 45,
+        "linkText": "📖 Guide",
+        "linkPath": "/docs/future-mobility-oems-platform/docs/api-specs/api-18/implementation-guide.md",
+        "targetPath": "docs/future-mobility-oems-platform/docs/api-specs/api-18/implementation-guide.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-oems-platform/docs/future-mobility-oems-platform/docs/api-specs/api-18/implementation-guide.md"
+      },
+      {
+        "file": "README.md",
+        "line": 45,
+        "linkText": "🧪 Test",
+        "linkPath": "/docs/future-mobility-oems-platform/docs/api-specs/api-18/postman-collection.json",
+        "targetPath": "docs/future-mobility-oems-platform/docs/api-specs/api-18/postman-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-oems-platform/docs/future-mobility-oems-platform/docs/api-specs/api-18/postman-collection.json"
+      },
+      {
+        "file": "README.md",
+        "line": 46,
+        "linkText": "📖 Guide",
+        "linkPath": "/docs/future-mobility-oems-platform/docs/api-specs/api-19/implementation-guide.md",
+        "targetPath": "docs/future-mobility-oems-platform/docs/api-specs/api-19/implementation-guide.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-oems-platform/docs/future-mobility-oems-platform/docs/api-specs/api-19/implementation-guide.md"
+      },
+      {
+        "file": "README.md",
+        "line": 46,
+        "linkText": "🧪 Test",
+        "linkPath": "/docs/future-mobility-oems-platform/docs/api-specs/api-19/postman-collection.json",
+        "targetPath": "docs/future-mobility-oems-platform/docs/api-specs/api-19/postman-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-oems-platform/docs/future-mobility-oems-platform/docs/api-specs/api-19/postman-collection.json"
+      },
+      {
+        "file": "README.md",
+        "line": 47,
+        "linkText": "📖 Guide",
+        "linkPath": "/docs/future-mobility-oems-platform/docs/api-specs/api-21/implementation-guide.md",
+        "targetPath": "docs/future-mobility-oems-platform/docs/api-specs/api-21/implementation-guide.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-oems-platform/docs/future-mobility-oems-platform/docs/api-specs/api-21/implementation-guide.md"
+      },
+      {
+        "file": "README.md",
+        "line": 47,
+        "linkText": "🧪 Test",
+        "linkPath": "/docs/future-mobility-oems-platform/docs/api-specs/api-21/postman-collection.json",
+        "targetPath": "docs/future-mobility-oems-platform/docs/api-specs/api-21/postman-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-oems-platform/docs/future-mobility-oems-platform/docs/api-specs/api-21/postman-collection.json"
+      },
+      {
+        "file": "README.md",
+        "line": 48,
+        "linkText": "📖 Guide",
+        "linkPath": "/docs/future-mobility-oems-platform/docs/api-specs/api-22/implementation-guide.md",
+        "targetPath": "docs/future-mobility-oems-platform/docs/api-specs/api-22/implementation-guide.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-oems-platform/docs/future-mobility-oems-platform/docs/api-specs/api-22/implementation-guide.md"
+      },
+      {
+        "file": "README.md",
+        "line": 48,
+        "linkText": "🧪 Test",
+        "linkPath": "/docs/future-mobility-oems-platform/docs/api-specs/api-22/postman-collection.json",
+        "targetPath": "docs/future-mobility-oems-platform/docs/api-specs/api-22/postman-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-oems-platform/docs/future-mobility-oems-platform/docs/api-specs/api-22/postman-collection.json"
+      },
+      {
+        "file": "README.md",
+        "line": 49,
+        "linkText": "📖 Guide",
+        "linkPath": "/docs/future-mobility-oems-platform/docs/api-specs/api-25/implementation-guide.md",
+        "targetPath": "docs/future-mobility-oems-platform/docs/api-specs/api-25/implementation-guide.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-oems-platform/docs/future-mobility-oems-platform/docs/api-specs/api-25/implementation-guide.md"
+      },
+      {
+        "file": "README.md",
+        "line": 49,
+        "linkText": "🧪 Test",
+        "linkPath": "/docs/future-mobility-oems-platform/docs/api-specs/api-25/postman-collection.json",
+        "targetPath": "docs/future-mobility-oems-platform/docs/api-specs/api-25/postman-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-oems-platform/docs/future-mobility-oems-platform/docs/api-specs/api-25/postman-collection.json"
+      },
+      {
+        "file": "README.md",
+        "line": 50,
+        "linkText": "📖 Guide",
+        "linkPath": "/docs/future-mobility-oems-platform/docs/api-specs/api-26/implementation-guide.md",
+        "targetPath": "docs/future-mobility-oems-platform/docs/api-specs/api-26/implementation-guide.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-oems-platform/docs/future-mobility-oems-platform/docs/api-specs/api-26/implementation-guide.md"
+      },
+      {
+        "file": "README.md",
+        "line": 50,
+        "linkText": "🧪 Test",
+        "linkPath": "/docs/future-mobility-oems-platform/docs/api-specs/api-26/postman-collection.json",
+        "targetPath": "docs/future-mobility-oems-platform/docs/api-specs/api-26/postman-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-oems-platform/docs/future-mobility-oems-platform/docs/api-specs/api-26/postman-collection.json"
+      },
+      {
+        "file": "README.md",
+        "line": 51,
+        "linkText": "📖 Guide",
+        "linkPath": "/docs/future-mobility-oems-platform/docs/api-specs/api-27/implementation-guide.md",
+        "targetPath": "docs/future-mobility-oems-platform/docs/api-specs/api-27/implementation-guide.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-oems-platform/docs/future-mobility-oems-platform/docs/api-specs/api-27/implementation-guide.md"
+      },
+      {
+        "file": "README.md",
+        "line": 51,
+        "linkText": "🧪 Test",
+        "linkPath": "/docs/future-mobility-oems-platform/docs/api-specs/api-27/postman-collection.json",
+        "targetPath": "docs/future-mobility-oems-platform/docs/api-specs/api-27/postman-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-oems-platform/docs/future-mobility-oems-platform/docs/api-specs/api-27/postman-collection.json"
+      },
+      {
+        "file": "README.md",
+        "line": 52,
+        "linkText": "📖 Guide",
+        "linkPath": "/docs/future-mobility-oems-platform/docs/api-specs/api-29/implementation-guide.md",
+        "targetPath": "docs/future-mobility-oems-platform/docs/api-specs/api-29/implementation-guide.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-oems-platform/docs/future-mobility-oems-platform/docs/api-specs/api-29/implementation-guide.md"
+      },
+      {
+        "file": "README.md",
+        "line": 52,
+        "linkText": "🧪 Test",
+        "linkPath": "/docs/future-mobility-oems-platform/docs/api-specs/api-29/postman-collection.json",
+        "targetPath": "docs/future-mobility-oems-platform/docs/api-specs/api-29/postman-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-oems-platform/docs/future-mobility-oems-platform/docs/api-specs/api-29/postman-collection.json"
+      },
+      {
+        "file": "README.md",
+        "line": 53,
+        "linkText": "📖 Guide",
+        "linkPath": "/docs/future-mobility-oems-platform/docs/api-specs/api-32/implementation-guide.md",
+        "targetPath": "docs/future-mobility-oems-platform/docs/api-specs/api-32/implementation-guide.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-oems-platform/docs/future-mobility-oems-platform/docs/api-specs/api-32/implementation-guide.md"
+      },
+      {
+        "file": "README.md",
+        "line": 53,
+        "linkText": "🧪 Test",
+        "linkPath": "/docs/future-mobility-oems-platform/docs/api-specs/api-32/postman-collection.json",
+        "targetPath": "docs/future-mobility-oems-platform/docs/api-specs/api-32/postman-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-oems-platform/docs/future-mobility-oems-platform/docs/api-specs/api-32/postman-collection.json"
+      },
+      {
+        "file": "README.md",
+        "line": 54,
+        "linkText": "📖 Guide",
+        "linkPath": "/docs/future-mobility-oems-platform/docs/api-specs/api-35/implementation-guide.md",
+        "targetPath": "docs/future-mobility-oems-platform/docs/api-specs/api-35/implementation-guide.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-oems-platform/docs/future-mobility-oems-platform/docs/api-specs/api-35/implementation-guide.md"
+      },
+      {
+        "file": "README.md",
+        "line": 54,
+        "linkText": "🧪 Test",
+        "linkPath": "/docs/future-mobility-oems-platform/docs/api-specs/api-35/postman-collection.json",
+        "targetPath": "docs/future-mobility-oems-platform/docs/api-specs/api-35/postman-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-oems-platform/docs/future-mobility-oems-platform/docs/api-specs/api-35/postman-collection.json"
+      },
+      {
+        "file": "README.md",
+        "line": 59,
+        "linkText": "📋 API Specifications",
+        "linkPath": "docs/api-specs.md",
+        "targetPath": "docs/api-specs.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-oems-platform/docs/api-specs.md"
+      },
+      {
+        "file": "README.md",
+        "line": 60,
+        "linkText": "📖 Implementation Guides",
+        "linkPath": "docs/implementation/",
+        "targetPath": "docs/implementation",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-oems-platform/docs/implementation/"
+      },
+      {
+        "file": "README.md",
+        "line": 61,
+        "linkText": "🏗️ Architecture Diagrams",
+        "linkPath": "architecture/",
+        "targetPath": "architecture",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-oems-platform/architecture/"
+      },
+      {
+        "file": "README.md",
+        "line": 62,
+        "linkText": "🧪 Testing Resources",
+        "linkPath": "tests/",
+        "targetPath": "tests",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-oems-platform/tests/"
+      },
+      {
+        "file": "README.md",
+        "line": 153,
+        "linkText": "Example Implementations",
+        "linkPath": "/docs/future-mobility-oems-platform/examples/",
+        "targetPath": "docs/future-mobility-oems-platform/examples",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-oems-platform/docs/future-mobility-oems-platform/examples/"
+      },
+      {
+        "file": "README.md",
+        "line": 154,
+        "linkText": "Integration Guidelines",
+        "linkPath": "/docs/future-mobility-oems-platform/docs/best-practices.md",
+        "targetPath": "docs/future-mobility-oems-platform/docs/best-practices.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-oems-platform/docs/future-mobility-oems-platform/docs/best-practices.md"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 41,
+        "linkText": "📖 Guide",
+        "linkPath": "./docs/api-specs/api-1/implementation-guide.md",
+        "targetPath": "docs/api-specs/api-1/implementation-guide.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-oems-platform/docs/api-specs/api-1/implementation-guide.md"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 41,
+        "linkText": "🧪 Test",
+        "linkPath": "./docs/api-specs/api-1/postman-collection.json",
+        "targetPath": "docs/api-specs/api-1/postman-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-oems-platform/docs/api-specs/api-1/postman-collection.json"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 42,
+        "linkText": "📖 Guide",
+        "linkPath": "./docs/api-specs/api-6/implementation-guide.md",
+        "targetPath": "docs/api-specs/api-6/implementation-guide.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-oems-platform/docs/api-specs/api-6/implementation-guide.md"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 42,
+        "linkText": "🧪 Test",
+        "linkPath": "./docs/api-specs/api-6/postman-collection.json",
+        "targetPath": "docs/api-specs/api-6/postman-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-oems-platform/docs/api-specs/api-6/postman-collection.json"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 43,
+        "linkText": "📖 Guide",
+        "linkPath": "./docs/api-specs/api-12/implementation-guide.md",
+        "targetPath": "docs/api-specs/api-12/implementation-guide.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-oems-platform/docs/api-specs/api-12/implementation-guide.md"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 43,
+        "linkText": "🧪 Test",
+        "linkPath": "./docs/api-specs/api-12/postman-collection.json",
+        "targetPath": "docs/api-specs/api-12/postman-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-oems-platform/docs/api-specs/api-12/postman-collection.json"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 44,
+        "linkText": "📖 Guide",
+        "linkPath": "./docs/api-specs/api-13/implementation-guide.md",
+        "targetPath": "docs/api-specs/api-13/implementation-guide.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-oems-platform/docs/api-specs/api-13/implementation-guide.md"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 44,
+        "linkText": "🧪 Test",
+        "linkPath": "./docs/api-specs/api-13/postman-collection.json",
+        "targetPath": "docs/api-specs/api-13/postman-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-oems-platform/docs/api-specs/api-13/postman-collection.json"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 45,
+        "linkText": "📖 Guide",
+        "linkPath": "./docs/api-specs/api-18/implementation-guide.md",
+        "targetPath": "docs/api-specs/api-18/implementation-guide.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-oems-platform/docs/api-specs/api-18/implementation-guide.md"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 45,
+        "linkText": "🧪 Test",
+        "linkPath": "./docs/api-specs/api-18/postman-collection.json",
+        "targetPath": "docs/api-specs/api-18/postman-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-oems-platform/docs/api-specs/api-18/postman-collection.json"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 46,
+        "linkText": "📖 Guide",
+        "linkPath": "./docs/api-specs/api-19/implementation-guide.md",
+        "targetPath": "docs/api-specs/api-19/implementation-guide.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-oems-platform/docs/api-specs/api-19/implementation-guide.md"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 46,
+        "linkText": "🧪 Test",
+        "linkPath": "./docs/api-specs/api-19/postman-collection.json",
+        "targetPath": "docs/api-specs/api-19/postman-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-oems-platform/docs/api-specs/api-19/postman-collection.json"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 47,
+        "linkText": "📖 Guide",
+        "linkPath": "./docs/api-specs/api-21/implementation-guide.md",
+        "targetPath": "docs/api-specs/api-21/implementation-guide.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-oems-platform/docs/api-specs/api-21/implementation-guide.md"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 47,
+        "linkText": "🧪 Test",
+        "linkPath": "./docs/api-specs/api-21/postman-collection.json",
+        "targetPath": "docs/api-specs/api-21/postman-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-oems-platform/docs/api-specs/api-21/postman-collection.json"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 48,
+        "linkText": "📖 Guide",
+        "linkPath": "./docs/api-specs/api-22/implementation-guide.md",
+        "targetPath": "docs/api-specs/api-22/implementation-guide.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-oems-platform/docs/api-specs/api-22/implementation-guide.md"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 48,
+        "linkText": "🧪 Test",
+        "linkPath": "./docs/api-specs/api-22/postman-collection.json",
+        "targetPath": "docs/api-specs/api-22/postman-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-oems-platform/docs/api-specs/api-22/postman-collection.json"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 49,
+        "linkText": "📖 Guide",
+        "linkPath": "./docs/api-specs/api-25/implementation-guide.md",
+        "targetPath": "docs/api-specs/api-25/implementation-guide.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-oems-platform/docs/api-specs/api-25/implementation-guide.md"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 49,
+        "linkText": "🧪 Test",
+        "linkPath": "./docs/api-specs/api-25/postman-collection.json",
+        "targetPath": "docs/api-specs/api-25/postman-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-oems-platform/docs/api-specs/api-25/postman-collection.json"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 50,
+        "linkText": "📖 Guide",
+        "linkPath": "./docs/api-specs/api-26/implementation-guide.md",
+        "targetPath": "docs/api-specs/api-26/implementation-guide.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-oems-platform/docs/api-specs/api-26/implementation-guide.md"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 50,
+        "linkText": "🧪 Test",
+        "linkPath": "./docs/api-specs/api-26/postman-collection.json",
+        "targetPath": "docs/api-specs/api-26/postman-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-oems-platform/docs/api-specs/api-26/postman-collection.json"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 51,
+        "linkText": "📖 Guide",
+        "linkPath": "./docs/api-specs/api-27/implementation-guide.md",
+        "targetPath": "docs/api-specs/api-27/implementation-guide.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-oems-platform/docs/api-specs/api-27/implementation-guide.md"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 51,
+        "linkText": "🧪 Test",
+        "linkPath": "./docs/api-specs/api-27/postman-collection.json",
+        "targetPath": "docs/api-specs/api-27/postman-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-oems-platform/docs/api-specs/api-27/postman-collection.json"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 52,
+        "linkText": "📖 Guide",
+        "linkPath": "./docs/api-specs/api-29/implementation-guide.md",
+        "targetPath": "docs/api-specs/api-29/implementation-guide.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-oems-platform/docs/api-specs/api-29/implementation-guide.md"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 52,
+        "linkText": "🧪 Test",
+        "linkPath": "./docs/api-specs/api-29/postman-collection.json",
+        "targetPath": "docs/api-specs/api-29/postman-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-oems-platform/docs/api-specs/api-29/postman-collection.json"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 53,
+        "linkText": "📖 Guide",
+        "linkPath": "./docs/api-specs/api-32/implementation-guide.md",
+        "targetPath": "docs/api-specs/api-32/implementation-guide.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-oems-platform/docs/api-specs/api-32/implementation-guide.md"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 53,
+        "linkText": "🧪 Test",
+        "linkPath": "./docs/api-specs/api-32/postman-collection.json",
+        "targetPath": "docs/api-specs/api-32/postman-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-oems-platform/docs/api-specs/api-32/postman-collection.json"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 54,
+        "linkText": "📖 Guide",
+        "linkPath": "./docs/api-specs/api-35/implementation-guide.md",
+        "targetPath": "docs/api-specs/api-35/implementation-guide.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-oems-platform/docs/api-specs/api-35/implementation-guide.md"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 54,
+        "linkText": "🧪 Test",
+        "linkPath": "./docs/api-specs/api-35/postman-collection.json",
+        "targetPath": "docs/api-specs/api-35/postman-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-oems-platform/docs/api-specs/api-35/postman-collection.json"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 147,
+        "linkText": "GitHub Issues",
+        "linkPath": "../../issues",
+        "targetPath": "../../issues",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/issues"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 152,
+        "linkText": "Community Discussions",
+        "linkPath": "../../discussions",
+        "targetPath": "../../discussions",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/discussions"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 153,
+        "linkText": "Example Implementations",
+        "linkPath": "./examples/",
+        "targetPath": "examples",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-oems-platform/examples/"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 154,
+        "linkText": "Integration Guidelines",
+        "linkPath": "./docs/best-practices.md",
+        "targetPath": "docs/best-practices.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-oems-platform/docs/best-practices.md"
+      },
+      {
+        "file": "docs/ARCHITECT_GUIDE.md",
+        "line": 445,
+        "linkText": "GitHub Setup Guide",
+        "linkPath": "GITHUB_SETUP_GUIDE.md",
+        "targetPath": "docs/GITHUB_SETUP_GUIDE.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-oems-platform/docs/GITHUB_SETUP_GUIDE.md"
+      },
+      {
+        "file": "docs/api-specs/index.md",
+        "line": 14,
+        "linkText": "Postman Collection",
+        "linkPath": "../postman-collections/api-1-collection.json",
+        "targetPath": "docs/postman-collections/api-1-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-oems-platform/docs/postman-collections/api-1-collection.json"
+      },
+      {
+        "file": "docs/api-specs/index.md",
+        "line": 21,
+        "linkText": "Postman Collection",
+        "linkPath": "../postman-collections/api-6-collection.json",
+        "targetPath": "docs/postman-collections/api-6-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-oems-platform/docs/postman-collections/api-6-collection.json"
+      },
+      {
+        "file": "docs/api-specs/index.md",
+        "line": 28,
+        "linkText": "Postman Collection",
+        "linkPath": "../postman-collections/api-12-collection.json",
+        "targetPath": "docs/postman-collections/api-12-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-oems-platform/docs/postman-collections/api-12-collection.json"
+      },
+      {
+        "file": "docs/api-specs/index.md",
+        "line": 35,
+        "linkText": "Postman Collection",
+        "linkPath": "../postman-collections/api-13-collection.json",
+        "targetPath": "docs/postman-collections/api-13-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-oems-platform/docs/postman-collections/api-13-collection.json"
+      },
+      {
+        "file": "docs/api-specs/index.md",
+        "line": 42,
+        "linkText": "Postman Collection",
+        "linkPath": "../postman-collections/api-18-collection.json",
+        "targetPath": "docs/postman-collections/api-18-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-oems-platform/docs/postman-collections/api-18-collection.json"
+      },
+      {
+        "file": "docs/api-specs/index.md",
+        "line": 49,
+        "linkText": "Postman Collection",
+        "linkPath": "../postman-collections/api-19-collection.json",
+        "targetPath": "docs/postman-collections/api-19-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-oems-platform/docs/postman-collections/api-19-collection.json"
+      },
+      {
+        "file": "docs/api-specs/index.md",
+        "line": 56,
+        "linkText": "Postman Collection",
+        "linkPath": "../postman-collections/api-21-collection.json",
+        "targetPath": "docs/postman-collections/api-21-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-oems-platform/docs/postman-collections/api-21-collection.json"
+      },
+      {
+        "file": "docs/api-specs/index.md",
+        "line": 63,
+        "linkText": "Postman Collection",
+        "linkPath": "../postman-collections/api-22-collection.json",
+        "targetPath": "docs/postman-collections/api-22-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-oems-platform/docs/postman-collections/api-22-collection.json"
+      },
+      {
+        "file": "docs/api-specs/index.md",
+        "line": 70,
+        "linkText": "Postman Collection",
+        "linkPath": "../postman-collections/api-25-collection.json",
+        "targetPath": "docs/postman-collections/api-25-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-oems-platform/docs/postman-collections/api-25-collection.json"
+      },
+      {
+        "file": "docs/api-specs/index.md",
+        "line": 77,
+        "linkText": "Postman Collection",
+        "linkPath": "../postman-collections/api-26-collection.json",
+        "targetPath": "docs/postman-collections/api-26-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-oems-platform/docs/postman-collections/api-26-collection.json"
+      },
+      {
+        "file": "docs/api-specs/index.md",
+        "line": 84,
+        "linkText": "Postman Collection",
+        "linkPath": "../postman-collections/api-27-collection.json",
+        "targetPath": "docs/postman-collections/api-27-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-oems-platform/docs/postman-collections/api-27-collection.json"
+      },
+      {
+        "file": "docs/api-specs/index.md",
+        "line": 91,
+        "linkText": "Postman Collection",
+        "linkPath": "../postman-collections/api-29-collection.json",
+        "targetPath": "docs/postman-collections/api-29-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-oems-platform/docs/postman-collections/api-29-collection.json"
+      },
+      {
+        "file": "docs/api-specs/index.md",
+        "line": 98,
+        "linkText": "Postman Collection",
+        "linkPath": "../postman-collections/api-32-collection.json",
+        "targetPath": "docs/postman-collections/api-32-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-oems-platform/docs/postman-collections/api-32-collection.json"
+      },
+      {
+        "file": "docs/api-specs/index.md",
+        "line": 105,
+        "linkText": "Postman Collection",
+        "linkPath": "../postman-collections/api-35-collection.json",
+        "targetPath": "docs/postman-collections/api-35-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-oems-platform/docs/postman-collections/api-35-collection.json"
+      },
+      {
+        "file": "docs/architecture/index.md",
+        "line": 7,
+        "linkText": "Technical Design",
+        "linkPath": "technical-design.md",
+        "targetPath": "docs/architecture/technical-design.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-oems-platform/docs/architecture/technical-design.md"
+      },
+      {
+        "file": "docs/architecture/index.md",
+        "line": 8,
+        "linkText": "Security Architecture",
+        "linkPath": "security.md",
+        "targetPath": "docs/architecture/security.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-oems-platform/docs/architecture/security.md"
+      },
+      {
+        "file": "docs/architecture/index.md",
+        "line": 9,
+        "linkText": "Deployment Guide",
+        "linkPath": "deployment.md",
+        "targetPath": "docs/architecture/deployment.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-oems-platform/docs/architecture/deployment.md"
+      },
+      {
+        "file": "docs/index.md",
+        "line": 183,
+        "linkText": "Integration Examples",
+        "linkPath": "../examples/",
+        "targetPath": "examples",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-oems-platform/examples/"
+      }
+    ],
+    "future-mobility-regulatory-platform": [
+      {
+        "file": "CUSTOMIZATION_GUIDE.md",
+        "line": 591,
+        "linkText": "Developer Usage Guide",
+        "linkPath": "DEVELOPER_USAGE_GUIDE.md",
+        "targetPath": "DEVELOPER_USAGE_GUIDE.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-regulatory-platform/DEVELOPER_USAGE_GUIDE.md"
+      },
+      {
+        "file": "CUSTOMIZATION_GUIDE.md",
+        "line": 592,
+        "linkText": "Component Reference",
+        "linkPath": "COMPONENT_REFERENCE.md",
+        "targetPath": "COMPONENT_REFERENCE.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-regulatory-platform/COMPONENT_REFERENCE.md"
+      },
+      {
+        "file": "CUSTOMIZATION_GUIDE.md",
+        "line": 593,
+        "linkText": "Best Practices",
+        "linkPath": "BEST_PRACTICES.md",
+        "targetPath": "BEST_PRACTICES.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-regulatory-platform/BEST_PRACTICES.md"
+      },
+      {
+        "file": "README.md",
+        "line": 84,
+        "linkText": "**Technical Specifications**",
+        "linkPath": "docs/TECHNICAL_SPECIFICATIONS.md",
+        "targetPath": "docs/TECHNICAL_SPECIFICATIONS.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-regulatory-platform/docs/TECHNICAL_SPECIFICATIONS.md"
+      },
+      {
+        "file": "README.md",
+        "line": 90,
+        "linkText": "**Integration Guide**",
+        "linkPath": "docs/INTEGRATION_GUIDE.md",
+        "targetPath": "docs/INTEGRATION_GUIDE.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-regulatory-platform/docs/INTEGRATION_GUIDE.md"
+      },
+      {
+        "file": "README.md",
+        "line": 91,
+        "linkText": "**Deployment Guide**",
+        "linkPath": "docs/DEPLOYMENT_GUIDE.md",
+        "targetPath": "docs/DEPLOYMENT_GUIDE.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-regulatory-platform/docs/DEPLOYMENT_GUIDE.md"
+      },
+      {
+        "file": "README.md",
+        "line": 100,
+        "linkText": "**Business Case**",
+        "linkPath": "docs/BUSINESS_CASE.md",
+        "targetPath": "docs/BUSINESS_CASE.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-regulatory-platform/docs/BUSINESS_CASE.md"
+      },
+      {
+        "file": "README.md",
+        "line": 101,
+        "linkText": "**Competitive Analysis**",
+        "linkPath": "docs/COMPETITIVE_ANALYSIS.md",
+        "targetPath": "docs/COMPETITIVE_ANALYSIS.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-regulatory-platform/docs/COMPETITIVE_ANALYSIS.md"
+      },
+      {
+        "file": "README.md",
+        "line": 105,
+        "linkText": "**Environment Configuration**",
+        "linkPath": ".env.example",
+        "targetPath": ".env.example",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-regulatory-platform/.env.example"
+      },
+      {
+        "file": "README.md",
+        "line": 106,
+        "linkText": "**Docker Configuration**",
+        "linkPath": "docker-compose.yml",
+        "targetPath": "docker-compose.yml",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-regulatory-platform/docker-compose.yml"
+      },
+      {
+        "file": "README.md",
+        "line": 112,
+        "linkText": "Business Case",
+        "linkPath": "docs/BUSINESS_CASE.md",
+        "targetPath": "docs/BUSINESS_CASE.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-regulatory-platform/docs/BUSINESS_CASE.md"
+      },
+      {
+        "file": "README.md",
+        "line": 113,
+        "linkText": "Competitive Analysis",
+        "linkPath": "docs/COMPETITIVE_ANALYSIS.md",
+        "targetPath": "docs/COMPETITIVE_ANALYSIS.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-regulatory-platform/docs/COMPETITIVE_ANALYSIS.md"
+      },
+      {
+        "file": "README.md",
+        "line": 123,
+        "linkText": "Integration Guide",
+        "linkPath": "docs/INTEGRATION_GUIDE.md",
+        "targetPath": "docs/INTEGRATION_GUIDE.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-regulatory-platform/docs/INTEGRATION_GUIDE.md"
+      },
+      {
+        "file": "README.md",
+        "line": 126,
+        "linkText": "Deployment Guide",
+        "linkPath": "docs/DEPLOYMENT_GUIDE.md",
+        "targetPath": "docs/DEPLOYMENT_GUIDE.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-regulatory-platform/docs/DEPLOYMENT_GUIDE.md"
+      },
+      {
+        "file": "README.md",
+        "line": 128,
+        "linkText": "observability components",
+        "linkPath": "docs/COMPONENT_REFERENCE.md#monitoring--observability",
+        "targetPath": "docs/COMPONENT_REFERENCE.md#monitoring--observability",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-regulatory-platform/docs/COMPONENT_REFERENCE.md#monitoring--observability"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 41,
+        "linkText": "📖 Guide",
+        "linkPath": "./docs/api-specs/api-16/implementation-guide.md",
+        "targetPath": "docs/api-specs/api-16/implementation-guide.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-regulatory-platform/docs/api-specs/api-16/implementation-guide.md"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 41,
+        "linkText": "🧪 Test",
+        "linkPath": "./docs/api-specs/api-16/postman-collection.json",
+        "targetPath": "docs/api-specs/api-16/postman-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-regulatory-platform/docs/api-specs/api-16/postman-collection.json"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 42,
+        "linkText": "📖 Guide",
+        "linkPath": "./docs/api-specs/api-21/implementation-guide.md",
+        "targetPath": "docs/api-specs/api-21/implementation-guide.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-regulatory-platform/docs/api-specs/api-21/implementation-guide.md"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 42,
+        "linkText": "🧪 Test",
+        "linkPath": "./docs/api-specs/api-21/postman-collection.json",
+        "targetPath": "docs/api-specs/api-21/postman-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-regulatory-platform/docs/api-specs/api-21/postman-collection.json"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 43,
+        "linkText": "📖 Guide",
+        "linkPath": "./docs/api-specs/api-26/implementation-guide.md",
+        "targetPath": "docs/api-specs/api-26/implementation-guide.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-regulatory-platform/docs/api-specs/api-26/implementation-guide.md"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 43,
+        "linkText": "🧪 Test",
+        "linkPath": "./docs/api-specs/api-26/postman-collection.json",
+        "targetPath": "docs/api-specs/api-26/postman-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-regulatory-platform/docs/api-specs/api-26/postman-collection.json"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 44,
+        "linkText": "📖 Guide",
+        "linkPath": "./docs/api-specs/api-33/implementation-guide.md",
+        "targetPath": "docs/api-specs/api-33/implementation-guide.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-regulatory-platform/docs/api-specs/api-33/implementation-guide.md"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 44,
+        "linkText": "🧪 Test",
+        "linkPath": "./docs/api-specs/api-33/postman-collection.json",
+        "targetPath": "docs/api-specs/api-33/postman-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-regulatory-platform/docs/api-specs/api-33/postman-collection.json"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 137,
+        "linkText": "GitHub Issues",
+        "linkPath": "../../issues",
+        "targetPath": "../../issues",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/issues"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 142,
+        "linkText": "Community Discussions",
+        "linkPath": "../../discussions",
+        "targetPath": "../../discussions",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/discussions"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 143,
+        "linkText": "Example Implementations",
+        "linkPath": "./examples/",
+        "targetPath": "examples",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-regulatory-platform/examples/"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 144,
+        "linkText": "Integration Guidelines",
+        "linkPath": "./docs/best-practices.md",
+        "targetPath": "docs/best-practices.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-regulatory-platform/docs/best-practices.md"
+      },
+      {
+        "file": "docs/ARCHITECT_GUIDE.md",
+        "line": 445,
+        "linkText": "GitHub Setup Guide",
+        "linkPath": "GITHUB_SETUP_GUIDE.md",
+        "targetPath": "docs/GITHUB_SETUP_GUIDE.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-regulatory-platform/docs/GITHUB_SETUP_GUIDE.md"
+      },
+      {
+        "file": "docs/api-specs/index.md",
+        "line": 14,
+        "linkText": "Postman Collection",
+        "linkPath": "../postman-collections/api-16-collection.json",
+        "targetPath": "docs/postman-collections/api-16-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-regulatory-platform/docs/postman-collections/api-16-collection.json"
+      },
+      {
+        "file": "docs/api-specs/index.md",
+        "line": 21,
+        "linkText": "Postman Collection",
+        "linkPath": "../postman-collections/api-21-collection.json",
+        "targetPath": "docs/postman-collections/api-21-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-regulatory-platform/docs/postman-collections/api-21-collection.json"
+      },
+      {
+        "file": "docs/api-specs/index.md",
+        "line": 28,
+        "linkText": "Postman Collection",
+        "linkPath": "../postman-collections/api-26-collection.json",
+        "targetPath": "docs/postman-collections/api-26-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-regulatory-platform/docs/postman-collections/api-26-collection.json"
+      },
+      {
+        "file": "docs/api-specs/index.md",
+        "line": 35,
+        "linkText": "Postman Collection",
+        "linkPath": "../postman-collections/api-33-collection.json",
+        "targetPath": "docs/postman-collections/api-33-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-regulatory-platform/docs/postman-collections/api-33-collection.json"
+      },
+      {
+        "file": "docs/architecture/index.md",
+        "line": 7,
+        "linkText": "Technical Design",
+        "linkPath": "technical-design.md",
+        "targetPath": "docs/architecture/technical-design.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-regulatory-platform/docs/architecture/technical-design.md"
+      },
+      {
+        "file": "docs/architecture/index.md",
+        "line": 8,
+        "linkText": "Security Architecture",
+        "linkPath": "security.md",
+        "targetPath": "docs/architecture/security.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-regulatory-platform/docs/architecture/security.md"
+      },
+      {
+        "file": "docs/architecture/index.md",
+        "line": 9,
+        "linkText": "Deployment Guide",
+        "linkPath": "deployment.md",
+        "targetPath": "docs/architecture/deployment.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-regulatory-platform/docs/architecture/deployment.md"
+      },
+      {
+        "file": "docs/index.md",
+        "line": 207,
+        "linkText": "Policy Templates",
+        "linkPath": "../policies/",
+        "targetPath": "policies",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-regulatory-platform/policies/"
+      },
+      {
+        "file": "docs/index.md",
+        "line": 208,
+        "linkText": "Best Practices",
+        "linkPath": "../best-practices/",
+        "targetPath": "best-practices",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-regulatory-platform/best-practices/"
+      }
+    ],
+    "future-mobility-tech-platform": [
+      {
+        "file": "CUSTOMIZATION_GUIDE.md",
+        "line": 591,
+        "linkText": "Developer Usage Guide",
+        "linkPath": "DEVELOPER_USAGE_GUIDE.md",
+        "targetPath": "DEVELOPER_USAGE_GUIDE.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-tech-platform/DEVELOPER_USAGE_GUIDE.md"
+      },
+      {
+        "file": "CUSTOMIZATION_GUIDE.md",
+        "line": 592,
+        "linkText": "Component Reference",
+        "linkPath": "COMPONENT_REFERENCE.md",
+        "targetPath": "COMPONENT_REFERENCE.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-tech-platform/COMPONENT_REFERENCE.md"
+      },
+      {
+        "file": "CUSTOMIZATION_GUIDE.md",
+        "line": 593,
+        "linkText": "Best Practices",
+        "linkPath": "BEST_PRACTICES.md",
+        "targetPath": "BEST_PRACTICES.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-tech-platform/BEST_PRACTICES.md"
+      },
+      {
+        "file": "README.md",
+        "line": 84,
+        "linkText": "**Technical Specifications**",
+        "linkPath": "docs/TECHNICAL_SPECIFICATIONS.md",
+        "targetPath": "docs/TECHNICAL_SPECIFICATIONS.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-tech-platform/docs/TECHNICAL_SPECIFICATIONS.md"
+      },
+      {
+        "file": "README.md",
+        "line": 90,
+        "linkText": "**Integration Guide**",
+        "linkPath": "docs/INTEGRATION_GUIDE.md",
+        "targetPath": "docs/INTEGRATION_GUIDE.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-tech-platform/docs/INTEGRATION_GUIDE.md"
+      },
+      {
+        "file": "README.md",
+        "line": 91,
+        "linkText": "**Deployment Guide**",
+        "linkPath": "docs/DEPLOYMENT_GUIDE.md",
+        "targetPath": "docs/DEPLOYMENT_GUIDE.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-tech-platform/docs/DEPLOYMENT_GUIDE.md"
+      },
+      {
+        "file": "README.md",
+        "line": 100,
+        "linkText": "**Business Case**",
+        "linkPath": "docs/BUSINESS_CASE.md",
+        "targetPath": "docs/BUSINESS_CASE.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-tech-platform/docs/BUSINESS_CASE.md"
+      },
+      {
+        "file": "README.md",
+        "line": 101,
+        "linkText": "**Competitive Analysis**",
+        "linkPath": "docs/COMPETITIVE_ANALYSIS.md",
+        "targetPath": "docs/COMPETITIVE_ANALYSIS.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-tech-platform/docs/COMPETITIVE_ANALYSIS.md"
+      },
+      {
+        "file": "README.md",
+        "line": 105,
+        "linkText": "**Environment Configuration**",
+        "linkPath": ".env.example",
+        "targetPath": ".env.example",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-tech-platform/.env.example"
+      },
+      {
+        "file": "README.md",
+        "line": 106,
+        "linkText": "**Docker Configuration**",
+        "linkPath": "docker-compose.yml",
+        "targetPath": "docker-compose.yml",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-tech-platform/docker-compose.yml"
+      },
+      {
+        "file": "README.md",
+        "line": 112,
+        "linkText": "Business Case",
+        "linkPath": "docs/BUSINESS_CASE.md",
+        "targetPath": "docs/BUSINESS_CASE.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-tech-platform/docs/BUSINESS_CASE.md"
+      },
+      {
+        "file": "README.md",
+        "line": 113,
+        "linkText": "Competitive Analysis",
+        "linkPath": "docs/COMPETITIVE_ANALYSIS.md",
+        "targetPath": "docs/COMPETITIVE_ANALYSIS.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-tech-platform/docs/COMPETITIVE_ANALYSIS.md"
+      },
+      {
+        "file": "README.md",
+        "line": 123,
+        "linkText": "Integration Guide",
+        "linkPath": "docs/INTEGRATION_GUIDE.md",
+        "targetPath": "docs/INTEGRATION_GUIDE.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-tech-platform/docs/INTEGRATION_GUIDE.md"
+      },
+      {
+        "file": "README.md",
+        "line": 126,
+        "linkText": "Deployment Guide",
+        "linkPath": "docs/DEPLOYMENT_GUIDE.md",
+        "targetPath": "docs/DEPLOYMENT_GUIDE.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-tech-platform/docs/DEPLOYMENT_GUIDE.md"
+      },
+      {
+        "file": "README.md",
+        "line": 128,
+        "linkText": "observability components",
+        "linkPath": "docs/COMPONENT_REFERENCE.md#monitoring--observability",
+        "targetPath": "docs/COMPONENT_REFERENCE.md#monitoring--observability",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-tech-platform/docs/COMPONENT_REFERENCE.md#monitoring--observability"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 41,
+        "linkText": "📖 Guide",
+        "linkPath": "./docs/api-specs/api-5/implementation-guide.md",
+        "targetPath": "docs/api-specs/api-5/implementation-guide.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-tech-platform/docs/api-specs/api-5/implementation-guide.md"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 41,
+        "linkText": "🧪 Test",
+        "linkPath": "./docs/api-specs/api-5/postman-collection.json",
+        "targetPath": "docs/api-specs/api-5/postman-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-tech-platform/docs/api-specs/api-5/postman-collection.json"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 42,
+        "linkText": "📖 Guide",
+        "linkPath": "./docs/api-specs/api-8/implementation-guide.md",
+        "targetPath": "docs/api-specs/api-8/implementation-guide.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-tech-platform/docs/api-specs/api-8/implementation-guide.md"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 42,
+        "linkText": "🧪 Test",
+        "linkPath": "./docs/api-specs/api-8/postman-collection.json",
+        "targetPath": "docs/api-specs/api-8/postman-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-tech-platform/docs/api-specs/api-8/postman-collection.json"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 43,
+        "linkText": "📖 Guide",
+        "linkPath": "./docs/api-specs/api-11/implementation-guide.md",
+        "targetPath": "docs/api-specs/api-11/implementation-guide.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-tech-platform/docs/api-specs/api-11/implementation-guide.md"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 43,
+        "linkText": "🧪 Test",
+        "linkPath": "./docs/api-specs/api-11/postman-collection.json",
+        "targetPath": "docs/api-specs/api-11/postman-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-tech-platform/docs/api-specs/api-11/postman-collection.json"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 44,
+        "linkText": "📖 Guide",
+        "linkPath": "./docs/api-specs/api-18/implementation-guide.md",
+        "targetPath": "docs/api-specs/api-18/implementation-guide.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-tech-platform/docs/api-specs/api-18/implementation-guide.md"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 44,
+        "linkText": "🧪 Test",
+        "linkPath": "./docs/api-specs/api-18/postman-collection.json",
+        "targetPath": "docs/api-specs/api-18/postman-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-tech-platform/docs/api-specs/api-18/postman-collection.json"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 45,
+        "linkText": "📖 Guide",
+        "linkPath": "./docs/api-specs/api-20/implementation-guide.md",
+        "targetPath": "docs/api-specs/api-20/implementation-guide.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-tech-platform/docs/api-specs/api-20/implementation-guide.md"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 45,
+        "linkText": "🧪 Test",
+        "linkPath": "./docs/api-specs/api-20/postman-collection.json",
+        "targetPath": "docs/api-specs/api-20/postman-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-tech-platform/docs/api-specs/api-20/postman-collection.json"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 46,
+        "linkText": "📖 Guide",
+        "linkPath": "./docs/api-specs/api-22/implementation-guide.md",
+        "targetPath": "docs/api-specs/api-22/implementation-guide.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-tech-platform/docs/api-specs/api-22/implementation-guide.md"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 46,
+        "linkText": "🧪 Test",
+        "linkPath": "./docs/api-specs/api-22/postman-collection.json",
+        "targetPath": "docs/api-specs/api-22/postman-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-tech-platform/docs/api-specs/api-22/postman-collection.json"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 47,
+        "linkText": "📖 Guide",
+        "linkPath": "./docs/api-specs/api-28/implementation-guide.md",
+        "targetPath": "docs/api-specs/api-28/implementation-guide.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-tech-platform/docs/api-specs/api-28/implementation-guide.md"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 47,
+        "linkText": "🧪 Test",
+        "linkPath": "./docs/api-specs/api-28/postman-collection.json",
+        "targetPath": "docs/api-specs/api-28/postman-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-tech-platform/docs/api-specs/api-28/postman-collection.json"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 48,
+        "linkText": "📖 Guide",
+        "linkPath": "./docs/api-specs/api-31/implementation-guide.md",
+        "targetPath": "docs/api-specs/api-31/implementation-guide.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-tech-platform/docs/api-specs/api-31/implementation-guide.md"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 48,
+        "linkText": "🧪 Test",
+        "linkPath": "./docs/api-specs/api-31/postman-collection.json",
+        "targetPath": "docs/api-specs/api-31/postman-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-tech-platform/docs/api-specs/api-31/postman-collection.json"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 49,
+        "linkText": "📖 Guide",
+        "linkPath": "./docs/api-specs/api-34/implementation-guide.md",
+        "targetPath": "docs/api-specs/api-34/implementation-guide.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-tech-platform/docs/api-specs/api-34/implementation-guide.md"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 49,
+        "linkText": "🧪 Test",
+        "linkPath": "./docs/api-specs/api-34/postman-collection.json",
+        "targetPath": "docs/api-specs/api-34/postman-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-tech-platform/docs/api-specs/api-34/postman-collection.json"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 50,
+        "linkText": "📖 Guide",
+        "linkPath": "./docs/api-specs/api-35/implementation-guide.md",
+        "targetPath": "docs/api-specs/api-35/implementation-guide.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-tech-platform/docs/api-specs/api-35/implementation-guide.md"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 50,
+        "linkText": "🧪 Test",
+        "linkPath": "./docs/api-specs/api-35/postman-collection.json",
+        "targetPath": "docs/api-specs/api-35/postman-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-tech-platform/docs/api-specs/api-35/postman-collection.json"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 143,
+        "linkText": "GitHub Issues",
+        "linkPath": "../../issues",
+        "targetPath": "../../issues",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/issues"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 148,
+        "linkText": "Community Discussions",
+        "linkPath": "../../discussions",
+        "targetPath": "../../discussions",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/discussions"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 149,
+        "linkText": "Example Implementations",
+        "linkPath": "./examples/",
+        "targetPath": "examples",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-tech-platform/examples/"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 150,
+        "linkText": "Integration Guidelines",
+        "linkPath": "./docs/best-practices.md",
+        "targetPath": "docs/best-practices.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-tech-platform/docs/best-practices.md"
+      },
+      {
+        "file": "docs/ARCHITECT_GUIDE.md",
+        "line": 445,
+        "linkText": "GitHub Setup Guide",
+        "linkPath": "GITHUB_SETUP_GUIDE.md",
+        "targetPath": "docs/GITHUB_SETUP_GUIDE.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-tech-platform/docs/GITHUB_SETUP_GUIDE.md"
+      },
+      {
+        "file": "docs/api-specs/index.md",
+        "line": 14,
+        "linkText": "Postman Collection",
+        "linkPath": "../postman-collections/api-5-collection.json",
+        "targetPath": "docs/postman-collections/api-5-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-tech-platform/docs/postman-collections/api-5-collection.json"
+      },
+      {
+        "file": "docs/api-specs/index.md",
+        "line": 21,
+        "linkText": "Postman Collection",
+        "linkPath": "../postman-collections/api-8-collection.json",
+        "targetPath": "docs/postman-collections/api-8-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-tech-platform/docs/postman-collections/api-8-collection.json"
+      },
+      {
+        "file": "docs/api-specs/index.md",
+        "line": 28,
+        "linkText": "Postman Collection",
+        "linkPath": "../postman-collections/api-11-collection.json",
+        "targetPath": "docs/postman-collections/api-11-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-tech-platform/docs/postman-collections/api-11-collection.json"
+      },
+      {
+        "file": "docs/api-specs/index.md",
+        "line": 35,
+        "linkText": "Postman Collection",
+        "linkPath": "../postman-collections/api-18-collection.json",
+        "targetPath": "docs/postman-collections/api-18-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-tech-platform/docs/postman-collections/api-18-collection.json"
+      },
+      {
+        "file": "docs/api-specs/index.md",
+        "line": 42,
+        "linkText": "Postman Collection",
+        "linkPath": "../postman-collections/api-20-collection.json",
+        "targetPath": "docs/postman-collections/api-20-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-tech-platform/docs/postman-collections/api-20-collection.json"
+      },
+      {
+        "file": "docs/api-specs/index.md",
+        "line": 49,
+        "linkText": "Postman Collection",
+        "linkPath": "../postman-collections/api-22-collection.json",
+        "targetPath": "docs/postman-collections/api-22-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-tech-platform/docs/postman-collections/api-22-collection.json"
+      },
+      {
+        "file": "docs/api-specs/index.md",
+        "line": 56,
+        "linkText": "Postman Collection",
+        "linkPath": "../postman-collections/api-28-collection.json",
+        "targetPath": "docs/postman-collections/api-28-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-tech-platform/docs/postman-collections/api-28-collection.json"
+      },
+      {
+        "file": "docs/api-specs/index.md",
+        "line": 63,
+        "linkText": "Postman Collection",
+        "linkPath": "../postman-collections/api-31-collection.json",
+        "targetPath": "docs/postman-collections/api-31-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-tech-platform/docs/postman-collections/api-31-collection.json"
+      },
+      {
+        "file": "docs/api-specs/index.md",
+        "line": 70,
+        "linkText": "Postman Collection",
+        "linkPath": "../postman-collections/api-34-collection.json",
+        "targetPath": "docs/postman-collections/api-34-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-tech-platform/docs/postman-collections/api-34-collection.json"
+      },
+      {
+        "file": "docs/api-specs/index.md",
+        "line": 77,
+        "linkText": "Postman Collection",
+        "linkPath": "../postman-collections/api-35-collection.json",
+        "targetPath": "docs/postman-collections/api-35-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-tech-platform/docs/postman-collections/api-35-collection.json"
+      },
+      {
+        "file": "docs/architecture/index.md",
+        "line": 7,
+        "linkText": "Technical Design",
+        "linkPath": "technical-design.md",
+        "targetPath": "docs/architecture/technical-design.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-tech-platform/docs/architecture/technical-design.md"
+      },
+      {
+        "file": "docs/architecture/index.md",
+        "line": 8,
+        "linkText": "Security Architecture",
+        "linkPath": "security.md",
+        "targetPath": "docs/architecture/security.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-tech-platform/docs/architecture/security.md"
+      },
+      {
+        "file": "docs/architecture/index.md",
+        "line": 9,
+        "linkText": "Deployment Guide",
+        "linkPath": "deployment.md",
+        "targetPath": "docs/architecture/deployment.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-tech-platform/docs/architecture/deployment.md"
+      }
+    ],
+    "future-mobility-utilities-platform": [
+      {
+        "file": "CUSTOMIZATION_GUIDE.md",
+        "line": 591,
+        "linkText": "Developer Usage Guide",
+        "linkPath": "DEVELOPER_USAGE_GUIDE.md",
+        "targetPath": "DEVELOPER_USAGE_GUIDE.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-utilities-platform/DEVELOPER_USAGE_GUIDE.md"
+      },
+      {
+        "file": "CUSTOMIZATION_GUIDE.md",
+        "line": 592,
+        "linkText": "Component Reference",
+        "linkPath": "COMPONENT_REFERENCE.md",
+        "targetPath": "COMPONENT_REFERENCE.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-utilities-platform/COMPONENT_REFERENCE.md"
+      },
+      {
+        "file": "CUSTOMIZATION_GUIDE.md",
+        "line": 593,
+        "linkText": "Best Practices",
+        "linkPath": "BEST_PRACTICES.md",
+        "targetPath": "BEST_PRACTICES.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-utilities-platform/BEST_PRACTICES.md"
+      },
+      {
+        "file": "README.md",
+        "line": 84,
+        "linkText": "**Technical Specifications**",
+        "linkPath": "docs/TECHNICAL_SPECIFICATIONS.md",
+        "targetPath": "docs/TECHNICAL_SPECIFICATIONS.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-utilities-platform/docs/TECHNICAL_SPECIFICATIONS.md"
+      },
+      {
+        "file": "README.md",
+        "line": 90,
+        "linkText": "**Integration Guide**",
+        "linkPath": "docs/INTEGRATION_GUIDE.md",
+        "targetPath": "docs/INTEGRATION_GUIDE.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-utilities-platform/docs/INTEGRATION_GUIDE.md"
+      },
+      {
+        "file": "README.md",
+        "line": 91,
+        "linkText": "**Deployment Guide**",
+        "linkPath": "docs/DEPLOYMENT_GUIDE.md",
+        "targetPath": "docs/DEPLOYMENT_GUIDE.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-utilities-platform/docs/DEPLOYMENT_GUIDE.md"
+      },
+      {
+        "file": "README.md",
+        "line": 100,
+        "linkText": "**Business Case**",
+        "linkPath": "docs/BUSINESS_CASE.md",
+        "targetPath": "docs/BUSINESS_CASE.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-utilities-platform/docs/BUSINESS_CASE.md"
+      },
+      {
+        "file": "README.md",
+        "line": 101,
+        "linkText": "**Competitive Analysis**",
+        "linkPath": "docs/COMPETITIVE_ANALYSIS.md",
+        "targetPath": "docs/COMPETITIVE_ANALYSIS.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-utilities-platform/docs/COMPETITIVE_ANALYSIS.md"
+      },
+      {
+        "file": "README.md",
+        "line": 105,
+        "linkText": "**Environment Configuration**",
+        "linkPath": ".env.example",
+        "targetPath": ".env.example",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-utilities-platform/.env.example"
+      },
+      {
+        "file": "README.md",
+        "line": 106,
+        "linkText": "**Docker Configuration**",
+        "linkPath": "docker-compose.yml",
+        "targetPath": "docker-compose.yml",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-utilities-platform/docker-compose.yml"
+      },
+      {
+        "file": "README.md",
+        "line": 112,
+        "linkText": "Business Case",
+        "linkPath": "docs/BUSINESS_CASE.md",
+        "targetPath": "docs/BUSINESS_CASE.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-utilities-platform/docs/BUSINESS_CASE.md"
+      },
+      {
+        "file": "README.md",
+        "line": 113,
+        "linkText": "Competitive Analysis",
+        "linkPath": "docs/COMPETITIVE_ANALYSIS.md",
+        "targetPath": "docs/COMPETITIVE_ANALYSIS.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-utilities-platform/docs/COMPETITIVE_ANALYSIS.md"
+      },
+      {
+        "file": "README.md",
+        "line": 123,
+        "linkText": "Integration Guide",
+        "linkPath": "docs/INTEGRATION_GUIDE.md",
+        "targetPath": "docs/INTEGRATION_GUIDE.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-utilities-platform/docs/INTEGRATION_GUIDE.md"
+      },
+      {
+        "file": "README.md",
+        "line": 126,
+        "linkText": "Deployment Guide",
+        "linkPath": "docs/DEPLOYMENT_GUIDE.md",
+        "targetPath": "docs/DEPLOYMENT_GUIDE.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-utilities-platform/docs/DEPLOYMENT_GUIDE.md"
+      },
+      {
+        "file": "README.md",
+        "line": 128,
+        "linkText": "observability components",
+        "linkPath": "docs/COMPONENT_REFERENCE.md#monitoring--observability",
+        "targetPath": "docs/COMPONENT_REFERENCE.md#monitoring--observability",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-utilities-platform/docs/COMPONENT_REFERENCE.md#monitoring--observability"
+      },
+      {
+        "file": "README.md",
+        "line": 238,
+        "linkText": "Priority 1 Core Automotive APIs",
+        "linkPath": "apis/priority-1-core-automotive/",
+        "targetPath": "apis/priority-1-core-automotive",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-utilities-platform/apis/priority-1-core-automotive/"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 41,
+        "linkText": "📖 Guide",
+        "linkPath": "./docs/api-specs/api-1/implementation-guide.md",
+        "targetPath": "docs/api-specs/api-1/implementation-guide.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-utilities-platform/docs/api-specs/api-1/implementation-guide.md"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 41,
+        "linkText": "🧪 Test",
+        "linkPath": "./docs/api-specs/api-1/postman-collection.json",
+        "targetPath": "docs/api-specs/api-1/postman-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-utilities-platform/docs/api-specs/api-1/postman-collection.json"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 42,
+        "linkText": "📖 Guide",
+        "linkPath": "./docs/api-specs/api-4/implementation-guide.md",
+        "targetPath": "docs/api-specs/api-4/implementation-guide.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-utilities-platform/docs/api-specs/api-4/implementation-guide.md"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 42,
+        "linkText": "🧪 Test",
+        "linkPath": "./docs/api-specs/api-4/postman-collection.json",
+        "targetPath": "docs/api-specs/api-4/postman-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-utilities-platform/docs/api-specs/api-4/postman-collection.json"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 43,
+        "linkText": "📖 Guide",
+        "linkPath": "./docs/api-specs/api-5/implementation-guide.md",
+        "targetPath": "docs/api-specs/api-5/implementation-guide.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-utilities-platform/docs/api-specs/api-5/implementation-guide.md"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 43,
+        "linkText": "🧪 Test",
+        "linkPath": "./docs/api-specs/api-5/postman-collection.json",
+        "targetPath": "docs/api-specs/api-5/postman-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-utilities-platform/docs/api-specs/api-5/postman-collection.json"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 44,
+        "linkText": "📖 Guide",
+        "linkPath": "./docs/api-specs/api-6/implementation-guide.md",
+        "targetPath": "docs/api-specs/api-6/implementation-guide.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-utilities-platform/docs/api-specs/api-6/implementation-guide.md"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 44,
+        "linkText": "🧪 Test",
+        "linkPath": "./docs/api-specs/api-6/postman-collection.json",
+        "targetPath": "docs/api-specs/api-6/postman-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-utilities-platform/docs/api-specs/api-6/postman-collection.json"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 45,
+        "linkText": "📖 Guide",
+        "linkPath": "./docs/api-specs/api-10/implementation-guide.md",
+        "targetPath": "docs/api-specs/api-10/implementation-guide.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-utilities-platform/docs/api-specs/api-10/implementation-guide.md"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 45,
+        "linkText": "🧪 Test",
+        "linkPath": "./docs/api-specs/api-10/postman-collection.json",
+        "targetPath": "docs/api-specs/api-10/postman-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-utilities-platform/docs/api-specs/api-10/postman-collection.json"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 46,
+        "linkText": "📖 Guide",
+        "linkPath": "./docs/api-specs/api-16/implementation-guide.md",
+        "targetPath": "docs/api-specs/api-16/implementation-guide.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-utilities-platform/docs/api-specs/api-16/implementation-guide.md"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 46,
+        "linkText": "🧪 Test",
+        "linkPath": "./docs/api-specs/api-16/postman-collection.json",
+        "targetPath": "docs/api-specs/api-16/postman-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-utilities-platform/docs/api-specs/api-16/postman-collection.json"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 47,
+        "linkText": "📖 Guide",
+        "linkPath": "./docs/api-specs/api-17/implementation-guide.md",
+        "targetPath": "docs/api-specs/api-17/implementation-guide.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-utilities-platform/docs/api-specs/api-17/implementation-guide.md"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 47,
+        "linkText": "🧪 Test",
+        "linkPath": "./docs/api-specs/api-17/postman-collection.json",
+        "targetPath": "docs/api-specs/api-17/postman-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-utilities-platform/docs/api-specs/api-17/postman-collection.json"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 48,
+        "linkText": "📖 Guide",
+        "linkPath": "./docs/api-specs/api-23/implementation-guide.md",
+        "targetPath": "docs/api-specs/api-23/implementation-guide.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-utilities-platform/docs/api-specs/api-23/implementation-guide.md"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 48,
+        "linkText": "🧪 Test",
+        "linkPath": "./docs/api-specs/api-23/postman-collection.json",
+        "targetPath": "docs/api-specs/api-23/postman-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-utilities-platform/docs/api-specs/api-23/postman-collection.json"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 49,
+        "linkText": "📖 Guide",
+        "linkPath": "./docs/api-specs/api-37/implementation-guide.md",
+        "targetPath": "docs/api-specs/api-37/implementation-guide.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-utilities-platform/docs/api-specs/api-37/implementation-guide.md"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 49,
+        "linkText": "🧪 Test",
+        "linkPath": "./docs/api-specs/api-37/postman-collection.json",
+        "targetPath": "docs/api-specs/api-37/postman-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-utilities-platform/docs/api-specs/api-37/postman-collection.json"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 142,
+        "linkText": "GitHub Issues",
+        "linkPath": "../../issues",
+        "targetPath": "../../issues",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/issues"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 147,
+        "linkText": "Community Discussions",
+        "linkPath": "../../discussions",
+        "targetPath": "../../discussions",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/discussions"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 148,
+        "linkText": "Example Implementations",
+        "linkPath": "./examples/",
+        "targetPath": "examples",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-utilities-platform/examples/"
+      },
+      {
+        "file": "Template_README.md",
+        "line": 149,
+        "linkText": "Integration Guidelines",
+        "linkPath": "./docs/best-practices.md",
+        "targetPath": "docs/best-practices.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-utilities-platform/docs/best-practices.md"
+      },
+      {
+        "file": "docs/ARCHITECT_GUIDE.md",
+        "line": 445,
+        "linkText": "GitHub Setup Guide",
+        "linkPath": "GITHUB_SETUP_GUIDE.md",
+        "targetPath": "docs/GITHUB_SETUP_GUIDE.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-utilities-platform/docs/GITHUB_SETUP_GUIDE.md"
+      },
+      {
+        "file": "docs/api-specs/index.md",
+        "line": 14,
+        "linkText": "Postman Collection",
+        "linkPath": "../postman-collections/api-1-collection.json",
+        "targetPath": "docs/postman-collections/api-1-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-utilities-platform/docs/postman-collections/api-1-collection.json"
+      },
+      {
+        "file": "docs/api-specs/index.md",
+        "line": 21,
+        "linkText": "Postman Collection",
+        "linkPath": "../postman-collections/api-4-collection.json",
+        "targetPath": "docs/postman-collections/api-4-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-utilities-platform/docs/postman-collections/api-4-collection.json"
+      },
+      {
+        "file": "docs/api-specs/index.md",
+        "line": 28,
+        "linkText": "Postman Collection",
+        "linkPath": "../postman-collections/api-5-collection.json",
+        "targetPath": "docs/postman-collections/api-5-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-utilities-platform/docs/postman-collections/api-5-collection.json"
+      },
+      {
+        "file": "docs/api-specs/index.md",
+        "line": 35,
+        "linkText": "Postman Collection",
+        "linkPath": "../postman-collections/api-6-collection.json",
+        "targetPath": "docs/postman-collections/api-6-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-utilities-platform/docs/postman-collections/api-6-collection.json"
+      },
+      {
+        "file": "docs/api-specs/index.md",
+        "line": 42,
+        "linkText": "Postman Collection",
+        "linkPath": "../postman-collections/api-10-collection.json",
+        "targetPath": "docs/postman-collections/api-10-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-utilities-platform/docs/postman-collections/api-10-collection.json"
+      },
+      {
+        "file": "docs/api-specs/index.md",
+        "line": 49,
+        "linkText": "Postman Collection",
+        "linkPath": "../postman-collections/api-16-collection.json",
+        "targetPath": "docs/postman-collections/api-16-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-utilities-platform/docs/postman-collections/api-16-collection.json"
+      },
+      {
+        "file": "docs/api-specs/index.md",
+        "line": 56,
+        "linkText": "Postman Collection",
+        "linkPath": "../postman-collections/api-17-collection.json",
+        "targetPath": "docs/postman-collections/api-17-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-utilities-platform/docs/postman-collections/api-17-collection.json"
+      },
+      {
+        "file": "docs/api-specs/index.md",
+        "line": 63,
+        "linkText": "Postman Collection",
+        "linkPath": "../postman-collections/api-23-collection.json",
+        "targetPath": "docs/postman-collections/api-23-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-utilities-platform/docs/postman-collections/api-23-collection.json"
+      },
+      {
+        "file": "docs/api-specs/index.md",
+        "line": 70,
+        "linkText": "Postman Collection",
+        "linkPath": "../postman-collections/api-37-collection.json",
+        "targetPath": "docs/postman-collections/api-37-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-utilities-platform/docs/postman-collections/api-37-collection.json"
+      },
+      {
+        "file": "docs/architecture/index.md",
+        "line": 7,
+        "linkText": "Technical Design",
+        "linkPath": "technical-design.md",
+        "targetPath": "docs/architecture/technical-design.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-utilities-platform/docs/architecture/technical-design.md"
+      },
+      {
+        "file": "docs/architecture/index.md",
+        "line": 8,
+        "linkText": "Security Architecture",
+        "linkPath": "security.md",
+        "targetPath": "docs/architecture/security.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-utilities-platform/docs/architecture/security.md"
+      },
+      {
+        "file": "docs/architecture/index.md",
+        "line": 9,
+        "linkText": "Deployment Guide",
+        "linkPath": "deployment.md",
+        "targetPath": "docs/architecture/deployment.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/future-mobility-utilities-platform/docs/architecture/deployment.md"
+      }
+    ],
+    "mobility-architecture-package-orchestrator": [
+      {
+        "file": "README.md",
+        "line": 345,
+        "linkText": "API Reference",
+        "linkPath": "./docs/",
+        "targetPath": "docs",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/mobility-architecture-package-orchestrator/docs/"
+      },
+      {
+        "file": "README.md",
+        "line": 346,
+        "linkText": "Implementation Guides",
+        "linkPath": "docs/implementation/",
+        "targetPath": "docs/implementation",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/mobility-architecture-package-orchestrator/docs/implementation/"
+      },
+      {
+        "file": "README.md",
+        "line": 347,
+        "linkText": "Architecture Diagrams",
+        "linkPath": "architecture/",
+        "targetPath": "architecture",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/mobility-architecture-package-orchestrator/architecture/"
+      },
+      {
+        "file": "README.md",
+        "line": 348,
+        "linkText": "Security Framework",
+        "linkPath": "./docs/security/",
+        "targetPath": "docs/security",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/mobility-architecture-package-orchestrator/docs/security/"
+      },
+      {
+        "file": "README.md",
+        "line": 351,
+        "linkText": "GitHub Issues",
+        "linkPath": "./issues",
+        "targetPath": "issues",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/mobility-architecture-package-orchestrator/issues"
+      },
+      {
+        "file": "README.md",
+        "line": 352,
+        "linkText": "GitHub Discussions",
+        "linkPath": "./discussions",
+        "targetPath": "discussions",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/mobility-architecture-package-orchestrator/discussions"
+      }
+    ],
+    "nslabsdashboards": [
+      {
+        "file": "docs/deployment/on-premise-deployment-guide.md",
+        "line": 20,
+        "linkText": "Deployment Architecture",
+        "linkPath": "../assets/deployment-architecture.png",
+        "targetPath": "docs/assets/deployment-architecture.png",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/assets/deployment-architecture.png"
+      },
+      {
+        "file": "docs/graphql/KNOWLEDGEBASE_API.md",
+        "line": 337,
+        "linkText": "Water Heater GraphQL API Documentation",
+        "linkPath": "./WATER_HEATER_API.md",
+        "targetPath": "docs/graphql/WATER_HEATER_API.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/graphql/WATER_HEATER_API.md"
+      },
+      {
+        "file": "docs/graphql/REPAIR_GUIDE_API.md",
+        "line": 289,
+        "linkText": "Water Heater GraphQL API Documentation",
+        "linkPath": "./WATER_HEATER_API.md",
+        "targetPath": "docs/graphql/WATER_HEATER_API.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/graphql/WATER_HEATER_API.md"
+      },
+      {
+        "file": "docs/graphql/schema_overview.md",
+        "line": 253,
+        "linkText": "Water Heater Control API Documentation",
+        "linkPath": "./water_heater_control_guide.md",
+        "targetPath": "docs/graphql/water_heater_control_guide.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/graphql/water_heater_control_guide.md"
+      },
+      {
+        "file": "docs/graphql/schema_overview.md",
+        "line": 254,
+        "linkText": "Telemetry API Documentation",
+        "linkPath": "./telemetry_guide.md",
+        "targetPath": "docs/graphql/telemetry_guide.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/graphql/telemetry_guide.md"
+      },
+      {
+        "file": "docs/graphql/schema_overview.md",
+        "line": 255,
+        "linkText": "Fleet Management API Documentation",
+        "linkPath": "./fleet_management_guide.md",
+        "targetPath": "docs/graphql/fleet_management_guide.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/graphql/fleet_management_guide.md"
+      },
+      {
+        "file": "docs/index.md",
+        "line": 7,
+        "linkText": "Getting Started",
+        "linkPath": "./getting-started.md",
+        "targetPath": "docs/getting-started.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/getting-started.md"
+      },
+      {
+        "file": "docs/index.md",
+        "line": 9,
+        "linkText": "API Reference",
+        "linkPath": "./api-reference.md",
+        "targetPath": "docs/api-reference.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/api-reference.md"
+      },
+      {
+        "file": "docs/index.md",
+        "line": 10,
+        "linkText": "Dashboard Configuration",
+        "linkPath": "./dashboard-config.md",
+        "targetPath": "docs/dashboard-config.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/dashboard-config.md"
+      },
+      {
+        "file": "docs/index.md",
+        "line": 11,
+        "linkText": "Alert Management",
+        "linkPath": "./alerts.md",
+        "targetPath": "docs/alerts.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/alerts.md"
+      },
+      {
+        "file": "docs/index.md",
+        "line": 12,
+        "linkText": "Integration Guide",
+        "linkPath": "./integrations.md",
+        "targetPath": "docs/integrations.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/integrations.md"
+      },
+      {
+        "file": "docs/index.md",
+        "line": 18,
+        "linkText": "GraphQL Playground",
+        "linkPath": "./graphql-playground.md",
+        "targetPath": "docs/graphql-playground.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/graphql-playground.md"
+      },
+      {
+        "file": "docs/index.md",
+        "line": 19,
+        "linkText": "Example Queries",
+        "linkPath": "./example-queries.md",
+        "targetPath": "docs/example-queries.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/example-queries.md"
+      },
+      {
+        "file": "docs/industrial_lubricant_documentation_index.md",
+        "line": 16,
+        "linkText": "Industrial Lubricant API",
+        "linkPath": "./api/README.md#industrial-lubricant-platform",
+        "targetPath": "docs/api/README.md#industrial-lubricant-platform",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/api/README.md#industrial-lubricant-platform"
+      },
+      {
+        "file": "docs/industrial_lubricant_documentation_index.md",
+        "line": 17,
+        "linkText": "Land EV Bikes API",
+        "linkPath": "./api/README.md#land-ev-bikes-platform",
+        "targetPath": "docs/api/README.md#land-ev-bikes-platform",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/api/README.md#land-ev-bikes-platform"
+      },
+      {
+        "file": "docs/industrial_lubricant_documentation_index.md",
+        "line": 18,
+        "linkText": "ML AI Services API",
+        "linkPath": "./api/README.md#ml-ai-platform",
+        "targetPath": "docs/api/README.md#ml-ai-platform",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/api/README.md#ml-ai-platform"
+      },
+      {
+        "file": "docs/industrial_lubricant_documentation_index.md",
+        "line": 19,
+        "linkText": "Robot Devices API",
+        "linkPath": "./api/README.md#robot-devices-platform",
+        "targetPath": "docs/api/README.md#robot-devices-platform",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/api/README.md#robot-devices-platform"
+      },
+      {
+        "file": "docs/industrial_lubricant_documentation_index.md",
+        "line": 20,
+        "linkText": "Polar Delight API",
+        "linkPath": "./api/README.md#polar-delight-platform",
+        "targetPath": "docs/api/README.md#polar-delight-platform",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/api/README.md#polar-delight-platform"
+      },
+      {
+        "file": "docs/industrial_lubricant_documentation_index.md",
+        "line": 127,
+        "linkText": "Prerequisites",
+        "linkPath": "./developer/industrial_lubricant_setup_guide.md#prerequisites",
+        "targetPath": "docs/developer/industrial_lubricant_setup_guide.md#prerequisites",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/developer/industrial_lubricant_setup_guide.md#prerequisites"
+      },
+      {
+        "file": "docs/industrial_lubricant_documentation_index.md",
+        "line": 128,
+        "linkText": "Installation",
+        "linkPath": "./developer/industrial_lubricant_setup_guide.md#installation",
+        "targetPath": "docs/developer/industrial_lubricant_setup_guide.md#installation",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/developer/industrial_lubricant_setup_guide.md#installation"
+      },
+      {
+        "file": "docs/industrial_lubricant_documentation_index.md",
+        "line": 129,
+        "linkText": "Configuration",
+        "linkPath": "./developer/industrial_lubricant_setup_guide.md#configuration",
+        "targetPath": "docs/developer/industrial_lubricant_setup_guide.md#configuration",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/developer/industrial_lubricant_setup_guide.md#configuration"
+      },
+      {
+        "file": "docs/industrial_lubricant_documentation_index.md",
+        "line": 130,
+        "linkText": "Development Workflow",
+        "linkPath": "./developer/industrial_lubricant_setup_guide.md#development-workflow",
+        "targetPath": "docs/developer/industrial_lubricant_setup_guide.md#development-workflow",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/developer/industrial_lubricant_setup_guide.md#development-workflow"
+      },
+      {
+        "file": "docs/industrial_lubricant_documentation_index.md",
+        "line": 151,
+        "linkText": "🏭 Industrial Lubricant API",
+        "linkPath": "./api/README.md#industrial-lubricant-platform",
+        "targetPath": "docs/api/README.md#industrial-lubricant-platform",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/api/README.md#industrial-lubricant-platform"
+      },
+      {
+        "file": "docs/industrial_lubricant_documentation_index.md",
+        "line": 152,
+        "linkText": "🏍️ Land EV Bikes API",
+        "linkPath": "./api/README.md#land-ev-bikes-platform",
+        "targetPath": "docs/api/README.md#land-ev-bikes-platform",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/api/README.md#land-ev-bikes-platform"
+      },
+      {
+        "file": "docs/industrial_lubricant_documentation_index.md",
+        "line": 153,
+        "linkText": "🤖 ML AI Services API",
+        "linkPath": "./api/README.md#ml-ai-platform",
+        "targetPath": "docs/api/README.md#ml-ai-platform",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/api/README.md#ml-ai-platform"
+      },
+      {
+        "file": "docs/industrial_lubricant_documentation_index.md",
+        "line": 154,
+        "linkText": "🦾 Robot Devices API",
+        "linkPath": "./api/README.md#robot-devices-platform",
+        "targetPath": "docs/api/README.md#robot-devices-platform",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/api/README.md#robot-devices-platform"
+      },
+      {
+        "file": "docs/industrial_lubricant_documentation_index.md",
+        "line": 155,
+        "linkText": "🍦 Polar Delight API",
+        "linkPath": "./api/README.md#polar-delight-platform",
+        "targetPath": "docs/api/README.md#polar-delight-platform",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/api/README.md#polar-delight-platform"
+      },
+      {
+        "file": "docs/industrial_lubricant_documentation_index.md",
+        "line": 169,
+        "linkText": "Unit Testing",
+        "linkPath": "./testing/industrial_lubricant_testing_guide.md#unit-testing",
+        "targetPath": "docs/testing/industrial_lubricant_testing_guide.md#unit-testing",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/testing/industrial_lubricant_testing_guide.md#unit-testing"
+      },
+      {
+        "file": "docs/industrial_lubricant_documentation_index.md",
+        "line": 170,
+        "linkText": "Integration Testing",
+        "linkPath": "./testing/industrial_lubricant_testing_guide.md#integration-testing",
+        "targetPath": "docs/testing/industrial_lubricant_testing_guide.md#integration-testing",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/testing/industrial_lubricant_testing_guide.md#integration-testing"
+      },
+      {
+        "file": "docs/industrial_lubricant_documentation_index.md",
+        "line": 171,
+        "linkText": "Performance Testing",
+        "linkPath": "./testing/industrial_lubricant_testing_guide.md#performance-testing",
+        "targetPath": "docs/testing/industrial_lubricant_testing_guide.md#performance-testing",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/testing/industrial_lubricant_testing_guide.md#performance-testing"
+      },
+      {
+        "file": "docs/industrial_lubricant_documentation_index.md",
+        "line": 172,
+        "linkText": "API Testing",
+        "linkPath": "./testing/industrial_lubricant_testing_guide.md#api-testing-with-postman",
+        "targetPath": "docs/testing/industrial_lubricant_testing_guide.md#api-testing-with-postman",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/testing/industrial_lubricant_testing_guide.md#api-testing-with-postman"
+      },
+      {
+        "file": "docs/industrial_lubricant_documentation_index.md",
+        "line": 175,
+        "linkText": "Contributing to Industrial Lubricant Platform",
+        "linkPath": "./developer/industrial_lubricant_setup_guide.md#contributing-guidelines",
+        "targetPath": "docs/developer/industrial_lubricant_setup_guide.md#contributing-guidelines",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/developer/industrial_lubricant_setup_guide.md#contributing-guidelines"
+      },
+      {
+        "file": "docs/industrial_lubricant_documentation_index.md",
+        "line": 400,
+        "linkText": "troubleshooting section",
+        "linkPath": "./developer/industrial_lubricant_setup_guide.md#troubleshooting",
+        "targetPath": "docs/developer/industrial_lubricant_setup_guide.md#troubleshooting",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/developer/industrial_lubricant_setup_guide.md#troubleshooting"
+      },
+      {
+        "file": "docs/industrial_lubricant_documentation_index.md",
+        "line": 413,
+        "linkText": "contributing guidelines",
+        "linkPath": "./developer/industrial_lubricant_setup_guide.md#contributing-guidelines",
+        "targetPath": "docs/developer/industrial_lubricant_setup_guide.md#contributing-guidelines",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/developer/industrial_lubricant_setup_guide.md#contributing-guidelines"
+      },
+      {
+        "file": "docs/operations/monitoring_and_alerting.md",
+        "line": 9,
+        "linkText": "Monitoring Architecture",
+        "linkPath": "../assets/monitoring_architecture.png",
+        "targetPath": "docs/assets/monitoring_architecture.png",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/assets/monitoring_architecture.png"
+      },
+      {
+        "file": "docs/product/personas/personas.md",
+        "line": 99,
+        "linkText": "README.md",
+        "linkPath": "EY-IoTSphere/README.md",
+        "targetPath": "docs/product/personas/EY-IoTSphere/README.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/product/personas/EY-IoTSphere/README.md"
+      },
+      {
+        "file": "docs/quickstart/clean_architecture_guide.md",
+        "line": 129,
+        "linkText": "Testing Strategy",
+        "linkPath": "../testing/testing_strategy.md",
+        "targetPath": "docs/testing/testing_strategy.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/testing/testing_strategy.md"
+      },
+      {
+        "file": "src/tests/features/README.md",
+        "line": 29,
+        "linkText": "Personas",
+        "linkPath": "../docs/product/personas/personas.md",
+        "targetPath": "src/tests/docs/product/personas/personas.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/src/tests/docs/product/personas/personas.md"
+      },
+      {
+        "file": "src/tests/features/README.md",
+        "line": 30,
+        "linkText": "Requirements",
+        "linkPath": "../docs/requirements/specification.md",
+        "targetPath": "src/tests/docs/requirements/specification.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/src/tests/docs/requirements/specification.md"
+      },
+      {
+        "file": "src/tests/features/README.md",
+        "line": 31,
+        "linkText": "Ubiquitous Language",
+        "linkPath": "../src/domain/ubiquitous_language.md",
+        "targetPath": "src/tests/src/domain/ubiquitous_language.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/src/tests/src/domain/ubiquitous_language.md"
+      },
+      {
+        "file": "src/tests/features/README.md",
+        "line": 32,
+        "linkText": "BDD Best Practices",
+        "linkPath": "../docs/bdd_best_practices.md",
+        "targetPath": "src/tests/docs/bdd_best_practices.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/src/tests/docs/bdd_best_practices.md"
+      },
+      {
+        "file": "template/CUSTOMIZATION_GUIDE.md",
+        "line": 591,
+        "linkText": "Developer Usage Guide",
+        "linkPath": "DEVELOPER_USAGE_GUIDE.md",
+        "targetPath": "template/DEVELOPER_USAGE_GUIDE.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/template/DEVELOPER_USAGE_GUIDE.md"
+      },
+      {
+        "file": "template/CUSTOMIZATION_GUIDE.md",
+        "line": 592,
+        "linkText": "Component Reference",
+        "linkPath": "COMPONENT_REFERENCE.md",
+        "targetPath": "template/COMPONENT_REFERENCE.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/template/COMPONENT_REFERENCE.md"
+      },
+      {
+        "file": "template/CUSTOMIZATION_GUIDE.md",
+        "line": 593,
+        "linkText": "Best Practices",
+        "linkPath": "BEST_PRACTICES.md",
+        "targetPath": "template/BEST_PRACTICES.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/template/BEST_PRACTICES.md"
+      },
+      {
+        "file": "template/README.md",
+        "line": 287,
+        "linkText": "LICENSE",
+        "linkPath": "LICENSE",
+        "targetPath": "template/LICENSE",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/template/LICENSE"
+      }
+    ],
+    "rentalFleets": [
+      {
+        "file": "README.md",
+        "line": 186,
+        "linkText": "LICENSE",
+        "linkPath": "./LICENSE",
+        "targetPath": "LICENSE",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/rentalFleets/LICENSE"
+      },
+      {
+        "file": "docs/adr/README.md",
+        "line": 7,
+        "linkText": "ADR 0001: Adopt Microfrontend Architecture with Angular Module Federation",
+        "linkPath": "adr_001_micro-frontend.md",
+        "targetPath": "docs/adr/adr_001_micro-frontend.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/rentalFleets/docs/adr/adr_001_micro-frontend.md"
+      },
+      {
+        "file": "docs/architecture/architecture.md",
+        "line": 660,
+        "linkText": "Battery Management Flow",
+        "linkPath": "./images/diagrams/sequence/battery-management-flow.png",
+        "targetPath": "docs/architecture/images/diagrams/sequence/battery-management-flow.png",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/rentalFleets/docs/architecture/images/diagrams/sequence/battery-management-flow.png"
+      },
+      {
+        "file": "docs/architecture/front-end-architecture-guide.md",
+        "line": 7,
+        "linkText": "Microfrontend Architecture Diagram",
+        "linkPath": "/docs/architecture/diagrams/microfrontend-architecture.png",
+        "targetPath": "docs/architecture/diagrams/microfrontend-architecture.png",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/rentalFleets/docs/architecture/diagrams/microfrontend-architecture.png"
+      },
+      {
+        "file": "docs/architecture/front-end-architecture-guide.md",
+        "line": 154,
+        "linkText": "Clean Architecture Diagram",
+        "linkPath": "/docs/architecture/diagrams/clean-architecture.png",
+        "targetPath": "docs/architecture/diagrams/clean-architecture.png",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/rentalFleets/docs/architecture/diagrams/clean-architecture.png"
+      },
+      {
+        "file": "docs/viss-specs/vss-readme.md",
+        "line": 20,
+        "linkText": "build guideline document",
+        "linkPath": "BUILD.md",
+        "targetPath": "docs/viss-specs/BUILD.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/rentalFleets/docs/viss-specs/BUILD.md"
+      },
+      {
+        "file": "docs/viss-specs/vss-readme.md",
+        "line": 30,
+        "linkText": "contribution guide",
+        "linkPath": "CONTRIBUTING.md",
+        "targetPath": "docs/viss-specs/CONTRIBUTING.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/rentalFleets/docs/viss-specs/CONTRIBUTING.md"
+      },
+      {
+        "file": "docs/viss-specs/vss-readme.md",
+        "line": 37,
+        "linkText": "Vehicle.vspec",
+        "linkPath": "spec/Vehicle/Vehicle.vspec",
+        "targetPath": "docs/viss-specs/spec/Vehicle/Vehicle.vspec",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/rentalFleets/docs/viss-specs/spec/Vehicle/Vehicle.vspec"
+      },
+      {
+        "file": "docs/viss-specs/vss-readme.md",
+        "line": 43,
+        "linkText": "Vehicle.vspec",
+        "linkPath": "spec/Vehicle/Vehicle.vspec",
+        "targetPath": "docs/viss-specs/spec/Vehicle/Vehicle.vspec",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/rentalFleets/docs/viss-specs/spec/Vehicle/Vehicle.vspec"
+      },
+      {
+        "file": "src/developer-portal/DOCS_INDEX.md",
+        "line": 10,
+        "linkText": "API Guidelines",
+        "linkPath": "../docs/API_ARCHITECTURE_GUIDELINES.md",
+        "targetPath": "src/docs/API_ARCHITECTURE_GUIDELINES.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/rentalFleets/src/docs/API_ARCHITECTURE_GUIDELINES.md"
+      },
+      {
+        "file": "src/developer-portal/README.md",
+        "line": 66,
+        "linkText": "Mazda CVOP Interface Architecture",
+        "linkPath": "../docs/MAZDA_CVOP_INTERFACE_ARCHITECTURE.md",
+        "targetPath": "src/docs/MAZDA_CVOP_INTERFACE_ARCHITECTURE.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/rentalFleets/src/docs/MAZDA_CVOP_INTERFACE_ARCHITECTURE.md"
+      },
+      {
+        "file": "src/developer-portal/README.md",
+        "line": 154,
+        "linkText": "🏗️ Mazda CVOP Architecture",
+        "linkPath": "../docs/MAZDA_CVOP_INTERFACE_ARCHITECTURE.md",
+        "targetPath": "src/docs/MAZDA_CVOP_INTERFACE_ARCHITECTURE.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/rentalFleets/src/docs/MAZDA_CVOP_INTERFACE_ARCHITECTURE.md"
+      },
+      {
+        "file": "src/developer-portal/README.md",
+        "line": 155,
+        "linkText": "� API Architecture Guidelines",
+        "linkPath": "../docs/API_ARCHITECTURE_GUIDELINES.md",
+        "targetPath": "src/docs/API_ARCHITECTURE_GUIDELINES.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/rentalFleets/src/docs/API_ARCHITECTURE_GUIDELINES.md"
+      }
+    ],
+    "sample-arch-package": [
+      {
+        "file": "CUSTOMIZATION_GUIDE.md",
+        "line": 591,
+        "linkText": "Developer Usage Guide",
+        "linkPath": "DEVELOPER_USAGE_GUIDE.md",
+        "targetPath": "DEVELOPER_USAGE_GUIDE.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/sample-arch-package/DEVELOPER_USAGE_GUIDE.md"
+      },
+      {
+        "file": "CUSTOMIZATION_GUIDE.md",
+        "line": 592,
+        "linkText": "Component Reference",
+        "linkPath": "COMPONENT_REFERENCE.md",
+        "targetPath": "COMPONENT_REFERENCE.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/sample-arch-package/COMPONENT_REFERENCE.md"
+      },
+      {
+        "file": "CUSTOMIZATION_GUIDE.md",
+        "line": 593,
+        "linkText": "Best Practices",
+        "linkPath": "BEST_PRACTICES.md",
+        "targetPath": "BEST_PRACTICES.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/sample-arch-package/BEST_PRACTICES.md"
+      },
+      {
+        "file": "README.md",
+        "line": 164,
+        "linkText": "Mode System Guide",
+        "linkPath": "./docs/MODE_SYSTEM_GUIDE.md",
+        "targetPath": "docs/MODE_SYSTEM_GUIDE.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/sample-arch-package/docs/MODE_SYSTEM_GUIDE.md"
+      },
+      {
+        "file": "README.md",
+        "line": 165,
+        "linkText": "Integration Guide",
+        "linkPath": "./docs/INTEGRATION_GUIDE.md",
+        "targetPath": "docs/INTEGRATION_GUIDE.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/sample-arch-package/docs/INTEGRATION_GUIDE.md"
+      },
+      {
+        "file": "README.md",
+        "line": 168,
+        "linkText": "E-commerce Example",
+        "linkPath": "./docs/examples/ECOMMERCE_EXAMPLE.md",
+        "targetPath": "docs/examples/ECOMMERCE_EXAMPLE.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/sample-arch-package/docs/examples/ECOMMERCE_EXAMPLE.md"
+      },
+      {
+        "file": "README.md",
+        "line": 169,
+        "linkText": "Healthcare Example",
+        "linkPath": "./docs/examples/HEALTHCARE_EXAMPLE.md",
+        "targetPath": "docs/examples/HEALTHCARE_EXAMPLE.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/sample-arch-package/docs/examples/HEALTHCARE_EXAMPLE.md"
+      },
+      {
+        "file": "README.md",
+        "line": 170,
+        "linkText": "FinTech Example",
+        "linkPath": "./docs/examples/FINTECH_EXAMPLE.md",
+        "targetPath": "docs/examples/FINTECH_EXAMPLE.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/sample-arch-package/docs/examples/FINTECH_EXAMPLE.md"
+      },
+      {
+        "file": "docs/ARCHITECT_GUIDE.md",
+        "line": 445,
+        "linkText": "GitHub Setup Guide",
+        "linkPath": "GITHUB_SETUP_GUIDE.md",
+        "targetPath": "docs/GITHUB_SETUP_GUIDE.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/sample-arch-package/docs/GITHUB_SETUP_GUIDE.md"
+      }
+    ],
+    "smartpath": [
+      {
+        "file": "docs/CONTRIBUTING.md",
+        "line": 13,
+        "linkText": "Developer Guide",
+        "linkPath": "./DEVELOPER_GUIDE.md#4-development-workflow",
+        "targetPath": "docs/DEVELOPER_GUIDE.md#4-development-workflow",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/smartpath/docs/DEVELOPER_GUIDE.md#4-development-workflow"
+      },
+      {
+        "file": "docs/DEVELOPER_GUIDE.md",
+        "line": 828,
+        "linkText": "CI/CD Documentation",
+        "linkPath": "./deployment/ci-cd-guide.md",
+        "targetPath": "docs/deployment/ci-cd-guide.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/smartpath/docs/deployment/ci-cd-guide.md"
+      },
+      {
+        "file": "docs/FIRST_CONTRIBUTION.md",
+        "line": 282,
+        "linkText": "Troubleshooting Guide",
+        "linkPath": "./troubleshooting.md",
+        "targetPath": "docs/troubleshooting.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/smartpath/docs/troubleshooting.md"
+      },
+      {
+        "file": "docs/architecture/System-Architecture.md",
+        "line": 209,
+        "linkText": "AWS Technology Stack",
+        "linkPath": "./AWS-Technology-Stack",
+        "targetPath": "docs/architecture/AWS-Technology-Stack",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/smartpath/docs/architecture/AWS-Technology-Stack"
+      },
+      {
+        "file": "docs/documentation_table_of_contents.md",
+        "line": 8,
+        "linkText": "Project README",
+        "linkPath": "README.html",
+        "targetPath": "docs/README.html",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/smartpath/docs/README.html"
+      },
+      {
+        "file": "docs/documentation_table_of_contents.md",
+        "line": 9,
+        "linkText": "Developer Guide",
+        "linkPath": "docs/DEVELOPER_GUIDE.md",
+        "targetPath": "docs/docs/DEVELOPER_GUIDE.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/smartpath/docs/docs/DEVELOPER_GUIDE.md"
+      },
+      {
+        "file": "docs/documentation_table_of_contents.md",
+        "line": 11,
+        "linkText": "AI-Assisted Development Guide",
+        "linkPath": "../COPILOT_GUIDE.html",
+        "targetPath": "COPILOT_GUIDE.html",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/smartpath/COPILOT_GUIDE.html"
+      },
+      {
+        "file": "docs/documentation_table_of_contents.md",
+        "line": 17,
+        "linkText": "System Architecture",
+        "linkPath": "architecture.md",
+        "targetPath": "docs/architecture.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/smartpath/docs/architecture.md"
+      },
+      {
+        "file": "docs/documentation_table_of_contents.md",
+        "line": 22,
+        "linkText": "User Guide",
+        "linkPath": "user-guide.md",
+        "targetPath": "docs/user-guide.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/smartpath/docs/user-guide.md"
+      },
+      {
+        "file": "docs/user-guide/Toyota-SmartPath-Complete-Documentation.md",
+        "line": 35,
+        "linkText": "System Architecture",
+        "linkPath": "docs/architecture-diagram.svg",
+        "targetPath": "docs/user-guide/docs/architecture-diagram.svg",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/smartpath/docs/user-guide/docs/architecture-diagram.svg"
+      },
+      {
+        "file": "tests/README.md",
+        "line": 277,
+        "linkText": "CI/CD Guide",
+        "linkPath": "../docs/deployment/ci-cd-guide.md",
+        "targetPath": "docs/deployment/ci-cd-guide.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/smartpath/docs/deployment/ci-cd-guide.md"
+      }
+    ],
+    "sovd-diagnostic-ecosystem-platform-architecture": [
+      {
+        "file": "README.md",
+        "line": 20,
+        "linkText": "📖 Guide",
+        "linkPath": "./docs/api-specs/api-01/implementation-guide.md",
+        "targetPath": "docs/api-specs/api-01/implementation-guide.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/sovd-diagnostic-ecosystem-platform-architecture/docs/api-specs/api-01/implementation-guide.md"
+      },
+      {
+        "file": "README.md",
+        "line": 21,
+        "linkText": "📖 Guide",
+        "linkPath": "./docs/api-specs/api-02/implementation-guide.md",
+        "targetPath": "docs/api-specs/api-02/implementation-guide.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/sovd-diagnostic-ecosystem-platform-architecture/docs/api-specs/api-02/implementation-guide.md"
+      },
+      {
+        "file": "README.md",
+        "line": 22,
+        "linkText": "📖 Guide",
+        "linkPath": "./docs/api-specs/api-03/implementation-guide.md",
+        "targetPath": "docs/api-specs/api-03/implementation-guide.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/sovd-diagnostic-ecosystem-platform-architecture/docs/api-specs/api-03/implementation-guide.md"
+      },
+      {
+        "file": "README.md",
+        "line": 23,
+        "linkText": "📖 Guide",
+        "linkPath": "./docs/api-specs/api-04/implementation-guide.md",
+        "targetPath": "docs/api-specs/api-04/implementation-guide.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/sovd-diagnostic-ecosystem-platform-architecture/docs/api-specs/api-04/implementation-guide.md"
+      },
+      {
+        "file": "README.md",
+        "line": 23,
+        "linkText": "🧪 Test",
+        "linkPath": "./postman-collections/api-04-collection.json",
+        "targetPath": "postman-collections/api-04-collection.json",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/sovd-diagnostic-ecosystem-platform-architecture/postman-collections/api-04-collection.json"
+      },
+      {
+        "file": "README.md",
+        "line": 128,
+        "linkText": "C4 Model Diagrams",
+        "linkPath": "docs/architecture/c4/",
+        "targetPath": "docs/architecture/c4",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/sovd-diagnostic-ecosystem-platform-architecture/docs/architecture/c4/"
+      },
+      {
+        "file": "README.md",
+        "line": 129,
+        "linkText": "System Diagrams",
+        "linkPath": "docs/architecture/diagrams/",
+        "targetPath": "docs/architecture/diagrams",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/sovd-diagnostic-ecosystem-platform-architecture/docs/architecture/diagrams/"
+      },
+      {
+        "file": "README.md",
+        "line": 132,
+        "linkText": "GraphQL Schemas",
+        "linkPath": "docs/api/graphql/",
+        "targetPath": "docs/api/graphql",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/sovd-diagnostic-ecosystem-platform-architecture/docs/api/graphql/"
+      },
+      {
+        "file": "README.md",
+        "line": 134,
+        "linkText": "Postman Collections",
+        "linkPath": "docs/api/postman/",
+        "targetPath": "docs/api/postman",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/sovd-diagnostic-ecosystem-platform-architecture/docs/api/postman/"
+      },
+      {
+        "file": "README.md",
+        "line": 138,
+        "linkText": "Non-Functional Requirements",
+        "linkPath": "docs/specifications/non-functional-requirements.md",
+        "targetPath": "docs/specifications/non-functional-requirements.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/sovd-diagnostic-ecosystem-platform-architecture/docs/specifications/non-functional-requirements.md"
+      },
+      {
+        "file": "README.md",
+        "line": 141,
+        "linkText": "Getting Started",
+        "linkPath": "docs/getting-started/",
+        "targetPath": "docs/getting-started",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/sovd-diagnostic-ecosystem-platform-architecture/docs/getting-started/"
+      },
+      {
+        "file": "README.md",
+        "line": 142,
+        "linkText": "Quick Start Guide",
+        "linkPath": "docs/getting-started/quick-start.md",
+        "targetPath": "docs/getting-started/quick-start.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/sovd-diagnostic-ecosystem-platform-architecture/docs/getting-started/quick-start.md"
+      },
+      {
+        "file": "README.md",
+        "line": 143,
+        "linkText": "Developer Setup",
+        "linkPath": "docs/getting-started/developer-setup.md",
+        "targetPath": "docs/getting-started/developer-setup.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/sovd-diagnostic-ecosystem-platform-architecture/docs/getting-started/developer-setup.md"
+      },
+      {
+        "file": "README.md",
+        "line": 144,
+        "linkText": "Integration Examples",
+        "linkPath": "docs/getting-started/examples/",
+        "targetPath": "docs/getting-started/examples",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/sovd-diagnostic-ecosystem-platform-architecture/docs/getting-started/examples/"
+      },
+      {
+        "file": "README.md",
+        "line": 146,
+        "linkText": "Marketing Materials",
+        "linkPath": "docs/marketing/",
+        "targetPath": "docs/marketing",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/sovd-diagnostic-ecosystem-platform-architecture/docs/marketing/"
+      },
+      {
+        "file": "README.md",
+        "line": 148,
+        "linkText": "Competitive Analysis",
+        "linkPath": "docs/marketing/competitive-analysis.md",
+        "targetPath": "docs/marketing/competitive-analysis.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/sovd-diagnostic-ecosystem-platform-architecture/docs/marketing/competitive-analysis.md"
+      },
+      {
+        "file": "README.md",
+        "line": 149,
+        "linkText": "Business Case",
+        "linkPath": "docs/marketing/business-case.md",
+        "targetPath": "docs/marketing/business-case.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/sovd-diagnostic-ecosystem-platform-architecture/docs/marketing/business-case.md"
+      },
+      {
+        "file": "README.md",
+        "line": 169,
+        "linkText": "Contributing Guidelines",
+        "linkPath": "CONTRIBUTING.md",
+        "targetPath": "CONTRIBUTING.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/sovd-diagnostic-ecosystem-platform-architecture/CONTRIBUTING.md"
+      },
+      {
+        "file": "README.md",
+        "line": 173,
+        "linkText": "LICENSE",
+        "linkPath": "LICENSE",
+        "targetPath": "LICENSE",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/sovd-diagnostic-ecosystem-platform-architecture/LICENSE"
+      },
+      {
+        "file": "docs/architecture/adrs/ADR-001-sovd-standard-adoption.md",
+        "line": 119,
+        "linkText": "SOVD Technical Implementation Guide",
+        "linkPath": "../specifications/sovd-technical-implementation-guide.md",
+        "targetPath": "docs/architecture/specifications/sovd-technical-implementation-guide.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/sovd-diagnostic-ecosystem-platform-architecture/docs/architecture/specifications/sovd-technical-implementation-guide.md"
+      },
+      {
+        "file": "docs/architecture/adrs/README.md",
+        "line": 131,
+        "linkText": "Technical Requirements",
+        "linkPath": "../specifications/technical-requirements.md",
+        "targetPath": "docs/architecture/specifications/technical-requirements.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/sovd-diagnostic-ecosystem-platform-architecture/docs/architecture/specifications/technical-requirements.md"
+      },
+      {
+        "file": "docs/architecture/adrs/README.md",
+        "line": 132,
+        "linkText": "System Architecture Overview",
+        "linkPath": "../system-architecture-overview.md",
+        "targetPath": "docs/architecture/system-architecture-overview.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/sovd-diagnostic-ecosystem-platform-architecture/docs/architecture/system-architecture-overview.md"
+      },
+      {
+        "file": "docs/architecture/adrs/README.md",
+        "line": 133,
+        "linkText": "C4 Architecture Diagrams",
+        "linkPath": "architecture/",
+        "targetPath": "docs/architecture/adrs/architecture",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/sovd-diagnostic-ecosystem-platform-architecture/docs/architecture/adrs/architecture/"
+      }
+    ]
+  },
+  "fixSummary": {
+    "totalFixed": 366,
+    "filesByRepo": {
+      "copilot-architecture-template": 7,
+      "ecosystem-platform-architecture": 10,
+      "future-mobility-fleet-platform": 60,
+      "future-mobility-oems-platform": 82,
+      "future-mobility-regulatory-platform": 30,
+      "future-mobility-tech-platform": 48,
+      "future-mobility-utilities-platform": 45,
+      "mobility-architecture-package-orchestrator": 2,
+      "nslabsdashboards": 38,
+      "rentalFleets": 10,
+      "sample-arch-package": 9,
+      "smartpath": 10,
+      "sovd-diagnostic-ecosystem-platform-architecture": 15
+    }
+  }
+}

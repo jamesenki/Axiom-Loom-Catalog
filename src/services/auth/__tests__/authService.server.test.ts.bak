@@ -1,0 +1,155 @@
+/**
+ * Authentication Service Tests
+ */
+
+import { authService, UserRole, User } from '../authService';
+
+describe('AuthService', () => {
+  const mockUser: User = {
+    id: '1',
+    email: 'test@ey.com',
+    name: 'Test User',
+    role: UserRole.DEVELOPER,
+    organizationId: 'ey',
+    createdAt: new Date(),
+    updatedAt: new Date()
+  };
+
+  describe('Token Generation', () => {
+    it('generates valid tokens', () => {
+      const tokens = authService.generateTokens(mockUser);
+      
+      expect(tokens).toHaveProperty('accessToken');
+      expect(tokens).toHaveProperty('refreshToken');
+      expect(tokens).toHaveProperty('expiresIn');
+      expect(tokens.expiresIn).toBe(900); // 15 minutes
+    });
+
+    it('includes user information in access token', () => {
+      const tokens = authService.generateTokens(mockUser);
+      const decoded = authService.verifyAccessToken(tokens.accessToken);
+      
+      expect(decoded.id).toBe(mockUser.id);
+      expect(decoded.email).toBe(mockUser.email);
+      expect(decoded.role).toBe(mockUser.role);
+      expect(decoded.organizationId).toBe(mockUser.organizationId);
+    });
+  });
+
+  describe('Token Verification', () => {
+    it('verifies valid access token', () => {
+      const tokens = authService.generateTokens(mockUser);
+      const decoded = authService.verifyAccessToken(tokens.accessToken);
+      
+      expect(decoded).toBeTruthy();
+      expect(decoded.id).toBe(mockUser.id);
+    });
+
+    it('throws error for invalid access token', () => {
+      expect(() => {
+        authService.verifyAccessToken('invalid-token');
+      }).toThrow('Invalid access token');
+    });
+
+    it('verifies valid refresh token', () => {
+      const tokens = authService.generateTokens(mockUser);
+      const decoded = authService.verifyRefreshToken(tokens.refreshToken);
+      
+      expect(decoded).toBeTruthy();
+      expect(decoded.id).toBe(mockUser.id);
+    });
+  });
+
+  describe('API Key Management', () => {
+    it('generates unique API keys', () => {
+      const key1 = authService.generateApiKey();
+      const key2 = authService.generateApiKey();
+      
+      expect(key1).toMatch(/^ey_[A-Za-z0-9]{32}$/);
+      expect(key2).toMatch(/^ey_[A-Za-z0-9]{32}$/);
+      expect(key1).not.toBe(key2);
+    });
+
+    it('hashes API keys', async () => {
+      const apiKey = authService.generateApiKey();
+      const hashedKey = await authService.hashApiKey(apiKey);
+      
+      expect(hashedKey).not.toBe(apiKey);
+      expect(hashedKey.length).toBeGreaterThan(50);
+    });
+
+    it('verifies API keys correctly', async () => {
+      const apiKey = authService.generateApiKey();
+      const hashedKey = await authService.hashApiKey(apiKey);
+      
+      const isValid = await authService.verifyApiKey(apiKey, hashedKey);
+      expect(isValid).toBe(true);
+      
+      const isInvalid = await authService.verifyApiKey('wrong-key', hashedKey);
+      expect(isInvalid).toBe(false);
+    });
+  });
+
+  describe('Permissions', () => {
+    it('checks admin permissions correctly', () => {
+      const adminUser: User = { ...mockUser, role: UserRole.ADMIN };
+      
+      expect(authService.hasPermission(adminUser, 'any:permission')).toBe(true);
+      expect(authService.hasPermission(adminUser, 'create:api_keys')).toBe(true);
+    });
+
+    it('checks developer permissions correctly', () => {
+      const devUser: User = { ...mockUser, role: UserRole.DEVELOPER };
+      
+      expect(authService.hasPermission(devUser, 'read:apis')).toBe(true);
+      expect(authService.hasPermission(devUser, 'create:api_keys')).toBe(true);
+      expect(authService.hasPermission(devUser, 'manage:users')).toBe(false);
+    });
+
+    it('checks viewer permissions correctly', () => {
+      const viewerUser: User = { ...mockUser, role: UserRole.VIEWER };
+      
+      expect(authService.hasPermission(viewerUser, 'read:apis')).toBe(true);
+      expect(authService.hasPermission(viewerUser, 'read:documentation')).toBe(true);
+      expect(authService.hasPermission(viewerUser, 'create:api_keys')).toBe(false);
+    });
+  });
+
+  describe('Rate Limiting', () => {
+    it('returns correct rate limits for roles', () => {
+      expect(authService.getRateLimit(UserRole.ADMIN)).toEqual({
+        windowMs: 15 * 60 * 1000,
+        max: 1000
+      });
+      
+      expect(authService.getRateLimit(UserRole.DEVELOPER)).toEqual({
+        windowMs: 15 * 60 * 1000,
+        max: 500
+      });
+      
+      expect(authService.getRateLimit(UserRole.VIEWER)).toEqual({
+        windowMs: 15 * 60 * 1000,
+        max: 100
+      });
+    });
+
+    it('generates correct rate limit keys', () => {
+      const user: User = { ...mockUser, id: '123', role: UserRole.DEVELOPER };
+      const key = authService.getRateLimitKey(user);
+      
+      expect(key).toBe('rate_limit:123:developer');
+    });
+  });
+
+  describe('OAuth2 Flow', () => {
+    it('generates authorization URL with correct parameters', () => {
+      const state = 'random-state';
+      const authUrl = authService.getAuthorizationUrl(state);
+      
+      expect(authUrl).toContain('https://login.ey.com/oauth2/authorize');
+      expect(authUrl).toContain('response_type=code');
+      expect(authUrl).toContain(`state=${state}`);
+      expect(authUrl).toContain('scope=openid%20profile%20email');
+    });
+  });
+});

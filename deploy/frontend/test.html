@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Theme Test</title>
+</head>
+<body>
+    <h1>Testing Theme Access</h1>
+    <div id="root"></div>
+    <script src="/static/js/react.655a5cfb.js"></script>
+    <script src="/static/js/vendors.76831878.js"></script>
+    <script src="/static/js/main.a35c48e7.js"></script>
+    <script>
+        // Log any errors
+        window.addEventListener('error', function(e) {
+            console.error('Error caught:', e.message, e.error);
+            document.body.innerHTML += '<pre>Error: ' + e.message + '\n' + (e.error ? e.error.stack : '') + '</pre>';
+        });
+    </script>
+</body>
+</html>

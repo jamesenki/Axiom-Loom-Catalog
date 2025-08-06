@@ -1,0 +1,362 @@
+name: CI/CD Pipeline - Zero Tolerance Edition
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+
+env:
+  NODE_VERSION: '18'
+  DEPLOYMENT_TIMEOUT: 3600  # 1 hour max
+
+jobs:
+  # Stage 1: Code Quality Gates
+  code-quality:
+    name: Code Quality Gates
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: |
+          npm cache clean --force
+          npm ci
+      
+      - name: TypeScript Compilation Check
+        run: |
+          npm run type-check 2>&1 | tee typescript.log
+          if grep -q "error TS" typescript.log; then
+            echo "❌ TypeScript errors found!"
+            cat typescript.log
+            exit 1
+          fi
+      
+      - name: ESLint Check (Zero Warnings)
+        run: npm run lint -- --max-warnings 0
+      
+      - name: Code Complexity Analysis
+        run: |
+          npx complexity-report src/**/*.{ts,tsx} --format json > complexity.json
+          MAX_COMPLEXITY=$(jq '.reports[].complexity' complexity.json | sort -nr | head -1)
+          if [ "$MAX_COMPLEXITY" -gt 10 ]; then
+            echo "❌ Excessive complexity: $MAX_COMPLEXITY"
+            exit 1
+          fi
+      
+      - name: Upload Quality Reports
+        uses: actions/upload-artifact@v3
+        with:
+          name: quality-reports
+          path: |
+            typescript.log
+            complexity.json
+
+  # Stage 2: Security Scanning
+  security:
+    name: Security Scanning
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Security Audit
+        run: |
+          npm audit --json > audit.json
+          CRITICAL=$(jq '.metadata.vulnerabilities.critical' audit.json)
+          HIGH=$(jq '.metadata.vulnerabilities.high' audit.json)
+          if [ "$CRITICAL" -gt 0 ] || [ "$HIGH" -gt 0 ]; then
+            echo "❌ Security vulnerabilities found!"
+            npm audit
+            exit 1
+          fi
+      
+      - name: Secret Scanning
+        uses: trufflesecurity/trufflehog@main
+        with:
+          path: ./
+          base: ${{ github.event.repository.default_branch }}
+          head: HEAD
+      
+      - name: SAST Scan
+        uses: returntocorp/semgrep-action@v1
+        with:
+          config: >-
+            p/security-audit
+            p/typescript
+            p/react
+
+  # Stage 3: Test Suite
+  test-suite:
+    name: Comprehensive Test Suite
+    runs-on: ubuntu-latest
+    needs: [code-quality]
+    strategy:
+      matrix:
+        test-type: [unit, integration, e2e]
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Run ${{ matrix.test-type }} tests
+        run: |
+          if [ "${{ matrix.test-type }}" = "unit" ]; then
+            npm run test:coverage -- --watchAll=false --ci
+            COVERAGE=$(grep '"pct":' coverage/coverage-summary.json | head -1 | grep -o '[0-9.]*')
+            if (( $(echo "$COVERAGE < 80" | bc -l) )); then
+              echo "❌ Coverage below 80%: $COVERAGE%"
+              exit 1
+            fi
+          elif [ "${{ matrix.test-type }}" = "integration" ]; then
+            npm run test:integration
+          else
+            npm run test:e2e
+          fi
+      
+      - name: Upload test results
+        uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: test-results-${{ matrix.test-type }}
+          path: |
+            coverage/
+            test-results/
+
+  # Stage 4: Build Validation
+  build:
+    name: Build Validation
+    runs-on: ubuntu-latest
+    needs: [code-quality, security, test-suite]
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Production Build
+        run: |
+          NODE_ENV=production npm run build
+          
+          # Verify critical files
+          for file in build/index.html build/static/js/main.*.js build/static/css/main.*.css; do
+            if ! ls $file 1> /dev/null 2>&1; then
+              echo "❌ Critical file missing: $file"
+              exit 1
+            fi
+          done
+      
+      - name: Bundle Size Check
+        run: |
+          BUNDLE_SIZE=$(find build -name "*.js" -exec du -ch {} + | grep total$ | awk '{print $1}')
+          echo "Bundle size: $BUNDLE_SIZE"
+          # Convert to MB for comparison
+          SIZE_MB=$(echo $BUNDLE_SIZE | sed 's/M//')
+          if (( $(echo "$SIZE_MB > 5" | bc -l) )); then
+            echo "❌ Bundle too large: ${SIZE_MB}MB"
+            exit 1
+          fi
+      
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: build-artifacts
+          path: build/
+
+  # Stage 5: Performance Testing
+  performance:
+    name: Performance Testing
+    runs-on: ubuntu-latest
+    needs: [build]
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Download build artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: build-artifacts
+          path: build/
+      
+      - name: Lighthouse CI
+        uses: treosh/lighthouse-ci-action@v9
+        with:
+          uploadArtifacts: true
+          temporaryPublicStorage: true
+          runs: 3
+          configPath: ./lighthouse.config.js
+      
+      - name: Performance Budget Check
+        run: |
+          # Check Lighthouse scores
+          if [ -f ".lighthouseci/manifest.json" ]; then
+            PERF_SCORE=$(jq '.[] | .summary.performance' .lighthouseci/manifest.json | sort -n | head -1)
+            if (( $(echo "$PERF_SCORE < 0.8" | bc -l) )); then
+              echo "❌ Performance score too low: $PERF_SCORE"
+              exit 1
+            fi
+          fi
+
+  # Stage 6: E2E Cross-Browser Testing
+  e2e-cross-browser:
+    name: E2E Cross-Browser Testing
+    runs-on: ubuntu-latest
+    needs: [build]
+    strategy:
+      matrix:
+        browser: [chromium, firefox, webkit]
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      
+      - name: Install dependencies
+        run: |
+          npm ci
+          npx playwright install --with-deps ${{ matrix.browser }}
+      
+      - name: Download build artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: build-artifacts
+          path: build/
+      
+      - name: Run E2E tests - ${{ matrix.browser }}
+        run: |
+          npx serve -s build -l 3000 &
+          SERVER_PID=$!
+          sleep 5
+          npm run test:e2e -- --project=${{ matrix.browser }}
+          kill $SERVER_PID
+
+  # Stage 7: Docker Build & Security Scan
+  docker:
+    name: Docker Build & Security
+    runs-on: ubuntu-latest
+    needs: [build]
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+      
+      - name: Build Docker image
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          push: false
+          tags: eyns-ai-center:${{ github.sha }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+      
+      - name: Run Trivy vulnerability scanner
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: eyns-ai-center:${{ github.sha }}
+          format: 'sarif'
+          output: 'trivy-results.sarif'
+          severity: 'CRITICAL,HIGH'
+          exit-code: '1'
+
+  # Stage 8: Deployment Gate
+  deployment-gate:
+    name: Deployment Gate Decision
+    runs-on: ubuntu-latest
+    needs: [code-quality, security, test-suite, build, performance, e2e-cross-browser, docker]
+    if: github.ref == 'refs/heads/main'
+    outputs:
+      deploy_decision: ${{ steps.decision.outputs.result }}
+    steps:
+      - name: Evaluate Deployment Readiness
+        id: decision
+        run: |
+          echo "🔍 Evaluating deployment readiness..."
+          echo "✅ All quality gates passed"
+          echo "✅ Security scans clean"
+          echo "✅ 100% test pass rate"
+          echo "✅ Performance within budget"
+          echo "✅ Docker image secure"
+          echo ""
+          echo "🚀 DEPLOYMENT APPROVED"
+          echo "result=approved" >> $GITHUB_OUTPUT
+
+  # Stage 9: Production Deployment
+  deploy:
+    name: Production Deployment
+    runs-on: ubuntu-latest
+    needs: [deployment-gate]
+    if: needs.deployment-gate.outputs.deploy_decision == 'approved'
+    environment:
+      name: production
+      url: https://eyns-ai-center.ey.com
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Deploy to Production
+        run: |
+          echo "🚀 Deploying to production..."
+          # Add actual deployment commands here
+      
+      - name: Post-Deployment Health Check
+        run: |
+          echo "🏥 Running health checks..."
+          # Add health check commands
+      
+      - name: Start Monitoring
+        run: |
+          echo "📊 Starting production monitoring..."
+          # Add monitoring setup
+
+  # Stage 10: Post-Deployment Validation
+  post-deployment:
+    name: Post-Deployment Validation
+    runs-on: ubuntu-latest
+    needs: [deploy]
+    steps:
+      - name: Smoke Tests
+        run: |
+          echo "🔥 Running production smoke tests..."
+          # Add smoke test commands
+      
+      - name: Performance Validation
+        run: |
+          echo "⚡ Validating production performance..."
+          # Add performance checks
+      
+      - name: Security Validation
+        run: |
+          echo "🔒 Running production security scan..."
+          # Add security checks
+      
+      - name: Generate Deployment Report
+        run: |
+          echo "📄 Generating deployment report..."
+          # Add report generation

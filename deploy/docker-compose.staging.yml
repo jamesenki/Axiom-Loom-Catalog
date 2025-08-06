@@ -1,0 +1,43 @@
+services:
+  # Frontend Application
+  web:
+    build:
+      context: ..
+      dockerfile: Dockerfile
+    container_name: eyns-ai-center-staging
+    ports:
+      - "8080:8080"
+    environment:
+      - NODE_ENV=staging
+      - REACT_APP_API_URL=http://localhost:3001
+      - REACT_APP_ENVIRONMENT=staging
+    restart: unless-stopped
+    networks:
+      - eyns-network
+    healthcheck:
+      test: ["CMD", "/usr/local/bin/health-check.sh"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # Redis for caching
+  redis:
+    image: redis:7-alpine
+    container_name: eyns-redis-staging
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    restart: unless-stopped
+    networks:
+      - eyns-network
+    command: redis-server --appendonly yes
+
+volumes:
+  redis_data:
+    driver: local
+
+networks:
+  eyns-network:
+    driver: bridge

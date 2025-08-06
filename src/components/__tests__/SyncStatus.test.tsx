@@ -1,3 +1,6 @@
+/**
+ * @jest-environment jsdom
+ */
 import React from 'react';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
@@ -258,7 +261,7 @@ describe('SyncStatus', () => {
     mockGetSyncStatus.mockReturnValue(defaultSyncStatus);
     mockGetLastSyncInfo.mockReturnValue(defaultLastSyncInfo);
 
-    const { container } = render(<SyncStatus className="custom-class" />);
+    render(<SyncStatus className="custom-class" />);
     
     expect(container.firstChild).toHaveClass('custom-class');
   });

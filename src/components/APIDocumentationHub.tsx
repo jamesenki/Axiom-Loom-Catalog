@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { ApiDetectionResult } from '../services/dynamicApiDetection';
+import { getApiUrl } from '../utils/apiConfig';
 
 interface ApiEndpoint {
   method: string;
@@ -22,6 +23,27 @@ interface ApiSpec {
   services?: any[];
 }
 
+const getApiDisplayName = (fileName: string): string => {
+  // Get just the filename without path
+  const baseName = fileName.split('/').pop() || fileName;
+  
+  // Remove file extension
+  const nameWithoutExt = baseName.replace(/\.(yaml|yml|json|graphql|gql|proto)$/i, '');
+  
+  // Convert common patterns to readable names
+  const cleaned = nameWithoutExt
+    .replace(/[-_]/g, ' ')
+    .replace(/api/gi, 'API')
+    .replace(/openapi/gi, 'OpenAPI')
+    .replace(/swagger/gi, 'Swagger')
+    .replace(/spec/gi, 'Spec')
+    .replace(/schema/gi, 'Schema')
+    .replace(/\b(\w)/g, (match) => match.toUpperCase()); // Capitalize first letters
+    
+  // If still too long, truncate
+  return cleaned.length > 40 ? cleaned.substring(0, 37) + '...' : cleaned;
+};
+
 const APIDocumentationHub: React.FC = () => {
   const { repoName } = useParams<{ repoName: string }>();
   const [loading, setLoading] = useState(true);
@@ -37,7 +59,7 @@ const APIDocumentationHub: React.FC = () => {
         setLoading(true);
         
         // Fetch API detection results
-        const detectionResponse = await fetch(`/api/repository/${repoName}/apis`);
+        const detectionResponse = await fetch(getApiUrl(`/api/repository/${repoName}/apis`));
         if (!detectionResponse.ok) {
           throw new Error('Failed to detect APIs');
         }
@@ -173,8 +195,8 @@ const APIDocumentationHub: React.FC = () => {
                     {getApiTypeIcon(spec.type)}
                   </span>
                   <div>
-                    <h4 className="text-white font-medium">{spec.title}</h4>
-                    <p className="text-gray-400 text-sm">{spec.file}</p>
+                    <h4 className="text-white font-medium">{spec.title || getApiDisplayName(spec.file)}</h4>
+                    <p className="text-gray-400 text-sm" title={spec.file}>{getApiDisplayName(spec.file)}</p>
                   </div>
                 </div>
                 {spec.version && (
@@ -203,8 +225,8 @@ const APIDocumentationHub: React.FC = () => {
       {selectedSpec ? (
         <div>
           <div className="mb-6">
-            <h4 className="text-lg font-medium text-white mb-2">{selectedSpec.title}</h4>
-            <p className="text-gray-400">{selectedSpec.file}</p>
+            <h4 className="text-lg font-medium text-white mb-2">{selectedSpec.title || getApiDisplayName(selectedSpec.file)}</h4>
+            <p className="text-gray-400" title={selectedSpec.file}>{getApiDisplayName(selectedSpec.file)}</p>
           </div>
 
           {selectedSpec.type === 'rest' && (
@@ -267,8 +289,8 @@ const APIDocumentationHub: React.FC = () => {
             <div key={index} className="bg-gray-700/50 rounded-lg p-4">
               <div className="flex items-center justify-between">
                 <div>
-                  <h4 className="text-white font-medium">{collection.name}</h4>
-                  <p className="text-gray-400 text-sm">{collection.file}</p>
+                  <h4 className="text-white font-medium">{collection.name || getApiDisplayName(collection.file)}</h4>
+                  <p className="text-gray-400 text-sm" title={collection.file}>{getApiDisplayName(collection.file)}</p>
                 </div>
                 <Link
                   to={`/postman/${repoName}?collection=${encodeURIComponent(collection.file)}`}

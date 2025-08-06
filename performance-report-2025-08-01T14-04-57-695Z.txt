@@ -1,0 +1,65 @@
+
+EYNS AI Experience Center Performance Validation Report
+======================================================
+Generated: 2025-08-01T14:04:37.895Z
+Target: http://10.0.0.109
+
+SUMMARY
+-------
+✅ Passed: 3
+❌ Failed: 1
+⚠️  Warnings: 2
+
+1. PAGE LOAD PERFORMANCE
+------------------------
+
+Total Load Time: 2.49ms
+Estimated FCP: 102.44ms
+Estimated LCP: 1.99ms
+Estimated TTI: 2.24ms
+Meets < 2s Requirement: YES
+
+Page Load Times:
+  /: 1.35ms (768 bytes)
+  /repositories: 1.28ms (768 bytes)
+  /api-explorer: 1.09ms (768 bytes)
+  /documentation: 0.88ms (768 bytes)
+
+2. API PERFORMANCE
+------------------
+
+/api/health:
+  Average Response Time: 2.52ms
+  Min/Max: 1.91ms / 4.24ms
+  Success Rate: 100.00%
+/api/repositories:
+  Average Response Time: 2.44ms
+  Min/Max: 1.81ms / 3.11ms
+  Success Rate: 100.00%
+/api/search?q=test:
+  Average Response Time: 2.39ms
+  Min/Max: 1.85ms / 3.16ms
+  Success Rate: 100.00%
+
+Rate Limiting: NOT DETECTED
+
+3. RESOURCE OPTIMIZATION
+------------------------
+Compression: DISABLED
+Initial Page Size: 0.75 KB
+
+
+4. STRESS TEST RESULTS
+----------------------
+Requests per Second: 4760.84
+Average Response Time: 10.502ms
+Error Rate: 99.34%
+
+5. NETWORK PERFORMANCE
+----------------------
+Average Latency: 0.15ms
+Packet Loss: 0%
+Estimated Bandwidth: 1.40 Mbps
+
+RECOMMENDATIONS
+---------------\n- Enable compression (gzip/brotli) for better performance\n- Improve error handling under high load conditions\n- Consider implementing rate limiting for API protection

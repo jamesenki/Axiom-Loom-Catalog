@@ -47,7 +47,7 @@ export interface SyncResult {
 
 class RepositorySyncService {
   private readonly CLONED_REPOS_PATH = path.join(__dirname, '../../cloned-repositories');
-  private readonly GITHUB_ACCOUNT = '20230011612_EYGS';
+  private readonly GITHUB_ACCOUNT = process.env.GITHUB_ORGANIZATION || 'jamesenki';
   private readonly SYNC_STATUS_FILE = path.join(__dirname, '../../.sync-status.json');
   
   private syncStatus: SyncStatus = {

@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+import { getApiUrl } from '../utils/apiConfig';
 
 interface Repository {
   name: string;
@@ -23,7 +24,7 @@ export const useAppStore = create<AppStore>((set) => ({
   fetchRepositories: async () => {
     set({ isLoading: true, error: null });
     try {
-      const response = await fetch('/api/repositories');
+      const response = await fetch(getApiUrl('/api/repositories'));
       if (!response.ok) {
         throw new Error('Failed to fetch repositories');
       }

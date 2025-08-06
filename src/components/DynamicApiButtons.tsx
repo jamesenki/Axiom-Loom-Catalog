@@ -7,6 +7,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { ApiDetectionResult, ApiButtonType } from '../services/dynamicApiDetection';
+import { getApiUrl } from '../utils/apiConfig';
 
 interface DynamicApiButtonsProps {
   repositoryName: string;
@@ -14,7 +15,7 @@ interface DynamicApiButtonsProps {
 }
 
 interface ApiButtonConfig {
-  type: ApiButtonType;
+  type: ApiButtonType | 'api-hub';
   label: string;
   icon: string;
   color: string;
@@ -38,7 +39,7 @@ export const DynamicApiButtons: React.FC<DynamicApiButtonsProps> = ({
     try {
       setLoading(true);
       setError(null);
-      const response = await fetch(`/api/repository/${repositoryName}/detect-apis`);
+      const response = await fetch(getApiUrl(`/api/repository/${repositoryName}/detect-apis`));
       if (!response.ok) {
         throw new Error('Failed to detect APIs');
       }
@@ -136,7 +137,7 @@ export const DynamicApiButtons: React.FC<DynamicApiButtonsProps> = ({
     // Always add API Hub button if any APIs exist
     if (configs.length > 0) {
       configs.unshift({
-        type: 'api-hub' as ApiButtonType,
+        type: 'api-hub',
         label: '📚 API Documentation Hub',
         icon: '📚',
         color: 'bg-purple-600 hover:bg-purple-700',

@@ -1,0 +1,38 @@
+{
+  "totalPortfolioValue": 2073000,
+  "averagePackagePrice": 71483,
+  "tierDistribution": {
+    "Tier 4": 1,
+    "Tier 3": 11,
+    "Tier 2": 10,
+    "Tier 1": 7
+  },
+  "topValuePackages": [
+    {
+      "name": "ai-predictive-maintenance-engine-architecture",
+      "price": "$325,000",
+      "tier": "Tier 4: Strategic"
+    },
+    {
+      "name": "cloudtwin-simulation-platform-architecture",
+      "price": "$150,000",
+      "tier": "Tier 3: Enterprise"
+    },
+    {
+      "name": "diagnostic-as-code-platform-architecture",
+      "price": "$150,000",
+      "tier": "Tier 3: Enterprise"
+    },
+    {
+      "name": "NS-Labs-Industrial-dashboards",
+      "price": "$150,000",
+      "tier": "Tier 3: Enterprise"
+    },
+    {
+      "name": "velocityforge-sdv-platform-architecture",
+      "price": "$150,000",
+      "tier": "Tier 3: Enterprise"
+    }
+  ],
+  "lastUpdated": "2025-08-05T21:39:59.678Z"
+}

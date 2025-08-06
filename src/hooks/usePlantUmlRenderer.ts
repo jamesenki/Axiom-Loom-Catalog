@@ -82,7 +82,8 @@ export const usePlantUmlRenderer = (markdownContent: string): UsePlantUmlRendere
     const sortedBlocks = [...blocks].sort((a, b) => b.startIndex - a.startIndex);
     
     sortedBlocks.forEach(block => {
-      const placeholder = `<div data-plantuml-id="${block.id}" data-plantuml-title="${block.title || ''}"></div>`;
+      // Use a custom marker that won't be escaped by markdown
+      const placeholder = `\n\n[PLANTUML:${block.id}:${block.title || ''}:START]\n${block.content}\n[PLANTUML:${block.id}:END]\n\n`;
       processedContent = 
         processedContent.slice(0, block.startIndex) +
         placeholder +

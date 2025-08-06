@@ -258,7 +258,7 @@ This is the end of the document.`;
   });
 
   it('applies custom className', () => {
-    const { container } = render(
+    render(
       <EnhancedMarkdownViewer content={sampleMarkdown} className="custom-class" />
     );
     

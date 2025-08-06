@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkeyns_ai_experience_center=self.webpackChunkeyns_ai_experience_center||[]).push([[321],{41321:(e,n,r)=>{r.r(n),r.d(n,{default:()=>a});r(65043);var s=r(73216),c=r(70579);const a=()=>{const{repoName:e}=(0,s.g)();return(0,c.jsxs)("div",{style:{color:"white",padding:"20px"},children:[(0,c.jsxs)("h1",{children:["\ud83d\udd0d GraphQL Playground: ",e]}),(0,c.jsx)("p",{children:"GraphQL Playground with 19 schemas coming soon..."})]})}}}]);
+//# sourceMappingURL=321.7461cd2c.chunk.js.map

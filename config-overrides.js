@@ -5,6 +5,7 @@
  */
 
 const path = require('path');
+const webpack = require('webpack');
 const CompressionPlugin = require('compression-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
@@ -103,6 +104,32 @@ module.exports = function override(config, env) {
     '@utils': path.resolve(__dirname, 'src/utils'),
     '@contexts': path.resolve(__dirname, 'src/contexts'),
   };
+
+  // Add Node.js polyfills for browser compatibility
+  config.resolve.fallback = {
+    ...config.resolve.fallback,
+    "crypto": require.resolve("crypto-browserify"),
+    "stream": require.resolve("stream-browserify"),
+    "buffer": require.resolve("buffer"),
+    "process": require.resolve("process"),
+    "util": require.resolve("util"),
+    "vm": false,
+    "fs": false,
+    "net": false,
+    "tls": false,
+    "http": false,
+    "https": false,
+    "os": false,
+    "path": false,
+  };
+
+  // Add webpack plugins for global variables
+  config.plugins.push(
+    new webpack.ProvidePlugin({
+      Buffer: ['buffer', 'Buffer'],
+      process: 'process',
+    })
+  );
 
   // Optimize image loading
   const imageRule = config.module.rules.find(rule => 

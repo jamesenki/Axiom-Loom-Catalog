@@ -20,7 +20,7 @@ describe('Header', () => {
 
   it('has correct styling', () => {
     const { container } = renderWithRouter();
-    const header = container.querySelector('header');
+    const header = document.querySelector('header');
     expect(header).toBeInTheDocument();
     expect(header).toHaveStyle({
       background: 'rgba(0,0,0,0.1)',

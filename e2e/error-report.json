@@ -1,0 +1,273 @@
+{
+  "config": {
+    "rootDir": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "shard": null,
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.54.1",
+    "workers": 4,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "verify-deployment.spec.ts",
+      "file": "verify-deployment.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Deployment Verification",
+          "file": "verify-deployment.spec.ts",
+          "line": 3,
+          "column": 6,
+          "specs": [
+            {
+              "title": "homepage loads and shows content",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 1067,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m0\u001b[39m\nReceived:   \u001b[31m0\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m0\u001b[39m\nReceived:   \u001b[31m0\u001b[39m\n    at /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/verify-deployment.spec.ts:35:29",
+                        "location": {
+                          "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/verify-deployment.spec.ts",
+                          "column": 29,
+                          "line": 35
+                        },
+                        "snippet": "  33 |     const bodyText = await page.locator('body').innerText();\n  34 |     console.log('Body text length:', bodyText.length);\n> 35 |     expect(bodyText.length).toBeGreaterThan(0);\n     |                             ^\n  36 |   });\n  37 |   \n  38 |   test('check for JavaScript errors and blank page', async ({ page }) => {"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/verify-deployment.spec.ts",
+                            "column": 29,
+                            "line": 35
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m0\u001b[39m\nReceived:   \u001b[31m0\u001b[39m\n\n  33 |     const bodyText = await page.locator('body').innerText();\n  34 |     console.log('Body text length:', bodyText.length);\n> 35 |     expect(bodyText.length).toBeGreaterThan(0);\n     |                             ^\n  36 |   });\n  37 |   \n  38 |   test('check for JavaScript errors and blank page', async ({ page }) => {\n    at /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/verify-deployment.spec.ts:35:29"
+                        }
+                      ],
+                      "stdout": [
+                        {
+                          "text": "App content: \n"
+                        },
+                        {
+                          "text": "Header visible: \u001b[33mfalse\u001b[39m\n"
+                        },
+                        {
+                          "text": "Body text length: \u001b[33m0\u001b[39m\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-01T16:31:44.126Z",
+                      "annotations": [],
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/verify-deployment.spec.ts",
+                        "column": 29,
+                        "line": 35
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "061e9b0c84e1b2bc267b-47630868193796b0f7c9",
+              "file": "verify-deployment.spec.ts",
+              "line": 4,
+              "column": 7
+            },
+            {
+              "title": "check for JavaScript errors and blank page",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 3230,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m0\u001b[39m\nReceived:   \u001b[31m0\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m0\u001b[39m\nReceived:   \u001b[31m0\u001b[39m\n    at /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/verify-deployment.spec.ts:65:23",
+                        "location": {
+                          "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/verify-deployment.spec.ts",
+                          "column": 23,
+                          "line": 65
+                        },
+                        "snippet": "  63 |     const reactRoot = await page.locator('#root > *').count();\n  64 |     console.log('React root children count:', reactRoot);\n> 65 |     expect(reactRoot).toBeGreaterThan(0);\n     |                       ^\n  66 |   });\n  67 |   \n  68 |   test('API endpoints are accessible', async ({ page }) => {"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/verify-deployment.spec.ts",
+                            "column": 23,
+                            "line": 65
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m0\u001b[39m\nReceived:   \u001b[31m0\u001b[39m\n\n  63 |     const reactRoot = await page.locator('#root > *').count();\n  64 |     console.log('React root children count:', reactRoot);\n> 65 |     expect(reactRoot).toBeGreaterThan(0);\n     |                       ^\n  66 |   });\n  67 |   \n  68 |   test('API endpoints are accessible', async ({ page }) => {\n    at /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/verify-deployment.spec.ts:65:23"
+                        }
+                      ],
+                      "stdout": [
+                        {
+                          "text": "JavaScript errors found:\n"
+                        },
+                        {
+                          "text": " - Cannot read properties of undefined (reading 'button')\n"
+                        },
+                        {
+                          "text": "React root children count: \u001b[33m0\u001b[39m\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-01T16:31:45.780Z",
+                      "annotations": [],
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/verify-deployment.spec.ts",
+                        "column": 23,
+                        "line": 65
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "061e9b0c84e1b2bc267b-2b1e7b06cf5638aa8a7d",
+              "file": "verify-deployment.spec.ts",
+              "line": 38,
+              "column": 7
+            },
+            {
+              "title": "API endpoints are accessible",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 110,
+                      "error": {
+                        "message": "Error: apiRequestContext.get: read ECONNRESET\nCall log:\n\u001b[2m  - → GET http://localhost:3001/api/health\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/139.0.7258.5 Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m  - ← 301 Moved Permanently\u001b[22m\n\u001b[2m    - x-powered-by: Express\u001b[22m\n\u001b[2m    - location: https://localhost/api/health\u001b[22m\n\u001b[2m    - vary: Accept\u001b[22m\n\u001b[2m    - content-type: text/plain; charset=utf-8\u001b[22m\n\u001b[2m    - content-length: 62\u001b[22m\n\u001b[2m    - date: Fri, 01 Aug 2025 16:31:49 GMT\u001b[22m\n\u001b[2m    - connection: keep-alive\u001b[22m\n\u001b[2m    - keep-alive: timeout=5\u001b[22m\n\u001b[2m  - → GET https://localhost/api/health\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/139.0.7258.5 Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n",
+                        "stack": "Error: apiRequestContext.get: read ECONNRESET\nCall log:\n\u001b[2m  - → GET http://localhost:3001/api/health\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/139.0.7258.5 Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m  - ← 301 Moved Permanently\u001b[22m\n\u001b[2m    - x-powered-by: Express\u001b[22m\n\u001b[2m    - location: https://localhost/api/health\u001b[22m\n\u001b[2m    - vary: Accept\u001b[22m\n\u001b[2m    - content-type: text/plain; charset=utf-8\u001b[22m\n\u001b[2m    - content-length: 62\u001b[22m\n\u001b[2m    - date: Fri, 01 Aug 2025 16:31:49 GMT\u001b[22m\n\u001b[2m    - connection: keep-alive\u001b[22m\n\u001b[2m    - keep-alive: timeout=5\u001b[22m\n\u001b[2m  - → GET https://localhost/api/health\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/139.0.7258.5 Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\n    at /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/verify-deployment.spec.ts:70:44",
+                        "location": {
+                          "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/verify-deployment.spec.ts",
+                          "column": 44,
+                          "line": 70
+                        },
+                        "snippet": "  68 |   test('API endpoints are accessible', async ({ page }) => {\n  69 |     // Test the API health endpoint\n> 70 |     const apiResponse = await page.request.get('http://localhost:3001/api/health');\n     |                                            ^\n  71 |     console.log('API health status:', apiResponse.status());\n  72 |     console.log('API health response:', await apiResponse.text());\n  73 |     "
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/verify-deployment.spec.ts",
+                            "column": 44,
+                            "line": 70
+                          },
+                          "message": "Error: apiRequestContext.get: read ECONNRESET\nCall log:\n\u001b[2m  - → GET http://localhost:3001/api/health\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/139.0.7258.5 Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m  - ← 301 Moved Permanently\u001b[22m\n\u001b[2m    - x-powered-by: Express\u001b[22m\n\u001b[2m    - location: https://localhost/api/health\u001b[22m\n\u001b[2m    - vary: Accept\u001b[22m\n\u001b[2m    - content-type: text/plain; charset=utf-8\u001b[22m\n\u001b[2m    - content-length: 62\u001b[22m\n\u001b[2m    - date: Fri, 01 Aug 2025 16:31:49 GMT\u001b[22m\n\u001b[2m    - connection: keep-alive\u001b[22m\n\u001b[2m    - keep-alive: timeout=5\u001b[22m\n\u001b[2m  - → GET https://localhost/api/health\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/139.0.7258.5 Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\n\n  68 |   test('API endpoints are accessible', async ({ page }) => {\n  69 |     // Test the API health endpoint\n> 70 |     const apiResponse = await page.request.get('http://localhost:3001/api/health');\n     |                                            ^\n  71 |     console.log('API health status:', apiResponse.status());\n  72 |     console.log('API health response:', await apiResponse.text());\n  73 |     \n    at /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/verify-deployment.spec.ts:70:44"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-01T16:31:49.358Z",
+                      "annotations": [],
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/verify-deployment.spec.ts",
+                        "column": 44,
+                        "line": 70
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "061e9b0c84e1b2bc267b-2c86b73aaf098c96e42e",
+              "file": "verify-deployment.spec.ts",
+              "line": 68,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2025-08-01T16:31:43.794Z",
+    "duration": 5816.832,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 3,
+    "flaky": 0
+  }
+}

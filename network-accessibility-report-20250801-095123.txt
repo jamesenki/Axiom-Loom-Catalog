@@ -1,0 +1,46 @@
+EYNS AI Experience Center - Network Accessibility Test Report
+Test Date: Fri Aug  1 09:51:23 EDT 2025
+Target: http://10.0.0.109
+
+PASS: Frontend on localhost - Status: 200, Time: 0.014208s
+PASS: Frontend on LAN IP - Status: 200, Time: 0.002115s
+PASS: Frontend on port 80 - Status: 200, Time: 0.001936s
+FAIL: Frontend on port 8080 - Expected 200, got 000
+PASS: API health check on localhost - Status: 200, Time: 0.004295s
+PASS: API health check on LAN IP - Status: 200, Time: 0.005767s
+PASS: Port 80 accessibility - Status: 200, Time: 0.001981s
+PASS: Port 3001 accessibility - Status: 200, Time: 0.004188s
+PASS: CORS from localhost - CORS headers present
+FAIL: CORS from LAN IP - CORS headers missing
+FAIL: CORS from external origin - CORS headers missing
+PASS: Nginx health check - Status: 200, Time: 0.001473s
+PASS: Backend health check - Status: 200
+PASS: List repositories (no auth) - Status: 401
+PASS: Get repository (no auth) - Status: 401
+PASS: Get APIs (no auth) - Status: 401
+PASS: Login endpoint - Status: 401
+FAIL: Register endpoint - Expected 200, got 401
+PASS: Search endpoint (no auth) - Status: 401
+PASS: Frontend page load time - Response time: 0.002681s
+PASS: JavaScript bundle load time - Response time: 0.003242s
+PASS: CSS bundle load time - Response time: 0.001910s
+PASS: API health check response time - Response time: 0.002786s
+FAIL: Static assets not properly cached
+FAIL: X-Frame-Options missing
+FAIL: X-XSS-Protection missing
+FAIL: X-Content-Type-Options missing
+FAIL: Referrer-Policy missing
+FAIL: Permissions-Policy missing
+FAIL: Content-Security-Policy missing
+WARN: Rate limiting might not be configured
+PASS: All endpoints require authentication
+FAIL: WebSocket endpoint - WebSocket not responding
+INFO: Reverse DNS lookup not available
+
+SUMMARY:
+Total Tests: 33
+Passed: 20
+Failed: 12
+Warnings: 1
+
+Result: SOME TESTS FAILED

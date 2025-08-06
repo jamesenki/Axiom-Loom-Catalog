@@ -1,38 +1,42 @@
 import { repositorySyncService } from '../repositorySync';
-import { execSync } from 'child_process';
-import fs from 'fs';
 
-// Mock modules
-jest.mock('child_process');
-jest.mock('fs');
+// Mock fetch
+global.fetch = jest.fn();
+
+// Mock localStorage
+const localStorageMock = {
+  getItem: jest.fn(),
+  setItem: jest.fn(),
+  removeItem: jest.fn(),
+  clear: jest.fn(),
+};
+Object.defineProperty(window, 'localStorage', {
+  value: localStorageMock,
+  writable: true
+});
 
 describe('repositorySyncService - Simple', () => {
   beforeEach(() => {
     jest.clearAllMocks();
-    
-    // Mock fs methods
-    (fs.existsSync as jest.Mock).mockReturnValue(true);
-    (fs.mkdirSync as jest.Mock).mockReturnValue(undefined);
-    (fs.writeFileSync as jest.Mock).mockReturnValue(undefined);
-    (fs.readFileSync as jest.Mock).mockReturnValue('{}');
-    (fs.statSync as jest.Mock).mockReturnValue({ mtime: new Date() });
-    
-    // Mock fs.readdirSync
-    (fs.readdirSync as jest.Mock).mockReturnValue([]);
-    
-    // Mock execSync for GitHub CLI
-    (execSync as jest.Mock).mockImplementation((cmd) => {
-      if (cmd.includes('gh repo list')) {
-        // Return empty array to avoid complex mocking
-        return '[]';
-      }
-      return '';
-    });
+    localStorageMock.getItem.mockReturnValue(null);
+    (global.fetch as jest.Mock).mockClear();
   });
 
   describe('basic functionality', () => {
-    it('initializes with correct default status', () => {
-      const status = repositorySyncService.getSyncStatus();
+    it('initializes with correct default status', async () => {
+      const mockStatus = {
+        isInProgress: false,
+        totalRepositories: 0,
+        completedRepositories: 0,
+        errors: []
+      };
+      
+      (global.fetch as jest.Mock).mockResolvedValueOnce({
+        ok: true,
+        json: async () => mockStatus
+      });
+      
+      const status = await repositorySyncService.getSyncStatus();
       expect(status.isInProgress).toBe(false);
       expect(status.totalRepositories).toBe(0);
       expect(status.completedRepositories).toBe(0);
@@ -40,39 +44,96 @@ describe('repositorySyncService - Simple', () => {
     });
 
     it('returns empty last sync info when no previous sync', () => {
-      (fs.existsSync as jest.Mock).mockReturnValue(false);
       const info = repositorySyncService.getLastSyncInfo();
       expect(info).toEqual({});
     });
 
     it('handles empty repository list gracefully', async () => {
+      const mockResult = {
+        success: true,
+        syncedRepositories: [],
+        failedRepositories: [],
+        totalTime: 0,
+        timestamp: new Date()
+      };
+      
+      (global.fetch as jest.Mock).mockResolvedValueOnce({
+        ok: true,
+        json: async () => mockResult
+      });
+      
       const result = await repositorySyncService.syncOnStartup();
       
       expect(result.success).toBe(true);
       expect(result.syncedRepositories).toEqual([]);
       expect(result.failedRepositories).toEqual([]);
-      expect(result.timestamp).toBeInstanceOf(Date);
-      expect(result.totalTime).toBeGreaterThanOrEqual(0);
     });
 
-    it('falls back to local repositories when GitHub CLI fails', async () => {
-      // Make GitHub CLI fail
-      (execSync as jest.Mock).mockImplementation((cmd) => {
-        if (cmd.includes('gh repo list')) {
-          throw new Error('GitHub CLI not available');
-        }
-        return '';
-      });
+  });
 
-      // Mock local repositories
-      (fs.readdirSync as jest.Mock).mockReturnValue([
-        { name: 'local-repo', isDirectory: () => true }
-      ]);
-
+  describe('error scenarios', () => {
+    it('handles API errors without crashing', async () => {
+      (global.fetch as jest.Mock).mockRejectedValueOnce(new Error('API Error'));
+      
       const result = await repositorySyncService.syncOnStartup();
       
-      expect(result.success).toBe(true);
-      expect(result.syncedRepositories).toEqual(['local-repo']);
+      expect(result.success).toBe(false);
+      expect(result.syncedRepositories).toEqual([]);
+      expect(result.failedRepositories).toEqual([]);
+    });
+
+    it('continues operation when localStorage fails', () => {
+      localStorageMock.getItem.mockImplementation(() => {
+        throw new Error('Storage error');
+      });
+      
+      const info = repositorySyncService.getLastSyncInfo();
+      expect(info).toEqual({});
+    });
+
+    it('handles malformed localStorage data', () => {
+      localStorageMock.getItem.mockReturnValue('invalid json');
+      
+      const info = repositorySyncService.getLastSyncInfo();
+      expect(info).toEqual({});
+    });
+  });
+
+  describe('API interaction', () => {
+    it('calls correct endpoint for sync', async () => {
+      (global.fetch as jest.Mock).mockResolvedValueOnce({
+        ok: true,
+        json: async () => ({
+          success: true,
+          syncedRepositories: [],
+          failedRepositories: [],
+          totalTime: 0,
+          timestamp: new Date()
+        })
+      });
+      
+      await repositorySyncService.syncOnStartup();
+      
+      expect(global.fetch).toHaveBeenCalledWith('/api/repository/sync', expect.objectContaining({
+        method: 'POST'
+      }));
+    });
+
+    it('includes proper headers in API calls', async () => {
+      (global.fetch as jest.Mock).mockResolvedValueOnce({
+        ok: true,
+        json: async () => ({})
+      });
+      
+      await repositorySyncService.startSync();
+      
+      expect(global.fetch).toHaveBeenCalledWith('/api/repository/sync', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({})
+      });
     });
   });
 });

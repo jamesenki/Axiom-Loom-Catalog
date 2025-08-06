@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test App</title>
+    <style>
+        #error-log {
+            background: #fee;
+            border: 2px solid red;
+            padding: 20px;
+            margin: 20px;
+            white-space: pre-wrap;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <h1>Testing EYNS App</h1>
+    <div id="error-log"></div>
+    <hr>
+    <div id="root"></div>
+    
+    <script>
+        const errorLog = document.getElementById('error-log');
+        let errorCount = 0;
+        
+        function logError(type, message, details) {
+            errorCount++;
+            errorLog.innerHTML += `[${type}] ${message}\n${details ? JSON.stringify(details, null, 2) : ''}\n\n`;
+        }
+        
+        window.addEventListener('error', (e) => {
+            logError('JS ERROR', e.message, {
+                file: e.filename,
+                line: e.lineno,
+                col: e.colno,
+                stack: e.error?.stack
+            });
+        });
+        
+        window.addEventListener('unhandledrejection', (e) => {
+            logError('PROMISE REJECTION', e.reason, null);
+        });
+        
+        // Log when React tries to render
+        const originalCreateElement = document.createElement;
+        document.createElement = function(...args) {
+            if (args[0] === 'div' && errorCount === 0) {
+                logError('INFO', 'React is creating elements', null);
+            }
+            return originalCreateElement.apply(this, args);
+        };
+    </script>
+    
+    <!-- Load React app files -->
+    <link href="/static/css/vendors.3d4aa0a0.css" rel="stylesheet">
+    <link href="/static/css/main.6ebc3df7.css" rel="stylesheet">
+    <script src="/static/js/react.655a5cfb.js"></script>
+    <script src="/static/js/vendors.25594e61.js"></script>
+    <script src="/static/js/main.8ef4a54e.js"></script>
+    
+    <script>
+        setTimeout(() => {
+            if (errorCount === 0) {
+                errorLog.innerHTML = "No errors detected (but check if app loaded)";
+            }
+        }, 5000);
+    </script>
+</body>
+</html>

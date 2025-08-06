@@ -2,14 +2,9 @@ import React from 'react';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { DynamicApiButtons } from '../DynamicApiButtons';
-import { detectRepositoryApis } from '../../services/dynamicApiDetection';
 
-// Mock the service
-jest.mock('../../services/dynamicApiDetection', () => ({
-  detectRepositoryApis: jest.fn()
-}));
-
-const mockDetectRepositoryApis = detectRepositoryApis as jest.MockedFunction<typeof detectRepositoryApis>;
+// Mock fetch
+global.fetch = jest.fn();
 
 // Mock window.open
 const mockOpen = jest.fn();
@@ -22,10 +17,11 @@ window.location = { href: '' } as any;
 describe('DynamicApiButtons', () => {
   beforeEach(() => {
     jest.clearAllMocks();
+    (global.fetch as jest.Mock).mockClear();
   });
 
   it('renders loading state initially', () => {
-    mockDetectRepositoryApis.mockImplementation(() => 
+    (global.fetch as jest.Mock).mockImplementation(() => 
       new Promise(() => {}) // Never resolves to test loading state
     );
 
@@ -47,7 +43,10 @@ describe('DynamicApiButtons', () => {
       recommendedButtons: []
     };
 
-    mockDetectRepositoryApis.mockResolvedValueOnce(mockResponse);
+    (global.fetch as jest.Mock).mockResolvedValueOnce({
+      ok: true,
+      json: async () => mockResponse
+    });
 
     render(<DynamicApiButtons repositoryName="test-repo" />);
 
@@ -65,10 +64,13 @@ describe('DynamicApiButtons', () => {
         grpc: []
       },
       hasAnyApis: true,
-      recommendedButtons: ['swagger', 'postman'] as any
+      recommendedButtons: ['swagger', 'postman']
     };
 
-    mockDetectRepositoryApis.mockResolvedValueOnce(mockResponse);
+    (global.fetch as jest.Mock).mockResolvedValueOnce({
+      ok: true,
+      json: async () => mockResponse
+    });
 
     render(<DynamicApiButtons repositoryName="test-repo" />);
 
@@ -88,10 +90,13 @@ describe('DynamicApiButtons', () => {
         grpc: []
       },
       hasAnyApis: true,
-      recommendedButtons: ['graphql', 'postman'] as any
+      recommendedButtons: ['graphql', 'postman']
     };
 
-    mockDetectRepositoryApis.mockResolvedValueOnce(mockResponse);
+    (global.fetch as jest.Mock).mockResolvedValueOnce({
+      ok: true,
+      json: async () => mockResponse
+    });
 
     render(<DynamicApiButtons repositoryName="nslabsdashboards" />);
 
@@ -111,10 +116,13 @@ describe('DynamicApiButtons', () => {
         grpc: [{ file: 'service.proto', services: ['Service1', 'Service2', 'Service3'] }]
       },
       hasAnyApis: true,
-      recommendedButtons: ['grpc', 'postman'] as any
+      recommendedButtons: ['grpc', 'postman']
     };
 
-    mockDetectRepositoryApis.mockResolvedValueOnce(mockResponse);
+    (global.fetch as jest.Mock).mockResolvedValueOnce({
+      ok: true,
+      json: async () => mockResponse
+    });
 
     render(<DynamicApiButtons repositoryName="test-repo" />);
 
@@ -134,10 +142,13 @@ describe('DynamicApiButtons', () => {
         grpc: []
       },
       hasAnyApis: true,
-      recommendedButtons: ['swagger', 'graphql', 'postman'] as any
+      recommendedButtons: ['swagger', 'graphql', 'postman']
     };
 
-    mockDetectRepositoryApis.mockResolvedValueOnce(mockResponse);
+    (global.fetch as jest.Mock).mockResolvedValueOnce({
+      ok: true,
+      json: async () => mockResponse
+    });
 
     render(<DynamicApiButtons repositoryName="test-repo" />);
 
@@ -157,10 +168,13 @@ describe('DynamicApiButtons', () => {
         grpc: [{ file: 'service.proto', services: ['TestService'] }]
       },
       hasAnyApis: true,
-      recommendedButtons: ['swagger', 'graphql', 'grpc', 'postman'] as any
+      recommendedButtons: ['swagger', 'graphql', 'grpc', 'postman']
     };
 
-    mockDetectRepositoryApis.mockResolvedValueOnce(mockResponse);
+    (global.fetch as jest.Mock).mockResolvedValueOnce({
+      ok: true,
+      json: async () => mockResponse
+    });
 
     render(<DynamicApiButtons repositoryName="test-repo" />);
 
@@ -181,10 +195,13 @@ describe('DynamicApiButtons', () => {
         grpc: []
       },
       hasAnyApis: true,
-      recommendedButtons: ['swagger', 'postman'] as any
+      recommendedButtons: ['swagger', 'postman']
     };
 
-    mockDetectRepositoryApis.mockResolvedValueOnce(mockResponse);
+    (global.fetch as jest.Mock).mockResolvedValueOnce({
+      ok: true,
+      json: async () => mockResponse
+    });
 
     render(<DynamicApiButtons repositoryName="test-repo" />);
 
@@ -205,10 +222,13 @@ describe('DynamicApiButtons', () => {
         grpc: []
       },
       hasAnyApis: true,
-      recommendedButtons: ['graphql', 'postman'] as any
+      recommendedButtons: ['graphql', 'postman']
     };
 
-    mockDetectRepositoryApis.mockResolvedValueOnce(mockResponse);
+    (global.fetch as jest.Mock).mockResolvedValueOnce({
+      ok: true,
+      json: async () => mockResponse
+    });
 
     render(<DynamicApiButtons repositoryName="test-repo" />);
 
@@ -229,10 +249,13 @@ describe('DynamicApiButtons', () => {
         grpc: [{ file: 'service.proto', services: ['TestService'] }]
       },
       hasAnyApis: true,
-      recommendedButtons: ['grpc', 'postman'] as any
+      recommendedButtons: ['grpc', 'postman']
     };
 
-    mockDetectRepositoryApis.mockResolvedValueOnce(mockResponse);
+    (global.fetch as jest.Mock).mockResolvedValueOnce({
+      ok: true,
+      json: async () => mockResponse
+    });
 
     render(<DynamicApiButtons repositoryName="test-repo" />);
 
@@ -253,10 +276,13 @@ describe('DynamicApiButtons', () => {
         grpc: []
       },
       hasAnyApis: true,
-      recommendedButtons: ['swagger', 'postman'] as any
+      recommendedButtons: ['swagger', 'postman']
     };
 
-    mockDetectRepositoryApis.mockResolvedValueOnce(mockResponse);
+    (global.fetch as jest.Mock).mockResolvedValueOnce({
+      ok: true,
+      json: async () => mockResponse
+    });
 
     render(<DynamicApiButtons repositoryName="test-repo" />);
 
@@ -269,7 +295,9 @@ describe('DynamicApiButtons', () => {
   });
 
   it('renders error state when API detection fails', async () => {
-    mockDetectRepositoryApis.mockRejectedValueOnce(new Error('Failed to detect APIs'));
+    (global.fetch as jest.Mock).mockResolvedValueOnce({
+      ok: false
+    });
 
     render(<DynamicApiButtons repositoryName="test-repo" />);
 
@@ -280,7 +308,9 @@ describe('DynamicApiButtons', () => {
 
   it('allows retry on error', async () => {
     // First call fails
-    mockDetectRepositoryApis.mockRejectedValueOnce(new Error('Network error'));
+    (global.fetch as jest.Mock).mockResolvedValueOnce({
+      ok: false
+    });
 
     render(<DynamicApiButtons repositoryName="test-repo" />);
 
@@ -297,10 +327,13 @@ describe('DynamicApiButtons', () => {
         grpc: []
       },
       hasAnyApis: true,
-      recommendedButtons: ['swagger', 'postman'] as any
+      recommendedButtons: ['swagger', 'postman']
     };
 
-    mockDetectRepositoryApis.mockResolvedValueOnce(mockResponse);
+    (global.fetch as jest.Mock).mockResolvedValueOnce({
+      ok: true,
+      json: async () => mockResponse
+    });
 
     // Click retry button
     fireEvent.click(screen.getByText('Retry'));
@@ -319,10 +352,13 @@ describe('DynamicApiButtons', () => {
         grpc: [{ file: 'service.proto', services: ['Service1', 'Service2'] }]
       },
       hasAnyApis: true,
-      recommendedButtons: ['swagger', 'graphql', 'grpc', 'postman'] as any
+      recommendedButtons: ['swagger', 'graphql', 'grpc', 'postman']
     };
 
-    mockDetectRepositoryApis.mockResolvedValueOnce(mockResponse);
+    (global.fetch as jest.Mock).mockResolvedValueOnce({
+      ok: true,
+      json: async () => mockResponse
+    });
 
     render(<DynamicApiButtons repositoryName="test-repo" />);
 
@@ -346,7 +382,10 @@ describe('DynamicApiButtons', () => {
       recommendedButtons: []
     };
 
-    mockDetectRepositoryApis.mockResolvedValueOnce(mockResponse);
+    (global.fetch as jest.Mock).mockResolvedValueOnce({
+      ok: true,
+      json: async () => mockResponse
+    });
 
     render(<DynamicApiButtons repositoryName="test-repo" className="custom-class" />);
 
@@ -368,12 +407,12 @@ describe('DynamicApiButtons', () => {
       repository: 'repo2',
       apis: { rest: [{ file: 'api.yaml' }], graphql: [], grpc: [] },
       hasAnyApis: true,
-      recommendedButtons: ['swagger', 'postman'] as any
+      recommendedButtons: ['swagger', 'postman']
     };
 
-    mockDetectRepositoryApis
-      .mockResolvedValueOnce(mockResponse1)
-      .mockResolvedValueOnce(mockResponse2);
+    (global.fetch as jest.Mock)
+      .mockResolvedValueOnce({ ok: true, json: async () => mockResponse1 })
+      .mockResolvedValueOnce({ ok: true, json: async () => mockResponse2 });
 
     const { rerender } = render(<DynamicApiButtons repositoryName="repo1" />);
 
@@ -387,9 +426,9 @@ describe('DynamicApiButtons', () => {
       expect(screen.getByText(/Swagger UI/)).toBeInTheDocument();
     });
 
-    expect(mockDetectRepositoryApis).toHaveBeenCalledTimes(2);
-    expect(mockDetectRepositoryApis).toHaveBeenCalledWith('repo1');
-    expect(mockDetectRepositoryApis).toHaveBeenCalledWith('repo2');
+    expect(global.fetch).toHaveBeenCalledTimes(2);
+    expect(global.fetch).toHaveBeenCalledWith('/api/repository/repo1/detect-apis');
+    expect(global.fetch).toHaveBeenCalledWith('/api/repository/repo2/detect-apis');
   });
 
   it('has accessible button descriptions', async () => {
@@ -401,10 +440,13 @@ describe('DynamicApiButtons', () => {
         grpc: []
       },
       hasAnyApis: true,
-      recommendedButtons: ['swagger', 'postman'] as any
+      recommendedButtons: ['swagger', 'postman']
     };
 
-    mockDetectRepositoryApis.mockResolvedValueOnce(mockResponse);
+    (global.fetch as jest.Mock).mockResolvedValueOnce({
+      ok: true,
+      json: async () => mockResponse
+    });
 
     render(<DynamicApiButtons repositoryName="test-repo" />);
 
@@ -415,17 +457,20 @@ describe('DynamicApiButtons', () => {
   });
 
   it('calls API with correct repository name', async () => {
-    mockDetectRepositoryApis.mockResolvedValueOnce({
-      repository: 'specific-repo',
-      apis: { rest: [], graphql: [], grpc: [] },
-      hasAnyApis: false,
-      recommendedButtons: []
+    (global.fetch as jest.Mock).mockResolvedValueOnce({
+      ok: true,
+      json: async () => ({
+        repository: 'specific-repo',
+        apis: { rest: [], graphql: [], grpc: [] },
+        hasAnyApis: false,
+        recommendedButtons: []
+      })
     });
 
     render(<DynamicApiButtons repositoryName="specific-repo" />);
 
     await waitFor(() => {
-      expect(mockDetectRepositoryApis).toHaveBeenCalledWith('specific-repo');
+      expect(global.fetch).toHaveBeenCalledWith('/api/repository/specific-repo/detect-apis');
     });
   });
 
@@ -438,10 +483,13 @@ describe('DynamicApiButtons', () => {
         grpc: []
       },
       hasAnyApis: true,
-      recommendedButtons: ['swagger', 'postman'] as any
+      recommendedButtons: ['swagger', 'postman']
     };
 
-    mockDetectRepositoryApis.mockResolvedValueOnce(mockResponse);
+    (global.fetch as jest.Mock).mockResolvedValueOnce({
+      ok: true,
+      json: async () => mockResponse
+    });
 
     render(<DynamicApiButtons repositoryName="test-repo" />);
 
@@ -461,10 +509,13 @@ describe('DynamicApiButtons', () => {
         grpc: []
       },
       hasAnyApis: true,
-      recommendedButtons: ['swagger', 'postman'] as any
+      recommendedButtons: ['swagger', 'postman']
     };
 
-    mockDetectRepositoryApis.mockResolvedValueOnce(mockResponse);
+    (global.fetch as jest.Mock).mockResolvedValueOnce({
+      ok: true,
+      json: async () => mockResponse
+    });
 
     render(<DynamicApiButtons repositoryName="test-repo" />);
 
@@ -485,10 +536,13 @@ describe('DynamicApiButtons', () => {
         grpc: [{ file: 'service.proto', services: ['Service1'] }]
       },
       hasAnyApis: true,
-      recommendedButtons: ['swagger', 'graphql', 'grpc', 'postman'] as any
+      recommendedButtons: ['swagger', 'graphql', 'grpc', 'postman']
     };
 
-    mockDetectRepositoryApis.mockResolvedValueOnce(mockResponse);
+    (global.fetch as jest.Mock).mockResolvedValueOnce({
+      ok: true,
+      json: async () => mockResponse
+    });
 
     render(<DynamicApiButtons repositoryName="test-repo" />);
 
@@ -513,10 +567,13 @@ describe('DynamicApiButtons', () => {
         grpc: []
       },
       hasAnyApis: true,
-      recommendedButtons: ['swagger', 'postman'] as any
+      recommendedButtons: ['swagger', 'postman']
     };
 
-    mockDetectRepositoryApis.mockResolvedValueOnce(mockResponse);
+    (global.fetch as jest.Mock).mockResolvedValueOnce({
+      ok: true,
+      json: async () => mockResponse
+    });
 
     render(<DynamicApiButtons repositoryName="test-repo" />);
 
@@ -538,10 +595,13 @@ describe('DynamicApiButtons', () => {
         grpc: []
       },
       hasAnyApis: true,
-      recommendedButtons: ['swagger', 'postman'] as any
+      recommendedButtons: ['swagger', 'postman']
     };
 
-    mockDetectRepositoryApis.mockResolvedValueOnce(mockResponse);
+    (global.fetch as jest.Mock).mockResolvedValueOnce({
+      ok: true,
+      json: async () => mockResponse
+    });
 
     render(<DynamicApiButtons repositoryName="test-repo" />);
 
@@ -562,10 +622,13 @@ describe('DynamicApiButtons', () => {
         grpc: []
       },
       hasAnyApis: true,
-      recommendedButtons: ['graphql', 'postman'] as any
+      recommendedButtons: ['graphql', 'postman']
     };
 
-    mockDetectRepositoryApis.mockResolvedValueOnce(mockResponse);
+    (global.fetch as jest.Mock).mockResolvedValueOnce({
+      ok: true,
+      json: async () => mockResponse
+    });
 
     render(<DynamicApiButtons repositoryName="test-repo" />);
 
@@ -586,10 +649,13 @@ describe('DynamicApiButtons', () => {
         ]
       },
       hasAnyApis: true,
-      recommendedButtons: ['grpc', 'postman'] as any
+      recommendedButtons: ['grpc', 'postman']
     };
 
-    mockDetectRepositoryApis.mockResolvedValueOnce(mockResponse);
+    (global.fetch as jest.Mock).mockResolvedValueOnce({
+      ok: true,
+      json: async () => mockResponse
+    });
 
     render(<DynamicApiButtons repositoryName="test-repo" />);
 
@@ -607,10 +673,13 @@ describe('DynamicApiButtons', () => {
         grpc: [{ file: 'service.proto', services: ['TestService'] }]
       },
       hasAnyApis: true,
-      recommendedButtons: ['swagger', 'graphql', 'grpc', 'postman'] as any
+      recommendedButtons: ['swagger', 'graphql', 'grpc', 'postman']
     };
 
-    mockDetectRepositoryApis.mockResolvedValueOnce(mockResponse);
+    (global.fetch as jest.Mock).mockResolvedValueOnce({
+      ok: true,
+      json: async () => mockResponse
+    });
 
     render(<DynamicApiButtons repositoryName="test-repo" />);
 

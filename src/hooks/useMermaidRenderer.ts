@@ -57,7 +57,8 @@ export const useMermaidRenderer = (markdownContent: string): UseMermaidRendererR
     const sortedBlocks = [...blocks].sort((a, b) => b.startIndex - a.startIndex);
     
     sortedBlocks.forEach(block => {
-      const placeholder = `<div data-mermaid-id="${block.id}" data-mermaid-title="${block.title || ''}"></div>`;
+      // Use a custom marker that won't be escaped by markdown
+      const placeholder = `\n\n[MERMAID:${block.id}:${block.title || ''}:START]\n${block.content}\n[MERMAID:${block.id}:END]\n\n`;
       processedContent = 
         processedContent.slice(0, block.startIndex) +
         placeholder +

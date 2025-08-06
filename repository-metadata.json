@@ -1,0 +1,1016 @@
+{
+  "ai-predictive-maintenance-engine": {
+    "id": "ai-predictive-maintenance-engine",
+    "name": "ai-predictive-maintenance-engine",
+    "displayName": "AI Predictive Maintenance Engine",
+    "description": "Transform maintenance operations with AI-powered predictive analytics",
+    "marketingDescription": "Transform your maintenance operations with AI-powered predictive analytics that prevents equipment failures before they happen. Our advanced machine learning engine analyzes sensor data in real-time to identify anomalies and predict maintenance needs, reducing downtime by up to 70% and extending equipment lifespan.",
+    "category": "AI/ML",
+    "status": "active",
+    "demoUrl": "https://demo.eyns.com/ai-maintenance",
+    "tags": [
+      "AI/ML",
+      "Predictive Maintenance",
+      "IoT",
+      "Analytics"
+    ],
+    "metrics": {
+      "apiCount": 1,
+      "postmanCollections": 0,
+      "lastUpdated": "2025-08-04T15:30:13.969Z"
+    },
+    "apiTypes": {
+      "hasOpenAPI": true,
+      "hasGraphQL": false,
+      "hasGrpc": false,
+      "hasPostman": false
+    },
+    "url": "https://github.com/jamesenki/ai-predictive-maintenance-engine",
+    "pricing": {
+      "suggestedRetailPrice": 50000,
+      "tier": "Tier 2: Professional",
+      "valueScore": 68,
+      "displayPrice": "$50,000",
+      "lastAssessed": "2025-08-05T21:39:59.674Z",
+      "currency": "USD",
+      "licensingModel": "Perpetual License",
+      "supportIncluded": "90 days",
+      "customizationAvailable": true
+    }
+  },
+  "ai-predictive-maintenance-engine-architecture": {
+    "id": "ai-predictive-maintenance-engine-architecture",
+    "name": "ai-predictive-maintenance-engine-architecture",
+    "displayName": "AI Maintenance Architecture",
+    "description": "Enterprise-ready architecture blueprint for predictive maintenance",
+    "marketingDescription": "Accelerate your predictive maintenance implementation with our comprehensive architecture blueprint. This enterprise-ready solution provides everything you need to build a scalable, secure, and integrated predictive maintenance system that connects seamlessly with your existing infrastructure.",
+    "category": "Architecture",
+    "status": "active",
+    "demoUrl": null,
+    "tags": [
+      "Architecture",
+      "AI/ML",
+      "Enterprise",
+      "Blueprint"
+    ],
+    "metrics": {
+      "apiCount": 19,
+      "postmanCollections": 16,
+      "lastUpdated": "2025-08-05T18:44:52.924Z"
+    },
+    "apiTypes": {
+      "hasOpenAPI": true,
+      "hasGraphQL": true,
+      "hasGrpc": false,
+      "hasPostman": true
+    },
+    "url": "https://github.com/jamesenki/ai-predictive-maintenance-engine-architecture",
+    "pricing": {
+      "suggestedRetailPrice": 325000,
+      "tier": "Tier 4: Strategic",
+      "valueScore": 88,
+      "displayPrice": "$325,000",
+      "lastAssessed": "2025-08-05T21:39:59.675Z",
+      "currency": "USD",
+      "licensingModel": "Perpetual License",
+      "supportIncluded": "90 days",
+      "customizationAvailable": true
+    }
+  },
+  "ai-predictive-maintenance-platform": {
+    "id": "ai-predictive-maintenance-platform",
+    "name": "ai-predictive-maintenance-platform",
+    "displayName": "AI Maintenance Platform",
+    "description": "Complete platform solution for equipment maintenance management",
+    "marketingDescription": "A complete platform solution that transforms how organizations manage equipment maintenance. Combining IoT sensors, AI analytics, and intuitive dashboards, this platform provides everything needed to implement world-class predictive maintenance across your entire operation.",
+    "category": "Platform",
+    "status": "active",
+    "demoUrl": null,
+    "tags": [
+      "Platform",
+      "AI/ML",
+      "IoT",
+      "Maintenance"
+    ],
+    "metrics": {
+      "apiCount": 0,
+      "postmanCollections": 0,
+      "lastUpdated": "2025-08-04T15:30:38.696Z"
+    },
+    "apiTypes": {
+      "hasOpenAPI": false,
+      "hasGraphQL": false,
+      "hasGrpc": false,
+      "hasPostman": false
+    },
+    "url": "https://github.com/jamesenki/ai-predictive-maintenance-platform",
+    "pricing": {
+      "suggestedRetailPrice": 42000,
+      "tier": "Tier 2: Professional",
+      "valueScore": 63,
+      "displayPrice": "$42,000",
+      "lastAssessed": "2025-08-05T21:39:59.675Z",
+      "currency": "USD",
+      "licensingModel": "Perpetual License",
+      "supportIncluded": "90 days",
+      "customizationAvailable": true
+    }
+  },
+  "ai-transformations": {
+    "id": "ai-transformations",
+    "name": "ai-transformations",
+    "displayName": "ai-transformations",
+    "description": "Transform your business with proven AI implementation strategies and tools. Our comprehensive transformation framework helps organizations successfully adopt AI technologies, from initial assessment through full-scale deployment, ensuring measurable business impact.",
+    "marketingDescription": "Transform your business with proven AI implementation strategies and tools. Our comprehensive transformation framework helps organizations successfully adopt AI technologies, from initial assessment through full-scale deployment, ensuring measurable business impact.",
+    "category": "repository",
+    "status": "active",
+    "demoUrl": null,
+    "tags": [],
+    "metrics": {
+      "apiCount": 0,
+      "postmanCollections": 0,
+      "lastUpdated": "2025-08-04T15:33:19.077Z"
+    },
+    "apiTypes": {
+      "hasOpenAPI": false,
+      "hasGraphQL": false,
+      "hasGrpc": false,
+      "hasPostman": false
+    },
+    "url": "https://github.com/jamesenki/ai-transformations",
+    "pricing": {
+      "suggestedRetailPrice": 15000,
+      "tier": "Tier 1: Foundation",
+      "valueScore": 50,
+      "displayPrice": "$15,000",
+      "lastAssessed": "2025-08-05T21:39:59.675Z",
+      "currency": "USD",
+      "licensingModel": "Perpetual License",
+      "supportIncluded": "90 days",
+      "customizationAvailable": true
+    }
+  },
+  "cloudtwin-simulation-platform-architecture": {
+    "id": "cloudtwin-simulation-platform-architecture",
+    "name": "cloudtwin-simulation-platform-architecture",
+    "displayName": "cloudtwin-simulation-platform-architecture",
+    "description": "Revolutionize product development with digital twin technology that enables virtual testing and validation in the cloud. Test thousands of scenarios in minutes, not months, reducing physical testing costs by 90% while improving product quality and time to market.",
+    "marketingDescription": "Revolutionize product development with digital twin technology that enables virtual testing and validation in the cloud. Test thousands of scenarios in minutes, not months, reducing physical testing costs by 90% while improving product quality and time to market.",
+    "category": "repository",
+    "status": "active",
+    "demoUrl": null,
+    "tags": [],
+    "metrics": {
+      "apiCount": 10,
+      "postmanCollections": 1,
+      "lastUpdated": "2025-08-04T15:33:29.965Z"
+    },
+    "apiTypes": {
+      "hasOpenAPI": true,
+      "hasGraphQL": true,
+      "hasGrpc": true,
+      "hasPostman": true
+    },
+    "url": "https://github.com/jamesenki/cloudtwin-simulation-platform-architecture",
+    "pricing": {
+      "suggestedRetailPrice": 150000,
+      "tier": "Tier 3: Enterprise",
+      "valueScore": 82,
+      "displayPrice": "$150,000",
+      "lastAssessed": "2025-08-05T21:39:59.675Z",
+      "currency": "USD",
+      "licensingModel": "Perpetual License",
+      "supportIncluded": "90 days",
+      "customizationAvailable": true
+    }
+  },
+  "copilot-architecture-template": {
+    "id": "copilot-architecture-template",
+    "name": "copilot-architecture-template",
+    "displayName": "copilot-architecture-template",
+    "description": "Enterprise-ready GitHub Copilot architecture templates to accelerate your AI-powered development journey.",
+    "marketingDescription": "Enterprise-ready GitHub Copilot architecture templates to accelerate your AI-powered development journey.",
+    "category": "repository",
+    "status": "active",
+    "demoUrl": null,
+    "tags": [],
+    "metrics": {
+      "apiCount": 0,
+      "postmanCollections": 0,
+      "lastUpdated": "2025-07-30T18:39:36.901Z"
+    },
+    "apiTypes": {
+      "hasOpenAPI": false,
+      "hasGraphQL": false,
+      "hasGrpc": false,
+      "hasPostman": false
+    },
+    "url": "https://github.com/jamesenki/copilot-architecture-template",
+    "pricing": {
+      "suggestedRetailPrice": 18000,
+      "tier": "Tier 2: Professional",
+      "valueScore": 56,
+      "displayPrice": "$18,000",
+      "lastAssessed": "2025-08-05T21:39:59.675Z",
+      "currency": "USD",
+      "licensingModel": "Perpetual License",
+      "supportIncluded": "90 days",
+      "customizationAvailable": true
+    }
+  },
+  "deploymaster-sdv-ota-platform": {
+    "id": "deploymaster-sdv-ota-platform",
+    "name": "deploymaster-sdv-ota-platform",
+    "displayName": "DeployMaster SDV OTA Platform",
+    "description": "Enterprise-grade Over-The-Air update platform for Software-Defined Vehicles",
+    "marketingDescription": "Deploy software updates to millions of vehicles safely and efficiently. Our enterprise-grade over-the-air (OTA) platform ensures secure, reliable software delivery with zero downtime, enabling continuous improvement of vehicle features and functionality.",
+    "category": "Platform",
+    "status": "active",
+    "demoUrl": null,
+    "tags": [
+      "OTA",
+      "SDV",
+      "Fleet Management",
+      "Automotive"
+    ],
+    "metrics": {
+      "apiCount": 16,
+      "postmanCollections": 0,
+      "lastUpdated": "2025-08-04T15:33:42.538Z"
+    },
+    "apiTypes": {
+      "hasOpenAPI": true,
+      "hasGraphQL": true,
+      "hasGrpc": false,
+      "hasPostman": false
+    },
+    "url": "https://github.com/jamesenki/deploymaster-sdv-ota-platform",
+    "pricing": {
+      "suggestedRetailPrice": 98000,
+      "tier": "Tier 3: Enterprise",
+      "valueScore": 75,
+      "displayPrice": "$98,000",
+      "lastAssessed": "2025-08-05T21:39:59.675Z",
+      "currency": "USD",
+      "licensingModel": "Perpetual License",
+      "supportIncluded": "90 days",
+      "customizationAvailable": true
+    }
+  },
+  "diagnostic-as-code-platform-architecture": {
+    "id": "diagnostic-as-code-platform-architecture",
+    "name": "diagnostic-as-code-platform-architecture",
+    "displayName": "diagnostic-as-code-platform-architecture",
+    "description": "Transform vehicle diagnostics with code-driven automation. Define diagnostic procedures as code, version control your diagnostic logic, and deploy updates instantly across your entire fleet. Reduce diagnostic time by 80% while ensuring consistent, accurate results.",
+    "marketingDescription": "Transform vehicle diagnostics with code-driven automation. Define diagnostic procedures as code, version control your diagnostic logic, and deploy updates instantly across your entire fleet. Reduce diagnostic time by 80% while ensuring consistent, accurate results.",
+    "category": "repository",
+    "status": "active",
+    "demoUrl": null,
+    "tags": [],
+    "metrics": {
+      "apiCount": 10,
+      "postmanCollections": 8,
+      "lastUpdated": "2025-08-04T15:38:44.794Z"
+    },
+    "apiTypes": {
+      "hasOpenAPI": true,
+      "hasGraphQL": true,
+      "hasGrpc": true,
+      "hasPostman": true
+    },
+    "url": "https://github.com/jamesenki/diagnostic-as-code-platform-architecture",
+    "pricing": {
+      "suggestedRetailPrice": 150000,
+      "tier": "Tier 3: Enterprise",
+      "valueScore": 84,
+      "displayPrice": "$150,000",
+      "lastAssessed": "2025-08-05T21:39:59.675Z",
+      "currency": "USD",
+      "licensingModel": "Perpetual License",
+      "supportIncluded": "90 days",
+      "customizationAvailable": true
+    }
+  },
+  "ecosystem-platform-architecture": {
+    "id": "ecosystem-platform-architecture",
+    "name": "ecosystem-platform-architecture",
+    "displayName": "ecosystem-platform-architecture",
+    "description": "Build scalable ecosystem platforms with our comprehensive architecture framework and best practices.",
+    "marketingDescription": "Build scalable ecosystem platforms with our comprehensive architecture framework and best practices.",
+    "category": "repository",
+    "status": "active",
+    "demoUrl": null,
+    "tags": [],
+    "metrics": {
+      "apiCount": 0,
+      "postmanCollections": 0,
+      "lastUpdated": "2025-07-30T18:39:36.902Z"
+    },
+    "apiTypes": {
+      "hasOpenAPI": false,
+      "hasGraphQL": false,
+      "hasGrpc": false,
+      "hasPostman": false
+    },
+    "url": "https://github.com/jamesenki/ecosystem-platform-architecture",
+    "pricing": {
+      "suggestedRetailPrice": 18000,
+      "tier": "Tier 2: Professional",
+      "valueScore": 56,
+      "displayPrice": "$18,000",
+      "lastAssessed": "2025-08-05T21:39:59.675Z",
+      "currency": "USD",
+      "licensingModel": "Perpetual License",
+      "supportIncluded": "90 days",
+      "customizationAvailable": true
+    }
+  },
+  "eyns-ai-experience-center": {
+    "id": "eyns-ai-experience-center",
+    "name": "eyns-ai-experience-center",
+    "displayName": "Eyns Ai Experience Center",
+    "description": "Developer Portal for EY Innovation Labs",
+    "marketingDescription": "",
+    "category": "repository",
+    "status": "active",
+    "demoUrl": null,
+    "tags": [],
+    "metrics": {
+      "apiCount": 0,
+      "postmanCollections": 0,
+      "lastUpdated": "2025-07-31T02:55:32.089Z"
+    },
+    "apiTypes": {
+      "hasOpenAPI": false,
+      "hasGraphQL": false,
+      "hasGrpc": false,
+      "hasPostman": false
+    },
+    "url": "https://github.com/jamesenki/eyns-ai-experience-center",
+    "pricing": {
+      "suggestedRetailPrice": 12000,
+      "tier": "Tier 1: Foundation",
+      "valueScore": 47,
+      "displayPrice": "$12,000",
+      "lastAssessed": "2025-08-05T21:39:59.675Z",
+      "currency": "USD",
+      "licensingModel": "Perpetual License",
+      "supportIncluded": "90 days",
+      "customizationAvailable": true
+    }
+  },
+  "fleet-digital-twin-platform-architecture": {
+    "id": "fleet-digital-twin-platform-architecture",
+    "name": "fleet-digital-twin-platform-architecture",
+    "displayName": "Fleet Digital Twin Platform Architecture",
+    "description": "[](https://opensource.org/licenses/MIT)",
+    "marketingDescription": "",
+    "category": "repository",
+    "status": "active",
+    "demoUrl": null,
+    "tags": [],
+    "metrics": {
+      "apiCount": 3,
+      "postmanCollections": 0,
+      "lastUpdated": "2025-07-31T02:55:29.329Z"
+    },
+    "apiTypes": {
+      "hasOpenAPI": true,
+      "hasGraphQL": true,
+      "hasGrpc": true,
+      "hasPostman": false
+    },
+    "url": "https://github.com/jamesenki/fleet-digital-twin-platform-architecture",
+    "pricing": {
+      "suggestedRetailPrice": 50000,
+      "tier": "Tier 2: Professional",
+      "valueScore": 68,
+      "displayPrice": "$50,000",
+      "lastAssessed": "2025-08-05T21:39:59.675Z",
+      "currency": "USD",
+      "licensingModel": "Perpetual License",
+      "supportIncluded": "90 days",
+      "customizationAvailable": true
+    }
+  },
+  "future-mobility-consumer-platform": {
+    "id": "future-mobility-consumer-platform",
+    "name": "future-mobility-consumer-platform",
+    "displayName": "Future Mobility Consumer Platform",
+    "description": "AI-powered mobility experiences for 2+ billion global consumers",
+    "marketingDescription": "Empower 2 billion consumers with intelligent electric mobility experiences.",
+    "category": "Consumer",
+    "status": "active",
+    "demoUrl": "https://demo.eyns.com/consumer-platform",
+    "tags": [
+      "Consumer",
+      "AI/ML",
+      "Mobile",
+      "EV"
+    ],
+    "metrics": {
+      "apiCount": 22,
+      "postmanCollections": 30,
+      "lastUpdated": "2025-07-30T18:30:09.139Z"
+    },
+    "apiTypes": {
+      "hasOpenAPI": true,
+      "hasGraphQL": false,
+      "hasGrpc": false,
+      "hasPostman": true
+    },
+    "url": "https://github.com/jamesenki/future-mobility-consumer-platform",
+    "pricing": {
+      "suggestedRetailPrice": 117000,
+      "tier": "Tier 3: Enterprise",
+      "valueScore": 77,
+      "displayPrice": "$117,000",
+      "lastAssessed": "2025-08-05T21:39:59.675Z",
+      "currency": "USD",
+      "licensingModel": "Perpetual License",
+      "supportIncluded": "90 days",
+      "customizationAvailable": true
+    }
+  },
+  "future-mobility-energy-platform": {
+    "id": "future-mobility-energy-platform",
+    "name": "future-mobility-energy-platform",
+    "displayName": "Future Mobility Energy Platform",
+    "description": "Future Mobility Energy Platform Solution",
+    "marketingDescription": "",
+    "category": "repository",
+    "status": "active",
+    "demoUrl": null,
+    "tags": [],
+    "metrics": {
+      "apiCount": 0,
+      "postmanCollections": 0,
+      "lastUpdated": "2025-07-31T02:55:43.848Z"
+    },
+    "apiTypes": {
+      "hasOpenAPI": false,
+      "hasGraphQL": false,
+      "hasGrpc": false,
+      "hasPostman": false
+    },
+    "url": "https://github.com/jamesenki/future-mobility-energy-platform",
+    "pricing": {
+      "suggestedRetailPrice": 15000,
+      "tier": "Tier 1: Foundation",
+      "valueScore": 50,
+      "displayPrice": "$15,000",
+      "lastAssessed": "2025-08-05T21:39:59.675Z",
+      "currency": "USD",
+      "licensingModel": "Perpetual License",
+      "supportIncluded": "90 days",
+      "customizationAvailable": true
+    }
+  },
+  "future-mobility-financial-platform": {
+    "id": "future-mobility-financial-platform",
+    "name": "future-mobility-financial-platform",
+    "displayName": "Future Mobility Financial Platform",
+    "description": "Future Mobility Financial Platform Solution",
+    "marketingDescription": "",
+    "category": "repository",
+    "status": "active",
+    "demoUrl": null,
+    "tags": [],
+    "metrics": {
+      "apiCount": 0,
+      "postmanCollections": 0,
+      "lastUpdated": "2025-07-31T02:55:40.648Z"
+    },
+    "apiTypes": {
+      "hasOpenAPI": false,
+      "hasGraphQL": false,
+      "hasGrpc": false,
+      "hasPostman": false
+    },
+    "url": "https://github.com/jamesenki/future-mobility-financial-platform",
+    "pricing": {
+      "suggestedRetailPrice": 15000,
+      "tier": "Tier 1: Foundation",
+      "valueScore": 50,
+      "displayPrice": "$15,000",
+      "lastAssessed": "2025-08-05T21:39:59.675Z",
+      "currency": "USD",
+      "licensingModel": "Perpetual License",
+      "supportIncluded": "90 days",
+      "customizationAvailable": true
+    }
+  },
+  "future-mobility-fleet-platform": {
+    "id": "future-mobility-fleet-platform",
+    "name": "future-mobility-fleet-platform",
+    "displayName": "Future Mobility Fleet Platform",
+    "description": "Fleet optimization and management platform with predictive analytics",
+    "marketingDescription": "Maximize fleet profitability with AI-driven electric vehicle management.",
+    "category": "Fleet",
+    "status": "active",
+    "demoUrl": null,
+    "tags": [
+      "Fleet",
+      "Analytics",
+      "IoT",
+      "Optimization"
+    ],
+    "metrics": {
+      "apiCount": 48,
+      "postmanCollections": 42,
+      "lastUpdated": "2025-07-30T18:39:36.906Z"
+    },
+    "apiTypes": {
+      "hasOpenAPI": true,
+      "hasGraphQL": false,
+      "hasGrpc": false,
+      "hasPostman": true
+    },
+    "url": "https://github.com/jamesenki/future-mobility-fleet-platform",
+    "pricing": {
+      "suggestedRetailPrice": 117000,
+      "tier": "Tier 3: Enterprise",
+      "valueScore": 77,
+      "displayPrice": "$117,000",
+      "lastAssessed": "2025-08-05T21:39:59.675Z",
+      "currency": "USD",
+      "licensingModel": "Perpetual License",
+      "supportIncluded": "90 days",
+      "customizationAvailable": true
+    }
+  },
+  "future-mobility-infrastructure-platform": {
+    "id": "future-mobility-infrastructure-platform",
+    "name": "future-mobility-infrastructure-platform",
+    "displayName": "Future Mobility Infrastructure Platform",
+    "description": "Future Mobility Infrastructure Platform Solution",
+    "marketingDescription": "",
+    "category": "repository",
+    "status": "active",
+    "demoUrl": null,
+    "tags": [],
+    "metrics": {
+      "apiCount": 0,
+      "postmanCollections": 0,
+      "lastUpdated": "2025-07-31T02:55:41.719Z"
+    },
+    "apiTypes": {
+      "hasOpenAPI": false,
+      "hasGraphQL": false,
+      "hasGrpc": false,
+      "hasPostman": false
+    },
+    "url": "https://github.com/jamesenki/future-mobility-infrastructure-platform",
+    "pricing": {
+      "suggestedRetailPrice": 15000,
+      "tier": "Tier 1: Foundation",
+      "valueScore": 50,
+      "displayPrice": "$15,000",
+      "lastAssessed": "2025-08-05T21:39:59.675Z",
+      "currency": "USD",
+      "licensingModel": "Perpetual License",
+      "supportIncluded": "90 days",
+      "customizationAvailable": true
+    }
+  },
+  "future-mobility-oems-platform": {
+    "id": "future-mobility-oems-platform",
+    "name": "future-mobility-oems-platform",
+    "displayName": "future-mobility-oems-platform",
+    "description": "Transform your automotive manufacturing with AI-powered EV production optimization.",
+    "marketingDescription": "Transform your automotive manufacturing with AI-powered EV production optimization.",
+    "category": "repository",
+    "status": "active",
+    "demoUrl": null,
+    "tags": [],
+    "metrics": {
+      "apiCount": 65,
+      "postmanCollections": 60,
+      "lastUpdated": "2025-07-30T18:39:36.914Z"
+    },
+    "apiTypes": {
+      "hasOpenAPI": true,
+      "hasGraphQL": false,
+      "hasGrpc": false,
+      "hasPostman": true
+    },
+    "url": "https://github.com/jamesenki/future-mobility-oems-platform",
+    "pricing": {
+      "suggestedRetailPrice": 88000,
+      "tier": "Tier 3: Enterprise",
+      "valueScore": 74,
+      "displayPrice": "$88,000",
+      "lastAssessed": "2025-08-05T21:39:59.675Z",
+      "currency": "USD",
+      "licensingModel": "Perpetual License",
+      "supportIncluded": "90 days",
+      "customizationAvailable": true
+    }
+  },
+  "future-mobility-regulatory-platform": {
+    "id": "future-mobility-regulatory-platform",
+    "name": "future-mobility-regulatory-platform",
+    "displayName": "future-mobility-regulatory-platform",
+    "description": "Achieve 100% regulatory compliance with automated reporting and real-time monitoring.",
+    "marketingDescription": "Achieve 100% regulatory compliance with automated reporting and real-time monitoring.",
+    "category": "repository",
+    "status": "active",
+    "demoUrl": null,
+    "tags": [],
+    "metrics": {
+      "apiCount": 11,
+      "postmanCollections": 17,
+      "lastUpdated": "2025-07-30T18:39:36.935Z"
+    },
+    "apiTypes": {
+      "hasOpenAPI": true,
+      "hasGraphQL": false,
+      "hasGrpc": false,
+      "hasPostman": true
+    },
+    "url": "https://github.com/jamesenki/future-mobility-regulatory-platform",
+    "pricing": {
+      "suggestedRetailPrice": 88000,
+      "tier": "Tier 3: Enterprise",
+      "valueScore": 74,
+      "displayPrice": "$88,000",
+      "lastAssessed": "2025-08-05T21:39:59.675Z",
+      "currency": "USD",
+      "licensingModel": "Perpetual License",
+      "supportIncluded": "90 days",
+      "customizationAvailable": true
+    }
+  },
+  "future-mobility-tech-platform": {
+    "id": "future-mobility-tech-platform",
+    "name": "future-mobility-tech-platform",
+    "displayName": "future-mobility-tech-platform",
+    "description": "Accelerate mobility innovation with our comprehensive technology platform.",
+    "marketingDescription": "Accelerate mobility innovation with our comprehensive technology platform.",
+    "category": "repository",
+    "status": "active",
+    "demoUrl": null,
+    "tags": [],
+    "metrics": {
+      "apiCount": 23,
+      "postmanCollections": 30,
+      "lastUpdated": "2025-07-30T18:39:36.941Z"
+    },
+    "apiTypes": {
+      "hasOpenAPI": true,
+      "hasGraphQL": false,
+      "hasGrpc": false,
+      "hasPostman": true
+    },
+    "url": "https://github.com/jamesenki/future-mobility-tech-platform",
+    "pricing": {
+      "suggestedRetailPrice": 79000,
+      "tier": "Tier 3: Enterprise",
+      "valueScore": 73,
+      "displayPrice": "$79,000",
+      "lastAssessed": "2025-08-05T21:39:59.675Z",
+      "currency": "USD",
+      "licensingModel": "Perpetual License",
+      "supportIncluded": "90 days",
+      "customizationAvailable": true
+    }
+  },
+  "future-mobility-users-platform": {
+    "id": "future-mobility-users-platform",
+    "name": "future-mobility-users-platform",
+    "displayName": "Future Mobility Users Platform",
+    "description": "Future Mobility Users Platform Solution",
+    "marketingDescription": "",
+    "category": "repository",
+    "status": "active",
+    "demoUrl": null,
+    "tags": [],
+    "metrics": {
+      "apiCount": 0,
+      "postmanCollections": 0,
+      "lastUpdated": "2025-07-31T02:55:42.815Z"
+    },
+    "apiTypes": {
+      "hasOpenAPI": false,
+      "hasGraphQL": false,
+      "hasGrpc": false,
+      "hasPostman": false
+    },
+    "url": "https://github.com/jamesenki/future-mobility-users-platform",
+    "pricing": {
+      "suggestedRetailPrice": 15000,
+      "tier": "Tier 1: Foundation",
+      "valueScore": 50,
+      "displayPrice": "$15,000",
+      "lastAssessed": "2025-08-05T21:39:59.675Z",
+      "currency": "USD",
+      "licensingModel": "Perpetual License",
+      "supportIncluded": "90 days",
+      "customizationAvailable": true
+    }
+  },
+  "future-mobility-utilities-platform": {
+    "id": "future-mobility-utilities-platform",
+    "name": "future-mobility-utilities-platform",
+    "displayName": "future-mobility-utilities-platform",
+    "description": "Revolutionize your grid infrastructure with AI-powered EV integration.",
+    "marketingDescription": "Revolutionize your grid infrastructure with AI-powered EV integration.",
+    "category": "repository",
+    "status": "active",
+    "demoUrl": null,
+    "tags": [],
+    "metrics": {
+      "apiCount": 38,
+      "postmanCollections": 27,
+      "lastUpdated": "2025-07-30T18:39:36.952Z"
+    },
+    "apiTypes": {
+      "hasOpenAPI": true,
+      "hasGraphQL": false,
+      "hasGrpc": false,
+      "hasPostman": true
+    },
+    "url": "https://github.com/jamesenki/future-mobility-utilities-platform",
+    "pricing": {
+      "suggestedRetailPrice": 79000,
+      "tier": "Tier 3: Enterprise",
+      "valueScore": 73,
+      "displayPrice": "$79,000",
+      "lastAssessed": "2025-08-05T21:39:59.675Z",
+      "currency": "USD",
+      "licensingModel": "Perpetual License",
+      "supportIncluded": "90 days",
+      "customizationAvailable": true
+    }
+  },
+  "mobility-architecture-package-orchestrator": {
+    "id": "mobility-architecture-package-orchestrator",
+    "name": "mobility-architecture-package-orchestrator",
+    "displayName": "mobility-architecture-package-orchestrator",
+    "description": "Orchestrate complex mobility ecosystems with intelligent package management.",
+    "marketingDescription": "Orchestrate complex mobility ecosystems with intelligent package management.",
+    "category": "repository",
+    "status": "active",
+    "demoUrl": null,
+    "tags": [],
+    "metrics": {
+      "apiCount": 1,
+      "postmanCollections": 0,
+      "lastUpdated": "2025-07-30T18:39:36.959Z"
+    },
+    "apiTypes": {
+      "hasOpenAPI": true,
+      "hasGraphQL": false,
+      "hasGrpc": false,
+      "hasPostman": false
+    },
+    "url": "https://github.com/jamesenki/mobility-architecture-package-orchestrator",
+    "pricing": {
+      "suggestedRetailPrice": 25000,
+      "tier": "Tier 2: Professional",
+      "valueScore": 58,
+      "displayPrice": "$25,000",
+      "lastAssessed": "2025-08-05T21:39:59.675Z",
+      "currency": "USD",
+      "licensingModel": "Perpetual License",
+      "supportIncluded": "90 days",
+      "customizationAvailable": true
+    }
+  },
+  "nslabsdashboards": {
+    "id": "nslabsdashboards",
+    "name": "nslabsdashboards",
+    "displayName": "NS Labs Industrial Dashboards",
+    "description": "Real-time equipment monitoring and predictive maintenance dashboards",
+    "marketingDescription": "Enterprise IoT Intelligence Platform with advanced ML/AI analytics for industrial equipment monitoring and optimization.",
+    "category": "Industrial",
+    "status": "active",
+    "demoUrl": "https://ey.coastdemo.com/share/688421995e3dd886b4debd3f",
+    "tags": [
+      "IoT",
+      "Predictive Maintenance",
+      "Analytics",
+      "Industrial"
+    ],
+    "metrics": {
+      "apiCount": 34,
+      "postmanCollections": 7,
+      "lastUpdated": "2025-07-30T21:05:18.591Z"
+    },
+    "apiTypes": {
+      "hasOpenAPI": true,
+      "hasGraphQL": true,
+      "hasGrpc": false,
+      "hasPostman": true
+    },
+    "url": "https://github.com/jamesenki/nslabsdashboards"
+  },
+  "remote-diagnostic-assistance-platform-architecture": {
+    "id": "remote-diagnostic-assistance-platform-architecture",
+    "name": "remote-diagnostic-assistance-platform-architecture",
+    "displayName": "Remote Diagnostic Assistance Platform Architecture",
+    "description": "[](https://opensource.org/licenses/MIT)",
+    "marketingDescription": "",
+    "category": "repository",
+    "status": "active",
+    "demoUrl": null,
+    "tags": [],
+    "metrics": {
+      "apiCount": 0,
+      "postmanCollections": 4,
+      "lastUpdated": "2025-07-31T02:55:30.610Z"
+    },
+    "apiTypes": {
+      "hasOpenAPI": false,
+      "hasGraphQL": false,
+      "hasGrpc": false,
+      "hasPostman": true
+    },
+    "url": "https://github.com/jamesenki/remote-diagnostic-assistance-platform-architecture",
+    "pricing": {
+      "suggestedRetailPrice": 35000,
+      "tier": "Tier 2: Professional",
+      "valueScore": 61,
+      "displayPrice": "$35,000",
+      "lastAssessed": "2025-08-05T21:39:59.675Z",
+      "currency": "USD",
+      "licensingModel": "Perpetual License",
+      "supportIncluded": "90 days",
+      "customizationAvailable": true
+    }
+  },
+  "rentalFleets": {
+    "id": "rentalFleets",
+    "name": "rentalFleets",
+    "displayName": "Rental Fleet Management",
+    "description": "Comprehensive rental fleet operations and customer experience platform",
+    "marketingDescription": "Revolutionize fleet rental operations with AI-powered management.",
+    "category": "Fleet",
+    "status": "active",
+    "demoUrl": null,
+    "tags": [
+      "Rental",
+      "Fleet",
+      "Customer Experience",
+      "Analytics"
+    ],
+    "metrics": {
+      "apiCount": 27,
+      "postmanCollections": 4,
+      "lastUpdated": "2025-07-30T18:39:36.965Z"
+    },
+    "apiTypes": {
+      "hasOpenAPI": true,
+      "hasGraphQL": false,
+      "hasGrpc": false,
+      "hasPostman": true
+    },
+    "url": "https://github.com/jamesenki/rentalFleets"
+  },
+  "sample-arch-package": {
+    "id": "sample-arch-package",
+    "name": "sample-arch-package",
+    "displayName": "sample-arch-package",
+    "description": "Jumpstart your architecture journey with production-ready templates.",
+    "marketingDescription": "Jumpstart your architecture journey with production-ready templates.",
+    "category": "repository",
+    "status": "active",
+    "demoUrl": null,
+    "tags": [],
+    "metrics": {
+      "apiCount": 0,
+      "postmanCollections": 0,
+      "lastUpdated": "2025-07-30T18:39:36.967Z"
+    },
+    "apiTypes": {
+      "hasOpenAPI": false,
+      "hasGraphQL": false,
+      "hasGrpc": false,
+      "hasPostman": false
+    },
+    "url": "https://github.com/jamesenki/sample-arch-package",
+    "pricing": {
+      "suggestedRetailPrice": 12000,
+      "tier": "Tier 1: Foundation",
+      "valueScore": 47,
+      "displayPrice": "$12,000",
+      "lastAssessed": "2025-08-05T21:39:59.675Z",
+      "currency": "USD",
+      "licensingModel": "Perpetual License",
+      "supportIncluded": "90 days",
+      "customizationAvailable": true
+    }
+  },
+  "sdv-architecture-orchestration": {
+    "id": "sdv-architecture-orchestration",
+    "name": "sdv-architecture-orchestration",
+    "displayName": "SDV Architecture Orchestration",
+    "description": "Cloud-native orchestration platform for Software-Defined Vehicle architectures",
+    "marketingDescription": "",
+    "category": "Architecture",
+    "status": "active",
+    "demoUrl": null,
+    "tags": [
+      "SDV",
+      "Architecture",
+      "Orchestration",
+      "Cloud-Native"
+    ],
+    "metrics": {
+      "apiCount": 1,
+      "postmanCollections": 0,
+      "lastUpdated": "2025-07-31T02:55:35.351Z"
+    },
+    "apiTypes": {
+      "hasOpenAPI": true,
+      "hasGraphQL": false,
+      "hasGrpc": false,
+      "hasPostman": false
+    },
+    "url": "https://github.com/jamesenki/sdv-architecture-orchestration",
+    "pricing": {
+      "suggestedRetailPrice": 45000,
+      "tier": "Tier 2: Professional",
+      "valueScore": 64,
+      "displayPrice": "$45,000",
+      "lastAssessed": "2025-08-05T21:39:59.675Z",
+      "currency": "USD",
+      "licensingModel": "Perpetual License",
+      "supportIncluded": "90 days",
+      "customizationAvailable": true
+    }
+  },
+  "sovd-diagnostic-ecosystem-platform-architecture": {
+    "id": "sovd-diagnostic-ecosystem-platform-architecture",
+    "name": "sovd-diagnostic-ecosystem-platform-architecture",
+    "displayName": "Sovd Diagnostic Ecosystem Platform Architecture",
+    "description": "Comprehensive test suite for SOVD Diagnostic Ecosystem Platform APIs",
+    "marketingDescription": "",
+    "category": "repository",
+    "status": "active",
+    "demoUrl": null,
+    "tags": [],
+    "metrics": {
+      "apiCount": 5,
+      "postmanCollections": 4,
+      "lastUpdated": "2025-07-30T18:39:36.973Z"
+    },
+    "apiTypes": {
+      "hasOpenAPI": true,
+      "hasGraphQL": false,
+      "hasGrpc": false,
+      "hasPostman": true
+    },
+    "url": "https://github.com/jamesenki/sovd-diagnostic-ecosystem-platform-architecture",
+    "pricing": {
+      "suggestedRetailPrice": 50000,
+      "tier": "Tier 2: Professional",
+      "valueScore": 67,
+      "displayPrice": "$50,000",
+      "lastAssessed": "2025-08-05T21:39:59.675Z",
+      "currency": "USD",
+      "licensingModel": "Perpetual License",
+      "supportIncluded": "90 days",
+      "customizationAvailable": true
+    }
+  },
+  "velocityforge-sdv-platform-architecture": {
+    "id": "velocityforge-sdv-platform-architecture",
+    "name": "velocityforge-sdv-platform-architecture",
+    "displayName": "VelocityForge SDV Platform Architecture",
+    "description": "High-performance SDV platform enabling rapid development and deployment of vehicle software",
+    "marketingDescription": "",
+    "category": "Platform",
+    "status": "active",
+    "demoUrl": null,
+    "tags": [
+      "SDV",
+      "Platform",
+      "Development",
+      "High-Performance"
+    ],
+    "metrics": {
+      "apiCount": 8,
+      "postmanCollections": 7,
+      "lastUpdated": "2025-07-31T02:52:42.110Z"
+    },
+    "apiTypes": {
+      "hasOpenAPI": true,
+      "hasGraphQL": true,
+      "hasGrpc": false,
+      "hasPostman": true
+    },
+    "url": "https://github.com/jamesenki/velocityforge-sdv-platform-architecture",
+    "pricing": {
+      "suggestedRetailPrice": 150000,
+      "tier": "Tier 3: Enterprise",
+      "valueScore": 83,
+      "displayPrice": "$150,000",
+      "lastAssessed": "2025-08-05T21:39:59.675Z",
+      "currency": "USD",
+      "licensingModel": "Perpetual License",
+      "supportIncluded": "90 days",
+      "customizationAvailable": true
+    }
+  }
+}

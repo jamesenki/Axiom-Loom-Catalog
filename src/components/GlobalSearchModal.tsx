@@ -2,10 +2,13 @@
  * Global Search Modal Component
  * 
  * Provides a full-screen modal search interface with keyboard shortcuts
+ * Uses EY design system and styled-components
  */
 
 import React, { useEffect, useRef } from 'react';
-import { X } from 'lucide-react';
+import { X, Search } from 'lucide-react';
+import styled from 'styled-components';
+import { theme } from '../styles/design-system';
 import { AdvancedSearch } from './AdvancedSearch';
 import { SearchResult } from '../services/searchService';
 import { useNavigate } from 'react-router-dom';
@@ -14,6 +17,117 @@ interface GlobalSearchModalProps {
   isOpen: boolean;
   onClose: () => void;
 }
+
+const ModalOverlay = styled.div<{ isOpen: boolean }>`
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+  display: ${props => props.isOpen ? 'flex' : 'none'};
+  align-items: flex-start;
+  justify-content: center;
+  padding: ${props => props.theme.spacing[16]} ${props => props.theme.spacing[4]};
+  animation: ${props => props.isOpen ? 'fadeIn' : 'fadeOut'} 0.3s ease-in-out;
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+  }
+`;
+
+const ModalContent = styled.div<{ isOpen: boolean }>`
+  background: ${props => props.theme.colors.background.primary};
+  border-radius: ${props => props.theme.borderRadius.lg};
+  box-shadow: ${props => props.theme.shadows.xl};
+  width: 100%;
+  max-width: 896px;
+  max-height: 80vh;
+  overflow: hidden;
+  transform: ${props => props.isOpen ? 'translateY(0) scale(1)' : 'translateY(-20px) scale(0.95)'};
+  transition: transform 0.3s ease-in-out;
+  border: 2px solid ${props => props.theme.colors.primary.yellow};
+`;
+
+const ModalHeader = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: ${props => props.theme.spacing[4]} ${props => props.theme.spacing[6]};
+  border-bottom: 2px solid ${props => props.theme.colors.primary.yellow};
+  background: linear-gradient(135deg, ${props => props.theme.colors.primary.black} 0%, ${props => props.theme.colors.secondary.darkGray} 100%);
+`;
+
+const ModalTitle = styled.h2`
+  margin: 0;
+  font-size: ${props => props.theme.typography.fontSize.xl};
+  font-weight: ${props => props.theme.typography.fontWeight.bold};
+  color: ${props => props.theme.colors.primary.white};
+  display: flex;
+  align-items: center;
+  gap: ${props => props.theme.spacing[3]};
+`;
+
+const CloseButton = styled.button`
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: ${props => props.theme.spacing[2]};
+  border-radius: ${props => props.theme.borderRadius.md};
+  color: ${props => props.theme.colors.primary.white};
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    background: rgba(255, 230, 0, 0.2);
+    transform: scale(1.05);
+  }
+
+  &:focus {
+    outline: 2px solid ${props => props.theme.colors.primary.yellow};
+    outline-offset: 2px;
+  }
+`;
+
+const ModalBody = styled.div`
+  padding: ${props => props.theme.spacing[6]};
+  max-height: calc(80vh - 140px);
+  overflow-y: auto;
+`;
+
+const ModalFooter = styled.div`
+  padding: ${props => props.theme.spacing[3]} ${props => props.theme.spacing[6]};
+  border-top: 1px solid ${props => props.theme.colors.border.light};
+  background: ${props => props.theme.colors.background.secondary};
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: ${props => props.theme.typography.fontSize.sm};
+  color: ${props => props.theme.colors.text.secondary};
+`;
+
+const KeyboardShortcuts = styled.div`
+  display: flex;
+  align-items: center;
+  gap: ${props => props.theme.spacing[4]};
+`;
+
+const KeyboardKey = styled.kbd`
+  background: ${props => props.theme.colors.background.tertiary};
+  border: 1px solid ${props => props.theme.colors.border.light};
+  border-radius: ${props => props.theme.borderRadius.sm};
+  padding: ${props => props.theme.spacing[1]} ${props => props.theme.spacing[2]};
+  font-size: ${props => props.theme.typography.fontSize.xs};
+  font-family: ${props => props.theme.typography.fontFamily.mono};
+  color: ${props => props.theme.colors.text.primary};
+`;
 
 export const GlobalSearchModal: React.FC<GlobalSearchModalProps> = ({
   isOpen,
@@ -64,58 +178,46 @@ export const GlobalSearchModal: React.FC<GlobalSearchModalProps> = ({
     }
   };
 
+  const handleOverlayClick = (event: React.MouseEvent) => {
+    if (event.target === event.currentTarget) {
+      onClose();
+    }
+  };
+
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 overflow-y-auto">
-      {/* Backdrop */}
-      <div 
-        className="fixed inset-0 bg-black bg-opacity-50 transition-opacity"
-        onClick={onClose}
-      />
-      
-      {/* Modal */}
-      <div className="relative min-h-screen flex items-start justify-center pt-16 px-4">
-        <div 
-          ref={modalRef}
-          className="relative bg-white rounded-lg shadow-xl w-full max-w-4xl max-h-[80vh] overflow-hidden"
-          onClick={(e) => e.stopPropagation()}
-        >
-          {/* Header */}
-          <div className="flex items-center justify-between p-4 border-b">
-            <h2 className="text-lg font-semibold">Search EYNS AI Experience Center</h2>
-            <button
-              onClick={onClose}
-              className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
-            >
-              <X className="w-5 h-5" />
-            </button>
+    <ModalOverlay isOpen={isOpen} onClick={handleOverlayClick}>
+      <ModalContent isOpen={isOpen} ref={modalRef} onClick={(e) => e.stopPropagation()}>
+        <ModalHeader>
+          <ModalTitle>
+            <Search size={24} />
+            Search EYNS AI Experience Center
+          </ModalTitle>
+          <CloseButton onClick={onClose} aria-label="Close search modal">
+            <X size={20} />
+          </CloseButton>
+        </ModalHeader>
+        
+        <ModalBody>
+          <AdvancedSearch 
+            onResultSelect={handleResultSelect}
+            className="w-full"
+          />
+        </ModalBody>
+        
+        <ModalFooter>
+          <KeyboardShortcuts>
+            <span><KeyboardKey>↑↓</KeyboardKey> Navigate</span>
+            <span><KeyboardKey>Enter</KeyboardKey> Select</span>
+            <span><KeyboardKey>Esc</KeyboardKey> Close</span>
+          </KeyboardShortcuts>
+          <div>
+            Press <KeyboardKey>Cmd+K</KeyboardKey> to open search
           </div>
-          
-          {/* Search Content */}
-          <div className="p-6 overflow-y-auto max-h-[calc(80vh-80px)]">
-            <AdvancedSearch 
-              onResultSelect={handleResultSelect}
-              className="w-full"
-            />
-          </div>
-          
-          {/* Footer */}
-          <div className="px-6 py-3 border-t bg-gray-50 text-xs text-gray-500">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-4">
-                <span><kbd className="px-2 py-1 bg-gray-200 rounded">↑↓</kbd> Navigate</span>
-                <span><kbd className="px-2 py-1 bg-gray-200 rounded">Enter</kbd> Select</span>
-                <span><kbd className="px-2 py-1 bg-gray-200 rounded">Esc</kbd> Close</span>
-              </div>
-              <div>
-                Press <kbd className="px-2 py-1 bg-gray-200 rounded">Cmd+K</kbd> to open search
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+        </ModalFooter>
+      </ModalContent>
+    </ModalOverlay>
   );
 };
 

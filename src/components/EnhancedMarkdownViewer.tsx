@@ -21,12 +21,12 @@ import styles from './EnhancedMarkdownViewer.module.css';
 import { PlantUmlDiagram } from './PlantUmlDiagram';
 import { usePlantUmlRenderer } from '../hooks/usePlantUmlRenderer';
 import { MermaidDiagram } from './MermaidDiagram';
-import { useMermaidRenderer } from '../hooks/useMermaidRenderer';
 
 interface EnhancedMarkdownViewerProps {
   content: string;
   className?: string;
   onContentChange?: (content: string) => void;
+  onNavigate?: (path: string) => void;
 }
 
 interface TocItem {
@@ -38,7 +38,8 @@ interface TocItem {
 export const EnhancedMarkdownViewer: React.FC<EnhancedMarkdownViewerProps> = ({
   content,
   className = '',
-  onContentChange
+  onContentChange,
+  onNavigate
 }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [showSearch, setShowSearch] = useState(false);
@@ -52,13 +53,13 @@ export const EnhancedMarkdownViewer: React.FC<EnhancedMarkdownViewerProps> = ({
   // Process PlantUML content
   const { blocks: plantUmlBlocks, processedContent: plantUmlProcessed, hasPlantUml } = usePlantUmlRenderer(content);
   
-  // Process Mermaid content
-  const { blocks: mermaidBlocks, processedContent: mermaidProcessed, hasMermaid } = useMermaidRenderer(
-    hasPlantUml ? plantUmlProcessed : content
-  );
+  // Don't process Mermaid content with the hook since we handle it directly in the code component
+  // This was causing double processing and content corruption
+  const mermaidBlocks: any[] = [];
+  const hasMermaid = false;
   
   // Determine final processed content
-  const finalProcessedContent = hasPlantUml || hasMermaid ? mermaidProcessed : content;
+  const finalProcessedContent = hasPlantUml ? plantUmlProcessed : content;
 
   // Generate table of contents from content
   const tocItems = useMemo((): TocItem[] => {
@@ -201,6 +202,27 @@ export const EnhancedMarkdownViewer: React.FC<EnhancedMarkdownViewerProps> = ({
 
   // Custom components for react-markdown
   const components: Components = {
+    a: ({ href, children, ...props }) => {
+      // Handle internal markdown links
+      if (href && !href.startsWith('http') && !href.startsWith('#')) {
+        // This is a relative link to another markdown file
+        const handleClick = (e: React.MouseEvent) => {
+          e.preventDefault();
+          if (onNavigate) {
+            // Remove .md extension if present
+            const path = href.replace(/\.md$/i, '');
+            onNavigate(path);
+          }
+        };
+        return <a href={href} onClick={handleClick} {...props}>{children}</a>;
+      }
+      // External links open in new tab
+      if (href && href.startsWith('http')) {
+        return <a href={href} target="_blank" rel="noopener noreferrer" {...props}>{children}</a>;
+      }
+      // Default link behavior (including anchor links)
+      return <a href={href} {...props}>{children}</a>;
+    },
     h1: ({ children, ...props }) => {
       const id = children?.toString().toLowerCase().replace(/[^a-z0-9]+/g, '-');
       return <h1 id={id} {...props}>{children}</h1>;
@@ -229,6 +251,7 @@ export const EnhancedMarkdownViewer: React.FC<EnhancedMarkdownViewerProps> = ({
       const match = /language-(\w+)/.exec(className || '');
       const language = match?.[1];
       
+      
       // Handle PlantUML code blocks
       if (!inline && (language === 'plantuml' || language === 'puml')) {
         const content = String(children).trim();
@@ -247,7 +270,16 @@ export const EnhancedMarkdownViewer: React.FC<EnhancedMarkdownViewerProps> = ({
       
       // Handle Mermaid code blocks
       if (!inline && language === 'mermaid') {
-        const content = String(children).trim();
+        // Handle children that might be an array
+        let content = '';
+        if (Array.isArray(children)) {
+          content = children.join('');
+        } else {
+          content = String(children);
+        }
+        content = content.trim();
+        
+        
         return (
           <MermaidDiagram 
             content={content}
@@ -268,39 +300,55 @@ export const EnhancedMarkdownViewer: React.FC<EnhancedMarkdownViewerProps> = ({
         </code>
       );
     },
-    // Custom div handler for PlantUML and Mermaid placeholders
-    div: ({ children, ...props }: any) => {
-      const plantUmlId = props['data-plantuml-id'];
-      const mermaidId = props['data-mermaid-id'];
+    // Handle paragraphs that might contain diagram markers
+    p: ({ children, ...props }) => {
+      // Handle array of children (React Markdown can pass array)
+      const childrenArray = Array.isArray(children) ? children : [children];
       
-      if (plantUmlId) {
-        const block = plantUmlBlocks.find(b => b.id === plantUmlId);
-        if (block) {
-          return (
-            <PlantUmlDiagram
-              content={block.content}
-              title={block.title}
-              format="svg"
-              className="my-4"
-            />
-          );
+      // Process each child
+      const processedChildren = childrenArray.map((child, index) => {
+        if (typeof child === 'string') {
+          // Check for PlantUML markers
+          const plantUmlMatch = child.match(/\[PLANTUML:(plantuml-[^:]+):[^:]*:START\]/);
+          if (plantUmlMatch) {
+            const [, id] = plantUmlMatch;
+            const block = plantUmlBlocks.find(b => b.id === id);
+            if (block) {
+              return (
+                <PlantUmlDiagram
+                  key={`plantuml-${index}`}
+                  content={block.content}
+                  title={block.title}
+                  format="svg"
+                  className="my-4"
+                />
+              );
+            }
+          }
+          
+          if (child.includes('[PLANTUML:') && child.includes(':END]')) {
+            return null;
+          }
         }
+        
+        return child;
+      }).filter(child => child !== null);
+      
+      // If all children were diagram markers, return null to remove empty paragraph
+      if (processedChildren.length === 0) {
+        return null;
       }
       
-      if (mermaidId) {
-        const block = mermaidBlocks.find(b => b.id === mermaidId);
-        if (block) {
-          return (
-            <MermaidDiagram
-              content={block.content}
-              title={block.title}
-              className="my-4"
-            />
-          );
-        }
+      // If we replaced some content with diagrams, return just the processed children
+      if (processedChildren.some(child => 
+        child && typeof child === 'object' && 
+        React.isValidElement(child) && 
+        child.type === PlantUmlDiagram
+      )) {
+        return <>{processedChildren}</>;
       }
       
-      return <div {...props}>{children}</div>;
+      return <p {...props}>{processedChildren}</p>;
     }
   };
 

@@ -71,7 +71,17 @@ class LocalContentCache {
       
       // Don't cache files larger than 10MB
       if (stats.size > 10 * 1024 * 1024) {
-        const content = await fs.readFile(filePath, 'utf8');
+        const buffer = await fs.readFile(filePath);
+        let content = buffer.toString('utf8');
+        
+        // Remove BOM if present
+        if (content.charCodeAt(0) === 0xFEFF) {
+          content = content.slice(1);
+        }
+        
+        // Fix double-encoded UTF-8 emojis
+        content = this.fixDoubleEncodedEmojis(content);
+        
         return {
           content,
           mimeType: this.getMimeType(filePath),
@@ -79,7 +89,18 @@ class LocalContentCache {
         };
       }
       
-      const content = await fs.readFile(filePath, 'utf8');
+      // Read as buffer first to handle encoding issues
+      const buffer = await fs.readFile(filePath);
+      let content = buffer.toString('utf8');
+      
+      // Remove BOM if present
+      if (content.charCodeAt(0) === 0xFEFF) {
+        content = content.slice(1);
+      }
+      
+      // Fix double-encoded UTF-8 emojis
+      content = this.fixDoubleEncodedEmojis(content);
+      
       const mimeType = this.getMimeType(filePath);
       
       // Add to cache
@@ -267,6 +288,83 @@ class LocalContentCache {
     for (let i = 0; i < toRemove; i++) {
       this.removeFromCache(entries[i][0]);
     }
+  }
+
+  /**
+   * Fix double-encoded UTF-8 emojis
+   * This happens when UTF-8 is interpreted as Latin-1 and re-encoded
+   */
+  fixDoubleEncodedEmojis(content) {
+    // Fix common double-encoded emoji patterns
+    // This happens when UTF-8 bytes are interpreted as Latin-1 and re-encoded
+    const replacements = [
+      // Target emoji
+      { pattern: /\xC3\xB0\xC5\xB8\xC5\xBD\xC2\xAF/g, replacement: '🎯' },
+      // Rocket emoji  
+      { pattern: /\xC3\xB0\xC5\xB8\xC5\xA1\xE2\x82\xAC/g, replacement: '🚀' },
+      // Key emoji
+      { pattern: /\xC3\xB0\xC5\xB8\xE2\x80\x9D/g, replacement: '🔑' },
+      // Chart emoji
+      { pattern: /\xC3\xB0\xC5\xB8\xE2\x80\x9C\xC5\xA0/g, replacement: '📊' },
+      // Chart increasing emoji
+      { pattern: /\xC3\xB0\xC5\xB8\xE2\x80\x9C\xCB\x86/g, replacement: '📈' },
+      // Shield emoji
+      { pattern: /\xC3\xB0\xC5\xB8\xE2\x80\xBA\xC2\xA1/g, replacement: '🛡' },
+      // Wrench emoji
+      { pattern: /\xC3\xB0\xC5\xB8\xE2\x80\x9D\xC2\xA7/g, replacement: '🔧' },
+      // Lock emoji
+      { pattern: /\xC3\xB0\xC5\xB8\xE2\x80\x9D/g, replacement: '🔒' },
+      // Generic pattern to catch other common emojis
+      { pattern: /ð([^\s]{1,6})/g, replacement: (match) => {
+        // Try to fix common patterns
+        const emojiMap = {
+          '\u00f0\u0178\u017d\u00af': '\uD83C\uDFAF',  // Target
+          '\u00f0\u0178\u0161\u20ac': '\uD83D\uDE80',  // Rocket
+          '\u00f0\u0178\u201d': '\uD83D\uDD11',  // Key
+          '\u00f0\u0178\u201c\u0160': '\uD83D\uDCCA',  // Chart
+          '\u00f0\u0178\u201c\u02c6': '\uD83D\uDCC8',  // Chart increasing
+          '\u00f0\u0178\u2019\u00a1': '\uD83D\uDCA1',  // Light bulb
+          '\u00f0\u0178\u017d\u00ae': '\uD83C\uDFAE',  // Game controller
+          '\u00f0\u0178\u203a\u00a1': '\uD83D\uDEE1',  // Shield
+          '\u00f0\u0178\u201d': '\uD83D\uDD12',  // Lock
+          '\u00f0\u0178\u201d\u00a7': '\uD83D\uDD27',  // Wrench
+          '\u00f0\u0178\u203a': '\uD83D\uDEE0',  // Tools
+          '\u00f0\u0178\u201c\u0161': '\uD83D\uDCDA',  // Books
+          '\u00f0\u0178\u201c\u2013': '\uD83D\uDCD6',  // Book
+          '\u00f0\u0178\u201c': '\uD83D\uDCDD',  // Memo
+          '\u00f0\u0178\u201c\u2039': '\uD83D\uDCCB',  // Clipboard
+          '\u00f0\u0178\u201c\u0152': '\uD83D\uDCCC',  // Pushpin
+          '\u00f0\u0178\u201c': '\uD83D\uDCCD',  // Pin
+          '\u00f0\u0178\u201c\u017d': '\uD83D\uDCCE',  // Paperclip
+          '\u00f0\u0178\u2013\u2021': '\uD83D\uDD87',  // Linked paperclips
+          '\u00f0\u0178\u201c': '\uD83D\uDCCF',  // Ruler
+          '\u00f0\u0178\u201c': '\uD83D\uDCD0',  // Triangle ruler
+          '\u00e2\u0153\u201a': '\u2702',  // Scissors
+          '\u00f0\u0178\u2014\u201a': '\uD83D\uDDC2',  // Card index dividers
+          '\u00f0\u0178\u2014\u201c': '\uD83D\uDDD3',  // Calendar
+          '\u00f0\u0178\u201c\u2026': '\uD83D\uDCC5',  // Calendar
+          '\u00f0\u0178\u201c\u2020': '\uD83D\uDCC6',  // Calendar
+          '\u00f0\u0178\u2014\u2019': '\uD83D\uDDD2',  // Notepad
+          '\u00f0\u0178\u201c\u2021': '\uD83D\uDCC7',  // Card index
+          '\u00f0\u0178\u201c\u2030': '\uD83D\uDCC9',  // Chart
+          '\u00f0\u0178\u2014\u0192': '\uD83D\uDDC3',  // Card file box
+          '\u00f0\u0178\u2014\u201e': '\uD83D\uDDC4',  // File cabinet
+          '\u00f0\u0178\u2014\u2018': '\uD83D\uDDD1',  // Wastebasket
+        };
+        return emojiMap[match] || match;
+      }}
+    ];
+
+    let fixedContent = content;
+    for (const { pattern, replacement } of replacements) {
+      if (typeof replacement === 'string') {
+        fixedContent = fixedContent.replace(pattern, replacement);
+      } else {
+        fixedContent = fixedContent.replace(pattern, replacement);
+      }
+    }
+    
+    return fixedContent;
   }
 
   /**

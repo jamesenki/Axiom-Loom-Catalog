@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Debug Error</title>
+    <script>
+        // Capture ALL errors
+        window.addEventListener('error', function(e) {
+            document.getElementById('errors').innerHTML += 
+                '<div style="color: red; margin: 10px; padding: 10px; border: 1px solid red;">' +
+                '<strong>Error:</strong> ' + e.message + '<br>' +
+                '<strong>File:</strong> ' + e.filename + '<br>' +
+                '<strong>Line:</strong> ' + e.lineno + ':' + e.colno + '<br>' +
+                '<strong>Stack:</strong><pre>' + (e.error ? e.error.stack : 'No stack') + '</pre>' +
+                '</div>';
+        });
+        
+        window.addEventListener('unhandledrejection', function(e) {
+            document.getElementById('errors').innerHTML += 
+                '<div style="color: orange; margin: 10px; padding: 10px; border: 1px solid orange;">' +
+                '<strong>Unhandled Promise:</strong> ' + e.reason + '<br>' +
+                '</div>';
+        });
+    </script>
+</head>
+<body>
+    <h1>Debug Page - Check Console</h1>
+    <div id="errors"></div>
+    <hr>
+    <div id="root"></div>
+    
+    <!-- Load the app -->
+    <link href="/static/css/vendors.3d4aa0a0.css" rel="stylesheet">
+    <link href="/static/css/main.6ebc3df7.css" rel="stylesheet">
+    <script src="/static/js/react.655a5cfb.js"></script>
+    <script src="/static/js/vendors.25594e61.js"></script>
+    <script src="/static/js/main.8ef4a54e.js"></script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+version: '3.8'
+
+# Local/LAN deployment configuration
+# This configuration is optimized for local network access
+
+services:
+  # MongoDB for local development
+  mongodb:
+    image: mongo:7.0
+    container_name: eyns-mongodb-local
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: devadmin
+      MONGO_INITDB_ROOT_PASSWORD: devpassword
+      MONGO_INITDB_DATABASE: eyns_dev
+    volumes:
+      - mongodb_local_data:/data/db
+      - mongodb_local_config:/data/configdb
+    networks:
+      - eyns-local-network
+
+  # Redis for local development
+  redis:
+    image: redis:7-alpine
+    container_name: eyns-redis-local
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    command: redis-server --appendonly yes --requirepass devredis
+    volumes:
+      - redis_local_data:/data
+    networks:
+      - eyns-local-network
+
+  # Backend API Server
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    container_name: eyns-backend-local
+    restart: unless-stopped
+    ports:
+      - "3001:3001"
+    environment:
+      NODE_ENV: development
+      PORT: 3001
+      MONGODB_URI: mongodb://devadmin:devpassword@mongodb:27017/eyns_dev?authSource=admin
+      REDIS_URL: redis://:devredis@redis:6379
+      JWT_SECRET: dev-jwt-secret-not-for-production
+      SESSION_SECRET: dev-session-secret
+      CORS_ORIGIN: "*"  # Allow all origins for local development
+      RATE_LIMIT_WINDOW_MS: 900000
+      RATE_LIMIT_MAX: 1000
+    depends_on:
+      - mongodb
+      - redis
+    volumes:
+      - ./cloned-repositories:/app/cloned-repositories
+      - ./src:/app/src  # Hot reload for development
+      - backend_local_logs:/app/logs
+      - backend_local_cache:/app/cache
+    networks:
+      - eyns-local-network
+
+  # Frontend React App
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        REACT_APP_API_URL: http://backend:3001
+        REACT_APP_ENVIRONMENT: development
+    container_name: eyns-frontend-local
+    restart: unless-stopped
+    environment:
+      NODE_ENV: development
+    depends_on:
+      - backend
+    networks:
+      - eyns-local-network
+
+  # Nginx Reverse Proxy for local network access
+  nginx:
+    image: nginx:alpine
+    container_name: eyns-nginx-local
+    restart: unless-stopped
+    ports:
+      - "80:80"      # HTTP
+      - "8080:8080"  # Alternative port
+    volumes:
+      - ./deploy/nginx-docker.conf:/etc/nginx/nginx.conf:ro
+      - nginx_local_logs:/var/log/nginx
+    depends_on:
+      - frontend
+      - backend
+    networks:
+      - eyns-local-network
+
+volumes:
+  mongodb_local_data:
+    driver: local
+  mongodb_local_config:
+    driver: local
+  redis_local_data:
+    driver: local
+  backend_local_logs:
+    driver: local
+  backend_local_cache:
+    driver: local
+  nginx_local_logs:
+    driver: local
+
+networks:
+  eyns-local-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.29.0.0/16

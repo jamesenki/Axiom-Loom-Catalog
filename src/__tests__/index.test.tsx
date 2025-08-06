@@ -25,6 +25,9 @@ describe('index.tsx', () => {
   beforeEach(() => {
     // Clear all mocks
     jest.clearAllMocks();
+    
+    // Reset modules to avoid re-import issues
+    jest.resetModules();
 
     // Create a root element
     rootElement = document.createElement('div');
@@ -40,19 +43,25 @@ describe('index.tsx', () => {
 
   afterEach(() => {
     // Clean up
-    document.body.removeChild(rootElement);
+    if (document.body.contains(rootElement)) {
+      document.body.removeChild(rootElement);
+    }
   });
 
   it('creates root on the correct DOM element', () => {
     // Import index.tsx (this will execute the code)
-    require('../index');
+    jest.isolateModules(() => {
+      require('../index');
+    });
 
     expect(ReactDOM.createRoot).toHaveBeenCalledWith(rootElement);
   });
 
   it('renders App component in StrictMode', () => {
     // Import index.tsx
-    require('../index');
+    jest.isolateModules(() => {
+      require('../index');
+    });
 
     expect(mockRoot.render).toHaveBeenCalledWith(
       <React.StrictMode>
@@ -63,7 +72,9 @@ describe('index.tsx', () => {
 
   it('calls render exactly once', () => {
     // Import index.tsx
-    require('../index');
+    jest.isolateModules(() => {
+      require('../index');
+    });
 
     expect(mockRoot.render).toHaveBeenCalledTimes(1);
   });
@@ -77,6 +88,6 @@ describe('index.tsx', () => {
       jest.isolateModules(() => {
         require('../index');
       });
-    }).toThrow();
+    }).toThrow('Failed to find the root element');
   });
 });
