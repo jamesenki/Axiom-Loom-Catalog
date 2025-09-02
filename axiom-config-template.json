@@ -1,0 +1,91 @@
+{
+  "repository": {
+    "id": "repository-kebab-case-id",
+    "name": "repository-kebab-case-id",
+    "displayName": "Proper Title Case Display Name",
+    "shortName": "Short Name",
+    "brandName": "Brand™ Product Name"
+  },
+  "description": {
+    "tagline": "Brief one-line description (max 80 chars)",
+    "summary": "Detailed paragraph description (max 200 chars)",
+    "marketingPitch": "Full marketing description with business value proposition and benefits"
+  },
+  "classification": {
+    "category": "Primary Category",
+    "subcategory": "Subcategory",
+    "tags": ["tag1", "tag2", "tag3"],
+    "industry": ["automotive", "iot", "enterprise"],
+    "useCase": ["predictive-maintenance", "fleet-management"]
+  },
+  "technical": {
+    "architecture": "Platform|Framework|Library|Service|Suite",
+    "apis": {
+      "count": 15,
+      "types": {
+        "rest": true,
+        "graphql": true,
+        "grpc": false,
+        "websocket": true
+      }
+    },
+    "integrations": {
+      "postman": {
+        "collections": 12,
+        "available": true
+      },
+      "swagger": {
+        "available": true,
+        "path": "/docs/api.yaml"
+      },
+      "graphql": {
+        "available": true,
+        "endpoint": "/graphql",
+        "playground": true
+      }
+    }
+  },
+  "business": {
+    "pricing": {
+      "tier": "Tier 3: Enterprise",
+      "price": 180000,
+      "currency": "USD",
+      "displayPrice": "$180,000",
+      "model": "Perpetual License",
+      "support": "90 days included",
+      "customizable": true
+    },
+    "valueScore": 85,
+    "targetMarket": ["Enterprise", "Mid-Market", "Startup"],
+    "competitiveAdvantage": ["Feature 1", "Feature 2", "Feature 3"]
+  },
+  "urls": {
+    "demo": "https://demo.axiom-loom.com/product-name",
+    "documentation": "https://docs.axiom-loom.com/product-name",
+    "github": "https://github.com/jamesenki/repository-name",
+    "website": "https://axiom-loom.com/products/product-name"
+  },
+  "content": {
+    "keyFeatures": [
+      "Enterprise-grade architecture and scalability",
+      "Real-time data processing and analytics",
+      "Advanced security and compliance",
+      "Comprehensive API ecosystem",
+      "Professional support and documentation"
+    ],
+    "benefits": [
+      "Reduce operational costs by up to 40%",
+      "Improve efficiency and productivity",
+      "Scale seamlessly with business growth",
+      "Ensure enterprise-grade security",
+      "Access expert support and services"
+    ]
+  },
+  "metadata": {
+    "version": "1.0.0",
+    "lastUpdated": "2025-09-02T14:30:00.000Z",
+    "status": "active",
+    "maintainer": "Axiom Loom AI",
+    "schemaVersion": "1.0"
+  }
+}

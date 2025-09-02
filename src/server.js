@@ -219,32 +219,80 @@ app.get('/api/repositories', (req, res) => {
             .join(' ');
         }
         
-        // Get repository metadata if available
+        // Get repository metadata - prioritize axiom.json over global metadata
+        let repoConfig = {};
+        const axiomConfigPath = path.join(repoPath, 'axiom.json');
+        
+        if (fs.existsSync(axiomConfigPath)) {
+          try {
+            repoConfig = JSON.parse(fs.readFileSync(axiomConfigPath, 'utf8'));
+          } catch (e) {
+            console.warn(`Invalid axiom.json in ${dirent.name}:`, e.message);
+          }
+        }
+        
+        // Fallback to global metadata
         const metadata = repositoryMetadata[dirent.name] || {};
+        
+        // Extract normalized data from axiom.json
+        const repo = repoConfig.repository || {};
+        const desc = repoConfig.description || {};
+        const classification = repoConfig.classification || {};
+        const technical = repoConfig.technical || {};
+        const business = repoConfig.business || {};
+        const urls = repoConfig.urls || {};
         
         return {
           id: dirent.name,
           name: dirent.name,
-          displayName: metadata.displayName || friendlyName,
-          description: stripMarkdown(metadata.description || marketingDescription || description) || `${friendlyName} Solution`,
-          marketingDescription: marketingDescription,
-          category: metadata.category || 'repository',
-          status: 'active',
-          demoUrl: metadata.demoUrl || null,
-          tags: metadata.tags || [],
+          displayName: repo.displayName || metadata.displayName || friendlyName,
+          shortName: repo.shortName || repo.displayName || friendlyName,
+          brandName: repo.brandName || repo.displayName || friendlyName,
+          description: stripMarkdown(desc.summary || metadata.description || marketingDescription || description) || `${friendlyName} Solution`,
+          tagline: desc.tagline || `${friendlyName} solution`,
+          marketingDescription: desc.marketingPitch || marketingDescription,
+          category: classification.category || metadata.category || 'Platform',
+          subcategory: classification.subcategory || 'Architecture',
+          status: repoConfig.metadata?.status || 'active',
+          demoUrl: urls.demo || metadata.demoUrl || null,
+          tags: classification.tags || metadata.tags || [],
+          industry: classification.industry || ['enterprise'],
+          useCase: classification.useCase || ['platform'],
           metrics: {
-            apiCount: apiCount,
-            postmanCollections: postmanCount,
-            lastUpdated: stats.mtime.toISOString()
+            apiCount: technical.apis?.count || apiCount,
+            postmanCollections: technical.integrations?.postman?.collections || postmanCount,
+            lastUpdated: repoConfig.metadata?.lastUpdated || stats.mtime.toISOString(),
+            valueScore: business.valueScore || metadata.pricing?.valueScore || 70
           },
           apiTypes: {
-            hasOpenAPI: hasOpenAPI,
-            hasGraphQL: hasGraphQL,
-            hasGrpc: hasGrpc,
-            hasPostman: postmanCount > 0
+            hasOpenAPI: technical.apis?.types?.rest || hasOpenAPI,
+            hasGraphQL: technical.apis?.types?.graphql || hasGraphQL,
+            hasGrpc: technical.apis?.types?.grpc || hasGrpc,
+            hasWebSocket: technical.apis?.types?.websocket || false,
+            hasPostman: technical.integrations?.postman?.available || (postmanCount > 0)
           },
-          url: `https://github.com/${process.env.GITHUB_ORGANIZATION || 'jamesenki'}/${dirent.name}`,
-          pricing: metadata.pricing || null
+          integrations: {
+            postman: technical.integrations?.postman || { available: postmanCount > 0, collections: postmanCount },
+            swagger: technical.integrations?.swagger || { available: hasOpenAPI, path: '/docs/api.yaml' },
+            graphql: technical.integrations?.graphql || { available: hasGraphQL, endpoint: '/graphql', playground: hasGraphQL }
+          },
+          url: urls.github || `https://github.com/${process.env.GITHUB_ORGANIZATION || 'jamesenki'}/${dirent.name}`,
+          urls: {
+            demo: urls.demo || metadata.demoUrl || null,
+            documentation: urls.documentation || null,
+            website: urls.website || null,
+            github: urls.github || `https://github.com/${process.env.GITHUB_ORGANIZATION || 'jamesenki'}/${dirent.name}`
+          },
+          pricing: business.pricing || metadata.pricing || null,
+          content: repoConfig.content || {
+            keyFeatures: ['Enterprise-grade architecture', 'Comprehensive API coverage', 'Professional support'],
+            benefits: ['Reduce operational costs', 'Improve efficiency', 'Scale seamlessly']
+          },
+          business: {
+            targetMarket: business.targetMarket || ['Enterprise'],
+            competitiveAdvantage: business.competitiveAdvantage || ['AI-Powered', 'Scalable'],
+            valueScore: business.valueScore || metadata.pricing?.valueScore || 70
+          }
         };
       });
     
