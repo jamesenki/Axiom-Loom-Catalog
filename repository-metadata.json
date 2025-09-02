@@ -1,49 +1,10 @@
 {
-  "ai-predictive-maintenance-engine": {
-    "id": "ai-predictive-maintenance-engine",
-    "name": "ai-predictive-maintenance-engine",
-    "displayName": "AI Predictive Maintenance Engine",
-    "description": "Transform maintenance operations with AI-powered predictive analytics",
-    "marketingDescription": "Transform your maintenance operations with AI-powered predictive analytics that prevents equipment failures before they happen. Our advanced machine learning engine analyzes sensor data in real-time to identify anomalies and predict maintenance needs, reducing downtime by up to 70% and extending equipment lifespan.",
-    "category": "AI/ML",
-    "status": "active",
-    "demoUrl": "https://demo.axiom-loom.com/ai-maintenance",
-    "tags": [
-      "AI/ML",
-      "Predictive Maintenance",
-      "IoT",
-      "Analytics"
-    ],
-    "metrics": {
-      "apiCount": 1,
-      "postmanCollections": 0,
-      "lastUpdated": "2025-08-04T15:30:13.969Z"
-    },
-    "apiTypes": {
-      "hasOpenAPI": true,
-      "hasGraphQL": false,
-      "hasGrpc": false,
-      "hasPostman": false
-    },
-    "url": "https://github.com/jamesenki/ai-predictive-maintenance-engine",
-    "pricing": {
-      "suggestedRetailPrice": 50000,
-      "tier": "Tier 2: Professional",
-      "valueScore": 68,
-      "displayPrice": "$50,000",
-      "lastAssessed": "2025-08-05T21:39:59.674Z",
-      "currency": "USD",
-      "licensingModel": "Perpetual License",
-      "supportIncluded": "90 days",
-      "customizationAvailable": true
-    }
-  },
   "ai-predictive-maintenance-engine-architecture": {
     "id": "ai-predictive-maintenance-engine-architecture",
     "name": "ai-predictive-maintenance-engine-architecture",
     "displayName": "AI Maintenance Architecture",
-    "description": "Enterprise-ready architecture blueprint for predictive maintenance",
-    "marketingDescription": "Accelerate your predictive maintenance implementation with our comprehensive architecture blueprint. This enterprise-ready solution provides everything you need to build a scalable, secure, and integrated predictive maintenance system that connects seamlessly with your existing infrastructure.",
+    "description": "Complete AI-powered predictive maintenance solution with engine, platform, and architecture",
+    "marketingDescription": "Transform your maintenance operations with our complete AI-powered predictive maintenance solution. Combining advanced machine learning engines, comprehensive platform capabilities, and enterprise-ready architecture, this integrated solution prevents equipment failures, reduces downtime by up to 70%, and extends equipment lifespan across your entire operation.",
     "category": "Architecture",
     "status": "active",
     "demoUrl": null,
@@ -54,7 +15,7 @@
       "Blueprint"
     ],
     "metrics": {
-      "apiCount": 19,
+      "apiCount": 20,
       "postmanCollections": 16,
       "lastUpdated": "2025-08-05T18:44:52.924Z"
     },
@@ -66,49 +27,10 @@
     },
     "url": "https://github.com/jamesenki/ai-predictive-maintenance-engine-architecture",
     "pricing": {
-      "suggestedRetailPrice": 325000,
+      "suggestedRetailPrice": 400000,
       "tier": "Tier 4: Strategic",
-      "valueScore": 88,
-      "displayPrice": "$325,000",
-      "lastAssessed": "2025-08-05T21:39:59.675Z",
-      "currency": "USD",
-      "licensingModel": "Perpetual License",
-      "supportIncluded": "90 days",
-      "customizationAvailable": true
-    }
-  },
-  "ai-predictive-maintenance-platform": {
-    "id": "ai-predictive-maintenance-platform",
-    "name": "ai-predictive-maintenance-platform",
-    "displayName": "AI Maintenance Platform",
-    "description": "Complete platform solution for equipment maintenance management",
-    "marketingDescription": "A complete platform solution that transforms how organizations manage equipment maintenance. Combining IoT sensors, AI analytics, and intuitive dashboards, this platform provides everything needed to implement world-class predictive maintenance across your entire operation.",
-    "category": "Platform",
-    "status": "active",
-    "demoUrl": null,
-    "tags": [
-      "Platform",
-      "AI/ML",
-      "IoT",
-      "Maintenance"
-    ],
-    "metrics": {
-      "apiCount": 0,
-      "postmanCollections": 0,
-      "lastUpdated": "2025-08-04T15:30:38.696Z"
-    },
-    "apiTypes": {
-      "hasOpenAPI": false,
-      "hasGraphQL": false,
-      "hasGrpc": false,
-      "hasPostman": false
-    },
-    "url": "https://github.com/jamesenki/ai-predictive-maintenance-platform",
-    "pricing": {
-      "suggestedRetailPrice": 42000,
-      "tier": "Tier 2: Professional",
-      "valueScore": 63,
-      "displayPrice": "$42,000",
+      "valueScore": 90,
+      "displayPrice": "$400,000",
       "lastAssessed": "2025-08-05T21:39:59.675Z",
       "currency": "USD",
       "licensingModel": "Perpetual License",
@@ -257,356 +179,6 @@
       "customizationAvailable": true
     }
   },
-  "future-mobility-consumer-platform": {
-    "id": "future-mobility-consumer-platform",
-    "name": "future-mobility-consumer-platform",
-    "displayName": "Future Mobility Consumer Platform",
-    "description": "AI-powered mobility experiences for 2+ billion global consumers",
-    "marketingDescription": "Empower 2 billion consumers with intelligent electric mobility experiences.",
-    "category": "Consumer",
-    "status": "active",
-    "demoUrl": "https://demo.axiom-loom.com/consumer-platform",
-    "tags": [
-      "Consumer",
-      "AI/ML",
-      "Mobile",
-      "EV"
-    ],
-    "metrics": {
-      "apiCount": 22,
-      "postmanCollections": 30,
-      "lastUpdated": "2025-07-30T18:30:09.139Z"
-    },
-    "apiTypes": {
-      "hasOpenAPI": true,
-      "hasGraphQL": false,
-      "hasGrpc": false,
-      "hasPostman": true
-    },
-    "url": "https://github.com/jamesenki/future-mobility-consumer-platform",
-    "pricing": {
-      "suggestedRetailPrice": 117000,
-      "tier": "Tier 3: Enterprise",
-      "valueScore": 77,
-      "displayPrice": "$117,000",
-      "lastAssessed": "2025-08-05T21:39:59.675Z",
-      "currency": "USD",
-      "licensingModel": "Perpetual License",
-      "supportIncluded": "90 days",
-      "customizationAvailable": true
-    }
-  },
-  "future-mobility-energy-platform": {
-    "id": "future-mobility-energy-platform",
-    "name": "future-mobility-energy-platform",
-    "displayName": "Future Mobility Energy Platform",
-    "description": "Future Mobility Energy Platform Solution",
-    "marketingDescription": "",
-    "category": "repository",
-    "status": "active",
-    "demoUrl": null,
-    "tags": [],
-    "metrics": {
-      "apiCount": 0,
-      "postmanCollections": 0,
-      "lastUpdated": "2025-07-31T02:55:43.848Z"
-    },
-    "apiTypes": {
-      "hasOpenAPI": false,
-      "hasGraphQL": false,
-      "hasGrpc": false,
-      "hasPostman": false
-    },
-    "url": "https://github.com/jamesenki/future-mobility-energy-platform",
-    "pricing": {
-      "suggestedRetailPrice": 15000,
-      "tier": "Tier 1: Foundation",
-      "valueScore": 50,
-      "displayPrice": "$15,000",
-      "lastAssessed": "2025-08-05T21:39:59.675Z",
-      "currency": "USD",
-      "licensingModel": "Perpetual License",
-      "supportIncluded": "90 days",
-      "customizationAvailable": true
-    }
-  },
-  "future-mobility-financial-platform": {
-    "id": "future-mobility-financial-platform",
-    "name": "future-mobility-financial-platform",
-    "displayName": "Future Mobility Financial Platform",
-    "description": "Future Mobility Financial Platform Solution",
-    "marketingDescription": "",
-    "category": "repository",
-    "status": "active",
-    "demoUrl": null,
-    "tags": [],
-    "metrics": {
-      "apiCount": 0,
-      "postmanCollections": 0,
-      "lastUpdated": "2025-07-31T02:55:40.648Z"
-    },
-    "apiTypes": {
-      "hasOpenAPI": false,
-      "hasGraphQL": false,
-      "hasGrpc": false,
-      "hasPostman": false
-    },
-    "url": "https://github.com/jamesenki/future-mobility-financial-platform",
-    "pricing": {
-      "suggestedRetailPrice": 15000,
-      "tier": "Tier 1: Foundation",
-      "valueScore": 50,
-      "displayPrice": "$15,000",
-      "lastAssessed": "2025-08-05T21:39:59.675Z",
-      "currency": "USD",
-      "licensingModel": "Perpetual License",
-      "supportIncluded": "90 days",
-      "customizationAvailable": true
-    }
-  },
-  "future-mobility-fleet-platform": {
-    "id": "future-mobility-fleet-platform",
-    "name": "future-mobility-fleet-platform",
-    "displayName": "Future Mobility Fleet Platform",
-    "description": "Fleet optimization and management platform with predictive analytics",
-    "marketingDescription": "Maximize fleet profitability with AI-driven electric vehicle management.",
-    "category": "Fleet",
-    "status": "active",
-    "demoUrl": null,
-    "tags": [
-      "Fleet",
-      "Analytics",
-      "IoT",
-      "Optimization"
-    ],
-    "metrics": {
-      "apiCount": 48,
-      "postmanCollections": 42,
-      "lastUpdated": "2025-07-30T18:39:36.906Z"
-    },
-    "apiTypes": {
-      "hasOpenAPI": true,
-      "hasGraphQL": false,
-      "hasGrpc": false,
-      "hasPostman": true
-    },
-    "url": "https://github.com/jamesenki/future-mobility-fleet-platform",
-    "pricing": {
-      "suggestedRetailPrice": 117000,
-      "tier": "Tier 3: Enterprise",
-      "valueScore": 77,
-      "displayPrice": "$117,000",
-      "lastAssessed": "2025-08-05T21:39:59.675Z",
-      "currency": "USD",
-      "licensingModel": "Perpetual License",
-      "supportIncluded": "90 days",
-      "customizationAvailable": true
-    }
-  },
-  "future-mobility-infrastructure-platform": {
-    "id": "future-mobility-infrastructure-platform",
-    "name": "future-mobility-infrastructure-platform",
-    "displayName": "Future Mobility Infrastructure Platform",
-    "description": "Future Mobility Infrastructure Platform Solution",
-    "marketingDescription": "",
-    "category": "repository",
-    "status": "active",
-    "demoUrl": null,
-    "tags": [],
-    "metrics": {
-      "apiCount": 0,
-      "postmanCollections": 0,
-      "lastUpdated": "2025-07-31T02:55:41.719Z"
-    },
-    "apiTypes": {
-      "hasOpenAPI": false,
-      "hasGraphQL": false,
-      "hasGrpc": false,
-      "hasPostman": false
-    },
-    "url": "https://github.com/jamesenki/future-mobility-infrastructure-platform",
-    "pricing": {
-      "suggestedRetailPrice": 15000,
-      "tier": "Tier 1: Foundation",
-      "valueScore": 50,
-      "displayPrice": "$15,000",
-      "lastAssessed": "2025-08-05T21:39:59.675Z",
-      "currency": "USD",
-      "licensingModel": "Perpetual License",
-      "supportIncluded": "90 days",
-      "customizationAvailable": true
-    }
-  },
-  "future-mobility-oems-platform": {
-    "id": "future-mobility-oems-platform",
-    "name": "future-mobility-oems-platform",
-    "displayName": "future-mobility-oems-platform",
-    "description": "Transform your automotive manufacturing with AI-powered EV production optimization.",
-    "marketingDescription": "Transform your automotive manufacturing with AI-powered EV production optimization.",
-    "category": "repository",
-    "status": "active",
-    "demoUrl": null,
-    "tags": [],
-    "metrics": {
-      "apiCount": 65,
-      "postmanCollections": 60,
-      "lastUpdated": "2025-07-30T18:39:36.914Z"
-    },
-    "apiTypes": {
-      "hasOpenAPI": true,
-      "hasGraphQL": false,
-      "hasGrpc": false,
-      "hasPostman": true
-    },
-    "url": "https://github.com/jamesenki/future-mobility-oems-platform",
-    "pricing": {
-      "suggestedRetailPrice": 88000,
-      "tier": "Tier 3: Enterprise",
-      "valueScore": 74,
-      "displayPrice": "$88,000",
-      "lastAssessed": "2025-08-05T21:39:59.675Z",
-      "currency": "USD",
-      "licensingModel": "Perpetual License",
-      "supportIncluded": "90 days",
-      "customizationAvailable": true
-    }
-  },
-  "future-mobility-regulatory-platform": {
-    "id": "future-mobility-regulatory-platform",
-    "name": "future-mobility-regulatory-platform",
-    "displayName": "future-mobility-regulatory-platform",
-    "description": "Achieve 100% regulatory compliance with automated reporting and real-time monitoring.",
-    "marketingDescription": "Achieve 100% regulatory compliance with automated reporting and real-time monitoring.",
-    "category": "repository",
-    "status": "active",
-    "demoUrl": null,
-    "tags": [],
-    "metrics": {
-      "apiCount": 11,
-      "postmanCollections": 17,
-      "lastUpdated": "2025-07-30T18:39:36.935Z"
-    },
-    "apiTypes": {
-      "hasOpenAPI": true,
-      "hasGraphQL": false,
-      "hasGrpc": false,
-      "hasPostman": true
-    },
-    "url": "https://github.com/jamesenki/future-mobility-regulatory-platform",
-    "pricing": {
-      "suggestedRetailPrice": 88000,
-      "tier": "Tier 3: Enterprise",
-      "valueScore": 74,
-      "displayPrice": "$88,000",
-      "lastAssessed": "2025-08-05T21:39:59.675Z",
-      "currency": "USD",
-      "licensingModel": "Perpetual License",
-      "supportIncluded": "90 days",
-      "customizationAvailable": true
-    }
-  },
-  "future-mobility-tech-platform": {
-    "id": "future-mobility-tech-platform",
-    "name": "future-mobility-tech-platform",
-    "displayName": "future-mobility-tech-platform",
-    "description": "Accelerate mobility innovation with our comprehensive technology platform.",
-    "marketingDescription": "Accelerate mobility innovation with our comprehensive technology platform.",
-    "category": "repository",
-    "status": "active",
-    "demoUrl": null,
-    "tags": [],
-    "metrics": {
-      "apiCount": 23,
-      "postmanCollections": 30,
-      "lastUpdated": "2025-07-30T18:39:36.941Z"
-    },
-    "apiTypes": {
-      "hasOpenAPI": true,
-      "hasGraphQL": false,
-      "hasGrpc": false,
-      "hasPostman": true
-    },
-    "url": "https://github.com/jamesenki/future-mobility-tech-platform",
-    "pricing": {
-      "suggestedRetailPrice": 79000,
-      "tier": "Tier 3: Enterprise",
-      "valueScore": 73,
-      "displayPrice": "$79,000",
-      "lastAssessed": "2025-08-05T21:39:59.675Z",
-      "currency": "USD",
-      "licensingModel": "Perpetual License",
-      "supportIncluded": "90 days",
-      "customizationAvailable": true
-    }
-  },
-  "future-mobility-users-platform": {
-    "id": "future-mobility-users-platform",
-    "name": "future-mobility-users-platform",
-    "displayName": "Future Mobility Users Platform",
-    "description": "Future Mobility Users Platform Solution",
-    "marketingDescription": "",
-    "category": "repository",
-    "status": "active",
-    "demoUrl": null,
-    "tags": [],
-    "metrics": {
-      "apiCount": 0,
-      "postmanCollections": 0,
-      "lastUpdated": "2025-07-31T02:55:42.815Z"
-    },
-    "apiTypes": {
-      "hasOpenAPI": false,
-      "hasGraphQL": false,
-      "hasGrpc": false,
-      "hasPostman": false
-    },
-    "url": "https://github.com/jamesenki/future-mobility-users-platform",
-    "pricing": {
-      "suggestedRetailPrice": 15000,
-      "tier": "Tier 1: Foundation",
-      "valueScore": 50,
-      "displayPrice": "$15,000",
-      "lastAssessed": "2025-08-05T21:39:59.675Z",
-      "currency": "USD",
-      "licensingModel": "Perpetual License",
-      "supportIncluded": "90 days",
-      "customizationAvailable": true
-    }
-  },
-  "future-mobility-utilities-platform": {
-    "id": "future-mobility-utilities-platform",
-    "name": "future-mobility-utilities-platform",
-    "displayName": "future-mobility-utilities-platform",
-    "description": "Revolutionize your grid infrastructure with AI-powered EV integration.",
-    "marketingDescription": "Revolutionize your grid infrastructure with AI-powered EV integration.",
-    "category": "repository",
-    "status": "active",
-    "demoUrl": null,
-    "tags": [],
-    "metrics": {
-      "apiCount": 38,
-      "postmanCollections": 27,
-      "lastUpdated": "2025-07-30T18:39:36.952Z"
-    },
-    "apiTypes": {
-      "hasOpenAPI": true,
-      "hasGraphQL": false,
-      "hasGrpc": false,
-      "hasPostman": true
-    },
-    "url": "https://github.com/jamesenki/future-mobility-utilities-platform",
-    "pricing": {
-      "suggestedRetailPrice": 79000,
-      "tier": "Tier 3: Enterprise",
-      "valueScore": 73,
-      "displayPrice": "$79,000",
-      "lastAssessed": "2025-08-05T21:39:59.675Z",
-      "currency": "USD",
-      "licensingModel": "Perpetual License",
-      "supportIncluded": "90 days",
-      "customizationAvailable": true
-    }
-  },
   "mobility-architecture-package-orchestrator": {
     "id": "mobility-architecture-package-orchestrator",
     "name": "mobility-architecture-package-orchestrator",
@@ -640,34 +212,6 @@
       "supportIncluded": "90 days",
       "customizationAvailable": true
     }
-  },
-  "nslabsdashboards": {
-    "id": "nslabsdashboards",
-    "name": "nslabsdashboards",
-    "displayName": "Industrial Monitoring Co Industrial Dashboards",
-    "description": "Real-time equipment monitoring and predictive maintenance dashboards",
-    "marketingDescription": "Enterprise IoT Intelligence Platform with advanced ML/AI analytics for industrial equipment monitoring and optimization.",
-    "category": "Industrial",
-    "status": "active",
-    "demoUrl": "https://ey.coastdemo.com/share/688421995e3dd886b4debd3f",
-    "tags": [
-      "IoT",
-      "Predictive Maintenance",
-      "Analytics",
-      "Industrial"
-    ],
-    "metrics": {
-      "apiCount": 34,
-      "postmanCollections": 7,
-      "lastUpdated": "2025-07-30T21:05:18.591Z"
-    },
-    "apiTypes": {
-      "hasOpenAPI": true,
-      "hasGraphQL": true,
-      "hasGrpc": false,
-      "hasPostman": true
-    },
-    "url": "https://github.com/jamesenki/nslabsdashboards"
   },
   "remote-diagnostic-assistance-platform-architecture": {
     "id": "remote-diagnostic-assistance-platform-architecture",
@@ -837,6 +381,327 @@
       "valueScore": 83,
       "displayPrice": "$150,000",
       "lastAssessed": "2025-08-05T21:39:59.675Z",
+      "currency": "USD",
+      "licensingModel": "Perpetual License",
+      "supportIncluded": "90 days",
+      "customizationAvailable": true
+    }
+  },
+  "future-mobility-platform-suite": {
+    "id": "future-mobility-platform-suite",
+    "name": "future-mobility-platform-suite",
+    "displayName": "Future Mobility Platform Suite",
+    "description": "Comprehensive mobility ecosystem platform for consumers, fleets, OEMs, and utilities",
+    "marketingDescription": "Transform the future of mobility with our comprehensive platform suite that serves 2+ billion consumers, fleet operators, automotive OEMs, and utility providers. Integrate electric vehicle management, smart charging infrastructure, regulatory compliance, and advanced analytics in one unified ecosystem.",
+    "category": "Platform Suite",
+    "status": "active",
+    "demoUrl": "https://demo.axiom-loom.com/mobility-suite",
+    "tags": [
+      "Future Mobility",
+      "EV Management",
+      "Fleet Operations",
+      "Smart Grid",
+      "Regulatory Compliance",
+      "Analytics"
+    ],
+    "metrics": {
+      "apiCount": 207,
+      "postmanCollections": 206,
+      "lastUpdated": "2025-09-02T09:45:06.872490Z"
+    },
+    "apiTypes": {
+      "hasOpenAPI": true,
+      "hasGraphQL": true,
+      "hasGrpc": false,
+      "hasPostman": true
+    },
+    "url": "https://github.com/jamesenki/future-mobility-platform-suite",
+    "pricing": {
+      "suggestedRetailPrice": 450000,
+      "tier": "Tier 4: Strategic",
+      "valueScore": 74,
+      "displayPrice": "$450,000",
+      "lastAssessed": "2025-09-02T09:45:06.872510Z",
+      "currency": "USD",
+      "licensingModel": "Perpetual License",
+      "supportIncluded": "90 days",
+      "customizationAvailable": true
+    },
+    "consolidatedFrom": [
+      {
+        "id": "future-mobility-consumer-platform",
+        "name": "Future Mobility Consumer Platform",
+        "apis": 22,
+        "collections": 30,
+        "value": 77
+      },
+      {
+        "id": "future-mobility-fleet-platform",
+        "name": "Future Mobility Fleet Platform",
+        "apis": 48,
+        "collections": 42,
+        "value": 77
+      },
+      {
+        "id": "future-mobility-oems-platform",
+        "name": "future-mobility-oems-platform",
+        "apis": 65,
+        "collections": 60,
+        "value": 74
+      },
+      {
+        "id": "future-mobility-tech-platform",
+        "name": "future-mobility-tech-platform",
+        "apis": 23,
+        "collections": 30,
+        "value": 73
+      },
+      {
+        "id": "future-mobility-utilities-platform",
+        "name": "future-mobility-utilities-platform",
+        "apis": 38,
+        "collections": 27,
+        "value": 73
+      },
+      {
+        "id": "future-mobility-regulatory-platform",
+        "name": "future-mobility-regulatory-platform",
+        "apis": 11,
+        "collections": 17,
+        "value": 74
+      }
+    ]
+  },
+  "iotsphere-core-platform": {
+    "id": "iotsphere-core-platform",
+    "name": "iotsphere-core-platform",
+    "displayName": "IoTSphere Core Platform",
+    "description": "Enterprise IoT platform with GraphQL APIs, MQTT integration, and device management",
+    "marketingDescription": "Build scalable IoT solutions with our enterprise-grade core platform. Features real-time GraphQL APIs, secure MQTT communication, comprehensive device management, and advanced analytics. Perfect for industrial monitoring, smart buildings, and connected device ecosystems.",
+    "category": "IoT Platform",
+    "status": "active",
+    "demoUrl": "https://demo.axiom-loom.com/iotsphere-core",
+    "tags": [
+      "IoT",
+      "GraphQL",
+      "MQTT",
+      "Device Management",
+      "Real-time"
+    ],
+    "metrics": {
+      "apiCount": 15,
+      "postmanCollections": 8,
+      "lastUpdated": "2025-09-02T09:45:06.872538Z"
+    },
+    "apiTypes": {
+      "hasOpenAPI": true,
+      "hasGraphQL": true,
+      "hasGrpc": false,
+      "hasPostman": true
+    },
+    "url": "https://github.com/jamesenki/iotsphere-core-platform",
+    "pricing": {
+      "suggestedRetailPrice": 180000,
+      "tier": "Tier 3: Enterprise",
+      "valueScore": 85,
+      "displayPrice": "$180,000",
+      "lastAssessed": "2025-09-02T09:45:06.872542Z",
+      "currency": "USD",
+      "licensingModel": "Perpetual License",
+      "supportIncluded": "90 days",
+      "customizationAvailable": true
+    }
+  },
+  "appliances-co-water-heater-platform": {
+    "id": "appliances-co-water-heater-platform",
+    "name": "appliances-co-water-heater-platform",
+    "displayName": "Appliances Co Water Heater Platform",
+    "description": "Comprehensive water heater management with predictive maintenance and fleet optimization",
+    "marketingDescription": "Revolutionize water heater operations with AI-powered predictive maintenance, cost optimization, and fleet management. Monitor thousands of units in real-time, predict failures before they happen, and optimize energy consumption across your entire portfolio.",
+    "category": "Appliance Management",
+    "status": "active",
+    "demoUrl": "https://demo.axiom-loom.com/water-heater-platform",
+    "tags": [
+      "Water Heaters",
+      "Predictive Maintenance",
+      "Fleet Management",
+      "Analytics"
+    ],
+    "metrics": {
+      "apiCount": 12,
+      "postmanCollections": 6,
+      "lastUpdated": "2025-09-02T09:45:06.872546Z"
+    },
+    "apiTypes": {
+      "hasOpenAPI": true,
+      "hasGraphQL": true,
+      "hasGrpc": false,
+      "hasPostman": true
+    },
+    "url": "https://github.com/jamesenki/appliances-co-water-heater-platform",
+    "pricing": {
+      "suggestedRetailPrice": 145000,
+      "tier": "Tier 3: Enterprise",
+      "valueScore": 78,
+      "displayPrice": "$145,000",
+      "lastAssessed": "2025-09-02T09:45:06.872549Z",
+      "currency": "USD",
+      "licensingModel": "Perpetual License",
+      "supportIncluded": "90 days",
+      "customizationAvailable": true
+    }
+  },
+  "iotsphere-ml-ai-platform": {
+    "id": "iotsphere-ml-ai-platform",
+    "name": "iotsphere-ml-ai-platform",
+    "displayName": "IoTSphere ML/AI Platform",
+    "description": "Advanced machine learning and AI platform for IoT analytics and autonomous systems",
+    "marketingDescription": "Unlock the power of AI for your IoT ecosystem. Our advanced ML platform provides AI agents, predictive analytics, RAG-powered knowledge management, and autonomous system capabilities. Transform raw sensor data into intelligent insights and automated actions.",
+    "category": "AI/ML Platform",
+    "status": "active",
+    "demoUrl": "https://demo.axiom-loom.com/iotsphere-ai",
+    "tags": [
+      "AI/ML",
+      "IoT Analytics",
+      "Autonomous Systems",
+      "RAG",
+      "Predictive Analytics"
+    ],
+    "metrics": {
+      "apiCount": 10,
+      "postmanCollections": 6,
+      "lastUpdated": "2025-09-02T09:45:06.872553Z"
+    },
+    "apiTypes": {
+      "hasOpenAPI": true,
+      "hasGraphQL": true,
+      "hasGrpc": false,
+      "hasPostman": true
+    },
+    "url": "https://github.com/jamesenki/iotsphere-ml-ai-platform",
+    "pricing": {
+      "suggestedRetailPrice": 220000,
+      "tier": "Tier 4: Strategic",
+      "valueScore": 88,
+      "displayPrice": "$220,000",
+      "lastAssessed": "2025-09-02T09:45:06.872557Z",
+      "currency": "USD",
+      "licensingModel": "Perpetual License",
+      "supportIncluded": "90 days",
+      "customizationAvailable": true
+    }
+  },
+  "industrial-lubricants-platform": {
+    "id": "industrial-lubricants-platform",
+    "name": "industrial-lubricants-platform",
+    "displayName": "Industrial Lubricants Platform",
+    "description": "Industrial lubricant monitoring and optimization platform for manufacturing operations",
+    "marketingDescription": "Optimize your industrial lubricant operations with real-time monitoring, predictive maintenance, and performance analytics. Reduce equipment wear, extend machinery life, and minimize operational downtime across your manufacturing facilities.",
+    "category": "Industrial Monitoring",
+    "status": "active",
+    "demoUrl": "https://demo.axiom-loom.com/industrial-lubricants",
+    "tags": [
+      "Industrial",
+      "Lubricants",
+      "Manufacturing",
+      "Predictive Maintenance"
+    ],
+    "metrics": {
+      "apiCount": 8,
+      "postmanCollections": 5,
+      "lastUpdated": "2025-09-02T09:45:06.872560Z"
+    },
+    "apiTypes": {
+      "hasOpenAPI": true,
+      "hasGraphQL": false,
+      "hasGrpc": false,
+      "hasPostman": true
+    },
+    "url": "https://github.com/jamesenki/industrial-lubricants-platform",
+    "pricing": {
+      "suggestedRetailPrice": 95000,
+      "tier": "Tier 3: Enterprise",
+      "valueScore": 72,
+      "displayPrice": "$95,000",
+      "lastAssessed": "2025-09-02T09:45:06.872563Z",
+      "currency": "USD",
+      "licensingModel": "Perpetual License",
+      "supportIncluded": "90 days",
+      "customizationAvailable": true
+    }
+  },
+  "motorbike-oem-platform": {
+    "id": "motorbike-oem-platform",
+    "name": "motorbike-oem-platform",
+    "displayName": "Motorbike OEM Platform",
+    "description": "Electric motorcycle fleet management and optimization platform for OEMs",
+    "marketingDescription": "Accelerate your electric motorcycle business with comprehensive fleet management, battery optimization, and performance analytics. Monitor vehicle health, optimize charging patterns, and deliver exceptional customer experiences.",
+    "category": "Vehicle Management",
+    "status": "active",
+    "demoUrl": "https://demo.axiom-loom.com/motorbike-oem",
+    "tags": [
+      "Electric Motorcycles",
+      "Fleet Management",
+      "Battery Optimization",
+      "OEM"
+    ],
+    "metrics": {
+      "apiCount": 6,
+      "postmanCollections": 4,
+      "lastUpdated": "2025-09-02T09:45:06.872567Z"
+    },
+    "apiTypes": {
+      "hasOpenAPI": true,
+      "hasGraphQL": false,
+      "hasGrpc": false,
+      "hasPostman": true
+    },
+    "url": "https://github.com/jamesenki/motorbike-oem-platform",
+    "pricing": {
+      "suggestedRetailPrice": 85000,
+      "tier": "Tier 2: Professional",
+      "valueScore": 68,
+      "displayPrice": "$85,000",
+      "lastAssessed": "2025-09-02T09:45:06.872570Z",
+      "currency": "USD",
+      "licensingModel": "Perpetual License",
+      "supportIncluded": "90 days",
+      "customizationAvailable": true
+    }
+  },
+  "iotsphere-device-simulators": {
+    "id": "iotsphere-device-simulators",
+    "name": "iotsphere-device-simulators",
+    "displayName": "IoTSphere Device Simulators",
+    "description": "Comprehensive device simulation and testing framework for IoT development",
+    "marketingDescription": "Accelerate IoT development with realistic device simulators and comprehensive testing frameworks. Test at scale, validate integrations, and ensure reliability before deploying to production environments.",
+    "category": "Development Tools",
+    "status": "active",
+    "demoUrl": "https://demo.axiom-loom.com/device-simulators",
+    "tags": [
+      "Device Simulation",
+      "Testing",
+      "IoT Development",
+      "Integration Testing"
+    ],
+    "metrics": {
+      "apiCount": 5,
+      "postmanCollections": 4,
+      "lastUpdated": "2025-09-02T09:45:06.872573Z"
+    },
+    "apiTypes": {
+      "hasOpenAPI": true,
+      "hasGraphQL": false,
+      "hasGrpc": false,
+      "hasPostman": true
+    },
+    "url": "https://github.com/jamesenki/iotsphere-device-simulators",
+    "pricing": {
+      "suggestedRetailPrice": 45000,
+      "tier": "Tier 2: Professional",
+      "valueScore": 62,
+      "displayPrice": "$45,000",
+      "lastAssessed": "2025-09-02T09:45:06.872576Z",
       "currency": "USD",
       "licensingModel": "Perpetual License",
       "supportIncluded": "90 days",
