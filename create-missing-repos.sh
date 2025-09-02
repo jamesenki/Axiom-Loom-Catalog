@@ -50,7 +50,7 @@ for repo in "${MISSING_REPOS[@]}"; do
   # Create the repository
   if gh repo create "jamesenki/${repo}" \
     --public \
-    --description "EYNS Platform - ${repo}" \
+    --description "Axiom Loom Platform - ${repo}" \
     --homepage "https://eyns.ai" 2>/dev/null; then
     echo -e "${GREEN}✓ Created repository: jamesenki/${repo}${NC}"
     CREATED+=("$repo")

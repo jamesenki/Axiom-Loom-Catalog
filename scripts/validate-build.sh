@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# EYNS AI Experience Center - Build Validation Script
+# Axiom Loom Catalog - Build Validation Script
 # This script MUST pass before ANY deployment
 
 set -e

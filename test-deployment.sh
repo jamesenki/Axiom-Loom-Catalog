@@ -3,7 +3,7 @@
 # Test deployment script with automated answers
 # This script tests the deployment process with predefined inputs
 
-echo "Testing EYNS AI Experience Center Deployment"
+echo "Testing Axiom Loom Catalog Deployment"
 echo "============================================"
 echo ""
 

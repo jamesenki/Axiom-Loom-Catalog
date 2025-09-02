@@ -18,7 +18,7 @@ export const shadows = {
   inner: 'inset 0 2px 4px 0 rgba(46, 46, 56, 0.06)',
   
   // Focus shadows (for accessibility)
-  focus: '0 0 0 3px rgba(255, 230, 0, 0.5)', // Using EY Yellow
+  focus: '0 0 0 3px rgba(255, 230, 0, 0.5)', // Using Axiom Loom Yellow
   focusError: '0 0 0 3px rgba(196, 35, 43, 0.5)',
   focusSuccess: '0 0 0 3px rgba(0, 163, 80, 0.5)',
 };

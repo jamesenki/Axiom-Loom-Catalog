@@ -47,7 +47,7 @@ The Axiom Loom application is functionally operational with all critical user fl
   - deploymaster-sdv-ota-platform ✅
   - diagnostic-as-code-platform-architecture ✅
   - ecosystem-platform-architecture ✅
-  - eyns-ai-experience-center ✅
+  - axiom-loom-ai-experience-center ✅
   - fleet-digital-twin-platform-architecture ✅
   - future-mobility-consumer-platform ✅
   - future-mobility-energy-platform ✅

@@ -1,12 +1,12 @@
 # Axiom Loom Rebranding Plan
 
-## Project: Complete Rebranding from EYNS to Axiom Loom
+## Project: Complete Rebranding from Axiom Loom to Axiom Loom
 
 ### New Brand Identity
 - **Name:** Axiom Loom Catalog
 - **Tagline:** Architecture Packages and Complete Solutions Built By Axiom Loom AI Agents!
-- **Domain References:** axiom-loom.ai (replace eyns.ai)
-- **Organization:** Axiom Loom (replace EYNS/EY/Ernst & Young)
+- **Domain References:** axiom-loom.ai (replace axiom-loom.ai)
+- **Organization:** Axiom Loom (replace Axiom Loom/EY/Axiom Loom)
 
 ---
 
@@ -16,8 +16,8 @@
 
 #### 1.1 Source Code Files
 - [ ] **React Components** (`src/components/*.tsx`, `src/components/*.jsx`)
-  - Replace "EYNS AI Experience Center" → "Axiom Loom Catalog"
-  - Replace "EYNS Platform" → "Axiom Loom Platform"
+  - Replace "Axiom Loom Catalog" → "Axiom Loom Catalog"
+  - Replace "Axiom Loom Platform" → "Axiom Loom Platform"
   - Update all UI text references
 
 - [ ] **App Configuration** (`src/App.tsx`, `src/index.tsx`)
@@ -27,12 +27,12 @@
 
 - [ ] **API/Backend** (`src/api/*.js`, `src/server.js`)
   - Update API endpoint descriptions
-  - Replace comments mentioning EYNS/EY
+  - Replace comments mentioning Axiom Loom/EY
   - Update response messages
 
 - [ ] **Test Files** (`**/*.test.tsx`, `**/*.test.js`, `**/*.spec.ts`)
   - Update test descriptions
-  - Replace EYNS references in assertions
+  - Replace Axiom Loom references in assertions
   - Update snapshot tests
 
 #### 1.2 Configuration Files
@@ -49,7 +49,7 @@
 
 - [ ] `CLAUDE.md`
   - Update project name and references
-  - Replace EYNS with Axiom Loom
+  - Replace Axiom Loom with Axiom Loom
 
 - [ ] Docker files (`Dockerfile`, `docker-compose.yml`)
   - Update image names
@@ -74,7 +74,7 @@
 #### 2.2 Repository Metadata
 - [ ] `repository-metadata.json`
   - Update all repository descriptions
-  - Replace EYNS/EY references
+  - Replace Axiom Loom/Axiom Loom references
   - Update organization field
 
 ### Phase 3: Environment and Config
@@ -120,28 +120,28 @@
 
 ### Primary Replacements
 ```
-EYNS AI Experience Center → Axiom Loom Catalog
-EYNS Platform → Axiom Loom Platform
-EYNS → Axiom Loom
+Axiom Loom Catalog → Axiom Loom Catalog
+Axiom Loom Platform → Axiom Loom Platform
+Axiom Loom → Axiom Loom
 eyns → axiom-loom (in URLs/paths)
-eyns.ai → axiom-loom.ai
-EY Innovation → Axiom Loom Innovation
-Ernst & Young → Axiom Loom
+axiom-loom.ai → axiom-loom.ai
+Axiom Loom Innovation → Axiom Loom Innovation
+Axiom Loom → Axiom Loom
 Ernst and Young → Axiom Loom
-EY → Axiom Loom
+Axiom Loom → Axiom Loom
 EYGS → Axiom Loom
 ```
 
 ### Case Variations to Check
-- EYNS, Eyns, eyns
+- Axiom Loom, Eyns, eyns
 - EY, Ey, ey
 - EYGS, Eygs, eygs
 
 ### Context-Specific Replacements
-- "EYNS team" → "Axiom Loom team"
-- "EYNS architecture" → "Axiom Loom architecture"
-- "EYNS solutions" → "Axiom Loom solutions"
-- "© 2025 EYNS" → "© 2025 Axiom Loom"
+- "Axiom Loom team" → "Axiom Loom team"
+- "Axiom Loom architecture" → "Axiom Loom architecture"
+- "Axiom Loom solutions" → "Axiom Loom solutions"
+- "© 2025 Axiom Loom" → "© 2025 Axiom Loom"
 
 ---
 
@@ -161,7 +161,7 @@ git stash pop
 find . -type f \( -name "*.js" -o -name "*.jsx" -o -name "*.ts" -o -name "*.tsx" -o -name "*.json" -o -name "*.md" -o -name "*.html" -o -name "*.css" -o -name "*.yml" -o -name "*.yaml" -o -name "*.sh" \) \
   -not -path "*/node_modules/*" \
   -not -path "*/.git/*" \
-  -exec sed -i.bak 's/EYNS AI Experience Center/Axiom Loom Catalog/g' {} \;
+  -exec sed -i.bak 's/Axiom Loom Catalog/Axiom Loom Catalog/g' {} \;
 
 # Continue with other patterns...
 ```
@@ -196,17 +196,17 @@ find . -type f \( -name "*.js" -o -name "*.jsx" -o -name "*.ts" -o -name "*.tsx"
 ## VERIFICATION COMMANDS
 
 ```bash
-# Find remaining EYNS references
-grep -r "EYNS" --exclude-dir=node_modules --exclude-dir=.git .
+# Find remaining Axiom Loom references
+grep -r "Axiom Loom" --exclude-dir=node_modules --exclude-dir=.git .
 
-# Find remaining EY references (careful with words like "they")
+# Find remaining Axiom Loom references (careful with words like "they")
 grep -r "\bEY\b" --exclude-dir=node_modules --exclude-dir=.git .
 
 # Find remaining Ernst references
 grep -r "Ernst" --exclude-dir=node_modules --exclude-dir=.git .
 
 # Find domain references
-grep -r "eyns.ai" --exclude-dir=node_modules --exclude-dir=.git .
+grep -r "axiom-loom.ai" --exclude-dir=node_modules --exclude-dir=.git .
 
 # Case-insensitive search
 grep -ri "eyns\|ernst\|young" --exclude-dir=node_modules --exclude-dir=.git .
@@ -226,7 +226,7 @@ If issues arise:
 
 ## SUCCESS CRITERIA
 
-- [ ] Zero references to EYNS, EY, Ernst & Young remain
+- [ ] Zero references to Axiom Loom, EY, Axiom Loom remain
 - [ ] All tests pass
 - [ ] Application builds successfully
 - [ ] Docker deployment works

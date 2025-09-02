@@ -21,7 +21,7 @@ describe('Button Component', () => {
     
     const button = screen.getByRole('button', { name: /click me/i });
     expect(button).toBeInTheDocument();
-    expect(button).toHaveStyle('background-color: #FFE600'); // EY Yellow
+    expect(button).toHaveStyle('background-color: #FFE600'); // Axiom Loom Yellow
   });
 
   it('renders different variants correctly', () => {
@@ -35,7 +35,7 @@ describe('Button Component', () => {
         </BrowserRouter>
       </ThemeProvider>
     );
-    expect(screen.getByRole('button')).toHaveStyle('background-color: #2E2E38'); // EY Black
+    expect(screen.getByRole('button')).toHaveStyle('background-color: #2E2E38'); // Axiom Loom Black
 
     rerender(
       <ThemeProvider theme={theme}>

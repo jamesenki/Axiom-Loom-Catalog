@@ -2679,7 +2679,7 @@
       {
         "file": "docs/industrial_lubricant_documentation_index.md",
         "line": 17,
-        "linkText": "Land EV Bikes API",
+        "linkText": "Motorbike OEM Bikes API",
         "linkPath": "./api/README.md#land-ev-bikes-platform",
         "targetPath": "docs/api/README.md#land-ev-bikes-platform",
         "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/api/README.md#land-ev-bikes-platform"
@@ -2703,10 +2703,10 @@
       {
         "file": "docs/industrial_lubricant_documentation_index.md",
         "line": 20,
-        "linkText": "Polar Delight API",
-        "linkPath": "./api/README.md#polar-delight-platform",
-        "targetPath": "docs/api/README.md#polar-delight-platform",
-        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/api/README.md#polar-delight-platform"
+        "linkText": "Vending Machine Co API",
+        "linkPath": "./api/README.md#vending-machine-co-platform",
+        "targetPath": "docs/api/README.md#vending-machine-co-platform",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/api/README.md#vending-machine-co-platform"
       },
       {
         "file": "docs/industrial_lubricant_documentation_index.md",
@@ -2751,7 +2751,7 @@
       {
         "file": "docs/industrial_lubricant_documentation_index.md",
         "line": 152,
-        "linkText": "🏍️ Land EV Bikes API",
+        "linkText": "🏍️ Motorbike OEM Bikes API",
         "linkPath": "./api/README.md#land-ev-bikes-platform",
         "targetPath": "docs/api/README.md#land-ev-bikes-platform",
         "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/api/README.md#land-ev-bikes-platform"
@@ -2775,10 +2775,10 @@
       {
         "file": "docs/industrial_lubricant_documentation_index.md",
         "line": 155,
-        "linkText": "🍦 Polar Delight API",
-        "linkPath": "./api/README.md#polar-delight-platform",
-        "targetPath": "docs/api/README.md#polar-delight-platform",
-        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/api/README.md#polar-delight-platform"
+        "linkText": "🍦 Vending Machine Co API",
+        "linkPath": "./api/README.md#vending-machine-co-platform",
+        "targetPath": "docs/api/README.md#vending-machine-co-platform",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/api/README.md#vending-machine-co-platform"
       },
       {
         "file": "docs/industrial_lubricant_documentation_index.md",
@@ -3009,18 +3009,18 @@
       {
         "file": "src/developer-portal/README.md",
         "line": 66,
-        "linkText": "Mazda CVOP Interface Architecture",
-        "linkPath": "../docs/MAZDA_CVOP_INTERFACE_ARCHITECTURE.md",
-        "targetPath": "src/docs/MAZDA_CVOP_INTERFACE_ARCHITECTURE.md",
-        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/rentalFleets/src/docs/MAZDA_CVOP_INTERFACE_ARCHITECTURE.md"
+        "linkText": "Automotive OEM CVOP Interface Architecture",
+        "linkPath": "../docs/AUTOMOTIVE_OEM_CVOP_INTERFACE_ARCHITECTURE.md",
+        "targetPath": "src/docs/AUTOMOTIVE_OEM_CVOP_INTERFACE_ARCHITECTURE.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/rentalFleets/src/docs/AUTOMOTIVE_OEM_CVOP_INTERFACE_ARCHITECTURE.md"
       },
       {
         "file": "src/developer-portal/README.md",
         "line": 154,
-        "linkText": "🏗️ Mazda CVOP Architecture",
-        "linkPath": "../docs/MAZDA_CVOP_INTERFACE_ARCHITECTURE.md",
-        "targetPath": "src/docs/MAZDA_CVOP_INTERFACE_ARCHITECTURE.md",
-        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/rentalFleets/src/docs/MAZDA_CVOP_INTERFACE_ARCHITECTURE.md"
+        "linkText": "🏗️ Automotive OEM CVOP Architecture",
+        "linkPath": "../docs/AUTOMOTIVE_OEM_CVOP_INTERFACE_ARCHITECTURE.md",
+        "targetPath": "src/docs/AUTOMOTIVE_OEM_CVOP_INTERFACE_ARCHITECTURE.md",
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/rentalFleets/src/docs/AUTOMOTIVE_OEM_CVOP_INTERFACE_ARCHITECTURE.md"
       },
       {
         "file": "src/developer-portal/README.md",

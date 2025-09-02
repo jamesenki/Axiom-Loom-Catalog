@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e  # Exit on any error
 
-echo "=== EYNS AI Experience Center - Production Deployment ==="
+echo "=== Axiom Loom Catalog - Production Deployment ==="
 echo "Following DevOps Agent zero-tolerance policy..."
 
 # Change to project root

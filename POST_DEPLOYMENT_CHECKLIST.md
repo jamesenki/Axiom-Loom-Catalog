@@ -1,4 +1,4 @@
-# Post-Deployment Checklist - EYNS AI Experience Center
+# Post-Deployment Checklist - Axiom Loom Catalog
 
 ## Quick Verification Protocol
 
@@ -32,7 +32,7 @@ curl -X POST http://localhost/api/auth/local-login \
 
 ### 4. Frontend Verification ⚡
 - [ ] Navigate to http://localhost
-- [ ] Verify "EYNS AI Experience Center" title displays
+- [ ] Verify "Axiom Loom Catalog" title displays
 - [ ] Check browser console for 0 errors
 - [ ] Test login with admin@localhost/admin
 - [ ] Confirm repository list loads

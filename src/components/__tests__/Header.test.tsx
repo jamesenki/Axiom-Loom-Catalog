@@ -15,7 +15,7 @@ describe('Header', () => {
 
   it('renders the header title', () => {
     renderWithRouter();
-    expect(screen.getByText('🏢 EYNS AI Experience Center')).toBeInTheDocument();
+    expect(screen.getByText('🏢 Axiom Loom Catalog')).toBeInTheDocument();
   });
 
   it('has correct styling', () => {
@@ -38,7 +38,7 @@ describe('Header', () => {
     renderWithRouter();
     const homeLink = screen.getByText('🏠 Home').closest('a');
     const syncLink = screen.getByText('🔄 Sync').closest('a');
-    const titleLink = screen.getByText('🏢 EYNS AI Experience Center').closest('a');
+    const titleLink = screen.getByText('🏢 Axiom Loom Catalog').closest('a');
     
     expect(homeLink).toHaveAttribute('href', '/');
     expect(syncLink).toHaveAttribute('href', '/sync');

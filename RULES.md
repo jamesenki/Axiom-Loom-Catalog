@@ -1,4 +1,4 @@
-# EYNS AI Experience Center Testing Rules
+# Axiom Loom Catalog Testing Rules
 
 ## 100% DOCUMENT AND LINK TESTING COVERAGE
 

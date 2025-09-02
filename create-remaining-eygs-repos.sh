@@ -56,7 +56,7 @@ for repo in "${REMAINING_REPOS[@]}"; do
   echo "Creating PRIVATE repository 20230011612_EYGS/${repo}..."
   if GITHUB_TOKEN="" gh repo create "${repo}" \
     --private \
-    --description "EYNS Platform - ${repo}" \
+    --description "Axiom Loom Platform - ${repo}" \
     --homepage "https://eyns.ai" 2>&1; then
     echo -e "${GREEN}✓ Created repository: 20230011612_EYGS/${repo}${NC}"
     CREATED+=("$repo")

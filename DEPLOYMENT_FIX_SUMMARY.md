@@ -1,4 +1,4 @@
-# Deployment Fix Summary - EYNS AI Experience Center
+# Deployment Fix Summary - Axiom Loom Catalog
 
 ## Issues Identified
 

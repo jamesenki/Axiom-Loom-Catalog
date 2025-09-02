@@ -12385,7 +12385,7 @@
                           "text": "File: docs/industrial_lubricant_documentation_index.md:17\n"
                         },
                         {
-                          "text": "Link Text: \"Land EV Bikes API\"\n"
+                          "text": "Link Text: \"Motorbike OEM Bikes API\"\n"
                         },
                         {
                           "text": "Link Path: ./api/README.md#land-ev-bikes-platform\n"
@@ -12430,13 +12430,13 @@
                           "text": "File: docs/industrial_lubricant_documentation_index.md:20\n"
                         },
                         {
-                          "text": "Link Text: \"Polar Delight API\"\n"
+                          "text": "Link Text: \"Vending Machine Co API\"\n"
                         },
                         {
-                          "text": "Link Path: ./api/README.md#polar-delight-platform\n"
+                          "text": "Link Path: ./api/README.md#vending-machine-co-platform\n"
                         },
                         {
-                          "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/api/README.md#polar-delight-platform\n"
+                          "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/api/README.md#vending-machine-co-platform\n"
                         },
                         {
                           "text": "\nRepository: nslabsdashboards\n"
@@ -12550,7 +12550,7 @@
                           "text": "File: docs/industrial_lubricant_documentation_index.md:152\n"
                         },
                         {
-                          "text": "Link Text: \"🏍️ Land EV Bikes API\"\n"
+                          "text": "Link Text: \"🏍️ Motorbike OEM Bikes API\"\n"
                         },
                         {
                           "text": "Link Path: ./api/README.md#land-ev-bikes-platform\n"
@@ -12595,13 +12595,13 @@
                           "text": "File: docs/industrial_lubricant_documentation_index.md:155\n"
                         },
                         {
-                          "text": "Link Text: \"🍦 Polar Delight API\"\n"
+                          "text": "Link Text: \"🍦 Vending Machine Co API\"\n"
                         },
                         {
-                          "text": "Link Path: ./api/README.md#polar-delight-platform\n"
+                          "text": "Link Path: ./api/README.md#vending-machine-co-platform\n"
                         },
                         {
-                          "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/api/README.md#polar-delight-platform\n"
+                          "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/api/README.md#vending-machine-co-platform\n"
                         },
                         {
                           "text": "\nRepository: nslabsdashboards\n"
@@ -13480,13 +13480,13 @@
                           "text": "File: src/developer-portal/README.md:66\n"
                         },
                         {
-                          "text": "Link Text: \"Mazda CVOP Interface Architecture\"\n"
+                          "text": "Link Text: \"Automotive OEM CVOP Interface Architecture\"\n"
                         },
                         {
-                          "text": "Link Path: ../docs/MAZDA_CVOP_INTERFACE_ARCHITECTURE.md\n"
+                          "text": "Link Path: ../docs/AUTOMOTIVE_OEM_CVOP_INTERFACE_ARCHITECTURE.md\n"
                         },
                         {
-                          "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/rentalFleets/src/docs/MAZDA_CVOP_INTERFACE_ARCHITECTURE.md\n"
+                          "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/rentalFleets/src/docs/AUTOMOTIVE_OEM_CVOP_INTERFACE_ARCHITECTURE.md\n"
                         },
                         {
                           "text": "\nRepository: rentalFleets\n"
@@ -13525,13 +13525,13 @@
                           "text": "File: src/developer-portal/README.md:154\n"
                         },
                         {
-                          "text": "Link Text: \"🏗️ Mazda CVOP Architecture\"\n"
+                          "text": "Link Text: \"🏗️ Automotive OEM CVOP Architecture\"\n"
                         },
                         {
-                          "text": "Link Path: ../docs/MAZDA_CVOP_INTERFACE_ARCHITECTURE.md\n"
+                          "text": "Link Path: ../docs/AUTOMOTIVE_OEM_CVOP_INTERFACE_ARCHITECTURE.md\n"
                         },
                         {
-                          "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/rentalFleets/src/docs/MAZDA_CVOP_INTERFACE_ARCHITECTURE.md\n"
+                          "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/rentalFleets/src/docs/AUTOMOTIVE_OEM_CVOP_INTERFACE_ARCHITECTURE.md\n"
                         },
                         {
                           "text": "\nRepository: rentalFleets\n"

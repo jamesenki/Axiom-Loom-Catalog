@@ -11,7 +11,7 @@
 **Deployment Strategy**: ✅ Self-contained - all repositories available locally for deployment
 
 ### ✅ Current Repository (Self)
-- [x] **eyns-ai-experience-center** - Developer Portal for EY Innovation Labs
+- [x] **axiom-loom-ai-experience-center** - Developer Portal for Axiom Loom Innovation Labs
   - **Status**: Active development
   - **Last Updated**: 2025-07-28T04:51:52Z
   - **Description**: Main project repository
@@ -82,7 +82,7 @@
 
 - [ ] **nslabsdashboards**
   - **Last Updated**: 2025-07-24T13:05:41Z
-  - **Description**: Dashboard for Rheem, Polar Delight etc.
+  - **Description**: Dashboard for Appliances Co, Vending Machine Co etc.
   - **Clone Status**: Pending
   - **Analysis Status**: Pending
 

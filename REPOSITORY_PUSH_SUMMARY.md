@@ -2,7 +2,7 @@
 
 ## Successfully Pushed to jamesenki GitHub
 
-All 29 repositories from the EYNS AI Experience Center portal have been successfully committed and pushed to the jamesenki GitHub account.
+All 29 repositories from the Axiom Loom Catalog portal have been successfully committed and pushed to the jamesenki GitHub account.
 
 ### ✅ Complete Repository List
 
@@ -15,7 +15,7 @@ All 29 repositories from the EYNS AI Experience Center portal have been successf
 7. **deploymaster-sdv-ota-platform** - ✓ Pushed
 8. **diagnostic-as-code-platform-architecture** - ✓ Pushed
 9. **ecosystem-platform-architecture** - ✓ Pushed (newly created)
-10. **eyns-ai-experience-center** - ✓ Pushed (main portal)
+10. **axiom-loom-ai-experience-center** - ✓ Pushed (main portal)
 11. **fleet-digital-twin-platform-architecture** - ✓ Pushed
 12. **future-mobility-consumer-platform** - ✓ Pushed
 13. **future-mobility-energy-platform** - ✓ Pushed (initialized)

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# EYNS AI Experience Center - Comprehensive Network Accessibility Tests
+# Axiom Loom Catalog - Comprehensive Network Accessibility Tests
 # This script performs thorough testing of the deployed application
 # Target: http://10.0.0.109
 
@@ -155,7 +155,7 @@ test_websocket() {
 }
 
 # Start testing
-echo "EYNS AI Experience Center - Network Accessibility Test Report" > "$RESULTS_FILE"
+echo "Axiom Loom Catalog - Network Accessibility Test Report" > "$RESULTS_FILE"
 echo "Test Date: $(date)" >> "$RESULTS_FILE"
 echo "Target: $BASE_URL" >> "$RESULTS_FILE"
 echo "" >> "$RESULTS_FILE"

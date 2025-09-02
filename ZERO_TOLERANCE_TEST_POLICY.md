@@ -1,5 +1,5 @@
 # ZERO TOLERANCE TEST POLICY
-## EYNS AI Experience Center
+## Axiom Loom Catalog
 
 ### ⚠️ MANDATORY COMPLIANCE - NO EXCEPTIONS ⚠️
 

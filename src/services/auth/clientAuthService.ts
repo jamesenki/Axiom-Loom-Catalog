@@ -1,5 +1,5 @@
 /**
- * Client-side Authentication Service for EY AI Experience Center
+ * Client-side Authentication Service for Axiom Loom Catalog
  * Handles token storage, OAuth2 flow, and API authentication
  */
 
@@ -62,20 +62,20 @@ export interface OAuth2Config {
   scope: string[];
 }
 
-// EY SSO OAuth2 configuration (client-side safe)
-export const EY_SSO_CONFIG: OAuth2Config = {
-  clientId: process.env.REACT_APP_EY_SSO_CLIENT_ID || '',
-  authorizationURL: process.env.REACT_APP_EY_SSO_AUTH_URL || 'https://login.ey.com/oauth2/authorize',
-  tokenURL: process.env.REACT_APP_EY_SSO_TOKEN_URL || 'https://login.ey.com/oauth2/token',
-  userInfoURL: process.env.REACT_APP_EY_SSO_USERINFO_URL || 'https://login.ey.com/oauth2/userinfo',
-  callbackURL: process.env.REACT_APP_EY_SSO_CALLBACK_URL || 'http://localhost:3000/auth/callback',
+// Axiom Loom SSO OAuth2 configuration (client-side safe)
+export const AXIOM_LOOM_SSO_CONFIG: OAuth2Config = {
+  clientId: process.env.REACT_APP_AXIOM_LOOM_SSO_CLIENT_ID || '',
+  authorizationURL: process.env.REACT_APP_AXIOM_LOOM_SSO_AUTH_URL || 'https://login.axiom-loom.ai/oauth2/authorize',
+  tokenURL: process.env.REACT_APP_AXIOM_LOOM_SSO_TOKEN_URL || 'https://login.axiom-loom.ai/oauth2/token',
+  userInfoURL: process.env.REACT_APP_AXIOM_LOOM_SSO_USERINFO_URL || 'https://login.axiom-loom.ai/oauth2/userinfo',
+  callbackURL: process.env.REACT_APP_AXIOM_LOOM_SSO_CALLBACK_URL || 'http://localhost:3000/auth/callback',
   scope: ['openid', 'profile', 'email']
 };
 
 class ClientAuthService {
-  private readonly TOKEN_KEY = 'eyns_auth_token';
-  private readonly REFRESH_TOKEN_KEY = 'eyns_refresh_token';
-  private readonly USER_KEY = 'eyns_user';
+  private readonly TOKEN_KEY = 'axiom_loom_auth_token';
+  private readonly REFRESH_TOKEN_KEY = 'axiom_loom_refresh_token';
+  private readonly USER_KEY = 'axiom_loom_user';
 
   // Store tokens in localStorage
   storeTokens(tokens: AuthTokens): void {
@@ -85,7 +85,7 @@ class ClientAuthService {
     // Calculate expiry time
     const expiresAt = new Date();
     expiresAt.setSeconds(expiresAt.getSeconds() + tokens.expiresIn);
-    localStorage.setItem('eyns_token_expires', expiresAt.toISOString());
+    localStorage.setItem('axiom_loom_token_expires', expiresAt.toISOString());
   }
 
   // Get stored access token
@@ -100,7 +100,7 @@ class ClientAuthService {
 
   // Check if token is expired
   isTokenExpired(): boolean {
-    const expiresAt = localStorage.getItem('eyns_token_expires');
+    const expiresAt = localStorage.getItem('axiom_loom_token_expires');
     if (!expiresAt) return true;
     
     return new Date() > new Date(expiresAt);
@@ -111,7 +111,7 @@ class ClientAuthService {
     localStorage.removeItem(this.TOKEN_KEY);
     localStorage.removeItem(this.REFRESH_TOKEN_KEY);
     localStorage.removeItem(this.USER_KEY);
-    localStorage.removeItem('eyns_token_expires');
+    localStorage.removeItem('axiom_loom_token_expires');
   }
 
   // Store user data
@@ -153,14 +153,14 @@ class ClientAuthService {
   // OAuth2 flow - Generate authorization URL
   getAuthorizationUrl(state: string): string {
     const params = new URLSearchParams({
-      client_id: EY_SSO_CONFIG.clientId,
-      redirect_uri: EY_SSO_CONFIG.callbackURL,
+      client_id: AXIOM_LOOM_SSO_CONFIG.clientId,
+      redirect_uri: AXIOM_LOOM_SSO_CONFIG.callbackURL,
       response_type: 'code',
-      scope: EY_SSO_CONFIG.scope.join(' '),
+      scope: AXIOM_LOOM_SSO_CONFIG.scope.join(' '),
       state: state
     });
 
-    return `${EY_SSO_CONFIG.authorizationURL}?${params.toString()}`;
+    return `${AXIOM_LOOM_SSO_CONFIG.authorizationURL}?${params.toString()}`;
   }
 
   // Exchange authorization code for tokens (via backend)
@@ -416,9 +416,9 @@ class ClientAuthService {
   // Demo login (for development)
   async demoLogin(role: UserRole = UserRole.DEVELOPER): Promise<{ user: User; tokens: AuthTokens }> {
     const demoUsers = {
-      [UserRole.ADMIN]: { email: 'admin@ey.com', password: 'admin123' },
-      [UserRole.DEVELOPER]: { email: 'developer@ey.com', password: 'dev123' },
-      [UserRole.VIEWER]: { email: 'viewer@ey.com', password: 'view123' }
+      [UserRole.ADMIN]: { email: 'admin@axiom-loom.ai', password: 'admin123' },
+      [UserRole.DEVELOPER]: { email: 'developer@axiom-loom.ai', password: 'dev123' },
+      [UserRole.VIEWER]: { email: 'viewer@axiom-loom.ai', password: 'view123' }
     };
 
     const credentials = demoUsers[role];

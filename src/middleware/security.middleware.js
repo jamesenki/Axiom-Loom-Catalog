@@ -38,15 +38,15 @@ const getCSPDirectives = () => {
     ],
     connectSrc: [
       "'self'",
-      "https://api.ey.com", // EY API endpoints
-      "https://login.ey.com", // EY SSO
+      "https://api.axiom-loom.ai", // Axiom Loom API endpoints
+      "https://login.axiom-loom.ai", // Axiom Loom SSO
       isDevelopment && "http://localhost:*",
       isDevelopment && "ws://localhost:*" // WebSocket for hot reload
     ].filter(Boolean),
     mediaSrc: ["'self'"],
     objectSrc: ["'none'"],
     childSrc: ["'self'"],
-    frameSrc: ["'self'", "https://login.ey.com"], // For SSO iframe
+    frameSrc: ["'self'", "https://login.axiom-loom.ai"], // For SSO iframe
     workerSrc: ["'self'", "blob:"],
     formAction: ["'self'"],
     baseUri: ["'self'"],
@@ -105,7 +105,7 @@ const getCorsOptions = () => {
     'http://10.0.0.109:3001',
     'http://0.0.0.0:3000',
     'http://0.0.0.0:3001',
-    'https://ai-experience.ey.com',
+    'https://axiom-loom.ai',
     process.env.FRONTEND_URL,
     process.env.PUBLIC_URL
   ].filter(Boolean);

@@ -51,7 +51,7 @@ for repo in "${EMPTY_REPOS[@]}"; do
 # ${repo}
 
 ## Overview
-EYNS Platform - ${repo}
+Axiom Loom Platform - ${repo}
 
 Enterprise-ready platform for future mobility solutions.
 
@@ -77,7 +77,7 @@ npm run dev
 See the \`docs/\` directory for detailed documentation.
 
 ## License
-© 2025 EYNS. All rights reserved.
+© 2025 Axiom Loom. All rights reserved.
 EOF
   fi
   

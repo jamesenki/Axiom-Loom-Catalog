@@ -1,10 +1,10 @@
 # Network Accessibility Testing Guide
 
-This document provides comprehensive instructions for testing the network accessibility of the EYNS AI Experience Center deployment.
+This document provides comprehensive instructions for testing the network accessibility of the Axiom Loom Catalog deployment.
 
 ## Overview
 
-The EYNS AI Experience Center is deployed with the following network configuration:
+The Axiom Loom Catalog is deployed with the following network configuration:
 - **Frontend**: Accessible on port 80 (via Nginx)
 - **API Backend**: Port 3001
 - **Target IP**: 10.0.0.109
@@ -176,7 +176,7 @@ curl -I http://10.0.0.109 | grep -E "X-Frame-Options|X-XSS-Protection|Content-Se
 
 1. **Connection Refused**
    - Check if Docker containers are running: `docker ps`
-   - Verify port bindings: `docker port eyns-nginx`
+   - Verify port bindings: `docker port axiom-loom-nginx`
    - Check firewall rules: `sudo iptables -L`
 
 2. **CORS Errors**
@@ -191,8 +191,8 @@ curl -I http://10.0.0.109 | grep -E "X-Frame-Options|X-XSS-Protection|Content-Se
 
 4. **Performance Issues**
    - Monitor container resources: `docker stats`
-   - Check Nginx access logs: `docker logs eyns-nginx`
-   - Review API logs: `docker logs eyns-backend`
+   - Check Nginx access logs: `docker logs axiom-loom-nginx`
+   - Review API logs: `docker logs axiom-loom-backend`
 
 ### Debug Commands
 
@@ -201,13 +201,13 @@ curl -I http://10.0.0.109 | grep -E "X-Frame-Options|X-XSS-Protection|Content-Se
 docker ps -a
 
 # View container logs
-docker logs eyns-frontend
-docker logs eyns-backend
-docker logs eyns-nginx
+docker logs axiom-loom-frontend
+docker logs axiom-loom-backend
+docker logs axiom-loom-nginx
 
 # Test internal networking
-docker exec eyns-nginx ping backend
-docker exec eyns-backend curl mongodb:27017
+docker exec axiom-loom-nginx ping backend
+docker exec axiom-loom-backend curl mongodb:27017
 
 # Check port bindings
 netstat -tlnp | grep -E "80|3001"

@@ -52,7 +52,7 @@ test.describe('Critical User Flows', () => {
     await page.goto('http://localhost');
     
     // Check for content
-    await expect(page).toHaveTitle('EYNS AI Experience Center');
+    await expect(page).toHaveTitle('Axiom Loom Catalog');
     await expect(page.locator('#root')).not.toBeEmpty();
     
     // Check console for errors
@@ -153,7 +153,7 @@ if [ "$FRONTEND_HTML" = "FAILED" ]; then
   exit 1
 fi
 
-if ! echo "$FRONTEND_HTML" | grep -q "EYNS AI Experience Center"; then
+if ! echo "$FRONTEND_HTML" | grep -q "Axiom Loom Catalog"; then
   echo "FAIL: Frontend not rendering correctly"
   exit 1
 fi
@@ -168,10 +168,10 @@ echo "=== All validations passed! ==="
 ## Debug Commands
 ```bash
 # Check for JavaScript errors
-docker logs eyns-frontend 2>&1 | grep -i error
+docker logs axiom-loom-frontend 2>&1 | grep -i error
 
 # Check nginx routing
-docker logs eyns-nginx --tail 100
+docker logs axiom-loom-nginx --tail 100
 
 # Test specific endpoints
 curl -v http://localhost/api/auth/local-login

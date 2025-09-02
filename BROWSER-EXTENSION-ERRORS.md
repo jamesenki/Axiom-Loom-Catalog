@@ -10,7 +10,7 @@ Denying load of <URL>. Resources must be listed in the web_accessible_resources 
 
 ## Root Cause
 
-These errors are caused by Chrome browser extensions installed in your browser that are trying to inject resources into the page. This is **NOT** a bug in the EYNS AI Experience Center application.
+These errors are caused by Chrome browser extensions installed in your browser that are trying to inject resources into the page. This is **NOT** a bug in the Axiom Loom Catalog application.
 
 ## Solutions
 

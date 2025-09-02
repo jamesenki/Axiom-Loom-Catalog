@@ -1,6 +1,6 @@
 /**
  * Login Component
- * Provides login functionality with EY SSO and development login
+ * Provides login functionality with Axiom Loom SSO and development login
  */
 
 import React, { useState } from 'react';
@@ -243,7 +243,7 @@ const Login: React.FC = () => {
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="developer@ey.com"
+                  placeholder="developer@axiom-loom.ai"
                   required
                   disabled={isLoading}
                 />
@@ -278,8 +278,8 @@ const Login: React.FC = () => {
 
             <TestCredentials>
               <h4>Test Credentials:</h4>
-              <code>admin@ey.com / admin123</code>
-              <code>developer@ey.com / dev123</code>
+              <code>admin@axiom-loom.ai / admin123</code>
+              <code>developer@axiom-loom.ai / dev123</code>
             </TestCredentials>
           </>
         )}

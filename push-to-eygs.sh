@@ -63,7 +63,7 @@ for repo in "${REPOSITORIES[@]}"; do
     echo "Creating EYGS repository..."
     if gh repo create "EYGS/${repo}" \
       --public \
-      --description "EYNS Platform - ${repo}" \
+      --description "Axiom Loom Platform - ${repo}" \
       --homepage "https://eyns.ai" 2>/dev/null; then
       echo -e "${GREEN}✓ Created EYGS/${repo}${NC}"
       CREATED+=("$repo")
@@ -71,7 +71,7 @@ for repo in "${REPOSITORIES[@]}"; do
       # Try creating under user account if org fails
       if gh repo create "${repo}" \
         --public \
-        --description "EYNS Platform - ${repo}" \
+        --description "Axiom Loom Platform - ${repo}" \
         --homepage "https://eyns.ai" 2>/dev/null; then
         echo -e "${GREEN}✓ Created ${repo} under user account${NC}"
         CREATED+=("$repo (user)")

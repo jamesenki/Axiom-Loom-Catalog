@@ -199,8 +199,8 @@ describe('Highlight Component', () => {
     const highlight = screen.getByText('Highlighted text');
     expect(highlight).toBeInTheDocument();
     expect(highlight.tagName).toBe('MARK');
-    expect(highlight).toHaveStyle('background-color: #FFE600'); // EY Yellow
-    expect(highlight).toHaveStyle('color: #2E2E38'); // EY Black
+    expect(highlight).toHaveStyle('background-color: #FFE600'); // Axiom Loom Yellow
+    expect(highlight).toHaveStyle('color: #2E2E38'); // Axiom Loom Black
   });
 });
 
@@ -229,7 +229,7 @@ describe('BlockQuote Component', () => {
     
     // The blockquote is the parent of the paragraph
     const blockquote = paragraph.parentElement;
-    expect(blockquote).toHaveStyle('border-left: 4px solid #FFE600'); // EY Yellow
+    expect(blockquote).toHaveStyle('border-left: 4px solid #FFE600'); // Axiom Loom Yellow
     expect(blockquote).toHaveStyle('font-style: italic');
   });
 });

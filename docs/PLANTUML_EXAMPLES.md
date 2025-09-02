@@ -1,6 +1,6 @@
 # PlantUML Integration Examples
 
-This document demonstrates the PlantUML integration in the EYNS AI Experience Center.
+This document demonstrates the PlantUML integration in the Axiom Loom Catalog.
 
 ## Basic Sequence Diagram
 
@@ -41,7 +41,7 @@ User "1" -- "*" Repository : owns
 
 Person(user, "Developer", "Uses the platform to explore repositories")
 
-System_Boundary(eyns, "EYNS AI Experience Center") {
+System_Boundary(eyns, "Axiom Loom Catalog") {
     Container(web_app, "Web Application", "React, TypeScript", "Provides repository browsing and API documentation")
     Container(api_server, "API Server", "Node.js, Express", "Handles repository sync and API detection")
     Container(plantuml, "PlantUML Service", "Java", "Renders UML diagrams")
@@ -138,7 +138,7 @@ left to right direction
 actor Developer
 actor "Project Manager" as PM
 
-rectangle "EYNS AI Experience Center" {
+rectangle "Axiom Loom Catalog" {
   usecase "Browse Repositories" as UC1
   usecase "View Documentation" as UC2
   usecase "Explore APIs" as UC3

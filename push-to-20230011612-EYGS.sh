@@ -74,7 +74,7 @@ for repo in "${REPOSITORIES[@]}"; do
     echo "Creating repository 20230011612_EYGS/${repo}..."
     if gh repo create "${repo}" \
       --public \
-      --description "EYNS Platform - ${repo}" \
+      --description "Axiom Loom Platform - ${repo}" \
       --homepage "https://eyns.ai"; then
       echo -e "${GREEN}✓ Created repository: 20230011612_EYGS/${repo}${NC}"
       CREATED+=("$repo")

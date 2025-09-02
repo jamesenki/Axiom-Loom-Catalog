@@ -1,5 +1,5 @@
 /**
- * Authentication Service for EY AI Experience Center
+ * Authentication Service for Axiom Loom Catalog
  * Handles OAuth2/OIDC, JWT tokens, and API key authentication
  */
 
@@ -70,14 +70,14 @@ export interface OAuth2Config {
   scope: string[];
 }
 
-// EY SSO OAuth2 configuration
-export const EY_SSO_CONFIG: OAuth2Config = {
-  clientId: process.env.EY_SSO_CLIENT_ID || '',
-  clientSecret: process.env.EY_SSO_CLIENT_SECRET || '',
-  authorizationURL: process.env.EY_SSO_AUTH_URL || 'https://login.ey.com/oauth2/authorize',
-  tokenURL: process.env.EY_SSO_TOKEN_URL || 'https://login.ey.com/oauth2/token',
-  userInfoURL: process.env.EY_SSO_USERINFO_URL || 'https://login.ey.com/oauth2/userinfo',
-  callbackURL: process.env.EY_SSO_CALLBACK_URL || 'http://localhost:3000/auth/callback',
+// Axiom Loom SSO OAuth2 configuration
+export const AXIOM_LOOM_SSO_CONFIG: OAuth2Config = {
+  clientId: process.env.AXIOM_LOOM_SSO_CLIENT_ID || '',
+  clientSecret: process.env.AXIOM_LOOM_SSO_CLIENT_SECRET || '',
+  authorizationURL: process.env.AXIOM_LOOM_SSO_AUTH_URL || 'https://login.axiom-loom.ai/oauth2/authorize',
+  tokenURL: process.env.AXIOM_LOOM_SSO_TOKEN_URL || 'https://login.axiom-loom.ai/oauth2/token',
+  userInfoURL: process.env.AXIOM_LOOM_SSO_USERINFO_URL || 'https://login.axiom-loom.ai/oauth2/userinfo',
+  callbackURL: process.env.AXIOM_LOOM_SSO_CALLBACK_URL || 'http://localhost:3000/auth/callback',
   scope: ['openid', 'profile', 'email']
 };
 
@@ -142,7 +142,7 @@ class AuthService {
   // Generate API key
   generateApiKey(): string {
     const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    let apiKey = 'ey_';
+    let apiKey = 'axiom_loom_';
     
     for (let i = 0; i < 32; i++) {
       apiKey += characters.charAt(Math.floor(Math.random() * characters.length));
@@ -164,14 +164,14 @@ class AuthService {
   // OAuth2 flow - Generate authorization URL
   getAuthorizationUrl(state: string): string {
     const params = new URLSearchParams({
-      client_id: EY_SSO_CONFIG.clientId,
-      redirect_uri: EY_SSO_CONFIG.callbackURL,
+      client_id: AXIOM_LOOM_SSO_CONFIG.clientId,
+      redirect_uri: AXIOM_LOOM_SSO_CONFIG.callbackURL,
       response_type: 'code',
-      scope: EY_SSO_CONFIG.scope.join(' '),
+      scope: AXIOM_LOOM_SSO_CONFIG.scope.join(' '),
       state: state
     });
 
-    return `${EY_SSO_CONFIG.authorizationURL}?${params.toString()}`;
+    return `${AXIOM_LOOM_SSO_CONFIG.authorizationURL}?${params.toString()}`;
   }
 
   // OAuth2 flow - Exchange code for tokens
@@ -179,12 +179,12 @@ class AuthService {
     const params = new URLSearchParams({
       grant_type: 'authorization_code',
       code: code,
-      redirect_uri: EY_SSO_CONFIG.callbackURL,
-      client_id: EY_SSO_CONFIG.clientId,
-      client_secret: EY_SSO_CONFIG.clientSecret
+      redirect_uri: AXIOM_LOOM_SSO_CONFIG.callbackURL,
+      client_id: AXIOM_LOOM_SSO_CONFIG.clientId,
+      client_secret: AXIOM_LOOM_SSO_CONFIG.clientSecret
     });
 
-    const response = await fetch(EY_SSO_CONFIG.tokenURL, {
+    const response = await fetch(AXIOM_LOOM_SSO_CONFIG.tokenURL, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded'
@@ -201,7 +201,7 @@ class AuthService {
 
   // OAuth2 flow - Get user info
   async getUserInfo(accessToken: string): Promise<any> {
-    const response = await fetch(EY_SSO_CONFIG.userInfoURL, {
+    const response = await fetch(AXIOM_LOOM_SSO_CONFIG.userInfoURL, {
       headers: {
         'Authorization': `Bearer ${accessToken}`
       }
@@ -223,7 +223,7 @@ class AuthService {
       email: oauthData.email,
       name: oauthData.name || oauthData.preferred_username,
       role: this.determineUserRole(oauthData.email),
-      organizationId: 'ey',
+      organizationId: 'axiom-loom',
       avatar: oauthData.picture,
       lastLogin: new Date(),
       createdAt: new Date(),
@@ -236,7 +236,7 @@ class AuthService {
   // Determine user role based on email or other criteria
   private determineUserRole(email: string): UserRole {
     // In production, this would check against a database or LDAP
-    if (email.endsWith('@ey.com')) {
+    if (email.endsWith('@axiom-loom.ai')) {
       if (email.includes('admin')) {
         return UserRole.ADMIN;
       }
@@ -250,7 +250,7 @@ class AuthService {
     // Mock implementation
     return {
       id: userId,
-      email: 'user@ey.com',
+      email: 'user@axiom-loom.ai',
       name: 'Test User',
       role: UserRole.DEVELOPER,
       createdAt: new Date(),

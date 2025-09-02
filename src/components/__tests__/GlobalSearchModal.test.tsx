@@ -56,7 +56,7 @@ describe('GlobalSearchModal', () => {
         <GlobalSearchModal isOpen={false} onClose={mockOnClose} />
       );
       
-      expect(screen.queryByText('Search EYNS AI Experience Center')).not.toBeInTheDocument();
+      expect(screen.queryByText('Search Axiom Loom Catalog')).not.toBeInTheDocument();
     });
 
     it('should render when isOpen is true', () => {
@@ -64,7 +64,7 @@ describe('GlobalSearchModal', () => {
         <GlobalSearchModal isOpen={true} onClose={mockOnClose} />
       );
       
-      expect(screen.getByText('Search EYNS AI Experience Center')).toBeInTheDocument();
+      expect(screen.getByText('Search Axiom Loom Catalog')).toBeInTheDocument();
     });
   });
 
@@ -184,12 +184,12 @@ describe('GlobalSearchModal', () => {
   });
 
   describe('Styling and Theme', () => {
-    it('should apply EY branding colors', () => {
+    it('should apply Axiom Loom branding colors', () => {
       renderWithProviders(
         <GlobalSearchModal isOpen={true} onClose={mockOnClose} />
       );
       
-      const title = screen.getByText('Search EYNS AI Experience Center');
+      const title = screen.getByText('Search Axiom Loom Catalog');
       expect(title).toBeInTheDocument();
       
       // The modal should be visible and styled

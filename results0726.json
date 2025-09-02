@@ -83,7 +83,7 @@ Error Context: test-results/comprehensive-repository-t-12f61--via-backend-specs-
 
 Error: expect.toBeVisible: Error: strict mode violation: locator('nav') resolved to 2 elements:
     1) <nav class="hidden md:flex items-center space-x-8">…</nav> aka getByText('HomePlatformsAPIsAll')
-    2) <nav class="mb-6 text-sm">…</nav> aka getByText('Home/Repositories/NS Labs')
+    2) <nav class="mb-6 text-sm">…</nav> aka getByText('Home/Repositories/Industrial Monitoring Co')
 
 Call log:
   - Expect "toBeVisible" with timeout 10000ms
@@ -584,7 +584,7 @@ Error Context: test-results/real-user-experience-tests-c1715-n-Generation-Actual
 
 Error: expect.toBeVisible: Error: strict mode violation: locator('nav') resolved to 2 elements:
     1) <nav class="hidden md:flex items-center space-x-8">…</nav> aka getByText('HomePlatformsAPIsAll')
-    2) <nav class="mb-6 text-sm">…</nav> aka getByText('Home/Repositories/NS Labs')
+    2) <nav class="mb-6 text-sm">…</nav> aka getByText('Home/Repositories/Industrial Monitoring Co')
 
 Call log:
   - Expect "toBeVisible" with timeout 10000ms

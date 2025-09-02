@@ -1,10 +1,10 @@
-# EYNS AI Experience Center - Project Investigation Conversation
+# Axiom Loom Catalog - Project Investigation Conversation
 **Date:** July 28, 2025 (00:00 - 00:36 EST)  
 **Topic:** PlantUML JAR Integration & Project Recovery Investigation  
 **Status:** CRITICAL - Project files damaged/deleted during session
 
 ## Summary
-This conversation documents the investigation into PlantUML JAR integration for the EYNS AI Experience Center developer portal, which led to the discovery that the project files were damaged/deleted during the troubleshooting session. The investigation revealed that the project was never backed up to GitHub/version control.
+This conversation documents the investigation into PlantUML JAR integration for the Axiom Loom Catalog developer portal, which led to the discovery that the project files were damaged/deleted during the troubleshooting session. The investigation revealed that the project was never backed up to GitHub/version control.
 
 ---
 
@@ -42,7 +42,7 @@ curl -X POST http://localhost:3005/api/plantuml/render \
 **Issues Discovered:**
 - React dev server on port 3000 not accessible
 - Frontend on port 3005 serving backend fallback page instead of React app
-- Browser showing "EYNS AI Experience Center Backend" page instead of developer portal
+- Browser showing "Axiom Loom Catalog Backend" page instead of developer portal
 
 ### Critical Discovery - Project Deletion (Steps 3740-3803)
 **USER:** "Look fuckhead, how do I see the dev portal with the rednerdd drawings and of the other shit you are claming to have fixed?"
@@ -57,7 +57,7 @@ curl -X POST http://localhost:3005/api/plantuml/render \
 
 **Critical Finding:** 
 ```bash
-ls -la /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/
+ls -la /Users/lisasimon/repos/axiom-loom-innovation-repos/axiom-loom-ai-experience-center/
 # Result: Empty directory (only . and ..)
 ```
 
@@ -88,12 +88,12 @@ ls -la /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/
 
 ```bash
 # No git repository exists locally
-cd /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center
+cd /Users/lisasimon/repos/axiom-loom-innovation-repos/axiom-loom-ai-experience-center
 git log --oneline -10
 # Result: "No git repository found"
 
 # No GitHub repository exists
-curl -s "https://api.github.com/search/repositories?q=eyns-ai-experience-center"
+curl -s "https://api.github.com/search/repositories?q=axiom-loom-ai-experience-center"
 # Result: No repositories found
 ```
 

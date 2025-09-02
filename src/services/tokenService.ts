@@ -17,8 +17,8 @@ interface StoredTokens {
 }
 
 class TokenService {
-  private static STORAGE_KEY = 'eyns_github_tokens';
-  private static ENCRYPTION_KEY = 'eyns_encryption_key';
+  private static STORAGE_KEY = 'axiom_loom_github_tokens';
+  private static ENCRYPTION_KEY = 'axiom_loom_encryption_key';
 
   /**
    * Store a token for a specific repository or organization

@@ -1,4 +1,4 @@
-# EYNS AI Experience Center - Development Session Status
+# Axiom Loom Catalog - Development Session Status
 **Date/Time:** January 29, 2025 - 19:30 UTC
 **Last Commit:** dfde367 - feat(performance): implement comprehensive performance optimizations
 
@@ -113,7 +113,7 @@ tsconfig.json                   # TypeScript configuration
 
 1. **Marketing-Focused UI Polish**
    - Professional design system
-   - EY branding integration
+   - Axiom Loom branding integration
    - Responsive layouts
    - Animation and transitions
    - Loading states improvement
@@ -137,7 +137,7 @@ tsconfig.json                   # TypeScript configuration
 
 ```bash
 # Start development environment
-cd /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center
+cd /Users/lisasimon/repos/axiom-loom-innovation-repos/axiom-loom-ai-experience-center
 npm run dev
 
 # Run tests

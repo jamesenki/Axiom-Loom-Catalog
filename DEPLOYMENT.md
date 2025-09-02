@@ -1,8 +1,8 @@
-# EYNS AI Experience Center - Deployment Guide
+# Axiom Loom Catalog - Deployment Guide
 
 ## 🚀 Overview
 
-This document provides comprehensive deployment instructions for the EYNS AI Experience Center application across different environments.
+This document provides comprehensive deployment instructions for the Axiom Loom Catalog application across different environments.
 
 ## 📋 Prerequisites
 
@@ -32,10 +32,10 @@ npm run serve:ci
 ### Docker Build
 ```bash
 # Build Docker image
-docker build -t eyns-ai-experience-center:latest .
+docker build -t axiom-loom-ai-experience-center:latest .
 
 # Run container locally
-docker run -p 8080:8080 eyns-ai-experience-center:latest
+docker run -p 8080:8080 axiom-loom-ai-experience-center:latest
 ```
 
 ## 🌍 Environment Configuration
@@ -141,10 +141,10 @@ kubectl get pods
 kubectl get services
 
 # View logs
-kubectl logs -l app=eyns-ai-experience-center
+kubectl logs -l app=axiom-loom-ai-experience-center
 
 # Scale deployment
-kubectl scale deployment eyns-ai-experience-center --replicas=5
+kubectl scale deployment axiom-loom-ai-experience-center --replicas=5
 ```
 
 ### Docker Swarm
@@ -166,7 +166,7 @@ docker service logs eyns_web
 ```bash
 # On production server
 git clone <repository-url>
-cd eyns-ai-experience-center
+cd axiom-loom-ai-experience-center
 
 # Install dependencies
 npm ci --only=production
@@ -179,8 +179,8 @@ npm install -g pm2
 pm2 start deploy/pm2.config.js --env production
 
 # Setup nginx reverse proxy
-sudo cp deploy/nginx.conf /etc/nginx/sites-available/eyns-ai-center
-sudo ln -s /etc/nginx/sites-available/eyns-ai-center /etc/nginx/sites-enabled/
+sudo cp deploy/nginx.conf /etc/nginx/sites-available/axiom-loom-ai-center
+sudo ln -s /etc/nginx/sites-available/axiom-loom-ai-center /etc/nginx/sites-enabled/
 sudo nginx -t && sudo systemctl reload nginx
 ```
 
@@ -247,7 +247,7 @@ kubectl port-forward service/prometheus 9090:9090
 2. **Docker Issues**
    ```bash
    # Rebuild without cache
-   docker build --no-cache -t eyns-ai-experience-center:latest .
+   docker build --no-cache -t axiom-loom-ai-experience-center:latest .
    
    # Check container logs
    docker logs <container-id>
@@ -266,7 +266,7 @@ kubectl port-forward service/prometheus 9090:9090
 
 ```bash
 # Application logs
-kubectl logs -l app=eyns-ai-experience-center --tail=100
+kubectl logs -l app=axiom-loom-ai-experience-center --tail=100
 
 # Nginx access logs
 kubectl exec <nginx-pod> -- tail -f /var/log/nginx/access.log
@@ -282,24 +282,24 @@ kubectl top nodes
 
 ```bash
 # Check rollout history
-kubectl rollout history deployment/eyns-ai-experience-center
+kubectl rollout history deployment/axiom-loom-ai-experience-center
 
 # Rollback to previous version
-kubectl rollout undo deployment/eyns-ai-experience-center
+kubectl rollout undo deployment/axiom-loom-ai-experience-center
 
 # Rollback to specific revision
-kubectl rollout undo deployment/eyns-ai-experience-center --to-revision=2
+kubectl rollout undo deployment/axiom-loom-ai-experience-center --to-revision=2
 ```
 
 ### Docker Rollback
 
 ```bash
 # Tag and push previous version
-docker tag eyns-ai-experience-center:previous eyns-ai-experience-center:latest
-docker push eyns-ai-experience-center:latest
+docker tag axiom-loom-ai-experience-center:previous axiom-loom-ai-experience-center:latest
+docker push axiom-loom-ai-experience-center:latest
 
 # Update deployment
-kubectl set image deployment/eyns-ai-experience-center web=eyns-ai-experience-center:latest
+kubectl set image deployment/axiom-loom-ai-experience-center web=axiom-loom-ai-experience-center:latest
 ```
 
 ## 📈 Scaling Guidelines

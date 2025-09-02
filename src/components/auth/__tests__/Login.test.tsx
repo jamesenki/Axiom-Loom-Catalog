@@ -32,9 +32,9 @@ describe('Login Component', () => {
   it('renders login form correctly', () => {
     renderLogin();
     
-    expect(screen.getByText('EY AI Experience Center')).toBeInTheDocument();
+    expect(screen.getByText('Axiom Loom Catalog')).toBeInTheDocument();
     expect(screen.getByText('Sign in to continue')).toBeInTheDocument();
-    expect(screen.getByText('Sign in with EY SSO')).toBeInTheDocument();
+    expect(screen.getByText('Sign in with Axiom Loom SSO')).toBeInTheDocument();
   });
 
   it('shows development login form in development mode', () => {
@@ -60,12 +60,12 @@ describe('Login Component', () => {
     const passwordInput = screen.getByLabelText('Password');
     const submitButton = screen.getByText('Sign in (Dev Mode)');
     
-    fireEvent.change(emailInput, { target: { value: 'test@ey.com' } });
+    fireEvent.change(emailInput, { target: { value: 'test@axiom-loom.ai' } });
     fireEvent.change(passwordInput, { target: { value: 'password123' } });
     fireEvent.click(submitButton);
     
     await waitFor(() => {
-      expect(emailInput).toHaveValue('test@ey.com');
+      expect(emailInput).toHaveValue('test@axiom-loom.ai');
       expect(passwordInput).toHaveValue('password123');
     });
     
@@ -82,7 +82,7 @@ describe('Login Component', () => {
     
     renderLogin();
     
-    const ssoButton = screen.getByText('Sign in with EY SSO');
+    const ssoButton = screen.getByText('Sign in with Axiom Loom SSO');
     fireEvent.click(ssoButton);
     
     expect(mockLoginWithSSO).toHaveBeenCalled();

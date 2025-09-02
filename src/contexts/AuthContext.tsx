@@ -22,8 +22,8 @@ interface AuthContextType {
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 // Secure token storage
-const TOKEN_KEY = 'ey_auth_token';
-const REFRESH_TOKEN_KEY = 'ey_refresh_token';
+const TOKEN_KEY = 'axiom_loom_auth_token';
+const REFRESH_TOKEN_KEY = 'axiom_loom_refresh_token';
 
 class SecureStorage {
   static setTokens(tokens: AuthTokens) {
@@ -124,7 +124,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       email,
       name: email.split('@')[0],
       role: email.includes('admin') ? UserRole.ADMIN : UserRole.DEVELOPER,
-      organizationId: 'ey',
+      organizationId: 'axiom-loom',
       createdAt: new Date(),
       updatedAt: new Date()
     };

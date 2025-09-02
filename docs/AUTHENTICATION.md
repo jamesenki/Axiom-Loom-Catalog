@@ -2,7 +2,7 @@
 
 ## Overview
 
-The EY AI Experience Center implements enterprise-grade authentication and security features to protect sensitive data and ensure only authorized users can access the platform.
+The Axiom Loom AI Experience Center implements enterprise-grade authentication and security features to protect sensitive data and ensure only authorized users can access the platform.
 
 ## Table of Contents
 
@@ -18,13 +18,13 @@ The EY AI Experience Center implements enterprise-grade authentication and secur
 
 ## Authentication Methods
 
-### 1. EY SSO (Single Sign-On)
+### 1. Axiom Loom SSO (Single Sign-On)
 
 The primary authentication method for production environments is EY's corporate SSO system using OAuth2/OIDC.
 
 **Flow:**
-1. User clicks "Sign in with EY SSO"
-2. Redirected to EY login portal
+1. User clicks "Sign in with Axiom Loom SSO"
+2. Redirected to Axiom Loom login portal
 3. After successful authentication, redirected back with authorization code
 4. Code exchanged for JWT tokens
 5. User session established
@@ -241,7 +241,7 @@ npm run test:e2e -- auth-flow.spec.ts
 ### 1. Security Checklist
 
 - [ ] Generate strong, unique secrets for JWT_SECRET and JWT_REFRESH_SECRET
-- [ ] Configure EY SSO credentials
+- [ ] Configure Axiom Loom SSO credentials
 - [ ] Enable HTTPS with valid SSL certificate
 - [ ] Set NODE_ENV=production
 - [ ] Configure secure session storage (Redis recommended)

@@ -1,6 +1,6 @@
 # Application Fix Execution Prompt
 
-You are tasked with fixing the EYNS AI Experience Center application that is currently showing a blank page and failing 1200 tests. You have access to specialized agents and must follow a systematic approach.
+You are tasked with fixing the Axiom Loom Catalog application that is currently showing a blank page and failing 1200 tests. You have access to specialized agents and must follow a systematic approach.
 
 ## Current State
 - Application shows blank page
@@ -15,7 +15,7 @@ Execute the fix workflow systematically using the provided agents:
 Use the Root Cause Analysis Agent to:
 1. Run `npx playwright test e2e/verify-deployment.spec.ts --reporter=json > error-report.json`
 2. Analyze browser console errors from Playwright
-3. Check all container logs: `docker logs eyns-frontend`, `docker logs eyns-backend`
+3. Check all container logs: `docker logs axiom-loom-frontend`, `docker logs axiom-loom-backend`
 4. Create error dependency graph
 5. Output prioritized fix list
 

@@ -1,4 +1,4 @@
-# EYNS AI Experience Center - Project Specification
+# Axiom Loom Catalog - Project Specification
 
 **Version**: 1.0  
 **Date**: July 28, 2025  
@@ -10,7 +10,7 @@
 A **lab marketing portal** serving as a centralized developer experience hub for showcasing EY's innovation repositories, APIs, and documentation to stakeholders and potential clients. The portal will be used to demonstrate EY's innovation capabilities to potential clients and partners. 
 
 ### Primary Stakeholders
-- **EY Innovation Labs**: Marketing and demonstration teams
+- **Axiom Loom Innovation Labs**: Marketing and demonstration teams
 - **Developers**: Technical teams using the repositories
 - **Clients/Prospects**: Viewing capabilities and architecture
 - **Management**: Oversight and progress tracking
@@ -103,7 +103,7 @@ A **lab marketing portal** serving as a centralized developer experience hub for
 ### 🎨 User Interface
 - [ ] **Marketing-Focused Design**
   - [ ] Professional, clean aesthetic
-  - [ ] EY branding integration
+  - [ ] Axiom Loom branding integration
   - [ ] Demo-friendly layout
   - [ ] High-contrast, accessible design
   - [ ] Responsive across devices

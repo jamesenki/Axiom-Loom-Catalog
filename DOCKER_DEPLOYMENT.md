@@ -1,6 +1,6 @@
-# Docker Deployment Guide for EYNS AI Experience Center
+# Docker Deployment Guide for Axiom Loom Catalog
 
-This guide provides comprehensive instructions for deploying the EYNS AI Experience Center using Docker containers.
+This guide provides comprehensive instructions for deploying the Axiom Loom Catalog using Docker containers.
 
 ## Table of Contents
 
@@ -37,8 +37,8 @@ This guide provides comprehensive instructions for deploying the EYNS AI Experie
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/your-org/eyns-ai-experience-center.git
-   cd eyns-ai-experience-center
+   git clone https://github.com/your-org/axiom-loom-ai-experience-center.git
+   cd axiom-loom-ai-experience-center
    ```
 
 2. **Configure environment**
@@ -211,7 +211,7 @@ Access Grafana at http://localhost:3000
 Default credentials: admin/admin
 
 Pre-configured dashboards:
-- EYNS Overview
+- Axiom Loom Overview
 - API Performance
 - System Resources
 - Database Metrics

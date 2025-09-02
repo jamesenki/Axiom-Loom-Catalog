@@ -1,4 +1,4 @@
-# EYNS AI Experience Center - Deployment System Status
+# Axiom Loom Catalog - Deployment System Status
 
 ## 🚀 Deployment System Implemented
 
@@ -158,8 +158,8 @@ The deployment script now enforces mandatory validation:
 
 ```bash
 # 1. Clone repository
-git clone https://github.com/jamesenki/eyns-ai-experience-center.git
-cd eyns-ai-experience-center
+git clone https://github.com/jamesenki/axiom-loom-ai-experience-center.git
+cd axiom-loom-ai-experience-center
 
 # 2. Run deployment (will prompt for configuration)
 ./deploy.sh

@@ -1,4 +1,4 @@
-# Pre-Deployment Checklist for EYNS AI Experience Center
+# Pre-Deployment Checklist for Axiom Loom Catalog
 
 ## CRITICAL: This checklist MUST be completed before marking any deployment as successful
 

@@ -1099,7 +1099,7 @@
     },
     {
       "repo": "rentalFleets",
-      "file": "src/docs/MAZDA_CVOP_INTERFACE_ARCHITECTURE.md",
+      "file": "src/docs/AUTOMOTIVE_OEM_CVOP_INTERFACE_ARCHITECTURE.md",
       "line": 17,
       "linkText": "Architecture Overview",
       "linkPath": "../architecture/index.md",

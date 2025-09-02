@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# EYNS AI Experience Center Docker Deployment Script
+# Axiom Loom Catalog Docker Deployment Script
 # Enhanced deployment script with multi-environment support
 # Usage: ./deploy-docker.sh [environment] [action]
 
@@ -45,7 +45,7 @@ log_step() {
 # Help function
 show_help() {
     cat << EOF
-EYNS AI Experience Center Docker Deployment Script
+Axiom Loom Catalog Docker Deployment Script
 
 Usage: $0 [ENVIRONMENT] [ACTION] [OPTIONS]
 

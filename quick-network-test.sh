@@ -1,12 +1,12 @@
 #!/bin/bash
 
-# Quick Network Accessibility Test for EYNS AI Experience Center
+# Quick Network Accessibility Test for Axiom Loom Catalog
 # This provides a rapid health check of the deployment
 
 TARGET_IP="10.0.0.109"
 API_PORT="3001"
 
-echo "EYNS AI Experience Center - Quick Network Test"
+echo "Axiom Loom Catalog - Quick Network Test"
 echo "============================================="
 echo "Target: http://$TARGET_IP"
 echo "Date: $(date)"

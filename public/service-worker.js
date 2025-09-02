@@ -1,12 +1,12 @@
 /**
- * Service Worker for EYNS AI Experience Center
+ * Service Worker for Axiom Loom Catalog
  * 
  * Provides caching and offline support for better performance
  */
 
-const CACHE_NAME = 'eyns-ai-center-v1';
-const API_CACHE_NAME = 'eyns-api-cache-v1';
-const IMAGE_CACHE_NAME = 'eyns-image-cache-v1';
+const CACHE_NAME = 'axiom-loom-catalog-v1';
+const API_CACHE_NAME = 'axiom-loom-api-cache-v1';
+const IMAGE_CACHE_NAME = 'axiom-loom-image-cache-v1';
 
 // Files to cache on install
 const STATIC_CACHE_URLS = [
@@ -93,7 +93,7 @@ self.addEventListener('activate', event => {
       return Promise.all(
         cacheNames
           .filter(cacheName => {
-            return cacheName.startsWith('eyns-') && 
+            return cacheName.startsWith('axiom-loom-') && 
                    cacheName !== CACHE_NAME &&
                    cacheName !== API_CACHE_NAME &&
                    cacheName !== IMAGE_CACHE_NAME;

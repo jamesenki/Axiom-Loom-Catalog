@@ -1,4 +1,4 @@
-# EYNS AI Experience Center - Fixes Applied (2025-08-02)
+# Axiom Loom Catalog - Fixes Applied (2025-08-02)
 
 ## Summary of Critical Issues Fixed
 

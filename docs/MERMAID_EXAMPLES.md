@@ -1,6 +1,6 @@
 # Mermaid Diagram Examples
 
-This document demonstrates the Mermaid diagram integration in the EYNS AI Experience Center.
+This document demonstrates the Mermaid diagram integration in the Axiom Loom Catalog.
 
 ## Flowchart
 
@@ -125,7 +125,7 @@ erDiagram
 
 ```mermaid
 gantt
-    title EYNS AI Experience Center Development
+    title Axiom Loom Catalog Development
     dateFormat YYYY-MM-DD
     section Phase 1
     Project Setup           :done,    p1, 2025-01-01, 7d
@@ -181,7 +181,7 @@ gitGraph
 
 ```mermaid
 mindmap
-  root((EYNS AI Experience Center))
+  root((Axiom Loom Catalog))
     Features
       Repository Management
         Auto-sync
@@ -217,7 +217,7 @@ mindmap
 
 ```mermaid
 timeline
-    title EYNS Project Milestones
+    title Axiom Loom Project Milestones
     
     Phase 1 : Foundation Complete
            : GitHub setup

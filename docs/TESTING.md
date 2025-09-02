@@ -1,8 +1,8 @@
-# Testing Guide for EYNS AI Experience Center
+# Testing Guide for Axiom Loom Catalog
 
 ## Overview
 
-This document outlines the testing strategy, tools, and best practices for the EYNS AI Experience Center project.
+This document outlines the testing strategy, tools, and best practices for the Axiom Loom Catalog project.
 
 ## Testing Stack
 

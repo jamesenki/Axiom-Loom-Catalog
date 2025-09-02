@@ -1,5 +1,5 @@
 // Repository cache service for local-first approach
-const CACHE_KEY = 'eyns_repository_cache';
+const CACHE_KEY = 'axiom_loom_repository_cache';
 const CACHE_EXPIRY = 1000 * 60 * 60; // 1 hour
 
 export interface CachedData {

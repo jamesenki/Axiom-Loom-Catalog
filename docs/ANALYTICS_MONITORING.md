@@ -2,7 +2,7 @@
 
 ## Overview
 
-This document describes the comprehensive analytics and monitoring system implemented for the EY AI Experience Center. The system provides real-time insights into user behavior, application performance, and system health.
+This document describes the comprehensive analytics and monitoring system implemented for the Axiom Loom AI Experience Center. The system provides real-time insights into user behavior, application performance, and system health.
 
 ## Architecture
 

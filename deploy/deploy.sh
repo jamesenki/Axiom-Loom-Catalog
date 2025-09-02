@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# EYNS AI Experience Center Deployment Script
+# Axiom Loom Catalog Deployment Script
 # Usage: ./deploy.sh [environment] [action]
 # Example: ./deploy.sh staging deploy
 
@@ -38,7 +38,7 @@ log_error() {
 # Help function
 show_help() {
     cat << EOF
-EYNS AI Experience Center Deployment Script
+Axiom Loom Catalog Deployment Script
 
 Usage: $0 [ENVIRONMENT] [ACTION]
 

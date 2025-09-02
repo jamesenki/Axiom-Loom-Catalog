@@ -58,14 +58,14 @@ echo -e "\n${BLUE}Phase 1: Primary Brand Replacements${NC}"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
 # Main replacements (order matters!)
-replace_in_files "EYNS AI Experience Center" "Axiom Loom Catalog" "$FILE_PATTERNS"
-replace_in_files "EYNS Platform" "Axiom Loom Platform" "$FILE_PATTERNS"
-replace_in_files "EYNS Innovation" "Axiom Loom Innovation" "$FILE_PATTERNS"
+replace_in_files "Axiom Loom Catalog" "Axiom Loom Catalog" "$FILE_PATTERNS"
+replace_in_files "Axiom Loom Platform" "Axiom Loom Platform" "$FILE_PATTERNS"
+replace_in_files "Axiom Loom Innovation" "Axiom Loom Innovation" "$FILE_PATTERNS"
 replace_in_files "EYGS Innovation" "Axiom Loom Innovation" "$FILE_PATTERNS"
 replace_in_files "Ernst & Young" "Axiom Loom" "$FILE_PATTERNS"
 replace_in_files "Ernst and Young" "Axiom Loom" "$FILE_PATTERNS"
 replace_in_files "EYGS" "Axiom Loom" "$FILE_PATTERNS"
-replace_in_files "EYNS" "Axiom Loom" "$FILE_PATTERNS"
+replace_in_files "Axiom Loom" "Axiom Loom" "$FILE_PATTERNS"
 replace_in_files "eyns\.ai" "axiom-loom.ai" "$FILE_PATTERNS"
 replace_in_files "eyns-innovation" "axiom-loom" "$FILE_PATTERNS"
 replace_in_files "Eyns" "Axiom Loom" "$FILE_PATTERNS"
@@ -92,9 +92,9 @@ done
 echo -e "\n${BLUE}Phase 3: Copyright and Legal Updates${NC}"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
-replace_in_files "© 2025 EYNS" "© 2025 Axiom Loom" "$FILE_PATTERNS"
-replace_in_files "© 2024 EYNS" "© 2024 Axiom Loom" "$FILE_PATTERNS"
-replace_in_files "Copyright EYNS" "Copyright Axiom Loom" "$FILE_PATTERNS"
+replace_in_files "© 2025 Axiom Loom" "© 2025 Axiom Loom" "$FILE_PATTERNS"
+replace_in_files "© 2024 Axiom Loom" "© 2024 Axiom Loom" "$FILE_PATTERNS"
+replace_in_files "Copyright Axiom Loom" "Copyright Axiom Loom" "$FILE_PATTERNS"
 
 echo -e "\n${BLUE}Phase 4: Email and Domain References${NC}"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
@@ -127,7 +127,7 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 # Update repository metadata
 if [ -f "repository-metadata.json" ]; then
     echo "Updating repository-metadata.json..."
-    replace_in_files "EYNS" "Axiom Loom" "-name repository-metadata.json"
+    replace_in_files "Axiom Loom" "Axiom Loom" "-name repository-metadata.json"
     replace_in_files "eyns" "axiom-loom" "-name repository-metadata.json"
     echo "  ✓ Updated repository-metadata.json"
 fi
@@ -138,10 +138,10 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 
 find cloned-repositories -name "marketing-brief.md" -type f 2>/dev/null | while read file; do
     if [[ "$OSTYPE" == "darwin"* ]]; then
-        sed -i '' 's/EYNS/Axiom Loom/g' "$file"
+        sed -i '' 's/Axiom Loom/Axiom Loom/g' "$file"
         sed -i '' 's/eyns\.ai/axiom-loom.ai/g' "$file"
     else
-        sed -i 's/EYNS/Axiom Loom/g' "$file"
+        sed -i 's/Axiom Loom/Axiom Loom/g' "$file"
         sed -i 's/eyns\.ai/axiom-loom.ai/g' "$file"
     fi
     echo "  ✓ Updated: $file"

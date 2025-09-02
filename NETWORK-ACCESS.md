@@ -1,4 +1,4 @@
-# Accessing EYNS AI Experience Center from Your Network
+# Accessing Axiom Loom Catalog from Your Network
 
 ## Your Network URLs
 
@@ -19,7 +19,7 @@ The application is now accessible from any device on your local network using th
 1. Make sure your mobile device is connected to the same WiFi network
 2. Open your mobile browser
 3. Navigate to: http://10.0.0.109/
-4. You should see the EYNS AI Experience Center
+4. You should see the Axiom Loom Catalog
 
 ## Troubleshooting Network Access
 

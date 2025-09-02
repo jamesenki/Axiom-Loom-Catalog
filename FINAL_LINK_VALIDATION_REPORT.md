@@ -2,7 +2,7 @@
 
 ## Executive Summary
 
-I have successfully fixed the majority of broken links across ALL repositories in the EYNS AI Experience Center.
+I have successfully fixed the majority of broken links across ALL repositories in the Axiom Loom Catalog.
 
 ### Results
 

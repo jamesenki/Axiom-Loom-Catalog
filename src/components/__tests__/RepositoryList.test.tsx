@@ -205,7 +205,7 @@ describe('RepositoryList', () => {
     renderComponent();
 
     await waitFor(() => {
-      expect(screen.getByText('🚀 EYNS AI Experience Center')).toBeInTheDocument();
+      expect(screen.getByText('🚀 Axiom Loom Catalog')).toBeInTheDocument();
       expect(screen.getByText('Developer Portal - Repositories, APIs, Documentation & More')).toBeInTheDocument();
     });
   });

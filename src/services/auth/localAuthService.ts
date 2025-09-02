@@ -38,8 +38,8 @@ const LOCAL_USERS = [
 ];
 
 export class LocalAuthService {
-  private TOKEN_KEY = 'eyns_local_token';
-  private USER_KEY = 'eyns_local_user';
+  private TOKEN_KEY = 'axiom_loom_local_token';
+  private USER_KEY = 'axiom_loom_local_user';
 
   async login(email: string, password: string): Promise<{ user: User; token: string }> {
     try {

@@ -2,7 +2,7 @@
  * Performance Monitoring Service
  * 
  * Tracks Core Web Vitals, custom metrics, and provides real-time performance insights
- * Integrates with Web Performance API and provides analytics for the EY AI Experience Center
+ * Integrates with Web Performance API and provides analytics for the Axiom Loom Catalog
  */
 
 interface PerformanceMetric {

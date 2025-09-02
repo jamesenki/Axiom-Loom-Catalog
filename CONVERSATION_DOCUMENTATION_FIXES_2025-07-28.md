@@ -1,7 +1,7 @@
 # Documentation Emoji and Link Fixing Conversation - July 28, 2025
 
 ## Conversation Overview
-This conversation documents the systematic process of fixing Unicode emoji rendering and broken documentation links across all private GitHub repositories in the EYNS Innovation ecosystem.
+This conversation documents the systematic process of fixing Unicode emoji rendering and broken documentation links across all private GitHub repositories in the Axiom Loom Innovation ecosystem.
 
 ---
 
@@ -69,7 +69,7 @@ During the previous chat conversation, the USER and assistant systematically add
 const response = await fetch(link.url, {
   method: 'HEAD',
   headers: {
-    'User-Agent': 'EYNS-Documentation-Validator/1.0'
+    'User-Agent': 'Axiom Loom-Documentation-Validator/1.0'
   }
 });
 

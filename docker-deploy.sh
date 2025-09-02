@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ###############################################################################
-# EYNS AI Experience Center - Docker Deployment with MANDATORY Testing
+# Axiom Loom Catalog - Docker Deployment with MANDATORY Testing
 # NO DEPLOYMENT WITHOUT FULL REGRESSION TEST PASS
 ###############################################################################
 
@@ -15,7 +15,7 @@ BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
 # Configuration
-APP_NAME="EYNS AI Experience Center"
+APP_NAME="Axiom Loom Catalog"
 DOCKER_IMAGE="eyns-ai-center"
 TEST_TIMEOUT=600  # 10 minutes max for tests
 
@@ -209,7 +209,7 @@ verify_deployment() {
     
     # Check frontend
     info "Checking frontend..."
-    if curl -s http://localhost:3000 | grep -q "EYNS"; then
+    if curl -s http://localhost:3000 | grep -q "Axiom Loom"; then
         success "Frontend is accessible"
     else
         error_exit "Frontend is not accessible"

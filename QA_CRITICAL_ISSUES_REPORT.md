@@ -1,4 +1,4 @@
-# QA Critical Issues Report - EYNS AI Experience Center
+# QA Critical Issues Report - Axiom Loom Catalog
 
 **Date:** August 5, 2025  
 **QA Analysis:** Application State Assessment  
@@ -6,7 +6,7 @@
 
 ## Executive Summary
 
-The EYNS AI Experience Center application is currently in a **BROKEN STATE** with a critical issue preventing repository data from loading. All pages (homepage, repositories, APIs) show the same error state, making the application unusable for its core functionality.
+The Axiom Loom Catalog application is currently in a **BROKEN STATE** with a critical issue preventing repository data from loading. All pages (homepage, repositories, APIs) show the same error state, making the application unusable for its core functionality.
 
 ## Critical Issues Identified
 
@@ -96,10 +96,10 @@ Once fixed, comprehensive testing required:
 ## Testing Evidence
 
 **Screenshots Captured:**
-- `/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/qa-homepage.png`
-- `/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/qa-repositories.png`  
-- `/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/qa-apis.png`
-- `/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/qa-add-repository.png`
+- `/Users/lisasimon/repos/axiom-loom-innovation-repos/axiom-loom-ai-experience-center/qa-homepage.png`
+- `/Users/lisasimon/repos/axiom-loom-innovation-repos/axiom-loom-ai-experience-center/qa-repositories.png`  
+- `/Users/lisasimon/repos/axiom-loom-innovation-repos/axiom-loom-ai-experience-center/qa-apis.png`
+- `/Users/lisasimon/repos/axiom-loom-innovation-repos/axiom-loom-ai-experience-center/qa-add-repository.png`
 
 **Error Report:**
 - No network errors detected

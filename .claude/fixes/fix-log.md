@@ -1,4 +1,4 @@
-# Fix Log - EYNS AI Experience Center
+# Fix Log - Axiom Loom Catalog
 
 ## Phase 1: Root Cause Analysis
 Started: 2025-08-01 12:15:00

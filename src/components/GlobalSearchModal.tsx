@@ -2,7 +2,7 @@
  * Global Search Modal Component
  * 
  * Provides a full-screen modal search interface with keyboard shortcuts
- * Uses EY design system and styled-components
+ * Uses Axiom Loom design system and styled-components
  */
 
 import React, { useEffect, useRef } from 'react';

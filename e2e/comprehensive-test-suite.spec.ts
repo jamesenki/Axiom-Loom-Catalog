@@ -59,7 +59,7 @@ test.describe('EYNS AI Experience Center - Comprehensive Test Suite', () => {
       // Check for marketing-friendly display names
       await expect(page.locator('text=DeployMaster SDV OTA Platform')).toBeVisible();
       await expect(page.locator('text=Future Mobility Consumer Platform')).toBeVisible();
-      await expect(page.locator('text=NS Labs Industrial Dashboards')).toBeVisible();
+      await expect(page.locator('text=Industrial Monitoring Co Industrial Dashboards')).toBeVisible();
     });
     
     test('should display tags on repository cards', async ({ page }) => {

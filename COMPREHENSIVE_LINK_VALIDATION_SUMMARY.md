@@ -14,16 +14,16 @@ I have created and executed a comprehensive test suite that validates **EVERY SI
 
 ## Test Files Created
 
-1. **`/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/comprehensive-link-validation.spec.ts`**
+1. **`/Users/lisasimon/repos/axiom-loom-innovation-repos/axiom-loom-ai-experience-center/e2e/comprehensive-link-validation.spec.ts`**
    - Complete 300-line test suite covering all requirements
    - Tests all 29 repositories systematically
    - Validates navigation, documentation, and API features
 
-2. **`/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/focused-link-validation.spec.ts`** 
+2. **`/Users/lisasimon/repos/axiom-loom-innovation-repos/axiom-loom-ai-experience-center/e2e/focused-link-validation.spec.ts`** 
    - Focused debugging test to identify specific issues
    - Deep analysis of error conditions
 
-3. **`/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/final-link-validation-report.spec.ts`**
+3. **`/Users/lisasimon/repos/axiom-loom-innovation-repos/axiom-loom-ai-experience-center/e2e/final-link-validation-report.spec.ts`**
    - Comprehensive assessment and reporting
    - Generated actionable recommendations
 
@@ -132,16 +132,16 @@ Key evidence files:
 ## Files and Paths (Absolute Paths)
 
 **Test Files:**
-- `/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/comprehensive-link-validation.spec.ts`
-- `/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/focused-link-validation.spec.ts`  
-- `/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/final-link-validation-report.spec.ts`
+- `/Users/lisasimon/repos/axiom-loom-innovation-repos/axiom-loom-ai-experience-center/e2e/comprehensive-link-validation.spec.ts`
+- `/Users/lisasimon/repos/axiom-loom-innovation-repos/axiom-loom-ai-experience-center/e2e/focused-link-validation.spec.ts`  
+- `/Users/lisasimon/repos/axiom-loom-innovation-repos/axiom-loom-ai-experience-center/e2e/final-link-validation-report.spec.ts`
 
 **Results:**
-- `/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/test-results/final-link-validation-report.json`
-- `/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/test-results/comprehensive-link-validation-report.json`
+- `/Users/lisasimon/repos/axiom-loom-innovation-repos/axiom-loom-ai-experience-center/test-results/final-link-validation-report.json`
+- `/Users/lisasimon/repos/axiom-loom-innovation-repos/axiom-loom-ai-experience-center/test-results/comprehensive-link-validation-report.json`
 
 **Summary:**
-- `/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/COMPREHENSIVE_LINK_VALIDATION_SUMMARY.md`
+- `/Users/lisasimon/repos/axiom-loom-innovation-repos/axiom-loom-ai-experience-center/COMPREHENSIVE_LINK_VALIDATION_SUMMARY.md`
 
 ## How to Run Tests
 

@@ -50,7 +50,7 @@ sudo chown -R 999:999 ./data/redis
 ### Blank Screen Issues
 1. Check browser console for errors
 2. Verify static files are served: `curl http://localhost/static/js/main.*.js`
-3. Check React app errors: `docker logs eyns-frontend`
+3. Check React app errors: `docker logs axiom-loom-frontend`
 4. Verify API connectivity: `curl http://localhost/api/health`
 
 ### Authentication Failures
@@ -97,16 +97,16 @@ sleep 30
 
 # 6. Verify deployment
 for service in mongodb redis backend frontend nginx; do
-  if ! docker ps | grep -q "eyns-$service.*healthy"; then
+  if ! docker ps | grep -q "axiom-loom-$service.*healthy"; then
     echo "ERROR: $service is not healthy!"
-    docker logs eyns-$service --tail 50
+    docker logs axiom-loom-$service --tail 50
     exit 1
   fi
 done
 
 # 7. Test application
 echo "Testing application..."
-if ! curl -s http://localhost | grep -q "EYNS AI Experience Center"; then
+if ! curl -s http://localhost | grep -q "Axiom Loom Catalog"; then
   echo "ERROR: Frontend not serving correctly!"
   exit 1
 fi
@@ -128,7 +128,7 @@ docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"
 docker-compose logs -f --tail 100
 
 # Check specific service
-docker logs eyns-backend --tail 50
+docker logs axiom-loom-backend --tail 50
 ```
 
 ## Rollback Procedure

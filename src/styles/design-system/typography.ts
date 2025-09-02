@@ -1,9 +1,9 @@
-// Typography System based on EY Brand Guidelines
+// Typography System based on Axiom Loom Brand Guidelines
 export const typography = {
   // Font Families
   fontFamily: {
-    // EY uses proprietary fonts, falling back to system fonts
-    primary: '"EYInterstate", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
+    // Axiom Loom uses proprietary fonts, falling back to system fonts
+    primary: '"AxiomLoom", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
     secondary: '"Georgia", "Times New Roman", Times, serif',
     mono: '"SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas, "Courier New", monospace',
   },

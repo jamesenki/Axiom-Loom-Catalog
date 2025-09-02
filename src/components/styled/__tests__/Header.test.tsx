@@ -44,13 +44,13 @@ describe('Header Component', () => {
     document.removeEventListener('keydown', jest.fn());
   });
 
-  it('renders the header with EY branding', () => {
+  it('renders the header with Axiom Loom branding', () => {
     renderWithProviders(<Header />);
     
-    // Check for EY logo and branding
-    expect(screen.getByText('EY')).toBeInTheDocument();
-    expect(screen.getByText('EYNS')).toBeInTheDocument();
-    expect(screen.getByText(/AI Experience Center/)).toBeInTheDocument();
+    // Check for Axiom Loom logo and branding
+    expect(screen.getByText('Axiom')).toBeInTheDocument();
+    expect(screen.getByText('Axiom Loom')).toBeInTheDocument();
+    expect(screen.getByText(/Catalog/)).toBeInTheDocument();
   });
 
   it('renders navigation links', () => {
@@ -150,7 +150,7 @@ describe('Header Component', () => {
     expect(header).toHaveStyle('top: 0');
     
     // Check logo styling - test for computed/applied styles instead of raw CSS
-    const logo = screen.getByText('EY');
+    const logo = screen.getByText('Axiom');
     expect(logo).toBeInTheDocument();
     // Note: Styled-components CSS may not be directly testable in JSDOM
   });
