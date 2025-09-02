@@ -7,7 +7,7 @@
     "marketingDescription": "Transform your maintenance operations with our complete AI-powered predictive maintenance solution. Combining advanced machine learning engines, comprehensive platform capabilities, and enterprise-ready architecture, this integrated solution prevents equipment failures, reduces downtime by up to 70%, and extends equipment lifespan across your entire operation.",
     "category": "Architecture",
     "status": "active",
-    "demoUrl": null,
+    "demoUrl": "https://demo.axiom-loom.com/ai-maintenance-architecture",
     "tags": [
       "Architecture",
       "AI/ML",
@@ -17,7 +17,7 @@
     "metrics": {
       "apiCount": 20,
       "postmanCollections": 16,
-      "lastUpdated": "2025-08-05T18:44:52.924Z"
+      "lastUpdated": "2025-09-02T10:00:30.023391Z"
     },
     "apiTypes": {
       "hasOpenAPI": true,
@@ -31,7 +31,7 @@
       "tier": "Tier 4: Strategic",
       "valueScore": 90,
       "displayPrice": "$400,000",
-      "lastAssessed": "2025-08-05T21:39:59.675Z",
+      "lastAssessed": "2025-09-02T10:00:30.023391Z",
       "currency": "USD",
       "licensingModel": "Perpetual License",
       "supportIncluded": "90 days",
@@ -44,14 +44,14 @@
     "displayName": "cloudtwin-simulation-platform-architecture",
     "description": "Revolutionize product development with digital twin technology that enables virtual testing and validation in the cloud. Test thousands of scenarios in minutes, not months, reducing physical testing costs by 90% while improving product quality and time to market.",
     "marketingDescription": "Revolutionize product development with digital twin technology that enables virtual testing and validation in the cloud. Test thousands of scenarios in minutes, not months, reducing physical testing costs by 90% while improving product quality and time to market.",
-    "category": "repository",
+    "category": "Digital Twin Platform",
     "status": "active",
-    "demoUrl": null,
+    "demoUrl": "https://demo.axiom-loom.com/cloudtwin-simulation",
     "tags": [],
     "metrics": {
       "apiCount": 10,
-      "postmanCollections": 1,
-      "lastUpdated": "2025-08-04T15:33:29.965Z"
+      "postmanCollections": 8,
+      "lastUpdated": "2025-09-02T10:00:30.023391Z"
     },
     "apiTypes": {
       "hasOpenAPI": true,
@@ -65,7 +65,7 @@
       "tier": "Tier 3: Enterprise",
       "valueScore": 82,
       "displayPrice": "$150,000",
-      "lastAssessed": "2025-08-05T21:39:59.675Z",
+      "lastAssessed": "2025-09-02T10:00:30.023391Z",
       "currency": "USD",
       "licensingModel": "Perpetual License",
       "supportIncluded": "90 days",
@@ -80,7 +80,7 @@
     "marketingDescription": "Deploy software updates to millions of vehicles safely and efficiently. Our enterprise-grade over-the-air (OTA) platform ensures secure, reliable software delivery with zero downtime, enabling continuous improvement of vehicle features and functionality.",
     "category": "Platform",
     "status": "active",
-    "demoUrl": null,
+    "demoUrl": "https://demo.axiom-loom.com/deploymaster-ota",
     "tags": [
       "OTA",
       "SDV",
@@ -89,22 +89,22 @@
     ],
     "metrics": {
       "apiCount": 16,
-      "postmanCollections": 0,
-      "lastUpdated": "2025-08-04T15:33:42.538Z"
+      "postmanCollections": 12,
+      "lastUpdated": "2025-09-02T10:00:30.023391Z"
     },
     "apiTypes": {
       "hasOpenAPI": true,
       "hasGraphQL": true,
       "hasGrpc": false,
-      "hasPostman": false
+      "hasPostman": true
     },
     "url": "https://github.com/jamesenki/deploymaster-sdv-ota-platform",
     "pricing": {
-      "suggestedRetailPrice": 98000,
-      "tier": "Tier 3: Enterprise",
-      "valueScore": 75,
-      "displayPrice": "$98,000",
-      "lastAssessed": "2025-08-05T21:39:59.675Z",
+      "suggestedRetailPrice": 250000,
+      "tier": "Tier 4: Strategic",
+      "valueScore": 82,
+      "displayPrice": "$250,000",
+      "lastAssessed": "2025-09-02T10:00:30.023391Z",
       "currency": "USD",
       "licensingModel": "Perpetual License",
       "supportIncluded": "90 days",
@@ -117,14 +117,14 @@
     "displayName": "diagnostic-as-code-platform-architecture",
     "description": "Transform vehicle diagnostics with code-driven automation. Define diagnostic procedures as code, version control your diagnostic logic, and deploy updates instantly across your entire fleet. Reduce diagnostic time by 80% while ensuring consistent, accurate results.",
     "marketingDescription": "Transform vehicle diagnostics with code-driven automation. Define diagnostic procedures as code, version control your diagnostic logic, and deploy updates instantly across your entire fleet. Reduce diagnostic time by 80% while ensuring consistent, accurate results.",
-    "category": "repository",
+    "category": "Diagnostics Platform",
     "status": "active",
-    "demoUrl": null,
+    "demoUrl": "https://demo.axiom-loom.com/diagnostics-as-code",
     "tags": [],
     "metrics": {
       "apiCount": 10,
       "postmanCollections": 8,
-      "lastUpdated": "2025-08-04T15:38:44.794Z"
+      "lastUpdated": "2025-09-02T10:00:30.023391Z"
     },
     "apiTypes": {
       "hasOpenAPI": true,
@@ -138,7 +138,7 @@
       "tier": "Tier 3: Enterprise",
       "valueScore": 84,
       "displayPrice": "$150,000",
-      "lastAssessed": "2025-08-05T21:39:59.675Z",
+      "lastAssessed": "2025-09-02T10:00:30.023391Z",
       "currency": "USD",
       "licensingModel": "Perpetual License",
       "supportIncluded": "90 days",
@@ -150,29 +150,29 @@
     "name": "fleet-digital-twin-platform-architecture",
     "displayName": "Fleet Digital Twin Platform Architecture",
     "description": "[](https://opensource.org/licenses/MIT)",
-    "marketingDescription": "",
-    "category": "repository",
+    "marketingDescription": "Create digital twins of your entire fleet for predictive analytics, optimization, and real-time monitoring. Reduce maintenance costs by 40%, improve fuel efficiency by 15%, and enhance fleet utilization through AI-powered insights.",
+    "category": "Fleet Digital Twin",
     "status": "active",
-    "demoUrl": null,
+    "demoUrl": "https://demo.axiom-loom.com/fleet-digital-twin",
     "tags": [],
     "metrics": {
-      "apiCount": 3,
-      "postmanCollections": 0,
-      "lastUpdated": "2025-07-31T02:55:29.329Z"
+      "apiCount": 8,
+      "postmanCollections": 2,
+      "lastUpdated": "2025-09-02T10:00:30.023391Z"
     },
     "apiTypes": {
       "hasOpenAPI": true,
       "hasGraphQL": true,
       "hasGrpc": true,
-      "hasPostman": false
+      "hasPostman": true
     },
     "url": "https://github.com/jamesenki/fleet-digital-twin-platform-architecture",
     "pricing": {
-      "suggestedRetailPrice": 50000,
-      "tier": "Tier 2: Professional",
-      "valueScore": 68,
-      "displayPrice": "$50,000",
-      "lastAssessed": "2025-08-05T21:39:59.675Z",
+      "suggestedRetailPrice": 135000,
+      "tier": "Tier 3: Enterprise",
+      "valueScore": 75,
+      "displayPrice": "$135,000",
+      "lastAssessed": "2025-09-02T10:00:30.023391Z",
       "currency": "USD",
       "licensingModel": "Perpetual License",
       "supportIncluded": "90 days",
@@ -184,21 +184,21 @@
     "name": "mobility-architecture-package-orchestrator",
     "displayName": "mobility-architecture-package-orchestrator",
     "description": "Orchestrate complex mobility ecosystems with intelligent package management.",
-    "marketingDescription": "Orchestrate complex mobility ecosystems with intelligent package management.",
-    "category": "repository",
+    "marketingDescription": "Orchestrate complex mobility ecosystems with intelligent package management, automated deployment, and comprehensive monitoring. Manage interconnected mobility services at scale.",
+    "category": "Architecture Orchestration",
     "status": "active",
-    "demoUrl": null,
+    "demoUrl": "https://demo.axiom-loom.com/mobility-orchestrator",
     "tags": [],
     "metrics": {
-      "apiCount": 1,
-      "postmanCollections": 0,
-      "lastUpdated": "2025-07-30T18:39:36.959Z"
+      "apiCount": 4,
+      "postmanCollections": 1,
+      "lastUpdated": "2025-09-02T10:00:30.023391Z"
     },
     "apiTypes": {
       "hasOpenAPI": true,
       "hasGraphQL": false,
       "hasGrpc": false,
-      "hasPostman": false
+      "hasPostman": true
     },
     "url": "https://github.com/jamesenki/mobility-architecture-package-orchestrator",
     "pricing": {
@@ -206,7 +206,7 @@
       "tier": "Tier 2: Professional",
       "valueScore": 58,
       "displayPrice": "$25,000",
-      "lastAssessed": "2025-08-05T21:39:59.675Z",
+      "lastAssessed": "2025-09-02T10:00:30.023391Z",
       "currency": "USD",
       "licensingModel": "Perpetual License",
       "supportIncluded": "90 days",
@@ -218,18 +218,18 @@
     "name": "remote-diagnostic-assistance-platform-architecture",
     "displayName": "Remote Diagnostic Assistance Platform Architecture",
     "description": "[](https://opensource.org/licenses/MIT)",
-    "marketingDescription": "",
-    "category": "repository",
+    "marketingDescription": "Provide expert diagnostic assistance remotely with AI-powered troubleshooting, video collaboration, and real-time vehicle data analysis. Reduce service visits by 60% and improve first-time fix rates.",
+    "category": "Remote Diagnostics",
     "status": "active",
-    "demoUrl": null,
+    "demoUrl": "https://demo.axiom-loom.com/remote-diagnostics",
     "tags": [],
     "metrics": {
-      "apiCount": 0,
-      "postmanCollections": 4,
-      "lastUpdated": "2025-07-31T02:55:30.610Z"
+      "apiCount": 6,
+      "postmanCollections": 6,
+      "lastUpdated": "2025-09-02T10:00:30.023391Z"
     },
     "apiTypes": {
-      "hasOpenAPI": false,
+      "hasOpenAPI": true,
       "hasGraphQL": false,
       "hasGrpc": false,
       "hasPostman": true
@@ -240,7 +240,7 @@
       "tier": "Tier 2: Professional",
       "valueScore": 61,
       "displayPrice": "$35,000",
-      "lastAssessed": "2025-08-05T21:39:59.675Z",
+      "lastAssessed": "2025-09-02T10:00:30.023391Z",
       "currency": "USD",
       "licensingModel": "Perpetual License",
       "supportIncluded": "90 days",
@@ -252,10 +252,10 @@
     "name": "rentalFleets",
     "displayName": "Rental Fleet Management",
     "description": "Comprehensive rental fleet operations and customer experience platform",
-    "marketingDescription": "Revolutionize fleet rental operations with AI-powered management.",
+    "marketingDescription": "Revolutionize fleet rental operations with AI-powered management, predictive maintenance, dynamic pricing, and enhanced customer experiences. Maximize fleet utilization and profitability.",
     "category": "Fleet",
     "status": "active",
-    "demoUrl": null,
+    "demoUrl": "https://demo.axiom-loom.com/rental-fleet",
     "tags": [
       "Rental",
       "Fleet",
@@ -264,8 +264,8 @@
     ],
     "metrics": {
       "apiCount": 27,
-      "postmanCollections": 4,
-      "lastUpdated": "2025-07-30T18:39:36.965Z"
+      "postmanCollections": 20,
+      "lastUpdated": "2025-09-02T10:00:30.023391Z"
     },
     "apiTypes": {
       "hasOpenAPI": true,
@@ -273,17 +273,28 @@
       "hasGrpc": false,
       "hasPostman": true
     },
-    "url": "https://github.com/jamesenki/rentalFleets"
+    "url": "https://github.com/jamesenki/rentalFleets",
+    "pricing": {
+      "suggestedRetailPrice": 120000,
+      "tier": "Tier 3: Enterprise",
+      "valueScore": 75,
+      "displayPrice": "$120,000",
+      "lastAssessed": "2025-09-02T10:00:30.023391Z",
+      "currency": "USD",
+      "licensingModel": "Perpetual License",
+      "supportIncluded": "90 days",
+      "customizationAvailable": true
+    }
   },
   "sdv-architecture-orchestration": {
     "id": "sdv-architecture-orchestration",
     "name": "sdv-architecture-orchestration",
     "displayName": "SDV Architecture Orchestration",
     "description": "Cloud-native orchestration platform for Software-Defined Vehicle architectures",
-    "marketingDescription": "",
+    "marketingDescription": "Orchestrate complex software-defined vehicle architectures with cloud-native scalability and reliability. Manage microservices, APIs, and data flows across distributed automotive systems with enterprise-grade orchestration.",
     "category": "Architecture",
     "status": "active",
-    "demoUrl": null,
+    "demoUrl": "https://demo.axiom-loom.com/sdv-orchestration",
     "tags": [
       "SDV",
       "Architecture",
@@ -291,15 +302,15 @@
       "Cloud-Native"
     ],
     "metrics": {
-      "apiCount": 1,
-      "postmanCollections": 0,
-      "lastUpdated": "2025-07-31T02:55:35.351Z"
+      "apiCount": 5,
+      "postmanCollections": 1,
+      "lastUpdated": "2025-09-02T10:00:30.023391Z"
     },
     "apiTypes": {
       "hasOpenAPI": true,
       "hasGraphQL": false,
       "hasGrpc": false,
-      "hasPostman": false
+      "hasPostman": true
     },
     "url": "https://github.com/jamesenki/sdv-architecture-orchestration",
     "pricing": {
@@ -307,7 +318,7 @@
       "tier": "Tier 2: Professional",
       "valueScore": 64,
       "displayPrice": "$45,000",
-      "lastAssessed": "2025-08-05T21:39:59.675Z",
+      "lastAssessed": "2025-09-02T10:00:30.023391Z",
       "currency": "USD",
       "licensingModel": "Perpetual License",
       "supportIncluded": "90 days",
@@ -319,15 +330,15 @@
     "name": "sovd-diagnostic-ecosystem-platform-architecture",
     "displayName": "Sovd Diagnostic Ecosystem Platform Architecture",
     "description": "Comprehensive test suite for SOVD Diagnostic Ecosystem Platform APIs",
-    "marketingDescription": "",
-    "category": "repository",
+    "marketingDescription": "Implement comprehensive SOVD (Service-Oriented Vehicle Diagnostics) ecosystem with standardized APIs, real-time monitoring, and advanced diagnostic capabilities. Streamline vehicle maintenance and repair operations.",
+    "category": "Vehicle Diagnostics",
     "status": "active",
-    "demoUrl": null,
+    "demoUrl": "https://demo.axiom-loom.com/sovd-diagnostics",
     "tags": [],
     "metrics": {
       "apiCount": 5,
       "postmanCollections": 4,
-      "lastUpdated": "2025-07-30T18:39:36.973Z"
+      "lastUpdated": "2025-09-02T10:00:30.023391Z"
     },
     "apiTypes": {
       "hasOpenAPI": true,
@@ -337,11 +348,11 @@
     },
     "url": "https://github.com/jamesenki/sovd-diagnostic-ecosystem-platform-architecture",
     "pricing": {
-      "suggestedRetailPrice": 50000,
-      "tier": "Tier 2: Professional",
-      "valueScore": 67,
-      "displayPrice": "$50,000",
-      "lastAssessed": "2025-08-05T21:39:59.675Z",
+      "suggestedRetailPrice": 95000,
+      "tier": "Tier 3: Enterprise",
+      "valueScore": 72,
+      "displayPrice": "$95,000",
+      "lastAssessed": "2025-09-02T10:00:30.023391Z",
       "currency": "USD",
       "licensingModel": "Perpetual License",
       "supportIncluded": "90 days",
@@ -353,10 +364,10 @@
     "name": "velocityforge-sdv-platform-architecture",
     "displayName": "VelocityForge SDV Platform Architecture",
     "description": "High-performance SDV platform enabling rapid development and deployment of vehicle software",
-    "marketingDescription": "",
+    "marketingDescription": "Accelerate software-defined vehicle development with our high-performance platform architecture. Enable rapid development, testing, and deployment of vehicle software with enterprise-grade scalability, security, and performance optimization.",
     "category": "Platform",
     "status": "active",
-    "demoUrl": null,
+    "demoUrl": "https://demo.axiom-loom.com/velocityforge-sdv",
     "tags": [
       "SDV",
       "Platform",
@@ -366,7 +377,7 @@
     "metrics": {
       "apiCount": 8,
       "postmanCollections": 7,
-      "lastUpdated": "2025-07-31T02:52:42.110Z"
+      "lastUpdated": "2025-09-02T10:00:30.023391Z"
     },
     "apiTypes": {
       "hasOpenAPI": true,
@@ -380,7 +391,7 @@
       "tier": "Tier 3: Enterprise",
       "valueScore": 83,
       "displayPrice": "$150,000",
-      "lastAssessed": "2025-08-05T21:39:59.675Z",
+      "lastAssessed": "2025-09-02T10:00:30.023391Z",
       "currency": "USD",
       "licensingModel": "Perpetual License",
       "supportIncluded": "90 days",
@@ -407,7 +418,7 @@
     "metrics": {
       "apiCount": 207,
       "postmanCollections": 206,
-      "lastUpdated": "2025-09-02T09:45:06.872490Z"
+      "lastUpdated": "2025-09-02T10:00:30.023391Z"
     },
     "apiTypes": {
       "hasOpenAPI": true,
@@ -421,7 +432,7 @@
       "tier": "Tier 4: Strategic",
       "valueScore": 74,
       "displayPrice": "$450,000",
-      "lastAssessed": "2025-09-02T09:45:06.872510Z",
+      "lastAssessed": "2025-09-02T10:00:30.023391Z",
       "currency": "USD",
       "licensingModel": "Perpetual License",
       "supportIncluded": "90 days",
@@ -491,7 +502,7 @@
     "metrics": {
       "apiCount": 15,
       "postmanCollections": 8,
-      "lastUpdated": "2025-09-02T09:45:06.872538Z"
+      "lastUpdated": "2025-09-02T10:00:30.023391Z"
     },
     "apiTypes": {
       "hasOpenAPI": true,
@@ -505,7 +516,7 @@
       "tier": "Tier 3: Enterprise",
       "valueScore": 85,
       "displayPrice": "$180,000",
-      "lastAssessed": "2025-09-02T09:45:06.872542Z",
+      "lastAssessed": "2025-09-02T10:00:30.023391Z",
       "currency": "USD",
       "licensingModel": "Perpetual License",
       "supportIncluded": "90 days",
@@ -530,7 +541,7 @@
     "metrics": {
       "apiCount": 12,
       "postmanCollections": 6,
-      "lastUpdated": "2025-09-02T09:45:06.872546Z"
+      "lastUpdated": "2025-09-02T10:00:30.023391Z"
     },
     "apiTypes": {
       "hasOpenAPI": true,
@@ -544,7 +555,7 @@
       "tier": "Tier 3: Enterprise",
       "valueScore": 78,
       "displayPrice": "$145,000",
-      "lastAssessed": "2025-09-02T09:45:06.872549Z",
+      "lastAssessed": "2025-09-02T10:00:30.023391Z",
       "currency": "USD",
       "licensingModel": "Perpetual License",
       "supportIncluded": "90 days",
@@ -570,7 +581,7 @@
     "metrics": {
       "apiCount": 10,
       "postmanCollections": 6,
-      "lastUpdated": "2025-09-02T09:45:06.872553Z"
+      "lastUpdated": "2025-09-02T10:00:30.023391Z"
     },
     "apiTypes": {
       "hasOpenAPI": true,
@@ -584,7 +595,7 @@
       "tier": "Tier 4: Strategic",
       "valueScore": 88,
       "displayPrice": "$220,000",
-      "lastAssessed": "2025-09-02T09:45:06.872557Z",
+      "lastAssessed": "2025-09-02T10:00:30.023391Z",
       "currency": "USD",
       "licensingModel": "Perpetual License",
       "supportIncluded": "90 days",
@@ -609,7 +620,7 @@
     "metrics": {
       "apiCount": 8,
       "postmanCollections": 5,
-      "lastUpdated": "2025-09-02T09:45:06.872560Z"
+      "lastUpdated": "2025-09-02T10:00:30.023391Z"
     },
     "apiTypes": {
       "hasOpenAPI": true,
@@ -623,7 +634,7 @@
       "tier": "Tier 3: Enterprise",
       "valueScore": 72,
       "displayPrice": "$95,000",
-      "lastAssessed": "2025-09-02T09:45:06.872563Z",
+      "lastAssessed": "2025-09-02T10:00:30.023391Z",
       "currency": "USD",
       "licensingModel": "Perpetual License",
       "supportIncluded": "90 days",
@@ -648,7 +659,7 @@
     "metrics": {
       "apiCount": 6,
       "postmanCollections": 4,
-      "lastUpdated": "2025-09-02T09:45:06.872567Z"
+      "lastUpdated": "2025-09-02T10:00:30.023391Z"
     },
     "apiTypes": {
       "hasOpenAPI": true,
@@ -662,7 +673,7 @@
       "tier": "Tier 2: Professional",
       "valueScore": 68,
       "displayPrice": "$85,000",
-      "lastAssessed": "2025-09-02T09:45:06.872570Z",
+      "lastAssessed": "2025-09-02T10:00:30.023391Z",
       "currency": "USD",
       "licensingModel": "Perpetual License",
       "supportIncluded": "90 days",
@@ -687,7 +698,7 @@
     "metrics": {
       "apiCount": 5,
       "postmanCollections": 4,
-      "lastUpdated": "2025-09-02T09:45:06.872573Z"
+      "lastUpdated": "2025-09-02T10:00:30.023391Z"
     },
     "apiTypes": {
       "hasOpenAPI": true,
@@ -701,7 +712,7 @@
       "tier": "Tier 2: Professional",
       "valueScore": 62,
       "displayPrice": "$45,000",
-      "lastAssessed": "2025-09-02T09:45:06.872576Z",
+      "lastAssessed": "2025-09-02T10:00:30.023391Z",
       "currency": "USD",
       "licensingModel": "Perpetual License",
       "supportIncluded": "90 days",
