@@ -22,7 +22,7 @@ const wave = keyframes`
 export const Spinner = styled.div<{ size?: 'sm' | 'md' | 'lg'; color?: string }>`
   display: inline-block;
   border-radius: 50%;
-  animation: ${spin} 0.8s linear infinite;
+  animation: ${css`${spin}`} 0.8s linear infinite;
   
   ${props => ({ size = 'md', color = props.theme.colors.primary.yellow }) => {
     const sizes = {
@@ -51,7 +51,7 @@ const Dot = styled.div<{ delay: number }>`
   height: 8px;
   background-color: ${props => props.theme.colors.primary.yellow};
   border-radius: 50%;
-  animation: ${pulse} 1.4s ease-in-out infinite;
+  animation: ${css`${pulse}`} 1.4s ease-in-out infinite;
   animation-delay: ${({ delay }) => delay}s;
 `;
 
@@ -75,7 +75,7 @@ const Bar = styled.div<{ delay: number }>`
   width: 4px;
   height: 100%;
   background-color: ${props => props.theme.colors.primary.yellow};
-  animation: ${wave} 1.2s ease-in-out infinite;
+  animation: ${css`${wave}`} 1.2s ease-in-out infinite;
   animation-delay: ${({ delay }) => delay}s;
 `;
 
@@ -104,7 +104,6 @@ const LoadingOverlay = styled.div<{ $blur?: boolean }>`
   z-index: ${props => props.theme.zIndex.modal};
   
   ${({ $blur }) => $blur && css`
-    backdrop-filter: blur(4px);
   `}
 `;
 
@@ -155,7 +154,7 @@ export const Skeleton = styled.div<{
     ${props => props.theme.colors.background.secondary} 75%
   );
   background-size: 200% 100%;
-  animation: ${shimmer} 1.5s ease-in-out infinite;
+  animation: ${css`${shimmer}`} 1.5s ease-in-out infinite;
 `;
 
 // Loading Button State

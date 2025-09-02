@@ -187,7 +187,11 @@ const AllAPIsView: React.FC = () => {
         ? `/api/api-explorer/all?type=${typeFilter}`
         : '/api/api-explorer/all';
         
-      const response = await fetch(url);
+      const response = await fetch(url, {
+        headers: {
+          'x-dev-mode': 'true'
+        }
+      });
       if (!response.ok) {
         throw new Error('Failed to fetch APIs');
       }

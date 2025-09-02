@@ -7,7 +7,7 @@
 
 import React, { useEffect, useRef } from 'react';
 import { X, Search } from 'lucide-react';
-import styled from 'styled-components';
+import styled, { keyframes, css } from 'styled-components';
 import { theme } from '../styles/design-system';
 import { AdvancedSearch } from './AdvancedSearch';
 import { SearchResult } from '../services/searchService';
@@ -18,6 +18,16 @@ interface GlobalSearchModalProps {
   onClose: () => void;
 }
 
+const fadeIn = keyframes`
+  from { opacity: 0; }
+  to { opacity: 1; }
+`;
+
+const fadeOut = keyframes`
+  from { opacity: 1; }
+  to { opacity: 0; }
+`;
+
 const ModalOverlay = styled.div<{ isOpen: boolean }>`
   position: fixed;
   top: 0;
@@ -25,23 +35,12 @@ const ModalOverlay = styled.div<{ isOpen: boolean }>`
   right: 0;
   bottom: 0;
   background: rgba(0, 0, 0, 0.8);
-  backdrop-filter: blur(8px);
   z-index: 1000;
   display: ${props => props.isOpen ? 'flex' : 'none'};
   align-items: flex-start;
   justify-content: center;
   padding: ${props => props.theme.spacing[16]} ${props => props.theme.spacing[4]};
-  animation: ${props => props.isOpen ? 'fadeIn' : 'fadeOut'} 0.3s ease-in-out;
-
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-
-  @keyframes fadeOut {
-    from { opacity: 1; }
-    to { opacity: 0; }
-  }
+  animation: ${props => props.isOpen ? css`${fadeIn}` : css`${fadeOut}`} 0.3s ease-in-out;
 `;
 
 const ModalContent = styled.div<{ isOpen: boolean }>`

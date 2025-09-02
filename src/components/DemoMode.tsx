@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import styled, { keyframes } from 'styled-components';
+import styled, { keyframes, css } from 'styled-components';
 import { Play, Pause, SkipForward, SkipBack, X, Settings, Maximize } from 'lucide-react';
 import { theme } from '../styles/design-system';
 import { Button } from './styled';
@@ -58,8 +58,7 @@ const DemoControls = styled.div<{ isVisible: boolean }>`
   align-items: center;
   gap: ${props => props.theme.spacing[3]};
   z-index: ${props => props.theme.zIndex.modal + 1};
-  animation: ${slideUp} ${props => props.theme.animations.duration.normal} ${props => props.theme.animations.easing.easeOut};
-  backdrop-filter: blur(10px);
+  animation: ${css`${slideUp}`} ${props => props.theme.animations.duration.normal} ${props => props.theme.animations.easing.easeOut};
 `;
 
 const ProgressBar = styled.div`
@@ -130,7 +129,7 @@ const Spotlight = styled.div<{ x: number; y: number; size: number; isVisible: bo
   pointer-events: none;
   z-index: ${props => props.theme.zIndex.modal};
   opacity: ${props => props.isVisible ? 1 : 0};
-  animation: ${pulse} 2s infinite;
+  animation: ${css`${pulse}`} 2s infinite;
   transition: all ${props => props.theme.animations.duration.normal} ${props => props.theme.animations.easing.easeOut};
 `;
 

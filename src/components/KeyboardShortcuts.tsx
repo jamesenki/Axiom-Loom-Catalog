@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
-import styled, { keyframes } from 'styled-components';
+import styled, { keyframes, css } from 'styled-components';
 import { Keyboard, Command, Search, Home, Settings, Book, Zap, X } from 'lucide-react';
 import { theme } from '../styles/design-system';
 import { useGlobalSearch } from '../hooks/useGlobalSearch';
@@ -30,7 +30,6 @@ const KeyboardShortcutsOverlay = styled.div<{ isVisible: boolean }>`
   opacity: ${props => props.isVisible ? 1 : 0};
   visibility: ${props => props.isVisible ? 'visible' : 'hidden'};
   transition: all ${props => props.theme.animations.duration.normal} ${props => props.theme.animations.easing.easeOut};
-  backdrop-filter: blur(5px);
 `;
 
 const ShortcutsModal = styled.div<{ isVisible: boolean }>`
@@ -44,7 +43,7 @@ const ShortcutsModal = styled.div<{ isVisible: boolean }>`
   overflow-y: auto;
   box-shadow: ${props => props.theme.shadows.xl};
   transform: ${props => props.isVisible ? 'scale(1)' : 'scale(0.9)'};
-  animation: ${props => props.isVisible ? slideUp : 'none'} ${props => props.theme.animations.duration.normal} ${props => props.theme.animations.easing.easeOut};
+  animation: ${props => props.isVisible ? css`${slideUp}` : 'none'} ${props => props.theme.animations.duration.normal} ${props => props.theme.animations.easing.easeOut};
 `;
 
 const ModalHeader = styled.div`

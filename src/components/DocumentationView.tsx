@@ -51,7 +51,11 @@ const DocumentationView: React.FC = () => {
 
   const fetchFileTree = async () => {
     try {
-      const response = await fetch(getApiUrl(`/api/repository/${repoName}/files`));
+      const response = await fetch(getApiUrl(`/api/repository/${repoName}/files`), {
+        headers: {
+          'x-dev-mode': 'true'
+        }
+      });
       if (!response.ok) {
         throw new Error('Failed to fetch file tree');
       }
@@ -89,7 +93,11 @@ const DocumentationView: React.FC = () => {
     setError(null);
     
     try {
-      const response = await fetch(getApiUrl(`/api/repository/${repoName}/file?path=${encodeURIComponent(filePath)}`));
+      const response = await fetch(getApiUrl(`/api/repository/${repoName}/file?path=${encodeURIComponent(filePath)}`), {
+        headers: {
+          'x-dev-mode': 'true'
+        }
+      });
       if (!response.ok) {
         throw new Error(`Failed to fetch file content: ${response.status} ${response.statusText}`);
       }

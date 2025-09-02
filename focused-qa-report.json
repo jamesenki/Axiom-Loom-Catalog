@@ -1,0 +1,46 @@
+{
+  "timestamp": "2025-08-08T10:11:37.573Z",
+  "issues": [
+    {
+      "type": "GraphQL",
+      "repository": "General",
+      "issue": "No GraphQL buttons found on any repository pages",
+      "severity": "MEDIUM"
+    },
+    {
+      "type": "gRPC",
+      "repository": "General",
+      "issue": "No gRPC buttons found on any repository pages",
+      "severity": "MEDIUM"
+    }
+  ],
+  "working": [
+    {
+      "type": "Color Contrast",
+      "page": "Homepage",
+      "status": "No obvious contrast issues detected"
+    },
+    {
+      "type": "Color Contrast",
+      "page": "API Explorer",
+      "status": "No obvious contrast issues detected"
+    },
+    {
+      "type": "Color Contrast",
+      "page": "All APIs",
+      "status": "No obvious contrast issues detected"
+    },
+    {
+      "type": "Color Contrast",
+      "page": "Repositories",
+      "status": "No obvious contrast issues detected"
+    }
+  ],
+  "screenshots": [
+    "qa-homepage-test.png",
+    "color-contrast-homepage.png",
+    "color-contrast-api-explorer.png",
+    "color-contrast-all-apis.png",
+    "color-contrast-repositories.png"
+  ]
+}

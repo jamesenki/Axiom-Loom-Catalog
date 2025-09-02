@@ -1,0 +1,31 @@
+{
+  "timestamp": "2025-08-08T10:13:44.925Z",
+  "graphqlIssues": [],
+  "grpcIssues": [],
+  "colorContrastIssues": [],
+  "workingFeatures": [
+    {
+      "feature": "Color contrast on API Explorer",
+      "status": "No obvious contrast issues detected"
+    },
+    {
+      "feature": "Color contrast on APIs",
+      "status": "No obvious contrast issues detected"
+    },
+    {
+      "feature": "Color contrast on All APIs",
+      "status": "No obvious contrast issues detected"
+    }
+  ],
+  "screenshots": [
+    "manual-qa-homepage.png",
+    "manual-qa-repo-cloudtwin-simulation-platform-architecture.png",
+    "manual-qa-repo-diagnostic-as-code-platform-architecture.png",
+    "manual-qa-repo-ai-predictive-maintenance-engine.png",
+    "manual-qa-repo-deploymaster-sdv-ota-platform.png",
+    "manual-qa-repo-ecosystem-platform-architecture.png",
+    "manual-qa-contrast-api-explorer.png",
+    "manual-qa-contrast-apis.png",
+    "manual-qa-contrast-all-apis.png"
+  ]
+}

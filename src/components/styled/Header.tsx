@@ -112,7 +112,6 @@ const SearchButton = styled.button`
   font-size: ${props => props.theme.typography.fontSize.sm};
   font-weight: ${props => props.theme.typography.fontWeight.medium};
   transition: ${props => props.theme.animations.transition.all};
-  backdrop-filter: blur(10px);
   
   &:hover {
     background: rgba(255, 255, 255, 0.15);

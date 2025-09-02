@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import styled, { keyframes } from 'styled-components';
+import styled, { keyframes, css } from 'styled-components';
 import { Search, X, Clock, ExternalLink, File, Code, ArrowRight, Zap } from 'lucide-react';
 import { theme } from '../styles/design-system';
 
@@ -30,7 +30,6 @@ const SearchOverlay = styled.div<{ isOpen: boolean }>`
   opacity: ${props => props.isOpen ? 1 : 0};
   visibility: ${props => props.isOpen ? 'visible' : 'hidden'};
   transition: all ${props => props.theme.animations.duration.normal} ${props => props.theme.animations.easing.easeOut};
-  backdrop-filter: blur(8px);
 `;
 
 const SearchContainer = styled.div<{ isOpen: boolean }>`
@@ -43,7 +42,7 @@ const SearchContainer = styled.div<{ isOpen: boolean }>`
   max-height: 70vh;
   overflow: hidden;
   transform: ${props => props.isOpen ? 'scale(1)' : 'scale(0.9)'};
-  animation: ${props => props.isOpen ? slideUp : 'none'} ${props => props.theme.animations.duration.normal} ${props => props.theme.animations.easing.easeOut};
+  animation: ${props => props.isOpen ? css`${slideUp}` : 'none'} ${props => props.theme.animations.duration.normal} ${props => props.theme.animations.easing.easeOut};
 `;
 
 const SearchHeader = styled.div`

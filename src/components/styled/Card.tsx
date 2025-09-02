@@ -10,16 +10,16 @@ export interface CardProps {
 
 const cardVariants = {
   default: css`
-    background-color: ${props => props.theme.colors.background.primary};
-    border: 1px solid ${props => props.theme.colors.border.light};
+    background-color: #FFFFFF !important;  /* FORCE WHITE background */
+    border: 1px solid #E2E8F0 !important;  /* LIGHT GRAY border */
   `,
   outlined: css`
-    background-color: transparent;
-    border: 2px solid ${props => props.theme.colors.border.medium};
+    background-color: #FFFFFF !important;  /* WHITE background */
+    border: 2px solid #E2E8F0 !important;  /* LIGHT GRAY border */
   `,
   filled: css`
-    background-color: ${props => props.theme.colors.background.secondary};
-    border: 1px solid transparent;
+    background-color: #FFFFFF !important;  /* WHITE background */
+    border: 1px solid #E2E8F0 !important;  /* LIGHT GRAY border */
   `,
 };
 
@@ -66,19 +66,53 @@ export const CardHeader = styled.div`
 export const CardTitle = styled.h3`
   font-size: ${props => props.theme.typography.fontSize['2xl']};
   font-weight: ${props => props.theme.typography.fontWeight.semibold};
-  color: ${props => props.theme.colors.text.primary};
+  color: #000000 !important;  /* BLACK text for maximum contrast */
+  opacity: 1 !important;
+  filter: none !important;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+  text-rendering: optimizeLegibility !important;
   margin: 0;
 `;
 
 export const CardDescription = styled.p`
   font-size: ${props => props.theme.typography.fontSize.base};
-  color: ${props => props.theme.colors.text.secondary};
+  color: #333333 !important;  /* DARK GRAY for descriptions */
+  opacity: 1 !important;
+  filter: none !important;
   margin-bottom: ${props => props.theme.spacing[4]};
   line-height: ${props => props.theme.typography.lineHeight.relaxed};
 `;
 
 export const CardContent = styled.div`
-  color: ${props => props.theme.colors.text.primary};
+  color: #000000 !important;  /* BLACK text */
+  opacity: 1 !important;
+  filter: none !important;
+  background: transparent !important;
+  
+  * {
+    color: #000000 !important;  /* BLACK text for all children */
+    opacity: 1 !important;
+    filter: none !important;
+    background: transparent !important;
+  }
+  
+  h3 {
+    color: #000000 !important;  /* BLACK headings */
+    opacity: 1 !important;
+    font-weight: 600;
+  }
+  
+  p {
+    color: #333333 !important;  /* DARK GRAY for paragraphs */
+    opacity: 1 !important;
+  }
+  
+  /* Small text and version numbers */
+  small,
+  [size="small"] {
+    color: #666666 !important;  /* MEDIUM GRAY for small text */
+  }
 `;
 
 export const CardFooter = styled.div`

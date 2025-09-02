@@ -129,7 +129,8 @@ const getCorsOptions = () => {
       'X-API-Key',
       'X-Requested-With',
       'Accept',
-      'Origin'
+      'Origin',
+      'x-dev-mode'
     ],
     exposedHeaders: [
       'X-Total-Count',

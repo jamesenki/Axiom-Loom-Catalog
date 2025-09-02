@@ -4,12 +4,13 @@
  */
 
 export const getApiUrl = (endpoint: string): string => {
-  // In production, use the environment variable
-  if (process.env.NODE_ENV === 'production' && process.env.REACT_APP_API_URL) {
-    return `${process.env.REACT_APP_API_URL}${endpoint}`;
+  // In production, use the environment variable or default to localhost:3001
+  if (process.env.NODE_ENV === 'production') {
+    const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:3001';
+    return `${apiUrl}${endpoint}`;
   }
   
-  // In development or if no env var, use relative URL (proxy will handle it)
+  // In development, use relative URL (proxy will handle it)
   return endpoint;
 };
 

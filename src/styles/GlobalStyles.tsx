@@ -1,7 +1,69 @@
 import { createGlobalStyle } from 'styled-components';
 import theme from './design-system/theme';
+import { axiomTheme, quantumColors } from './axiom-theme';
 
 const GlobalStyles = createGlobalStyle`
+  /* Import Quantum Fonts */
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+  /* Axiom Loom CSS Custom Properties */
+  :root {
+    /* Quantum Colors */
+    --quantum-deep: ${quantumColors.quantum.deep};
+    --quantum-void: ${quantumColors.quantum.void};
+    --quantum-dark: ${quantumColors.quantum.dark};
+    --quantum-medium: ${quantumColors.quantum.medium};
+    --quantum-light: ${quantumColors.quantum.light};
+    --quantum-bright: ${quantumColors.quantum.bright};
+    --quantum-glow: ${quantumColors.quantum.glow};
+
+    /* Neural Blues */
+    --neural-deep: ${quantumColors.neural.deep};
+    --neural-dark: ${quantumColors.neural.dark};
+    --neural-medium: ${quantumColors.neural.medium};
+    --neural-light: ${quantumColors.neural.light};
+    --neural-bright: ${quantumColors.neural.bright};
+    --neural-glow: ${quantumColors.neural.glow};
+    --neural-electric: ${quantumColors.neural.electric};
+
+    /* Plasma Accents */
+    --plasma-violet: ${quantumColors.plasma.violet};
+    --plasma-cyan: ${quantumColors.plasma.cyan};
+    --plasma-magenta: ${quantumColors.plasma.magenta};
+    --plasma-gold: ${quantumColors.plasma.gold};
+    --plasma-emerald: ${quantumColors.plasma.emerald};
+    --plasma-crimson: ${quantumColors.plasma.crimson};
+
+    /* Glass Morphism */
+    --glass-background: ${quantumColors.glass.background};
+    --glass-border: ${quantumColors.glass.border};
+    --glass-hover: ${quantumColors.glass.hover};
+    --glass-active: ${quantumColors.glass.active};
+
+    /* Typography */
+    --font-primary: ${axiomTheme.typography.fonts.primary};
+    --font-mono: ${axiomTheme.typography.fonts.mono};
+    --font-display: ${axiomTheme.typography.fonts.display};
+
+    /* Spacing */
+    --spacing-px: ${axiomTheme.spacing.px};
+    --spacing-1: ${axiomTheme.spacing[1]};
+    --spacing-2: ${axiomTheme.spacing[2]};
+    --spacing-3: ${axiomTheme.spacing[3]};
+    --spacing-4: ${axiomTheme.spacing[4]};
+    --spacing-5: ${axiomTheme.spacing[5]};
+    --spacing-6: ${axiomTheme.spacing[6]};
+    --spacing-8: ${axiomTheme.spacing[8]};
+    --spacing-10: ${axiomTheme.spacing[10]};
+    --spacing-12: ${axiomTheme.spacing[12]};
+    --spacing-16: ${axiomTheme.spacing[16]};
+    --spacing-20: ${axiomTheme.spacing[20]};
+    --spacing-24: ${axiomTheme.spacing[24]};
+    --spacing-32: ${axiomTheme.spacing[32]};
+  }
+
   /* CSS Reset and Base Styles */
   *, *::before, *::after {
     box-sizing: border-box;
@@ -14,25 +76,45 @@ const GlobalStyles = createGlobalStyle`
 
   html {
     font-size: 16px;
-    -webkit-font-smoothing: antialiased;
+    /* Removed font-smoothing that might cause fuzzing */
     -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
   }
 
   body {
-    font-family: ${props => props.theme.typography.fontFamily.primary};
+    font-family: var(--font-primary);
     font-size: ${props => props.theme.typography.fontSize.base};
     line-height: ${props => props.theme.typography.lineHeight.normal};
-    color: ${props => props.theme.colors.text.primary};
-    background-color: ${props => props.theme.colors.background.primary};
+    
+    /* SIMPLE RULE: Black text on white background */
+    color: #000000;  /* BLACK text */
+    background: #FFFFFF;  /* WHITE background */
+    
     min-height: 100vh;
+    overflow-x: hidden;
   }
 
-  /* Typography */
+  /* Simple Professional Animations */
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes slideIn {
+    from { transform: translateY(10px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+
+  /* Typography - Clean and Professional */
   h1, h2, h3, h4, h5, h6 {
-    margin-bottom: ${props => props.theme.spacing[4]};
-    font-weight: ${props => props.theme.typography.fontWeight.bold};
-    line-height: ${props => props.theme.typography.lineHeight.tight};
-    color: ${props => props.theme.colors.text.primary};
+    margin-bottom: var(--spacing-4);
+    font-family: var(--font-display);
+    font-weight: 700;
+    line-height: 1.2;
+    color: #1A1A1A;  /* Dark text for maximum readability */
+    
+    /* No effects - clean design */
+    text-shadow: none;
   }
 
   h1 {
@@ -69,23 +151,25 @@ const GlobalStyles = createGlobalStyle`
   }
 
   p {
-    margin-bottom: ${props => props.theme.spacing[4]};
-    line-height: ${props => props.theme.typography.lineHeight.relaxed};
+    margin-bottom: var(--spacing-4);
+    line-height: 1.6;
+    color: #333333;  /* Dark gray for good readability */
   }
 
-  /* Links */
+  /* Links - Professional Style */
   a {
-    color: ${props => props.theme.colors.text.link};
+    color: #0066CC;  /* Professional blue */
     text-decoration: none;
-    transition: ${props => props.theme.animations.transition.colors};
-
+    transition: color 0.2s ease;
+    
     &:hover {
+      color: #0052A3;  /* Darker blue on hover */
       text-decoration: underline;
     }
 
     &:focus {
-      outline: none;
-      box-shadow: ${props => props.theme.shadows.focus};
+      outline: 2px solid #0066CC;
+      outline-offset: 2px;
     }
   }
 
@@ -169,61 +253,42 @@ const GlobalStyles = createGlobalStyle`
     border-width: 0;
   }
 
-  /* Scrollbar Styling */
+  /* Professional Scrollbar Styling */
   ::-webkit-scrollbar {
     width: 8px;
     height: 8px;
   }
 
   ::-webkit-scrollbar-track {
-    background: ${props => props.theme.colors.background.secondary};
+    background: #F5F5F5;
+    border-radius: 4px;
   }
 
   ::-webkit-scrollbar-thumb {
-    background: ${props => props.theme.colors.secondary.mediumGray};
-    border-radius: ${props => props.theme.borderRadius.full};
+    background: #CBD5E1;
+    border-radius: 4px;
     
     &:hover {
-      background: ${props => props.theme.colors.secondary.darkGray};
+      background: #94A3B8;
     }
   }
 
-  /* Selection */
+  /* Professional Selection */
   ::selection {
-    background-color: ${props => props.theme.colors.primary.yellow};
-    color: ${props => props.theme.colors.primary.black};
+    background: rgba(0, 102, 204, 0.2);
+    color: inherit;
   }
 
-  /* Focus Visible */
+  /* Clean Focus Visible */
   :focus-visible {
-    outline: 2px solid ${props => props.theme.colors.primary.yellow};
+    outline: 2px solid #0066CC;
     outline-offset: 2px;
   }
 
-  /* Animations */
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-
-  @keyframes slideIn {
-    from { transform: translateY(20px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
-  }
-
-  @keyframes scaleIn {
-    from { transform: scale(0.95); opacity: 0; }
-    to { transform: scale(1); opacity: 1; }
-  }
-
+  /* Simple Animations */
   @keyframes spin {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
-  }
-
-  @keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.5; }
   }
 
   /* Loading State */
@@ -231,8 +296,8 @@ const GlobalStyles = createGlobalStyle`
     display: inline-block;
     width: 20px;
     height: 20px;
-    border: 2px solid ${props => props.theme.colors.border.light};
-    border-top-color: ${props => props.theme.colors.primary.yellow};
+    border: 2px solid #E2E8F0;
+    border-top-color: #0066CC;
     border-radius: 50%;
     animation: spin 0.8s linear infinite;
   }

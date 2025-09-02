@@ -7,7 +7,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
+import styled, { keyframes, css } from 'styled-components';
 import { getApiUrl } from '../utils/apiConfig';
 import { 
   Globe, 
@@ -34,6 +34,11 @@ import {
   Grid,
   Text
 } from './styled';
+
+// Keyframes animations
+const spin = keyframes`
+  to { transform: rotate(360deg); }
+`;
 
 interface EnhancedApiButtonsProps {
   repositoryName: string;
@@ -82,11 +87,7 @@ const LoadingContainer = styled.div`
     border: 3px solid ${props => props.theme.colors.border.light};
     border-top-color: ${props => props.theme.colors.primary.yellow};
     border-radius: 50%;
-    animation: spin 1s linear infinite;
-  }
-  
-  @keyframes spin {
-    to { transform: rotate(360deg); }
+    animation: ${css`${spin}`} 1s linear infinite;
   }
 `;
 

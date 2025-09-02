@@ -1,5 +1,5 @@
 import React from 'react';
-import styled, { keyframes } from 'styled-components';
+import styled, { keyframes, css } from 'styled-components';
 import { theme } from '../../styles/design-system';
 
 const shimmer = keyframes`
@@ -28,7 +28,7 @@ const SkeletonBase = styled.div<{
     ${props => props.theme.colors.background.secondary} 100%
   );
   background-size: 1000px 100%;
-  animation: ${shimmer} 1.5s ease-in-out infinite;
+  animation: ${css`${shimmer}`} 1.5s ease-in-out infinite;
 `;
 
 const SkeletonCard = styled.div`
@@ -36,7 +36,7 @@ const SkeletonCard = styled.div`
   border: 1px solid ${props => props.theme.colors.border.light};
   border-radius: ${props => props.theme.borderRadius.lg};
   padding: ${props => props.theme.spacing[6]};
-  animation: ${shimmer} 1.5s ease-in-out infinite;
+  animation: ${css`${shimmer}`} 1.5s ease-in-out infinite;
 `;
 
 const SkeletonCardHeader = styled.div`

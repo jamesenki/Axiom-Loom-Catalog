@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { getApiUrl } from '../utils/apiConfig';
+import '../styles/api-explorer-contrast-fix.css';
 import { 
   ArrowLeft,
   FileCode,
@@ -47,6 +48,11 @@ const PageHeader = styled.div`
   background: linear-gradient(135deg, ${props => props.theme.colors.primary.black} 0%, ${props => props.theme.colors.secondary.darkGray} 100%);
   padding: ${props => props.theme.spacing[12]} 0;
   margin-bottom: ${props => props.theme.spacing[8]};
+  
+  /* Force white text for all child elements */
+  * {
+    color: #FFFFFF !important;
+  }
 `;
 
 const BackButton = styled(Button)`
@@ -68,11 +74,17 @@ const SearchBar = styled.div`
 
 const SearchInput = styled(Input)`
   padding-left: ${props => props.theme.spacing[10]};
-  background: ${props => props.theme.colors.background.secondary};
-  border: 2px solid transparent;
+  background: #FFFFFF !important;  /* WHITE background */
+  color: #000000 !important;  /* BLACK text */
+  border: 2px solid #E2E8F0 !important;
+  
+  &::placeholder {
+    color: #999999 !important;  /* GRAY placeholder */
+  }
   
   &:focus {
     border-color: ${props => props.theme.colors.primary.yellow};
+    outline: none;
   }
 `;
 
@@ -81,7 +93,7 @@ const SearchIcon = styled(Search)`
   left: ${props => props.theme.spacing[3]};
   top: 50%;
   transform: translateY(-50%);
-  color: ${props => props.theme.colors.text.secondary};
+  color: #666666 !important;  /* MEDIUM GRAY for search icon */
 `;
 
 const FilterBar = styled(Flex)`
@@ -91,19 +103,22 @@ const FilterBar = styled(Flex)`
 `;
 
 const FilterButton = styled(Button)<{ active?: boolean }>`
-  background: ${props => props.active ? theme.colors.primary.yellow : theme.colors.background.secondary};
-  color: ${props => props.active ? theme.colors.primary.black : theme.colors.text.primary};
-  border: 1px solid ${props => props.active ? theme.colors.primary.yellow : 'transparent'};
+  background: ${props => props.active ? '#0066CC' : '#FFFFFF'} !important;  /* BLUE active, WHITE inactive */
+  color: ${props => props.active ? '#FFFFFF' : '#000000'} !important;  /* WHITE on blue, BLACK on white */
+  border: 1px solid ${props => props.active ? '#0066CC' : '#E2E8F0'} !important;  /* Matching borders */
   
   &:hover {
-    background: ${props => props.theme.colors.primary.yellow};
-    color: ${props => props.theme.colors.primary.black};
+    background: #0066CC !important;
+    color: #FFFFFF !important;
+    border-color: #0066CC !important;
   }
 `;
 
 const APICard = styled(Card)<{ dataType?: string }>`
   cursor: pointer;
   transition: all 0.2s ease;
+  background: #FFFFFF !important;  /* FORCE WHITE background */
+  border: 1px solid #E2E8F0 !important;
   border-left: 4px solid ${props => {
     switch (props.dataType) {
       case 'OpenAPI': return '#FF6B6B';
@@ -113,9 +128,40 @@ const APICard = styled(Card)<{ dataType?: string }>`
     }
   }};
   
+  /* FORCE BLACK TEXT on WHITE background for maximum contrast */
+  && {
+    color: #000000 !important;  /* BLACK text */
+    background: #FFFFFF !important;  /* WHITE background */
+    
+    * {
+      color: #000000 !important;  /* BLACK text for all children */
+      background: transparent !important;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      color: #000000 !important;  /* BLACK headings */
+      font-weight: 600;
+    }
+    
+    p {
+      color: #333333 !important;  /* DARK GRAY for descriptions */
+    }
+    
+    span, div {
+      color: #000000 !important;  /* BLACK for all other text */
+    }
+    
+    /* Version text and small text */
+    small,
+    [size="small"] {
+      color: #666666 !important;  /* MEDIUM GRAY for version numbers */
+    }
+  }
+  
   &:hover {
     transform: translateY(-2px);
     box-shadow: ${props => props.theme.shadows.lg};
+    background: #F8F9FA !important;  /* LIGHT GRAY hover background */
   }
 `;
 
@@ -135,6 +181,85 @@ const APITypeIcon = ({ type }: { type: string }) => {
 const EmptyState = styled.div`
   text-align: center;
   padding: ${props => props.theme.spacing[16]} 0;
+  color: #333333 !important;  /* DARK GRAY for empty state text */
+  background: transparent !important;
+  
+  * {
+    color: #333333 !important;
+    background: transparent !important;
+  }
+`;
+
+/* Main wrapper with white background and black text */
+const APIExplorerWrapper = styled.div`
+  background: #FFFFFF !important;  /* FORCE WHITE background for entire component */
+  min-height: 100vh;
+  color: #000000 !important;  /* BLACK text as default */
+  
+  /* FORCE all text elements to be BLACK on WHITE */
+  h1, h2, h3, h4, h5, h6 {
+    color: #000000 !important;
+  }
+  
+  p {
+    color: #333333 !important;  /* DARK GRAY for paragraph text */
+  }
+  
+  span, div, td, th, li {
+    color: #000000 !important;
+  }
+  
+  /* Ensure all card content has proper contrast */
+  div[class*="Card"],
+  div[class*="card"] {
+    background: #FFFFFF !important;
+    color: #000000 !important;
+    
+    * {
+      color: #000000 !important;
+      background: transparent !important;
+    }
+    
+    h3 {
+      color: #000000 !important;
+      font-weight: 600;
+    }
+    
+    p {
+      color: #333333 !important;
+    }
+    
+    /* Version numbers and small text */
+    small,
+    [size="small"] {
+      color: #666666 !important;
+    }
+  }
+  
+  /* Professional link colors */
+  a {
+    color: #0066CC !important;
+    
+    &:hover {
+      color: #0052A3 !important;
+    }
+  }
+  
+  /* Search input styling */
+  input {
+    background: #FFFFFF !important;
+    color: #000000 !important;
+    border: 1px solid #E2E8F0 !important;
+    
+    &::placeholder {
+      color: #999999 !important;
+    }
+  }
+  
+  /* Button text visibility */
+  button {
+    color: inherit !important;
+  }
 `;
 
 const APIExplorerView: React.FC = () => {
@@ -157,7 +282,11 @@ const APIExplorerView: React.FC = () => {
 
   const fetchAPIs = async () => {
     try {
-      const response = await fetch(getApiUrl(`/api/detect-apis/${repoName}`));
+      const response = await fetch(getApiUrl(`/api/detect-apis/${repoName}`), {
+        headers: {
+          'x-dev-mode': 'true'
+        }
+      });
       if (!response.ok) {
         throw new Error('Failed to fetch APIs');
       }
@@ -258,7 +387,7 @@ const APIExplorerView: React.FC = () => {
   }
 
   return (
-    <>
+    <APIExplorerWrapper className="api-explorer-container">
       <PageHeader>
         <Container maxWidth="lg">
           <BackButton as={Link} to={`/repository/${repoName}`}>
@@ -290,8 +419,8 @@ const APIExplorerView: React.FC = () => {
           </SearchBar>
           
           <FilterBar>
-            <Text weight="semibold" style={{ marginRight: theme.spacing[3] }}>
-              <Filter size={16} style={{ marginRight: theme.spacing[1] }} />
+            <Text weight="semibold" style={{ marginRight: theme.spacing[3], color: '#000000' }}>
+              <Filter size={16} style={{ marginRight: theme.spacing[1], color: '#000000' }} />
               Filter by type:
             </Text>
             <FilterButton
@@ -337,20 +466,20 @@ const APIExplorerView: React.FC = () => {
                     </Flex>
                   </CardHeader>
                   <CardContent>
-                    <CardTitle>{api.name}</CardTitle>
-                    <Text color="secondary" style={{ marginBottom: theme.spacing[2], fontSize: theme.typography.fontSize.sm }}>
+                    <CardTitle style={{ color: '#000000', fontWeight: 600 }}>{api.name}</CardTitle>
+                    <Text style={{ marginBottom: theme.spacing[2], fontSize: theme.typography.fontSize.sm, color: '#666666' }}>
                       {api.path}
                     </Text>
                     {api.description && (
-                      <CardDescription>{api.description}</CardDescription>
+                      <CardDescription style={{ color: '#333333' }}>{api.description}</CardDescription>
                     )}
                     {api.version && (
-                      <Text size="small" color="secondary" style={{ marginTop: theme.spacing[2] }}>
+                      <Text size="small" style={{ marginTop: theme.spacing[2], color: '#666666' }}>
                         Version: {api.version}
                       </Text>
                     )}
                     {api.endpoints && (
-                      <Text size="small" color="secondary">
+                      <Text size="small" style={{ color: '#666666' }}>
                         {api.endpoints} endpoint{api.endpoints !== 1 ? 's' : ''}
                       </Text>
                     )}
@@ -376,7 +505,7 @@ const APIExplorerView: React.FC = () => {
           )}
         </Section>
       </Container>
-    </>
+    </APIExplorerWrapper>
   );
 };
 

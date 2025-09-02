@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import styled, { keyframes } from 'styled-components';
+import styled, { keyframes, css } from 'styled-components';
 import { Code, GitBranch, Package, Zap } from 'lucide-react';
 import { theme } from '../styles/design-system';
 import { Container, Flex, H2, Text } from './styled';
@@ -53,7 +53,7 @@ const DashboardContainer = styled.div`
     width: 200%;
     height: 200%;
     background: radial-gradient(circle, ${props => props.theme.colors.primary.yellow}10 0%, transparent 70%);
-    animation: ${pulse} 15s ease-in-out infinite;
+    animation: ${css`${pulse}`} 15s ease-in-out infinite;
   }
 `;
 
@@ -71,7 +71,7 @@ const StatCard = styled.div<{ delay?: number }>`
   border-radius: ${props => props.theme.borderRadius.xl};
   padding: ${props => props.theme.spacing[6]};
   text-align: center;
-  animation: ${fadeInUp} 0.6s ease-out forwards;
+  animation: ${css`${fadeInUp}`} 0.6s ease-out forwards;
   animation-delay: ${props => props.delay || 0}s;
   opacity: 0;
   transition: all ${props => props.theme.animations.duration.normal} ${props => props.theme.animations.easing.easeOut};
@@ -164,7 +164,7 @@ const ActivityIndicator = styled.div`
   height: 12px;
   background: ${props => props.theme.colors.semantic.success};
   border-radius: ${props => props.theme.borderRadius.full};
-  animation: ${pulse} 2s ease-in-out infinite;
+  animation: ${css`${pulse}`} 2s ease-in-out infinite;
 `;
 
 const StatisticsDashboard: React.FC = () => {

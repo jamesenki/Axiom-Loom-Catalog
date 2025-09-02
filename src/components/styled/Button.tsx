@@ -10,43 +10,43 @@ export interface ButtonProps {
 
 const buttonVariants = {
   primary: css`
-    background-color: ${props => props.theme.colors.primary.yellow};
-    color: ${props => props.theme.colors.primary.black};
-    border: 2px solid ${props => props.theme.colors.primary.yellow};
+    background-color: ${props => props.theme.colors?.primary?.yellow || '#FFD700'};
+    color: ${props => props.theme.colors?.primary?.black || '#000000'};
+    border: 2px solid ${props => props.theme.colors?.primary?.yellow || '#FFD700'};
     
     &:hover:not(:disabled) {
-      background-color: ${props => props.theme.colors.primary.black};
-      color: ${props => props.theme.colors.primary.yellow};
-      border-color: ${props => props.theme.colors.primary.black};
+      background-color: ${props => props.theme.colors?.primary?.black || '#000000'};
+      color: ${props => props.theme.colors?.primary?.yellow || '#FFD700'};
+      border-color: ${props => props.theme.colors?.primary?.black || '#000000'};
     }
   `,
   secondary: css`
-    background-color: ${props => props.theme.colors.primary.black};
-    color: ${props => props.theme.colors.primary.white};
-    border: 2px solid ${props => props.theme.colors.primary.black};
+    background-color: ${props => props.theme.colors?.primary?.black || '#000000'};
+    color: ${props => props.theme.colors?.primary?.white || '#FFFFFF'};
+    border: 2px solid ${props => props.theme.colors?.primary?.black || '#000000'};
     
     &:hover:not(:disabled) {
-      background-color: ${props => props.theme.colors.secondary.darkGray};
-      border-color: ${props => props.theme.colors.secondary.darkGray};
+      background-color: ${props => props.theme.colors?.secondary?.darkGray || '#333333'};
+      border-color: ${props => props.theme.colors?.secondary?.darkGray || '#333333'};
     }
   `,
   outline: css`
     background-color: transparent;
-    color: ${props => props.theme.colors.primary.black};
-    border: 2px solid ${props => props.theme.colors.primary.black};
+    color: ${props => props.theme.colors?.primary?.black || '#000000'};
+    border: 2px solid ${props => props.theme.colors?.primary?.black || '#000000'};
     
     &:hover:not(:disabled) {
-      background-color: ${props => props.theme.colors.primary.black};
-      color: ${props => props.theme.colors.primary.white};
+      background-color: ${props => props.theme.colors?.primary?.black || '#000000'};
+      color: ${props => props.theme.colors?.primary?.white || '#FFFFFF'};
     }
   `,
   ghost: css`
     background-color: transparent;
-    color: ${props => props.theme.colors.primary.black};
+    color: ${props => props.theme.colors?.primary?.black || '#000000'};
     border: 2px solid transparent;
     
     &:hover:not(:disabled) {
-      background-color: ${props => props.theme.colors.background.secondary};
+      background-color: ${props => props.theme.colors?.background?.secondary || '#F0F0F0'};
     }
   `,
 };
@@ -74,8 +74,8 @@ export const Button = styled.button<ButtonProps>`
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  font-family: ${props => props.theme.typography.fontFamily.primary};
-  font-weight: ${props => props.theme.typography.fontWeight.semibold};
+  font-family: ${props => props.theme.typography?.fontFamily?.primary || 'Inter, system-ui, sans-serif'};
+  font-weight: ${props => props.theme.typography?.fontWeight?.semibold || '600'};
   text-decoration: none;
   white-space: nowrap;
   user-select: none;

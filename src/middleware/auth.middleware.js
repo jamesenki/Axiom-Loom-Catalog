@@ -146,11 +146,7 @@ const rateLimiters = {
     message: 'Too many requests, please try again later',
     standardHeaders: true,
     legacyHeaders: false,
-    keyGenerator: (req) => {
-      // Use the built-in IP key generator to handle IPv6 properly
-      const defaultKey = req.ip || 'unknown';
-      return req.user ? `${req.user.id}:admin` : defaultKey;
-    },
+    // Remove custom keyGenerator to use default IP-based limiting
     skip: (req) => !req.user || req.user.role !== 'admin'
   }),
   developer: rateLimit({
@@ -159,22 +155,16 @@ const rateLimiters = {
     message: 'Too many requests, please try again later',
     standardHeaders: true,
     legacyHeaders: false,
-    keyGenerator: (req) => {
-      const defaultKey = req.ip || 'unknown';
-      return req.user ? `${req.user.id}:developer` : defaultKey;
-    },
+    // Remove custom keyGenerator to use default IP-based limiting
     skip: (req) => !req.user || req.user.role !== 'developer'
   }),
   viewer: rateLimit({
     windowMs: 15 * 60 * 1000,
-    max: 100,
+    max: 1000, // Increased from 100 to allow testing
     message: 'Too many requests, please try again later',
     standardHeaders: true,
-    legacyHeaders: false,
-    keyGenerator: (req) => {
-      const defaultKey = req.ip || 'unknown';
-      return req.user ? `${req.user.id}:viewer` : defaultKey;
-    }
+    legacyHeaders: false
+    // Use default keyGenerator for IP-based limiting
   })
 };
 

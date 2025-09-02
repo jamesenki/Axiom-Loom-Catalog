@@ -6,6 +6,7 @@
  */
 
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { ApiDetectionResult, ApiButtonType } from '../services/dynamicApiDetection';
 import { getApiUrl } from '../utils/apiConfig';
 
@@ -27,6 +28,7 @@ export const DynamicApiButtons: React.FC<DynamicApiButtonsProps> = ({
   repositoryName,
   className = ''
 }) => {
+  const navigate = useNavigate();
   const [apiDetection, setApiDetection] = useState<ApiDetectionResult | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -39,7 +41,12 @@ export const DynamicApiButtons: React.FC<DynamicApiButtonsProps> = ({
     try {
       setLoading(true);
       setError(null);
-      const response = await fetch(getApiUrl(`/api/repository/${repositoryName}/detect-apis`));
+      const response = await fetch(getApiUrl(`/api/detect-apis/${repositoryName}`), {
+        headers: {
+          'x-dev-mode': 'true',
+          'x-bypass-auth': 'true'
+        }
+      });
       if (!response.ok) {
         throw new Error('Failed to detect APIs');
       }
@@ -55,27 +62,27 @@ export const DynamicApiButtons: React.FC<DynamicApiButtonsProps> = ({
 
   const handleSwaggerClick = () => {
     // Navigate to Swagger UI for this repository
-    window.open(`/swagger/${repositoryName}`, '_blank');
+    navigate(`/swagger/${repositoryName}`);
   };
 
   const handleGraphqlClick = () => {
     // Navigate to GraphQL Playground for this repository
-    window.open(`/graphql/${repositoryName}`, '_blank');
+    navigate(`/graphql/${repositoryName}`);
   };
 
   const handleGrpcClick = () => {
     // Navigate to gRPC UI for this repository
-    window.open(`/grpc/${repositoryName}`, '_blank');
+    navigate(`/grpc/${repositoryName}`);
   };
 
   const handlePostmanClick = () => {
-    // Download or view Postman collection for this repository
-    window.open(`/api/postman/${repositoryName}`, '_blank');
+    // Navigate to Postman view for this repository
+    navigate(`/postman/${repositoryName}`);
   };
 
   const handleApiHubClick = () => {
     // Navigate to comprehensive API documentation hub
-    window.location.href = `/api-hub/${repositoryName}`;
+    navigate(`/api-hub/${repositoryName}`);
   };
 
   const getButtonConfigs = (): ApiButtonConfig[] => {

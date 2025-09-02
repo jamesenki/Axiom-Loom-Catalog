@@ -1,7 +1,6 @@
 import React, { Component, ErrorInfo, ReactNode } from 'react';
-import styled, { keyframes } from 'styled-components';
+import styled, { keyframes, css } from 'styled-components';
 import { AlertTriangle, RefreshCw, Home, Bug, Mail } from 'lucide-react';
-// Remove direct theme import - theme comes from ThemeProvider
 import { Button } from './styled/Button';
 import { Container, H1, H2, Text } from './styled';
 
@@ -16,117 +15,170 @@ const ErrorContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background: ${props => props.theme.colors.background.primary};
-  padding: ${props => props.theme.spacing[8]};
+  background: ${props => props.theme.colors?.background?.primary || '#0A0A1B'};
+  padding: ${props => props.theme.spacing?.[8] || '2rem'};
 `;
 
 const ErrorCard = styled.div`
-  background: ${props => props.theme.colors.background.primary};
-  border: 1px solid ${props => props.theme.colors.border.light};
-  border-radius: ${props => props.theme.borderRadius.xl};
-  padding: ${props => props.theme.spacing[12]};
+  background: ${props => props.theme.colors?.background?.primary || '#0A0A1B'};
+  border: 1px solid ${props => props.theme.colors?.border?.light || 'rgba(139, 92, 246, 0.2)'};
+  border-radius: ${props => props.theme.borderRadius?.xl || '1rem'};
+  padding: ${props => props.theme.spacing?.[12] || '3rem'};
   max-width: 600px;
   width: 100%;
   text-align: center;
-  box-shadow: ${props => props.theme.shadows.xl};
-  animation: ${shake} 0.5s ease-in-out;
+  box-shadow: ${props => props.theme.shadows?.xl || '0 20px 25px -5px rgba(0, 0, 0, 0.1)'};
+  animation: ${css`${shake}`} 0.5s ease-in-out;
 `;
 
 const ErrorIcon = styled.div`
   width: 100px;
   height: 100px;
-  margin: 0 auto ${props => props.theme.spacing[6]};
-  background: linear-gradient(135deg, ${props => props.theme.colors.semantic.error}20 0%, ${props => props.theme.colors.semantic.error}10 100%);
-  border-radius: ${props => props.theme.borderRadius['2xl']};
+  margin: 0 auto ${props => props.theme.spacing?.[6] || '1.5rem'};
+  background: linear-gradient(135deg, 
+    ${props => props.theme.colors?.semantic?.error || '#ef4444'}20 0%, 
+    ${props => props.theme.colors?.semantic?.error || '#ef4444'}10 100%
+  );
+  border-radius: ${props => props.theme.borderRadius?.['2xl'] || '1.5rem'};
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 2px solid ${props => props.theme.colors.semantic.error}30;
+  border: 2px solid ${props => props.theme.colors?.semantic?.error || '#ef4444'}30;
 
   svg {
-    color: ${props => props.theme.colors.semantic.error};
+    color: ${props => props.theme.colors?.semantic?.error || '#ef4444'};
   }
 `;
 
-const ErrorTitle = styled(H1)`
-  color: ${props => props.theme.colors.text.primary};
-  margin-bottom: ${props => props.theme.spacing[4]};
+const ErrorTitle = styled.h1`
+  font-family: ${props => props.theme.typography?.fontFamily?.primary || 'Inter, sans-serif'};
+  font-size: ${props => props.theme.typography?.fontSize?.['4xl'] || '2.25rem'};
+  font-weight: ${props => props.theme.typography?.fontWeight?.bold || '700'};
+  color: ${props => props.theme.colors?.text?.primary || '#ffffff'};
+  margin-bottom: ${props => props.theme.spacing?.[4] || '1rem'};
+  
+  span {
+    background: linear-gradient(135deg, #8B5CF6 0%, #06B6D4 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
 `;
 
-const ErrorMessage = styled(Text)`
-  color: ${props => props.theme.colors.text.secondary};
-  margin-bottom: ${props => props.theme.spacing[8]};
-  font-size: ${props => props.theme.typography.fontSize.lg};
+const ErrorMessage = styled.p`
+  font-family: ${props => props.theme.typography?.fontFamily?.primary || 'Inter, sans-serif'};
+  font-size: ${props => props.theme.typography?.fontSize?.lg || '1.125rem'};
+  color: ${props => props.theme.colors?.text?.secondary || '#94A3B8'};
+  margin-bottom: ${props => props.theme.spacing?.[8] || '2rem'};
   line-height: 1.6;
 `;
 
-const ErrorActions = styled.div`
-  display: flex;
-  gap: ${props => props.theme.spacing[4]};
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-bottom: ${props => props.theme.spacing[8]};
-`;
-
-const ErrorDetails = styled.details`
+const ErrorDetails = styled.div`
+  background: ${props => props.theme.colors?.background?.secondary || '#141429'};
+  border: 1px solid ${props => props.theme.colors?.border?.light || 'rgba(139, 92, 246, 0.2)'};
+  border-radius: ${props => props.theme.borderRadius?.lg || '0.75rem'};
+  padding: ${props => props.theme.spacing?.[6] || '1.5rem'};
+  margin: ${props => props.theme.spacing?.[8] || '2rem'} 0;
   text-align: left;
-  background: ${props => props.theme.colors.background.secondary};
-  border: 1px solid ${props => props.theme.colors.border.light};
-  border-radius: ${props => props.theme.borderRadius.md};
-  padding: ${props => props.theme.spacing[4]};
-  margin-top: ${props => props.theme.spacing[6]};
-
-  summary {
-    cursor: pointer;
-    font-weight: ${props => props.theme.typography.fontWeight.medium};
-    color: ${props => props.theme.colors.text.primary};
-    margin-bottom: ${props => props.theme.spacing[3]};
-    display: flex;
-    align-items: center;
-    gap: ${props => props.theme.spacing[2]};
-
-    &:hover {
-      color: ${props => props.theme.colors.primary.yellow};
-    }
-  }
 `;
 
 const ErrorStack = styled.pre`
-  background: ${props => props.theme.colors.primary.black};
-  color: ${props => props.theme.colors.semantic.error};
-  padding: ${props => props.theme.spacing[4]};
-  border-radius: ${props => props.theme.borderRadius.md};
-  font-size: ${props => props.theme.typography.fontSize.sm};
-  font-family: ${props => props.theme.typography.fontFamily.mono};
+  font-family: ${props => props.theme.typography?.fontFamily?.mono || 'JetBrains Mono, monospace'};
+  font-size: ${props => props.theme.typography?.fontSize?.sm || '0.875rem'};
+  color: ${props => props.theme.colors?.text?.tertiary || '#64748B'};
   overflow-x: auto;
   white-space: pre-wrap;
   word-break: break-word;
-  max-height: 300px;
+  max-height: 200px;
   overflow-y: auto;
+  margin: 0;
+  
+  &::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background: ${props => props.theme.colors?.background?.tertiary || '#1E293B'};
+    border-radius: 4px;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background: ${props => props.theme.colors?.border?.medium || 'rgba(139, 92, 246, 0.4)'};
+    border-radius: 4px;
+  }
 `;
 
-const ErrorId = styled.div`
-  font-family: ${props => props.theme.typography.fontFamily.mono};
-  font-size: ${props => props.theme.typography.fontSize.xs};
-  color: ${props => props.theme.colors.text.secondary};
-  background: ${props => props.theme.colors.background.secondary};
-  padding: ${props => props.theme.spacing[2]} ${props => props.theme.spacing[3]};
-  border-radius: ${props => props.theme.borderRadius.md};
-  display: inline-block;
-  margin-top: ${props => props.theme.spacing[4]};
+const ActionButtons = styled.div`
+  display: flex;
+  gap: ${props => props.theme.spacing?.[4] || '1rem'};
+  justify-content: center;
+  flex-wrap: wrap;
+`;
+
+const ActionButton = styled(Button)`
+  display: inline-flex;
+  align-items: center;
+  gap: ${props => props.theme.spacing?.[2] || '0.5rem'};
+  transition: all 0.3s ease;
+  
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(139, 92, 246, 0.3);
+  }
+`;
+
+const HelpSection = styled.div`
+  margin-top: ${props => props.theme.spacing?.[8] || '2rem'};
+  padding-top: ${props => props.theme.spacing?.[8] || '2rem'};
+  border-top: 1px solid ${props => props.theme.colors?.border?.light || 'rgba(139, 92, 246, 0.2)'};
+`;
+
+const HelpTitle = styled.h3`
+  font-family: ${props => props.theme.typography?.fontFamily?.primary || 'Inter, sans-serif'};
+  font-size: ${props => props.theme.typography?.fontSize?.lg || '1.125rem'};
+  font-weight: ${props => props.theme.typography?.fontWeight?.semibold || '600'};
+  color: ${props => props.theme.colors?.text?.secondary || '#94A3B8'};
+  margin-bottom: ${props => props.theme.spacing?.[4] || '1rem'};
+`;
+
+const HelpList = styled.ul`
+  text-align: left;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+`;
+
+const HelpItem = styled.li`
+  font-family: ${props => props.theme.typography?.fontFamily?.primary || 'Inter, sans-serif'};
+  font-size: ${props => props.theme.typography?.fontSize?.base || '1rem'};
+  color: ${props => props.theme.colors?.text?.tertiary || '#64748B'};
+  margin-bottom: ${props => props.theme.spacing?.[2] || '0.5rem'};
+  padding-left: ${props => props.theme.spacing?.[6] || '1.5rem'};
+  position: relative;
+  
+  &:before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: ${props => props.theme.colors?.primary?.main || '#8B5CF6'};
+  }
 `;
 
 interface Props {
   children: ReactNode;
-  fallback?: ReactNode;
-  onError?: (error: Error, errorInfo: ErrorInfo) => void;
 }
 
 interface State {
   hasError: boolean;
   error: Error | null;
   errorInfo: ErrorInfo | null;
-  errorId: string;
+  errorCount: number;
 }
 
 class ErrorBoundary extends Component<Props, State> {
@@ -136,41 +188,41 @@ class ErrorBoundary extends Component<Props, State> {
       hasError: false,
       error: null,
       errorInfo: null,
-      errorId: '',
+      errorCount: 0,
     };
   }
 
   static getDerivedStateFromError(error: Error): Partial<State> {
-    // Generate a unique error ID for tracking
-    const errorId = `err-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
-    
-    return {
-      hasError: true,
-      error,
-      errorId,
-    };
+    return { hasError: true };
   }
 
   componentDidCatch(error: Error, errorInfo: ErrorInfo) {
-    this.setState({
+    console.error('ErrorBoundary caught an error:', error, errorInfo);
+    
+    this.setState(prevState => ({
       error,
       errorInfo,
-    });
+      errorCount: prevState.errorCount + 1,
+    }));
 
-    // ALWAYS log error so we can debug
-    console.error('ErrorBoundary caught an error:', error, errorInfo);
-    console.error('Error message:', error.message);
-    console.error('Error stack:', error.stack);
-    console.error('Component stack:', errorInfo.componentStack);
-
-    // Call custom error handler if provided
-    if (this.props.onError) {
-      this.props.onError(error, errorInfo);
+    // Log to external service if needed
+    if (process.env.NODE_ENV === 'production') {
+      // Could send to error tracking service here
+      console.error('Production error:', {
+        message: error.toString(),
+        stack: errorInfo.componentStack,
+        timestamp: new Date().toISOString(),
+      });
     }
-
-    // In a real app, you might want to send this to an error reporting service
-    // Example: logErrorToService(error, errorInfo, this.state.errorId);
   }
+
+  handleReset = () => {
+    this.setState({
+      hasError: false,
+      error: null,
+      errorInfo: null,
+    });
+  };
 
   handleReload = () => {
     window.location.reload();
@@ -180,134 +232,91 @@ class ErrorBoundary extends Component<Props, State> {
     window.location.href = '/';
   };
 
-  handleReportError = () => {
-    const { error, errorInfo, errorId } = this.state;
-    const errorDetails = {
-      id: errorId,
-      message: error?.message,
-      stack: error?.stack,
-      componentStack: errorInfo?.componentStack,
-      userAgent: navigator.userAgent,
-      url: window.location.href,
-      timestamp: new Date().toISOString(),
-    };
+  handleReportBug = () => {
+    const subject = encodeURIComponent('Bug Report: Application Error');
+    const body = encodeURIComponent(`
+Error: ${this.state.error?.toString() || 'Unknown error'}
 
-    // In a real app, you would send this to your error reporting service
-    // For now, we'll just copy to clipboard
-    navigator.clipboard?.writeText(JSON.stringify(errorDetails, null, 2)).then(() => {
-      alert('Error details copied to clipboard. Please share with the development team.');
-    }).catch(() => {
-      // Fallback: show in a new window
-      const errorWindow = window.open('', '_blank');
-      if (errorWindow) {
-        errorWindow.document.write(`
-          <html>
-            <head><title>Error Report</title></head>
-            <body>
-              <h2>Error Report</h2>
-              <pre>${JSON.stringify(errorDetails, null, 2)}</pre>
-            </body>
-          </html>
-        `);
-      }
-    });
+Stack Trace:
+${this.state.error?.stack || 'No stack trace available'}
+
+Component Stack:
+${this.state.errorInfo?.componentStack || 'No component stack available'}
+
+User Agent: ${navigator.userAgent}
+URL: ${window.location.href}
+Time: ${new Date().toISOString()}
+    `);
+    
+    window.open(`mailto:support@axiomloom.ai?subject=${subject}&body=${body}`);
   };
 
   render() {
     if (this.state.hasError) {
-      // Custom fallback UI
-      if (this.props.fallback) {
-        return this.props.fallback;
-      }
-
-      // Default error UI
       return (
         <ErrorContainer>
-          <Container maxWidth="md">
-            <ErrorCard>
-              <ErrorIcon>
-                <AlertTriangle size={48} />
-              </ErrorIcon>
-              
-              <ErrorTitle>Oops! Something went wrong</ErrorTitle>
-              
-              <ErrorMessage>
-                We encountered an unexpected error while loading this page. 
-                This issue has been automatically reported to our team.
-              </ErrorMessage>
+          <ErrorCard>
+            <ErrorIcon>
+              <AlertTriangle size={48} />
+            </ErrorIcon>
+            
+            <ErrorTitle>
+              <span>Quantum Disruption Detected</span>
+            </ErrorTitle>
+            
+            <ErrorMessage>
+              The neural network encountered an unexpected quantum state. 
+              Our AI agents are analyzing the anomaly.
+            </ErrorMessage>
 
-              <ErrorActions>
-                <Button
-                  variant="primary"
-                  onClick={this.handleReload}
-                >
-                  <RefreshCw size={16} />
-                  Reload Page
-                </Button>
-                
-                <Button
-                  variant="outline"
-                  onClick={this.handleGoHome}
-                >
-                  <Home size={16} />
-                  Go Home
-                </Button>
-                
-                <Button
-                  variant="ghost"
-                  onClick={this.handleReportError}
-                >
-                  <Mail size={16} />
-                  Report Issue
-                </Button>
-              </ErrorActions>
+            {process.env.NODE_ENV === 'development' && this.state.error && (
+              <ErrorDetails>
+                <HelpTitle>Error Details</HelpTitle>
+                <ErrorStack>
+                  {this.state.error.toString()}
+                  {'\n\n'}
+                  {this.state.error.stack}
+                </ErrorStack>
+              </ErrorDetails>
+            )}
 
-              <ErrorId>
-                Error ID: {this.state.errorId}
-              </ErrorId>
+            <ActionButtons>
+              <ActionButton variant="primary" onClick={this.handleReset}>
+                <RefreshCw />
+                Try Again
+              </ActionButton>
               
-              {/* ALWAYS SHOW THE ACTUAL ERROR */}
-              <div style={{background: '#fee', padding: '20px', margin: '20px 0', border: '2px solid red'}}>
-                <h3>ACTUAL ERROR:</h3>
-                <p style={{color: 'red', fontWeight: 'bold'}}>{this.state.error?.message || 'Unknown error'}</p>
-                <details>
-                  <summary>Stack trace</summary>
-                  <pre style={{fontSize: '12px', overflow: 'auto'}}>{this.state.error?.stack}</pre>
-                </details>
-              </div>
-
-              {process.env.NODE_ENV === 'development' && this.state.error && (
-                <ErrorDetails>
-                  <summary>
-                    <Bug size={16} />
-                    Technical Details (Development Only)
-                  </summary>
-                  <H2 style={{ margin: '16px 0' }}>Error Message:</H2>
-                  <Text style={{ 
-                    color: '#dc3545',
-                    fontFamily: 'monospace',
-                    fontSize: '14px'
-                  }}>
-                    {this.state.error.message}
-                  </Text>
-                  
-                  {this.state.error.stack && (
-                    <>
-                      <H2 style={{ margin: '16px 0' }}>Stack Trace:</H2>
-                      <ErrorStack>{this.state.error.stack}</ErrorStack>
-                    </>
-                  )}
-                  
-                  {this.state.errorInfo?.componentStack && (
-                    <>
-                      <H2 style={{ margin: '16px 0' }}>Component Stack:</H2>
-                      <ErrorStack>{this.state.errorInfo.componentStack}</ErrorStack>
-                    </>
-                  )}
-                </ErrorDetails>
+              <ActionButton variant="secondary" onClick={this.handleReload}>
+                <RefreshCw />
+                Reload Page
+              </ActionButton>
+              
+              <ActionButton variant="secondary" onClick={this.handleGoHome}>
+                <Home />
+                Go Home
+              </ActionButton>
+              
+              {process.env.NODE_ENV === 'development' && (
+                <ActionButton variant="ghost" onClick={this.handleReportBug}>
+                  <Bug />
+                  Report Bug
+                </ActionButton>
               )}
-            </ErrorCard>
-          </Container>
+            </ActionButtons>
+
+            <HelpSection>
+              <HelpTitle>What can you do?</HelpTitle>
+              <HelpList>
+                <HelpItem>Try refreshing the page</HelpItem>
+                <HelpItem>Clear your browser cache and cookies</HelpItem>
+                <HelpItem>Check your internet connection</HelpItem>
+                <HelpItem>Try again in a few moments</HelpItem>
+                {this.state.errorCount > 2 && (
+                  <HelpItem>Contact support if the issue persists</HelpItem>
+                )}
+              </HelpList>
+            </HelpSection>
+          </ErrorCard>
         </ErrorContainer>
       );
     }
@@ -315,40 +324,5 @@ class ErrorBoundary extends Component<Props, State> {
     return this.props.children;
   }
 }
-
-// HOC for wrapping components with error boundary
-export const withErrorBoundary = <P extends object>(
-  Component: React.ComponentType<P>,
-  fallback?: ReactNode,
-  onError?: (error: Error, errorInfo: ErrorInfo) => void
-) => {
-  const WrappedComponent = (props: P) => (
-    <ErrorBoundary fallback={fallback} onError={onError}>
-      <Component {...props} />
-    </ErrorBoundary>
-  );
-
-  WrappedComponent.displayName = `withErrorBoundary(${Component.displayName || Component.name})`;
-  
-  return WrappedComponent;
-};
-
-// Hook for handling async errors (since Error Boundaries don't catch them)
-export const useErrorHandler = () => {
-  const handleError = React.useCallback((error: Error) => {
-    // Log the error
-    console.error('Async error caught:', error);
-    
-    // In a real app, you might want to:
-    // 1. Send to error reporting service
-    // 2. Show user-friendly error message
-    // 3. Optionally reload the page or redirect
-    
-    // For now, we'll just throw it to be caught by error boundary
-    throw error;
-  }, []);
-
-  return handleError;
-};
 
 export default ErrorBoundary;

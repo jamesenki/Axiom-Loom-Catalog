@@ -1,5 +1,5 @@
 import React from 'react';
-import styled, { keyframes } from 'styled-components';
+import styled, { keyframes, css } from 'styled-components';
 import { 
   FolderOpen, 
   Search, 
@@ -63,7 +63,7 @@ const EmptyStateIcon = styled.div<{ variant?: string }>`
   display: flex;
   align-items: center;
   justify-content: center;
-  animation: ${float} 6s ease-in-out infinite;
+  animation: ${css`${float}`} 6s ease-in-out infinite;
   position: relative;
   overflow: hidden;
 
@@ -75,7 +75,7 @@ const EmptyStateIcon = styled.div<{ variant?: string }>`
     width: 200%;
     height: 200%;
     background: radial-gradient(circle, ${props => props.theme.colors.primary.yellow}10 0%, transparent 50%);
-    animation: ${sparkle} 4s ease-in-out infinite;
+    animation: ${css`${sparkle}`} 4s ease-in-out infinite;
   }
 
   svg {
@@ -129,7 +129,7 @@ const DecorationElement = styled.div<{
   left: ${props => props.left || 'auto'};
   right: ${props => props.right || 'auto'};
   bottom: ${props => props.bottom || 'auto'};
-  animation: ${float} 8s ease-in-out infinite;
+  animation: ${css`${float}`} 8s ease-in-out infinite;
   animation-delay: ${props => props.delay || '0s'};
   display: flex;
   align-items: center;

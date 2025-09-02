@@ -7,7 +7,13 @@ import React from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../../contexts/BypassAuthContext';
 import { UserRole } from '../../services/auth/clientAuthService';
-import styled from 'styled-components';
+import styled, { keyframes, css } from 'styled-components';
+
+// Keyframes animations
+const spin = keyframes`
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+`;
 
 const LoadingContainer = styled.div`
   min-height: 100vh;
@@ -23,12 +29,7 @@ const Spinner = styled.div`
   border-radius: 50%;
   width: 40px;
   height: 40px;
-  animation: spin 1s linear infinite;
-  
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
+  animation: ${css`${spin}`} 1s linear infinite;
 `;
 
 const UnauthorizedContainer = styled.div`

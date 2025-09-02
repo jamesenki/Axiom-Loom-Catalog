@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import styled, { keyframes } from 'styled-components';
+import styled, { keyframes, css } from 'styled-components';
 import { theme } from '../styles/design-system';
 
 const fadeIn = keyframes`
@@ -68,12 +68,12 @@ const TransitionWrapper = styled.div<{
     
     switch (props.transitionType) {
       case 'slide':
-        return props.direction === 'backward' ? slideInFromLeft : slideInFromRight;
+        return css`${props.direction === 'backward' ? slideInFromLeft : slideInFromRight}`;
       case 'scale':
-        return scaleIn;
+        return css`${scaleIn}`;
       case 'fade':
       default:
-        return fadeIn;
+        return css`${fadeIn}`;
     }
   }} ${props => props.theme.animations.duration.normal} ${props => props.theme.animations.easing.easeOut} forwards;
   

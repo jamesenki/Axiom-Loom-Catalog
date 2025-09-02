@@ -1,0 +1,183 @@
+/**
+ * API Explorer Contrast Fix
+ * Ensures maximum readability with BLACK text on WHITE backgrounds
+ * Fixes all instances of light gray text that are hard to read
+ */
+
+/* GLOBAL API EXPLORER CONTRAST FIXES */
+.api-explorer-container,
+.api-explorer-container *,
+[class*="APIExplorer"],
+[class*="APIExplorer"] * {
+  /* FORCE white background and black text throughout */
+  background-color: #FFFFFF !important;
+  color: #000000 !important;
+  opacity: 1 !important;
+  filter: none !important;
+}
+
+/* CARD SPECIFIC FIXES */
+.api-explorer-container div[class*="Card"],
+.api-explorer-container div[class*="card"],
+[class*="APICard"] {
+  background: #FFFFFF !important;
+  border: 1px solid #E2E8F0 !important;
+  color: #000000 !important;
+}
+
+.api-explorer-container div[class*="Card"] *,
+.api-explorer-container div[class*="card"] *,
+[class*="APICard"] * {
+  background: transparent !important;
+  color: #000000 !important;
+}
+
+/* HEADING FIXES */
+.api-explorer-container h1,
+.api-explorer-container h2,
+.api-explorer-container h3,
+.api-explorer-container h4,
+.api-explorer-container h5,
+.api-explorer-container h6,
+[class*="CardTitle"] {
+  color: #000000 !important;
+  font-weight: 600 !important;
+  opacity: 1 !important;
+  filter: none !important;
+}
+
+/* DESCRIPTION AND PARAGRAPH FIXES */
+.api-explorer-container p,
+[class*="CardDescription"] {
+  color: #333333 !important;
+  opacity: 1 !important;
+  filter: none !important;
+}
+
+/* SMALL TEXT AND VERSION NUMBER FIXES */
+.api-explorer-container small,
+.api-explorer-container [size="small"],
+.api-explorer-container span[class*="version"],
+.api-explorer-container span[class*="endpoint"] {
+  color: #666666 !important;
+  opacity: 1 !important;
+  filter: none !important;
+}
+
+/* PATH TEXT FIXES */
+.api-explorer-container span[class*="path"],
+.api-explorer-container div[class*="path"] {
+  color: #666666 !important;
+  opacity: 1 !important;
+  filter: none !important;
+}
+
+/* INPUT AND SEARCH FIXES */
+.api-explorer-container input,
+.api-explorer-container textarea {
+  background: #FFFFFF !important;
+  color: #000000 !important;
+  border: 1px solid #E2E8F0 !important;
+  opacity: 1 !important;
+  filter: none !important;
+}
+
+.api-explorer-container input::placeholder,
+.api-explorer-container textarea::placeholder {
+  color: #999999 !important;
+  opacity: 0.8 !important;
+}
+
+/* BUTTON FIXES */
+.api-explorer-container button {
+  opacity: 1 !important;
+  filter: none !important;
+}
+
+.api-explorer-container button:not([class*="active"]) {
+  background: #FFFFFF !important;
+  color: #000000 !important;
+  border: 1px solid #E2E8F0 !important;
+}
+
+.api-explorer-container button[class*="active"] {
+  background: #0066CC !important;
+  color: #FFFFFF !important;
+  border: 1px solid #0066CC !important;
+}
+
+/* LINK FIXES */
+.api-explorer-container a {
+  color: #0066CC !important;
+  opacity: 1 !important;
+}
+
+.api-explorer-container a:hover {
+  color: #0052A3 !important;
+}
+
+/* ICON FIXES */
+.api-explorer-container svg[class*="search"] {
+  color: #666666 !important;
+}
+
+.api-explorer-container svg[class*="filter"] {
+  color: #000000 !important;
+}
+
+/* BADGE FIXES */
+.api-explorer-container span[class*="Badge"],
+.api-explorer-container div[class*="Badge"] {
+  background: #F8F9FA !important;
+  color: #333333 !important;
+  border: 1px solid #E2E8F0 !important;
+}
+
+/* TEXT COMPONENT FIXES */
+.api-explorer-container div[class*="Text"],
+.api-explorer-container span[class*="Text"] {
+  color: #000000 !important;
+  opacity: 1 !important;
+  filter: none !important;
+}
+
+/* ENSURE NO INHERITANCE OF LIGHT COLORS */
+.api-explorer-container [color="#FFFFFF"],
+.api-explorer-container [color="#E0E0E6"],
+.api-explorer-container [color="#C0C0C6"],
+.api-explorer-container [color="white"],
+.api-explorer-container [style*="color: #fff"],
+.api-explorer-container [style*="color: #FFF"],
+.api-explorer-container [style*="color: white"],
+.api-explorer-container [style*="color: rgb(255, 255, 255)"],
+.api-explorer-container [style*="color: rgba(255, 255, 255"] {
+  color: #000000 !important;
+}
+
+/* SPECIFIC RGB OVERRIDES FOR PROBLEMATIC COLORS */
+.api-explorer-container [style*="color: rgb(224, 224, 230)"] {
+  color: #333333 !important;
+}
+
+.api-explorer-container [style*="color: rgb(192, 192, 198)"] {
+  color: #666666 !important;
+}
+
+/* FORCE VISIBLE TEXT FOR ANY REMAINING ELEMENTS */
+.api-explorer-container * {
+  /* If text is too light, force it to be darker */
+  text-shadow: none !important;
+}
+
+/* CONTAINER BACKGROUND OVERRIDE */
+.api-explorer-container {
+  background: #FFFFFF !important;
+  min-height: 100vh;
+}
+
+/* FINAL SAFETY NET - CATCH ALL REMAINING LIGHT TEXT */
+.api-explorer-container *[style*="color: #E"],
+.api-explorer-container *[style*="color: #F"],
+.api-explorer-container *[style*="color: rgba(2"] {
+  color: #333333 !important;
+}

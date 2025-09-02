@@ -41,6 +41,28 @@ router.get('/detect-apis/:repoName', async (req, res) => {
 });
 
 /**
+ * Detect APIs in a repository (alternate route)
+ * GET /api/repository/:repoName/detect-apis
+ */
+router.get('/repository/:repoName/detect-apis', async (req, res) => {
+  try {
+    const { repoName } = req.params;
+    const repoPath = path.join(CLONED_REPOS_PATH, repoName);
+    
+    if (!fs.existsSync(repoPath)) {
+      return res.status(404).json({ error: `Repository not found: ${repoName}` });
+    }
+    
+    const result = await detectRepositoryApis(repoPath, repoName);
+    res.json(result);
+    
+  } catch (error) {
+    console.error('API detection error:', error);
+    res.status(500).json({ error: 'Failed to detect APIs', details: error.message });
+  }
+});
+
+/**
  * Get API button configuration for a repository
  * GET /api/api-buttons/:repoName
  */

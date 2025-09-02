@@ -67,12 +67,12 @@ export const EnhancedCard = styled(BaseCard)<{
         transparent
       );
       background-size: 200% 100%;
-      animation: ${shimmer} 2s linear infinite;
+      animation: ${css`${shimmer}`} 2s linear infinite;
     }
   `}
   
   ${props => props.hasUpdate && css`
-    animation: ${pulse} 2s infinite;
+    animation: ${css`${pulse}`} 2s infinite;
   `}
 
   &:hover {
@@ -299,6 +299,6 @@ export const LiveIndicator = styled.div<{ isLive?: boolean }>`
     height: 8px;
     border-radius: ${props => props.theme.borderRadius.full};
     background: ${props => props.isLive ? theme.colors.semantic.success : theme.colors.text.secondary};
-    animation: ${props => props.isLive ? pulse : 'none'} 2s infinite;
+    animation: ${props => props.isLive ? css`${pulse}` : 'none'} 2s infinite;
   }
 `;

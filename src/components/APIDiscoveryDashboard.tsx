@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import styled, { keyframes } from 'styled-components';
+import styled, { keyframes, css } from 'styled-components';
 import { 
   Zap, 
   Code, 
@@ -76,7 +76,7 @@ const APICard = styled.div<{ apiType: string }>`
   position: relative;
   overflow: hidden;
   transition: all ${props => props.theme.animations.duration.normal} ${props => props.theme.animations.easing.easeOut};
-  animation: ${float} 6s ease-in-out infinite;
+  animation: ${css`${float}`} 6s ease-in-out infinite;
   animation-delay: ${props => {
     const delays: Record<string, string> = {
       'openapi': '0s',
@@ -247,7 +247,7 @@ const NetworkConnection = styled.div<{
     ${props => props.theme.colors.primary.yellow}40
   );
   background-size: 200% 100%;
-  animation: ${shimmer} 3s linear infinite;
+  animation: ${css`${shimmer}`} 3s linear infinite;
   height: 2px;
   transform-origin: left center;
   

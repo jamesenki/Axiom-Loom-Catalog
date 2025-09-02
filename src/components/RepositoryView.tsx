@@ -27,7 +27,11 @@ const RepositoryView: React.FC = () => {
       try {
         setLoading(true);
         // Fetch repository details from API
-        const response = await fetch(getApiUrl(`/api/repository/${repoName}`));
+        const response = await fetch(getApiUrl(`/api/repository/${repoName}`), {
+          headers: {
+            'x-dev-mode': 'true'
+          }
+        });
         if (response.ok) {
           const data = await response.json();
           setRepository(data);

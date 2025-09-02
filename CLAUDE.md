@@ -117,8 +117,288 @@ For ANY project with frontend UIs, you MUST NOT finish or declare success until:
 6. Sync on demand (not automatic)
 7. Local caching for performance
 
+## Sequence Diagram Requirements for FMEA-Ready Documentation
+
+### CORE PRINCIPLE: COMPREHENSIVE SEQUENCE DIAGRAMS FOR FAILURE MODE ANALYSIS
+
+When creating sequence diagrams, you MUST generate PlantUML diagrams that are detailed enough to conduct a complete Failure Mode and Effects Analysis (FMEA). Every diagram must include:
+
+### Required Elements for ALL Sequence Diagrams
+
+1. **All User Roles and Actors**
+   - End Users (with permission levels)
+   - Administrators
+   - Service Accounts
+   - External Systems
+   - Monitoring/Alerting Systems
+   - Background Jobs/Schedulers
+
+2. **Complete Flow Coverage**
+   - Happy path (primary success scenario)
+   - ALL alternative paths
+   - ALL error scenarios
+   - Timeout conditions
+   - Retry mechanisms
+   - Circuit breaker patterns
+   - Fallback behaviors
+   - Compensation transactions
+
+3. **Integration Points**
+   - REST API calls (with HTTP methods, status codes)
+   - Kafka/EventHub interactions (produce, consume, commit)
+   - Database transactions (with isolation levels)
+   - Cache interactions (hit, miss, invalidation)
+   - Authentication/Authorization checks
+   - Rate limiting/throttling
+   - Message queue operations
+
+4. **Error Recovery Mechanisms**
+   - Retry policies (exponential backoff, max attempts)
+   - Dead letter queues
+   - Poison message handling
+   - Transaction rollback scenarios
+   - Compensating transactions
+   - Manual intervention points
+   - Alert triggers
+
+5. **Edge Cases and Boundary Conditions**
+   - Concurrent access scenarios
+   - Race conditions
+   - Network partitions
+   - Service unavailability
+   - Data inconsistency handling
+   - Version mismatch scenarios
+   - Resource exhaustion (memory, connections)
+   - Security breach attempts
+
+### PlantUML Template Structure
+
+```plantuml
+@startuml
+!define FAILURE_COLOR #FF6B6B
+!define WARNING_COLOR #FFD93D
+!define SUCCESS_COLOR #6BCF7F
+!define RETRY_COLOR #4ECDC4
+
+title Complete Sequence with FMEA Coverage - [Feature Name]
+skinparam backgroundColor #FEFEFE
+skinparam responseMessageBelowArrow true
+
+' Define all participants
+actor "User\n[Role: Admin]" as User
+participant "API Gateway\n[Rate Limit: 100/min]" as Gateway
+participant "Auth Service\n[Token TTL: 1hr]" as Auth
+database "PostgreSQL\n[Isolation: READ_COMMITTED]" as DB
+queue "Kafka\n[Partition: 3, Replication: 2]" as Kafka
+participant "Service A\n[Timeout: 30s]" as ServiceA
+participant "Cache\n[TTL: 5min]" as Cache
+participant "DLQ\n[Retention: 7d]" as DLQ
+participant "Monitoring\n[Alert Threshold: 5 failures]" as Monitor
+
+== Authentication Phase ==
+User -> Gateway: POST /login {credentials}
+activate Gateway
+Gateway -> Auth: Validate credentials
+activate Auth
+
+alt Success - Valid Credentials
+    Auth -> Auth: Generate JWT token
+    Auth --> Gateway: 200 OK {token, expires_in: 3600}
+    Gateway --> User: 200 OK {token}
+else Invalid Credentials
+    Auth --> Gateway: 401 Unauthorized
+    Gateway -> Monitor: Log failed attempt
+    Gateway --> User: 401 {error: "Invalid credentials"}
+else Auth Service Timeout (>5s)
+    Gateway -> Gateway: Retry with exponential backoff (3 attempts)
+    alt Retry Successful
+        Auth --> Gateway: 200 OK {token}
+    else All Retries Failed
+        Gateway -> Monitor: CRITICAL: Auth service down
+        Gateway --> User: 503 Service Unavailable
+    end
+end
+deactivate Auth
+
+== Main Transaction Flow ==
+User -> Gateway: POST /api/resource {data}
+Gateway -> Gateway: Check rate limit
+
+alt Rate Limit Exceeded
+    Gateway --> User: 429 Too Many Requests\n{retry_after: 60}
+else Within Rate Limit
+    Gateway -> ServiceA: Process request
+    activate ServiceA
+    
+    ' Cache check
+    ServiceA -> Cache: GET cache_key
+    alt Cache Hit
+        Cache --> ServiceA: Cached data
+        ServiceA --> Gateway: 200 OK {cached: true}
+    else Cache Miss
+        ServiceA -> DB: BEGIN TRANSACTION
+        activate DB
+        
+        alt Database Success
+            DB --> ServiceA: Data retrieved
+            ServiceA -> Cache: SET cache_key, TTL=300s
+            
+            ' Kafka Publishing
+            ServiceA -> Kafka: Publish event {type: "resource.created"}
+            activate Kafka
+            
+            alt Kafka Success
+                Kafka --> ServiceA: ACK (offset: 12345)
+                ServiceA -> DB: COMMIT
+                DB --> ServiceA: Committed
+                ServiceA --> Gateway: 200 OK {data}
+            else Kafka Failure - Timeout
+                ServiceA -> ServiceA: Retry (3 attempts, backoff)
+                alt Retry Success
+                    Kafka --> ServiceA: ACK
+                    ServiceA -> DB: COMMIT
+                else All Retries Failed
+                    ServiceA -> DLQ: Send to dead letter queue
+                    ServiceA -> DB: ROLLBACK
+                    DB --> ServiceA: Rolled back
+                    ServiceA -> Monitor: ALERT: Kafka publish failed
+                    ServiceA --> Gateway: 500 {error: "Event publish failed"}
+                end
+            end
+            deactivate Kafka
+            
+        else Database Deadlock
+            DB --> ServiceA: ERROR: Deadlock detected
+            ServiceA -> ServiceA: Retry transaction (max 3)
+            alt Retry Success
+                DB --> ServiceA: Success
+            else Max Retries Exceeded
+                ServiceA -> Monitor: ERROR: Persistent deadlock
+                ServiceA --> Gateway: 503 {error: "Database unavailable"}
+            end
+            
+        else Database Connection Pool Exhausted
+            DB --> ServiceA: ERROR: No connections available
+            ServiceA -> Monitor: CRITICAL: Connection pool exhausted
+            ServiceA --> Gateway: 503 {error: "Service overloaded"}
+        end
+        deactivate DB
+    end
+    deactivate ServiceA
+end
+
+== Async Processing (Kafka Consumer) ==
+Kafka -> ServiceA: Consume message
+activate ServiceA
+
+alt Processing Success
+    ServiceA -> DB: Update status
+    ServiceA -> Kafka: Commit offset
+else Processing Failure - Poison Message
+    ServiceA -> ServiceA: Retry (5 attempts)
+    alt Still Failing
+        ServiceA -> DLQ: Move to DLQ
+        ServiceA -> Monitor: ALERT: Poison message detected
+        ServiceA -> Kafka: Commit offset (skip message)
+    end
+else Processing Failure - Transient
+    ServiceA -> ServiceA: Don't commit, message will be redelivered
+    Monitor -> Monitor: Increment failure counter
+    alt Failure Threshold Exceeded (>5 in 1min)
+        Monitor -> Monitor: Trigger PagerDuty alert
+        Monitor -> ServiceA: Circuit breaker OPEN
+    end
+end
+deactivate ServiceA
+
+== Monitoring & Alerting ==
+Monitor -> Monitor: Aggregate metrics every 30s
+alt Error Rate > 1%
+    Monitor -> Monitor: Send alert to on-call
+else Latency P99 > 1000ms
+    Monitor -> Monitor: Send performance alert
+else DLQ Messages > 100
+    Monitor -> Monitor: Send DLQ alert for manual review
+end
+
+== Manual Recovery Procedures ==
+actor "On-Call Engineer" as Engineer
+Engineer -> DLQ: Review poison messages
+Engineer -> DLQ: Replay or purge messages
+Engineer -> ServiceA: Reset circuit breaker
+Engineer -> Cache: Flush if data inconsistency
+
+@enduml
+```
+
+### Required Annotations for FMEA
+
+Each sequence diagram MUST include:
+
+1. **Timing Constraints**
+   - Timeouts for each call
+   - SLA requirements
+   - Performance thresholds
+
+2. **Failure Probabilities**
+   - Historical failure rates
+   - MTBF (Mean Time Between Failures)
+   - MTTR (Mean Time To Recovery)
+
+3. **Impact Severity**
+   - Data loss potential
+   - User impact scope
+   - Business continuity effects
+
+4. **Detection Methods**
+   - Monitoring points
+   - Alert thresholds
+   - Health check endpoints
+
+5. **Mitigation Strategies**
+   - Automated recovery
+   - Manual procedures
+   - Escalation paths
+
+### Kafka-Specific Requirements
+
+For Kafka/EventHub interactions, always include:
+- Partition strategy
+- Replication factor
+- Consumer group management
+- Offset management (at-least-once, exactly-once)
+- Rebalancing scenarios
+- Schema evolution handling
+- Backpressure management
+
+### REST API Specific Requirements
+
+For REST APIs, always include:
+- All HTTP status codes
+- Request/response headers
+- Authentication headers
+- Idempotency keys
+- Correlation IDs for tracing
+- Rate limiting headers
+- CORS handling
+
+### Validation Checklist for Sequence Diagrams
+
+Before considering a sequence diagram complete:
+- [ ] All user roles are represented
+- [ ] Every API call has timeout handling
+- [ ] Every database operation has transaction boundaries
+- [ ] Every Kafka operation has offset management
+- [ ] All failure modes have recovery paths
+- [ ] Monitoring points are identified
+- [ ] Manual intervention procedures are documented
+- [ ] Security checks are explicit
+- [ ] Performance bottlenecks are annotated
+- [ ] Data consistency guarantees are clear
+
 ## Remember
 - Test everything before claiming it works
 - No broken links, ever
 - Performance matters - cache aggressively
 - User experience is paramount
+- Sequence diagrams must be FMEA-ready with complete failure analysis

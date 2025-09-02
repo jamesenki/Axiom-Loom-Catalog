@@ -14,6 +14,7 @@ import {
   Settings
 } from 'lucide-react';
 import { theme } from '../styles/design-system';
+import DynamicApiButtons from './DynamicApiButtons';
 import {
   Container,
   Section,
@@ -159,7 +160,11 @@ const RepositoryDetail: React.FC = () => {
   useEffect(() => {
     const fetchRepositoryDetails = async () => {
       try {
-        const response = await fetch(getApiUrl(`/api/repository/${repoName}/details`));
+        const response = await fetch(getApiUrl(`/api/repository/${repoName}/details`), {
+          headers: {
+            'x-dev-mode': 'true'
+          }
+        });
         if (!response.ok) {
           throw new Error('Failed to fetch repository details');
         }
@@ -276,6 +281,9 @@ const RepositoryDetail: React.FC = () => {
                   <Settings size={20} />
                   Explore APIs
                 </Button>
+                
+                {/* Dynamic API Buttons - Shows GraphQL, Swagger, etc. based on what's detected */}
+                <DynamicApiButtons repositoryName={repository.name} />
                 
                 {repository.apiTypes?.hasPostman && (
                   <Button

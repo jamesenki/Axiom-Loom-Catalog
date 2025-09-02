@@ -221,7 +221,7 @@ const FieldType = styled.span`
 
 const GrpcExplorer: React.FC = () => {
   const { repoName } = useParams<{ repoName: string }>();
-  const [searchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
   const protoPath = searchParams.get('proto') || searchParams.get('file');
   
   const [loading, setLoading] = useState(true);
@@ -253,26 +253,29 @@ const GrpcExplorer: React.FC = () => {
     }
   }, [repoName, protoPath]);
 
-  const loadProtoFile = async () => {
+  const loadProtoFileByPath = async (path: string) => {
     try {
-      if (protoPath) {
-        const response = await fetch(getApiUrl(`/api/repository/${repoName}/file?path=${encodeURIComponent(protoPath)}`));
-        if (!response.ok) {
-          const errorText = await response.text();
-          throw new Error(`Failed to load proto file: ${response.status} ${errorText}`);
+      const response = await fetch(getApiUrl(`/api/repository/${repoName}/file?path=${encodeURIComponent(path)}`), {
+        headers: {
+          'x-dev-mode': 'true',
+          'x-bypass-auth': 'true'
         }
-        
-        const content = await response.text();
-        setProtoContent(content);
-        
-        // Parse proto file to extract services and methods
-        const parsedServices = parseProtoFile(content);
-        setServices(parsedServices);
-        
-        // Auto-expand first service
-        if (parsedServices.length > 0) {
-          setExpandedServices(new Set([parsedServices[0].name]));
-        }
+      });
+      if (!response.ok) {
+        const errorText = await response.text();
+        throw new Error(`Failed to load proto file: ${response.status} ${errorText}`);
+      }
+      
+      const content = await response.text();
+      setProtoContent(content);
+      
+      // Parse proto file to extract services and methods
+      const parsedServices = parseProtoFile(content);
+      setServices(parsedServices);
+      
+      // Auto-expand first service
+      if (parsedServices.length > 0) {
+        setExpandedServices(new Set([parsedServices[0].name]));
       }
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Unknown error');
@@ -281,9 +284,20 @@ const GrpcExplorer: React.FC = () => {
     }
   };
 
+  const loadProtoFile = async () => {
+    if (protoPath) {
+      await loadProtoFileByPath(protoPath);
+    }
+  };
+
   const fetchAvailableProtos = async () => {
     try {
-      const response = await fetch(getApiUrl(`/api/detect-apis/${repoName}`));
+      const response = await fetch(getApiUrl(`/api/detect-apis/${repoName}`), {
+        headers: {
+          'x-dev-mode': 'true',
+          'x-bypass-auth': 'true'
+        }
+      });
       
       if (!response.ok) {
         throw new Error(`Failed to fetch API data: ${response.status}`);
@@ -292,17 +306,17 @@ const GrpcExplorer: React.FC = () => {
       const data = await response.json();
       if (data.apis && data.apis.grpc && data.apis.grpc.length > 0) {
         setAvailableProtos(data.apis.grpc.map((g: any) => g.file));
-        // Automatically load the first proto file
+        // Automatically load the first proto file WITHOUT reloading the page
         const firstProto = data.apis.grpc[0].file;
-        window.history.replaceState(null, '', `${window.location.pathname}?proto=${encodeURIComponent(firstProto)}`);
-        // Reload with the proto parameter
-        window.location.reload();
+        setSearchParams({ proto: firstProto });
+        // Load the proto file directly
+        loadProtoFileByPath(firstProto);
       } else {
         setError('No gRPC services found in this repository');
+        setLoading(false);
       }
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to fetch available proto files');
-    } finally {
       setLoading(false);
     }
   };

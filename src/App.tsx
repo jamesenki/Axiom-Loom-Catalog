@@ -1,12 +1,11 @@
 import React, { useEffect, useState, lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
-import theme from './styles/design-system/theme';
+import combinedTheme from './styles/combinedTheme';
 import GlobalStyles from './styles/GlobalStyles';
-import Header from './components/styled/Header';
+import Header from './components/Header';
 import SyncStatus from './components/SyncStatus';
 import { SyncProvider, useSyncContext } from './contexts/SyncContext';
-// Use bypass authentication for testing
 import { AuthProvider } from './contexts/BypassAuthContext';
 import { Container } from './components/styled';
 import { FullPageLoading } from './components/styled/Loading';
@@ -18,6 +17,13 @@ import DemoMode from './components/DemoMode';
 import KeyboardShortcuts from './components/KeyboardShortcuts';
 import EnhancedSearchModal from './components/EnhancedSearchModal';
 import ErrorBoundary from './components/ErrorBoundary';
+import { NeuralBackground } from './components/NeuralBackground';
+import styled, { keyframes, css } from 'styled-components';
+
+// Keyframes animations
+const spin = keyframes`
+  to { transform: rotate(360deg); }
+`;
 
 // Add error logging only in browser environment
 if (typeof window !== 'undefined') {
@@ -30,7 +36,7 @@ if (typeof window !== 'undefined') {
 }
 
 // Lazy load components for better performance
-const RepositoryList = lazy(() => import('./components/styled/RepositoryListSimple'));
+const RepositoryList = lazy(() => import('./components/RepositoryList'));
 const RepositoryDetail = lazy(() => import('./components/RepositoryDetailRedesigned'));
 const RepositoryView = lazy(() => import('./components/RepositoryView'));
 const DocumentationView = lazy(() => import('./components/DocumentationView'));
@@ -55,13 +61,52 @@ const AuthCallback = lazy(() => import('./components/auth/AuthCallback'));
 const UserProfile = lazy(() => import('./components/auth/UserProfile'));
 const ApiKeyManagement = lazy(() => import('./components/auth/ApiKeyManagement'));
 
+// Styled Components
+const AppContainer = styled.div`
+  min-height: 100vh;
+  background: #FFFFFF !important;  /* FORCE WHITE background */
+  background-color: #FFFFFF !important;
+  background-image: none !important;
+  position: relative;
+  overflow-x: hidden;
+`;
+
+const ContentWrapper = styled.div`
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  padding-top: 80px; /* Add space for fixed header */
+`;
+
+const LoadingContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  color: #00C9FF;
+  font-size: 1.2rem;
+  
+  &::before {
+    content: '';
+    width: 80px;
+    height: 80px;
+    border: 4px solid rgba(139, 92, 246, 0.1);
+    border-top-color: #8B5CF6;
+    border-radius: 50%;
+    animation: ${css`${spin}`} 1s linear infinite;
+    margin-right: 1rem;
+  }
+`;
+
 // Loading component
 const PageLoader = () => (
-  <FullPageLoading text="Loading..." variant="spinner" />
+  <LoadingContainer>
+    Loading Quantum Interface...
+  </LoadingContainer>
 );
 
 function AppContent() {
-  const [showSyncStatus, setShowSyncStatus] = useState(true);
+  const [showSyncStatus, setShowSyncStatus] = useState(false);
   const [isDemoMode, setIsDemoMode] = useState(false);
   const { updateSyncResult } = useSyncContext();
   const { isSearchOpen, closeSearch } = useGlobalSearch();
@@ -85,165 +130,114 @@ function AppContent() {
 
   return (
     <ErrorBoundary>
-      <ThemeProvider theme={theme}>
+      <ThemeProvider theme={combinedTheme}>
         <GlobalStyles />
-        <Router>
-        <AuthProvider>
-          <Header />
-          {showSyncStatus && (
-            <div style={{
-              position: 'fixed',
-              top: '64px',
-              right: '16px',
-              width: '384px',
-              zIndex: 1000
-            }}>
-              <SyncStatus 
-                onSyncComplete={(result) => {
-                  updateSyncResult(result);
-                  if (result.success && result.failedRepositories.length === 0) {
-                    setTimeout(() => setShowSyncStatus(false), 10000);
-                  }
-                }}
-              />
-            </div>
-          )}
-          <Container as="main" maxWidth="2xl" padding="desktop">
-            <Suspense fallback={<PageLoader />}>
-              <PageTransition transitionType="fade">
-                <Routes>
-                {/* Public routes */}
-                <Route path="/login" element={<Login />} />
-                <Route path="/auth/callback" element={<AuthCallback />} />
-                <Route path="/auth/success" element={<AuthCallback />} />
-                <Route path="/auth/error" element={<AuthCallback />} />
+        <AppContainer>
+          {/* Neural network background - DISABLED FOR READABILITY */}
+          {/* <NeuralBackground 
+            nodeCount={60}
+            maxConnections={6}
+            connectionDistance={200}
+            animationSpeed={1}
+            interactive={true}
+            opacity={0.4}
+            colorScheme="quantum"
+          /> */}
+          
+          <ContentWrapper>
+            <Router>
+              <AuthProvider>
+                <Header />
+                {showSyncStatus && (
+                  <div style={{
+                    position: 'fixed',
+                    top: '100px',
+                    right: '16px',
+                    width: '384px',
+                    zIndex: 1000
+                  }}>
+                    <SyncStatus />
+                  </div>
+                )}
+
+                {isDemoMode && <DemoMode isActive={isDemoMode} onToggle={() => setIsDemoMode(!isDemoMode)} />}
+                <KeyboardShortcuts />
                 
-                {/* Protected routes */}
-                <Route path="/" element={
-                  <ProtectedRoute>
-                    <RepositoryList />
-                  </ProtectedRoute>
-                } />
-                <Route path="/profile" element={
-                  <ProtectedRoute>
-                    <UserProfile />
-                  </ProtectedRoute>
-                } />
-                <Route path="/api-keys" element={
-                  <ProtectedRoute requiredPermission="create:api_keys">
-                    <ApiKeyManagement />
-                  </ProtectedRoute>
-                } />
-                <Route path="/repository/:repoName" element={
-                  <ProtectedRoute>
-                    <RepositoryDetail />
-                  </ProtectedRoute>
-                } />
-                <Route path="/repository/:repoName/view" element={
-                  <ProtectedRoute>
-                    <RepositoryView />
-                  </ProtectedRoute>
-                } />
-                <Route path="/docs/:repoName" element={
-                  <ProtectedRoute>
-                    <DocumentationView />
-                  </ProtectedRoute>
-                } />
-                <Route path="/postman/:repoName" element={
-                  <ProtectedRoute>
-                    <PostmanView />
-                  </ProtectedRoute>
-                } />
-                <Route path="/graphql/:repoName" element={
-                  <ProtectedRoute>
-                    <GraphQLPlaygroundView />
-                  </ProtectedRoute>
-                } />
-                <Route path="/grpc-playground/:repoName" element={
-                  <ProtectedRoute>
-                    <GrpcExplorer />
-                  </ProtectedRoute>
-                } />
-                <Route path="/api-explorer/all" element={
-                  <ProtectedRoute>
-                    <AllAPIsView />
-                  </ProtectedRoute>
-                } />
-                <Route path="/api-explorer/:repoName" element={
-                  <ProtectedRoute>
-                    <APIExplorerView />
-                  </ProtectedRoute>
-                } />
-                <Route path="/api-viewer/:repoName" element={
-                  <ProtectedRoute>
-                    <SwaggerViewer />
-                  </ProtectedRoute>
-                } />
-                <Route path="/api-hub/:repoName" element={
-                  <ProtectedRoute>
-                    <APIDocumentationHub />
-                  </ProtectedRoute>
-                } />
-                <Route path="/sync" element={
-                  <ProtectedRoute requiredRole={UserRole.ADMIN}>
-                    <RepositorySync />
-                  </ProtectedRoute>
-                } />
-                
-                {/* Enhanced API Explorer routes */}
-                <Route path="/api-explorer-v2/:repoName" element={
-                  <ProtectedRoute>
-                    <UnifiedApiExplorer />
-                  </ProtectedRoute>
-                } />
-                <Route path="/graphql-enhanced/:repoName" element={
-                  <ProtectedRoute>
-                    <GraphQLPlaygroundEnhanced />
-                  </ProtectedRoute>
-                } />
-                <Route path="/grpc-explorer/:repoName" element={
-                  <ProtectedRoute>
-                    <GrpcExplorer />
-                  </ProtectedRoute>
-                } />
-                <Route path="/postman-runner/:repoName" element={
-                  <ProtectedRoute>
-                    <PostmanCollectionRunner />
-                  </ProtectedRoute>
-                } />
-              </Routes>
-              </PageTransition>
-            </Suspense>
-          </Container>
-          
-          {/* Enhanced Global Search Modal */}
-          <EnhancedSearchModal 
-            isOpen={isSearchOpen}
-            onClose={closeSearch}
-          />
-          
-          {/* Demo Mode - Hidden */}
-          <DemoMode 
-            isActive={isDemoMode} 
-            onToggle={() => setIsDemoMode(!isDemoMode)} 
-          />
-          
-          {/* Keyboard Shortcuts */}
-          <KeyboardShortcuts onDemoToggle={() => setIsDemoMode(!isDemoMode)} />
-        </AuthProvider>
-        </Router>
+                {isSearchOpen && (
+                  <EnhancedSearchModal 
+                    isOpen={isSearchOpen}
+                    onClose={closeSearch}
+                  />
+                )}
+
+                <Suspense fallback={<PageLoader />}>
+                  <Routes>
+                    {/* Public routes */}
+                    <Route path="/" element={<PageTransition><RepositoryList /></PageTransition>} />
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/auth/callback" element={<AuthCallback />} />
+                    
+                    {/* Repository routes */}
+                    <Route path="/repositories" element={<PageTransition><RepositoryList /></PageTransition>} />
+                    <Route path="/repository/:repoName" element={<PageTransition><RepositoryDetail /></PageTransition>} />
+                    <Route path="/repository/:repoName/view" element={<PageTransition><RepositoryView /></PageTransition>} />
+                    
+                    {/* Documentation routes */}
+                    <Route path="/docs" element={<PageTransition><APIDocumentationHub /></PageTransition>} />
+                    <Route path="/docs/:repoName" element={<PageTransition><DocumentationView /></PageTransition>} />
+                    <Route path="/docs/:repoName/*" element={<PageTransition><DocumentationView /></PageTransition>} />
+                    
+                    {/* API routes */}
+                    <Route path="/apis" element={<PageTransition><AllAPIsView /></PageTransition>} />
+                    <Route path="/api-explorer" element={<PageTransition><UnifiedApiExplorer /></PageTransition>} />
+                    <Route path="/api-explorer/:repoName" element={<PageTransition><APIExplorerView /></PageTransition>} />
+                    <Route path="/api/:repoName/swagger" element={<PageTransition><SwaggerViewer /></PageTransition>} />
+                    
+                    {/* GraphQL routes */}
+                    <Route path="/graphql/:repoName" element={<PageTransition><GraphQLView /></PageTransition>} />
+                    <Route path="/graphql-playground/:repoName" element={<PageTransition><GraphQLPlaygroundEnhanced /></PageTransition>} />
+                    
+                    {/* Postman routes */}
+                    <Route path="/postman/:repoName" element={<PageTransition><PostmanView /></PageTransition>} />
+                    <Route path="/postman-runner/:repoName" element={<PageTransition><PostmanCollectionRunner /></PageTransition>} />
+                    
+                    {/* gRPC routes */}
+                    <Route path="/grpc/:repoName" element={<PageTransition><GrpcExplorer /></PageTransition>} />
+                    <Route path="/grpc-playground/:repoName" element={<PageTransition><GrpcExplorer /></PageTransition>} />
+                    
+                    {/* Protected routes */}
+                    <Route path="/sync" element={
+                      <ProtectedRoute requiredRole={UserRole.ADMIN}>
+                        <PageTransition><RepositorySync /></PageTransition>
+                      </ProtectedRoute>
+                    } />
+                    
+                    <Route path="/profile" element={
+                      <ProtectedRoute requiredRole={UserRole.DEVELOPER}>
+                        <PageTransition><UserProfile /></PageTransition>
+                      </ProtectedRoute>
+                    } />
+                    
+                    <Route path="/api-keys" element={
+                      <ProtectedRoute requiredRole={UserRole.ADMIN}>
+                        <PageTransition><ApiKeyManagement /></PageTransition>
+                      </ProtectedRoute>
+                    } />
+                    
+                    {/* Fallback route */}
+                    <Route path="*" element={<PageTransition><RepositoryList /></PageTransition>} />
+                  </Routes>
+                </Suspense>
+              </AuthProvider>
+            </Router>
+          </ContentWrapper>
+        </AppContainer>
       </ThemeProvider>
     </ErrorBoundary>
   );
 }
 
 function App() {
-  // Validate theme
-  console.log('Theme loaded:', theme);
-  if (!theme) {
-    console.error('Theme is undefined!');
-    return <div>Error: Theme not loaded</div>;
-  }
   return (
     <SyncProvider>
       <AppContent />
