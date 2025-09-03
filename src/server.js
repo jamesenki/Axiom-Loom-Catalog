@@ -491,6 +491,18 @@ app.get('/api/repository/:repoName/public', (req, res) => {
   }
 });
 
+// Demo Coming Soon page route
+app.get('/demo/:repoName/*', (req, res) => {
+  const demoPath = path.join(__dirname, '../public/demo-coming-soon.html');
+  res.sendFile(demoPath);
+});
+
+// Handle demo subdomain routing (for demo.axiom-loom.com)
+app.get('/ai-maintenance-architecture', (req, res) => {
+  const demoPath = path.join(__dirname, '../public/demo-coming-soon.html');
+  res.sendFile(demoPath);
+});
+
 // Protected API Routes
 app.use('/api', authenticate, trackRepositoryAccess, dynamicApiRoutes);
 app.use('/api', authenticate, trackRepositoryAccess, repositoryManagementRoutes);
