@@ -495,76 +495,152 @@ const RepositoryDetailRedesigned: React.FC = () => {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <Grid columns={2} gap="large">
-                  <div>
-                    <H3 style={{ marginBottom: theme.spacing[4], color: theme.colors.accent.blue }}>
-                      Development Efficiency
-                    </H3>
-                    <Flex direction="column" gap={3}>
-                      {repository.content.developmentAdvantages.cycleTimeReduction && (
-                        <Flex align="center" gap={2}>
-                          <TrendingUp size={16} color={theme.colors.accent.green} />
-                          <Text><strong>Time Savings:</strong> {repository.content.developmentAdvantages.cycleTimeReduction}</Text>
-                        </Flex>
-                      )}
-                      {repository.content.developmentAdvantages.costSavings && (
-                        <Flex align="center" gap={2}>
-                          <DollarSign size={16} color={theme.colors.accent.green} />
-                          <Text><strong>Cost Savings:</strong> {repository.content.developmentAdvantages.costSavings}</Text>
-                        </Flex>
-                      )}
-                    </Flex>
-                  </div>
-                  
-                  <div>
-                    <H3 style={{ marginBottom: theme.spacing[4], color: theme.colors.accent.purple }}>
-                      AI vs Traditional Development
-                    </H3>
-                    <div style={{ 
-                      display: 'grid', 
-                      gridTemplateColumns: '1fr 1fr', 
-                      gap: theme.spacing[4],
-                      marginBottom: theme.spacing[4]
-                    }}>
-                      <div style={{ textAlign: 'center' }}>
-                        <H3 style={{ color: theme.colors.accent.purple }}>{repository.content.developmentAdvantages.aiTeamSize}</H3>
-                        <Text color="secondary">AI Agents</Text>
+                {/* Development Efficiency Metrics */}
+                <div style={{ 
+                  background: `linear-gradient(135deg, ${theme.colors.accent.blue}15, ${theme.colors.accent.green}15)`,
+                  borderRadius: theme.borderRadius.md,
+                  padding: theme.spacing[6],
+                  marginBottom: theme.spacing[8]
+                }}>
+                  <H3 style={{ marginBottom: theme.spacing[4], color: theme.colors.accent.blue, textAlign: 'center' }}>
+                    🚀 Development Efficiency Gains
+                  </H3>
+                  <Grid columns={2} gap="large">
+                    {repository.content.developmentAdvantages.cycleTimeReduction && (
+                      <div style={{ 
+                        background: theme.colors.background.primary,
+                        borderRadius: theme.borderRadius.md,
+                        padding: theme.spacing[4],
+                        textAlign: 'center',
+                        boxShadow: theme.shadows.sm
+                      }}>
+                        <TrendingUp size={32} color={theme.colors.accent.green} style={{ marginBottom: theme.spacing[2] }} />
+                        <H3 style={{ color: theme.colors.accent.green, marginBottom: theme.spacing[2] }}>
+                          6-12 months
+                        </H3>
+                        <Text color="secondary">Faster Development</Text>
                       </div>
-                      <div style={{ textAlign: 'center' }}>
-                        <H3 style={{ color: theme.colors.accent.red }}>{repository.content.developmentAdvantages.traditionalTeamSize}</H3>
-                        <Text color="secondary">Traditional Roles</Text>
+                    )}
+                    {repository.content.developmentAdvantages.costSavings && (
+                      <div style={{ 
+                        background: theme.colors.background.primary,
+                        borderRadius: theme.borderRadius.md,
+                        padding: theme.spacing[4],
+                        textAlign: 'center',
+                        boxShadow: theme.shadows.sm
+                      }}>
+                        <DollarSign size={32} color={theme.colors.accent.green} style={{ marginBottom: theme.spacing[2] }} />
+                        <H3 style={{ color: theme.colors.accent.green, marginBottom: theme.spacing[2] }}>
+                          $200K-500K
+                        </H3>
+                        <Text color="secondary">Cost Savings</Text>
                       </div>
-                    </div>
-                  </div>
-                </Grid>
+                    )}
+                  </Grid>
+                </div>
 
+                {/* AI vs Traditional Comparison */}
+                <div style={{
+                  background: `linear-gradient(135deg, ${theme.colors.accent.purple}15, ${theme.colors.accent.red}15)`,
+                  borderRadius: theme.borderRadius.md,
+                  padding: theme.spacing[6],
+                  marginBottom: theme.spacing[8]
+                }}>
+                  <H3 style={{ marginBottom: theme.spacing[6], color: theme.colors.text.primary, textAlign: 'center' }}>
+                    ⚖️ AI vs Traditional Development
+                  </H3>
+                  <Grid columns={2} gap="large">
+                    <div style={{ 
+                      background: theme.colors.background.primary,
+                      borderRadius: theme.borderRadius.md,
+                      padding: theme.spacing[6],
+                      textAlign: 'center',
+                      boxShadow: theme.shadows.sm,
+                      border: `2px solid ${theme.colors.accent.purple}`
+                    }}>
+                      <div style={{ 
+                        fontSize: '48px',
+                        fontWeight: 'bold',
+                        color: theme.colors.accent.purple,
+                        marginBottom: theme.spacing[2]
+                      }}>
+                        6
+                      </div>
+                      <H3 style={{ color: theme.colors.accent.purple, marginBottom: theme.spacing[1] }}>
+                        AI Agents
+                      </H3>
+                      <Text color="secondary">Specialized & Efficient</Text>
+                    </div>
+                    <div style={{ 
+                      background: theme.colors.background.primary,
+                      borderRadius: theme.borderRadius.md,
+                      padding: theme.spacing[6],
+                      textAlign: 'center',
+                      boxShadow: theme.shadows.sm,
+                      border: `2px solid ${theme.colors.accent.red}`
+                    }}>
+                      <div style={{ 
+                        fontSize: '48px',
+                        fontWeight: 'bold',
+                        color: theme.colors.accent.red,
+                        marginBottom: theme.spacing[2]
+                      }}>
+                        12-16
+                      </div>
+                      <H3 style={{ color: theme.colors.accent.red, marginBottom: theme.spacing[1] }}>
+                        Human Roles
+                      </H3>
+                      <Text color="secondary">Traditional Approach</Text>
+                    </div>
+                  </Grid>
+                </div>
+
+                {/* AI Development Team */}
                 {repository.content.developmentAdvantages.aiAgentsUsed && (
-                  <div style={{ marginTop: theme.spacing[6] }}>
-                    <H3 style={{ marginBottom: theme.spacing[4], color: theme.colors.accent.blue }}>
-                      AI Development Team
+                  <div style={{ marginBottom: theme.spacing[8] }}>
+                    <H3 style={{ marginBottom: theme.spacing[6], color: theme.colors.accent.blue, textAlign: 'center' }}>
+                      🤖 AI Development Team
                     </H3>
                     <Grid columns={3} gap="medium">
                       {repository.content.developmentAdvantages.aiAgentsUsed.map((agent, idx) => (
-                        <Flex key={idx} align="center" gap={2}>
-                          <Code size={16} color={theme.colors.accent.blue} />
-                          <Text>{agent}</Text>
-                        </Flex>
+                        <div key={idx} style={{
+                          background: `linear-gradient(135deg, ${theme.colors.accent.blue}10, ${theme.colors.accent.purple}10)`,
+                          borderRadius: theme.borderRadius.md,
+                          padding: theme.spacing[4],
+                          textAlign: 'center',
+                          border: `1px solid ${theme.colors.accent.blue}30`,
+                          transition: 'transform 0.2s ease, box-shadow 0.2s ease'
+                        }}>
+                          <Code size={24} color={theme.colors.accent.blue} style={{ marginBottom: theme.spacing[2] }} />
+                          <Text weight="semibold" style={{ color: theme.colors.accent.blue }}>
+                            {agent}
+                          </Text>
+                        </div>
                       ))}
                     </Grid>
                   </div>
                 )}
 
+                {/* Traditional Roles Replaced */}
                 {repository.content.developmentAdvantages.traditionalRolesReplaced && (
-                  <div style={{ marginTop: theme.spacing[6] }}>
-                    <H3 style={{ marginBottom: theme.spacing[4], color: theme.colors.accent.red }}>
-                      Traditional Roles Replaced
+                  <div>
+                    <H3 style={{ marginBottom: theme.spacing[6], color: theme.colors.accent.red, textAlign: 'center' }}>
+                      👥 Traditional Roles Replaced
                     </H3>
-                    <Grid columns={3} gap="medium">
+                    <Grid columns={4} gap="small">
                       {repository.content.developmentAdvantages.traditionalRolesReplaced.map((role, idx) => (
-                        <Flex key={idx} align="center" gap={2}>
-                          <Users size={16} color={theme.colors.accent.red} />
-                          <Text>{role}</Text>
-                        </Flex>
+                        <div key={idx} style={{
+                          background: `linear-gradient(135deg, ${theme.colors.accent.red}10, ${theme.colors.accent.orange || theme.colors.accent.red}10)`,
+                          borderRadius: theme.borderRadius.sm,
+                          padding: theme.spacing[3],
+                          textAlign: 'center',
+                          border: `1px solid ${theme.colors.accent.red}30`
+                        }}>
+                          <Users size={16} color={theme.colors.accent.red} style={{ marginBottom: theme.spacing[1] }} />
+                          <Text size="small" style={{ color: theme.colors.accent.red, fontWeight: '500' }}>
+                            {role}
+                          </Text>
+                        </div>
                       ))}
                     </Grid>
                   </div>
