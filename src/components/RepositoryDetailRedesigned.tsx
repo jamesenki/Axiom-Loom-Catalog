@@ -93,6 +93,7 @@ interface RepositoryDetails {
   content?: {
     keyFeatures?: string[];
     benefits?: string[];
+    useCases?: string[];
     developmentAdvantages?: {
       cycleTimeReduction?: string;
       costSavings?: string;
@@ -659,7 +660,7 @@ const RepositoryDetailRedesigned: React.FC = () => {
             </CardHeader>
             <CardContent>
               <Grid columns={2} gap="medium">
-                {repository.businessValue?.useCases?.map((useCase, idx) => (
+                {(repository.content?.useCases || repository.businessValue?.useCases || []).map((useCase, idx) => (
                   <Flex key={idx} align="center" gap={3}>
                     <Zap size={20} color={theme.colors.primary.yellow} />
                     <Text>{useCase}</Text>
