@@ -90,6 +90,23 @@ interface RepositoryDetails {
     supportIncluded: string;
     customizationAvailable: boolean;
   };
+  content?: {
+    keyFeatures?: string[];
+    benefits?: string[];
+    developmentAdvantages?: {
+      cycleTimeReduction?: string;
+      costSavings?: string;
+      aiAgentsUsed?: string[];
+      traditionalRolesReplaced?: string[];
+      traditionalTeamSize?: string;
+      aiTeamSize?: string;
+    };
+  };
+  business?: {
+    targetMarket?: string[];
+    competitiveAdvantage?: string[];
+    valueScore?: number;
+  };
 }
 
 const PageHeader = styled.div`
@@ -431,7 +448,7 @@ const RepositoryDetailRedesigned: React.FC = () => {
                       <Users size={16} style={{ marginRight: theme.spacing[2], verticalAlign: 'middle' }} />
                       Target Market
                     </Text>
-                    <Text>{repository.businessValue?.targetMarket}</Text>
+                    <Text>{repository.business?.targetMarket?.join(', ') || repository.businessValue?.targetMarket}</Text>
                   </div>
                   
                   <div>
@@ -454,13 +471,107 @@ const RepositoryDetailRedesigned: React.FC = () => {
               </CardHeader>
               <CardContent>
                 <BenefitList>
-                  {repository.businessValue?.keyBenefits?.map((benefit, idx) => (
+                  {repository.content?.benefits?.map((benefit, idx) => (
                     <li key={idx}>{benefit}</li>
+                  ))}
+                  {repository.businessValue?.keyBenefits?.map((benefit, idx) => (
+                    <li key={`fallback-${idx}`}>{benefit}</li>
                   ))}
                 </BenefitList>
               </CardContent>
             </BusinessCard>
           </Grid>
+
+          {/* AI Agent Attribution Section */}
+          {repository.content?.developmentAdvantages && (
+            <Card style={{ marginTop: theme.spacing[8] }}>
+              <CardHeader>
+                <IconWrapper color={theme.colors.accent.purple}>
+                  <Package size={24} />
+                </IconWrapper>
+                <CardTitle>🤖 Built by AI Agents</CardTitle>
+                <CardDescription>
+                  This architecture package was collaboratively designed by specialized AI agents
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <Grid columns={2} gap="large">
+                  <div>
+                    <H3 style={{ marginBottom: theme.spacing[4], color: theme.colors.accent.blue }}>
+                      Development Efficiency
+                    </H3>
+                    <Flex direction="column" gap={3}>
+                      {repository.content.developmentAdvantages.cycleTimeReduction && (
+                        <Flex align="center" gap={2}>
+                          <TrendingUp size={16} color={theme.colors.accent.green} />
+                          <Text><strong>Time Savings:</strong> {repository.content.developmentAdvantages.cycleTimeReduction}</Text>
+                        </Flex>
+                      )}
+                      {repository.content.developmentAdvantages.costSavings && (
+                        <Flex align="center" gap={2}>
+                          <DollarSign size={16} color={theme.colors.accent.green} />
+                          <Text><strong>Cost Savings:</strong> {repository.content.developmentAdvantages.costSavings}</Text>
+                        </Flex>
+                      )}
+                    </Flex>
+                  </div>
+                  
+                  <div>
+                    <H3 style={{ marginBottom: theme.spacing[4], color: theme.colors.accent.purple }}>
+                      AI vs Traditional Development
+                    </H3>
+                    <div style={{ 
+                      display: 'grid', 
+                      gridTemplateColumns: '1fr 1fr', 
+                      gap: theme.spacing[4],
+                      marginBottom: theme.spacing[4]
+                    }}>
+                      <div style={{ textAlign: 'center' }}>
+                        <H3 style={{ color: theme.colors.accent.purple }}>{repository.content.developmentAdvantages.aiTeamSize}</H3>
+                        <Text color="secondary">AI Agents</Text>
+                      </div>
+                      <div style={{ textAlign: 'center' }}>
+                        <H3 style={{ color: theme.colors.accent.red }}>{repository.content.developmentAdvantages.traditionalTeamSize}</H3>
+                        <Text color="secondary">Traditional Roles</Text>
+                      </div>
+                    </div>
+                  </div>
+                </Grid>
+
+                {repository.content.developmentAdvantages.aiAgentsUsed && (
+                  <div style={{ marginTop: theme.spacing[6] }}>
+                    <H3 style={{ marginBottom: theme.spacing[4], color: theme.colors.accent.blue }}>
+                      AI Development Team
+                    </H3>
+                    <Grid columns={3} gap="medium">
+                      {repository.content.developmentAdvantages.aiAgentsUsed.map((agent, idx) => (
+                        <Flex key={idx} align="center" gap={2}>
+                          <Code size={16} color={theme.colors.accent.blue} />
+                          <Text>{agent}</Text>
+                        </Flex>
+                      ))}
+                    </Grid>
+                  </div>
+                )}
+
+                {repository.content.developmentAdvantages.traditionalRolesReplaced && (
+                  <div style={{ marginTop: theme.spacing[6] }}>
+                    <H3 style={{ marginBottom: theme.spacing[4], color: theme.colors.accent.red }}>
+                      Traditional Roles Replaced
+                    </H3>
+                    <Grid columns={3} gap="medium">
+                      {repository.content.developmentAdvantages.traditionalRolesReplaced.map((role, idx) => (
+                        <Flex key={idx} align="center" gap={2}>
+                          <Users size={16} color={theme.colors.accent.red} />
+                          <Text>{role}</Text>
+                        </Flex>
+                      ))}
+                    </Grid>
+                  </div>
+                )}
+              </CardContent>
+            </Card>
+          )}
 
           {/* Use Cases Section */}
           <Card style={{ marginTop: theme.spacing[8] }}>
