@@ -483,15 +483,15 @@
       }
     ]
   },
-  "iotsphere-core-platform": {
-    "id": "iotsphere-core-platform",
-    "name": "iotsphere-core-platform",
-    "displayName": "IoTSphere Core Platform",
+  "axiom-loom-iot-core": {
+    "id": "axiom-loom-iot-core",
+    "name": "axiom-loom-iot-core",
+    "displayName": "Axiom Loom IoT Core",
     "description": "Enterprise IoT platform with GraphQL APIs, MQTT integration, and device management",
     "marketingDescription": "Build scalable IoT solutions with our enterprise-grade core platform. Features real-time GraphQL APIs, secure MQTT communication, comprehensive device management, and advanced analytics. Perfect for industrial monitoring, smart buildings, and connected device ecosystems.",
-    "category": "IoT Platform",
+    "category": "IoT Core Platform",
     "status": "active",
-    "demoUrl": "https://demo.axiom-loom.com/iotsphere-core",
+    "demoUrl": "https://demo.axiom-loom.com/iot-core",
     "tags": [
       "IoT",
       "GraphQL",
@@ -510,7 +510,7 @@
       "hasGrpc": false,
       "hasPostman": true
     },
-    "url": "https://github.com/jamesenki/iotsphere-core-platform",
+    "url": "https://github.com/jamesenki/axiom-loom-iot-core",
     "pricing": {
       "suggestedRetailPrice": 180000,
       "tier": "Tier 3: Enterprise",
@@ -562,15 +562,15 @@
       "customizationAvailable": true
     }
   },
-  "iotsphere-ml-ai-platform": {
-    "id": "iotsphere-ml-ai-platform",
-    "name": "iotsphere-ml-ai-platform",
-    "displayName": "IoTSphere ML/AI Platform",
+  "axiom-loom-iot-intelligence": {
+    "id": "axiom-loom-iot-intelligence",
+    "name": "axiom-loom-iot-intelligence",
+    "displayName": "Axiom Loom IoT Intelligence",
     "description": "Advanced machine learning and AI platform for IoT analytics and autonomous systems",
     "marketingDescription": "Unlock the power of AI for your IoT ecosystem. Our advanced ML platform provides AI agents, predictive analytics, RAG-powered knowledge management, and autonomous system capabilities. Transform raw sensor data into intelligent insights and automated actions.",
-    "category": "AI/ML Platform",
+    "category": "IoT AI Platform",
     "status": "active",
-    "demoUrl": "https://demo.axiom-loom.com/iotsphere-ai",
+    "demoUrl": "https://demo.axiom-loom.com/iot-intelligence",
     "tags": [
       "AI/ML",
       "IoT Analytics",
@@ -589,7 +589,7 @@
       "hasGrpc": false,
       "hasPostman": true
     },
-    "url": "https://github.com/jamesenki/iotsphere-ml-ai-platform",
+    "url": "https://github.com/jamesenki/axiom-loom-iot-intelligence",
     "pricing": {
       "suggestedRetailPrice": 220000,
       "tier": "Tier 4: Strategic",
@@ -680,15 +680,15 @@
       "customizationAvailable": true
     }
   },
-  "iotsphere-device-simulators": {
-    "id": "iotsphere-device-simulators",
-    "name": "iotsphere-device-simulators",
-    "displayName": "IoTSphere Device Simulators",
+  "axiom-loom-iot-simulators": {
+    "id": "axiom-loom-iot-simulators",
+    "name": "axiom-loom-iot-simulators",
+    "displayName": "Axiom Loom IoT Simulators",
     "description": "Comprehensive device simulation and testing framework for IoT development",
     "marketingDescription": "Accelerate IoT development with realistic device simulators and comprehensive testing frameworks. Test at scale, validate integrations, and ensure reliability before deploying to production environments.",
-    "category": "Development Tools",
+    "category": "IoT Development Tools",
     "status": "active",
-    "demoUrl": "https://demo.axiom-loom.com/device-simulators",
+    "demoUrl": "https://demo.axiom-loom.com/iot-simulators",
     "tags": [
       "Device Simulation",
       "Testing",
@@ -706,7 +706,7 @@
       "hasGrpc": false,
       "hasPostman": true
     },
-    "url": "https://github.com/jamesenki/iotsphere-device-simulators",
+    "url": "https://github.com/jamesenki/axiom-loom-iot-simulators",
     "pricing": {
       "suggestedRetailPrice": 45000,
       "tier": "Tier 2: Professional",
