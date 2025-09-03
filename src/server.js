@@ -303,6 +303,194 @@ app.get('/api/repositories', (req, res) => {
   }
 });
 
+// Public individual repository endpoint
+app.get('/api/repository/:repoName/public', (req, res) => {
+  const { repoName } = req.params;
+  const reposPath = path.join(__dirname, '../cloned-repositories');
+  const repoPath = path.join(reposPath, repoName);
+  
+  if (!fs.existsSync(repoPath)) {
+    return res.status(404).json({ error: 'Repository not found' });
+  }
+
+  try {
+    // Use same logic as the repositories endpoint but for a single repo
+    const readmePath = path.join(repoPath, 'README.md');
+    const packageJsonPath = path.join(repoPath, 'package.json');
+    const marketingBriefPath = path.join(repoPath, 'marketing-brief.md');
+    
+    let description = '';
+    let marketingDescription = '';
+    let displayName = repoName;
+    
+    // Get marketing description
+    if (fs.existsSync(marketingBriefPath)) {
+      try {
+        const fullMarketing = fs.readFileSync(marketingBriefPath, 'utf8').trim();
+        const subtitleMatch = fullMarketing.match(/##\s+(.+)\n\n(.+?)(?:\n|$)/);
+        if (subtitleMatch) {
+          marketingDescription = stripMarkdown(subtitleMatch[2].trim());
+        } else {
+          const firstSentence = fullMarketing.match(/^[^.!?]+[.!?]/);
+          if (firstSentence) {
+            marketingDescription = stripMarkdown(firstSentence[0]);
+          } else {
+            marketingDescription = stripMarkdown(fullMarketing.substring(0, 200)) + '...';
+          }
+        }
+      } catch (e) {}
+    }
+    
+    // Try to get description from package.json
+    if (fs.existsSync(packageJsonPath)) {
+      try {
+        const packageData = JSON.parse(fs.readFileSync(packageJsonPath, 'utf8'));
+        description = packageData.description || '';
+      } catch (e) {}
+    }
+    
+    // Try to get description from README if not found
+    if (!description && fs.existsSync(readmePath)) {
+      try {
+        const readmeContent = fs.readFileSync(readmePath, 'utf8');
+        const lines = readmeContent.split('\n');
+        for (let i = 0; i < Math.min(lines.length, 10); i++) {
+          const line = lines[i].trim();
+          if (line && !line.startsWith('#') && !line.startsWith('![')) {
+            description = line.substring(0, 200);
+            break;
+          }
+        }
+      } catch (e) {}
+    }
+    
+    // Count API files and Postman collections
+    let apiCount = 0;
+    let postmanCount = 0;
+    let hasGrpc = false;
+    let hasGraphQL = false;
+    let hasOpenAPI = false;
+    
+    const countApis = (dir) => {
+      try {
+        const files = fs.readdirSync(dir, { withFileTypes: true });
+        files.forEach(file => {
+          if (file.isFile()) {
+            if (/\.(yaml|yml)$/i.test(file.name)) {
+              apiCount++;
+              hasOpenAPI = true;
+            } else if (/\.(graphql|gql)$/i.test(file.name)) {
+              apiCount++;
+              hasGraphQL = true;
+            } else if (/\.proto$/i.test(file.name)) {
+              apiCount++;
+              hasGrpc = true;
+            } else if (/(?:postman.*\.json|.*postman.*\.json|.*collection.*\.json)$/i.test(file.name)) {
+              postmanCount++;
+            }
+          } else if (file.isDirectory() && !file.name.startsWith('.') && file.name !== 'node_modules') {
+            countApis(path.join(dir, file.name));
+          }
+        });
+      } catch (e) {}
+    };
+    countApis(repoPath);
+    
+    // Get last modified time
+    const stats = fs.statSync(repoPath);
+    
+    // Create a human-friendly display name from the repository name
+    let friendlyName = displayName;
+    if (!marketingDescription && displayName === repoName) {
+      friendlyName = repoName
+        .split('-')
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(' ');
+    }
+    
+    // Get repository metadata - prioritize axiom.json over global metadata
+    let repoConfig = {};
+    const axiomConfigPath = path.join(repoPath, 'axiom.json');
+    
+    if (fs.existsSync(axiomConfigPath)) {
+      try {
+        repoConfig = JSON.parse(fs.readFileSync(axiomConfigPath, 'utf8'));
+      } catch (e) {
+        console.warn(`Invalid axiom.json in ${repoName}:`, e.message);
+      }
+    }
+    
+    // Fallback to global metadata
+    const metadata = repositoryMetadata[repoName] || {};
+    
+    // Extract normalized data from axiom.json
+    const repo = repoConfig.repository || {};
+    const desc = repoConfig.description || {};
+    const classification = repoConfig.classification || {};
+    const technical = repoConfig.technical || {};
+    const business = repoConfig.business || {};
+    const urls = repoConfig.urls || {};
+    
+    const result = {
+      id: repoName,
+      name: repoName,
+      displayName: repo.displayName || metadata.displayName || friendlyName,
+      shortName: repo.shortName || repo.displayName || friendlyName,
+      brandName: repo.brandName || repo.displayName || friendlyName,
+      description: stripMarkdown(desc.summary || metadata.description || marketingDescription || description) || `${friendlyName} Solution`,
+      tagline: desc.tagline || `${friendlyName} solution`,
+      marketingDescription: desc.marketingPitch || marketingDescription,
+      category: classification.category || metadata.category || 'Platform',
+      subcategory: classification.subcategory || 'Architecture',
+      status: repoConfig.metadata?.status || 'active',
+      demoUrl: urls.demo || metadata.demoUrl || null,
+      tags: classification.tags || metadata.tags || [],
+      industry: classification.industry || ['enterprise'],
+      useCase: classification.useCase || ['platform'],
+      metrics: {
+        apiCount: technical.apis?.count || apiCount,
+        postmanCollections: technical.integrations?.postman?.collections || postmanCount,
+        lastUpdated: repoConfig.metadata?.lastUpdated || stats.mtime.toISOString(),
+        valueScore: business.valueScore || metadata.pricing?.valueScore || 70
+      },
+      apiTypes: {
+        hasOpenAPI: technical.apis?.types?.rest || hasOpenAPI,
+        hasGraphQL: technical.apis?.types?.graphql || hasGraphQL,
+        hasGrpc: technical.apis?.types?.grpc || hasGrpc,
+        hasWebSocket: technical.apis?.types?.websocket || false,
+        hasPostman: technical.integrations?.postman?.available || (postmanCount > 0)
+      },
+      integrations: {
+        postman: technical.integrations?.postman || { available: postmanCount > 0, collections: postmanCount },
+        swagger: technical.integrations?.swagger || { available: hasOpenAPI, path: '/docs/api.yaml' },
+        graphql: technical.integrations?.graphql || { available: hasGraphQL, endpoint: '/graphql', playground: hasGraphQL }
+      },
+      url: urls.github || `https://github.com/${process.env.GITHUB_ORGANIZATION || 'jamesenki'}/${repoName}`,
+      urls: {
+        demo: urls.demo || metadata.demoUrl || null,
+        documentation: urls.documentation || null,
+        website: urls.website || null,
+        github: urls.github || `https://github.com/${process.env.GITHUB_ORGANIZATION || 'jamesenki'}/${repoName}`
+      },
+      pricing: business.pricing || metadata.pricing || null,
+      content: repoConfig.content || {
+        keyFeatures: ['Enterprise-grade architecture', 'Comprehensive API coverage', 'Professional support'],
+        benefits: ['Reduce operational costs', 'Improve efficiency', 'Scale seamlessly']
+      },
+      business: {
+        targetMarket: business.targetMarket || ['Enterprise'],
+        competitiveAdvantage: business.competitiveAdvantage || ['AI-Powered', 'Scalable'],
+        valueScore: business.valueScore || metadata.pricing?.valueScore || 70
+      }
+    };
+    
+    res.json(result);
+  } catch (error) {
+    console.error('Error getting repository details:', error);
+    res.status(500).json({ error: 'Failed to get repository details' });
+  }
+});
+
 // Protected API Routes
 app.use('/api', authenticate, trackRepositoryAccess, dynamicApiRoutes);
 app.use('/api', authenticate, trackRepositoryAccess, repositoryManagementRoutes);

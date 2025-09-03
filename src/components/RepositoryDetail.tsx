@@ -160,7 +160,7 @@ const RepositoryDetail: React.FC = () => {
   useEffect(() => {
     const fetchRepositoryDetails = async () => {
       try {
-        const response = await fetch(getApiUrl(`/api/repository/${repoName}/details`), {
+        const response = await fetch(getApiUrl(`/api/repository/${repoName}/public`), {
           headers: {
             'x-dev-mode': 'true'
           }

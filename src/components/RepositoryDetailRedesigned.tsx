@@ -289,7 +289,7 @@ const RepositoryDetailRedesigned: React.FC = () => {
   useEffect(() => {
     const fetchRepositoryDetails = async () => {
       try {
-        const response = await fetch(getApiUrl(`/api/repository/${repoName}/details`));
+        const response = await fetch(getApiUrl(`/api/repository/${repoName}/public`));
         if (!response.ok) {
           throw new Error('Failed to fetch repository details');
         }
