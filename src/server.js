@@ -504,13 +504,13 @@ app.get('/ai-maintenance-architecture', (req, res) => {
 });
 
 // Documentation Coming Soon page route
-app.get('/docs/:repoName/*', (req, res) => {
+app.get('/coming-soon/docs/:repoName/*', (req, res) => {
   const docsPath = path.join(__dirname, '../public/docs-coming-soon.html');
   res.sendFile(docsPath);
 });
 
 // Product Details Coming Soon page route
-app.get('/product/:repoName/*', (req, res) => {
+app.get('/coming-soon/product/:repoName/*', (req, res) => {
   const productPath = path.join(__dirname, '../public/product-coming-soon.html');
   res.sendFile(productPath);
 });

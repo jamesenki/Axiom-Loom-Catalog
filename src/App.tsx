@@ -61,6 +61,10 @@ const AuthCallback = lazy(() => import('./components/auth/AuthCallback'));
 const UserProfile = lazy(() => import('./components/auth/UserProfile'));
 const ApiKeyManagement = lazy(() => import('./components/auth/ApiKeyManagement'));
 
+// Coming Soon components
+const DocsComingSoon = lazy(() => import('./components/DocsComingSoon'));
+const ProductComingSoon = lazy(() => import('./components/ProductComingSoon'));
+
 // Styled Components
 const AppContainer = styled.div`
   min-height: 100vh;
@@ -204,6 +208,10 @@ function AppContent() {
                     {/* gRPC routes */}
                     <Route path="/grpc/:repoName" element={<PageTransition><GrpcExplorer /></PageTransition>} />
                     <Route path="/grpc-playground/:repoName" element={<PageTransition><GrpcExplorer /></PageTransition>} />
+                    
+                    {/* Coming Soon routes */}
+                    <Route path="/coming-soon/docs/:repoName/*" element={<PageTransition><DocsComingSoon /></PageTransition>} />
+                    <Route path="/coming-soon/product/:repoName/*" element={<PageTransition><ProductComingSoon /></PageTransition>} />
                     
                     {/* Protected routes */}
                     <Route path="/sync" element={
