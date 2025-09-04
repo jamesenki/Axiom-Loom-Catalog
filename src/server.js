@@ -503,17 +503,7 @@ app.get('/ai-maintenance-architecture', (req, res) => {
   res.sendFile(demoPath);
 });
 
-// Documentation Coming Soon page route
-app.get('/coming-soon/docs/:repoName/*', (req, res) => {
-  const docsPath = path.join(__dirname, '../public/docs-coming-soon.html');
-  res.sendFile(docsPath);
-});
-
-// Product Details Coming Soon page route
-app.get('/coming-soon/product/:repoName/*', (req, res) => {
-  const productPath = path.join(__dirname, '../public/product-coming-soon.html');
-  res.sendFile(productPath);
-});
+// Coming Soon routes are handled by React Router - no backend routes needed
 
 // Protected API Routes
 app.use('/api', authenticate, trackRepositoryAccess, dynamicApiRoutes);
