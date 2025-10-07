@@ -28,7 +28,7 @@ All 29 repositories from the Axiom Loom Catalog portal have been successfully co
 20. **future-mobility-users-platform** - ✓ Pushed
 21. **future-mobility-utilities-platform** - ✓ Pushed
 22. **mobility-architecture-package-orchestrator** - ✓ Pushed
-23. **nslabsdashboards** - ✓ Pushed
+23. **demo-labsdashboards** - ✓ Pushed
 24. **remote-diagnostic-assistance-platform-architecture** - ✓ Pushed
 25. **rentalFleets** - ✓ Pushed
 26. **sample-arch-package** - ✓ Pushed
@@ -58,8 +58,8 @@ All repositories are accessible at:
 https://github.com/jamesenki/[repository-name]
 ```
 
-## EYGS Remote
-The EYGS remote was added to all repositories but push access requires proper authentication to the EYGS organization. The repositories are currently available under the jamesenki account which was migrated from EYGS.
+## Axiom Remote
+The Axiom remote was added to all repositories but push access requires proper authentication to the Axiom organization. The repositories are currently available under the jamesenki account which was migrated from Axiom.
 
 ## Summary
 ✅ **100% Success Rate** - All 29 repositories have been successfully committed and pushed to GitHub.

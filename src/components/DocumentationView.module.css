@@ -31,6 +31,78 @@
   font-weight: 600;
 }
 
+/* Breadcrumb navigation styles */
+.breadcrumbNav {
+  display: flex;
+  align-items: center;
+  margin-top: 12px;
+  padding: 8px 0;
+  font-size: 14px;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.breadcrumbLink {
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  font-weight: 500;
+}
+
+.breadcrumbLink:hover {
+  color: white;
+  background-color: rgba(255, 255, 255, 0.1);
+  text-decoration: none;
+}
+
+.breadcrumbButton {
+  color: rgba(255, 255, 255, 0.9);
+  background: none;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.breadcrumbButton:hover {
+  color: white;
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.breadcrumbSeparator {
+  color: rgba(255, 255, 255, 0.6);
+  display: inline-flex;
+  align-items: center;
+  margin: 0 2px;
+}
+
+.breadcrumbSeparator svg {
+  width: 12px;
+  height: 12px;
+}
+
+.breadcrumbCurrent {
+  color: white;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
 .docContainer {
   display: flex;
   height: calc(100vh - 100px);

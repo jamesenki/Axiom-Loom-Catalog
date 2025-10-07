@@ -6,7 +6,7 @@
  */
 
 import React, { useEffect, useRef, useState } from 'react';
-import { AlertCircle, Download, Loader2 } from 'lucide-react';
+import { AlertCircle, Download, Loader2, ZoomIn, ZoomOut, Maximize2, X } from 'lucide-react';
 
 // Dynamic import to avoid SSR issues
 let mermaidAPI: any = null;
@@ -30,6 +30,8 @@ export const MermaidDiagram: React.FC<MermaidDiagramProps> = ({
   const [error, setError] = useState<string | null>(null);
   const [svgContent, setSvgContent] = useState<string | null>(null);
   const [isMermaidReady, setIsMermaidReady] = useState(false);
+  const [zoomLevel, setZoomLevel] = useState(1);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const renderIdRef = useRef<string>(`mermaid-${Date.now()}-${Math.random()}`);
 
@@ -148,6 +150,32 @@ export const MermaidDiagram: React.FC<MermaidDiagramProps> = ({
     URL.revokeObjectURL(url);
   };
 
+  const handleZoomIn = () => {
+    setZoomLevel(prev => Math.min(prev * 1.2, 3));
+  };
+
+  const handleZoomOut = () => {
+    setZoomLevel(prev => Math.max(prev / 1.2, 0.5));
+  };
+
+  const handleResetZoom = () => {
+    setZoomLevel(1);
+  };
+
+  const handleOpenModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
+
+  const handleModalKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'Escape') {
+      handleCloseModal();
+    }
+  };
+
   if (loading) {
     return (
       <div className={`flex items-center justify-center p-8 bg-gray-50 rounded-lg ${className}`}>
@@ -178,26 +206,104 @@ export const MermaidDiagram: React.FC<MermaidDiagramProps> = ({
   }
 
   return (
-    <div className={`bg-white rounded-lg shadow-sm ${className}`}>
-      {title && (
+    <>
+      <div className={`bg-white rounded-lg shadow-sm ${className}`}>
         <div className="flex items-center justify-between px-4 py-2 border-b bg-gray-50">
-          <h3 className="text-sm font-medium text-gray-700">{title}</h3>
-          <button
-            onClick={handleDownload}
-            className="inline-flex items-center px-2 py-1 text-xs text-gray-600 hover:text-gray-800"
-            title="Download diagram"
-            disabled={!svgContent}
+          <h3 className="text-sm font-medium text-gray-700">{title || 'Diagram'}</h3>
+          <div className="flex items-center gap-1">
+            <button
+              onClick={handleZoomOut}
+              className="inline-flex items-center justify-center w-8 h-8 text-xs text-gray-600 hover:text-gray-800 hover:bg-gray-200 rounded transition-colors"
+              title="Zoom out"
+              disabled={zoomLevel <= 0.5}
+            >
+              <ZoomOut className="w-4 h-4" />
+            </button>
+            <button
+              onClick={handleResetZoom}
+              className="inline-flex items-center justify-center px-2 py-1 text-xs text-gray-600 hover:text-gray-800 hover:bg-gray-200 rounded transition-colors min-w-[3rem]"
+              title="Reset zoom (100%)"
+            >
+              {Math.round(zoomLevel * 100)}%
+            </button>
+            <button
+              onClick={handleZoomIn}
+              className="inline-flex items-center justify-center w-8 h-8 text-xs text-gray-600 hover:text-gray-800 hover:bg-gray-200 rounded transition-colors"
+              title="Zoom in"
+              disabled={zoomLevel >= 3}
+            >
+              <ZoomIn className="w-4 h-4" />
+            </button>
+            <div className="w-px h-6 bg-gray-300 mx-1" />
+            <button
+              onClick={handleOpenModal}
+              className="inline-flex items-center justify-center w-8 h-8 text-xs text-gray-600 hover:text-gray-800 hover:bg-gray-200 rounded transition-colors"
+              title="Open in full screen"
+            >
+              <Maximize2 className="w-4 h-4" />
+            </button>
+            <button
+              onClick={handleDownload}
+              className="inline-flex items-center justify-center w-8 h-8 text-xs text-gray-600 hover:text-gray-800 hover:bg-gray-200 rounded transition-colors"
+              title="Download diagram"
+              disabled={!svgContent}
+            >
+              <Download className="w-4 h-4" />
+            </button>
+          </div>
+        </div>
+        <div 
+          ref={containerRef}
+          className="p-4 overflow-auto mermaid-container cursor-grab active:cursor-grabbing"
+          style={{ 
+            minHeight: '200px',
+            transform: `scale(${zoomLevel})`,
+            transformOrigin: 'top left',
+            transition: 'transform 0.2s ease'
+          }}
+        />
+      </div>
+
+      {/* Full Screen Modal */}
+      {isModalOpen && (
+        <div 
+          className="fixed inset-0 z-50 bg-black bg-opacity-75 flex items-center justify-center p-4"
+          onClick={handleCloseModal}
+          onKeyDown={handleModalKeyDown}
+          tabIndex={-1}
+        >
+          <div 
+            className="bg-white rounded-lg max-w-7xl max-h-full overflow-auto relative"
+            onClick={(e) => e.stopPropagation()}
           >
-            <Download className="w-4 h-4" />
-          </button>
+            <div className="sticky top-0 flex items-center justify-between px-6 py-4 border-b bg-gray-50 z-10">
+              <h3 className="text-lg font-medium text-gray-900">{title || 'Diagram'}</h3>
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={handleDownload}
+                  className="inline-flex items-center justify-center w-10 h-10 text-gray-600 hover:text-gray-800 hover:bg-gray-200 rounded transition-colors"
+                  title="Download diagram"
+                >
+                  <Download className="w-5 h-5" />
+                </button>
+                <button
+                  onClick={handleCloseModal}
+                  className="inline-flex items-center justify-center w-10 h-10 text-gray-600 hover:text-gray-800 hover:bg-gray-200 rounded transition-colors"
+                  title="Close full screen (Esc)"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+            </div>
+            <div 
+              className="p-8"
+              dangerouslySetInnerHTML={{ __html: svgContent || '' }}
+              style={{ maxHeight: 'calc(100vh - 200px)' }}
+            />
+          </div>
         </div>
       )}
-      <div 
-        ref={containerRef}
-        className="p-4 overflow-auto mermaid-container"
-        style={{ minHeight: '200px' }}
-      />
-    </div>
+    </>
   );
 };
 

@@ -5,11 +5,11 @@ const { chromium } = require('playwright');
   const page = await browser.newPage();
   
   const testUrls = [
-    'http://localhost:3000/docs/nslabsdashboards?path=developerguide.md',
-    'http://localhost:3000/docs/nslabsdashboards?path=DEVELOPERGUIDE.md',
-    'http://localhost:3000/docs/nslabsdashboards?path=developer-guide.md',
-    'http://localhost:3000/docs/nslabsdashboards?path=DEVELOPER_GUIDE.md',
-    'http://localhost:3000/docs/nslabsdashboards?path=docs/development/DEVELOPER_GUIDE.md'
+    'http://localhost:3000/docs/demo-labsdashboards?path=developerguide.md',
+    'http://localhost:3000/docs/demo-labsdashboards?path=DEVELOPERGUIDE.md',
+    'http://localhost:3000/docs/demo-labsdashboards?path=developer-guide.md',
+    'http://localhost:3000/docs/demo-labsdashboards?path=DEVELOPER_GUIDE.md',
+    'http://localhost:3000/docs/demo-labsdashboards?path=docs/development/DEVELOPER_GUIDE.md'
   ];
   
   for (const url of testUrls) {

@@ -314,12 +314,12 @@ FAIL src/services/__tests__/repositorySync.test.ts
     > 181 |     });
           |        ^
       182 |
-      183 |     it('handles special branch for nslabsdashboards', async () => {
+      183 |     it('handles special branch for demo-labsdashboards', async () => {
       184 |       (fs.readdirSync as jest.Mock).mockReturnValue([
 
       at Object.<anonymous> (src/services/__tests__/repositorySync.test.ts:181:41)
 
-  ● repositorySyncService › syncOnStartup › handles special branch for nslabsdashboards
+  ● repositorySyncService › syncOnStartup › handles special branch for demo-labsdashboards
 
     expect(received).toBeGreaterThan(expected)
 
@@ -11557,7 +11557,7 @@ FAIL src/components/__tests__/AddRepositoryModal.test.tsx
                 [33mclass[39m=[32m"text-sm text-gray-600 mt-1"[39m
               [36m>[39m
                 [0mAdd a repository from the [0m
-                [0m20230011612_EYGS[0m
+                [0mjamesenki[0m
                 [0m account[0m
               [36m</p>[39m
             [36m</div>[39m
@@ -11680,7 +11680,7 @@ FAIL src/components/__tests__/AddRepositoryModal.test.tsx
                 [33mclass[39m=[32m"text-sm text-gray-600 mt-1"[39m
               [36m>[39m
                 [0mAdd a repository from the [0m
-                [0m20230011612_EYGS[0m
+                [0mjamesenki[0m
                 [0m account[0m
               [36m</p>[39m
             [36m</div>[39m
@@ -11782,7 +11782,7 @@ FAIL src/components/__tests__/AddRepositoryModal.test.tsx
                 [33mclass[39m=[32m"text-sm text-gray-600 mt-1"[39m
               [36m>[39m
                 [0mAdd a repository from the [0m
-                [0m20230011612_EYGS[0m
+                [0mjamesenki[0m
                 [0m account[0m
               [36m</p>[39m
             [36m</div>[39m
@@ -11883,7 +11883,7 @@ FAIL src/components/__tests__/AddRepositoryModal.test.tsx
                 [33mclass[39m=[32m"text-sm text-gray-600 mt-1"[39m
               [36m>[39m
                 [0mAdd a repository from the [0m
-                [0m20230011612_EYGS[0m
+                [0mjamesenki[0m
                 [0m account[0m
               [36m</p>[39m
             [36m</div>[39m
@@ -11984,7 +11984,7 @@ FAIL src/components/__tests__/AddRepositoryModal.test.tsx
                 [33mclass[39m=[32m"text-sm text-gray-600 mt-1"[39m
               [36m>[39m
                 [0mAdd a repository from the [0m
-                [0m20230011612_EYGS[0m
+                [0mjamesenki[0m
                 [0m account[0m
               [36m</p>[39m
             [36m</div>[39m
@@ -12085,7 +12085,7 @@ FAIL src/components/__tests__/AddRepositoryModal.test.tsx
                 [33mclass[39m=[32m"text-sm text-gray-600 mt-1"[39m
               [36m>[39m
                 [0mAdd a repository from the [0m
-                [0m20230011612_EYGS[0m
+                [0mjamesenki[0m
                 [0m account[0m
               [36m</p>[39m
             [36m</div>[39m
@@ -12186,7 +12186,7 @@ FAIL src/components/__tests__/AddRepositoryModal.test.tsx
                 [33mclass[39m=[32m"text-sm text-gray-600 mt-1"[39m
               [36m>[39m
                 [0mAdd a repository from the [0m
-                [0m20230011612_EYGS[0m
+                [0mjamesenki[0m
                 [0m account[0m
               [36m</p>[39m
             [36m</div>[39m
@@ -12309,7 +12309,7 @@ FAIL src/components/__tests__/AddRepositoryModal.test.tsx
                 [33mclass[39m=[32m"text-sm text-gray-600 mt-1"[39m
               [36m>[39m
                 [0mAdd a repository from the [0m
-                [0m20230011612_EYGS[0m
+                [0mjamesenki[0m
                 [0m account[0m
               [36m</p>[39m
             [36m</div>[39m
@@ -12411,7 +12411,7 @@ FAIL src/components/__tests__/AddRepositoryModal.test.tsx
                 [33mclass[39m=[32m"text-sm text-gray-600 mt-1"[39m
               [36m>[39m
                 [0mAdd a repository from the [0m
-                [0m20230011612_EYGS[0m
+                [0mjamesenki[0m
                 [0m account[0m
               [36m</p>[39m
             [36m</div>[39m
@@ -17603,12 +17603,12 @@ FAIL src/services/__tests__/repositorySync.test.ts
     > 181 |     });
           |        ^
       182 |
-      183 |     it('handles special branch for nslabsdashboards', async () => {
+      183 |     it('handles special branch for demo-labsdashboards', async () => {
       184 |       (fs.readdirSync as jest.Mock).mockReturnValue([
 
       at Object.<anonymous> (src/services/__tests__/repositorySync.test.ts:181:41)
 
-  ● repositorySyncService › syncOnStartup › handles special branch for nslabsdashboards
+  ● repositorySyncService › syncOnStartup › handles special branch for demo-labsdashboards
 
     expect(received).toBeGreaterThan(expected)
 
@@ -20616,7 +20616,7 @@ FAIL src/components/__tests__/AddRepositoryModal.test.tsx
                 [33mclass[39m=[32m"text-sm text-gray-600 mt-1"[39m
               [36m>[39m
                 [0mAdd a repository from the [0m
-                [0m20230011612_EYGS[0m
+                [0mjamesenki[0m
                 [0m account[0m
               [36m</p>[39m
             [36m</div>[39m
@@ -20739,7 +20739,7 @@ FAIL src/components/__tests__/AddRepositoryModal.test.tsx
                 [33mclass[39m=[32m"text-sm text-gray-600 mt-1"[39m
               [36m>[39m
                 [0mAdd a repository from the [0m
-                [0m20230011612_EYGS[0m
+                [0mjamesenki[0m
                 [0m account[0m
               [36m</p>[39m
             [36m</div>[39m
@@ -20841,7 +20841,7 @@ FAIL src/components/__tests__/AddRepositoryModal.test.tsx
                 [33mclass[39m=[32m"text-sm text-gray-600 mt-1"[39m
               [36m>[39m
                 [0mAdd a repository from the [0m
-                [0m20230011612_EYGS[0m
+                [0mjamesenki[0m
                 [0m account[0m
               [36m</p>[39m
             [36m</div>[39m
@@ -20942,7 +20942,7 @@ FAIL src/components/__tests__/AddRepositoryModal.test.tsx
                 [33mclass[39m=[32m"text-sm text-gray-600 mt-1"[39m
               [36m>[39m
                 [0mAdd a repository from the [0m
-                [0m20230011612_EYGS[0m
+                [0mjamesenki[0m
                 [0m account[0m
               [36m</p>[39m
             [36m</div>[39m
@@ -21043,7 +21043,7 @@ FAIL src/components/__tests__/AddRepositoryModal.test.tsx
                 [33mclass[39m=[32m"text-sm text-gray-600 mt-1"[39m
               [36m>[39m
                 [0mAdd a repository from the [0m
-                [0m20230011612_EYGS[0m
+                [0mjamesenki[0m
                 [0m account[0m
               [36m</p>[39m
             [36m</div>[39m
@@ -21144,7 +21144,7 @@ FAIL src/components/__tests__/AddRepositoryModal.test.tsx
                 [33mclass[39m=[32m"text-sm text-gray-600 mt-1"[39m
               [36m>[39m
                 [0mAdd a repository from the [0m
-                [0m20230011612_EYGS[0m
+                [0mjamesenki[0m
                 [0m account[0m
               [36m</p>[39m
             [36m</div>[39m
@@ -21245,7 +21245,7 @@ FAIL src/components/__tests__/AddRepositoryModal.test.tsx
                 [33mclass[39m=[32m"text-sm text-gray-600 mt-1"[39m
               [36m>[39m
                 [0mAdd a repository from the [0m
-                [0m20230011612_EYGS[0m
+                [0mjamesenki[0m
                 [0m account[0m
               [36m</p>[39m
             [36m</div>[39m
@@ -21368,7 +21368,7 @@ FAIL src/components/__tests__/AddRepositoryModal.test.tsx
                 [33mclass[39m=[32m"text-sm text-gray-600 mt-1"[39m
               [36m>[39m
                 [0mAdd a repository from the [0m
-                [0m20230011612_EYGS[0m
+                [0mjamesenki[0m
                 [0m account[0m
               [36m</p>[39m
             [36m</div>[39m
@@ -21470,7 +21470,7 @@ FAIL src/components/__tests__/AddRepositoryModal.test.tsx
                 [33mclass[39m=[32m"text-sm text-gray-600 mt-1"[39m
               [36m>[39m
                 [0mAdd a repository from the [0m
-                [0m20230011612_EYGS[0m
+                [0mjamesenki[0m
                 [0m account[0m
               [36m</p>[39m
             [36m</div>[39m

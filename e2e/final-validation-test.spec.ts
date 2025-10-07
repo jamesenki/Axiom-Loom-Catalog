@@ -51,9 +51,9 @@ test.describe('Final Validation - 100% Working Documents', () => {
         }
       },
       {
-        name: 'GraphQL page for nslabsdashboards',
+        name: 'GraphQL page for demo-labsdashboards',
         steps: async () => {
-          await page.goto(`${BASE_URL}/graphql/nslabsdashboards`, { waitUntil: 'domcontentloaded' });
+          await page.goto(`${BASE_URL}/graphql/demo-labsdashboards`, { waitUntil: 'domcontentloaded' });
           await page.waitForTimeout(3000);
           
           // Check page loaded

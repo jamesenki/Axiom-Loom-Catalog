@@ -15,7 +15,7 @@ test.describe('Postman Button Visibility Tests', () => {
       'future-mobility-regulatory-platform',
       'future-mobility-tech-platform',
       'future-mobility-utilities-platform',
-      'nslabsdashboards',
+      'demo-labsdashboards',
       'rentalFleets',
       'sovd-diagnostic-ecosystem-platform-architecture'
     ];

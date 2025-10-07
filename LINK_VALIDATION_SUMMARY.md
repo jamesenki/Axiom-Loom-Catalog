@@ -20,7 +20,7 @@ Created a comprehensive link validation test that checks ALL links in ALL docume
 7. future-mobility-tech-platform: 178 links
 8. future-mobility-utilities-platform: 174 links
 9. mobility-architecture-package-orchestrator: 9 links
-10. nslabsdashboards: 122 links
+10. demo-labsdashboards: 122 links
 11. rentalFleets: 60 links
 12. sample-arch-package: 43 links
 13. smartpath: 53 links
@@ -50,7 +50,7 @@ Fixed all 36 broken links by:
   - future-mobility-consumer-platform/docs/architecture/technical-design.md
   - future-mobility-consumer-platform/docs/architecture/security.md
   - future-mobility-consumer-platform/docs/architecture/deployment.md
-  - nslabsdashboards/docs/development/DEVELOPER_GUIDE.md
+  - demo-labsdashboards/docs/development/DEVELOPER_GUIDE.md
 
 ## Test Implementation
 

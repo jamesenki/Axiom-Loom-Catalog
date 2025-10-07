@@ -930,7 +930,7 @@
       "targetPath": "docs/architecture/deployment.md"
     },
     {
-      "repo": "nslabsdashboards",
+      "repo": "demo-labsdashboards",
       "file": "README.md",
       "line": 83,
       "linkText": "Developer Guide",
@@ -938,7 +938,7 @@
       "targetPath": "DEVELOPER_GUIDE.md"
     },
     {
-      "repo": "nslabsdashboards",
+      "repo": "demo-labsdashboards",
       "file": "docs/architecture/index.md",
       "line": 9,
       "linkText": "Technical Design",
@@ -946,7 +946,7 @@
       "targetPath": "docs/architecture/technical-design.md"
     },
     {
-      "repo": "nslabsdashboards",
+      "repo": "demo-labsdashboards",
       "file": "docs/architecture/index.md",
       "line": 10,
       "linkText": "Security Architecture",
@@ -954,7 +954,7 @@
       "targetPath": "docs/architecture/security.md"
     },
     {
-      "repo": "nslabsdashboards",
+      "repo": "demo-labsdashboards",
       "file": "docs/architecture/index.md",
       "line": 11,
       "linkText": "Deployment Guide",
@@ -962,7 +962,7 @@
       "targetPath": "docs/architecture/deployment.md"
     },
     {
-      "repo": "nslabsdashboards",
+      "repo": "demo-labsdashboards",
       "file": "docs/architecture/index.md",
       "line": 40,
       "linkText": "Technical Design",
@@ -970,7 +970,7 @@
       "targetPath": "docs/architecture/technical-design.md"
     },
     {
-      "repo": "nslabsdashboards",
+      "repo": "demo-labsdashboards",
       "file": "docs/architecture/index.md",
       "line": 41,
       "linkText": "Security Architecture",
@@ -978,7 +978,7 @@
       "targetPath": "docs/architecture/security.md"
     },
     {
-      "repo": "nslabsdashboards",
+      "repo": "demo-labsdashboards",
       "file": "docs/architecture/index.md",
       "line": 42,
       "linkText": "Deployment Guide",
@@ -986,7 +986,7 @@
       "targetPath": "docs/architecture/deployment.md"
     },
     {
-      "repo": "nslabsdashboards",
+      "repo": "demo-labsdashboards",
       "file": "src/tests/docs/bdd_best_practices.md",
       "line": 17,
       "linkText": "Architecture Overview",
@@ -994,7 +994,7 @@
       "targetPath": "src/architecture/index.md"
     },
     {
-      "repo": "nslabsdashboards",
+      "repo": "demo-labsdashboards",
       "file": "src/tests/docs/product/personas/personas.md",
       "line": 17,
       "linkText": "Architecture Overview",
@@ -1002,7 +1002,7 @@
       "targetPath": "src/architecture/index.md"
     },
     {
-      "repo": "nslabsdashboards",
+      "repo": "demo-labsdashboards",
       "file": "src/tests/docs/requirements/specification.md",
       "line": 17,
       "linkText": "Architecture Overview",
@@ -1010,7 +1010,7 @@
       "targetPath": "src/architecture/index.md"
     },
     {
-      "repo": "nslabsdashboards",
+      "repo": "demo-labsdashboards",
       "file": "src/tests/src/domain/ubiquitous_language.md",
       "line": 17,
       "linkText": "Architecture Overview",
@@ -1018,7 +1018,7 @@
       "targetPath": "src/architecture/index.md"
     },
     {
-      "repo": "nslabsdashboards",
+      "repo": "demo-labsdashboards",
       "file": "template/BEST_PRACTICES.md",
       "line": 17,
       "linkText": "Architecture Overview",
@@ -1026,7 +1026,7 @@
       "targetPath": "template/architecture/index.md"
     },
     {
-      "repo": "nslabsdashboards",
+      "repo": "demo-labsdashboards",
       "file": "template/COMPONENT_REFERENCE.md",
       "line": 17,
       "linkText": "Architecture Overview",
@@ -1034,7 +1034,7 @@
       "targetPath": "template/architecture/index.md"
     },
     {
-      "repo": "nslabsdashboards",
+      "repo": "demo-labsdashboards",
       "file": "template/DEVELOPER_USAGE_GUIDE.md",
       "line": 17,
       "linkText": "Architecture Overview",

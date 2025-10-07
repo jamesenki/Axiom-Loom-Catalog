@@ -11,7 +11,7 @@ You are tasked with completely rebranding this project from Axiom Loom/EY/Axiom 
    - Axiom Loom → Axiom Loom  
    - Axiom Loom → Axiom Loom
    - Ernst and Young → Axiom Loom
-   - EYGS → Axiom Loom
+   - Axiom → Axiom Loom
    - eyns (lowercase) → axiom-loom
    - axiom-loom.ai → axiom-loom.ai
 
@@ -79,8 +79,8 @@ grep -r "\bEY\b" --exclude-dir=node_modules --exclude-dir=.git .
 # Find any remaining Ernst references  
 grep -r "Ernst" --exclude-dir=node_modules --exclude-dir=.git .
 
-# Find any remaining EYGS references
-grep -r "EYGS" --exclude-dir=node_modules --exclude-dir=.git .
+# Find any remaining Axiom references
+grep -r "Axiom" --exclude-dir=node_modules --exclude-dir=.git .
 
 # Check for domain references
 grep -r "axiom-loom.ai" --exclude-dir=node_modules --exclude-dir=.git .
@@ -130,7 +130,7 @@ git commit -m "feat: complete rebrand to Axiom Loom Catalog
 3. **Case Sensitivity**: Watch for variations:
    - Axiom Loom, Eyns, eyns
    - EY, ey
-   - EYGS, Eygs, eygs
+   - Axiom, Eygs, axiom
 
 4. **Context Matters**: 
    - Don't replace "they" when looking for "ey"
@@ -143,7 +143,7 @@ git commit -m "feat: complete rebrand to Axiom Loom Catalog
    - GitHub URLs: May need to stay as-is initially
 
 ### SUCCESS CRITERIA:
-- ✅ Zero references to Axiom Loom, EY, Axiom Loom, EYGS
+- ✅ Zero references to Axiom Loom, EY, Axiom Loom, Axiom
 - ✅ App displays "Axiom Loom Catalog" 
 - ✅ Tagline visible: "Architecture Packages and Complete Solutions Built By Axiom Loom AI Agents!"
 - ✅ All tests pass

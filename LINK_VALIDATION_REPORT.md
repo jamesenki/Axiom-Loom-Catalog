@@ -156,7 +156,7 @@ Generated: 2025-07-30T15:09:11.831Z
 - ✅ `[Implementation Guides](docs/implementation/)` → `[Implementation Guides](docs/implementation/)`
 - ✅ `[Architecture Diagrams](architecture/)` → `[Architecture Diagrams](architecture/)`
 
-### /Users/lisasimon/repos/axiom-loom-innovation-repos/axiom-loom-ai-experience-center/cloned-repositories/nslabsdashboards/docs/index.md
+### /Users/lisasimon/repos/axiom-loom-innovation-repos/axiom-loom-ai-experience-center/cloned-repositories/demo-labsdashboards/docs/index.md
 
 - ✅ `[Performance Tuning](./performance.md)` → `[Performance Tuning](graphql/PERFORMANCE_OPTIMIZATION.md)`
 
@@ -2287,147 +2287,147 @@ Generated: 2025-07-30T15:09:11.831Z
 - Link: `[GitHub Discussions](./discussions)`
 - Suggestions: Check docs/ or create the missing file
 
-### /Users/lisasimon/repos/axiom-loom-innovation-repos/axiom-loom-ai-experience-center/cloned-repositories/nslabsdashboards/docs/deployment/on-premise-deployment-guide.md
+### /Users/lisasimon/repos/axiom-loom-innovation-repos/axiom-loom-ai-experience-center/cloned-repositories/demo-labsdashboards/docs/deployment/on-premise-deployment-guide.md
 
 - Link: `[Deployment Architecture](../assets/deployment-architecture.png)`
 - Suggestions: architecture/, docs/architecture/, diagrams/
 
-### /Users/lisasimon/repos/axiom-loom-innovation-repos/axiom-loom-ai-experience-center/cloned-repositories/nslabsdashboards/docs/graphql/KNOWLEDGEBASE_API.md
+### /Users/lisasimon/repos/axiom-loom-innovation-repos/axiom-loom-ai-experience-center/cloned-repositories/demo-labsdashboards/docs/graphql/KNOWLEDGEBASE_API.md
 
 - Link: `[Water Heater GraphQL API Documentation](./WATER_HEATER_API.md)`
 - Suggestions: docs/api-specs.md, architecture/api-*.md, docs/, guides/, README.md
 
-### /Users/lisasimon/repos/axiom-loom-innovation-repos/axiom-loom-ai-experience-center/cloned-repositories/nslabsdashboards/docs/graphql/REPAIR_GUIDE_API.md
+### /Users/lisasimon/repos/axiom-loom-innovation-repos/axiom-loom-ai-experience-center/cloned-repositories/demo-labsdashboards/docs/graphql/REPAIR_GUIDE_API.md
 
 - Link: `[Water Heater GraphQL API Documentation](./WATER_HEATER_API.md)`
 - Suggestions: docs/api-specs.md, architecture/api-*.md, docs/, guides/, README.md
 
-### /Users/lisasimon/repos/axiom-loom-innovation-repos/axiom-loom-ai-experience-center/cloned-repositories/nslabsdashboards/docs/graphql/schema_overview.md
+### /Users/lisasimon/repos/axiom-loom-innovation-repos/axiom-loom-ai-experience-center/cloned-repositories/demo-labsdashboards/docs/graphql/schema_overview.md
 
 - Link: `[Water Heater Control API Documentation](./water_heater_control_guide.md)`
 - Suggestions: docs/api-specs.md, architecture/api-*.md, docs/, guides/, README.md
 
-### /Users/lisasimon/repos/axiom-loom-innovation-repos/axiom-loom-ai-experience-center/cloned-repositories/nslabsdashboards/docs/graphql/schema_overview.md
+### /Users/lisasimon/repos/axiom-loom-innovation-repos/axiom-loom-ai-experience-center/cloned-repositories/demo-labsdashboards/docs/graphql/schema_overview.md
 
 - Link: `[Telemetry API Documentation](./telemetry_guide.md)`
 - Suggestions: docs/api-specs.md, architecture/api-*.md, docs/, guides/, README.md
 
-### /Users/lisasimon/repos/axiom-loom-innovation-repos/axiom-loom-ai-experience-center/cloned-repositories/nslabsdashboards/docs/graphql/schema_overview.md
+### /Users/lisasimon/repos/axiom-loom-innovation-repos/axiom-loom-ai-experience-center/cloned-repositories/demo-labsdashboards/docs/graphql/schema_overview.md
 
 - Link: `[Fleet Management API Documentation](./fleet_management_guide.md)`
 - Suggestions: docs/api-specs.md, architecture/api-*.md, docs/, guides/, README.md
 
-### /Users/lisasimon/repos/axiom-loom-innovation-repos/axiom-loom-ai-experience-center/cloned-repositories/nslabsdashboards/docs/index.md
+### /Users/lisasimon/repos/axiom-loom-innovation-repos/axiom-loom-ai-experience-center/cloned-repositories/demo-labsdashboards/docs/index.md
 
 - Link: `[Getting Started](./getting-started.md)`
 - Suggestions: Check docs/ or create the missing file
 
-### /Users/lisasimon/repos/axiom-loom-innovation-repos/axiom-loom-ai-experience-center/cloned-repositories/nslabsdashboards/docs/index.md
+### /Users/lisasimon/repos/axiom-loom-innovation-repos/axiom-loom-ai-experience-center/cloned-repositories/demo-labsdashboards/docs/index.md
 
 - Link: `[API Reference](./api-reference.md)`
 - Suggestions: docs/api-specs.md, architecture/api-*.md
 
-### /Users/lisasimon/repos/axiom-loom-innovation-repos/axiom-loom-ai-experience-center/cloned-repositories/nslabsdashboards/docs/index.md
+### /Users/lisasimon/repos/axiom-loom-innovation-repos/axiom-loom-ai-experience-center/cloned-repositories/demo-labsdashboards/docs/index.md
 
 - Link: `[Dashboard Configuration](./dashboard-config.md)`
 - Suggestions: Check docs/ or create the missing file
 
-### /Users/lisasimon/repos/axiom-loom-innovation-repos/axiom-loom-ai-experience-center/cloned-repositories/nslabsdashboards/docs/index.md
+### /Users/lisasimon/repos/axiom-loom-innovation-repos/axiom-loom-ai-experience-center/cloned-repositories/demo-labsdashboards/docs/index.md
 
 - Link: `[Alert Management](./alerts.md)`
 - Suggestions: Check docs/ or create the missing file
 
-### /Users/lisasimon/repos/axiom-loom-innovation-repos/axiom-loom-ai-experience-center/cloned-repositories/nslabsdashboards/docs/index.md
+### /Users/lisasimon/repos/axiom-loom-innovation-repos/axiom-loom-ai-experience-center/cloned-repositories/demo-labsdashboards/docs/index.md
 
 - Link: `[Integration Guide](./integrations.md)`
 - Suggestions: docs/, guides/, README.md
 
-### /Users/lisasimon/repos/axiom-loom-innovation-repos/axiom-loom-ai-experience-center/cloned-repositories/nslabsdashboards/docs/index.md
+### /Users/lisasimon/repos/axiom-loom-innovation-repos/axiom-loom-ai-experience-center/cloned-repositories/demo-labsdashboards/docs/index.md
 
 - Link: `[GraphQL Playground](./graphql-playground.md)`
 - Suggestions: Check docs/ or create the missing file
 
-### /Users/lisasimon/repos/axiom-loom-innovation-repos/axiom-loom-ai-experience-center/cloned-repositories/nslabsdashboards/docs/index.md
+### /Users/lisasimon/repos/axiom-loom-innovation-repos/axiom-loom-ai-experience-center/cloned-repositories/demo-labsdashboards/docs/index.md
 
 - Link: `[Example Queries](./example-queries.md)`
 - Suggestions: Check docs/ or create the missing file
 
-### /Users/lisasimon/repos/axiom-loom-innovation-repos/axiom-loom-ai-experience-center/cloned-repositories/nslabsdashboards/docs/operations/monitoring_and_alerting.md
+### /Users/lisasimon/repos/axiom-loom-innovation-repos/axiom-loom-ai-experience-center/cloned-repositories/demo-labsdashboards/docs/operations/monitoring_and_alerting.md
 
 - Link: `[Monitoring Architecture](../assets/monitoring_architecture.png)`
 - Suggestions: architecture/, docs/architecture/, diagrams/
 
-### /Users/lisasimon/repos/axiom-loom-innovation-repos/axiom-loom-ai-experience-center/cloned-repositories/nslabsdashboards/docs/product/personas/personas.md
+### /Users/lisasimon/repos/axiom-loom-innovation-repos/axiom-loom-ai-experience-center/cloned-repositories/demo-labsdashboards/docs/product/personas/personas.md
 
 - Link: `[README.md](EY-IoTSphere/README.md)`
 - Suggestions: Check docs/ or create the missing file
 
-### /Users/lisasimon/repos/axiom-loom-innovation-repos/axiom-loom-ai-experience-center/cloned-repositories/nslabsdashboards/docs/quickstart/clean_architecture_guide.md
+### /Users/lisasimon/repos/axiom-loom-innovation-repos/axiom-loom-ai-experience-center/cloned-repositories/demo-labsdashboards/docs/quickstart/clean_architecture_guide.md
 
 - Link: `[Testing Strategy](../testing/testing_strategy.md)`
 - Suggestions: tests/, test/, __tests__/
 
-### /Users/lisasimon/repos/axiom-loom-innovation-repos/axiom-loom-ai-experience-center/cloned-repositories/nslabsdashboards/src/tests/features/README.md
+### /Users/lisasimon/repos/axiom-loom-innovation-repos/axiom-loom-ai-experience-center/cloned-repositories/demo-labsdashboards/src/tests/features/README.md
 
 - Link: `[Personas](../docs/product/personas/personas.md)`
 - Suggestions: Check docs/ or create the missing file
 
-### /Users/lisasimon/repos/axiom-loom-innovation-repos/axiom-loom-ai-experience-center/cloned-repositories/nslabsdashboards/src/tests/features/README.md
+### /Users/lisasimon/repos/axiom-loom-innovation-repos/axiom-loom-ai-experience-center/cloned-repositories/demo-labsdashboards/src/tests/features/README.md
 
 - Link: `[Requirements](../docs/requirements/specification.md)`
 - Suggestions: Check docs/ or create the missing file
 
-### /Users/lisasimon/repos/axiom-loom-innovation-repos/axiom-loom-ai-experience-center/cloned-repositories/nslabsdashboards/src/tests/features/README.md
+### /Users/lisasimon/repos/axiom-loom-innovation-repos/axiom-loom-ai-experience-center/cloned-repositories/demo-labsdashboards/src/tests/features/README.md
 
 - Link: `[Ubiquitous Language](../src/domain/ubiquitous_language.md)`
 - Suggestions: Check docs/ or create the missing file
 
-### /Users/lisasimon/repos/axiom-loom-innovation-repos/axiom-loom-ai-experience-center/cloned-repositories/nslabsdashboards/src/tests/features/README.md
+### /Users/lisasimon/repos/axiom-loom-innovation-repos/axiom-loom-ai-experience-center/cloned-repositories/demo-labsdashboards/src/tests/features/README.md
 
 - Link: `[BDD Best Practices](../docs/bdd_best_practices.md)`
 - Suggestions: Check docs/ or create the missing file
 
-### /Users/lisasimon/repos/axiom-loom-innovation-repos/axiom-loom-ai-experience-center/cloned-repositories/nslabsdashboards/src/tests/features/README.md
+### /Users/lisasimon/repos/axiom-loom-innovation-repos/axiom-loom-ai-experience-center/cloned-repositories/demo-labsdashboards/src/tests/features/README.md
 
 - Link: `[Personas](../docs/product/personas/personas.md)`
 - Suggestions: Check docs/ or create the missing file
 
-### /Users/lisasimon/repos/axiom-loom-innovation-repos/axiom-loom-ai-experience-center/cloned-repositories/nslabsdashboards/src/tests/features/README.md
+### /Users/lisasimon/repos/axiom-loom-innovation-repos/axiom-loom-ai-experience-center/cloned-repositories/demo-labsdashboards/src/tests/features/README.md
 
 - Link: `[Requirements](../docs/requirements/specification.md)`
 - Suggestions: Check docs/ or create the missing file
 
-### /Users/lisasimon/repos/axiom-loom-innovation-repos/axiom-loom-ai-experience-center/cloned-repositories/nslabsdashboards/src/tests/features/README.md
+### /Users/lisasimon/repos/axiom-loom-innovation-repos/axiom-loom-ai-experience-center/cloned-repositories/demo-labsdashboards/src/tests/features/README.md
 
 - Link: `[Ubiquitous Language](../src/domain/ubiquitous_language.md)`
 - Suggestions: Check docs/ or create the missing file
 
-### /Users/lisasimon/repos/axiom-loom-innovation-repos/axiom-loom-ai-experience-center/cloned-repositories/nslabsdashboards/src/tests/features/README.md
+### /Users/lisasimon/repos/axiom-loom-innovation-repos/axiom-loom-ai-experience-center/cloned-repositories/demo-labsdashboards/src/tests/features/README.md
 
 - Link: `[BDD Best Practices](../docs/bdd_best_practices.md)`
 - Suggestions: Check docs/ or create the missing file
 
-### /Users/lisasimon/repos/axiom-loom-innovation-repos/axiom-loom-ai-experience-center/cloned-repositories/nslabsdashboards/template/README.md
+### /Users/lisasimon/repos/axiom-loom-innovation-repos/axiom-loom-ai-experience-center/cloned-repositories/demo-labsdashboards/template/README.md
 
 - Link: `[LICENSE](LICENSE)`
 - Suggestions: Check docs/ or create the missing file
 
-### /Users/lisasimon/repos/axiom-loom-innovation-repos/axiom-loom-ai-experience-center/cloned-repositories/nslabsdashboards/template/CUSTOMIZATION_GUIDE.md
+### /Users/lisasimon/repos/axiom-loom-innovation-repos/axiom-loom-ai-experience-center/cloned-repositories/demo-labsdashboards/template/CUSTOMIZATION_GUIDE.md
 
 - Link: `[Developer Usage Guide](DEVELOPER_USAGE_GUIDE.md)`
 - Suggestions: docs/, guides/, README.md
 
-### /Users/lisasimon/repos/axiom-loom-innovation-repos/axiom-loom-ai-experience-center/cloned-repositories/nslabsdashboards/template/CUSTOMIZATION_GUIDE.md
+### /Users/lisasimon/repos/axiom-loom-innovation-repos/axiom-loom-ai-experience-center/cloned-repositories/demo-labsdashboards/template/CUSTOMIZATION_GUIDE.md
 
 - Link: `[Component Reference](COMPONENT_REFERENCE.md)`
 - Suggestions: Check docs/ or create the missing file
 
-### /Users/lisasimon/repos/axiom-loom-innovation-repos/axiom-loom-ai-experience-center/cloned-repositories/nslabsdashboards/template/CUSTOMIZATION_GUIDE.md
+### /Users/lisasimon/repos/axiom-loom-innovation-repos/axiom-loom-ai-experience-center/cloned-repositories/demo-labsdashboards/template/CUSTOMIZATION_GUIDE.md
 
 - Link: `[Best Practices](BEST_PRACTICES.md)`
 - Suggestions: Check docs/ or create the missing file
 
-### /Users/lisasimon/repos/axiom-loom-innovation-repos/axiom-loom-ai-experience-center/cloned-repositories/nslabsdashboards/template/README.md
+### /Users/lisasimon/repos/axiom-loom-innovation-repos/axiom-loom-ai-experience-center/cloned-repositories/demo-labsdashboards/template/README.md
 
 - Link: `[LICENSE](LICENSE)`
 - Suggestions: Check docs/ or create the missing file

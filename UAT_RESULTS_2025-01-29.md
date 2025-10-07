@@ -28,7 +28,7 @@
    - future-mobility-consumer-platform (with 10+ API collections)
    - future-mobility-fleet-platform (with 14+ API collections)
    - future-mobility-oems-platform (with 14+ API collections)
-   - nslabsdashboards (GraphQL APIs)
+   - demo-labsdashboards (GraphQL APIs)
    - And 9 more repositories
 3. **API Server Running**: Backend server successfully started with search index (548 entries)
 4. **Performance**: Fast load times, optimized bundles
@@ -64,7 +64,7 @@
 ### 5. API Documentation Hub ✅
 - Postman collections detected (50+ collections across repositories)
 - Swagger/OpenAPI support
-- GraphQL endpoint support (nslabsdashboards)
+- GraphQL endpoint support (demo-labsdashboards)
 
 ## 🔍 Real Repository Data Available
 
@@ -77,7 +77,7 @@
 6. **Utilities Platform**: Infrastructure components
 
 ### Innovation Projects
-1. **nslabsdashboards**: GraphQL APIs, Docker compose, industrial lubricant project
+1. **demo-labsdashboards**: GraphQL APIs, Docker compose, industrial lubricant project
 2. **smartpath**: Lambda functions, testing framework
 3. **rentalFleets**: Automotive OEM fleet management
 4. **orchestrator**: Platform orchestration tools

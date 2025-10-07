@@ -5,8 +5,8 @@ const { chromium } = require('playwright');
   const page = await browser.newPage();
   
   // Go to main docs page
-  console.log('Going to nslabsdashboards docs...');
-  await page.goto('http://localhost:3000/docs/nslabsdashboards');
+  console.log('Going to demo-labsdashboards docs...');
+  await page.goto('http://localhost:3000/docs/demo-labsdashboards');
   await page.waitForTimeout(2000);
   
   // Look for the developer guide in the sidebar

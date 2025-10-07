@@ -2563,14 +2563,14 @@
         "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/mobility-architecture-package-orchestrator/discussions"
       }
     ],
-    "nslabsdashboards": [
+    "demo-labsdashboards": [
       {
         "file": "docs/deployment/on-premise-deployment-guide.md",
         "line": 20,
         "linkText": "Deployment Architecture",
         "linkPath": "../assets/deployment-architecture.png",
         "targetPath": "docs/assets/deployment-architecture.png",
-        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/assets/deployment-architecture.png"
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/demo-labsdashboards/docs/assets/deployment-architecture.png"
       },
       {
         "file": "docs/graphql/KNOWLEDGEBASE_API.md",
@@ -2578,7 +2578,7 @@
         "linkText": "Water Heater GraphQL API Documentation",
         "linkPath": "./WATER_HEATER_API.md",
         "targetPath": "docs/graphql/WATER_HEATER_API.md",
-        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/graphql/WATER_HEATER_API.md"
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/demo-labsdashboards/docs/graphql/WATER_HEATER_API.md"
       },
       {
         "file": "docs/graphql/REPAIR_GUIDE_API.md",
@@ -2586,7 +2586,7 @@
         "linkText": "Water Heater GraphQL API Documentation",
         "linkPath": "./WATER_HEATER_API.md",
         "targetPath": "docs/graphql/WATER_HEATER_API.md",
-        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/graphql/WATER_HEATER_API.md"
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/demo-labsdashboards/docs/graphql/WATER_HEATER_API.md"
       },
       {
         "file": "docs/graphql/schema_overview.md",
@@ -2594,7 +2594,7 @@
         "linkText": "Water Heater Control API Documentation",
         "linkPath": "./water_heater_control_guide.md",
         "targetPath": "docs/graphql/water_heater_control_guide.md",
-        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/graphql/water_heater_control_guide.md"
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/demo-labsdashboards/docs/graphql/water_heater_control_guide.md"
       },
       {
         "file": "docs/graphql/schema_overview.md",
@@ -2602,7 +2602,7 @@
         "linkText": "Telemetry API Documentation",
         "linkPath": "./telemetry_guide.md",
         "targetPath": "docs/graphql/telemetry_guide.md",
-        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/graphql/telemetry_guide.md"
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/demo-labsdashboards/docs/graphql/telemetry_guide.md"
       },
       {
         "file": "docs/graphql/schema_overview.md",
@@ -2610,7 +2610,7 @@
         "linkText": "Fleet Management API Documentation",
         "linkPath": "./fleet_management_guide.md",
         "targetPath": "docs/graphql/fleet_management_guide.md",
-        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/graphql/fleet_management_guide.md"
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/demo-labsdashboards/docs/graphql/fleet_management_guide.md"
       },
       {
         "file": "docs/index.md",
@@ -2618,7 +2618,7 @@
         "linkText": "Getting Started",
         "linkPath": "./getting-started.md",
         "targetPath": "docs/getting-started.md",
-        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/getting-started.md"
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/demo-labsdashboards/docs/getting-started.md"
       },
       {
         "file": "docs/index.md",
@@ -2626,7 +2626,7 @@
         "linkText": "API Reference",
         "linkPath": "./api-reference.md",
         "targetPath": "docs/api-reference.md",
-        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/api-reference.md"
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/demo-labsdashboards/docs/api-reference.md"
       },
       {
         "file": "docs/index.md",
@@ -2634,7 +2634,7 @@
         "linkText": "Dashboard Configuration",
         "linkPath": "./dashboard-config.md",
         "targetPath": "docs/dashboard-config.md",
-        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/dashboard-config.md"
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/demo-labsdashboards/docs/dashboard-config.md"
       },
       {
         "file": "docs/index.md",
@@ -2642,7 +2642,7 @@
         "linkText": "Alert Management",
         "linkPath": "./alerts.md",
         "targetPath": "docs/alerts.md",
-        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/alerts.md"
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/demo-labsdashboards/docs/alerts.md"
       },
       {
         "file": "docs/index.md",
@@ -2650,7 +2650,7 @@
         "linkText": "Integration Guide",
         "linkPath": "./integrations.md",
         "targetPath": "docs/integrations.md",
-        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/integrations.md"
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/demo-labsdashboards/docs/integrations.md"
       },
       {
         "file": "docs/index.md",
@@ -2658,7 +2658,7 @@
         "linkText": "GraphQL Playground",
         "linkPath": "./graphql-playground.md",
         "targetPath": "docs/graphql-playground.md",
-        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/graphql-playground.md"
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/demo-labsdashboards/docs/graphql-playground.md"
       },
       {
         "file": "docs/index.md",
@@ -2666,7 +2666,7 @@
         "linkText": "Example Queries",
         "linkPath": "./example-queries.md",
         "targetPath": "docs/example-queries.md",
-        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/example-queries.md"
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/demo-labsdashboards/docs/example-queries.md"
       },
       {
         "file": "docs/industrial_lubricant_documentation_index.md",
@@ -2674,7 +2674,7 @@
         "linkText": "Industrial Lubricant API",
         "linkPath": "./api/README.md#industrial-lubricant-platform",
         "targetPath": "docs/api/README.md#industrial-lubricant-platform",
-        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/api/README.md#industrial-lubricant-platform"
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/demo-labsdashboards/docs/api/README.md#industrial-lubricant-platform"
       },
       {
         "file": "docs/industrial_lubricant_documentation_index.md",
@@ -2682,7 +2682,7 @@
         "linkText": "Motorbike OEM Bikes API",
         "linkPath": "./api/README.md#land-ev-bikes-platform",
         "targetPath": "docs/api/README.md#land-ev-bikes-platform",
-        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/api/README.md#land-ev-bikes-platform"
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/demo-labsdashboards/docs/api/README.md#land-ev-bikes-platform"
       },
       {
         "file": "docs/industrial_lubricant_documentation_index.md",
@@ -2690,7 +2690,7 @@
         "linkText": "ML AI Services API",
         "linkPath": "./api/README.md#ml-ai-platform",
         "targetPath": "docs/api/README.md#ml-ai-platform",
-        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/api/README.md#ml-ai-platform"
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/demo-labsdashboards/docs/api/README.md#ml-ai-platform"
       },
       {
         "file": "docs/industrial_lubricant_documentation_index.md",
@@ -2698,7 +2698,7 @@
         "linkText": "Robot Devices API",
         "linkPath": "./api/README.md#robot-devices-platform",
         "targetPath": "docs/api/README.md#robot-devices-platform",
-        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/api/README.md#robot-devices-platform"
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/demo-labsdashboards/docs/api/README.md#robot-devices-platform"
       },
       {
         "file": "docs/industrial_lubricant_documentation_index.md",
@@ -2706,7 +2706,7 @@
         "linkText": "Vending Machine Co API",
         "linkPath": "./api/README.md#vending-machine-co-platform",
         "targetPath": "docs/api/README.md#vending-machine-co-platform",
-        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/api/README.md#vending-machine-co-platform"
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/demo-labsdashboards/docs/api/README.md#vending-machine-co-platform"
       },
       {
         "file": "docs/industrial_lubricant_documentation_index.md",
@@ -2714,7 +2714,7 @@
         "linkText": "Prerequisites",
         "linkPath": "./developer/industrial_lubricant_setup_guide.md#prerequisites",
         "targetPath": "docs/developer/industrial_lubricant_setup_guide.md#prerequisites",
-        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/developer/industrial_lubricant_setup_guide.md#prerequisites"
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/demo-labsdashboards/docs/developer/industrial_lubricant_setup_guide.md#prerequisites"
       },
       {
         "file": "docs/industrial_lubricant_documentation_index.md",
@@ -2722,7 +2722,7 @@
         "linkText": "Installation",
         "linkPath": "./developer/industrial_lubricant_setup_guide.md#installation",
         "targetPath": "docs/developer/industrial_lubricant_setup_guide.md#installation",
-        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/developer/industrial_lubricant_setup_guide.md#installation"
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/demo-labsdashboards/docs/developer/industrial_lubricant_setup_guide.md#installation"
       },
       {
         "file": "docs/industrial_lubricant_documentation_index.md",
@@ -2730,7 +2730,7 @@
         "linkText": "Configuration",
         "linkPath": "./developer/industrial_lubricant_setup_guide.md#configuration",
         "targetPath": "docs/developer/industrial_lubricant_setup_guide.md#configuration",
-        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/developer/industrial_lubricant_setup_guide.md#configuration"
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/demo-labsdashboards/docs/developer/industrial_lubricant_setup_guide.md#configuration"
       },
       {
         "file": "docs/industrial_lubricant_documentation_index.md",
@@ -2738,7 +2738,7 @@
         "linkText": "Development Workflow",
         "linkPath": "./developer/industrial_lubricant_setup_guide.md#development-workflow",
         "targetPath": "docs/developer/industrial_lubricant_setup_guide.md#development-workflow",
-        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/developer/industrial_lubricant_setup_guide.md#development-workflow"
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/demo-labsdashboards/docs/developer/industrial_lubricant_setup_guide.md#development-workflow"
       },
       {
         "file": "docs/industrial_lubricant_documentation_index.md",
@@ -2746,7 +2746,7 @@
         "linkText": "🏭 Industrial Lubricant API",
         "linkPath": "./api/README.md#industrial-lubricant-platform",
         "targetPath": "docs/api/README.md#industrial-lubricant-platform",
-        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/api/README.md#industrial-lubricant-platform"
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/demo-labsdashboards/docs/api/README.md#industrial-lubricant-platform"
       },
       {
         "file": "docs/industrial_lubricant_documentation_index.md",
@@ -2754,7 +2754,7 @@
         "linkText": "🏍️ Motorbike OEM Bikes API",
         "linkPath": "./api/README.md#land-ev-bikes-platform",
         "targetPath": "docs/api/README.md#land-ev-bikes-platform",
-        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/api/README.md#land-ev-bikes-platform"
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/demo-labsdashboards/docs/api/README.md#land-ev-bikes-platform"
       },
       {
         "file": "docs/industrial_lubricant_documentation_index.md",
@@ -2762,7 +2762,7 @@
         "linkText": "🤖 ML AI Services API",
         "linkPath": "./api/README.md#ml-ai-platform",
         "targetPath": "docs/api/README.md#ml-ai-platform",
-        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/api/README.md#ml-ai-platform"
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/demo-labsdashboards/docs/api/README.md#ml-ai-platform"
       },
       {
         "file": "docs/industrial_lubricant_documentation_index.md",
@@ -2770,7 +2770,7 @@
         "linkText": "🦾 Robot Devices API",
         "linkPath": "./api/README.md#robot-devices-platform",
         "targetPath": "docs/api/README.md#robot-devices-platform",
-        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/api/README.md#robot-devices-platform"
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/demo-labsdashboards/docs/api/README.md#robot-devices-platform"
       },
       {
         "file": "docs/industrial_lubricant_documentation_index.md",
@@ -2778,7 +2778,7 @@
         "linkText": "🍦 Vending Machine Co API",
         "linkPath": "./api/README.md#vending-machine-co-platform",
         "targetPath": "docs/api/README.md#vending-machine-co-platform",
-        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/api/README.md#vending-machine-co-platform"
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/demo-labsdashboards/docs/api/README.md#vending-machine-co-platform"
       },
       {
         "file": "docs/industrial_lubricant_documentation_index.md",
@@ -2786,7 +2786,7 @@
         "linkText": "Unit Testing",
         "linkPath": "./testing/industrial_lubricant_testing_guide.md#unit-testing",
         "targetPath": "docs/testing/industrial_lubricant_testing_guide.md#unit-testing",
-        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/testing/industrial_lubricant_testing_guide.md#unit-testing"
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/demo-labsdashboards/docs/testing/industrial_lubricant_testing_guide.md#unit-testing"
       },
       {
         "file": "docs/industrial_lubricant_documentation_index.md",
@@ -2794,7 +2794,7 @@
         "linkText": "Integration Testing",
         "linkPath": "./testing/industrial_lubricant_testing_guide.md#integration-testing",
         "targetPath": "docs/testing/industrial_lubricant_testing_guide.md#integration-testing",
-        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/testing/industrial_lubricant_testing_guide.md#integration-testing"
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/demo-labsdashboards/docs/testing/industrial_lubricant_testing_guide.md#integration-testing"
       },
       {
         "file": "docs/industrial_lubricant_documentation_index.md",
@@ -2802,7 +2802,7 @@
         "linkText": "Performance Testing",
         "linkPath": "./testing/industrial_lubricant_testing_guide.md#performance-testing",
         "targetPath": "docs/testing/industrial_lubricant_testing_guide.md#performance-testing",
-        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/testing/industrial_lubricant_testing_guide.md#performance-testing"
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/demo-labsdashboards/docs/testing/industrial_lubricant_testing_guide.md#performance-testing"
       },
       {
         "file": "docs/industrial_lubricant_documentation_index.md",
@@ -2810,7 +2810,7 @@
         "linkText": "API Testing",
         "linkPath": "./testing/industrial_lubricant_testing_guide.md#api-testing-with-postman",
         "targetPath": "docs/testing/industrial_lubricant_testing_guide.md#api-testing-with-postman",
-        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/testing/industrial_lubricant_testing_guide.md#api-testing-with-postman"
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/demo-labsdashboards/docs/testing/industrial_lubricant_testing_guide.md#api-testing-with-postman"
       },
       {
         "file": "docs/industrial_lubricant_documentation_index.md",
@@ -2818,7 +2818,7 @@
         "linkText": "Contributing to Industrial Lubricant Platform",
         "linkPath": "./developer/industrial_lubricant_setup_guide.md#contributing-guidelines",
         "targetPath": "docs/developer/industrial_lubricant_setup_guide.md#contributing-guidelines",
-        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/developer/industrial_lubricant_setup_guide.md#contributing-guidelines"
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/demo-labsdashboards/docs/developer/industrial_lubricant_setup_guide.md#contributing-guidelines"
       },
       {
         "file": "docs/industrial_lubricant_documentation_index.md",
@@ -2826,7 +2826,7 @@
         "linkText": "troubleshooting section",
         "linkPath": "./developer/industrial_lubricant_setup_guide.md#troubleshooting",
         "targetPath": "docs/developer/industrial_lubricant_setup_guide.md#troubleshooting",
-        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/developer/industrial_lubricant_setup_guide.md#troubleshooting"
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/demo-labsdashboards/docs/developer/industrial_lubricant_setup_guide.md#troubleshooting"
       },
       {
         "file": "docs/industrial_lubricant_documentation_index.md",
@@ -2834,7 +2834,7 @@
         "linkText": "contributing guidelines",
         "linkPath": "./developer/industrial_lubricant_setup_guide.md#contributing-guidelines",
         "targetPath": "docs/developer/industrial_lubricant_setup_guide.md#contributing-guidelines",
-        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/developer/industrial_lubricant_setup_guide.md#contributing-guidelines"
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/demo-labsdashboards/docs/developer/industrial_lubricant_setup_guide.md#contributing-guidelines"
       },
       {
         "file": "docs/operations/monitoring_and_alerting.md",
@@ -2842,7 +2842,7 @@
         "linkText": "Monitoring Architecture",
         "linkPath": "../assets/monitoring_architecture.png",
         "targetPath": "docs/assets/monitoring_architecture.png",
-        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/assets/monitoring_architecture.png"
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/demo-labsdashboards/docs/assets/monitoring_architecture.png"
       },
       {
         "file": "docs/product/personas/personas.md",
@@ -2850,7 +2850,7 @@
         "linkText": "README.md",
         "linkPath": "EY-IoTSphere/README.md",
         "targetPath": "docs/product/personas/EY-IoTSphere/README.md",
-        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/product/personas/EY-IoTSphere/README.md"
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/demo-labsdashboards/docs/product/personas/EY-IoTSphere/README.md"
       },
       {
         "file": "docs/quickstart/clean_architecture_guide.md",
@@ -2858,7 +2858,7 @@
         "linkText": "Testing Strategy",
         "linkPath": "../testing/testing_strategy.md",
         "targetPath": "docs/testing/testing_strategy.md",
-        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/testing/testing_strategy.md"
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/demo-labsdashboards/docs/testing/testing_strategy.md"
       },
       {
         "file": "src/tests/features/README.md",
@@ -2866,7 +2866,7 @@
         "linkText": "Personas",
         "linkPath": "../docs/product/personas/personas.md",
         "targetPath": "src/tests/docs/product/personas/personas.md",
-        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/src/tests/docs/product/personas/personas.md"
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/demo-labsdashboards/src/tests/docs/product/personas/personas.md"
       },
       {
         "file": "src/tests/features/README.md",
@@ -2874,7 +2874,7 @@
         "linkText": "Requirements",
         "linkPath": "../docs/requirements/specification.md",
         "targetPath": "src/tests/docs/requirements/specification.md",
-        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/src/tests/docs/requirements/specification.md"
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/demo-labsdashboards/src/tests/docs/requirements/specification.md"
       },
       {
         "file": "src/tests/features/README.md",
@@ -2882,7 +2882,7 @@
         "linkText": "Ubiquitous Language",
         "linkPath": "../src/domain/ubiquitous_language.md",
         "targetPath": "src/tests/src/domain/ubiquitous_language.md",
-        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/src/tests/src/domain/ubiquitous_language.md"
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/demo-labsdashboards/src/tests/src/domain/ubiquitous_language.md"
       },
       {
         "file": "src/tests/features/README.md",
@@ -2890,7 +2890,7 @@
         "linkText": "BDD Best Practices",
         "linkPath": "../docs/bdd_best_practices.md",
         "targetPath": "src/tests/docs/bdd_best_practices.md",
-        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/src/tests/docs/bdd_best_practices.md"
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/demo-labsdashboards/src/tests/docs/bdd_best_practices.md"
       },
       {
         "file": "template/CUSTOMIZATION_GUIDE.md",
@@ -2898,7 +2898,7 @@
         "linkText": "Developer Usage Guide",
         "linkPath": "DEVELOPER_USAGE_GUIDE.md",
         "targetPath": "template/DEVELOPER_USAGE_GUIDE.md",
-        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/template/DEVELOPER_USAGE_GUIDE.md"
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/demo-labsdashboards/template/DEVELOPER_USAGE_GUIDE.md"
       },
       {
         "file": "template/CUSTOMIZATION_GUIDE.md",
@@ -2906,7 +2906,7 @@
         "linkText": "Component Reference",
         "linkPath": "COMPONENT_REFERENCE.md",
         "targetPath": "template/COMPONENT_REFERENCE.md",
-        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/template/COMPONENT_REFERENCE.md"
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/demo-labsdashboards/template/COMPONENT_REFERENCE.md"
       },
       {
         "file": "template/CUSTOMIZATION_GUIDE.md",
@@ -2914,7 +2914,7 @@
         "linkText": "Best Practices",
         "linkPath": "BEST_PRACTICES.md",
         "targetPath": "template/BEST_PRACTICES.md",
-        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/template/BEST_PRACTICES.md"
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/demo-labsdashboards/template/BEST_PRACTICES.md"
       },
       {
         "file": "template/README.md",
@@ -2922,7 +2922,7 @@
         "linkText": "LICENSE",
         "linkPath": "LICENSE",
         "targetPath": "template/LICENSE",
-        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/template/LICENSE"
+        "fullTargetPath": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/demo-labsdashboards/template/LICENSE"
       }
     ],
     "rentalFleets": [
@@ -3393,7 +3393,7 @@
       "future-mobility-tech-platform": 48,
       "future-mobility-utilities-platform": 45,
       "mobility-architecture-package-orchestrator": 2,
-      "nslabsdashboards": 38,
+      "demo-labsdashboards": 38,
       "rentalFleets": 10,
       "sample-arch-package": 9,
       "smartpath": 10,

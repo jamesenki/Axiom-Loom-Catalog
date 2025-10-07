@@ -26,8 +26,8 @@ router.get('/detect-apis/:repoName', async (req, res) => {
       return res.status(404).json({ error: `Repository not found: ${repoName}` });
     }
     
-    // Special handling for nslabsdashboards - ensure james-update branch
-    if (repoName === 'nslabsdashboards') {
+    // Special handling for demo-labsdashboards - ensure james-update branch
+    if (repoName === 'demo-labsdashboards') {
       await ensureCorrectBranch(repoPath, 'james-update');
     }
     
@@ -327,6 +327,12 @@ async function detectRestApis(repoPath) {
     
     for (const file of apiFiles) {
       try {
+        // Skip repository metadata files
+        const fileName = path.basename(file);
+        if (fileName === 'axiom.json' || fileName === 'repository.json' || fileName === 'package.json') {
+          continue;
+        }
+        
         const filePath = path.join(repoPath, file);
         const content = fs.readFileSync(filePath, 'utf8');
         

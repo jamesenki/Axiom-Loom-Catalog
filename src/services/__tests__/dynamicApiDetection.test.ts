@@ -192,10 +192,10 @@ paths:
       expect(result.recommendedButtons).not.toContain('swagger');
     });
 
-    it('handles special branch for nslabsdashboards', async () => {
+    it('handles special branch for demo-labsdashboards', async () => {
       (fs.readdirSync as jest.Mock).mockReturnValue([]);
 
-      await detectRepositoryApis('nslabsdashboards');
+      await detectRepositoryApis('demo-labsdashboards');
 
       // Verify git checkout was called for james-update branch
       expect(execSync).toHaveBeenCalledWith(

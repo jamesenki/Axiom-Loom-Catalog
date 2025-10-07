@@ -64,6 +64,7 @@ const ApiKeyManagement = lazy(() => import('./components/auth/ApiKeyManagement')
 // Coming Soon components
 const DocsComingSoon = lazy(() => import('./components/DocsComingSoon'));
 const ProductComingSoon = lazy(() => import('./components/ProductComingSoon'));
+const DemoComingSoon = lazy(() => import('./components/DemoComingSoon'));
 
 // Styled Components
 const AppContainer = styled.div`
@@ -212,6 +213,7 @@ function AppContent() {
                     {/* Coming Soon routes */}
                     <Route path="/coming-soon/docs/:repoName/*" element={<PageTransition><DocsComingSoon /></PageTransition>} />
                     <Route path="/coming-soon/product/:repoName/*" element={<PageTransition><ProductComingSoon /></PageTransition>} />
+                    <Route path="/coming-soon/demo/:repoName/*" element={<PageTransition><DemoComingSoon /></PageTransition>} />
                     
                     {/* Protected routes */}
                     <Route path="/sync" element={

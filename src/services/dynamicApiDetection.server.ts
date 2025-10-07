@@ -156,8 +156,8 @@ export async function detectRepositoryApis(repositoryName: string): Promise<ApiD
     throw new Error(`Repository not found: ${repositoryName}`);
   }
   
-  // Special handling for nslabsdashboards - check james-update branch
-  if (repositoryName === 'nslabsdashboards') {
+  // Special handling for demo-labsdashboards - check james-update branch
+  if (repositoryName === 'demo-labsdashboards') {
     await ensureCorrectBranch(repoPath, 'james-update');
   }
   

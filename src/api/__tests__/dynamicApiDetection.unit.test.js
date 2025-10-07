@@ -71,7 +71,7 @@ describe('Dynamic API Detection Unit Tests', () => {
       });
     });
 
-    it('handles nslabsdashboards branch switching', async () => {
+    it('handles demo-labsdashboards branch switching', async () => {
       fs.existsSync.mockReturnValue(true);
       execSync.mockImplementation((cmd) => {
         if (cmd === 'git branch --show-current') {
@@ -81,7 +81,7 @@ describe('Dynamic API Detection Unit Tests', () => {
       });
 
       await request(app)
-        .get('/api/detect-apis/nslabsdashboards')
+        .get('/api/detect-apis/demo-labsdashboards')
         .expect(200);
 
       // Should attempt to switch branch

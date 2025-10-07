@@ -27,8 +27,8 @@ async function testGraphQLSchemaLoading() {
   
   try {
     // Navigate directly to GraphQL schema viewer for a repo with GraphQL files
-    console.log('📍 Navigating to GraphQL schema viewer for nslabsdashboards...');
-    await page.goto('http://10.0.0.109:3000/graphql/nslabsdashboards', { 
+    console.log('📍 Navigating to GraphQL schema viewer for demo-labsdashboards...');
+    await page.goto('http://10.0.0.109:3000/graphql/demo-labsdashboards', { 
       waitUntil: 'networkidle0', 
       timeout: 30000 
     });

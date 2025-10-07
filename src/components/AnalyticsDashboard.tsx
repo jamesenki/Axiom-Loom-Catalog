@@ -222,7 +222,7 @@ export const AnalyticsDashboard: React.FC = () => {
         topRepositories: [
           { name: 'future-mobility-platform', views: 2345 },
           { name: 'cloudtwin-simulation', views: 1823 },
-          { name: 'nslabsdashboards', views: 1567 },
+          { name: 'demo-labsdashboards', views: 1567 },
           { name: 'deploymaster-sdv', views: 1234 },
           { name: 'ai-transformations', views: 987 }
         ],

@@ -9,8 +9,8 @@ const report = JSON.parse(fs.readFileSync('content-validation-report.json', 'utf
 // Patterns for fixing common link issues
 const linkFixes = {
   // GitHub relative links
-  '../../issues': 'https://github.com/20230011612_EYGS/{{REPO}}/issues',
-  '../../discussions': 'https://github.com/20230011612_EYGS/{{REPO}}/discussions',
+  '../../issues': 'https://github.com/jamesenki/{{REPO}}/issues',
+  '../../discussions': 'https://github.com/jamesenki/{{REPO}}/discussions',
   
   // API spec links that include repository path
   '/docs/future-mobility-consumer-platform/docs/api-specs/': './docs/api-specs/',

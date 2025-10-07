@@ -16440,7 +16440,7 @@
     {
       "type": "LOW_CONTRAST",
       "element": "div",
-      "text": "Dockerfile.graphql_apinslabsdashboardsGraphQL",
+      "text": "Dockerfile.graphql_apidemo-labsdashboardsGraphQL",
       "contrast": "1.00",
       "required": 4.5,
       "color": "rgb(0, 0, 0)",
@@ -16450,7 +16450,7 @@
     {
       "type": "LOW_CONTRAST",
       "element": "div",
-      "text": "Dockerfile.graphql_apinslabsdashboardsGraphQL",
+      "text": "Dockerfile.graphql_apidemo-labsdashboardsGraphQL",
       "contrast": "1.00",
       "required": 4.5,
       "color": "rgb(0, 0, 0)",
@@ -16460,7 +16460,7 @@
     {
       "type": "LOW_CONTRAST",
       "element": "div",
-      "text": "Dockerfile.graphql_apinslabsdashboards",
+      "text": "Dockerfile.graphql_apidemo-labsdashboards",
       "contrast": "1.00",
       "required": 4.5,
       "color": "rgb(0, 0, 0)",
@@ -16470,7 +16470,7 @@
     {
       "type": "LOW_CONTRAST",
       "element": "p",
-      "text": "nslabsdashboards",
+      "text": "demo-labsdashboards",
       "contrast": "1.00",
       "required": 4.5,
       "color": "rgb(0, 0, 0)",
@@ -16520,7 +16520,7 @@
     {
       "type": "LOW_CONTRAST",
       "element": "p",
-      "text": "nslabsdashboards",
+      "text": "demo-labsdashboards",
       "contrast": "1.00",
       "required": 4.5,
       "color": "rgb(0, 0, 0)",
@@ -16570,7 +16570,7 @@
     {
       "type": "LOW_CONTRAST",
       "element": "p",
-      "text": "nslabsdashboards",
+      "text": "demo-labsdashboards",
       "contrast": "1.00",
       "required": 4.5,
       "color": "rgb(0, 0, 0)",
@@ -16620,7 +16620,7 @@
     {
       "type": "LOW_CONTRAST",
       "element": "p",
-      "text": "nslabsdashboards",
+      "text": "demo-labsdashboards",
       "contrast": "1.00",
       "required": 4.5,
       "color": "rgb(0, 0, 0)",
@@ -16670,7 +16670,7 @@
     {
       "type": "LOW_CONTRAST",
       "element": "p",
-      "text": "nslabsdashboards",
+      "text": "demo-labsdashboards",
       "contrast": "1.00",
       "required": 4.5,
       "color": "rgb(0, 0, 0)",
@@ -16720,7 +16720,7 @@
     {
       "type": "LOW_CONTRAST",
       "element": "p",
-      "text": "nslabsdashboards",
+      "text": "demo-labsdashboards",
       "contrast": "1.00",
       "required": 4.5,
       "color": "rgb(0, 0, 0)",
@@ -16770,7 +16770,7 @@
     {
       "type": "LOW_CONTRAST",
       "element": "p",
-      "text": "nslabsdashboards",
+      "text": "demo-labsdashboards",
       "contrast": "1.00",
       "required": 4.5,
       "color": "rgb(0, 0, 0)",
@@ -16820,7 +16820,7 @@
     {
       "type": "LOW_CONTRAST",
       "element": "p",
-      "text": "nslabsdashboards",
+      "text": "demo-labsdashboards",
       "contrast": "1.00",
       "required": 4.5,
       "color": "rgb(0, 0, 0)",
@@ -16870,7 +16870,7 @@
     {
       "type": "LOW_CONTRAST",
       "element": "p",
-      "text": "nslabsdashboards",
+      "text": "demo-labsdashboards",
       "contrast": "1.00",
       "required": 4.5,
       "color": "rgb(0, 0, 0)",
@@ -16920,7 +16920,7 @@
     {
       "type": "LOW_CONTRAST",
       "element": "p",
-      "text": "nslabsdashboards",
+      "text": "demo-labsdashboards",
       "contrast": "1.00",
       "required": 4.5,
       "color": "rgb(0, 0, 0)",
@@ -16940,7 +16940,7 @@
     {
       "type": "LOW_CONTRAST",
       "element": "div",
-      "text": "docs/graphql/mutation_examples.graphqlnslabsdashbo",
+      "text": "docs/graphql/mutation_examples.graphqldemo-labsdashbo",
       "contrast": "1.00",
       "required": 4.5,
       "color": "rgb(0, 0, 0)",
@@ -16950,7 +16950,7 @@
     {
       "type": "LOW_CONTRAST",
       "element": "div",
-      "text": "docs/graphql/mutation_examples.graphqlnslabsdashbo",
+      "text": "docs/graphql/mutation_examples.graphqldemo-labsdashbo",
       "contrast": "1.00",
       "required": 4.5,
       "color": "rgb(0, 0, 0)",
@@ -16960,7 +16960,7 @@
     {
       "type": "LOW_CONTRAST",
       "element": "div",
-      "text": "docs/graphql/mutation_examples.graphqlnslabsdashbo",
+      "text": "docs/graphql/mutation_examples.graphqldemo-labsdashbo",
       "contrast": "1.00",
       "required": 4.5,
       "color": "rgb(0, 0, 0)",
@@ -16970,7 +16970,7 @@
     {
       "type": "LOW_CONTRAST",
       "element": "p",
-      "text": "nslabsdashboards",
+      "text": "demo-labsdashboards",
       "contrast": "1.00",
       "required": 4.5,
       "color": "rgb(0, 0, 0)",
@@ -17020,7 +17020,7 @@
     {
       "type": "LOW_CONTRAST",
       "element": "p",
-      "text": "nslabsdashboards",
+      "text": "demo-labsdashboards",
       "contrast": "1.00",
       "required": 4.5,
       "color": "rgb(0, 0, 0)",
@@ -17040,7 +17040,7 @@
     {
       "type": "LOW_CONTRAST",
       "element": "div",
-      "text": "scripts/graphql_playground_samples.graphqlnslabsda",
+      "text": "scripts/graphql_playground_samples.graphqldemo-labsda",
       "contrast": "1.00",
       "required": 4.5,
       "color": "rgb(0, 0, 0)",
@@ -17050,7 +17050,7 @@
     {
       "type": "LOW_CONTRAST",
       "element": "div",
-      "text": "scripts/graphql_playground_samples.graphqlnslabsda",
+      "text": "scripts/graphql_playground_samples.graphqldemo-labsda",
       "contrast": "1.00",
       "required": 4.5,
       "color": "rgb(0, 0, 0)",
@@ -17060,7 +17060,7 @@
     {
       "type": "LOW_CONTRAST",
       "element": "div",
-      "text": "scripts/graphql_playground_samples.graphqlnslabsda",
+      "text": "scripts/graphql_playground_samples.graphqldemo-labsda",
       "contrast": "1.00",
       "required": 4.5,
       "color": "rgb(0, 0, 0)",
@@ -17070,7 +17070,7 @@
     {
       "type": "LOW_CONTRAST",
       "element": "p",
-      "text": "nslabsdashboards",
+      "text": "demo-labsdashboards",
       "contrast": "1.00",
       "required": 4.5,
       "color": "rgb(0, 0, 0)",
@@ -17090,7 +17090,7 @@
     {
       "type": "LOW_CONTRAST",
       "element": "div",
-      "text": "scripts/security_graphql_examples.graphqlnslabsdas",
+      "text": "scripts/security_graphql_examples.graphqldemo-labsdas",
       "contrast": "1.00",
       "required": 4.5,
       "color": "rgb(0, 0, 0)",
@@ -17100,7 +17100,7 @@
     {
       "type": "LOW_CONTRAST",
       "element": "div",
-      "text": "scripts/security_graphql_examples.graphqlnslabsdas",
+      "text": "scripts/security_graphql_examples.graphqldemo-labsdas",
       "contrast": "1.00",
       "required": 4.5,
       "color": "rgb(0, 0, 0)",
@@ -17110,7 +17110,7 @@
     {
       "type": "LOW_CONTRAST",
       "element": "div",
-      "text": "scripts/security_graphql_examples.graphqlnslabsdas",
+      "text": "scripts/security_graphql_examples.graphqldemo-labsdas",
       "contrast": "1.00",
       "required": 4.5,
       "color": "rgb(0, 0, 0)",
@@ -17120,7 +17120,7 @@
     {
       "type": "LOW_CONTRAST",
       "element": "p",
-      "text": "nslabsdashboards",
+      "text": "demo-labsdashboards",
       "contrast": "1.00",
       "required": 4.5,
       "color": "rgb(0, 0, 0)",
@@ -17140,7 +17140,7 @@
     {
       "type": "LOW_CONTRAST",
       "element": "div",
-      "text": "simulators/water_heater/schema.graphqlnslabsdashbo",
+      "text": "simulators/water_heater/schema.graphqldemo-labsdashbo",
       "contrast": "1.00",
       "required": 4.5,
       "color": "rgb(0, 0, 0)",
@@ -17150,7 +17150,7 @@
     {
       "type": "LOW_CONTRAST",
       "element": "div",
-      "text": "simulators/water_heater/schema.graphqlnslabsdashbo",
+      "text": "simulators/water_heater/schema.graphqldemo-labsdashbo",
       "contrast": "1.00",
       "required": 4.5,
       "color": "rgb(0, 0, 0)",
@@ -17160,7 +17160,7 @@
     {
       "type": "LOW_CONTRAST",
       "element": "div",
-      "text": "simulators/water_heater/schema.graphqlnslabsdashbo",
+      "text": "simulators/water_heater/schema.graphqldemo-labsdashbo",
       "contrast": "1.00",
       "required": 4.5,
       "color": "rgb(0, 0, 0)",
@@ -17170,7 +17170,7 @@
     {
       "type": "LOW_CONTRAST",
       "element": "p",
-      "text": "nslabsdashboards",
+      "text": "demo-labsdashboards",
       "contrast": "1.00",
       "required": 4.5,
       "color": "rgb(0, 0, 0)",
@@ -17220,7 +17220,7 @@
     {
       "type": "LOW_CONTRAST",
       "element": "p",
-      "text": "nslabsdashboards",
+      "text": "demo-labsdashboards",
       "contrast": "1.00",
       "required": 4.5,
       "color": "rgb(0, 0, 0)",
@@ -17270,7 +17270,7 @@
     {
       "type": "LOW_CONTRAST",
       "element": "p",
-      "text": "nslabsdashboards",
+      "text": "demo-labsdashboards",
       "contrast": "1.00",
       "required": 4.5,
       "color": "rgb(0, 0, 0)",
@@ -17290,7 +17290,7 @@
     {
       "type": "LOW_CONTRAST",
       "element": "div",
-      "text": "src/iotsphere_gql/schema/knowledgebase_schema.grap",
+      "text": "src/iotplatform_gql/schema/knowledgebase_schema.grap",
       "contrast": "1.00",
       "required": 4.5,
       "color": "rgb(0, 0, 0)",
@@ -17300,7 +17300,7 @@
     {
       "type": "LOW_CONTRAST",
       "element": "div",
-      "text": "src/iotsphere_gql/schema/knowledgebase_schema.grap",
+      "text": "src/iotplatform_gql/schema/knowledgebase_schema.grap",
       "contrast": "1.00",
       "required": 4.5,
       "color": "rgb(0, 0, 0)",
@@ -17310,7 +17310,7 @@
     {
       "type": "LOW_CONTRAST",
       "element": "div",
-      "text": "src/iotsphere_gql/schema/knowledgebase_schema.grap",
+      "text": "src/iotplatform_gql/schema/knowledgebase_schema.grap",
       "contrast": "1.00",
       "required": 4.5,
       "color": "rgb(0, 0, 0)",
@@ -17320,7 +17320,7 @@
     {
       "type": "LOW_CONTRAST",
       "element": "p",
-      "text": "nslabsdashboards",
+      "text": "demo-labsdashboards",
       "contrast": "1.00",
       "required": 4.5,
       "color": "rgb(0, 0, 0)",
@@ -17340,7 +17340,7 @@
     {
       "type": "LOW_CONTRAST",
       "element": "div",
-      "text": "src/iotsphere_gql/schema/schema_legacy.graphqlnsla",
+      "text": "src/iotplatform_gql/schema/schema_legacy.graphqlnsla",
       "contrast": "1.00",
       "required": 4.5,
       "color": "rgb(0, 0, 0)",
@@ -17350,7 +17350,7 @@
     {
       "type": "LOW_CONTRAST",
       "element": "div",
-      "text": "src/iotsphere_gql/schema/schema_legacy.graphqlnsla",
+      "text": "src/iotplatform_gql/schema/schema_legacy.graphqlnsla",
       "contrast": "1.00",
       "required": 4.5,
       "color": "rgb(0, 0, 0)",
@@ -17360,7 +17360,7 @@
     {
       "type": "LOW_CONTRAST",
       "element": "div",
-      "text": "src/iotsphere_gql/schema/schema_legacy.graphqlnsla",
+      "text": "src/iotplatform_gql/schema/schema_legacy.graphqlnsla",
       "contrast": "1.00",
       "required": 4.5,
       "color": "rgb(0, 0, 0)",
@@ -17370,7 +17370,7 @@
     {
       "type": "LOW_CONTRAST",
       "element": "p",
-      "text": "nslabsdashboards",
+      "text": "demo-labsdashboards",
       "contrast": "1.00",
       "required": 4.5,
       "color": "rgb(0, 0, 0)",
@@ -17390,7 +17390,7 @@
     {
       "type": "LOW_CONTRAST",
       "element": "div",
-      "text": "tmp/introspect_troubleshoot_query.graphqlnslabsdas",
+      "text": "tmp/introspect_troubleshoot_query.graphqldemo-labsdas",
       "contrast": "1.00",
       "required": 4.5,
       "color": "rgb(0, 0, 0)",
@@ -17400,7 +17400,7 @@
     {
       "type": "LOW_CONTRAST",
       "element": "div",
-      "text": "tmp/introspect_troubleshoot_query.graphqlnslabsdas",
+      "text": "tmp/introspect_troubleshoot_query.graphqldemo-labsdas",
       "contrast": "1.00",
       "required": 4.5,
       "color": "rgb(0, 0, 0)",
@@ -17410,7 +17410,7 @@
     {
       "type": "LOW_CONTRAST",
       "element": "div",
-      "text": "tmp/introspect_troubleshoot_query.graphqlnslabsdas",
+      "text": "tmp/introspect_troubleshoot_query.graphqldemo-labsdas",
       "contrast": "1.00",
       "required": 4.5,
       "color": "rgb(0, 0, 0)",
@@ -17420,7 +17420,7 @@
     {
       "type": "LOW_CONTRAST",
       "element": "p",
-      "text": "nslabsdashboards",
+      "text": "demo-labsdashboards",
       "contrast": "1.00",
       "required": 4.5,
       "color": "rgb(0, 0, 0)",
@@ -17470,7 +17470,7 @@
     {
       "type": "LOW_CONTRAST",
       "element": "p",
-      "text": "nslabsdashboards",
+      "text": "demo-labsdashboards",
       "contrast": "1.00",
       "required": 4.5,
       "color": "rgb(0, 0, 0)",
@@ -17490,7 +17490,7 @@
     {
       "type": "LOW_CONTRAST",
       "element": "div",
-      "text": "Industrial Lubricant Platform API - Enhancednslabs",
+      "text": "Industrial Lubricant Platform API - Enhanceddemo-labs",
       "contrast": "1.00",
       "required": 4.5,
       "color": "rgb(0, 0, 0)",
@@ -17500,7 +17500,7 @@
     {
       "type": "LOW_CONTRAST",
       "element": "div",
-      "text": "Industrial Lubricant Platform API - Enhancednslabs",
+      "text": "Industrial Lubricant Platform API - Enhanceddemo-labs",
       "contrast": "1.00",
       "required": 4.5,
       "color": "rgb(0, 0, 0)",
@@ -17510,7 +17510,7 @@
     {
       "type": "LOW_CONTRAST",
       "element": "div",
-      "text": "Industrial Lubricant Platform API - Enhancednslabs",
+      "text": "Industrial Lubricant Platform API - Enhanceddemo-labs",
       "contrast": "1.00",
       "required": 4.5,
       "color": "rgb(0, 0, 0)",
@@ -17520,7 +17520,7 @@
     {
       "type": "LOW_CONTRAST",
       "element": "p",
-      "text": "nslabsdashboards",
+      "text": "demo-labsdashboards",
       "contrast": "1.00",
       "required": 4.5,
       "color": "rgb(0, 0, 0)",
@@ -17540,7 +17540,7 @@
     {
       "type": "LOW_CONTRAST",
       "element": "div",
-      "text": "Motorbike OEM Bikes API Collection - Upliftednslabsdashb",
+      "text": "Motorbike OEM Bikes API Collection - Uplifteddemo-labsdashb",
       "contrast": "1.00",
       "required": 4.5,
       "color": "rgb(0, 0, 0)",
@@ -17550,7 +17550,7 @@
     {
       "type": "LOW_CONTRAST",
       "element": "div",
-      "text": "Motorbike OEM Bikes API Collection - Upliftednslabsdashb",
+      "text": "Motorbike OEM Bikes API Collection - Uplifteddemo-labsdashb",
       "contrast": "1.00",
       "required": 4.5,
       "color": "rgb(0, 0, 0)",
@@ -17560,7 +17560,7 @@
     {
       "type": "LOW_CONTRAST",
       "element": "div",
-      "text": "Motorbike OEM Bikes API Collection - Upliftednslabsdashb",
+      "text": "Motorbike OEM Bikes API Collection - Uplifteddemo-labsdashb",
       "contrast": "1.00",
       "required": 4.5,
       "color": "rgb(0, 0, 0)",
@@ -17570,7 +17570,7 @@
     {
       "type": "LOW_CONTRAST",
       "element": "p",
-      "text": "nslabsdashboards",
+      "text": "demo-labsdashboards",
       "contrast": "1.00",
       "required": 4.5,
       "color": "rgb(0, 0, 0)",
@@ -17590,7 +17590,7 @@
     {
       "type": "LOW_CONTRAST",
       "element": "div",
-      "text": "IoTSphere ML/AI APIs - UpliftednslabsdashboardsPos",
+      "text": "IoTSphere ML/AI APIs - Uplifteddemo-labsdashboardsPos",
       "contrast": "1.00",
       "required": 4.5,
       "color": "rgb(0, 0, 0)",
@@ -17600,7 +17600,7 @@
     {
       "type": "LOW_CONTRAST",
       "element": "div",
-      "text": "IoTSphere ML/AI APIs - UpliftednslabsdashboardsPos",
+      "text": "IoTSphere ML/AI APIs - Uplifteddemo-labsdashboardsPos",
       "contrast": "1.00",
       "required": 4.5,
       "color": "rgb(0, 0, 0)",
@@ -17610,7 +17610,7 @@
     {
       "type": "LOW_CONTRAST",
       "element": "div",
-      "text": "IoTSphere ML/AI APIs - Upliftednslabsdashboards",
+      "text": "IoTSphere ML/AI APIs - Uplifteddemo-labsdashboards",
       "contrast": "1.00",
       "required": 4.5,
       "color": "rgb(0, 0, 0)",
@@ -17620,7 +17620,7 @@
     {
       "type": "LOW_CONTRAST",
       "element": "p",
-      "text": "nslabsdashboards",
+      "text": "demo-labsdashboards",
       "contrast": "1.00",
       "required": 4.5,
       "color": "rgb(0, 0, 0)",
@@ -17670,7 +17670,7 @@
     {
       "type": "LOW_CONTRAST",
       "element": "p",
-      "text": "nslabsdashboards",
+      "text": "demo-labsdashboards",
       "contrast": "1.00",
       "required": 4.5,
       "color": "rgb(0, 0, 0)",
@@ -17690,7 +17690,7 @@
     {
       "type": "LOW_CONTRAST",
       "element": "div",
-      "text": "Robot Devices API Collection - Upliftednslabsdashb",
+      "text": "Robot Devices API Collection - Uplifteddemo-labsdashb",
       "contrast": "1.00",
       "required": 4.5,
       "color": "rgb(0, 0, 0)",
@@ -17700,7 +17700,7 @@
     {
       "type": "LOW_CONTRAST",
       "element": "div",
-      "text": "Robot Devices API Collection - Upliftednslabsdashb",
+      "text": "Robot Devices API Collection - Uplifteddemo-labsdashb",
       "contrast": "1.00",
       "required": 4.5,
       "color": "rgb(0, 0, 0)",
@@ -17710,7 +17710,7 @@
     {
       "type": "LOW_CONTRAST",
       "element": "div",
-      "text": "Robot Devices API Collection - Upliftednslabsdashb",
+      "text": "Robot Devices API Collection - Uplifteddemo-labsdashb",
       "contrast": "1.00",
       "required": 4.5,
       "color": "rgb(0, 0, 0)",
@@ -17720,7 +17720,7 @@
     {
       "type": "LOW_CONTRAST",
       "element": "p",
-      "text": "nslabsdashboards",
+      "text": "demo-labsdashboards",
       "contrast": "1.00",
       "required": 4.5,
       "color": "rgb(0, 0, 0)",
@@ -17770,7 +17770,7 @@
     {
       "type": "LOW_CONTRAST",
       "element": "p",
-      "text": "nslabsdashboards",
+      "text": "demo-labsdashboards",
       "contrast": "1.00",
       "required": 4.5,
       "color": "rgb(0, 0, 0)",
@@ -62963,7 +62963,7 @@
         {
           "type": "LOW_CONTRAST",
           "element": "div",
-          "text": "Dockerfile.graphql_apinslabsdashboardsGraphQL",
+          "text": "Dockerfile.graphql_apidemo-labsdashboardsGraphQL",
           "contrast": "1.00",
           "required": 4.5,
           "color": "rgb(0, 0, 0)",
@@ -62972,7 +62972,7 @@
         {
           "type": "LOW_CONTRAST",
           "element": "div",
-          "text": "Dockerfile.graphql_apinslabsdashboardsGraphQL",
+          "text": "Dockerfile.graphql_apidemo-labsdashboardsGraphQL",
           "contrast": "1.00",
           "required": 4.5,
           "color": "rgb(0, 0, 0)",
@@ -62981,7 +62981,7 @@
         {
           "type": "LOW_CONTRAST",
           "element": "div",
-          "text": "Dockerfile.graphql_apinslabsdashboards",
+          "text": "Dockerfile.graphql_apidemo-labsdashboards",
           "contrast": "1.00",
           "required": 4.5,
           "color": "rgb(0, 0, 0)",
@@ -62990,7 +62990,7 @@
         {
           "type": "LOW_CONTRAST",
           "element": "p",
-          "text": "nslabsdashboards",
+          "text": "demo-labsdashboards",
           "contrast": "1.00",
           "required": 4.5,
           "color": "rgb(0, 0, 0)",
@@ -63035,7 +63035,7 @@
         {
           "type": "LOW_CONTRAST",
           "element": "p",
-          "text": "nslabsdashboards",
+          "text": "demo-labsdashboards",
           "contrast": "1.00",
           "required": 4.5,
           "color": "rgb(0, 0, 0)",
@@ -63080,7 +63080,7 @@
         {
           "type": "LOW_CONTRAST",
           "element": "p",
-          "text": "nslabsdashboards",
+          "text": "demo-labsdashboards",
           "contrast": "1.00",
           "required": 4.5,
           "color": "rgb(0, 0, 0)",
@@ -63125,7 +63125,7 @@
         {
           "type": "LOW_CONTRAST",
           "element": "p",
-          "text": "nslabsdashboards",
+          "text": "demo-labsdashboards",
           "contrast": "1.00",
           "required": 4.5,
           "color": "rgb(0, 0, 0)",
@@ -63170,7 +63170,7 @@
         {
           "type": "LOW_CONTRAST",
           "element": "p",
-          "text": "nslabsdashboards",
+          "text": "demo-labsdashboards",
           "contrast": "1.00",
           "required": 4.5,
           "color": "rgb(0, 0, 0)",
@@ -63215,7 +63215,7 @@
         {
           "type": "LOW_CONTRAST",
           "element": "p",
-          "text": "nslabsdashboards",
+          "text": "demo-labsdashboards",
           "contrast": "1.00",
           "required": 4.5,
           "color": "rgb(0, 0, 0)",
@@ -63260,7 +63260,7 @@
         {
           "type": "LOW_CONTRAST",
           "element": "p",
-          "text": "nslabsdashboards",
+          "text": "demo-labsdashboards",
           "contrast": "1.00",
           "required": 4.5,
           "color": "rgb(0, 0, 0)",
@@ -63305,7 +63305,7 @@
         {
           "type": "LOW_CONTRAST",
           "element": "p",
-          "text": "nslabsdashboards",
+          "text": "demo-labsdashboards",
           "contrast": "1.00",
           "required": 4.5,
           "color": "rgb(0, 0, 0)",
@@ -63350,7 +63350,7 @@
         {
           "type": "LOW_CONTRAST",
           "element": "p",
-          "text": "nslabsdashboards",
+          "text": "demo-labsdashboards",
           "contrast": "1.00",
           "required": 4.5,
           "color": "rgb(0, 0, 0)",
@@ -63395,7 +63395,7 @@
         {
           "type": "LOW_CONTRAST",
           "element": "p",
-          "text": "nslabsdashboards",
+          "text": "demo-labsdashboards",
           "contrast": "1.00",
           "required": 4.5,
           "color": "rgb(0, 0, 0)",
@@ -63413,7 +63413,7 @@
         {
           "type": "LOW_CONTRAST",
           "element": "div",
-          "text": "docs/graphql/mutation_examples.graphqlnslabsdashbo",
+          "text": "docs/graphql/mutation_examples.graphqldemo-labsdashbo",
           "contrast": "1.00",
           "required": 4.5,
           "color": "rgb(0, 0, 0)",
@@ -63422,7 +63422,7 @@
         {
           "type": "LOW_CONTRAST",
           "element": "div",
-          "text": "docs/graphql/mutation_examples.graphqlnslabsdashbo",
+          "text": "docs/graphql/mutation_examples.graphqldemo-labsdashbo",
           "contrast": "1.00",
           "required": 4.5,
           "color": "rgb(0, 0, 0)",
@@ -63431,7 +63431,7 @@
         {
           "type": "LOW_CONTRAST",
           "element": "div",
-          "text": "docs/graphql/mutation_examples.graphqlnslabsdashbo",
+          "text": "docs/graphql/mutation_examples.graphqldemo-labsdashbo",
           "contrast": "1.00",
           "required": 4.5,
           "color": "rgb(0, 0, 0)",
@@ -63440,7 +63440,7 @@
         {
           "type": "LOW_CONTRAST",
           "element": "p",
-          "text": "nslabsdashboards",
+          "text": "demo-labsdashboards",
           "contrast": "1.00",
           "required": 4.5,
           "color": "rgb(0, 0, 0)",
@@ -63485,7 +63485,7 @@
         {
           "type": "LOW_CONTRAST",
           "element": "p",
-          "text": "nslabsdashboards",
+          "text": "demo-labsdashboards",
           "contrast": "1.00",
           "required": 4.5,
           "color": "rgb(0, 0, 0)",
@@ -63503,7 +63503,7 @@
         {
           "type": "LOW_CONTRAST",
           "element": "div",
-          "text": "scripts/graphql_playground_samples.graphqlnslabsda",
+          "text": "scripts/graphql_playground_samples.graphqldemo-labsda",
           "contrast": "1.00",
           "required": 4.5,
           "color": "rgb(0, 0, 0)",
@@ -63512,7 +63512,7 @@
         {
           "type": "LOW_CONTRAST",
           "element": "div",
-          "text": "scripts/graphql_playground_samples.graphqlnslabsda",
+          "text": "scripts/graphql_playground_samples.graphqldemo-labsda",
           "contrast": "1.00",
           "required": 4.5,
           "color": "rgb(0, 0, 0)",
@@ -63521,7 +63521,7 @@
         {
           "type": "LOW_CONTRAST",
           "element": "div",
-          "text": "scripts/graphql_playground_samples.graphqlnslabsda",
+          "text": "scripts/graphql_playground_samples.graphqldemo-labsda",
           "contrast": "1.00",
           "required": 4.5,
           "color": "rgb(0, 0, 0)",
@@ -63530,7 +63530,7 @@
         {
           "type": "LOW_CONTRAST",
           "element": "p",
-          "text": "nslabsdashboards",
+          "text": "demo-labsdashboards",
           "contrast": "1.00",
           "required": 4.5,
           "color": "rgb(0, 0, 0)",
@@ -63548,7 +63548,7 @@
         {
           "type": "LOW_CONTRAST",
           "element": "div",
-          "text": "scripts/security_graphql_examples.graphqlnslabsdas",
+          "text": "scripts/security_graphql_examples.graphqldemo-labsdas",
           "contrast": "1.00",
           "required": 4.5,
           "color": "rgb(0, 0, 0)",
@@ -63557,7 +63557,7 @@
         {
           "type": "LOW_CONTRAST",
           "element": "div",
-          "text": "scripts/security_graphql_examples.graphqlnslabsdas",
+          "text": "scripts/security_graphql_examples.graphqldemo-labsdas",
           "contrast": "1.00",
           "required": 4.5,
           "color": "rgb(0, 0, 0)",
@@ -63566,7 +63566,7 @@
         {
           "type": "LOW_CONTRAST",
           "element": "div",
-          "text": "scripts/security_graphql_examples.graphqlnslabsdas",
+          "text": "scripts/security_graphql_examples.graphqldemo-labsdas",
           "contrast": "1.00",
           "required": 4.5,
           "color": "rgb(0, 0, 0)",
@@ -63575,7 +63575,7 @@
         {
           "type": "LOW_CONTRAST",
           "element": "p",
-          "text": "nslabsdashboards",
+          "text": "demo-labsdashboards",
           "contrast": "1.00",
           "required": 4.5,
           "color": "rgb(0, 0, 0)",
@@ -63593,7 +63593,7 @@
         {
           "type": "LOW_CONTRAST",
           "element": "div",
-          "text": "simulators/water_heater/schema.graphqlnslabsdashbo",
+          "text": "simulators/water_heater/schema.graphqldemo-labsdashbo",
           "contrast": "1.00",
           "required": 4.5,
           "color": "rgb(0, 0, 0)",
@@ -63602,7 +63602,7 @@
         {
           "type": "LOW_CONTRAST",
           "element": "div",
-          "text": "simulators/water_heater/schema.graphqlnslabsdashbo",
+          "text": "simulators/water_heater/schema.graphqldemo-labsdashbo",
           "contrast": "1.00",
           "required": 4.5,
           "color": "rgb(0, 0, 0)",
@@ -63611,7 +63611,7 @@
         {
           "type": "LOW_CONTRAST",
           "element": "div",
-          "text": "simulators/water_heater/schema.graphqlnslabsdashbo",
+          "text": "simulators/water_heater/schema.graphqldemo-labsdashbo",
           "contrast": "1.00",
           "required": 4.5,
           "color": "rgb(0, 0, 0)",
@@ -63620,7 +63620,7 @@
         {
           "type": "LOW_CONTRAST",
           "element": "p",
-          "text": "nslabsdashboards",
+          "text": "demo-labsdashboards",
           "contrast": "1.00",
           "required": 4.5,
           "color": "rgb(0, 0, 0)",
@@ -63665,7 +63665,7 @@
         {
           "type": "LOW_CONTRAST",
           "element": "p",
-          "text": "nslabsdashboards",
+          "text": "demo-labsdashboards",
           "contrast": "1.00",
           "required": 4.5,
           "color": "rgb(0, 0, 0)",
@@ -63710,7 +63710,7 @@
         {
           "type": "LOW_CONTRAST",
           "element": "p",
-          "text": "nslabsdashboards",
+          "text": "demo-labsdashboards",
           "contrast": "1.00",
           "required": 4.5,
           "color": "rgb(0, 0, 0)",
@@ -63728,7 +63728,7 @@
         {
           "type": "LOW_CONTRAST",
           "element": "div",
-          "text": "src/iotsphere_gql/schema/knowledgebase_schema.grap",
+          "text": "src/iotplatform_gql/schema/knowledgebase_schema.grap",
           "contrast": "1.00",
           "required": 4.5,
           "color": "rgb(0, 0, 0)",
@@ -63737,7 +63737,7 @@
         {
           "type": "LOW_CONTRAST",
           "element": "div",
-          "text": "src/iotsphere_gql/schema/knowledgebase_schema.grap",
+          "text": "src/iotplatform_gql/schema/knowledgebase_schema.grap",
           "contrast": "1.00",
           "required": 4.5,
           "color": "rgb(0, 0, 0)",
@@ -63746,7 +63746,7 @@
         {
           "type": "LOW_CONTRAST",
           "element": "div",
-          "text": "src/iotsphere_gql/schema/knowledgebase_schema.grap",
+          "text": "src/iotplatform_gql/schema/knowledgebase_schema.grap",
           "contrast": "1.00",
           "required": 4.5,
           "color": "rgb(0, 0, 0)",
@@ -63755,7 +63755,7 @@
         {
           "type": "LOW_CONTRAST",
           "element": "p",
-          "text": "nslabsdashboards",
+          "text": "demo-labsdashboards",
           "contrast": "1.00",
           "required": 4.5,
           "color": "rgb(0, 0, 0)",
@@ -63773,7 +63773,7 @@
         {
           "type": "LOW_CONTRAST",
           "element": "div",
-          "text": "src/iotsphere_gql/schema/schema_legacy.graphqlnsla",
+          "text": "src/iotplatform_gql/schema/schema_legacy.graphqlnsla",
           "contrast": "1.00",
           "required": 4.5,
           "color": "rgb(0, 0, 0)",
@@ -63782,7 +63782,7 @@
         {
           "type": "LOW_CONTRAST",
           "element": "div",
-          "text": "src/iotsphere_gql/schema/schema_legacy.graphqlnsla",
+          "text": "src/iotplatform_gql/schema/schema_legacy.graphqlnsla",
           "contrast": "1.00",
           "required": 4.5,
           "color": "rgb(0, 0, 0)",
@@ -63791,7 +63791,7 @@
         {
           "type": "LOW_CONTRAST",
           "element": "div",
-          "text": "src/iotsphere_gql/schema/schema_legacy.graphqlnsla",
+          "text": "src/iotplatform_gql/schema/schema_legacy.graphqlnsla",
           "contrast": "1.00",
           "required": 4.5,
           "color": "rgb(0, 0, 0)",
@@ -63800,7 +63800,7 @@
         {
           "type": "LOW_CONTRAST",
           "element": "p",
-          "text": "nslabsdashboards",
+          "text": "demo-labsdashboards",
           "contrast": "1.00",
           "required": 4.5,
           "color": "rgb(0, 0, 0)",
@@ -63818,7 +63818,7 @@
         {
           "type": "LOW_CONTRAST",
           "element": "div",
-          "text": "tmp/introspect_troubleshoot_query.graphqlnslabsdas",
+          "text": "tmp/introspect_troubleshoot_query.graphqldemo-labsdas",
           "contrast": "1.00",
           "required": 4.5,
           "color": "rgb(0, 0, 0)",
@@ -63827,7 +63827,7 @@
         {
           "type": "LOW_CONTRAST",
           "element": "div",
-          "text": "tmp/introspect_troubleshoot_query.graphqlnslabsdas",
+          "text": "tmp/introspect_troubleshoot_query.graphqldemo-labsdas",
           "contrast": "1.00",
           "required": 4.5,
           "color": "rgb(0, 0, 0)",
@@ -63836,7 +63836,7 @@
         {
           "type": "LOW_CONTRAST",
           "element": "div",
-          "text": "tmp/introspect_troubleshoot_query.graphqlnslabsdas",
+          "text": "tmp/introspect_troubleshoot_query.graphqldemo-labsdas",
           "contrast": "1.00",
           "required": 4.5,
           "color": "rgb(0, 0, 0)",
@@ -63845,7 +63845,7 @@
         {
           "type": "LOW_CONTRAST",
           "element": "p",
-          "text": "nslabsdashboards",
+          "text": "demo-labsdashboards",
           "contrast": "1.00",
           "required": 4.5,
           "color": "rgb(0, 0, 0)",
@@ -63890,7 +63890,7 @@
         {
           "type": "LOW_CONTRAST",
           "element": "p",
-          "text": "nslabsdashboards",
+          "text": "demo-labsdashboards",
           "contrast": "1.00",
           "required": 4.5,
           "color": "rgb(0, 0, 0)",
@@ -63908,7 +63908,7 @@
         {
           "type": "LOW_CONTRAST",
           "element": "div",
-          "text": "Industrial Lubricant Platform API - Enhancednslabs",
+          "text": "Industrial Lubricant Platform API - Enhanceddemo-labs",
           "contrast": "1.00",
           "required": 4.5,
           "color": "rgb(0, 0, 0)",
@@ -63917,7 +63917,7 @@
         {
           "type": "LOW_CONTRAST",
           "element": "div",
-          "text": "Industrial Lubricant Platform API - Enhancednslabs",
+          "text": "Industrial Lubricant Platform API - Enhanceddemo-labs",
           "contrast": "1.00",
           "required": 4.5,
           "color": "rgb(0, 0, 0)",
@@ -63926,7 +63926,7 @@
         {
           "type": "LOW_CONTRAST",
           "element": "div",
-          "text": "Industrial Lubricant Platform API - Enhancednslabs",
+          "text": "Industrial Lubricant Platform API - Enhanceddemo-labs",
           "contrast": "1.00",
           "required": 4.5,
           "color": "rgb(0, 0, 0)",
@@ -63935,7 +63935,7 @@
         {
           "type": "LOW_CONTRAST",
           "element": "p",
-          "text": "nslabsdashboards",
+          "text": "demo-labsdashboards",
           "contrast": "1.00",
           "required": 4.5,
           "color": "rgb(0, 0, 0)",
@@ -63953,7 +63953,7 @@
         {
           "type": "LOW_CONTRAST",
           "element": "div",
-          "text": "Motorbike OEM Bikes API Collection - Upliftednslabsdashb",
+          "text": "Motorbike OEM Bikes API Collection - Uplifteddemo-labsdashb",
           "contrast": "1.00",
           "required": 4.5,
           "color": "rgb(0, 0, 0)",
@@ -63962,7 +63962,7 @@
         {
           "type": "LOW_CONTRAST",
           "element": "div",
-          "text": "Motorbike OEM Bikes API Collection - Upliftednslabsdashb",
+          "text": "Motorbike OEM Bikes API Collection - Uplifteddemo-labsdashb",
           "contrast": "1.00",
           "required": 4.5,
           "color": "rgb(0, 0, 0)",
@@ -63971,7 +63971,7 @@
         {
           "type": "LOW_CONTRAST",
           "element": "div",
-          "text": "Motorbike OEM Bikes API Collection - Upliftednslabsdashb",
+          "text": "Motorbike OEM Bikes API Collection - Uplifteddemo-labsdashb",
           "contrast": "1.00",
           "required": 4.5,
           "color": "rgb(0, 0, 0)",
@@ -63980,7 +63980,7 @@
         {
           "type": "LOW_CONTRAST",
           "element": "p",
-          "text": "nslabsdashboards",
+          "text": "demo-labsdashboards",
           "contrast": "1.00",
           "required": 4.5,
           "color": "rgb(0, 0, 0)",
@@ -63998,7 +63998,7 @@
         {
           "type": "LOW_CONTRAST",
           "element": "div",
-          "text": "IoTSphere ML/AI APIs - UpliftednslabsdashboardsPos",
+          "text": "IoTSphere ML/AI APIs - Uplifteddemo-labsdashboardsPos",
           "contrast": "1.00",
           "required": 4.5,
           "color": "rgb(0, 0, 0)",
@@ -64007,7 +64007,7 @@
         {
           "type": "LOW_CONTRAST",
           "element": "div",
-          "text": "IoTSphere ML/AI APIs - UpliftednslabsdashboardsPos",
+          "text": "IoTSphere ML/AI APIs - Uplifteddemo-labsdashboardsPos",
           "contrast": "1.00",
           "required": 4.5,
           "color": "rgb(0, 0, 0)",
@@ -64016,7 +64016,7 @@
         {
           "type": "LOW_CONTRAST",
           "element": "div",
-          "text": "IoTSphere ML/AI APIs - Upliftednslabsdashboards",
+          "text": "IoTSphere ML/AI APIs - Uplifteddemo-labsdashboards",
           "contrast": "1.00",
           "required": 4.5,
           "color": "rgb(0, 0, 0)",
@@ -64025,7 +64025,7 @@
         {
           "type": "LOW_CONTRAST",
           "element": "p",
-          "text": "nslabsdashboards",
+          "text": "demo-labsdashboards",
           "contrast": "1.00",
           "required": 4.5,
           "color": "rgb(0, 0, 0)",
@@ -64070,7 +64070,7 @@
         {
           "type": "LOW_CONTRAST",
           "element": "p",
-          "text": "nslabsdashboards",
+          "text": "demo-labsdashboards",
           "contrast": "1.00",
           "required": 4.5,
           "color": "rgb(0, 0, 0)",
@@ -64088,7 +64088,7 @@
         {
           "type": "LOW_CONTRAST",
           "element": "div",
-          "text": "Robot Devices API Collection - Upliftednslabsdashb",
+          "text": "Robot Devices API Collection - Uplifteddemo-labsdashb",
           "contrast": "1.00",
           "required": 4.5,
           "color": "rgb(0, 0, 0)",
@@ -64097,7 +64097,7 @@
         {
           "type": "LOW_CONTRAST",
           "element": "div",
-          "text": "Robot Devices API Collection - Upliftednslabsdashb",
+          "text": "Robot Devices API Collection - Uplifteddemo-labsdashb",
           "contrast": "1.00",
           "required": 4.5,
           "color": "rgb(0, 0, 0)",
@@ -64106,7 +64106,7 @@
         {
           "type": "LOW_CONTRAST",
           "element": "div",
-          "text": "Robot Devices API Collection - Upliftednslabsdashb",
+          "text": "Robot Devices API Collection - Uplifteddemo-labsdashb",
           "contrast": "1.00",
           "required": 4.5,
           "color": "rgb(0, 0, 0)",
@@ -64115,7 +64115,7 @@
         {
           "type": "LOW_CONTRAST",
           "element": "p",
-          "text": "nslabsdashboards",
+          "text": "demo-labsdashboards",
           "contrast": "1.00",
           "required": 4.5,
           "color": "rgb(0, 0, 0)",
@@ -64160,7 +64160,7 @@
         {
           "type": "LOW_CONTRAST",
           "element": "p",
-          "text": "nslabsdashboards",
+          "text": "demo-labsdashboards",
           "contrast": "1.00",
           "required": 4.5,
           "color": "rgb(0, 0, 0)",

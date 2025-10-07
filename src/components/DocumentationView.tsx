@@ -18,10 +18,13 @@ interface FileItem {
 }
 
 const DocumentationView: React.FC = () => {
-  const { repoName } = useParams<{ repoName: string }>();
+  const { repoName, '*': filePath } = useParams<{ repoName: string, '*': string }>();
   const [searchParams] = useSearchParams();
   const pathParam = searchParams.get('path');
-  const [selectedFile, setSelectedFile] = useState<string>(pathParam || 'README.md');
+  
+  // Use file path from URL params first, then query params, then default to README.md
+  const defaultFile = filePath || pathParam || 'README.md';
+  const [selectedFile, setSelectedFile] = useState<string>(defaultFile);
   const [content, setContent] = useState<string>('');
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -30,10 +33,11 @@ const DocumentationView: React.FC = () => {
 
   // Update selected file when path param changes
   useEffect(() => {
-    if (pathParam) {
-      setSelectedFile(pathParam);
+    const newFile = filePath || pathParam || 'README.md';
+    if (newFile !== selectedFile) {
+      setSelectedFile(newFile);
     }
-  }, [pathParam]);
+  }, [filePath, pathParam]);
 
   // Fetch file tree
   useEffect(() => {
@@ -169,11 +173,78 @@ const DocumentationView: React.FC = () => {
     );
   };
 
+  // Generate breadcrumb components
+  const generateBreadcrumbs = () => {
+    const breadcrumbs = [];
+    
+    // Always include repository home link
+    breadcrumbs.push(
+      <Link 
+        key="repo-home" 
+        to={`/repository/${repoName}`} 
+        className={styles.breadcrumbLink}
+      >
+        🏠 {repoName}
+      </Link>
+    );
+    
+    // Add documentation root if we're not on README
+    if (selectedFile !== 'README.md') {
+      breadcrumbs.push(
+        <span key="separator-docs" className={styles.breadcrumbSeparator}>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <polyline points="9,18 15,12 9,6"></polyline>
+          </svg>
+        </span>
+      );
+      
+      breadcrumbs.push(
+        <button 
+          key="readme-link" 
+          onClick={() => setSelectedFile('README.md')}
+          className={styles.breadcrumbButton}
+        >
+          📚 Documentation
+        </button>
+      );
+    }
+    
+    // Add current file if it's not README
+    if (selectedFile && selectedFile !== 'README.md') {
+      breadcrumbs.push(
+        <span key="separator-current" className={styles.breadcrumbSeparator}>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <polyline points="9,18 15,12 9,6"></polyline>
+          </svg>
+        </span>
+      );
+      
+      // Format the filename for display
+      const fileName = selectedFile.split('/').pop()?.replace('.md', '') || selectedFile;
+      const displayName = fileName.split(/[-_]/).map(word => 
+        word.charAt(0).toUpperCase() + word.slice(1)
+      ).join(' ');
+      
+      breadcrumbs.push(
+        <span key="current-file" className={styles.breadcrumbCurrent}>
+          📄 {displayName}
+        </span>
+      );
+    }
+    
+    return breadcrumbs;
+  };
+
   return (
     <div className={styles.documentationView}>
       <div className={styles.docHeader}>
         <Link to="/" className={styles.backLink}>← Back to Repositories</Link>
         <h1>📚 Documentation: {repoName}</h1>
+        
+        {/* Breadcrumb navigation */}
+        <nav className={styles.breadcrumbNav} aria-label="Documentation breadcrumb">
+          {generateBreadcrumbs()}
+        </nav>
       </div>
 
       <div className={styles.docContainer}>
@@ -195,10 +266,32 @@ const DocumentationView: React.FC = () => {
               content={content}
               onContentChange={(newContent) => setContent(newContent)}
               onNavigate={(path) => {
-                // Handle navigation to other markdown files
                 console.log('Navigating to:', path);
                 
-                // Handle relative paths
+                // Check if this is a React Router path (starts with routes like /coming-soon, /demo, /docs)
+                const routerPaths = ['/coming-soon', '/demo', '/repository', '/apis', '/docs'];
+                const isRouterPath = routerPaths.some(route => path.startsWith(route)) || 
+                                   (path.startsWith('./') && routerPaths.some(route => path.includes(route)));
+                
+                if (isRouterPath) {
+                  // Handle React Router navigation
+                  console.log('Navigating to React Router path:', path);
+                  let routerPath = path;
+                  
+                  // Clean up relative path syntax for router
+                  if (routerPath.startsWith('./')) {
+                    routerPath = routerPath.substring(2);
+                  }
+                  if (!routerPath.startsWith('/')) {
+                    routerPath = '/' + routerPath;
+                  }
+                  
+                  // Use window.location for immediate navigation to React routes
+                  window.location.href = routerPath;
+                  return;
+                }
+                
+                // Handle markdown file navigation within the repository
                 let targetPath: string;
                 
                 if (path.startsWith('./') || path.startsWith('../')) {
@@ -224,12 +317,11 @@ const DocumentationView: React.FC = () => {
                   // Absolute path from repo root
                   targetPath = path.substring(1);
                 } else {
-                  // Plain path - could be relative to current directory or from root
+                  // Plain path - treat as relative to current directory or from root
                   const currentDir = selectedFile.includes('/') 
                     ? selectedFile.substring(0, selectedFile.lastIndexOf('/'))
                     : '';
                   
-                  // First try relative to current directory
                   if (currentDir) {
                     targetPath = `${currentDir}/${path}`;
                   } else {
@@ -237,12 +329,12 @@ const DocumentationView: React.FC = () => {
                   }
                 }
                 
-                // Ensure .md extension only if not already present
+                // Add .md extension for file paths
                 if (!targetPath.endsWith('.md')) {
                   targetPath += '.md';
                 }
                 
-                console.log('Resolved target path:', targetPath);
+                console.log('Resolved target path for file:', targetPath);
                 setSelectedFile(targetPath);
               }}
             />

@@ -17,7 +17,7 @@
   ],
   "failed": [
     {
-      "name": "nslabsdashboards",
+      "name": "demo-labsdashboards",
       "error": "Unknown error"
     }
   ],

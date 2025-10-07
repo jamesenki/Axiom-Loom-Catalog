@@ -41,7 +41,7 @@ REPOSITORIES=(
   "future-mobility-users-platform"
   "future-mobility-utilities-platform"
   "mobility-architecture-package-orchestrator"
-  "nslabsdashboards"
+  "demo-labsdashboards"
   "remote-diagnostic-assistance-platform-architecture"
   "rentalFleets"
   "sample-arch-package"
@@ -108,9 +108,9 @@ for repo in "${REPOSITORIES[@]}"; do
     REMOTE_URL="EYGS/${repo}"
   else
     # Fall back to user account
-    git remote add eygs "https://github.com/20230011612_EYGS/${repo}.git" 2>/dev/null || \
+    git remote add eygs "https://github.com/jamesenki/${repo}.git" 2>/dev/null || \
     git remote add eygs "https://github.com/EYGS/${repo}.git"
-    REMOTE_URL="20230011612_EYGS/${repo}"
+    REMOTE_URL="jamesenki/${repo}"
   fi
   
   # Get current branch
@@ -163,4 +163,4 @@ if [ ${#FAILED[@]} -gt 0 ]; then
 fi
 
 echo -e "\n${GREEN}EYGS push process complete!${NC}"
-echo "Note: Some repositories may be under the user account (20230011612_EYGS) instead of the EYGS org."
+echo "Note: Some repositories may be under the user account (jamesenki) instead of the EYGS org."

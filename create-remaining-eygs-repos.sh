@@ -13,7 +13,7 @@ BLUE='\033[0;34m'
 NC='\033[0m'
 
 echo -e "${BLUE}════════════════════════════════════════════════════════════${NC}"
-echo -e "${BLUE}    CREATING REMAINING REPOS AS PRIVATE FOR 20230011612_EYGS${NC}"
+echo -e "${BLUE}    CREATING REMAINING REPOS AS PRIVATE FOR jamesenki${NC}"
 echo -e "${BLUE}════════════════════════════════════════════════════════════${NC}"
 echo
 
@@ -43,8 +43,8 @@ FAILED=()
 CURRENT_USER=$(GITHUB_TOKEN="" gh api user | jq -r '.login')
 echo -e "${BLUE}Current GitHub user: ${CURRENT_USER}${NC}"
 
-if [ "$CURRENT_USER" != "20230011612_EYGS" ]; then
-  echo -e "${RED}ERROR: Not authenticated as 20230011612_EYGS${NC}"
+if [ "$CURRENT_USER" != "jamesenki" ]; then
+  echo -e "${RED}ERROR: Not authenticated as jamesenki${NC}"
   exit 1
 fi
 
@@ -53,12 +53,12 @@ for repo in "${REMAINING_REPOS[@]}"; do
   echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
   
   # Create as PRIVATE repository
-  echo "Creating PRIVATE repository 20230011612_EYGS/${repo}..."
+  echo "Creating PRIVATE repository jamesenki/${repo}..."
   if GITHUB_TOKEN="" gh repo create "${repo}" \
     --private \
     --description "Axiom Loom Platform - ${repo}" \
     --homepage "https://eyns.ai" 2>&1; then
-    echo -e "${GREEN}✓ Created repository: 20230011612_EYGS/${repo}${NC}"
+    echo -e "${GREEN}✓ Created repository: jamesenki/${repo}${NC}"
     CREATED+=("$repo")
     
     # Now push the code
@@ -72,7 +72,7 @@ for repo in "${REMAINING_REPOS[@]}"; do
       
       # Remove any existing eygs remote and add the correct one
       git remote remove eygs 2>/dev/null || true
-      git remote add eygs "https://github.com/20230011612_EYGS/${repo}.git"
+      git remote add eygs "https://github.com/jamesenki/${repo}.git"
       
       # Get current branch
       CURRENT_BRANCH=$(git branch --show-current)
@@ -80,10 +80,10 @@ for repo in "${REMAINING_REPOS[@]}"; do
         CURRENT_BRANCH="main"
       fi
       
-      # Push to 20230011612_EYGS
-      echo -e "${YELLOW}Pushing to 20230011612_EYGS/${repo}...${NC}"
+      # Push to jamesenki
+      echo -e "${YELLOW}Pushing to jamesenki/${repo}...${NC}"
       if git push eygs "$CURRENT_BRANCH" --force 2>&1; then
-        echo -e "${GREEN}✓ Successfully pushed to 20230011612_EYGS/${repo}${NC}"
+        echo -e "${GREEN}✓ Successfully pushed to jamesenki/${repo}${NC}"
         SUCCESSFUL+=("$repo")
       else
         echo -e "${RED}✗ Failed to push${NC}"
@@ -104,14 +104,14 @@ for repo in "${REMAINING_REPOS[@]}"; do
     if [ -d "$REPO_DIR/.git" ]; then
       cd "$REPO_DIR"
       git remote remove eygs 2>/dev/null || true
-      git remote add eygs "https://github.com/20230011612_EYGS/${repo}.git"
+      git remote add eygs "https://github.com/jamesenki/${repo}.git"
       CURRENT_BRANCH=$(git branch --show-current)
       if [ -z "$CURRENT_BRANCH" ]; then
         CURRENT_BRANCH="main"
       fi
       echo -e "${YELLOW}Attempting to push existing repo...${NC}"
       if git push eygs "$CURRENT_BRANCH" --force 2>&1; then
-        echo -e "${GREEN}✓ Successfully pushed to 20230011612_EYGS/${repo}${NC}"
+        echo -e "${GREEN}✓ Successfully pushed to jamesenki/${repo}${NC}"
         SUCCESSFUL+=("$repo")
       else
         FAILED+=("$repo")
@@ -128,14 +128,14 @@ echo -e "${BLUE}═════════════════════�
 if [ ${#CREATED[@]} -gt 0 ]; then
   echo -e "\n${GREEN}Newly created (${#CREATED[@]}):${NC}"
   for repo in "${CREATED[@]}"; do
-    echo "  ✓ 20230011612_EYGS/$repo"
+    echo "  ✓ jamesenki/$repo"
   done
 fi
 
 if [ ${#SUCCESSFUL[@]} -gt 0 ]; then
   echo -e "\n${GREEN}Successfully pushed (${#SUCCESSFUL[@]}):${NC}"
   for repo in "${SUCCESSFUL[@]}"; do
-    echo "  ✓ 20230011612_EYGS/$repo"
+    echo "  ✓ jamesenki/$repo"
   done
 fi
 

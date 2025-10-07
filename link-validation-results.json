@@ -199,7 +199,7 @@
                           "text": "\nValidating 9 links in repository: mobility-architecture-package-orchestrator\n"
                         },
                         {
-                          "text": "\nValidating 122 links in repository: nslabsdashboards\n"
+                          "text": "\nValidating 122 links in repository: demo-labsdashboards\n"
                         },
                         {
                           "text": "\nValidating 60 links in repository: rentalFleets\n"
@@ -11899,7 +11899,7 @@
                           "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/mobility-architecture-package-orchestrator/discussions\n"
                         },
                         {
-                          "text": "\nRepository: nslabsdashboards\n"
+                          "text": "\nRepository: demo-labsdashboards\n"
                         },
                         {
                           "text": "File: docs/api/README.md:89\n"
@@ -11914,7 +11914,7 @@
                           "text": "Error: API returned 404: Not Found\n"
                         },
                         {
-                          "text": "\nRepository: nslabsdashboards\n"
+                          "text": "\nRepository: demo-labsdashboards\n"
                         },
                         {
                           "text": "File: docs/api/README.md:133\n"
@@ -11929,7 +11929,7 @@
                           "text": "Error: API returned 404: Not Found\n"
                         },
                         {
-                          "text": "\nRepository: nslabsdashboards\n"
+                          "text": "\nRepository: demo-labsdashboards\n"
                         },
                         {
                           "text": "File: docs/api/README.md:175\n"
@@ -11944,7 +11944,7 @@
                           "text": "Error: API returned 404: Not Found\n"
                         },
                         {
-                          "text": "\nRepository: nslabsdashboards\n"
+                          "text": "\nRepository: demo-labsdashboards\n"
                         },
                         {
                           "text": "File: docs/api/README.md:213\n"
@@ -11959,7 +11959,7 @@
                           "text": "Error: API returned 404: Not Found\n"
                         },
                         {
-                          "text": "\nRepository: nslabsdashboards\n"
+                          "text": "\nRepository: demo-labsdashboards\n"
                         },
                         {
                           "text": "File: docs/api/README.md:259\n"
@@ -11974,7 +11974,7 @@
                           "text": "Error: API returned 404: Not Found\n"
                         },
                         {
-                          "text": "\nRepository: nslabsdashboards\n"
+                          "text": "\nRepository: demo-labsdashboards\n"
                         },
                         {
                           "text": "File: docs/architecture/clean_architecture_implementation.md:7\n"
@@ -11989,7 +11989,7 @@
                           "text": "Error: API returned 404: Not Found\n"
                         },
                         {
-                          "text": "\nRepository: nslabsdashboards\n"
+                          "text": "\nRepository: demo-labsdashboards\n"
                         },
                         {
                           "text": "File: docs/deployment/on-premise-deployment-guide.md:20\n"
@@ -12001,10 +12001,10 @@
                           "text": "Link Path: ../assets/deployment-architecture.png\n"
                         },
                         {
-                          "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/assets/deployment-architecture.png\n"
+                          "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/demo-labsdashboards/docs/assets/deployment-architecture.png\n"
                         },
                         {
-                          "text": "\nRepository: nslabsdashboards\n"
+                          "text": "\nRepository: demo-labsdashboards\n"
                         },
                         {
                           "text": "File: docs/graphql/KNOWLEDGEBASE_API.md:337\n"
@@ -12019,7 +12019,7 @@
                           "text": "Error: API returned 404: Not Found\n"
                         },
                         {
-                          "text": "\nRepository: nslabsdashboards\n"
+                          "text": "\nRepository: demo-labsdashboards\n"
                         },
                         {
                           "text": "File: docs/graphql/KNOWLEDGEBASE_API.md:337\n"
@@ -12031,10 +12031,10 @@
                           "text": "Link Path: ./WATER_HEATER_API.md\n"
                         },
                         {
-                          "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/graphql/WATER_HEATER_API.md\n"
+                          "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/demo-labsdashboards/docs/graphql/WATER_HEATER_API.md\n"
                         },
                         {
-                          "text": "\nRepository: nslabsdashboards\n"
+                          "text": "\nRepository: demo-labsdashboards\n"
                         },
                         {
                           "text": "File: docs/graphql/REPAIR_GUIDE_API.md:289\n"
@@ -12049,7 +12049,7 @@
                           "text": "Error: API returned 404: Not Found\n"
                         },
                         {
-                          "text": "\nRepository: nslabsdashboards\n"
+                          "text": "\nRepository: demo-labsdashboards\n"
                         },
                         {
                           "text": "File: docs/graphql/REPAIR_GUIDE_API.md:289\n"
@@ -12061,10 +12061,10 @@
                           "text": "Link Path: ./WATER_HEATER_API.md\n"
                         },
                         {
-                          "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/graphql/WATER_HEATER_API.md\n"
+                          "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/demo-labsdashboards/docs/graphql/WATER_HEATER_API.md\n"
                         },
                         {
-                          "text": "\nRepository: nslabsdashboards\n"
+                          "text": "\nRepository: demo-labsdashboards\n"
                         },
                         {
                           "text": "File: docs/graphql/mutation_guide.md:624\n"
@@ -12079,7 +12079,7 @@
                           "text": "Error: API returned 404: Not Found\n"
                         },
                         {
-                          "text": "\nRepository: nslabsdashboards\n"
+                          "text": "\nRepository: demo-labsdashboards\n"
                         },
                         {
                           "text": "File: docs/graphql/mutation_guide.md:625\n"
@@ -12094,7 +12094,7 @@
                           "text": "Error: API returned 404: Not Found\n"
                         },
                         {
-                          "text": "\nRepository: nslabsdashboards\n"
+                          "text": "\nRepository: demo-labsdashboards\n"
                         },
                         {
                           "text": "File: docs/graphql/rest_to_graphql_migration.md:517\n"
@@ -12109,7 +12109,7 @@
                           "text": "Error: API returned 404: Not Found\n"
                         },
                         {
-                          "text": "\nRepository: nslabsdashboards\n"
+                          "text": "\nRepository: demo-labsdashboards\n"
                         },
                         {
                           "text": "File: docs/graphql/schema_overview.md:252\n"
@@ -12124,7 +12124,7 @@
                           "text": "Error: API returned 404: Not Found\n"
                         },
                         {
-                          "text": "\nRepository: nslabsdashboards\n"
+                          "text": "\nRepository: demo-labsdashboards\n"
                         },
                         {
                           "text": "File: docs/graphql/schema_overview.md:253\n"
@@ -12136,10 +12136,10 @@
                           "text": "Link Path: ./water_heater_control_guide.md\n"
                         },
                         {
-                          "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/graphql/water_heater_control_guide.md\n"
+                          "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/demo-labsdashboards/docs/graphql/water_heater_control_guide.md\n"
                         },
                         {
-                          "text": "\nRepository: nslabsdashboards\n"
+                          "text": "\nRepository: demo-labsdashboards\n"
                         },
                         {
                           "text": "File: docs/graphql/schema_overview.md:254\n"
@@ -12151,10 +12151,10 @@
                           "text": "Link Path: ./telemetry_guide.md\n"
                         },
                         {
-                          "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/graphql/telemetry_guide.md\n"
+                          "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/demo-labsdashboards/docs/graphql/telemetry_guide.md\n"
                         },
                         {
-                          "text": "\nRepository: nslabsdashboards\n"
+                          "text": "\nRepository: demo-labsdashboards\n"
                         },
                         {
                           "text": "File: docs/graphql/schema_overview.md:255\n"
@@ -12166,10 +12166,10 @@
                           "text": "Link Path: ./fleet_management_guide.md\n"
                         },
                         {
-                          "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/graphql/fleet_management_guide.md\n"
+                          "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/demo-labsdashboards/docs/graphql/fleet_management_guide.md\n"
                         },
                         {
-                          "text": "\nRepository: nslabsdashboards\n"
+                          "text": "\nRepository: demo-labsdashboards\n"
                         },
                         {
                           "text": "File: docs/index.md:7\n"
@@ -12181,10 +12181,10 @@
                           "text": "Link Path: ./getting-started.md\n"
                         },
                         {
-                          "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/getting-started.md\n"
+                          "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/demo-labsdashboards/docs/getting-started.md\n"
                         },
                         {
-                          "text": "\nRepository: nslabsdashboards\n"
+                          "text": "\nRepository: demo-labsdashboards\n"
                         },
                         {
                           "text": "File: docs/index.md:8\n"
@@ -12199,7 +12199,7 @@
                           "text": "Error: API returned 404: Not Found\n"
                         },
                         {
-                          "text": "\nRepository: nslabsdashboards\n"
+                          "text": "\nRepository: demo-labsdashboards\n"
                         },
                         {
                           "text": "File: docs/index.md:9\n"
@@ -12211,10 +12211,10 @@
                           "text": "Link Path: ./api-reference.md\n"
                         },
                         {
-                          "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/api-reference.md\n"
+                          "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/demo-labsdashboards/docs/api-reference.md\n"
                         },
                         {
-                          "text": "\nRepository: nslabsdashboards\n"
+                          "text": "\nRepository: demo-labsdashboards\n"
                         },
                         {
                           "text": "File: docs/index.md:10\n"
@@ -12226,10 +12226,10 @@
                           "text": "Link Path: ./dashboard-config.md\n"
                         },
                         {
-                          "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/dashboard-config.md\n"
+                          "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/demo-labsdashboards/docs/dashboard-config.md\n"
                         },
                         {
-                          "text": "\nRepository: nslabsdashboards\n"
+                          "text": "\nRepository: demo-labsdashboards\n"
                         },
                         {
                           "text": "File: docs/index.md:11\n"
@@ -12241,10 +12241,10 @@
                           "text": "Link Path: ./alerts.md\n"
                         },
                         {
-                          "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/alerts.md\n"
+                          "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/demo-labsdashboards/docs/alerts.md\n"
                         },
                         {
-                          "text": "\nRepository: nslabsdashboards\n"
+                          "text": "\nRepository: demo-labsdashboards\n"
                         },
                         {
                           "text": "File: docs/index.md:12\n"
@@ -12256,10 +12256,10 @@
                           "text": "Link Path: ./integrations.md\n"
                         },
                         {
-                          "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/integrations.md\n"
+                          "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/demo-labsdashboards/docs/integrations.md\n"
                         },
                         {
-                          "text": "\nRepository: nslabsdashboards\n"
+                          "text": "\nRepository: demo-labsdashboards\n"
                         },
                         {
                           "text": "File: docs/index.md:13\n"
@@ -12274,7 +12274,7 @@
                           "text": "Error: API returned 404: Not Found\n"
                         },
                         {
-                          "text": "\nRepository: nslabsdashboards\n"
+                          "text": "\nRepository: demo-labsdashboards\n"
                         },
                         {
                           "text": "File: docs/index.md:14\n"
@@ -12289,7 +12289,7 @@
                           "text": "Error: API returned 404: Not Found\n"
                         },
                         {
-                          "text": "\nRepository: nslabsdashboards\n"
+                          "text": "\nRepository: demo-labsdashboards\n"
                         },
                         {
                           "text": "File: docs/index.md:18\n"
@@ -12301,10 +12301,10 @@
                           "text": "Link Path: ./graphql-playground.md\n"
                         },
                         {
-                          "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/graphql-playground.md\n"
+                          "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/demo-labsdashboards/docs/graphql-playground.md\n"
                         },
                         {
-                          "text": "\nRepository: nslabsdashboards\n"
+                          "text": "\nRepository: demo-labsdashboards\n"
                         },
                         {
                           "text": "File: docs/index.md:19\n"
@@ -12316,10 +12316,10 @@
                           "text": "Link Path: ./example-queries.md\n"
                         },
                         {
-                          "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/example-queries.md\n"
+                          "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/demo-labsdashboards/docs/example-queries.md\n"
                         },
                         {
-                          "text": "\nRepository: nslabsdashboards\n"
+                          "text": "\nRepository: demo-labsdashboards\n"
                         },
                         {
                           "text": "File: docs/index.md:20\n"
@@ -12334,7 +12334,7 @@
                           "text": "Error: API returned 404: Not Found\n"
                         },
                         {
-                          "text": "\nRepository: nslabsdashboards\n"
+                          "text": "\nRepository: demo-labsdashboards\n"
                         },
                         {
                           "text": "File: docs/industrial_lubricant_documentation_index.md:14\n"
@@ -12349,7 +12349,7 @@
                           "text": "Error: API returned 404: Not Found\n"
                         },
                         {
-                          "text": "\nRepository: nslabsdashboards\n"
+                          "text": "\nRepository: demo-labsdashboards\n"
                         },
                         {
                           "text": "File: docs/industrial_lubricant_documentation_index.md:15\n"
@@ -12364,7 +12364,7 @@
                           "text": "Error: API returned 404: Not Found\n"
                         },
                         {
-                          "text": "\nRepository: nslabsdashboards\n"
+                          "text": "\nRepository: demo-labsdashboards\n"
                         },
                         {
                           "text": "File: docs/industrial_lubricant_documentation_index.md:16\n"
@@ -12376,10 +12376,10 @@
                           "text": "Link Path: ./api/README.md#industrial-lubricant-platform\n"
                         },
                         {
-                          "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/api/README.md#industrial-lubricant-platform\n"
+                          "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/demo-labsdashboards/docs/api/README.md#industrial-lubricant-platform\n"
                         },
                         {
-                          "text": "\nRepository: nslabsdashboards\n"
+                          "text": "\nRepository: demo-labsdashboards\n"
                         },
                         {
                           "text": "File: docs/industrial_lubricant_documentation_index.md:17\n"
@@ -12391,10 +12391,10 @@
                           "text": "Link Path: ./api/README.md#land-ev-bikes-platform\n"
                         },
                         {
-                          "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/api/README.md#land-ev-bikes-platform\n"
+                          "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/demo-labsdashboards/docs/api/README.md#land-ev-bikes-platform\n"
                         },
                         {
-                          "text": "\nRepository: nslabsdashboards\n"
+                          "text": "\nRepository: demo-labsdashboards\n"
                         },
                         {
                           "text": "File: docs/industrial_lubricant_documentation_index.md:18\n"
@@ -12406,10 +12406,10 @@
                           "text": "Link Path: ./api/README.md#ml-ai-platform\n"
                         },
                         {
-                          "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/api/README.md#ml-ai-platform\n"
+                          "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/demo-labsdashboards/docs/api/README.md#ml-ai-platform\n"
                         },
                         {
-                          "text": "\nRepository: nslabsdashboards\n"
+                          "text": "\nRepository: demo-labsdashboards\n"
                         },
                         {
                           "text": "File: docs/industrial_lubricant_documentation_index.md:19\n"
@@ -12421,10 +12421,10 @@
                           "text": "Link Path: ./api/README.md#robot-devices-platform\n"
                         },
                         {
-                          "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/api/README.md#robot-devices-platform\n"
+                          "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/demo-labsdashboards/docs/api/README.md#robot-devices-platform\n"
                         },
                         {
-                          "text": "\nRepository: nslabsdashboards\n"
+                          "text": "\nRepository: demo-labsdashboards\n"
                         },
                         {
                           "text": "File: docs/industrial_lubricant_documentation_index.md:20\n"
@@ -12436,10 +12436,10 @@
                           "text": "Link Path: ./api/README.md#vending-machine-co-platform\n"
                         },
                         {
-                          "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/api/README.md#vending-machine-co-platform\n"
+                          "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/demo-labsdashboards/docs/api/README.md#vending-machine-co-platform\n"
                         },
                         {
-                          "text": "\nRepository: nslabsdashboards\n"
+                          "text": "\nRepository: demo-labsdashboards\n"
                         },
                         {
                           "text": "File: docs/industrial_lubricant_documentation_index.md:117\n"
@@ -12454,7 +12454,7 @@
                           "text": "Error: API returned 404: Not Found\n"
                         },
                         {
-                          "text": "\nRepository: nslabsdashboards\n"
+                          "text": "\nRepository: demo-labsdashboards\n"
                         },
                         {
                           "text": "File: docs/industrial_lubricant_documentation_index.md:127\n"
@@ -12466,10 +12466,10 @@
                           "text": "Link Path: ./developer/industrial_lubricant_setup_guide.md#prerequisites\n"
                         },
                         {
-                          "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/developer/industrial_lubricant_setup_guide.md#prerequisites\n"
+                          "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/demo-labsdashboards/docs/developer/industrial_lubricant_setup_guide.md#prerequisites\n"
                         },
                         {
-                          "text": "\nRepository: nslabsdashboards\n"
+                          "text": "\nRepository: demo-labsdashboards\n"
                         },
                         {
                           "text": "File: docs/industrial_lubricant_documentation_index.md:128\n"
@@ -12481,10 +12481,10 @@
                           "text": "Link Path: ./developer/industrial_lubricant_setup_guide.md#installation\n"
                         },
                         {
-                          "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/developer/industrial_lubricant_setup_guide.md#installation\n"
+                          "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/demo-labsdashboards/docs/developer/industrial_lubricant_setup_guide.md#installation\n"
                         },
                         {
-                          "text": "\nRepository: nslabsdashboards\n"
+                          "text": "\nRepository: demo-labsdashboards\n"
                         },
                         {
                           "text": "File: docs/industrial_lubricant_documentation_index.md:129\n"
@@ -12496,10 +12496,10 @@
                           "text": "Link Path: ./developer/industrial_lubricant_setup_guide.md#configuration\n"
                         },
                         {
-                          "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/developer/industrial_lubricant_setup_guide.md#configuration\n"
+                          "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/demo-labsdashboards/docs/developer/industrial_lubricant_setup_guide.md#configuration\n"
                         },
                         {
-                          "text": "\nRepository: nslabsdashboards\n"
+                          "text": "\nRepository: demo-labsdashboards\n"
                         },
                         {
                           "text": "File: docs/industrial_lubricant_documentation_index.md:130\n"
@@ -12511,10 +12511,10 @@
                           "text": "Link Path: ./developer/industrial_lubricant_setup_guide.md#development-workflow\n"
                         },
                         {
-                          "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/developer/industrial_lubricant_setup_guide.md#development-workflow\n"
+                          "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/demo-labsdashboards/docs/developer/industrial_lubricant_setup_guide.md#development-workflow\n"
                         },
                         {
-                          "text": "\nRepository: nslabsdashboards\n"
+                          "text": "\nRepository: demo-labsdashboards\n"
                         },
                         {
                           "text": "File: docs/industrial_lubricant_documentation_index.md:133\n"
@@ -12529,7 +12529,7 @@
                           "text": "Error: API returned 404: Not Found\n"
                         },
                         {
-                          "text": "\nRepository: nslabsdashboards\n"
+                          "text": "\nRepository: demo-labsdashboards\n"
                         },
                         {
                           "text": "File: docs/industrial_lubricant_documentation_index.md:151\n"
@@ -12541,10 +12541,10 @@
                           "text": "Link Path: ./api/README.md#industrial-lubricant-platform\n"
                         },
                         {
-                          "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/api/README.md#industrial-lubricant-platform\n"
+                          "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/demo-labsdashboards/docs/api/README.md#industrial-lubricant-platform\n"
                         },
                         {
-                          "text": "\nRepository: nslabsdashboards\n"
+                          "text": "\nRepository: demo-labsdashboards\n"
                         },
                         {
                           "text": "File: docs/industrial_lubricant_documentation_index.md:152\n"
@@ -12556,10 +12556,10 @@
                           "text": "Link Path: ./api/README.md#land-ev-bikes-platform\n"
                         },
                         {
-                          "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/api/README.md#land-ev-bikes-platform\n"
+                          "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/demo-labsdashboards/docs/api/README.md#land-ev-bikes-platform\n"
                         },
                         {
-                          "text": "\nRepository: nslabsdashboards\n"
+                          "text": "\nRepository: demo-labsdashboards\n"
                         },
                         {
                           "text": "File: docs/industrial_lubricant_documentation_index.md:153\n"
@@ -12571,10 +12571,10 @@
                           "text": "Link Path: ./api/README.md#ml-ai-platform\n"
                         },
                         {
-                          "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/api/README.md#ml-ai-platform\n"
+                          "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/demo-labsdashboards/docs/api/README.md#ml-ai-platform\n"
                         },
                         {
-                          "text": "\nRepository: nslabsdashboards\n"
+                          "text": "\nRepository: demo-labsdashboards\n"
                         },
                         {
                           "text": "File: docs/industrial_lubricant_documentation_index.md:154\n"
@@ -12586,10 +12586,10 @@
                           "text": "Link Path: ./api/README.md#robot-devices-platform\n"
                         },
                         {
-                          "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/api/README.md#robot-devices-platform\n"
+                          "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/demo-labsdashboards/docs/api/README.md#robot-devices-platform\n"
                         },
                         {
-                          "text": "\nRepository: nslabsdashboards\n"
+                          "text": "\nRepository: demo-labsdashboards\n"
                         },
                         {
                           "text": "File: docs/industrial_lubricant_documentation_index.md:155\n"
@@ -12601,10 +12601,10 @@
                           "text": "Link Path: ./api/README.md#vending-machine-co-platform\n"
                         },
                         {
-                          "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/api/README.md#vending-machine-co-platform\n"
+                          "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/demo-labsdashboards/docs/api/README.md#vending-machine-co-platform\n"
                         },
                         {
-                          "text": "\nRepository: nslabsdashboards\n"
+                          "text": "\nRepository: demo-labsdashboards\n"
                         },
                         {
                           "text": "File: docs/industrial_lubricant_documentation_index.md:158\n"
@@ -12619,7 +12619,7 @@
                           "text": "Error: API returned 404: Not Found\n"
                         },
                         {
-                          "text": "\nRepository: nslabsdashboards\n"
+                          "text": "\nRepository: demo-labsdashboards\n"
                         },
                         {
                           "text": "File: docs/industrial_lubricant_documentation_index.md:169\n"
@@ -12631,10 +12631,10 @@
                           "text": "Link Path: ./testing/industrial_lubricant_testing_guide.md#unit-testing\n"
                         },
                         {
-                          "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/testing/industrial_lubricant_testing_guide.md#unit-testing\n"
+                          "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/demo-labsdashboards/docs/testing/industrial_lubricant_testing_guide.md#unit-testing\n"
                         },
                         {
-                          "text": "\nRepository: nslabsdashboards\n"
+                          "text": "\nRepository: demo-labsdashboards\n"
                         },
                         {
                           "text": "File: docs/industrial_lubricant_documentation_index.md:170\n"
@@ -12646,10 +12646,10 @@
                           "text": "Link Path: ./testing/industrial_lubricant_testing_guide.md#integration-testing\n"
                         },
                         {
-                          "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/testing/industrial_lubricant_testing_guide.md#integration-testing\n"
+                          "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/demo-labsdashboards/docs/testing/industrial_lubricant_testing_guide.md#integration-testing\n"
                         },
                         {
-                          "text": "\nRepository: nslabsdashboards\n"
+                          "text": "\nRepository: demo-labsdashboards\n"
                         },
                         {
                           "text": "File: docs/industrial_lubricant_documentation_index.md:171\n"
@@ -12661,10 +12661,10 @@
                           "text": "Link Path: ./testing/industrial_lubricant_testing_guide.md#performance-testing\n"
                         },
                         {
-                          "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/testing/industrial_lubricant_testing_guide.md#performance-testing\n"
+                          "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/demo-labsdashboards/docs/testing/industrial_lubricant_testing_guide.md#performance-testing\n"
                         },
                         {
-                          "text": "\nRepository: nslabsdashboards\n"
+                          "text": "\nRepository: demo-labsdashboards\n"
                         },
                         {
                           "text": "File: docs/industrial_lubricant_documentation_index.md:172\n"
@@ -12676,10 +12676,10 @@
                           "text": "Link Path: ./testing/industrial_lubricant_testing_guide.md#api-testing-with-postman\n"
                         },
                         {
-                          "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/testing/industrial_lubricant_testing_guide.md#api-testing-with-postman\n"
+                          "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/demo-labsdashboards/docs/testing/industrial_lubricant_testing_guide.md#api-testing-with-postman\n"
                         },
                         {
-                          "text": "\nRepository: nslabsdashboards\n"
+                          "text": "\nRepository: demo-labsdashboards\n"
                         },
                         {
                           "text": "File: docs/industrial_lubricant_documentation_index.md:175\n"
@@ -12691,10 +12691,10 @@
                           "text": "Link Path: ./developer/industrial_lubricant_setup_guide.md#contributing-guidelines\n"
                         },
                         {
-                          "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/developer/industrial_lubricant_setup_guide.md#contributing-guidelines\n"
+                          "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/demo-labsdashboards/docs/developer/industrial_lubricant_setup_guide.md#contributing-guidelines\n"
                         },
                         {
-                          "text": "\nRepository: nslabsdashboards\n"
+                          "text": "\nRepository: demo-labsdashboards\n"
                         },
                         {
                           "text": "File: docs/industrial_lubricant_documentation_index.md:188\n"
@@ -12709,7 +12709,7 @@
                           "text": "Error: API returned 403: Forbidden\n"
                         },
                         {
-                          "text": "\nRepository: nslabsdashboards\n"
+                          "text": "\nRepository: demo-labsdashboards\n"
                         },
                         {
                           "text": "File: docs/industrial_lubricant_documentation_index.md:223\n"
@@ -12724,7 +12724,7 @@
                           "text": "Error: API returned 403: Forbidden\n"
                         },
                         {
-                          "text": "\nRepository: nslabsdashboards\n"
+                          "text": "\nRepository: demo-labsdashboards\n"
                         },
                         {
                           "text": "File: docs/industrial_lubricant_documentation_index.md:239\n"
@@ -12739,7 +12739,7 @@
                           "text": "Error: API returned 404: Not Found\n"
                         },
                         {
-                          "text": "\nRepository: nslabsdashboards\n"
+                          "text": "\nRepository: demo-labsdashboards\n"
                         },
                         {
                           "text": "File: docs/industrial_lubricant_documentation_index.md:286\n"
@@ -12754,7 +12754,7 @@
                           "text": "Error: API returned 404: Not Found\n"
                         },
                         {
-                          "text": "\nRepository: nslabsdashboards\n"
+                          "text": "\nRepository: demo-labsdashboards\n"
                         },
                         {
                           "text": "File: docs/industrial_lubricant_documentation_index.md:295\n"
@@ -12769,7 +12769,7 @@
                           "text": "Error: API returned 404: Not Found\n"
                         },
                         {
-                          "text": "\nRepository: nslabsdashboards\n"
+                          "text": "\nRepository: demo-labsdashboards\n"
                         },
                         {
                           "text": "File: docs/industrial_lubricant_documentation_index.md:400\n"
@@ -12781,10 +12781,10 @@
                           "text": "Link Path: ./developer/industrial_lubricant_setup_guide.md#troubleshooting\n"
                         },
                         {
-                          "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/developer/industrial_lubricant_setup_guide.md#troubleshooting\n"
+                          "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/demo-labsdashboards/docs/developer/industrial_lubricant_setup_guide.md#troubleshooting\n"
                         },
                         {
-                          "text": "\nRepository: nslabsdashboards\n"
+                          "text": "\nRepository: demo-labsdashboards\n"
                         },
                         {
                           "text": "File: docs/industrial_lubricant_documentation_index.md:401\n"
@@ -12799,7 +12799,7 @@
                           "text": "Error: API returned 404: Not Found\n"
                         },
                         {
-                          "text": "\nRepository: nslabsdashboards\n"
+                          "text": "\nRepository: demo-labsdashboards\n"
                         },
                         {
                           "text": "File: docs/industrial_lubricant_documentation_index.md:402\n"
@@ -12814,7 +12814,7 @@
                           "text": "Error: API returned 404: Not Found\n"
                         },
                         {
-                          "text": "\nRepository: nslabsdashboards\n"
+                          "text": "\nRepository: demo-labsdashboards\n"
                         },
                         {
                           "text": "File: docs/industrial_lubricant_documentation_index.md:413\n"
@@ -12826,10 +12826,10 @@
                           "text": "Link Path: ./developer/industrial_lubricant_setup_guide.md#contributing-guidelines\n"
                         },
                         {
-                          "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/developer/industrial_lubricant_setup_guide.md#contributing-guidelines\n"
+                          "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/demo-labsdashboards/docs/developer/industrial_lubricant_setup_guide.md#contributing-guidelines\n"
                         },
                         {
-                          "text": "\nRepository: nslabsdashboards\n"
+                          "text": "\nRepository: demo-labsdashboards\n"
                         },
                         {
                           "text": "File: docs/operations/monitoring_and_alerting.md:9\n"
@@ -12841,10 +12841,10 @@
                           "text": "Link Path: ../assets/monitoring_architecture.png\n"
                         },
                         {
-                          "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/assets/monitoring_architecture.png\n"
+                          "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/demo-labsdashboards/docs/assets/monitoring_architecture.png\n"
                         },
                         {
-                          "text": "\nRepository: nslabsdashboards\n"
+                          "text": "\nRepository: demo-labsdashboards\n"
                         },
                         {
                           "text": "File: docs/product/mqtt_integration_test_plan.md:85\n"
@@ -12859,7 +12859,7 @@
                           "text": "Error: API returned 404: Not Found\n"
                         },
                         {
-                          "text": "\nRepository: nslabsdashboards\n"
+                          "text": "\nRepository: demo-labsdashboards\n"
                         },
                         {
                           "text": "File: docs/product/mqtt_integration_test_plan.md:86\n"
@@ -12874,7 +12874,7 @@
                           "text": "Error: API returned 404: Not Found\n"
                         },
                         {
-                          "text": "\nRepository: nslabsdashboards\n"
+                          "text": "\nRepository: demo-labsdashboards\n"
                         },
                         {
                           "text": "File: docs/product/personas/personas.md:99\n"
@@ -12886,10 +12886,10 @@
                           "text": "Link Path: EY-IoTSphere/README.md\n"
                         },
                         {
-                          "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/product/personas/EY-IoTSphere/README.md\n"
+                          "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/demo-labsdashboards/docs/product/personas/EY-IoTSphere/README.md\n"
                         },
                         {
-                          "text": "\nRepository: nslabsdashboards\n"
+                          "text": "\nRepository: demo-labsdashboards\n"
                         },
                         {
                           "text": "File: docs/product/research/README.md:10\n"
@@ -12904,7 +12904,7 @@
                           "text": "Error: API returned 404: Not Found\n"
                         },
                         {
-                          "text": "\nRepository: nslabsdashboards\n"
+                          "text": "\nRepository: demo-labsdashboards\n"
                         },
                         {
                           "text": "File: docs/product/research/README.md:17\n"
@@ -12919,7 +12919,7 @@
                           "text": "Error: API returned 404: Not Found\n"
                         },
                         {
-                          "text": "\nRepository: nslabsdashboards\n"
+                          "text": "\nRepository: demo-labsdashboards\n"
                         },
                         {
                           "text": "File: docs/product/research/README.md:24\n"
@@ -12934,7 +12934,7 @@
                           "text": "Error: API returned 404: Not Found\n"
                         },
                         {
-                          "text": "\nRepository: nslabsdashboards\n"
+                          "text": "\nRepository: demo-labsdashboards\n"
                         },
                         {
                           "text": "File: docs/product/research/README.md:31\n"
@@ -12949,7 +12949,7 @@
                           "text": "Error: API returned 404: Not Found\n"
                         },
                         {
-                          "text": "\nRepository: nslabsdashboards\n"
+                          "text": "\nRepository: demo-labsdashboards\n"
                         },
                         {
                           "text": "File: docs/product_overview.md:51\n"
@@ -12964,7 +12964,7 @@
                           "text": "Error: API returned 404: Not Found\n"
                         },
                         {
-                          "text": "\nRepository: nslabsdashboards\n"
+                          "text": "\nRepository: demo-labsdashboards\n"
                         },
                         {
                           "text": "File: docs/quickstart/clean_architecture_guide.md:103\n"
@@ -12979,7 +12979,7 @@
                           "text": "Error: API returned 403: Forbidden\n"
                         },
                         {
-                          "text": "\nRepository: nslabsdashboards\n"
+                          "text": "\nRepository: demo-labsdashboards\n"
                         },
                         {
                           "text": "File: docs/quickstart/clean_architecture_guide.md:127\n"
@@ -12994,7 +12994,7 @@
                           "text": "Error: API returned 403: Forbidden\n"
                         },
                         {
-                          "text": "\nRepository: nslabsdashboards\n"
+                          "text": "\nRepository: demo-labsdashboards\n"
                         },
                         {
                           "text": "File: docs/quickstart/clean_architecture_guide.md:128\n"
@@ -13009,7 +13009,7 @@
                           "text": "Error: API returned 403: Forbidden\n"
                         },
                         {
-                          "text": "\nRepository: nslabsdashboards\n"
+                          "text": "\nRepository: demo-labsdashboards\n"
                         },
                         {
                           "text": "File: docs/quickstart/clean_architecture_guide.md:129\n"
@@ -13021,10 +13021,10 @@
                           "text": "Link Path: ../testing/testing_strategy.md\n"
                         },
                         {
-                          "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/docs/testing/testing_strategy.md\n"
+                          "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/demo-labsdashboards/docs/testing/testing_strategy.md\n"
                         },
                         {
-                          "text": "\nRepository: nslabsdashboards\n"
+                          "text": "\nRepository: demo-labsdashboards\n"
                         },
                         {
                           "text": "File: src/tests/features/README.md:29\n"
@@ -13036,10 +13036,10 @@
                           "text": "Link Path: ../docs/product/personas/personas.md\n"
                         },
                         {
-                          "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/src/tests/docs/product/personas/personas.md\n"
+                          "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/demo-labsdashboards/src/tests/docs/product/personas/personas.md\n"
                         },
                         {
-                          "text": "\nRepository: nslabsdashboards\n"
+                          "text": "\nRepository: demo-labsdashboards\n"
                         },
                         {
                           "text": "File: src/tests/features/README.md:30\n"
@@ -13051,10 +13051,10 @@
                           "text": "Link Path: ../docs/requirements/specification.md\n"
                         },
                         {
-                          "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/src/tests/docs/requirements/specification.md\n"
+                          "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/demo-labsdashboards/src/tests/docs/requirements/specification.md\n"
                         },
                         {
-                          "text": "\nRepository: nslabsdashboards\n"
+                          "text": "\nRepository: demo-labsdashboards\n"
                         },
                         {
                           "text": "File: src/tests/features/README.md:31\n"
@@ -13066,10 +13066,10 @@
                           "text": "Link Path: ../src/domain/ubiquitous_language.md\n"
                         },
                         {
-                          "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/src/tests/src/domain/ubiquitous_language.md\n"
+                          "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/demo-labsdashboards/src/tests/src/domain/ubiquitous_language.md\n"
                         },
                         {
-                          "text": "\nRepository: nslabsdashboards\n"
+                          "text": "\nRepository: demo-labsdashboards\n"
                         },
                         {
                           "text": "File: src/tests/features/README.md:32\n"
@@ -13081,10 +13081,10 @@
                           "text": "Link Path: ../docs/bdd_best_practices.md\n"
                         },
                         {
-                          "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/src/tests/docs/bdd_best_practices.md\n"
+                          "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/demo-labsdashboards/src/tests/docs/bdd_best_practices.md\n"
                         },
                         {
-                          "text": "\nRepository: nslabsdashboards\n"
+                          "text": "\nRepository: demo-labsdashboards\n"
                         },
                         {
                           "text": "File: template/CUSTOMIZATION_GUIDE.md:591\n"
@@ -13096,10 +13096,10 @@
                           "text": "Link Path: DEVELOPER_USAGE_GUIDE.md\n"
                         },
                         {
-                          "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/template/DEVELOPER_USAGE_GUIDE.md\n"
+                          "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/demo-labsdashboards/template/DEVELOPER_USAGE_GUIDE.md\n"
                         },
                         {
-                          "text": "\nRepository: nslabsdashboards\n"
+                          "text": "\nRepository: demo-labsdashboards\n"
                         },
                         {
                           "text": "File: template/CUSTOMIZATION_GUIDE.md:592\n"
@@ -13111,10 +13111,10 @@
                           "text": "Link Path: COMPONENT_REFERENCE.md\n"
                         },
                         {
-                          "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/template/COMPONENT_REFERENCE.md\n"
+                          "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/demo-labsdashboards/template/COMPONENT_REFERENCE.md\n"
                         },
                         {
-                          "text": "\nRepository: nslabsdashboards\n"
+                          "text": "\nRepository: demo-labsdashboards\n"
                         },
                         {
                           "text": "File: template/CUSTOMIZATION_GUIDE.md:593\n"
@@ -13126,10 +13126,10 @@
                           "text": "Link Path: BEST_PRACTICES.md\n"
                         },
                         {
-                          "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/template/BEST_PRACTICES.md\n"
+                          "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/demo-labsdashboards/template/BEST_PRACTICES.md\n"
                         },
                         {
-                          "text": "\nRepository: nslabsdashboards\n"
+                          "text": "\nRepository: demo-labsdashboards\n"
                         },
                         {
                           "text": "File: template/README.md:287\n"
@@ -13141,7 +13141,7 @@
                           "text": "Link Path: LICENSE\n"
                         },
                         {
-                          "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/nslabsdashboards/template/LICENSE\n"
+                          "text": "Error: File not found: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/demo-labsdashboards/template/LICENSE\n"
                         },
                         {
                           "text": "\nRepository: rentalFleets\n"

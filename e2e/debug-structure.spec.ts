@@ -26,7 +26,7 @@ test('Debug page structure', async ({ page }) => {
   }
   
   // Check repository detail page
-  await page.goto('http://localhost:3000/repository/nslabsdashboards');
+  await page.goto('http://localhost:3000/repository/demo-labsdashboards');
   await page.waitForTimeout(2000);
   
   const detailContent = await page.locator('body').textContent();

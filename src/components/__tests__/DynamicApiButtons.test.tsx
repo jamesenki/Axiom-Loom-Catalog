@@ -83,7 +83,7 @@ describe('DynamicApiButtons', () => {
 
   it('renders GraphQL Playground button for GraphQL APIs', async () => {
     const mockResponse = {
-      repository: 'nslabsdashboards',
+      repository: 'demo-labsdashboards',
       apis: {
         rest: [],
         graphql: Array(19).fill({ file: 'schema.graphql' }),
@@ -98,7 +98,7 @@ describe('DynamicApiButtons', () => {
       json: async () => mockResponse
     });
 
-    render(<DynamicApiButtons repositoryName="nslabsdashboards" />);
+    render(<DynamicApiButtons repositoryName="demo-labsdashboards" />);
 
     await waitFor(() => {
       const button = screen.getByText(/GraphQL Playground.*19 schemas/);

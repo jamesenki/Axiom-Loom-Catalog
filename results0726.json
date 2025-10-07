@@ -113,7 +113,7 @@ Error Context: test-results/comprehensive-repository-t-fb8c4-ion-across-all-repo
 
 Error: apiRequestContext.get: connect ECONNREFUSED ::1:3005
 Call log:
-  - → GET http://localhost:3005/api/repository/nslabsdashboards/specs
+  - → GET http://localhost:3005/api/repository/demo-labsdashboards/specs
     - user-agent: Mozilla/5.0 (iPhone; CPU iPhone OS 14_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.0 Mobile/15E148 Safari/604.1
     - accept: */*
     - accept-encoding: gzip,deflate,br
@@ -135,7 +135,7 @@ Error Context: test-results/comprehensive-repository-t-0134e-tent-API-detection-
 
 Error: apiRequestContext.get: connect ECONNREFUSED ::1:3005
 Call log:
-  - → GET http://localhost:3005/api/repository/nslabsdashboards/specs
+  - → GET http://localhost:3005/api/repository/demo-labsdashboards/specs
     - user-agent: Mozilla/5.0 (iPhone; CPU iPhone OS 14_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.0 Mobile/15E148 Safari/604.1
     - accept: */*
     - accept-encoding: gzip,deflate,br
@@ -160,7 +160,7 @@ Error: expect(received).toContain(expected) // indexOf
 Expected substring: "type"
 Received string:    "
     You need to enable JavaScript to run this app.
-    EYEYNS AI Experience CenterHomePlatformsAPIsAll RepositoriesRepository SyncAboutLast sync: Just nowAdd RepositorySync FailedBack to RepositoryGraphQL PlaygroundNslabsdashboardsGraphQL EndpointStatus:UnknownGraphQL server management for nslabsdashboardsCheck StatusStart ServerQuerySample QueriesSchema IntrospectionBasic QueryRun QueryResponse// Query response will appear hereLoading GraphQL schema...Instructions1. Make sure your GraphQL server is running on the configured endpoint2. Enter your GraphQL query in the left panel3. Click \"Run Query\" to execute and see the response4. Use the sample queries to explore the API schemaAbout EYNSErnst & Young Network Services Innovation Hub - Driving digital transformation through cutting-edge technology solutions.Quick LinksPlatformsAPIsAll RepositoriesAbout UsResourcesGitHub OrganizationDocumentationAPI ReferenceContact UsInnovation LabErnst & Young LLPInnovation HubFor inquiries:innovation@eyns.com© 2025 Ernst & Young LLP. All rights reserved.Privacy PolicyTerms of UseAccessibilityLoading: falseError: Local server not available. Using offline data.LastSync: Offline ModeRepos: 12Time: 2025-07-26T05:35:11.131Z·········
+    EYEYNS AI Experience CenterHomePlatformsAPIsAll RepositoriesRepository SyncAboutLast sync: Just nowAdd RepositorySync FailedBack to RepositoryGraphQL PlaygroundNslabsdashboardsGraphQL EndpointStatus:UnknownGraphQL server management for demo-labsdashboardsCheck StatusStart ServerQuerySample QueriesSchema IntrospectionBasic QueryRun QueryResponse// Query response will appear hereLoading GraphQL schema...Instructions1. Make sure your GraphQL server is running on the configured endpoint2. Enter your GraphQL query in the left panel3. Click \"Run Query\" to execute and see the response4. Use the sample queries to explore the API schemaAbout EYNSErnst & Young Network Services Innovation Hub - Driving digital transformation through cutting-edge technology solutions.Quick LinksPlatformsAPIsAll RepositoriesAbout UsResourcesGitHub OrganizationDocumentationAPI ReferenceContact UsInnovation LabErnst & Young LLPInnovation HubFor inquiries:innovation@eyns.com© 2025 Ernst & Young LLP. All rights reserved.Privacy PolicyTerms of UseAccessibilityLoading: falseError: Local server not available. Using offline data.LastSync: Offline ModeRepos: 12Time: 2025-07-26T05:35:11.131Z·········
 "
 
   47 |     
@@ -186,7 +186,7 @@ Error Context: test-results/e2e-repository-detail-Repo-313b0-ctually-load-schema
 
 Error: apiRequestContext.get: connect ECONNREFUSED ::1:3005
 Call log:
-  - → GET http://localhost:3005/api/file/nslabsdashboards/src/iotsphere_gql/schema/knowledgebase_schema.graphql
+  - → GET http://localhost:3005/api/file/demo-labsdashboards/src/iotplatform_gql/schema/knowledgebase_schema.graphql
     - user-agent: Mozilla/5.0 (iPhone; CPU iPhone OS 14_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.0 Mobile/15E148 Safari/604.1
     - accept: */*
     - accept-encoding: gzip,deflate,br
@@ -232,7 +232,7 @@ Error Context: test-results/e2e-repository-detail-Repo-7a172--generation-API-sho
 
 Error: apiRequestContext.get: connect ECONNREFUSED ::1:3005
 Call log:
-  - → GET http://localhost:3005/api/repository/nslabsdashboards/specs
+  - → GET http://localhost:3005/api/repository/demo-labsdashboards/specs
     - user-agent: Mozilla/5.0 (iPhone; CPU iPhone OS 14_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.0 Mobile/15E148 Safari/604.1
     - accept: */*
     - accept-encoding: gzip,deflate,br
@@ -306,7 +306,7 @@ Error Context: test-results/graphql-playground-compreh-f0b57-ration-should-be-fu
 
 Error: apiRequestContext.get: connect ECONNREFUSED ::1:3005
 Call log:
-  - → GET http://localhost:3005/api/file/nslabsdashboards/src/iotsphere_gql/schema/knowledgebase_schema.graphql
+  - → GET http://localhost:3005/api/file/demo-labsdashboards/src/iotplatform_gql/schema/knowledgebase_schema.graphql
     - user-agent: Mozilla/5.0 (iPhone; CPU iPhone OS 14_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.0 Mobile/15E148 Safari/604.1
     - accept: */*
     - accept-encoding: gzip,deflate,br
@@ -470,7 +470,7 @@ Error: expect(received).not.toContain(expected) // indexOf
 Expected substring: not "Error"
 Received string:        "
     You need to enable JavaScript to run this app.
-    EYEYNS AI Experience CenterHomePlatformsAPIsAll RepositoriesRepository SyncAboutLast sync: Just nowAdd RepositorySyncBack to RepositoryGraphQL PlaygroundNslabsdashboardsGraphQL EndpointStatus:UnknownGraphQL server management for nslabsdashboardsCheck StatusStart ServerQuerySample QueriesSchema IntrospectionBasic QueryRun QueryResponse// Query response will appear hereLoading GraphQL schema...Instructions1. Make sure your GraphQL server is running on the configured endpoint2. Enter your GraphQL query in the left panel3. Click \"Run Query\" to execute and see the response4. Use the sample queries to explore the API schemaAbout EYNSErnst & Young Network Services Innovation Hub - Driving digital transformation through cutting-edge technology solutions.Quick LinksPlatformsAPIsAll RepositoriesAbout UsResourcesGitHub OrganizationDocumentationAPI ReferenceContact UsInnovation LabErnst & Young LLPInnovation HubFor inquiries:innovation@eyns.com© 2025 Ernst & Young LLP. All rights reserved.Privacy PolicyTerms of UseAccessibilityLoading: falseError: noneLastSync: Offline ModeRepos: 12Time: 2025-07-26T05:36:00.737Z
+    EYEYNS AI Experience CenterHomePlatformsAPIsAll RepositoriesRepository SyncAboutLast sync: Just nowAdd RepositorySyncBack to RepositoryGraphQL PlaygroundNslabsdashboardsGraphQL EndpointStatus:UnknownGraphQL server management for demo-labsdashboardsCheck StatusStart ServerQuerySample QueriesSchema IntrospectionBasic QueryRun QueryResponse// Query response will appear hereLoading GraphQL schema...Instructions1. Make sure your GraphQL server is running on the configured endpoint2. Enter your GraphQL query in the left panel3. Click \"Run Query\" to execute and see the response4. Use the sample queries to explore the API schemaAbout EYNSErnst & Young Network Services Innovation Hub - Driving digital transformation through cutting-edge technology solutions.Quick LinksPlatformsAPIsAll RepositoriesAbout UsResourcesGitHub OrganizationDocumentationAPI ReferenceContact UsInnovation LabErnst & Young LLPInnovation HubFor inquiries:innovation@eyns.com© 2025 Ernst & Young LLP. All rights reserved.Privacy PolicyTerms of UseAccessibilityLoading: falseError: noneLastSync: Offline ModeRepos: 12Time: 2025-07-26T05:36:00.737Z
     
   
 
@@ -502,7 +502,7 @@ Error: expect(received).not.toContain(expected) // indexOf
 Expected substring: not "Error"
 Received string:        "
     You need to enable JavaScript to run this app.
-    EYEYNS AI Experience CenterHomePlatformsAPIsAll RepositoriesRepository SyncAboutLast sync: Just nowAdd RepositorySyncHome/nslabsdashboards/API ExplorerAPI ExplorerExplore API specifications for nslabsdashboardsAvailable APIs (0)No API specifications foundSelect an API to exploreChoose an API specification from the sidebar to view its documentationAbout EYNSErnst & Young Network Services Innovation Hub - Driving digital transformation through cutting-edge technology solutions.Quick LinksPlatformsAPIsAll RepositoriesAbout UsResourcesGitHub OrganizationDocumentationAPI ReferenceContact UsInnovation LabErnst & Young LLPInnovation HubFor inquiries:innovation@eyns.com© 2025 Ernst & Young LLP. All rights reserved.Privacy PolicyTerms of UseAccessibilityLoading: falseError: noneLastSync: Offline ModeRepos: 12Time: 2025-07-26T05:36:02.482Z
+    EYEYNS AI Experience CenterHomePlatformsAPIsAll RepositoriesRepository SyncAboutLast sync: Just nowAdd RepositorySyncHome/demo-labsdashboards/API ExplorerAPI ExplorerExplore API specifications for demo-labsdashboardsAvailable APIs (0)No API specifications foundSelect an API to exploreChoose an API specification from the sidebar to view its documentationAbout EYNSErnst & Young Network Services Innovation Hub - Driving digital transformation through cutting-edge technology solutions.Quick LinksPlatformsAPIsAll RepositoriesAbout UsResourcesGitHub OrganizationDocumentationAPI ReferenceContact UsInnovation LabErnst & Young LLPInnovation HubFor inquiries:innovation@eyns.com© 2025 Ernst & Young LLP. All rights reserved.Privacy PolicyTerms of UseAccessibilityLoading: falseError: noneLastSync: Offline ModeRepos: 12Time: 2025-07-26T05:36:02.482Z
     
   
 
@@ -533,7 +533,7 @@ Error: expect(received).toHaveLength(expected)
 
 Expected length: 0
 Received length: 84
-Received array:  ["Console Error: Failed to load resource: Could not connect to the server.", "Console Error: Failed to load resource: Could not connect to the server.", "Console Error: Error fetching repository specs: TypeError: Load failed", "Console Error: Error fetching repository specs: TypeError: Load failed", "Console Error: Failed to load resource: Could not connect to the server.", "Console Error: Failed to load resource: Could not connect to the server.", "Console Error: [LocalAPI] Get repository error: TypeError: Load failed", "Console Error: Error discovering API specs for nslabsdashboards: TypeError: Load failed", "Console Error: [LocalAPI] Get repository error: TypeError: Load failed", "Console Error: Error discovering API specs for nslabsdashboards: TypeError: Load failed", …]
+Received array:  ["Console Error: Failed to load resource: Could not connect to the server.", "Console Error: Failed to load resource: Could not connect to the server.", "Console Error: Error fetching repository specs: TypeError: Load failed", "Console Error: Error fetching repository specs: TypeError: Load failed", "Console Error: Failed to load resource: Could not connect to the server.", "Console Error: Failed to load resource: Could not connect to the server.", "Console Error: [LocalAPI] Get repository error: TypeError: Load failed", "Console Error: Error discovering API specs for demo-labsdashboards: TypeError: Load failed", "Console Error: [LocalAPI] Get repository error: TypeError: Load failed", "Console Error: Error discovering API specs for demo-labsdashboards: TypeError: Load failed", …]
 
   219 |         
   220 |         // Fail the test if there are user-facing errors
@@ -613,9 +613,9 @@ Error Context: test-results/real-user-experience-tests-45175-d-and-Function-Cons
 187 failed
 [chromium] › tests/add-repository.spec.ts:10:7 › Add Repository Functionality › should open Add Repository modal from header 
 [chromium] › tests/add-repository.spec.ts:110:7 › Add Repository Functionality › should handle submission loading state 
-[chromium] › tests/comprehensive-repository-tests.spec.ts:110:11 › Comprehensive Repository Testing Suite › Repository: nslabsdashboards › should detect correct API count via backend specs endpoint 
-[chromium] › tests/comprehensive-repository-tests.spec.ts:127:11 › Comprehensive Repository Testing Suite › Repository: nslabsdashboards › should display correct API Explorer content 
-[chromium] › tests/comprehensive-repository-tests.spec.ts:198:11 › Comprehensive Repository Testing Suite › Repository: nslabsdashboards › should generate and display Postman collections 
+[chromium] › tests/comprehensive-repository-tests.spec.ts:110:11 › Comprehensive Repository Testing Suite › Repository: demo-labsdashboards › should detect correct API count via backend specs endpoint 
+[chromium] › tests/comprehensive-repository-tests.spec.ts:127:11 › Comprehensive Repository Testing Suite › Repository: demo-labsdashboards › should display correct API Explorer content 
+[chromium] › tests/comprehensive-repository-tests.spec.ts:198:11 › Comprehensive Repository Testing Suite › Repository: demo-labsdashboards › should generate and display Postman collections 
 [chromium] › tests/comprehensive-repository-tests.spec.ts:110:11 › Comprehensive Repository Testing Suite › Repository: future-mobility-fleet-platform › should detect correct API count via backend specs endpoint 
 [chromium] › tests/comprehensive-repository-tests.spec.ts:127:11 › Comprehensive Repository Testing Suite › Repository: future-mobility-fleet-platform › should display correct API Explorer content 
 [chromium] › tests/comprehensive-repository-tests.spec.ts:179:13 › Comprehensive Repository Testing Suite › Repository: future-mobility-fleet-platform › should load Swagger UI for OpenAPI specs 
@@ -647,10 +647,10 @@ Error Context: test-results/real-user-experience-tests-45175-d-and-Function-Cons
 [chromium] › tests/real-user-experience-tests.spec.ts:262:9 › Real User Experience Validation › Cross-Repository User Experience Consistency › All Repository Pages Load and Function Consistently 
 [firefox] › tests/add-repository.spec.ts:10:7 › Add Repository Functionality › should open Add Repository modal from header 
 [firefox] › tests/add-repository.spec.ts:316:7 › EY-NS Branding Integration › should maintain EY yellow branding throughout interface 
-[firefox] › tests/comprehensive-repository-tests.spec.ts:97:11 › Comprehensive Repository Testing Suite › Repository: nslabsdashboards › should load repository detail page correctly 
-[firefox] › tests/comprehensive-repository-tests.spec.ts:110:11 › Comprehensive Repository Testing Suite › Repository: nslabsdashboards › should detect correct API count via backend specs endpoint 
-[firefox] › tests/comprehensive-repository-tests.spec.ts:127:11 › Comprehensive Repository Testing Suite › Repository: nslabsdashboards › should display correct API Explorer content 
-[firefox] › tests/comprehensive-repository-tests.spec.ts:198:11 › Comprehensive Repository Testing Suite › Repository: nslabsdashboards › should generate and display Postman collections 
+[firefox] › tests/comprehensive-repository-tests.spec.ts:97:11 › Comprehensive Repository Testing Suite › Repository: demo-labsdashboards › should load repository detail page correctly 
+[firefox] › tests/comprehensive-repository-tests.spec.ts:110:11 › Comprehensive Repository Testing Suite › Repository: demo-labsdashboards › should detect correct API count via backend specs endpoint 
+[firefox] › tests/comprehensive-repository-tests.spec.ts:127:11 › Comprehensive Repository Testing Suite › Repository: demo-labsdashboards › should display correct API Explorer content 
+[firefox] › tests/comprehensive-repository-tests.spec.ts:198:11 › Comprehensive Repository Testing Suite › Repository: demo-labsdashboards › should generate and display Postman collections 
 [firefox] › tests/comprehensive-repository-tests.spec.ts:97:11 › Comprehensive Repository Testing Suite › Repository: future-mobility-fleet-platform › should load repository detail page correctly 
 [firefox] › tests/comprehensive-repository-tests.spec.ts:110:11 › Comprehensive Repository Testing Suite › Repository: future-mobility-fleet-platform › should detect correct API count via backend specs endpoint 
 [firefox] › tests/comprehensive-repository-tests.spec.ts:127:11 › Comprehensive Repository Testing Suite › Repository: future-mobility-fleet-platform › should display correct API Explorer content 
@@ -686,9 +686,9 @@ Error Context: test-results/real-user-experience-tests-45175-d-and-Function-Cons
 [firefox] › tests/real-user-experience-tests.spec.ts:230:9 › Real User Experience Validation › Content Generation and Download Validation › Validate Postman Collection Generation Actually Works 
 [firefox] › tests/real-user-experience-tests.spec.ts:262:9 › Real User Experience Validation › Cross-Repository User Experience Consistency › All Repository Pages Load and Function Consistently 
 [webkit] › tests/add-repository.spec.ts:10:7 › Add Repository Functionality › should open Add Repository modal from header 
-[webkit] › tests/comprehensive-repository-tests.spec.ts:110:11 › Comprehensive Repository Testing Suite › Repository: nslabsdashboards › should detect correct API count via backend specs endpoint 
-[webkit] › tests/comprehensive-repository-tests.spec.ts:127:11 › Comprehensive Repository Testing Suite › Repository: nslabsdashboards › should display correct API Explorer content 
-[webkit] › tests/comprehensive-repository-tests.spec.ts:198:11 › Comprehensive Repository Testing Suite › Repository: nslabsdashboards › should generate and display Postman collections 
+[webkit] › tests/comprehensive-repository-tests.spec.ts:110:11 › Comprehensive Repository Testing Suite › Repository: demo-labsdashboards › should detect correct API count via backend specs endpoint 
+[webkit] › tests/comprehensive-repository-tests.spec.ts:127:11 › Comprehensive Repository Testing Suite › Repository: demo-labsdashboards › should display correct API Explorer content 
+[webkit] › tests/comprehensive-repository-tests.spec.ts:198:11 › Comprehensive Repository Testing Suite › Repository: demo-labsdashboards › should generate and display Postman collections 
 [webkit] › tests/comprehensive-repository-tests.spec.ts:110:11 › Comprehensive Repository Testing Suite › Repository: future-mobility-fleet-platform › should detect correct API count via backend specs endpoint 
 [webkit] › tests/comprehensive-repository-tests.spec.ts:127:11 › Comprehensive Repository Testing Suite › Repository: future-mobility-fleet-platform › should display correct API Explorer content 
 [webkit] › tests/comprehensive-repository-tests.spec.ts:179:13 › Comprehensive Repository Testing Suite › Repository: future-mobility-fleet-platform › should load Swagger UI for OpenAPI specs 
@@ -721,9 +721,9 @@ Error Context: test-results/real-user-experience-tests-45175-d-and-Function-Cons
 [Mobile Chrome] › tests/add-repository.spec.ts:10:7 › Add Repository Functionality › should open Add Repository modal from header 
 [Mobile Chrome] › tests/add-repository.spec.ts:98:7 › Add Repository Functionality › should close modal when X button is clicked 
 [Mobile Chrome] › tests/add-repository.spec.ts:110:7 › Add Repository Functionality › should handle submission loading state 
-[Mobile Chrome] › tests/comprehensive-repository-tests.spec.ts:110:11 › Comprehensive Repository Testing Suite › Repository: nslabsdashboards › should detect correct API count via backend specs endpoint 
-[Mobile Chrome] › tests/comprehensive-repository-tests.spec.ts:127:11 › Comprehensive Repository Testing Suite › Repository: nslabsdashboards › should display correct API Explorer content 
-[Mobile Chrome] › tests/comprehensive-repository-tests.spec.ts:198:11 › Comprehensive Repository Testing Suite › Repository: nslabsdashboards › should generate and display Postman collections 
+[Mobile Chrome] › tests/comprehensive-repository-tests.spec.ts:110:11 › Comprehensive Repository Testing Suite › Repository: demo-labsdashboards › should detect correct API count via backend specs endpoint 
+[Mobile Chrome] › tests/comprehensive-repository-tests.spec.ts:127:11 › Comprehensive Repository Testing Suite › Repository: demo-labsdashboards › should display correct API Explorer content 
+[Mobile Chrome] › tests/comprehensive-repository-tests.spec.ts:198:11 › Comprehensive Repository Testing Suite › Repository: demo-labsdashboards › should generate and display Postman collections 
 [Mobile Chrome] › tests/comprehensive-repository-tests.spec.ts:110:11 › Comprehensive Repository Testing Suite › Repository: future-mobility-fleet-platform › should detect correct API count via backend specs endpoint 
 [Mobile Chrome] › tests/comprehensive-repository-tests.spec.ts:127:11 › Comprehensive Repository Testing Suite › Repository: future-mobility-fleet-platform › should display correct API Explorer content 
 [Mobile Chrome] › tests/comprehensive-repository-tests.spec.ts:179:13 › Comprehensive Repository Testing Suite › Repository: future-mobility-fleet-platform › should load Swagger UI for OpenAPI specs 
@@ -759,11 +759,11 @@ Error Context: test-results/real-user-experience-tests-45175-d-and-Function-Cons
 [Mobile Safari] › tests/add-repository.spec.ts:10:7 › Add Repository Functionality › should open Add Repository modal from header 
 [Mobile Safari] › tests/add-repository.spec.ts:98:7 › Add Repository Functionality › should close modal when X button is clicked 
 [Mobile Safari] › tests/add-repository.spec.ts:110:7 › Add Repository Functionality › should handle submission loading state 
-[Mobile Safari] › tests/comprehensive-repository-tests.spec.ts:110:11 › Comprehensive Repository Testing Suite › Repository: nslabsdashboards › should detect correct API count via backend specs endpoint 
-[Mobile Safari] › tests/comprehensive-repository-tests.spec.ts:127:11 › Comprehensive Repository Testing Suite › Repository: nslabsdashboards › should display correct API Explorer content 
-[Mobile Safari] › tests/comprehensive-repository-tests.spec.ts:150:13 › Comprehensive Repository Testing Suite › Repository: nslabsdashboards › should load GraphQL Playground with actual schema content 
-[Mobile Safari] › tests/comprehensive-repository-tests.spec.ts:198:11 › Comprehensive Repository Testing Suite › Repository: nslabsdashboards › should generate and display Postman collections 
-[Mobile Safari] › tests/comprehensive-repository-tests.spec.ts:222:11 › Comprehensive Repository Testing Suite › Repository: nslabsdashboards › should handle file serving correctly 
+[Mobile Safari] › tests/comprehensive-repository-tests.spec.ts:110:11 › Comprehensive Repository Testing Suite › Repository: demo-labsdashboards › should detect correct API count via backend specs endpoint 
+[Mobile Safari] › tests/comprehensive-repository-tests.spec.ts:127:11 › Comprehensive Repository Testing Suite › Repository: demo-labsdashboards › should display correct API Explorer content 
+[Mobile Safari] › tests/comprehensive-repository-tests.spec.ts:150:13 › Comprehensive Repository Testing Suite › Repository: demo-labsdashboards › should load GraphQL Playground with actual schema content 
+[Mobile Safari] › tests/comprehensive-repository-tests.spec.ts:198:11 › Comprehensive Repository Testing Suite › Repository: demo-labsdashboards › should generate and display Postman collections 
+[Mobile Safari] › tests/comprehensive-repository-tests.spec.ts:222:11 › Comprehensive Repository Testing Suite › Repository: demo-labsdashboards › should handle file serving correctly 
 [Mobile Safari] › tests/comprehensive-repository-tests.spec.ts:110:11 › Comprehensive Repository Testing Suite › Repository: future-mobility-fleet-platform › should detect correct API count via backend specs endpoint 
 [Mobile Safari] › tests/comprehensive-repository-tests.spec.ts:127:11 › Comprehensive Repository Testing Suite › Repository: future-mobility-fleet-platform › should display correct API Explorer content 
 [Mobile Safari] › tests/comprehensive-repository-tests.spec.ts:179:13 › Comprehensive Repository Testing Suite › Repository: future-mobility-fleet-platform › should load Swagger UI for OpenAPI specs 

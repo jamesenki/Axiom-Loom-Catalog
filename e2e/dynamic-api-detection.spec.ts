@@ -44,9 +44,9 @@ test.describe('Dynamic API Detection E2E Tests', () => {
     await expect(postmanButton).toBeVisible();
   });
 
-  test('shows GraphQL Playground for nslabsdashboards', async ({ page }) => {
-    // Navigate to nslabsdashboards repository
-    await page.goto('/repository/nslabsdashboards');
+  test('shows GraphQL Playground for demo-labsdashboards', async ({ page }) => {
+    // Navigate to demo-labsdashboards repository
+    await page.goto('/repository/demo-labsdashboards');
     
     // Wait for API detection
     await page.waitForSelector('text=Available API Tools');

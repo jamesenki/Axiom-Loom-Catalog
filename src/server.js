@@ -503,6 +503,11 @@ app.get('/ai-maintenance-architecture', (req, res) => {
   res.sendFile(demoPath);
 });
 
+app.get('/water-heater-platform', (req, res) => {
+  const demoPath = path.join(__dirname, '../public/demo-coming-soon.html');
+  res.sendFile(demoPath);
+});
+
 // Coming Soon routes are handled by React Router - no backend routes needed
 
 // Protected API Routes

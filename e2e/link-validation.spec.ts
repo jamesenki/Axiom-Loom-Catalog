@@ -283,7 +283,7 @@ test.describe('Comprehensive Link Validation - 100% Coverage', () => {
       { repo: 'future-mobility-consumer-platform', path: 'docs/architecture/technical-design.md' },
       { repo: 'future-mobility-consumer-platform', path: 'docs/architecture/security.md' },
       { repo: 'future-mobility-consumer-platform', path: 'docs/architecture/deployment.md' },
-      { repo: 'nslabsdashboards', path: 'docs/development/DEVELOPER_GUIDE.md' }
+      { repo: 'demo-labsdashboards', path: 'docs/development/DEVELOPER_GUIDE.md' }
     ];
     
     for (const doc of diagramDocs) {

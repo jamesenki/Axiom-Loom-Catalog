@@ -13,8 +13,8 @@ async function testGraphQLButton() {
   
   try {
     // Test a repository that HAS GraphQL files
-    console.log('📸 Testing repository WITH GraphQL (nslabsdashboards)...');
-    await page.goto('http://10.0.0.109:3000/repository/nslabsdashboards', { 
+    console.log('📸 Testing repository WITH GraphQL (demo-labsdashboards)...');
+    await page.goto('http://10.0.0.109:3000/repository/demo-labsdashboards', { 
       waitUntil: 'networkidle0', 
       timeout: 30000 
     });

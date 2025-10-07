@@ -234,7 +234,7 @@ describe('analyzeRepositoryContent', () => {
     expect(result.technologies.languages).toContain('JavaScript');
   });
 
-  it('handles branch switching for nslabsdashboards', async () => {
+  it('handles branch switching for demo-labsdashboards', async () => {
     jest.doMock('../analyzeRepositoryContent', () => {
       const actual = jest.requireActual('../analyzeRepositoryContent');
       return {
@@ -260,12 +260,12 @@ describe('analyzeRepositoryContent', () => {
       mtime: new Date()
     } as any);
 
-    analyzeRepository('nslabsdashboards', '/path/to/nslabsdashboards');
+    analyzeRepository('demo-labsdashboards', '/path/to/demo-labsdashboards');
 
     expect(mockExecSync).toHaveBeenCalledWith(
       'git checkout james-update',
       expect.objectContaining({
-        cwd: '/path/to/nslabsdashboards'
+        cwd: '/path/to/demo-labsdashboards'
       })
     );
   });

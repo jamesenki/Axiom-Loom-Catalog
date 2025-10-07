@@ -25,7 +25,7 @@ REMAINING_REPOS=(
   "future-mobility-energy-platform"
   "future-mobility-financial-platform"
   "future-mobility-infrastructure-platform"
-  "nslabsdashboards"
+  "demo-labsdashboards"
   "remote-diagnostic-assistance-platform-architecture"
   "rentalFleets"
   "sample-arch-package"

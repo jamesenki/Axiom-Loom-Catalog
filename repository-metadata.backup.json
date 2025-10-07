@@ -641,9 +641,9 @@
       "customizationAvailable": true
     }
   },
-  "nslabsdashboards": {
-    "id": "nslabsdashboards",
-    "name": "nslabsdashboards",
+  "demo-labsdashboards": {
+    "id": "demo-labsdashboards",
+    "name": "demo-labsdashboards",
     "displayName": "Industrial Monitoring Co Industrial Dashboards",
     "description": "Real-time equipment monitoring and predictive maintenance dashboards",
     "marketingDescription": "Enterprise IoT Intelligence Platform with advanced ML/AI analytics for industrial equipment monitoring and optimization.",
@@ -667,7 +667,7 @@
       "hasGrpc": false,
       "hasPostman": true
     },
-    "url": "https://github.com/jamesenki/nslabsdashboards"
+    "url": "https://github.com/jamesenki/demo-labsdashboards"
   },
   "remote-diagnostic-assistance-platform-architecture": {
     "id": "remote-diagnostic-assistance-platform-architecture",

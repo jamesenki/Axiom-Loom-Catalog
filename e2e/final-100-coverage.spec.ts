@@ -18,7 +18,7 @@ test.describe('100% UI Coverage - FINAL', () => {
       'copilot-architecture-template',
       'ecosystem-platform-architecture', 
       'future-mobility-consumer-platform',
-      'nslabsdashboards',
+      'demo-labsdashboards',
       'rentalFleets'
     ];
     
@@ -46,7 +46,7 @@ test.describe('100% UI Coverage - FINAL', () => {
   test('Repository Detail Page Navigation', async ({ page }) => {
     await page.goto(BASE_URL);
     
-    // Click on nslabsdashboards Details button
+    // Click on demo-labsdashboards Details button
     const detailsLink = page.locator('a:has-text("Details")').first();
     await detailsLink.click();
     await page.waitForLoadState('networkidle');
@@ -116,11 +116,11 @@ test.describe('100% UI Coverage - FINAL', () => {
     await expect(searchInput).toBeVisible();
     
     // Type search query
-    await searchInput.fill('nslabs');
+    await searchInput.fill('demo-labs');
     await page.waitForTimeout(1000);
     
     // Results should appear
-    const searchResults = page.locator('text=nslabsdashboards');
+    const searchResults = page.locator('text=demo-labsdashboards');
     await expect(searchResults.first()).toBeVisible();
     
     // Close search
@@ -178,7 +178,7 @@ test.describe('100% UI Coverage - FINAL', () => {
       await expect(page.locator('text=EYNS AI Experience Center').first()).toBeVisible();
       
       // At least some content should be visible
-      const repoCards = await page.locator('text=copilot-architecture-template, text=nslabsdashboards').first();
+      const repoCards = await page.locator('text=copilot-architecture-template, text=demo-labsdashboards').first();
       await expect(repoCards).toBeVisible();
     }
   });
@@ -198,7 +198,7 @@ test.describe('100% UI Coverage - FINAL', () => {
 
   test('Documentation Links Navigation', async ({ page }) => {
     // Go to a docs page
-    await page.goto(`${BASE_URL}/docs/nslabsdashboards`);
+    await page.goto(`${BASE_URL}/docs/demo-labsdashboards`);
     await page.waitForLoadState('networkidle');
     
     // Find internal links (if any)
@@ -207,7 +207,7 @@ test.describe('100% UI Coverage - FINAL', () => {
       await internalLinks[0].click();
       await page.waitForTimeout(500);
       // Should still be on same page
-      expect(page.url()).toContain('/docs/nslabsdashboards');
+      expect(page.url()).toContain('/docs/demo-labsdashboards');
     }
     
     // Find relative doc links (if any) 
@@ -227,26 +227,26 @@ test.describe('100% UI Coverage - FINAL', () => {
     // Search for a specific repository
     await page.keyboard.press('Meta+k');
     const searchInput = page.locator('input[placeholder*="Search"]').first();
-    await searchInput.fill('nslabs');
+    await searchInput.fill('demo-labs');
     await page.waitForTimeout(1000);
     
     // Click on search result or close and navigate manually
     await page.keyboard.press('Escape');
     
-    // Navigate to nslabs detail page
-    await page.goto(`${BASE_URL}/repository/nslabsdashboards`);
+    // Navigate to demo-labs detail page
+    await page.goto(`${BASE_URL}/repository/demo-labsdashboards`);
     await expect(page.locator('text=Business Value')).toBeVisible();
     
     // Go to documentation
-    await page.goto(`${BASE_URL}/docs/nslabsdashboards`);
+    await page.goto(`${BASE_URL}/docs/demo-labsdashboards`);
     await expect(page.locator('h1, h2').first()).toBeVisible();
     
     // Go to API explorer
-    await page.goto(`${BASE_URL}/api-explorer/nslabsdashboards`);
+    await page.goto(`${BASE_URL}/api-explorer/demo-labsdashboards`);
     await expect(page.locator('text=API Explorer').first()).toBeVisible();
     
     // Go to Postman collections
-    await page.goto(`${BASE_URL}/postman/nslabsdashboards`);
+    await page.goto(`${BASE_URL}/postman/demo-labsdashboards`);
     await expect(page.locator('text=Import to Postman')).toBeVisible();
     
     // Test copy functionality

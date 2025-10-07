@@ -1,15 +1,15 @@
-# NSLabs Repository Breakout Plan
+# DemoLabs Repository Breakout Plan
 
 ## Executive Summary
 
-The current `nslabsdashboards` repository is a massive monolith containing multiple platform capabilities that should be separated into focused, specialized repositories for better maintainability, discoverability, and open source adoption.
+The current `demo-labsdashboards` repository is a massive monolith containing multiple platform capabilities that should be separated into focused, specialized repositories for better maintainability, discoverability, and open source adoption.
 
 **Current State**: 1 monolithic repository (34 APIs, 7 Postman collections)
 **Target State**: 6 focused repositories with clear domain boundaries
 
 ## 🗂️ Proposed Repository Structure
 
-### **1. iotsphere-core-platform**
+### **1. iotplatform-core-platform**
 **Category**: Platform | **Tier**: Gold Standard Target
 
 ```
@@ -33,7 +33,7 @@ The current `nslabsdashboards` repository is a massive monolith containing multi
 
 ---
 
-### **2. iotsphere-device-simulators**
+### **2. iotplatform-device-simulators**
 **Category**: Development Tools | **Tier**: Silver Standard
 
 ```
@@ -129,14 +129,14 @@ The current `nslabsdashboards` repository is a massive monolith containing multi
 
 ---
 
-### **6. iotsphere-ml-ai-platform**
+### **6. iotplatform-ml-ai-platform**
 **Category**: AI/ML Platform | **Tier**: Gold Standard Target
 
 ```
 📁 ML/AI Services & Intelligence Platform
-├── 📂 AI Agents & Autonomous Systems (/iotsphere_platform/agents/)
-├── 📂 ML Models & Registry (/iotsphere_platform/ml/)
-├── 📂 RAG Pipeline & Knowledge Management (/iotsphere_platform/rag/)
+├── 📂 AI Agents & Autonomous Systems (/iotplatform_platform/agents/)
+├── 📂 ML Models & Registry (/iotplatform_platform/ml/)
+├── 📂 RAG Pipeline & Knowledge Management (/iotplatform_platform/rag/)
 ├── 📂 Knowledge Base & Documentation (/src/knowledgebase/)
 ├── 📂 AI Integration Examples & Guides
 └── 📂 ML/AI API Documentation
@@ -160,12 +160,12 @@ The current `nslabsdashboards` repository is a massive monolith containing multi
 4. Establish branching and contribution guidelines
 
 ### **Phase 2: Code Migration** (Week 2-3)
-1. **iotsphere-core-platform**: Extract GraphQL server, MQTT bridge, authentication
+1. **iotplatform-core-platform**: Extract GraphQL server, MQTT bridge, authentication
 2. **appliances-co-water-heater-platform**: Extract water heater specific code and APIs
-3. **iotsphere-ml-ai-platform**: Extract AI agents, ML models, RAG pipeline
+3. **iotplatform-ml-ai-platform**: Extract AI agents, ML models, RAG pipeline
 4. **industrial-lubricants-platform**: Extract lubricant monitoring code
 5. **motorbike-oem-platform**: Extract Land EV/motorcycle related code
-6. **iotsphere-device-simulators**: Extract all simulators and testing frameworks
+6. **iotplatform-device-simulators**: Extract all simulators and testing frameworks
 
 ### **Phase 3: API & Documentation Enhancement** (Week 4)
 1. Create comprehensive API documentation for each platform
@@ -221,7 +221,7 @@ The current `nslabsdashboards` repository is a massive monolith containing multi
 
 ## 📁 File Migration Mapping
 
-### **iotsphere-core-platform**
+### **iotplatform-core-platform**
 - `/src/graphql_api/` → Core repository
 - `/mqtt/`, `/ingestor/` → Core repository
 - `/src/domain/` → Core repository
@@ -233,10 +233,10 @@ The current `nslabsdashboards` repository is a massive monolith containing multi
 - `/simulators/water_heater/` → Water heater platform
 - Related Postman collections → Water heater platform
 
-### **iotsphere-ml-ai-platform**
-- `/iotsphere_platform/agents/` → ML/AI platform
-- `/iotsphere_platform/ml/` → ML/AI platform
-- `/iotsphere_platform/rag/` → ML/AI platform
+### **iotplatform-ml-ai-platform**
+- `/iotplatform_platform/agents/` → ML/AI platform
+- `/iotplatform_platform/ml/` → ML/AI platform
+- `/iotplatform_platform/rag/` → ML/AI platform
 - `/src/knowledgebase/` → ML/AI platform
 
 ### **industrial-lubricants-platform**
@@ -249,9 +249,9 @@ The current `nslabsdashboards` repository is a massive monolith containing multi
 - Related implementation summaries → Motorcycle platform
 - Mock data and testing files → Motorcycle platform
 
-### **iotsphere-device-simulators**
+### **iotplatform-device-simulators**
 - `/simulators/` (except water_heater) → Simulators repository
 - `/scripts/*simulation*` → Simulators repository
 - Testing and validation scripts → Simulators repository
 
-This breakout plan transforms the monolithic NSLabs repository into a professional, well-organized collection of focused platforms ready for open source success. 🚀
+This breakout plan transforms the monolithic DemoLabs repository into a professional, well-organized collection of focused platforms ready for open source success. 🚀

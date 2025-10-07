@@ -129,13 +129,13 @@ Axiom Loom Innovation → Axiom Loom Innovation
 Axiom Loom → Axiom Loom
 Ernst and Young → Axiom Loom
 Axiom Loom → Axiom Loom
-EYGS → Axiom Loom
+Axiom → Axiom Loom
 ```
 
 ### Case Variations to Check
 - Axiom Loom, Eyns, eyns
 - EY, Ey, ey
-- EYGS, Eygs, eygs
+- Axiom, Eygs, axiom
 
 ### Context-Specific Replacements
 - "Axiom Loom team" → "Axiom Loom team"

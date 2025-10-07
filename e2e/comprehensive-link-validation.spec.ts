@@ -41,7 +41,7 @@ const ALL_REPOSITORIES = [
   'future-mobility-users-platform',
   'future-mobility-utilities-platform',
   'mobility-architecture-package-orchestrator',
-  'nslabsdashboards',
+  'demo-labsdashboards',
   'remote-diagnostic-assistance-platform-architecture',
   'rentalFleets',
   'sample-arch-package',
@@ -496,7 +496,7 @@ test.describe('Comprehensive Link Validation Suite', () => {
     
     // Test a subset of repositories for internal links
     const docTestRepos = [
-      'nslabsdashboards',
+      'demo-labsdashboards',
       'ai-predictive-maintenance-engine',
       'future-mobility-consumer-platform',
       'rentalFleets',

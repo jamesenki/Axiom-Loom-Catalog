@@ -126,7 +126,9 @@ interface GlassCardProps {
   glowEffect?: boolean;
   shimmerEffect?: boolean;
   onClick?: () => void;
+  onDoubleClick?: () => void;
   className?: string;
+  'data-testid'?: string;
 }
 
 interface GlassCardHeaderProps {
@@ -155,11 +157,19 @@ export const GlassCard: React.FC<GlassCardProps> = ({
   glowEffect = false,
   shimmerEffect = false,
   onClick,
+  onDoubleClick,
   className,
+  'data-testid': dataTestId,
 }) => {
   const handleClick = (event: React.MouseEvent<HTMLDivElement>) => {
     if (onClick) {
       onClick();
+    }
+  };
+
+  const handleDoubleClick = (event: React.MouseEvent<HTMLDivElement>) => {
+    if (onDoubleClick) {
+      onDoubleClick();
     }
   };
 
@@ -170,7 +180,9 @@ export const GlassCard: React.FC<GlassCardProps> = ({
       glowEffect={false}  // Always false for professional design
       shimmerEffect={false}  // Always false for professional design
       onClick={handleClick}
+      onDoubleClick={handleDoubleClick}
       className={className}
+      data-testid={dataTestId}
     >
       {children}
     </StyledGlassCard>

@@ -166,6 +166,21 @@ module.exports = function override(config, env) {
     });
   }
 
+  // Enable client-side routing support for webpack dev server
+  if (env === 'development') {
+    config.devServer = {
+      ...config.devServer,
+      historyApiFallback: {
+        disableDotRule: true,
+        index: '/index.html'
+      },
+      static: {
+        directory: path.resolve(__dirname, 'public'),
+        publicPath: '/'
+      }
+    };
+  }
+
   return config;
 };
 

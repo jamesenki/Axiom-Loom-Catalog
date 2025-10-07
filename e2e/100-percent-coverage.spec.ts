@@ -28,7 +28,7 @@ const ALL_REPOSITORIES = [
   'future-mobility-users-platform',
   'future-mobility-utilities-platform',
   'mobility-architecture-package-orchestrator',
-  'nslabsdashboards',
+  'demo-labsdashboards',
   'remote-diagnostic-assistance-platform-architecture',
   'rentalFleets',
   'sample-arch-package',
@@ -45,13 +45,13 @@ const REPOS_WITH_POSTMAN = [
   'future-mobility-regulatory-platform',
   'future-mobility-tech-platform',
   'future-mobility-utilities-platform',
-  'nslabsdashboards',
+  'demo-labsdashboards',
   'rentalFleets',
   'sovd-diagnostic-ecosystem-platform-architecture'
 ];
 
 // Repositories with GraphQL
-const REPOS_WITH_GRAPHQL = ['nslabsdashboards'];
+const REPOS_WITH_GRAPHQL = ['demo-labsdashboards'];
 
 // Repositories with REST APIs
 const REPOS_WITH_REST = [
@@ -311,11 +311,11 @@ test.describe('100% Coverage Tests - EYNS AI Experience Center', () => {
       await expect(searchInput).toBeVisible();
       
       // Search for a repository
-      await searchInput.fill('nslabs');
+      await searchInput.fill('demo-labs');
       await page.waitForTimeout(500);
       
       // Should show results
-      await expect(page.locator('text=nslabsdashboards')).toBeVisible();
+      await expect(page.locator('text=demo-labsdashboards')).toBeVisible();
       
       // Search for API
       await searchInput.clear();

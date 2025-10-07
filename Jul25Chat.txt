@@ -463,7 +463,7 @@
        11
        12    // Configuration
        13    const REPOS_BASE_PATH = '/Users/lisasimon/repos/eyns-innovation-repos';
-       14 +  const GITHUB_ORG = '20230011612_EYGS';
+       14 +  const GITHUB_ORG = 'jamesenki';
        15
        16    // Middleware
        17    app.use(cors());
@@ -919,7 +919,7 @@
   1. SYNC FUNCTIONALITY
 
   - Use git pull instead of GitHub API
-  - Pull from james-update branch for nslabsdashboards
+  - Pull from james-update branch for demo-labsdashboards
   - Pull from main branch for all other repositories
   - Clear relevant caches after sync
   - Update UI to show sync progress

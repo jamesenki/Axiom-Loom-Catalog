@@ -80,7 +80,7 @@
   - **Clone Status**: Pending
   - **Analysis Status**: Pending
 
-- [ ] **nslabsdashboards**
+- [ ] **demo-labsdashboards**
   - **Last Updated**: 2025-07-24T13:05:41Z
   - **Description**: Dashboard for Appliances Co, Vending Machine Co etc.
   - **Clone Status**: Pending
@@ -166,7 +166,7 @@
 
 ## 📝 Notes
 
-- All repositories are private under 20230011612_EYGS account
+- All repositories are private under jamesenki account
 - Documentation link fixes already completed for most repositories
 - Emoji rendering fixes already implemented
 - Focus on API discovery and content structure analysis

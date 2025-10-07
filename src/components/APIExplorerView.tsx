@@ -450,12 +450,23 @@ const APIExplorerView: React.FC = () => {
                   key={index}
                   dataType={api.type}
                   onClick={() => {
-                    // Navigate to specific API viewer based on type
-                    const viewerPath = api.type === 'GraphQL' 
-                      ? `/graphql/${repoName}?file=${encodeURIComponent(api.path)}`
-                      : api.type === 'gRPC'
-                      ? `/grpc-playground/${repoName}?file=${encodeURIComponent(api.path)}`
-                      : `/api-viewer/${repoName}?file=${encodeURIComponent(api.path)}`;
+                    // Navigate to specific API viewer based on type using correct routes
+                    let viewerPath: string;
+                    
+                    if (api.type === 'GraphQL') {
+                      viewerPath = `/graphql-playground/${repoName}?file=${encodeURIComponent(api.path)}`;
+                    } else if (api.type === 'gRPC') {
+                      // For gRPC, fall back to generic API viewer or show info
+                      viewerPath = `/api-explorer/${repoName}?type=grpc&file=${encodeURIComponent(api.path)}`;
+                    } else if (api.type === 'OpenAPI') {
+                      // Use the correct Swagger route
+                      viewerPath = `/api/${repoName}/swagger?file=${encodeURIComponent(api.path)}`;
+                    } else {
+                      // Default fallback to API explorer with file parameter
+                      viewerPath = `/api-explorer/${repoName}?file=${encodeURIComponent(api.path)}`;
+                    }
+                    
+                    // Use React Router navigation instead of window.location.href
                     window.location.href = viewerPath;
                   }}
                 >

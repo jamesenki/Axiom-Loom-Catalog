@@ -42,7 +42,7 @@ I have created and executed a comprehensive test suite that validates **EVERY SI
 
 #### Repository Access Issues:
 - **All tested repositories** show 404 or error pages:
-  - nslabsdashboards
+  - demo-labsdashboards
   - rentalFleets  
   - future-mobility-consumer-platform
   - ai-predictive-maintenance-engine

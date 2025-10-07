@@ -55,6 +55,12 @@ interface RepositoryDetails {
   demoUrl?: string | null;
   tags?: string[];
   url?: string;
+  urls?: {
+    demo?: string;
+    documentation?: string;
+    website?: string;
+    github?: string;
+  };
   businessValue?: {
     targetMarket?: string;
     roi?: string;
@@ -240,7 +246,7 @@ const businessCategories: Record<string, string[]> = {
   'future-mobility-regulatory-platform': ['Compliance', 'Reporting', 'Government Tech', 'Data Analytics', 'Sustainability'],
   'future-mobility-tech-platform': ['MaaS', 'API Platform', 'Cloud Infrastructure', 'Developer Tools', 'Integration'],
   'future-mobility-utilities-platform': ['Smart Grid', 'Energy Management', 'IoT', 'AI/ML', 'Infrastructure'],
-  'nslabsdashboards': ['IoT', 'Industrial Equipment', 'AI/ML', 'Predictive Maintenance', 'Analytics'],
+  'demo-labsdashboards': ['IoT', 'Industrial Equipment', 'AI/ML', 'Predictive Maintenance', 'Analytics'],
   'rentalFleets': ['Fleet Management', 'Rental Operations', 'Customer Experience', 'Booking Systems', 'Analytics'],
   'smartpath': ['Navigation', 'AI/ML', 'Route Optimization', 'Real-time Processing', 'Mobile'],
   'mobility-architecture-package-orchestrator': ['Architecture', 'Automation', 'DevOps', 'API Management', 'Integration'],
@@ -280,7 +286,7 @@ const businessValueData: Record<string, any> = {
       'Maintenance scheduling'
     ]
   },
-  'nslabsdashboards': {
+  'demo-labsdashboards': {
     targetMarket: 'Industrial Equipment Manufacturers',
     roi: '50% reduction in unplanned downtime',
     keyBenefits: [
@@ -716,10 +722,12 @@ const RepositoryDetailRedesigned: React.FC = () => {
             </CardHeader>
             <CardContent>
               <ActionGrid>
+                {/* Removed Architecture Demo, Implementation Guide, and Product Details buttons per user feedback */}
+                
                 <Button
                   as={Link}
                   to={`/docs/${repository.name}`}
-                  variant="primary"
+                  variant="outline"
                   fullWidth
                 >
                   <BookOpen size={20} />
@@ -776,14 +784,12 @@ const RepositoryDetailRedesigned: React.FC = () => {
                 
                 {repository.demoUrl && (
                   <Button
-                    as="a"
-                    href={repository.demoUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    as={Link}
+                    to={repository.demoUrl}
                     variant="primary"
                     fullWidth
                   >
-                    <ExternalLink size={20} />
+                    <Zap size={20} />
                     View Demo
                   </Button>
                 )}

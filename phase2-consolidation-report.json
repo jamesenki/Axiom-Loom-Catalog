@@ -36,17 +36,17 @@
       ]
     },
     {
-      "action": "NSLabs Repository Breakout",
+      "action": "DemoLabs Repository Breakout",
       "created": [
-        "iotsphere-core-platform",
+        "iotplatform-core-platform",
         "appliances-co-water-heater-platform",
-        "iotsphere-ml-ai-platform",
+        "iotplatform-ml-ai-platform",
         "industrial-lubricants-platform",
         "motorbike-oem-platform",
-        "iotsphere-device-simulators"
+        "iotplatform-device-simulators"
       ],
       "removed": [
-        "nslabsdashboards"
+        "demo-labsdashboards"
       ]
     }
   ],

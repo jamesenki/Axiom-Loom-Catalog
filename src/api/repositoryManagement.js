@@ -320,7 +320,7 @@ router.post('/repository/sync', async (req, res) => {
 
     // Special branch configurations
     const SPECIAL_BRANCHES = {
-      'nslabsdashboards': 'james-update'
+      'demo-labsdashboards': 'james-update'
     };
 
     // Sync each local repository with timeout

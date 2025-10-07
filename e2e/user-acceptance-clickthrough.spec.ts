@@ -38,7 +38,7 @@ test.describe('EYNS AI Experience Center - User Acceptance Tests', () => {
     const repoNames = [
       'future-mobility-consumer-platform',
       'future-mobility-fleet-platform',
-      'nslabsdashboards',
+      'demo-labsdashboards',
       'smartpath'
     ];
     

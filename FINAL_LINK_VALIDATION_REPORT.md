@@ -42,7 +42,7 @@ Created architecture index files for all repositories that were missing them, pr
 | future-mobility-tech-platform | 53 | 13 | 94.20% |
 | future-mobility-utilities-platform | 51 | 14 | 93.58% |
 | mobility-architecture-package-orchestrator | 6 | 9 | 40.00% |
-| nslabsdashboards | 45 | 14 | 91.67% |
+| demo-labsdashboards | 45 | 14 | 91.67% |
 | rentalFleets | 13 | 8 | 89.47% |
 | sample-arch-package | 9 | 16 | 73.77% |
 | smartpath | 11 | 7 | 88.89% |

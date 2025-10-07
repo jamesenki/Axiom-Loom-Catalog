@@ -91,12 +91,12 @@ async function testApiDetection() {
     // Validate expected results
     console.log('\n🔍 Validation Checks:');
     
-    // Check nslabsdashboards has GraphQL
-    const nslabsResult = batchResults.find(r => r.repository === 'nslabsdashboards');
-    if (nslabsResult && nslabsResult.apis.graphql.length > 0) {
-      console.log('  ✅ nslabsdashboards correctly detected as GraphQL repository');
+    // Check demo-labsdashboards has GraphQL
+    const demo-labsResult = batchResults.find(r => r.repository === 'demo-labsdashboards');
+    if (demo-labsResult && demo-labsResult.apis.graphql.length > 0) {
+      console.log('  ✅ demo-labsdashboards correctly detected as GraphQL repository');
     } else {
-      console.log('  ❌ nslabsdashboards GraphQL detection failed');
+      console.log('  ❌ demo-labsdashboards GraphQL detection failed');
     }
     
     // Check Future Mobility platforms have REST APIs

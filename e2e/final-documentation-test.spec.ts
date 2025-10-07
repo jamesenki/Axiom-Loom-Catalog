@@ -25,7 +25,7 @@ test.describe('Final Documentation and Link Validation', () => {
     console.log('Testing documentation rendering...');
     
     // Test a repository known to have documentation
-    await page.goto('/repository/nslabsdashboards', { 
+    await page.goto('/repository/demo-labsdashboards', { 
       waitUntil: 'domcontentloaded', 
       timeout: 30000 
     });
@@ -74,8 +74,8 @@ test.describe('Final Documentation and Link Validation', () => {
     console.log('Testing specific documentation paths...');
     
     const docTestCases = [
-      '/docs/nslabsdashboards',
-      '/repository/nslabsdashboards',
+      '/docs/demo-labsdashboards',
+      '/repository/demo-labsdashboards',
       '/docs/ai-predictive-maintenance-engine',
       '/repository/ai-predictive-maintenance-engine'
     ];
@@ -128,7 +128,7 @@ test.describe('Final Documentation and Link Validation', () => {
     console.log('Testing markdown link navigation...');
     
     // Navigate to a documentation page
-    await page.goto('/repository/nslabsdashboards', { 
+    await page.goto('/repository/demo-labsdashboards', { 
       waitUntil: 'domcontentloaded', 
       timeout: 30000 
     });
@@ -190,7 +190,7 @@ test.describe('Final Documentation and Link Validation', () => {
     console.log('Testing API button functionality...');
     
     // Go to a repository with API features
-    await page.goto('/repository/nslabsdashboards', { 
+    await page.goto('/repository/demo-labsdashboards', { 
       waitUntil: 'domcontentloaded', 
       timeout: 30000 
     });
@@ -234,7 +234,7 @@ test.describe('Final Documentation and Link Validation', () => {
                 console.log(`✓ ${button.type} button click successful`);
                 
                 // Go back for next test
-                await page.goto('/repository/nslabsdashboards', { 
+                await page.goto('/repository/demo-labsdashboards', { 
                   waitUntil: 'domcontentloaded', 
                   timeout: 30000 
                 });

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import styled, { keyframes, css } from 'styled-components';
 import { 
   Plus, 
@@ -266,6 +266,7 @@ const RepositoryList: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   const [showAddModal, setShowAddModal] = useState(false);
   const { syncVersion } = useSyncContext();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchRepositories = async () => {
@@ -307,6 +308,10 @@ const RepositoryList: React.FC = () => {
     fetchRepositories();
   };
 
+  const handleCardDoubleClick = (repoName: string) => {
+    navigate(`/repository/${repoName}`);
+  };
+
   if (loading) return <LoadingContainer>Loading repositories...</LoadingContainer>;
   if (error) return <ErrorContainer>Error: {error}</ErrorContainer>;
 
@@ -335,7 +340,11 @@ const RepositoryList: React.FC = () => {
       
       <GridContainer>
         {repositories.map((repo) => (
-          <RepositoryCard key={repo.id} data-testid="repository-card">
+          <RepositoryCard 
+            key={repo.id} 
+            data-testid="repository-card"
+            onDoubleClick={() => handleCardDoubleClick(repo.name)}
+          >
             <CardHeader>
               <CardTitle>{repo.displayName}</CardTitle>
               <StatusBadge status={repo.status}>{repo.status}</StatusBadge>

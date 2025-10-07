@@ -31,9 +31,9 @@ describe('GraphQLView', () => {
     expect(mainDiv).toHaveStyle({ color: 'white', padding: '20px' });
   });
 
-  it('renders with nslabsdashboards repository', () => {
-    renderWithRouter('nslabsdashboards');
-    expect(screen.getByText('🔍 GraphQL Playground: nslabsdashboards')).toBeInTheDocument();
+  it('renders with demo-labsdashboards repository', () => {
+    renderWithRouter('demo-labsdashboards');
+    expect(screen.getByText('🔍 GraphQL Playground: demo-labsdashboards')).toBeInTheDocument();
   });
 
   it('renders correct heading levels', () => {

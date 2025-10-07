@@ -113,7 +113,7 @@ test.describe('Final Link Validation Report', () => {
     console.log('\n📚 TESTING REPOSITORY ACCESS');
     
     const testRepositories = [
-      'nslabsdashboards',
+      'demo-labsdashboards',
       'rentalFleets', 
       'future-mobility-consumer-platform',
       'ai-predictive-maintenance-engine'

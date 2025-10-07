@@ -7,7 +7,7 @@ const { chromium } = require('playwright');
   console.log('Testing developer guide access...');
   
   // First, go to the repository page
-  await page.goto('http://localhost:3000/docs/nslabsdashboards');
+  await page.goto('http://localhost:3000/docs/demo-labsdashboards');
   await page.waitForTimeout(2000);
   
   // Look for developer guide link
@@ -39,7 +39,7 @@ const { chromium } = require('playwright');
   
   // Try direct access
   console.log('\nTrying direct access...');
-  await page.goto('http://localhost:3000/docs/nslabsdashboards?path=developerguide.md');
+  await page.goto('http://localhost:3000/docs/demo-labsdashboards?path=developerguide.md');
   await page.waitForTimeout(1000);
   
   const directError = await page.locator('text=/Error|404|Not Found/i').count();
@@ -47,7 +47,7 @@ const { chromium } = require('playwright');
   
   // Try correct path
   console.log('\nTrying correct path...');
-  await page.goto('http://localhost:3000/docs/nslabsdashboards?path=docs/development/DEVELOPER_GUIDE.md');
+  await page.goto('http://localhost:3000/docs/demo-labsdashboards?path=docs/development/DEVELOPER_GUIDE.md');
   await page.waitForTimeout(1000);
   
   const correctError = await page.locator('text=/Error|404|Not Found/i').count();

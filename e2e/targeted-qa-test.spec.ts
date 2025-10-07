@@ -29,7 +29,7 @@ const REPOSITORIES = [
   'future-mobility-users-platform',
   'future-mobility-utilities-platform',
   'mobility-architecture-package-orchestrator',
-  'nslabsdashboards',
+  'demo-labsdashboards',
   'remote-diagnostic-assistance-platform-architecture',
   'rentalFleets',
   'sample-arch-package',
@@ -232,7 +232,7 @@ test.describe('Targeted QA Test Suite', () => {
     console.log('Testing documentation links...');
     
     // Test a repository known to have good documentation
-    const testRepo = 'nslabsdashboards'; // This one has comprehensive docs
+    const testRepo = 'demo-labsdashboards'; // This one has comprehensive docs
     
     try {
       await page.goto(`/repository/${testRepo}`, { waitUntil: 'domcontentloaded', timeout: 30000 });

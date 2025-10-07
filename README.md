@@ -181,7 +181,7 @@ The platform is designed for easy cloud migration:
 - **Future Mobility Platforms**: OEMs, Consumer, Fleet, Regulatory, Tech, Utilities
 - **Architecture Templates**: sample-arch-package, copilot-architecture-template
 - **Specialized Tools**: smartpath, rentalFleets, orchestrator
-- **Dashboards**: nslabsdashboards (GraphQL APIs)
+- **Dashboards**: demo-labsdashboards (GraphQL APIs)
 
 ## 🛠️ Development
 

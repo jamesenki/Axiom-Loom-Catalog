@@ -41,7 +41,7 @@ REPOSITORIES=(
   "future-mobility-users-platform"
   "future-mobility-utilities-platform"
   "mobility-architecture-package-orchestrator"
-  "nslabsdashboards"
+  "demo-labsdashboards"
   "remote-diagnostic-assistance-platform-architecture"
   "rentalFleets"
   "sample-arch-package"

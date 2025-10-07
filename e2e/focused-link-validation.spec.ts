@@ -78,7 +78,7 @@ test.describe('Focused Link Validation & Debugging', () => {
       const reposState = await capturePageState(page, 'Repositories Page');
       
       // Verify repositories are listed
-      const repoCards = await page.locator('[data-testid*="repo"], .repository-card, .repo-card, div:has-text("nslabsdashboards")').count();
+      const repoCards = await page.locator('[data-testid*="repo"], .repository-card, .repo-card, div:has-text("demo-labsdashboards")').count();
       console.log(`  Found ${repoCards} repository elements`);
       
       expect(reposState.hasContent).toBe(true);
@@ -88,8 +88,8 @@ test.describe('Focused Link Validation & Debugging', () => {
   test('2. Test specific repository access and buttons', async ({ page }) => {
     console.log('\n🔍 Testing Repository Access');
     
-    // Test nslabsdashboards - known working repository
-    const testRepo = 'nslabsdashboards';
+    // Test demo-labsdashboards - known working repository
+    const testRepo = 'demo-labsdashboards';
     const repoUrl = `${BASE_URL}/repository/${testRepo}`;
     
     await page.goto(repoUrl, { waitUntil: 'domcontentloaded' });
@@ -121,7 +121,7 @@ test.describe('Focused Link Validation & Debugging', () => {
   test('3. Test documentation loading with debugging', async ({ page }) => {
     console.log('\n🔍 Testing Documentation Loading');
     
-    const testRepo = 'nslabsdashboards';
+    const testRepo = 'demo-labsdashboards';
     await page.goto(`${BASE_URL}/repository/${testRepo}`, { waitUntil: 'domcontentloaded' });
     await waitForPageLoad(page);
     
@@ -241,7 +241,7 @@ test.describe('Focused Link Validation & Debugging', () => {
     });
     
     // Test repository with headers
-    const testRepo = 'nslabsdashboards';
+    const testRepo = 'demo-labsdashboards';
     await page.goto(`${BASE_URL}/repository/${testRepo}`, { waitUntil: 'domcontentloaded' });
     await waitForPageLoad(page);
     

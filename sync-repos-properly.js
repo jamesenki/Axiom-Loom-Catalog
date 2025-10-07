@@ -7,7 +7,7 @@ const REPOS_CONFIG_FILE = path.join(__dirname, 'repositories.json');
 
 // Special branch configurations
 const SPECIAL_BRANCHES = {
-  'nslabsdashboards': 'james-update'
+  'demo-labsdashboards': 'james-update'
 };
 
 async function syncExistingRepos() {

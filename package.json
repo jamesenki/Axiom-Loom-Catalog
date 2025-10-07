@@ -86,7 +86,11 @@
     "validate:build": "./scripts/validate-build.sh",
     "test:regression": "playwright test playwright/e2e/regression-suite.spec.ts",
     "test:e2e:headed": "playwright test --headed",
-    "test:full": "npm run test:ci && npm run test:e2e"
+    "test:full": "npm run test:ci && npm run test:e2e",
+    "test:ip": "npx playwright test ai-predictive-maintenance-workflow.spec.ts --config=playwright.config.ip.ts",
+    "test:ip:enhanced": "npx playwright test ai-predictive-maintenance-enhanced.spec.ts --config=playwright.config.ip.ts",
+    "test:ip:headed": "npx playwright test ai-predictive-maintenance-workflow.spec.ts --config=playwright.config.ip.ts --headed",
+    "test:ip:debug": "npx playwright test ai-predictive-maintenance-enhanced.spec.ts --config=playwright.config.ip.ts --headed --debug"
   },
   "eslintConfig": {
     "extends": [
@@ -130,7 +134,6 @@
     "util": "^0.12.5",
     "webpack-bundle-analyzer": "^4.10.2"
   },
-  "proxy": "http://localhost:3001",
   "jest": {
     "transformIgnorePatterns": [
       "node_modules/(?!(react-markdown|remark-gfm|rehype-highlight|rehype-slug|rehype-autolink-headings|remark-emoji|unified|bail|is-plain-obj|trough|vfile|vfile-message|unist-util-stringify-position|mdast-util-from-markdown|mdast-util-to-string|micromark|decode-named-character-reference|character-entities|mdast-util-to-markdown|zwitch|longest-streak|mdast-util-phrasing|unist-util-visit-parents|unist-util-is|mdast-util-gfm|ccount|mdast-util-find-and-replace|escape-string-regexp|unist-util-visit|markdown-table|mdast-util-gfm-table|mdast-util-gfm-task-list-item|mdast-util-gfm-strikethrough|mdast-util-gfm-autolink-literal|micromark-extension-gfm|micromark-extension-gfm-autolink-literal|micromark-extension-gfm-strikethrough|micromark-extension-gfm-table|micromark-extension-gfm-task-list-item|micromark-extension-gfm-tagfilter|property-information|space-separated-tokens|comma-separated-tokens|hast-util-whitespace|remark-parse|mdast-util-to-hast|unist-util-generated|unist-util-position|unist-builder|mdast-util-definitions|trim-lines|unist-util-visit|vfile-location|web-namespaces|hast-util-parse-selector|hast-util-from-parse5|parse5|hastscript|hast-util-raw|hast-util-to-parse5|html-void-elements|hast-util-to-html|stringify-entities|character-entities-html4|rehype-parse|unified|hast-util-from-text|hast-to-hyperscript|@mapbox|unist-util-map|lowlight|fault|highlight.js)/)"

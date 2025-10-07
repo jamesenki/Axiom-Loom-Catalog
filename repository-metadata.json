@@ -7,7 +7,7 @@
     "marketingDescription": "Transform your maintenance operations with our complete AI-powered predictive maintenance solution. Combining advanced machine learning engines, comprehensive platform capabilities, and enterprise-ready architecture, this integrated solution prevents equipment failures, reduces downtime by up to 70%, and extends equipment lifespan across your entire operation.",
     "category": "Architecture",
     "status": "active",
-    "demoUrl": "https://demo.axiom-loom.com/ai-maintenance-architecture",
+    "demoUrl": "/demo/ai-maintenance-architecture",
     "tags": [
       "Architecture",
       "AI/ML",
@@ -531,7 +531,7 @@
     "marketingDescription": "Revolutionize water heater operations with AI-powered predictive maintenance, cost optimization, and fleet management. Monitor thousands of units in real-time, predict failures before they happen, and optimize energy consumption across your entire portfolio.",
     "category": "Appliance Management",
     "status": "active",
-    "demoUrl": "https://demo.axiom-loom.com/water-heater-platform",
+    "demoUrl": "/coming-soon/demo/appliances-co-water-heater-platform",
     "tags": [
       "Water Heaters",
       "Predictive Maintenance",

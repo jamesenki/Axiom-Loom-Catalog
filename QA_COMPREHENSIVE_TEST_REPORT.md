@@ -60,7 +60,7 @@ The Axiom Loom application is functionally operational with all critical user fl
   - future-mobility-users-platform ✅
   - future-mobility-utilities-platform ✅
   - mobility-architecture-package-orchestrator ✅
-  - nslabsdashboards ✅
+  - demo-labsdashboards ✅
   - remote-diagnostic-assistance-platform-architecture ✅
   - rentalFleets ✅
   - sample-arch-package ✅
@@ -71,7 +71,7 @@ The Axiom Loom application is functionally operational with all critical user fl
 #### 2. API Button Functionality - EXCELLENT
 - **API Buttons Found:** Multiple repositories have functional API buttons
 - **Test Results:**
-  - nslabsdashboards: 2 API buttons, 3 GraphQL buttons, 3 Postman buttons ✅
+  - demo-labsdashboards: 2 API buttons, 3 GraphQL buttons, 3 Postman buttons ✅
   - ai-predictive-maintenance-engine-architecture: 3 API, 3 GraphQL, 3 Postman ✅
   - future-mobility-fleet-platform: 3 API, 3 Postman ✅
   - future-mobility-consumer-platform: 3 API, 3 Postman ✅
@@ -116,8 +116,8 @@ The Axiom Loom application is functionally operational with all critical user fl
 **Evidence from logs:**
 ```
 Performance Warning: GET /api/repositories took 11361.15ms
-Performance Warning: GET /repository/nslabsdashboards/files took 12847.76ms
-Performance Warning: GET /api/repository/nslabsdashboards/details took 3252.10ms
+Performance Warning: GET /repository/demo-labsdashboards/files took 12847.76ms
+Performance Warning: GET /api/repository/demo-labsdashboards/details took 3252.10ms
 ```
 
 #### 2. Documentation Rendering - ISSUES

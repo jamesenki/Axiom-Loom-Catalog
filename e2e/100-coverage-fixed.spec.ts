@@ -12,7 +12,7 @@ const ALL_REPOSITORIES = [
   'future-mobility-tech-platform',
   'future-mobility-utilities-platform',
   'mobility-architecture-package-orchestrator',
-  'nslabsdashboards',
+  'demo-labsdashboards',
   'rentalFleets',
   'sample-arch-package',
   'smartpath',
@@ -26,7 +26,7 @@ const REPOS_WITH_POSTMAN = [
   'future-mobility-regulatory-platform',
   'future-mobility-tech-platform',
   'future-mobility-utilities-platform',
-  'nslabsdashboards',
+  'demo-labsdashboards',
   'rentalFleets',
   'sovd-diagnostic-ecosystem-platform-architecture'
 ];
@@ -55,7 +55,7 @@ test.describe('100% UI Coverage Tests', () => {
     console.log(`Found ${cardCount} repository cards`);
     
     // Test a few key repositories instead of all to avoid brittle selectors
-    const testRepos = ['copilot-architecture-template', 'future-mobility-consumer-platform', 'nslabsdashboards'];
+    const testRepos = ['copilot-architecture-template', 'future-mobility-consumer-platform', 'demo-labsdashboards'];
     
     for (const repo of testRepos) {
       const repoText = page.locator(`text=${repo}`).first();
@@ -232,11 +232,11 @@ test.describe('100% UI Coverage Tests', () => {
     await expect(searchInput).toBeVisible();
     
     // Search for repo
-    await searchInput.fill('nslabs');
+    await searchInput.fill('demo-labs');
     await page.waitForTimeout(1000);
     
     // Should show results
-    const results = page.locator('text=nslabsdashboards');
+    const results = page.locator('text=demo-labsdashboards');
     await expect(results.first()).toBeVisible();
   });
 
@@ -271,7 +271,7 @@ test.describe('100% UI Coverage Tests', () => {
       await expect(page.locator('text=EYNS AI Experience Center').first()).toBeVisible();
       
       // At least one repo should be visible
-      await expect(page.locator('text=nslabsdashboards').first()).toBeVisible();
+      await expect(page.locator('text=demo-labsdashboards').first()).toBeVisible();
     }
   });
 
@@ -298,10 +298,10 @@ test.describe('100% UI Coverage Tests', () => {
     const routes = [
       '/',
       '/sync',
-      '/repository/nslabsdashboards',
-      '/docs/nslabsdashboards',
+      '/repository/demo-labsdashboards',
+      '/docs/demo-labsdashboards',
       '/api-explorer/rentalFleets',
-      '/postman/nslabsdashboards'
+      '/postman/demo-labsdashboards'
     ];
     
     for (const route of routes) {
@@ -350,7 +350,7 @@ test.describe('100% UI Coverage Tests', () => {
     
     // Go to Postman
     await page.goto(BASE_URL);
-    await page.locator('text=nslabsdashboards').first().locator('xpath=ancestor::div[contains(@class, "sc-")]').nth(3).locator('a:has-text("Postman")').click();
+    await page.locator('text=demo-labsdashboards').first().locator('xpath=ancestor::div[contains(@class, "sc-")]').nth(3).locator('a:has-text("Postman")').click();
     await expect(page.locator('text=Import to Postman')).toBeVisible();
   });
 });

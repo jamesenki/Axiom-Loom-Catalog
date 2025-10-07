@@ -10,9 +10,9 @@ const REPOS_DIR = path.join(__dirname, '../../cloned-repositories');
 describe('Enhanced Markdown Viewer Integration Tests', () => {
   const testDocuments = [
     {
-      repo: 'nslabsdashboards',
+      repo: 'demo-labsdashboards',
       file: 'README.md',
-      expectedHeadings: ['NSLabs Dashboards', 'Features', 'Getting Started'],
+      expectedHeadings: ['DemoLabs Dashboards', 'Features', 'Getting Started'],
       expectedCodeBlocks: true,
       expectedLinks: true
     },
@@ -59,7 +59,7 @@ describe('Enhanced Markdown Viewer Integration Tests', () => {
 
   describe('Table of Contents Generation', () => {
     test('generates TOC for real documents', () => {
-      const filePath = path.join(REPOS_DIR, 'nslabsdashboards', 'README.md');
+      const filePath = path.join(REPOS_DIR, 'demo-labsdashboards', 'README.md');
       if (!fs.existsSync(filePath)) return;
 
       const content = fs.readFileSync(filePath, 'utf-8');
@@ -77,7 +77,7 @@ describe('Enhanced Markdown Viewer Integration Tests', () => {
 
   describe('Code Block Rendering', () => {
     test('renders code blocks with syntax highlighting', () => {
-      const filePath = path.join(REPOS_DIR, 'nslabsdashboards', 'README.md');
+      const filePath = path.join(REPOS_DIR, 'demo-labsdashboards', 'README.md');
       if (!fs.existsSync(filePath)) return;
 
       const content = fs.readFileSync(filePath, 'utf-8');

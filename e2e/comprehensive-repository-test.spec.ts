@@ -28,7 +28,7 @@ const ALL_REPOSITORIES = [
   'future-mobility-users-platform',
   'future-mobility-utilities-platform',
   'mobility-architecture-package-orchestrator',
-  'nslabsdashboards',
+  'demo-labsdashboards',
   'remote-diagnostic-assistance-platform-architecture',
   'rentalFleets',
   'sample-arch-package',
@@ -123,7 +123,7 @@ test.describe('Comprehensive Repository and Link Tests', () => {
     
     // Test repositories known to have API features
     const apiRepos = [
-      'nslabsdashboards',
+      'demo-labsdashboards',
       'ai-predictive-maintenance-engine-architecture',
       'future-mobility-fleet-platform',
       'future-mobility-consumer-platform',
@@ -242,7 +242,7 @@ test.describe('Comprehensive Repository and Link Tests', () => {
     
     // Test repositories known to have comprehensive documentation
     const docRepos = [
-      'nslabsdashboards',
+      'demo-labsdashboards',
       'ai-predictive-maintenance-engine',
       'future-mobility-consumer-platform',
       'rentalFleets'

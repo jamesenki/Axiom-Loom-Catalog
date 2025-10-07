@@ -61,22 +61,22 @@ Phase 2 has successfully transformed our repository catalog through strategic co
 
 ---
 
-### **3. NSLabs Repository Breakout** ✅
+### **3. DemoLabs Repository Breakout** ✅
 **Impact**: 1 monolithic repository → 6 focused platforms
 
-#### **Original**: `nslabsdashboards` 
+#### **Original**: `demo-labsdashboards` 
 - 34 APIs, 7 Postman collections, No pricing tier
 
 #### **New Focused Repositories**:
 
 ##### **🥇 Gold Standard Targets**:
 
-1. **`iotsphere-ml-ai-platform`** (Tier 4: Strategic)
+1. **`iotplatform-ml-ai-platform`** (Tier 4: Strategic)
    - **APIs**: 10 | **Collections**: 6 | **Value Score**: 88 | **Price**: $220,000
    - **Category**: AI/ML Platform
    - **Focus**: AI agents, ML models, RAG pipeline, knowledge management
 
-2. **`iotsphere-core-platform`** (Tier 3: Enterprise)
+2. **`iotplatform-core-platform`** (Tier 3: Enterprise)
    - **APIs**: 15 | **Collections**: 8 | **Value Score**: 85 | **Price**: $180,000
    - **Category**: IoT Platform
    - **Focus**: GraphQL APIs, MQTT integration, device management
@@ -98,7 +98,7 @@ Phase 2 has successfully transformed our repository catalog through strategic co
    - **Category**: Vehicle Management
    - **Focus**: Electric motorcycle fleet management
 
-6. **`iotsphere-device-simulators`** (Tier 2: Professional)
+6. **`iotplatform-device-simulators`** (Tier 2: Professional)
    - **APIs**: 5 | **Collections**: 4 | **Value Score**: 62 | **Price**: $45,000
    - **Category**: Development Tools
    - **Focus**: Device simulation and testing frameworks
@@ -110,10 +110,10 @@ Phase 2 has created **4 new Gold Standard candidates**:
 ### **Tier 4: Strategic** 
 1. **`future-mobility-platform-suite`** (207 APIs, 206 collections, Score: 74)
 2. **`ai-predictive-maintenance-engine-architecture`** (20 APIs, 16 collections, Score: 90) ⬆️ Enhanced
-3. **`iotsphere-ml-ai-platform`** (10 APIs, 6 collections, Score: 88) 🆕
+3. **`iotplatform-ml-ai-platform`** (10 APIs, 6 collections, Score: 88) 🆕
 
 ### **Tier 3: Enterprise (Gold Candidates)**
-4. **`iotsphere-core-platform`** (15 APIs, 8 collections, Score: 85) 🆕
+4. **`iotplatform-core-platform`** (15 APIs, 8 collections, Score: 85) 🆕
 
 ## 📈 Quality Impact Analysis
 

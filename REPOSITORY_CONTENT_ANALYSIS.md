@@ -9,7 +9,7 @@
 ### API Specifications Discovery
 - **Total API Specifications**: 224+ OpenAPI/Swagger files
 - **Repositories with APIs**: 7/15 (47%)
-- **GraphQL Schemas**: 19 schemas found in nslabsdashboards (james-update branch)
+- **GraphQL Schemas**: 19 schemas found in demo-labsdashboards (james-update branch)
 - **gRPC Services**: To be detected (*.proto files)
 - **Documentation Coverage**: 15/15 repositories have README files (100%)
 
@@ -66,7 +66,7 @@
 
 ### Specialized Applications (3 repositories)
 - **smartpath**: Extensive application with 171 README files, schema validation
-- **nslabsdashboards**: GraphQL-based IoT dashboard (19 GraphQL schemas, 1 README)
+- **demo-labsdashboards**: GraphQL-based IoT dashboard (19 GraphQL schemas, 1 README)
 - **rentalFleets**: Fleet management with VISS specs (26 APIs, 6 READMEs)
 
 ### Infrastructure & Backend (2 repositories)
@@ -105,7 +105,7 @@
 
 ### Dynamic API Button Logic
 - **Swagger UI Button**: Show only for repositories with REST/OpenAPI specifications (8 repositories)
-- **GraphQL Playground Button**: Show for GraphQL-only repositories (1 repository: nslabsdashboards)
+- **GraphQL Playground Button**: Show for GraphQL-only repositories (1 repository: demo-labsdashboards)
 - **gRPC UI Button**: Show for repositories with gRPC service definitions (*.proto files)
 - **Postman Collections Button**: Show for repositories with API specs (9+ repositories total)
 - **No Buttons**: Show for documentation-only repositories (5 repositories)
@@ -124,7 +124,7 @@
 - sovd-diagnostic-ecosystem-platform-architecture (6 APIs)
 
 **GraphQL Repositories (GraphQL Playground):**
-- nslabsdashboards (19 GraphQL schemas)
+- demo-labsdashboards (19 GraphQL schemas)
 
 ### Documentation-Focused Repositories (Show Documentation Viewer)
 - smartpath (171 documentation files)
@@ -133,13 +133,13 @@
 - copilot-architecture-template (4 README files, AI templates)
 - ecosystem-platform-architecture (3 README files)
 - mobility-architecture-package-orchestrator (1 README file)
-- nslabsdashboards (1 README file)
+- demo-labsdashboards (1 README file)
 
 ## 🚀 Next Steps
 
 ### Phase 1: API Integration (High Impact)
 1. Integrate Swagger UI for 224+ OpenAPI specifications
-2. Integrate GraphQL Playground for nslabsdashboards (19 schemas)
+2. Integrate GraphQL Playground for demo-labsdashboards (19 schemas)
 3. Install and integrate gRPC UI for gRPC service definitions
 4. Generate Postman collections from API specs
 5. Create API catalog with search and filtering

@@ -4,10 +4,10 @@
 
 ### Repository Accounts Status
 
-#### jamesenki Account (Migrated from EYGS)
+#### jamesenki Account (Migrated from Axiom)
 **Status**: ✅ **100% Complete** - All 29 repositories successfully pushed
 
-All repositories from the Axiom Loom Catalog portal have been successfully committed and pushed to the jamesenki GitHub account, which was migrated from the EYGS Innovation account.
+All repositories from the Axiom Loom Catalog portal have been successfully committed and pushed to the jamesenki GitHub account, which was migrated from the Axiom Innovation account.
 
 ### Complete Repository List (All Successfully Pushed)
 
@@ -33,7 +33,7 @@ All repositories from the Axiom Loom Catalog portal have been successfully commi
 20. ✅ **future-mobility-users-platform**
 21. ✅ **future-mobility-utilities-platform**
 22. ✅ **mobility-architecture-package-orchestrator**
-23. ✅ **nslabsdashboards**
+23. ✅ **demo-labsdashboards**
 24. ✅ **remote-diagnostic-assistance-platform-architecture**
 25. ✅ **rentalFleets**
 26. ✅ **sample-arch-package**
@@ -41,12 +41,12 @@ All repositories from the Axiom Loom Catalog portal have been successfully commi
 28. ✅ **sovd-diagnostic-ecosystem-platform-architecture**
 29. ✅ **velocityforge-sdv-platform-architecture**
 
-### Important Note About EYGS
+### Important Note About Axiom
 
-The jamesenki GitHub account contains repositories that were **migrated from the EYGS Innovation account**. This means:
-- These repositories are the continuation of the EYGS work
-- The jamesenki account effectively serves as the EYGS repository storage
-- All repositories are marked as "Migrated from EYGS Innovation account" in their descriptions
+The jamesenki GitHub account contains repositories that were **migrated from the Axiom Innovation account**. This means:
+- These repositories are the continuation of the Axiom work
+- The jamesenki account effectively serves as the Axiom repository storage
+- All repositories are marked as "Migrated from Axiom Innovation account" in their descriptions
 
 ### Repository Access
 
@@ -68,7 +68,7 @@ https://github.com/jamesenki/[repository-name]
 
 **✅ MISSION ACCOMPLISHED**
 - All 29 repositories from the Axiom Loom Catalog portal are successfully committed and pushed
-- The repositories exist under the jamesenki account (which was migrated from EYGS)
+- The repositories exist under the jamesenki account (which was migrated from Axiom)
 - Every repository is backed up, version controlled, and accessible on GitHub
 - The Axiom Loom Catalog main repository includes comprehensive Docker deployment with full regression testing
 

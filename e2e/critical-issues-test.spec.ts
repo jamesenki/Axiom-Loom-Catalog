@@ -38,8 +38,8 @@ test.describe('Critical Issues Test - User Reported Bugs', () => {
   });
 
   test('2. GraphQL page loads correctly and looks good', async ({ page }) => {
-    // Navigate to GraphQL page - use nslabsdashboards which has GraphQL files
-    await page.goto(`${BASE_URL}/graphql/nslabsdashboards`, { waitUntil: 'domcontentloaded' });
+    // Navigate to GraphQL page - use demo-labsdashboards which has GraphQL files
+    await page.goto(`${BASE_URL}/graphql/demo-labsdashboards`, { waitUntil: 'domcontentloaded' });
     await page.waitForTimeout(3000);
     
     // Take screenshot
@@ -80,7 +80,7 @@ test.describe('Critical Issues Test - User Reported Bugs', () => {
   });
 
   test('4. No TEMPLATE-README.md shown instead of README.md', async ({ page }) => {
-    const testRepos = ['future-mobility-consumer-platform', 'nslabsdashboards', 'rentalFleets'];
+    const testRepos = ['future-mobility-consumer-platform', 'demo-labsdashboards', 'rentalFleets'];
     
     for (const repo of testRepos) {
       await page.goto(`${BASE_URL}/docs/${repo}`, { waitUntil: 'domcontentloaded' });
@@ -119,7 +119,7 @@ test.describe('Critical Issues Test - User Reported Bugs', () => {
     // Test a few key documentation pages
     const testCases = [
       { repo: 'future-mobility-consumer-platform', file: 'architecture-diagram.md' },
-      { repo: 'nslabsdashboards', file: 'README.md' },
+      { repo: 'demo-labsdashboards', file: 'README.md' },
       { repo: 'rentalFleets', file: 'README.md' }
     ];
     

@@ -266,19 +266,19 @@ def consolidate_repositories():
         print(f"✅ Created: {repo['id']}")
     
     # Remove original NSLabs repo
-    if 'nslabsdashboards' in metadata:
+    if 'demo-labsdashboards' in metadata:
         removed_nslabs = {
-            'id': 'nslabsdashboards',
-            'name': metadata['nslabsdashboards']['displayName'],
+            'id': 'demo-labsdashboards',
+            'name': metadata['demo-labsdashboards']['displayName'],
             'reason': 'Split into 6 focused repositories'
         }
-        del metadata['nslabsdashboards']
-        print(f"✅ Split: nslabsdashboards into 6 repositories")
+        del metadata['demo-labsdashboards']
+        print(f"✅ Split: demo-labsdashboards into 6 repositories")
     
     consolidation_actions.append({
         'action': 'NSLabs Repository Breakout',
         'created': [repo['id'] for repo in nslabs_breakout_repos],
-        'removed': ['nslabsdashboards']
+        'removed': ['demo-labsdashboards']
     })
     
     # Save updated metadata
