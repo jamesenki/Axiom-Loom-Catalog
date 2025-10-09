@@ -766,15 +766,31 @@ app.get('/api/repository/:name/file', authenticate, authorize('read:documentatio
       
       // Set appropriate content type based on file extension
       const ext = path.extname(filePath).toLowerCase();
-      if (ext === '.json') {
-        res.setHeader('Content-Type', 'application/json');
-      } else if (ext === '.yaml' || ext === '.yml') {
-        res.setHeader('Content-Type', 'text/yaml');
+      const mimeTypes = {
+        '.json': 'application/json',
+        '.yaml': 'text/yaml',
+        '.yml': 'text/yaml',
+        '.md': 'text/markdown',
+        '.txt': 'text/plain',
+        '.png': 'image/png',
+        '.jpg': 'image/jpeg',
+        '.jpeg': 'image/jpeg',
+        '.gif': 'image/gif',
+        '.svg': 'image/svg+xml',
+        '.webp': 'image/webp',
+        '.pdf': 'application/pdf'
+      };
+
+      const contentType = mimeTypes[ext] || 'application/octet-stream';
+      res.setHeader('Content-Type', contentType);
+
+      // For binary files, use res.end() instead of res.send() to avoid charset corruption
+      const binaryExtensions = ['.png', '.jpg', '.jpeg', '.gif', '.svg', '.webp', '.pdf'];
+      if (binaryExtensions.includes(ext)) {
+        res.end(data);
       } else {
-        res.setHeader('Content-Type', 'text/plain');
+        res.send(data);
       }
-      
-      res.send(data);
     }
   });
 });
