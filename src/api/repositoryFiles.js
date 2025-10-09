@@ -61,15 +61,29 @@ router.get('/repository/:repoName/file', async (req, res) => {
   try {
     // Use cached content
     const { content, mimeType, fromCache } = await localContentCache.getFileContent(fullPath);
-    
-    // Set appropriate headers
-    res.set({
-      'Content-Type': mimeType,
-      'Cache-Control': 'public, max-age=3600', // Cache for 1 hour
-      'X-Content-From-Cache': fromCache.toString()
-    });
-    
-    res.send(content);
+
+    // Check if this is a binary file (image, pdf, etc.)
+    const binaryMimeTypes = ['image/png', 'image/jpeg', 'image/jpg', 'image/gif', 'image/webp', 'image/svg+xml', 'application/pdf'];
+    const isBinary = binaryMimeTypes.includes(mimeType);
+
+    if (isBinary) {
+      // For binary files, use writeHead to prevent charset corruption
+      res.writeHead(200, {
+        'Content-Type': mimeType,
+        'Content-Length': Buffer.byteLength(content),
+        'Cache-Control': 'public, max-age=31536000', // Cache for 1 year
+        'X-Content-From-Cache': fromCache.toString()
+      });
+      res.end(content, 'binary');
+    } else {
+      // For text files, use normal Express methods
+      res.set({
+        'Content-Type': mimeType,
+        'Cache-Control': 'public, max-age=3600', // Cache for 1 hour
+        'X-Content-From-Cache': fromCache.toString()
+      });
+      res.send(content);
+    }
   } catch (error) {
     if (error.code === 'ENOENT') {
       res.status(404).json({ error: 'File not found' });
