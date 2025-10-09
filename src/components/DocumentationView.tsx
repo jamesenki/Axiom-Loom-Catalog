@@ -177,7 +177,19 @@ const DocumentationView: React.FC = () => {
       </div>
 
       <div className={styles.docContainer}>
-        {/* Main Content Area - No file tree sidebar */}
+        {/* File Tree Sidebar */}
+        <aside className={styles.docSidebar}>
+          <h3 className={styles.sidebarTitle}>📁 Documentation Files</h3>
+          {fileTree.length > 0 ? (
+            <div className={styles.fileTree}>
+              {renderFileTree(fileTree)}
+            </div>
+          ) : (
+            <p className={styles.emptyMessage}>Loading files...</p>
+          )}
+        </aside>
+
+        {/* Main Content Area */}
         <main className={styles.docContent}>
           {loading ? (
             <div className={styles.loadingState}>
