@@ -130,17 +130,19 @@ router.get('/detect-apis/all', async (req, res) => {
         const restApis = await detectRestApis(repoPath);
         const graphqlApis = await detectGraphqlApis(repoPath);
         const grpcApis = await detectGrpcApis(repoPath);
+        const asyncApis = await detectAsyncApis(repoPath);
         const postmanCollections = await detectPostmanCollections(repoPath);
-        
-        const hasAnyApis = restApis.length > 0 || graphqlApis.length > 0 || grpcApis.length > 0;
-        const recommendedButtons = determineRecommendedButtons(restApis, graphqlApis, grpcApis);
+
+        const hasAnyApis = restApis.length > 0 || graphqlApis.length > 0 || grpcApis.length > 0 || asyncApis.length > 0;
+        const recommendedButtons = determineRecommendedButtons(restApis, graphqlApis, grpcApis, asyncApis);
         
         results.push({
           repository: repoName,
           apis: {
             rest: restApis,
             graphql: graphqlApis,
-            grpc: grpcApis
+            grpc: grpcApis,
+            asyncapi: asyncApis
           },
           postman: postmanCollections,
           hasAnyApis,
@@ -220,7 +222,23 @@ router.get('/api-explorer/all', async (req, res) => {
             });
           });
         }
-        
+
+        // Add AsyncAPI specs
+        if (result.apis?.asyncapi && (!type || type === 'asyncapi')) {
+          result.apis.asyncapi.forEach(api => {
+            allApis.push({
+              repository: repoName,
+              type: 'AsyncAPI',
+              name: api.title || api.file,
+              path: api.file,
+              version: api.version,
+              protocol: api.protocol,
+              channels: api.channels,
+              description: api.description
+            });
+          });
+        }
+
         // Add Postman Collections
         if (result.postman && (!type || type === 'postman')) {
           result.postman.forEach(collection => {
@@ -271,7 +289,7 @@ router.get('/detect-apis', async (req, res) => {
         results.push({
           repository: repoName,
           error: error.message,
-          apis: { rest: [], graphql: [], grpc: [] },
+          apis: { rest: [], graphql: [], grpc: [], asyncapi: [] },
           hasAnyApis: false,
           recommendedButtons: []
         });
@@ -293,22 +311,24 @@ router.get('/detect-apis', async (req, res) => {
  * Core API detection logic
  */
 async function detectRepositoryApis(repoPath, repoName) {
-  const [restApis, graphqlApis, grpcApis, postmanCollections] = await Promise.all([
+  const [restApis, graphqlApis, grpcApis, asyncApis, postmanCollections] = await Promise.all([
     detectRestApis(repoPath),
     detectGraphqlApis(repoPath),
     detectGrpcApis(repoPath),
+    detectAsyncApis(repoPath),
     detectPostmanCollections(repoPath)
   ]);
-  
-  const hasAnyApis = restApis.length > 0 || graphqlApis.length > 0 || grpcApis.length > 0;
-  const recommendedButtons = determineRecommendedButtons(restApis, graphqlApis, grpcApis);
-  
+
+  const hasAnyApis = restApis.length > 0 || graphqlApis.length > 0 || grpcApis.length > 0 || asyncApis.length > 0;
+  const recommendedButtons = determineRecommendedButtons(restApis, graphqlApis, grpcApis, asyncApis);
+
   return {
     repository: repoName,
     apis: {
       rest: restApis,
       graphql: graphqlApis,
-      grpc: grpcApis
+      grpc: grpcApis,
+      asyncapi: asyncApis
     },
     postman: postmanCollections,
     hasAnyApis,
@@ -379,26 +399,36 @@ async function detectGraphqlApis(repoPath) {
 
 /**
  * Detect gRPC service definitions
+ * Only counts proto files that have actual service definitions
  */
 async function detectGrpcApis(repoPath) {
   const grpcApis = [];
-  
+
   try {
     const protoFiles = await findFiles(repoPath, ['**/*.proto']);
-    
+
     for (const file of protoFiles) {
       try {
+        // Skip build artifacts and gradle dependencies
+        if (file.includes('/build/') || file.includes('/gradle/') || file.includes('node_modules')) {
+          continue;
+        }
+
         const filePath = path.join(repoPath, file);
         const content = fs.readFileSync(filePath, 'utf8');
-        
-        const apiInfo = {
-          file,
-          services: extractGrpcServices(content),
-          package: extractGrpcPackage(content),
-          description: extractGrpcDescription(content)
-        };
-        
-        grpcApis.push(apiInfo);
+
+        // Only include if file has service definitions (real gRPC)
+        const services = extractGrpcServices(content);
+        if (services.length > 0) {
+          const apiInfo = {
+            file,
+            services,
+            package: extractGrpcPackage(content),
+            description: extractGrpcDescription(content)
+          };
+
+          grpcApis.push(apiInfo);
+        }
       } catch (error) {
         // Skip files that can't be read
       }
@@ -406,8 +436,76 @@ async function detectGrpcApis(repoPath) {
   } catch (error) {
     console.warn(`Warning: Could not detect gRPC APIs in ${repoPath}:`, error);
   }
-  
+
   return grpcApis;
+}
+
+/**
+ * Detect AsyncAPI specifications
+ */
+async function detectAsyncApis(repoPath) {
+  const asyncApis = [];
+
+  try {
+    const asyncApiFiles = await findFiles(repoPath, ['**/asyncapi.yaml', '**/asyncapi.yml', '**/asyncapi.json']);
+
+    for (const file of asyncApiFiles) {
+      try {
+        const filePath = path.join(repoPath, file);
+        const content = fs.readFileSync(filePath, 'utf8');
+
+        // Parse YAML/JSON to extract info
+        let spec;
+        if (file.endsWith('.json')) {
+          spec = JSON.parse(content);
+        } else {
+          // For YAML, do basic parsing
+          const titleMatch = content.match(/title:\s*(.+)/);
+          const versionMatch = content.match(/version:\s*(.+)/);
+          const descriptionMatch = content.match(/description:\s*[|>]?\s*(.+)/);
+
+          spec = {
+            info: {
+              title: titleMatch ? titleMatch[1].trim() : 'AsyncAPI',
+              version: versionMatch ? versionMatch[1].trim() : '1.0.0',
+              description: descriptionMatch ? descriptionMatch[1].trim() : ''
+            }
+          };
+        }
+
+        // Count channels
+        const channelCount = (content.match(/^\s{2}[a-zA-Z0-9_-]+:/gm) || []).length;
+
+        asyncApis.push({
+          file,
+          title: spec.info.title,
+          version: spec.info.version,
+          description: spec.info.description,
+          channels: channelCount,
+          protocol: extractAsyncProtocol(content)
+        });
+      } catch (error) {
+        console.warn(`Warning: Could not parse AsyncAPI file ${file}:`, error);
+      }
+    }
+  } catch (error) {
+    console.warn(`Warning: Could not detect AsyncAPI specs in ${repoPath}:`, error);
+  }
+
+  return asyncApis;
+}
+
+function extractAsyncProtocol(content) {
+  if (content.includes('protocol: mqtts') || content.includes('protocol: mqtt')) {
+    return 'MQTT';
+  } else if (content.includes('protocol: kafka')) {
+    return 'Kafka';
+  } else if (content.includes('protocol: ws') || content.includes('protocol: wss')) {
+    return 'WebSocket';
+  } else if (content.includes('protocol: amqp')) {
+    return 'AMQP';
+  }
+  return 'Unknown';
 }
 
 /**
@@ -551,26 +649,30 @@ function extractGrpcDescription(content) {
   return commentLines.length > 0 ? commentLines.join(' ').trim() : undefined;
 }
 
-function determineRecommendedButtons(restApis, graphqlApis, grpcApis) {
+function determineRecommendedButtons(restApis, graphqlApis, grpcApis, asyncApis) {
   const buttons = [];
-  
+
   if (restApis.length > 0) {
     buttons.push('swagger');
   }
-  
+
   if (graphqlApis.length > 0) {
     buttons.push('graphql');
   }
-  
+
   if (grpcApis.length > 0) {
     buttons.push('grpc');
   }
-  
+
+  if (asyncApis && asyncApis.length > 0) {
+    buttons.push('asyncapi');
+  }
+
   // Show Postman button if any APIs are detected
-  if (restApis.length > 0 || graphqlApis.length > 0 || grpcApis.length > 0) {
+  if (restApis.length > 0 || graphqlApis.length > 0 || grpcApis.length > 0 || (asyncApis && asyncApis.length > 0)) {
     buttons.push('postman');
   }
-  
+
   return buttons;
 }
 
@@ -611,11 +713,23 @@ function generateButtonConfig(apiDetection) {
           description: 'Explore gRPC service definitions'
         });
         break;
-        
+
+      case 'asyncapi':
+        buttons.push({
+          type: 'asyncapi',
+          label: `AsyncAPI (${apiDetection.apis.asyncapi.length} specs)`,
+          icon: '📡',
+          color: 'purple',
+          url: `/asyncapi/${apiDetection.repository}`,
+          description: 'View MQTT/Kafka/WebSocket message specifications'
+        });
+        break;
+
       case 'postman':
-        const totalApis = apiDetection.apis.rest.length + 
-                         apiDetection.apis.graphql.length + 
-                         apiDetection.apis.grpc.length;
+        const totalApis = apiDetection.apis.rest.length +
+                         apiDetection.apis.graphql.length +
+                         apiDetection.apis.grpc.length +
+                         (apiDetection.apis.asyncapi ? apiDetection.apis.asyncapi.length : 0);
         buttons.push({
           type: 'postman',
           label: `Postman Collection (${totalApis} APIs)`,
@@ -636,7 +750,8 @@ function generateButtonConfig(apiDetection) {
       rest: apiDetection.apis.rest.length,
       graphql: apiDetection.apis.graphql.length,
       grpc: apiDetection.apis.grpc.length,
-      total: apiDetection.apis.rest.length + apiDetection.apis.graphql.length + apiDetection.apis.grpc.length
+      asyncapi: apiDetection.apis.asyncapi ? apiDetection.apis.asyncapi.length : 0,
+      total: apiDetection.apis.rest.length + apiDetection.apis.graphql.length + apiDetection.apis.grpc.length + (apiDetection.apis.asyncapi ? apiDetection.apis.asyncapi.length : 0)
     }
   };
 }
@@ -645,13 +760,15 @@ function generateSummary(results) {
   const totalRest = results.reduce((sum, r) => sum + (r.apis?.rest?.length || 0), 0);
   const totalGraphql = results.reduce((sum, r) => sum + (r.apis?.graphql?.length || 0), 0);
   const totalGrpc = results.reduce((sum, r) => sum + (r.apis?.grpc?.length || 0), 0);
+  const totalAsyncApi = results.reduce((sum, r) => sum + (r.apis?.asyncapi?.length || 0), 0);
   const reposWithApis = results.filter(r => r.hasAnyApis).length;
-  
+
   return {
     totalRepositories: results.length,
     totalRestApis: totalRest,
     totalGraphqlSchemas: totalGraphql,
     totalGrpcServices: totalGrpc,
+    totalAsyncApiSpecs: totalAsyncApi,
     repositoriesWithApis: reposWithApis,
     apiCoverage: Math.round((reposWithApis / results.length) * 100)
   };

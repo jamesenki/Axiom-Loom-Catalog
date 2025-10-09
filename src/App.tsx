@@ -191,7 +191,7 @@ function AppContent() {
                     <Route path="/apis" element={<PageTransition><AllAPIsView /></PageTransition>} />
                     <Route path="/api-explorer" element={<PageTransition><UnifiedApiExplorer /></PageTransition>} />
                     <Route path="/api-explorer/:repoName" element={<PageTransition><APIExplorerView /></PageTransition>} />
-                    <Route path="/api/:repoName/swagger" element={<PageTransition><SwaggerViewer /></PageTransition>} />
+                    <Route path="/swagger/:repoName" element={<PageTransition><SwaggerViewer /></PageTransition>} />
                     
                     {/* GraphQL routes */}
                     <Route path="/graphql/:repoName" element={<PageTransition><GraphQLView /></PageTransition>} />

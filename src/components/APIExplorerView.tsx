@@ -451,11 +451,11 @@ const APIExplorerView: React.FC = () => {
                   dataType={api.type}
                   onClick={() => {
                     // Navigate to specific API viewer based on type
-                    const viewerPath = api.type === 'GraphQL' 
+                    const viewerPath = api.type === 'GraphQL'
                       ? `/graphql/${repoName}?file=${encodeURIComponent(api.path)}`
                       : api.type === 'gRPC'
                       ? `/grpc-playground/${repoName}?file=${encodeURIComponent(api.path)}`
-                      : `/api-viewer/${repoName}?file=${encodeURIComponent(api.path)}`;
+                      : `/swagger/${repoName}?file=${encodeURIComponent(api.path)}`;
                     window.location.href = viewerPath;
                   }}
                 >

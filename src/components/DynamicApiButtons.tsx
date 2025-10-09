@@ -61,8 +61,14 @@ export const DynamicApiButtons: React.FC<DynamicApiButtonsProps> = ({
   };
 
   const handleSwaggerClick = () => {
-    // Navigate to Swagger UI for this repository
-    navigate(`/swagger/${repositoryName}`);
+    // Navigate to Swagger UI with the first REST API file
+    if (apiDetection && apiDetection.apis.rest.length > 0) {
+      const firstApiFile = apiDetection.apis.rest[0].file;
+      navigate(`/swagger/${repositoryName}?file=${encodeURIComponent(firstApiFile)}`);
+    } else {
+      // Fallback to API Explorer if no REST APIs
+      navigate(`/api-explorer/${repositoryName}`);
+    }
   };
 
   const handleGraphqlClick = () => {
@@ -82,7 +88,7 @@ export const DynamicApiButtons: React.FC<DynamicApiButtonsProps> = ({
 
   const handleApiHubClick = () => {
     // Navigate to comprehensive API documentation hub
-    navigate(`/api-hub/${repositoryName}`);
+    navigate(`/api-explorer/${repositoryName}`);
   };
 
   const getButtonConfigs = (): ApiButtonConfig[] => {
