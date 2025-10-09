@@ -209,8 +209,30 @@ export const EnhancedMarkdownViewer: React.FC<EnhancedMarkdownViewerProps> = ({
     img: ({ src, alt, ...props }) => {
       // Transform relative image paths to static public folder URLs
       if (src && !src.startsWith('http') && !src.startsWith('data:') && repoName) {
+        // Resolve relative paths based on current file location
+        let imagePath = src;
+
+        // If currentFilePath is provided and src is relative (starts with ../ or ./)
+        if (currentFilePath && (src.startsWith('../') || src.startsWith('./'))) {
+          // Get directory of current file
+          const currentDir = currentFilePath.substring(0, currentFilePath.lastIndexOf('/'));
+          // Combine and normalize the path
+          const combined = currentDir ? `${currentDir}/${src}` : src;
+          // Normalize by resolving .. and .
+          const parts = combined.split('/');
+          const normalized: string[] = [];
+          for (const part of parts) {
+            if (part === '..') {
+              normalized.pop();
+            } else if (part !== '.' && part !== '') {
+              normalized.push(part);
+            }
+          }
+          imagePath = normalized.join('/');
+        }
+
         // Use static images from public folder instead of API to avoid proxy corruption
-        const publicUrl = `/repo-images/${repoName}/${src}`;
+        const publicUrl = `/repo-images/${repoName}/${imagePath}`;
         return <img src={publicUrl} alt={alt || ''} {...props} />;
       }
       // Return image with original src if it's already a full URL
