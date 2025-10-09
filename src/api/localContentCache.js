@@ -373,6 +373,7 @@ class LocalContentCache {
   getMimeType(filePath) {
     const ext = path.extname(filePath).toLowerCase();
     const mimeTypes = {
+      // Text formats
       '.md': 'text/markdown',
       '.mdx': 'text/mdx',
       '.txt': 'text/plain',
@@ -388,9 +389,22 @@ class LocalContentCache {
       '.css': 'text/css',
       '.proto': 'text/plain',
       '.graphql': 'text/plain',
-      '.gql': 'text/plain'
+      '.gql': 'text/plain',
+      // Image formats
+      '.png': 'image/png',
+      '.jpg': 'image/jpeg',
+      '.jpeg': 'image/jpeg',
+      '.gif': 'image/gif',
+      '.svg': 'image/svg+xml',
+      '.webp': 'image/webp',
+      '.ico': 'image/x-icon',
+      // Other formats
+      '.pdf': 'application/pdf',
+      '.zip': 'application/zip',
+      '.tar': 'application/x-tar',
+      '.gz': 'application/gzip'
     };
-    
+
     return mimeTypes[ext] || 'text/plain';
   }
 
