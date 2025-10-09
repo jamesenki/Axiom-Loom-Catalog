@@ -259,17 +259,18 @@ app.get('/api/repositories', (req, res) => {
           industry: classification.industry || ['enterprise'],
           useCase: classification.useCase || ['platform'],
           metrics: {
-            apiCount: technical.apis?.count || apiCount,
-            postmanCollections: technical.integrations?.postman?.collections || postmanCount,
+            apiCount: technical.apis?.count || metadata.metrics?.apiCount || apiCount,
+            postmanCollections: technical.integrations?.postman?.collections || metadata.metrics?.postmanCollections || postmanCount,
             lastUpdated: repoConfig.metadata?.lastUpdated || stats.mtime.toISOString(),
             valueScore: business.valueScore || metadata.pricing?.valueScore || 70
           },
           apiTypes: {
-            hasOpenAPI: technical.apis?.types?.rest || hasOpenAPI,
-            hasGraphQL: technical.apis?.types?.graphql || hasGraphQL,
-            hasGrpc: technical.apis?.types?.grpc || hasGrpc,
-            hasWebSocket: technical.apis?.types?.websocket || false,
-            hasPostman: technical.integrations?.postman?.available || (postmanCount > 0)
+            hasOpenAPI: technical.apis?.types?.rest ?? metadata.apiTypes?.hasOpenAPI ?? hasOpenAPI,
+            hasGraphQL: technical.apis?.types?.graphql ?? metadata.apiTypes?.hasGraphQL ?? hasGraphQL,
+            hasGrpc: technical.apis?.types?.grpc ?? metadata.apiTypes?.hasGrpc ?? hasGrpc,
+            hasWebSocket: technical.apis?.types?.websocket ?? metadata.apiTypes?.hasWebSocket ?? false,
+            hasAsyncAPI: technical.apis?.types?.asyncapi ?? metadata.apiTypes?.hasAsyncAPI ?? false,
+            hasPostman: technical.integrations?.postman?.available ?? metadata.apiTypes?.hasPostman ?? (postmanCount > 0)
           },
           integrations: {
             postman: technical.integrations?.postman || { available: postmanCount > 0, collections: postmanCount },
@@ -760,10 +761,6 @@ app.get('/api/repository/:name/file', authenticate, authorize('read:documentatio
       return res.status(500).json({ error: 'Failed to read file' });
     } else {
       // File read successfully
-      if (download === 'true') {
-        res.setHeader('Content-Disposition', `attachment; filename="${path.basename(filePath)}"`);
-      }
-      
       // Set appropriate content type based on file extension
       const ext = path.extname(filePath).toLowerCase();
       const mimeTypes = {
@@ -782,13 +779,33 @@ app.get('/api/repository/:name/file', authenticate, authorize('read:documentatio
       };
 
       const contentType = mimeTypes[ext] || 'application/octet-stream';
-      res.setHeader('Content-Type', contentType);
 
-      // For binary files, use res.end() instead of res.send() to avoid charset corruption
-      const binaryExtensions = ['.png', '.jpg', '.jpeg', '.gif', '.svg', '.webp', '.pdf'];
+      // For binary files, bypass Express helpers to avoid charset corruption
+      const binaryExtensions = ['.png', '.jpg', '.jpeg', '.gif', '.webp', '.pdf'];
       if (binaryExtensions.includes(ext)) {
-        res.end(data);
+        // Disable charset for binary responses
+        // Remove any Content-Type header that middleware may have set
+        res.removeHeader('Content-Type');
+
+        // Set headers directly on the raw response object
+        const headers = {
+          'Content-Type': contentType,  // Set without charset
+          'Content-Length': data.length,
+          'Cache-Control': 'public, max-age=31536000'
+        };
+        if (download === 'true') {
+          headers['Content-Disposition'] = `attachment; filename="${path.basename(filePath)}"`;
+        }
+
+        // Write status and headers in one call
+        res.writeHead(200, headers);
+        // Send binary data
+        res.end(data, 'binary');
       } else {
+        if (download === 'true') {
+          res.setHeader('Content-Disposition', `attachment; filename="${path.basename(filePath)}"`);
+        }
+        res.setHeader('Content-Type', contentType);
         res.send(data);
       }
     }
