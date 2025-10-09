@@ -723,23 +723,61 @@
     "id": "vehicle-to-cloud-communications-architecture",
     "name": "vehicle-to-cloud-communications-architecture",
     "displayName": "Vehicle-to-Cloud Communications Architecture",
-    "description": "Complete vehicle-to-cloud communications architecture and specification using MQTT5",
-    "marketingDescription": "Enterprise-grade MQTT5-based vehicle-to-cloud communications specification with Protocol Buffers. Defines secure, scalable patterns for telemetry, remote commands, OTA updates, and diagnostics. Includes VSS integration, security best practices, and FMEA-driven architecture design for production-ready connected vehicle platforms.",
+    "description": "Production-ready MQTT 5.0 communications architecture for connected vehicles with comprehensive Protocol Buffer message specifications",
+    "marketingDescription": "Enterprise-grade MQTT 5.0 vehicle-to-cloud communications platform with complete Protocol Buffer specifications, AsyncAPI documentation, and FMEA-validated architecture. Supports real-time telemetry, remote commands, OTA updates, and diagnostic operations with industry-standard security (ISO 21434, mTLS, certificate lifecycle management). Includes bandwidth optimization through message batching (96% reduction), topic aliases, and QoS-based priority handling. Production-tested architecture patterns with comprehensive failure mode analysis and recovery strategies.",
     "category": "Vehicle Connectivity",
     "status": "active",
     "demoUrl": "https://demo.axiom-loom.com/vehicle-to-cloud",
     "tags": [
-      "MQTT5",
+      "MQTT 5.0",
       "Vehicle Connectivity",
       "Protocol Buffers",
-      "IoT",
+      "AsyncAPI",
+      "Connected Vehicles",
       "Telematics",
-      "Connected Vehicles"
+      "IoT Platform",
+      "ISO 21434",
+      "OTA Updates",
+      "Remote Diagnostics"
+    ],
+    "useCases": [
+      {
+        "title": "Real-Time Vehicle Telemetry",
+        "description": "Stream high-frequency sensor data from vehicles to cloud with 96% bandwidth reduction through intelligent batching and Protocol Buffer serialization"
+      },
+      {
+        "title": "Remote Vehicle Commands",
+        "description": "Execute secure remote commands (door lock/unlock, horn activation, lights control) with request-response tracking and timeout handling"
+      },
+      {
+        "title": "Over-The-Air (OTA) Software Updates",
+        "description": "Coordinate ECU firmware updates with delta compression, chunk-based delivery, rollback support, and real-time progress tracking"
+      },
+      {
+        "title": "Remote Diagnostics & DTC Retrieval",
+        "description": "Request and retrieve diagnostic trouble codes (DTCs) from vehicle ECUs for predictive maintenance and troubleshooting"
+      },
+      {
+        "title": "Fleet Management & Monitoring",
+        "description": "Monitor vehicle health, location, and status across entire fleets with scalable MQTT topic hierarchy and QoS-based prioritization"
+      },
+      {
+        "title": "Emergency & Critical Alerts",
+        "description": "Handle high-priority safety alerts (airbag deployment, collision detection, breakdown assistance) with dedicated QoS 2 messaging paths"
+      },
+      {
+        "title": "Vehicle State Synchronization",
+        "description": "Maintain consistent vehicle state across cloud services and mobile apps using last-will messages and retained topics"
+      },
+      {
+        "title": "Regulatory Compliance Reporting",
+        "description": "Capture and audit all vehicle communications for ISO 21434 cybersecurity compliance with comprehensive audit logging"
+      }
     ],
     "metrics": {
-      "apiCount": 3,
+      "apiCount": 1,
       "postmanCollections": 0,
-      "lastUpdated": "2025-10-09T08:46:00.000Z"
+      "lastUpdated": "2025-10-09T16:45:00.000Z"
     },
     "apiTypes": {
       "hasOpenAPI": false,
@@ -753,9 +791,9 @@
     "pricing": {
       "suggestedRetailPrice": 125000,
       "tier": "Tier 3: Enterprise",
-      "valueScore": 76,
+      "valueScore": 85,
       "displayPrice": "$125,000",
-      "lastAssessed": "2025-10-09T08:46:00.000Z",
+      "lastAssessed": "2025-10-09T16:45:00.000Z",
       "currency": "USD",
       "licensingModel": "Perpetual License",
       "supportIncluded": "90 days",
