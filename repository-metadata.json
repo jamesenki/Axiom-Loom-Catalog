@@ -149,7 +149,7 @@
     "id": "fleet-digital-twin-platform-architecture",
     "name": "fleet-digital-twin-platform-architecture",
     "displayName": "Fleet Digital Twin Platform Architecture",
-    "description": "[](https://opensource.org/licenses/MIT)",
+    "description": "Enterprise-grade digital twin platform for fleet-wide predictive analytics, optimization, and real-time monitoring",
     "marketingDescription": "Create digital twins of your entire fleet for predictive analytics, optimization, and real-time monitoring. Reduce maintenance costs by 40%, improve fuel efficiency by 15%, and enhance fleet utilization through AI-powered insights.",
     "category": "Fleet Digital Twin",
     "status": "active",
@@ -217,7 +217,7 @@
     "id": "remote-diagnostic-assistance-platform-architecture",
     "name": "remote-diagnostic-assistance-platform-architecture",
     "displayName": "Remote Diagnostic Assistance Platform Architecture",
-    "description": "[](https://opensource.org/licenses/MIT)",
+    "description": "AI-powered remote diagnostic platform with video collaboration and real-time vehicle data analysis",
     "marketingDescription": "Provide expert diagnostic assistance remotely with AI-powered troubleshooting, video collaboration, and real-time vehicle data analysis. Reduce service visits by 60% and improve first-time fix rates.",
     "category": "Remote Diagnostics",
     "status": "active",
@@ -713,6 +713,49 @@
       "valueScore": 62,
       "displayPrice": "$45,000",
       "lastAssessed": "2025-09-02T10:00:30.023391Z",
+      "currency": "USD",
+      "licensingModel": "Perpetual License",
+      "supportIncluded": "90 days",
+      "customizationAvailable": true
+    }
+  },
+  "vehicle-to-cloud-communications-architecture": {
+    "id": "vehicle-to-cloud-communications-architecture",
+    "name": "vehicle-to-cloud-communications-architecture",
+    "displayName": "Vehicle-to-Cloud Communications Architecture",
+    "description": "Complete vehicle-to-cloud communications architecture and specification using MQTT5",
+    "marketingDescription": "Enterprise-grade MQTT5-based vehicle-to-cloud communications specification with Protocol Buffers. Defines secure, scalable patterns for telemetry, remote commands, OTA updates, and diagnostics. Includes VSS integration, security best practices, and FMEA-driven architecture design for production-ready connected vehicle platforms.",
+    "category": "Vehicle Connectivity",
+    "status": "active",
+    "demoUrl": "https://demo.axiom-loom.com/vehicle-to-cloud",
+    "tags": [
+      "MQTT5",
+      "Vehicle Connectivity",
+      "Protocol Buffers",
+      "IoT",
+      "Telematics",
+      "Connected Vehicles"
+    ],
+    "metrics": {
+      "apiCount": 3,
+      "postmanCollections": 0,
+      "lastUpdated": "2025-10-09T08:46:00.000Z"
+    },
+    "apiTypes": {
+      "hasOpenAPI": false,
+      "hasGraphQL": false,
+      "hasGrpc": false,
+      "hasAsyncAPI": true,
+      "hasPostman": false
+    },
+    "asyncApiSpec": "asyncapi.yaml",
+    "url": "https://github.com/jamesenki/vehicle-to-cloud-communications-architecture",
+    "pricing": {
+      "suggestedRetailPrice": 125000,
+      "tier": "Tier 3: Enterprise",
+      "valueScore": 76,
+      "displayPrice": "$125,000",
+      "lastAssessed": "2025-10-09T08:46:00.000Z",
       "currency": "USD",
       "licensingModel": "Perpetual License",
       "supportIncluded": "90 days",
