@@ -27,6 +27,8 @@ interface EnhancedMarkdownViewerProps {
   className?: string;
   onContentChange?: (content: string) => void;
   onNavigate?: (path: string) => void;
+  repoName?: string;
+  currentFilePath?: string;
 }
 
 interface TocItem {
@@ -39,7 +41,9 @@ export const EnhancedMarkdownViewer: React.FC<EnhancedMarkdownViewerProps> = ({
   content,
   className = '',
   onContentChange,
-  onNavigate
+  onNavigate,
+  repoName,
+  currentFilePath
 }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [showSearch, setShowSearch] = useState(false);
@@ -202,6 +206,15 @@ export const EnhancedMarkdownViewer: React.FC<EnhancedMarkdownViewerProps> = ({
 
   // Custom components for react-markdown
   const components: Components = {
+    img: ({ src, alt, ...props }) => {
+      // Transform relative image paths to API URLs
+      if (src && !src.startsWith('http') && !src.startsWith('data:') && repoName) {
+        const apiUrl = `/api/repository/${encodeURIComponent(repoName)}/file?path=${encodeURIComponent(src)}`;
+        return <img src={apiUrl} alt={alt || ''} {...props} />;
+      }
+      // Return image with original src if it's already a full URL
+      return <img src={src} alt={alt || ''} {...props} />;
+    },
     a: ({ href, children, ...props }) => {
       // Handle internal markdown links
       if (href && !href.startsWith('http') && !href.startsWith('#')) {

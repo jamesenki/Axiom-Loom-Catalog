@@ -193,6 +193,8 @@ const DocumentationView: React.FC = () => {
           ) : content ? (
             <EnhancedMarkdownViewer
               content={content}
+              repoName={repoName}
+              currentFilePath={selectedFile}
               onContentChange={(newContent) => setContent(newContent)}
               onNavigate={(path) => {
                 // Handle navigation to other markdown files
