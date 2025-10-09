@@ -207,10 +207,11 @@ export const EnhancedMarkdownViewer: React.FC<EnhancedMarkdownViewerProps> = ({
   // Custom components for react-markdown
   const components: Components = {
     img: ({ src, alt, ...props }) => {
-      // Transform relative image paths to API URLs
+      // Transform relative image paths to static public folder URLs
       if (src && !src.startsWith('http') && !src.startsWith('data:') && repoName) {
-        const apiUrl = `/api/repository/${encodeURIComponent(repoName)}/file?path=${encodeURIComponent(src)}`;
-        return <img src={apiUrl} alt={alt || ''} {...props} />;
+        // Use static images from public folder instead of API to avoid proxy corruption
+        const publicUrl = `/repo-images/${repoName}/${src}`;
+        return <img src={publicUrl} alt={alt || ''} {...props} />;
       }
       // Return image with original src if it's already a full URL
       return <img src={src} alt={alt || ''} {...props} />;
