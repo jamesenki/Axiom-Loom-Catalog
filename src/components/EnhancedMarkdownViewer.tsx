@@ -212,12 +212,16 @@ export const EnhancedMarkdownViewer: React.FC<EnhancedMarkdownViewerProps> = ({
         // Resolve relative paths based on current file location
         let imagePath = src;
 
-        // If currentFilePath is provided and src is relative (starts with ../ or ./)
-        if (currentFilePath && (src.startsWith('../') || src.startsWith('./'))) {
-          // Get directory of current file
-          const currentDir = currentFilePath.substring(0, currentFilePath.lastIndexOf('/'));
-          // Combine and normalize the path
+        // If src doesn't start with /, it's a relative path that needs resolution
+        if (currentFilePath && !src.startsWith('/')) {
+          // Get directory of current file (e.g., "docs" from "docs/API_REFERENCE.md")
+          const currentDir = currentFilePath.includes('/')
+            ? currentFilePath.substring(0, currentFilePath.lastIndexOf('/'))
+            : '';
+
+          // Combine current directory with relative path
           const combined = currentDir ? `${currentDir}/${src}` : src;
+
           // Normalize by resolving .. and .
           const parts = combined.split('/');
           const normalized: string[] = [];
@@ -229,6 +233,9 @@ export const EnhancedMarkdownViewer: React.FC<EnhancedMarkdownViewerProps> = ({
             }
           }
           imagePath = normalized.join('/');
+        } else if (src.startsWith('/')) {
+          // Absolute path from repo root - remove leading /
+          imagePath = src.substring(1);
         }
 
         // Use static images from public folder instead of API to avoid proxy corruption
