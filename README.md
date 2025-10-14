@@ -232,6 +232,113 @@ The platform is designed for easy cloud migration:
 - [API Documentation](docs/API.md)
 - [Testing Strategy](docs/TESTING.md)
 - [Deployment Guide](docs/DEPLOYMENT.md)
+- [Metadata Validation Report](METADATA_VALIDATION_REPORT.md)
+- [Portal Metadata Status](PORTAL_METADATA_STATUS.md)
+
+### Repository Metadata System
+
+The Axiom Loom Catalog uses a standardized `.portal/metadata.json` file in each repository to provide rich business and technical information for the portal display.
+
+#### Standard Metadata Structure
+
+Each repository should have a `.portal/metadata.json` file following this structure:
+
+```json
+{
+  "name": "Repository Display Name",
+  "version": "1.0.0",
+  "description": "Comprehensive description of the platform",
+  "category": "Platform Category",
+  "tags": ["tag1", "tag2", "tag3"],
+
+  "marketing": {
+    "headline": "Customer-focused value proposition",
+    "subheadline": "Supporting message with social proof",
+
+    "keyBenefits": [
+      {
+        "title": "Quantifiable Benefit with Metrics",
+        "description": "Detailed explanation of how this benefit is achieved"
+      }
+    ],
+
+    "useCases": [
+      {
+        "industry": "Target Industry or Customer Segment",
+        "description": "Concrete use case showing how this industry benefits"
+      }
+    ]
+  },
+
+  "technical": {
+    "architecture": "Architecture pattern description",
+    "core": {
+      "languages": ["TypeScript", "Python"],
+      "frameworks": ["Node.js", "FastAPI"],
+      "databases": ["PostgreSQL", "Redis"]
+    }
+  }
+}
+```
+
+#### Creating Metadata for New Repositories
+
+When adding a new repository to the catalog:
+
+1. **Create `.portal/metadata.json`** in the repository root
+2. **Follow the standard structure** (see template above)
+3. **Provide 3-5 keyBenefits** with quantifiable metrics (e.g., "50% reduction", "99.9% uptime")
+4. **Include 3-6 useCases** covering different industries or customer segments
+5. **Write customer-focused descriptions** avoiding technical jargon in marketing sections
+
+#### Validation Checklist
+
+Use this checklist to ensure metadata quality:
+
+- [ ] `name` - Clear, customer-friendly name
+- [ ] `version` - Semantic versioning (X.Y.Z)
+- [ ] `description` - Comprehensive overview (2-3 paragraphs)
+- [ ] `marketing.headline` - Customer-focused value proposition
+- [ ] `marketing.keyBenefits` - Array of 3-5 objects with `title` and `description`
+  - [ ] Each benefit has quantifiable metrics or specific outcomes
+  - [ ] Mix of: performance metrics, unique capabilities, business value, ROI
+- [ ] `marketing.useCases` - Array of 3-6 objects with `industry` and `description`
+  - [ ] Each use case targets a specific industry segment
+  - [ ] Descriptions provide concrete scenarios
+- [ ] `technical.architecture` - Clear architecture description
+- [ ] `technical.core` - Languages, frameworks, databases, messaging
+
+#### Gold Standard Examples
+
+The following repositories serve as gold standard templates:
+
+1. **ai-predictive-maintenance-engine-architecture** - Comprehensive with clear benefits
+2. **deploymaster-sdv-ota-platform** - Extensive documentation and metrics
+3. **remote-diagnostic-assistance-platform-architecture** - Excellent technical details
+4. **sovd-diagnostic-ecosystem-platform-architecture** - Marketplace platform example
+
+See [METADATA_VALIDATION_REPORT.md](METADATA_VALIDATION_REPORT.md) for detailed analysis and examples.
+
+#### Data Transformation
+
+The server (`src/server.js`) transforms metadata for API consumption:
+
+- **keyBenefits**: `[{title, description}]` → `[title strings]` for display
+- **useCases**: `[{industry, description}]` → `["industry: description"]` for display
+
+The frontend displays:
+- Key Benefits as a bulleted list of benefit titles
+- Use Cases as a bulleted list of "Industry: description" format
+
+#### Metadata Status
+
+Current Status (as of 2025-10-14):
+- **Total Repositories**: 22
+- **With Metadata**: 8 (36%)
+- **Fully Compliant**: 8 (100% of those with metadata)
+- **Missing Metadata**: 14 (64%)
+
+See [PORTAL_METADATA_STATUS.md](PORTAL_METADATA_STATUS.md) for complete status tracking.
 
 ### Conversation Archives
 - [Documentation Fixes Session](CONVERSATION_DOCUMENTATION_FIXES_2025-07-28.md)
