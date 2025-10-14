@@ -295,11 +295,12 @@ const RepositoryDetailRedesigned: React.FC = () => {
         }
         const data = await response.json();
         
-        // Enhance with business data
+        // Enhance with business data - prioritize API data over hardcoded defaults
         const enhanced = {
           ...data,
           categories: businessCategories[repoName || ''] || ['General'],
-          businessValue: businessValueData[repoName || ''] || {
+          // Use API businessValue if available, otherwise fall back to hardcoded data
+          businessValue: data.businessValue || businessValueData[repoName || ''] || {
             targetMarket: 'Enterprise & Developers',
             roi: 'Accelerated development cycles',
             keyBenefits: ['Modern architecture patterns', 'Scalable solutions', 'Best practices implementation'],
