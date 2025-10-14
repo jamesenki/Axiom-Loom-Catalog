@@ -452,7 +452,9 @@ app.get('/api/repository/:repoName/details', authenticate, authorize('read:apis'
       },
       apis: apis,
       postmanCollections: postmanCollections,
-      pricing: metadata.pricing || null
+      pricing: metadata.pricing || null,
+      businessValue: metadata.businessValue || null,
+      techStack: metadata.techStack || null
     });
   } catch (error) {
     console.error('Error getting repository details:', error);

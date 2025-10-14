@@ -2,7 +2,7 @@
   "ai-predictive-maintenance-engine-architecture": {
     "id": "ai-predictive-maintenance-engine-architecture",
     "name": "ai-predictive-maintenance-engine-architecture",
-    "displayName": "AI Maintenance Architecture",
+    "displayName": "AI Predictive Maintenance Architecture",
     "description": "Complete AI-powered predictive maintenance solution with engine, platform, and architecture",
     "marketingDescription": "Transform your maintenance operations with our complete AI-powered predictive maintenance solution. Combining advanced machine learning engines, comprehensive platform capabilities, and enterprise-ready architecture, this integrated solution prevents equipment failures, reduces downtime by up to 70%, and extends equipment lifespan across your entire operation.",
     "category": "Architecture",
@@ -26,6 +26,30 @@
       "hasPostman": true
     },
     "url": "https://github.com/jamesenki/ai-predictive-maintenance-engine-architecture",
+    "businessValue": {
+      "targetMarket": "Manufacturing, Automotive, Aerospace, Energy, and Transportation companies with critical equipment assets",
+      "roi": "300-500% ROI within 18 months through reduced downtime, extended equipment life, and optimized maintenance schedules",
+      "keyBenefits": [
+        "Reduce unplanned downtime by up to 70%",
+        "Extend equipment lifespan by 20-30%",
+        "Decrease maintenance costs by 25-40%",
+        "Improve asset reliability and performance",
+        "Enable condition-based maintenance strategies",
+        "Real-time anomaly detection and alerts",
+        "Comprehensive ML model library for common failure modes",
+        "Scalable cloud-native architecture"
+      ],
+      "useCases": [
+        "Manufacturing equipment predictive maintenance",
+        "Fleet vehicle health monitoring",
+        "Industrial IoT sensor data analysis",
+        "Rotating equipment (pumps, motors, turbines) condition monitoring",
+        "Production line optimization",
+        "Quality assurance and defect prediction",
+        "Energy consumption optimization",
+        "Supply chain logistics and warehouse automation"
+      ]
+    },
     "pricing": {
       "suggestedRetailPrice": 400000,
       "tier": "Tier 4: Strategic",

@@ -2,18 +2,27 @@
  * API Explorer Contrast Fix
  * Ensures maximum readability with BLACK text on WHITE backgrounds
  * Fixes all instances of light gray text that are hard to read
+ * EXCEPTION: PageHeader maintains BLACK background with WHITE text
  */
 
 /* GLOBAL API EXPLORER CONTRAST FIXES */
-.api-explorer-container,
-.api-explorer-container *,
-[class*="APIExplorer"],
-[class*="APIExplorer"] * {
+/* Exclude PageHeader and its children from forced white background */
+.api-explorer-container:not([class*="PageHeader"]),
+.api-explorer-container *:not([class*="PageHeader"]):not([class*="PageHeader"] *),
+[class*="APIExplorer"]:not([class*="PageHeader"]),
+[class*="APIExplorer"] *:not([class*="PageHeader"]):not([class*="PageHeader"] *) {
   /* FORCE white background and black text throughout */
   background-color: #FFFFFF !important;
   color: #000000 !important;
   opacity: 1 !important;
   filter: none !important;
+}
+
+/* PageHeader: BLACK background with WHITE text */
+[class*="PageHeader"],
+[class*="PageHeader"] * {
+  background-color: transparent !important;
+  color: #FFFFFF !important;
 }
 
 /* CARD SPECIFIC FIXES */
