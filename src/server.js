@@ -424,20 +424,56 @@ app.get('/api/repository/:repoName/details', authenticate, authorize('read:apis'
         .join(' ');
     }
     
-    // Get repository metadata if available
-    const metadata = repositoryMetadata[repoName] || {};
-    
+    // Get repository metadata - prioritize .portal/metadata.json from the repo itself
+    let portalMetadata = null;
+    const portalMetadataPath = path.join(repoPath, '.portal', 'metadata.json');
+
+    if (fs.existsSync(portalMetadataPath)) {
+      try {
+        portalMetadata = JSON.parse(fs.readFileSync(portalMetadataPath, 'utf8'));
+        console.log(`Loaded .portal/metadata.json for ${repoName}`);
+      } catch (e) {
+        console.error(`Error reading .portal/metadata.json for ${repoName}:`, e.message);
+      }
+    }
+
+    // Fall back to centralized repository-metadata.json
+    const centralMetadata = repositoryMetadata[repoName] || {};
+
+    // Extract businessValue from .portal/metadata.json if available
+    let businessValue = null;
+    if (portalMetadata && portalMetadata.marketing) {
+      // Transform marketing.keyBenefits and marketing.useCases into simpler format
+      const keyBenefits = portalMetadata.marketing.keyBenefits?.map(b => b.title || b.description) || [];
+      const useCases = portalMetadata.marketing.useCases?.map(uc => {
+        if (uc.industry && uc.description) {
+          return `${uc.industry}: ${uc.description}`;
+        }
+        return uc.description || uc.industry || '';
+      }) || [];
+
+      businessValue = {
+        targetMarket: portalMetadata.marketing.headline || portalMetadata.marketing.subheadline || null,
+        roi: portalMetadata.marketing.metrics?.costSavings || null,
+        keyBenefits: keyBenefits,
+        useCases: useCases
+      };
+    }
+
+    // Use portalMetadata if available, otherwise fall back to centralMetadata
+    const metadata = portalMetadata || centralMetadata;
+
     res.json({
       id: repoName,
       name: repoName,
-      displayName: metadata.displayName || friendlyName,
-      description: metadata.description || marketingDescription || description || `${friendlyName} Solution`,
+      displayName: metadata.name || centralMetadata.displayName || friendlyName,
+      description: metadata.description || centralMetadata.description || marketingDescription || description || `${friendlyName} Solution`,
       marketingDescription: marketingDescription,
       readme: readme,
-      category: metadata.category || 'repository',
+      category: metadata.category || centralMetadata.category || 'repository',
       status: 'active',
-      demoUrl: metadata.demoUrl || null,
-      tags: metadata.tags || [],
+      demoUrl: centralMetadata.demoUrl || null,
+      tags: metadata.tags || centralMetadata.tags || [],
       url: `https://github.com/${process.env.GITHUB_ORGANIZATION || 'jamesenki'}/${repoName}`,
       metrics: {
         apiCount: apis.length,
@@ -452,9 +488,9 @@ app.get('/api/repository/:repoName/details', authenticate, authorize('read:apis'
       },
       apis: apis,
       postmanCollections: postmanCollections,
-      pricing: metadata.pricing || null,
-      businessValue: metadata.businessValue || null,
-      techStack: metadata.techStack || null
+      pricing: metadata.pricing || centralMetadata.pricing || null,
+      businessValue: businessValue || centralMetadata.businessValue || null,
+      techStack: metadata.technical || centralMetadata.techStack || null
     });
   } catch (error) {
     console.error('Error getting repository details:', error);
