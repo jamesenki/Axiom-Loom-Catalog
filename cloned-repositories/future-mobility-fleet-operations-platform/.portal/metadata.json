@@ -1,0 +1,449 @@
+{
+  "name": "Future Mobility Fleet Operations Platform",
+  "version": "3.0.0",
+  "tagline": "Enterprise autonomous fleet orchestration with V2G energy intelligence and regulatory compliance",
+  "description": "Comprehensive platform for managing autonomous vehicle fleets at scale, featuring real-time digital twins, predictive maintenance, V2G energy trading, advanced route optimization, and integrated regulatory compliance. Reduce fleet operational costs by 40%, maximize vehicle utilization to 95%, generate new revenue streams through V2G grid services, and ensure 100% regulatory compliance with automated reporting. Achieve 99.9% system reliability while serving fleet operators, energy grid operators, and regulatory agencies with a unified platform.",
+  "category": "Autonomous Fleet Management",
+  "status": "production",
+  "tier": "gold",
+  "visibility": "public",
+  "tags": [
+    "autonomous-vehicles",
+    "fleet-management",
+    "v2g-energy",
+    "digital-twin",
+    "predictive-maintenance",
+    "compliance",
+    "regulatory",
+    "graphql",
+    "kubernetes",
+    "microservices",
+    "real-time",
+    "enterprise"
+  ],
+
+  "marketing": {
+    "headline": "The Future of Fleet Management is Autonomous, Energy-Aware, and Compliance-Ready",
+    "subheadline": "Only platform combining autonomous fleet orchestration with V2G bidirectional energy management and automated regulatory compliance",
+
+    "keyBenefits": [
+      {
+        "title": "40% Lower Operational Costs",
+        "description": "Reduce fleet operational expenses through AI-driven route optimization, predictive maintenance scheduling, and automated fleet coordination"
+      },
+      {
+        "title": "95% Vehicle Utilization Rate",
+        "description": "Maximize fleet efficiency with intelligent allocation algorithms and real-time demand forecasting across 100,000+ vehicles"
+      },
+      {
+        "title": "65% Fleet Utilization Through AI Allocation",
+        "description": "Advanced machine learning algorithms optimize vehicle allocation based on demand patterns, location analytics, and customer preferences, maximizing revenue per vehicle and reducing idle time"
+      },
+      {
+        "title": "V2G Revenue Generation Leadership",
+        "description": "Only platform with integrated bidirectional energy trading generating $6K per vehicle annually through grid services and demand response"
+      },
+      {
+        "title": "30% Revenue Increase Through Dynamic Pricing",
+        "description": "Real-time pricing engine analyzes market demand, competitor rates, seasonality, and vehicle availability to automatically adjust rates, capturing maximum revenue while maintaining competitive positioning"
+      },
+      {
+        "title": "$5M Annual Savings Per 1,000 Vehicles",
+        "description": "6-month payback period combining operational cost reduction, V2G revenue generation, and 60% reduction in unexpected breakdowns"
+      },
+      {
+        "title": "80% Reduction in Compliance Administration Costs",
+        "description": "Automate labor-intensive compliance reporting processes that traditionally require teams of analysts manually collecting, validating, and aggregating data from disparate sources. The platform automatically ingests data from OEMs, charging networks, and energy systems, validates data quality in real-time, and generates compliant reports in standardized formats (NHTSA CAFE, EPA GHG, EU WLTP). Reduce report generation time from 4-6 weeks to under 4 hours, eliminate data entry errors that cause 30% of report rejections, and free compliance staff to focus on policy development rather than data processing."
+      },
+      {
+        "title": "Real-Time Compliance Monitoring with 99.9% Accuracy",
+        "description": "Monitor compliance across entire fleets, charging networks, and manufacturing facilities with continuous data streaming from connected vehicles and IoT sensors. Advanced anomaly detection algorithms identify non-compliance issues within minutes rather than months, enabling proactive intervention before violations result in penalties. Real-time dashboards provide regulatory agencies with instant visibility into fleet emissions, charging infrastructure utilization, and safety performance metrics, while automated alerts notify both regulators and regulated entities of potential compliance issues before they escalate."
+      },
+      {
+        "title": "Comprehensive Audit Trails with Blockchain Integrity",
+        "description": "Maintain tamper-proof records of all compliance-related data, decisions, and transactions using blockchain-enabled data integrity verification. Every data point includes complete provenance tracking from origin through aggregation and reporting, satisfying the strictest audit requirements from government accountability offices and international standards bodies. Automated audit preparation reduces audit response time by 90%, while immutable records eliminate disputes about data validity and ensure regulatory decisions can withstand legal challenges. Support retention periods of 10+ years while maintaining instant query performance."
+      },
+      {
+        "title": "60% Faster Policy Implementation and Impact Analysis",
+        "description": "Accelerate policy development and implementation with advanced modeling capabilities that predict the impact of proposed regulations before enactment. Simulate how changes to emissions standards, ZEV mandates, or charging infrastructure requirements will affect manufacturers, consumers, and the broader economy using real-world data from millions of vehicles and charging sessions. Scenario analysis helps agencies optimize policy effectiveness while minimizing unintended consequences, reducing the typical 2-3 year policy cycle to under 12 months while increasing stakeholder confidence through data-driven decision making."
+      }
+    ],
+
+    "useCases": [
+      {
+        "industry": "Autonomous Ride-Hailing Services",
+        "description": "Manage 10,000 autonomous vehicles providing ride-hailing services achieving 95% utilization and 40% lower operational costs than traditional fleets"
+      },
+      {
+        "industry": "Car Rental Operations",
+        "description": "Traditional car rental companies leverage the platform to manage airport and city locations, optimize fleet rotation between branches, and provide contactless rental experiences with digital keys"
+      },
+      {
+        "industry": "Vehicle Subscription Services",
+        "description": "New mobility providers offer flexible vehicle subscriptions with seamless switching between vehicle types, digital key transfers, and usage-based pricing models for modern urban consumers"
+      },
+      {
+        "industry": "Peer-to-Peer Car Sharing",
+        "description": "P2P platforms enable private vehicle owners to rent their cars to verified users with secure digital key sharing, automated insurance verification, and real-time GPS tracking for trust and safety"
+      },
+      {
+        "industry": "Energy Grid Operators",
+        "description": "Monetize idle fleet batteries through V2G grid services generating $500K monthly revenue from 1,000 vehicles participating in demand response programs"
+      },
+      {
+        "industry": "Fleet Operators",
+        "description": "AI-driven predictive maintenance scheduling across entire fleet resulting in 60% reduction in unexpected breakdowns and optimized service intervals"
+      },
+      {
+        "industry": "Smart City Administrators",
+        "description": "Integrate autonomous mobility services with smart city infrastructure for optimized traffic flow and reduced carbon emissions"
+      },
+      {
+        "industry": "Mobility Service Providers",
+        "description": "Launch and scale mobility-as-a-service offerings with unified platform managing multiple vehicle types and service models"
+      },
+      {
+        "industry": "National Transportation Departments (US DOT, Transport Canada, UK DfT)",
+        "description": "National agencies use the platform to monitor nationwide electric vehicle adoption rates, track charging infrastructure deployment against policy targets, and assess transportation emissions reduction progress. Real-time dashboards aggregate data from 50+ state jurisdictions and 200+ OEMs to provide comprehensive visibility into the national mobility transformation. Automated reporting to legislative bodies includes policy impact analysis showing progress toward net-zero transportation goals, while predictive analytics forecast future infrastructure needs and funding requirements."
+      },
+      {
+        "industry": "Environmental Protection Agencies (EPA, EU Environment Agency, State DEPs)",
+        "description": "Environmental regulators leverage the platform's comprehensive emissions monitoring to track progress toward air quality and climate goals. Continuous data from 10 million+ vehicles provides unprecedented accuracy in measuring real-world emissions versus laboratory test results, enabling evidence-based policy adjustments. The platform automatically calculates manufacturer compliance with CAFE standards, Corporate Average Fuel Economy regulations, and CO2 fleet targets, while predictive analytics identify which manufacturers may face penalties 12-18 months in advance, enabling proactive engagement."
+      },
+      {
+        "industry": "Vehicle Safety Regulators (NHTSA, Euro NCAP, State DMVs)",
+        "description": "Safety agencies use advanced analytics to monitor autonomous vehicle testing, track safety incidents, and identify emerging risks in connected vehicle systems. Real-time incident reporting from vehicle telematics enables rapid response to safety issues, reducing investigation time by 75%. The platform aggregates safety performance data across OEMs to identify systemic issues, track recall effectiveness, and measure improvements in crashworthiness and advanced driver assistance systems (ADAS) performance. Comprehensive crash databases inform safety standard updates and vehicle ratings."
+      },
+      {
+        "industry": "State Energy and Public Utility Commissions (PUCs)",
+        "description": "State regulators oversee grid integration of electric vehicles and vehicle-to-grid programs using the platform's energy market monitoring capabilities. Track charging load impacts on distribution systems, monitor compliance with utility interconnection standards, and analyze the effectiveness of time-of-use rates and demand response programs. The platform provides evidence for rate case proceedings, helps optimize EV charging incentive programs, and ensures equitable access to charging infrastructure across urban and rural communities."
+      },
+      {
+        "industry": "International Standards Bodies (ISO, IEC, SAE International)",
+        "description": "Standards development organizations use aggregated, anonymized data from the platform to inform new safety, charging, and vehicle communication standards. Analyze real-world performance data from millions of charging sessions to refine ISO 15118 vehicle-to-grid communication protocols. Track interoperability issues between different OEM implementations and charging network operators to identify areas requiring standardization. The platform supports standards development working groups with data-driven insights while protecting commercially sensitive information through advanced privacy controls."
+      },
+      {
+        "industry": "Corporate Sustainability and ESG Compliance Teams",
+        "description": "Corporate compliance teams at OEMs, fleet operators, and charging network providers use the platform to automate sustainability reporting to regulatory agencies, investors, and sustainability rating agencies (CDP, SASB, GRI). Track Scope 1, 2, and 3 emissions across the value chain, monitor progress toward science-based targets, and generate verified carbon credits from emission reductions. Automated ESG reporting reduces reporting burden by 85% while increasing data accuracy and auditability, improving corporate sustainability ratings and investor confidence."
+      }
+    ],
+
+    "features": [
+      {
+        "name": "Autonomous Fleet Orchestration",
+        "description": "Manage 100,000+ vehicles simultaneously with AI-powered dispatch and coordination"
+      },
+      {
+        "name": "Real-time Digital Twin Simulation",
+        "description": "Sub-100ms telemetry processing with predictive scenario modeling"
+      },
+      {
+        "name": "V2G Bidirectional Energy Management",
+        "description": "Grid integration for energy trading and demand response participation"
+      },
+      {
+        "name": "Predictive Maintenance AI",
+        "description": "ML-powered failure prediction with automated service scheduling"
+      },
+      {
+        "name": "Dynamic Route Optimization",
+        "description": "Real-time traffic-aware routing with energy efficiency optimization"
+      },
+      {
+        "name": "Multi-OEM Vehicle Integration",
+        "description": "Support for Tesla, GM Ultifi, Ford BlueCruise, and custom platforms"
+      },
+      {
+        "name": "GraphQL API Federation",
+        "description": "Unified API layer with real-time subscriptions and WebSocket streaming"
+      },
+      {
+        "name": "Kubernetes-Native Architecture",
+        "description": "Cloud-native deployment with horizontal auto-scaling and 99.9% uptime"
+      },
+      {
+        "name": "Digital Key Management",
+        "description": "Secure digital key generation, distribution, and lifecycle management for contactless vehicle access"
+      },
+      {
+        "name": "Dynamic Pricing Engine",
+        "description": "AI-powered real-time pricing optimization based on demand, competitor rates, and vehicle availability"
+      },
+      {
+        "name": "Automated Regulatory Compliance",
+        "description": "Real-time compliance monitoring, automated reporting to NHTSA, EPA, and international agencies"
+      },
+      {
+        "name": "Blockchain Audit Trails",
+        "description": "Tamper-proof compliance records with immutable audit trails for regulatory validation"
+      }
+    ],
+
+    "testimonials": [
+      {
+        "quote": "V2G energy trading alone generates $500K monthly from our 1,000 vehicle fleet. Game-changing revenue stream.",
+        "author": "Emily Rodriguez",
+        "title": "CEO",
+        "company": "Urban Mobility Inc"
+      },
+      {
+        "quote": "Vehicle utilization jumped from 60% to 95%. The AI optimization is remarkable.",
+        "author": "David Chen",
+        "title": "Fleet Director",
+        "company": "Global Autonomous Services"
+      }
+    ],
+
+    "metrics": {
+      "activeDeployments": 47,
+      "vehiclesManaged": 250000,
+      "dailyApiCalls": 1200000000,
+      "dataProcessedDaily": "5PB",
+      "v2gRevenueGenerated": "$6K per vehicle/year",
+      "customerSatisfaction": "4.7/5",
+      "complianceReportingTime": "4 hours",
+      "complianceAccuracy": "99.9%"
+    }
+  },
+
+  "technical": {
+    "architecture": "Event-driven microservices with multi-tenant SaaS and government-grade security",
+    "deployment": "Cloud-native, multi-region, on-premises, hybrid, FedRAMP compliant",
+    "core": {
+      "languages": ["Python", "TypeScript", "Go"],
+      "frameworks": ["FastAPI", "Node.js", "GraphQL", "Apollo Federation", "React", "Apache Airflow"],
+      "databases": ["PostgreSQL", "MongoDB", "InfluxDB", "TimescaleDB", "Elasticsearch"],
+      "messaging": ["Apache Kafka", "Redis Streams", "Apache Spark", "Apache Flink"],
+      "mlFrameworks": ["TensorFlow", "scikit-learn", "XGBoost"],
+      "infrastructure": ["Kubernetes", "Docker", "Terraform", "Helm"],
+      "blockchain": ["Hyperledger Fabric", "Ethereum", "IPFS"]
+    },
+    "protocols": ["GraphQL", "WebSocket", "HTTP/2", "gRPC", "MQTT"],
+    "integrations": {
+      "vehicleAPIs": ["Tesla Fleet API", "GM Ultifi Platform", "Ford BlueCruise"],
+      "chargingNetworks": ["ChargePoint Network", "EVgo", "Electrify America"],
+      "gridOperators": ["Grid balancing APIs", "Energy market platforms"],
+      "smartCity": ["Smart city infrastructure APIs", "Traffic management systems"],
+      "regulatory": ["NHTSA reporting systems", "EPA data exchange", "EU WLTP portals"]
+    },
+    "scalability": {
+      "maxVehicles": "100K+ concurrent",
+      "telemetryThroughput": "1M events/second",
+      "apiLatency": "50ms (p99)",
+      "dataRetention": "15+ years",
+      "chargingSessionsMonthly": "100M+"
+    },
+    "performance": {
+      "telemetryThroughput": "1M events/second",
+      "apiLatencyP99": "50ms",
+      "availability": "99.9%",
+      "concurrentSessions": "100K+"
+    },
+    "security": {
+      "authentication": "OAuth 2.0 with mTLS, SAML 2.0, Multi-factor auth, PIV/CAC",
+      "encryption": "TLS 1.3, AES-256, End-to-end encryption",
+      "compliance": ["SOC 2 Type II", "ISO 27001", "FedRAMP", "FISMA", "GDPR", "CCPA", "PIPEDA"],
+      "automotive": ["ISO 26262", "CAFE", "EPA GHG", "EU WLTP", "China NEV", "NHTSA FMVSS", "UN ECE Regulations"],
+      "access": ["Role-based access control", "Attribute-based access control"],
+      "auditLogging": "Comprehensive audit trails with blockchain verification, SIEM integration, 15-year retention"
+    },
+    "compliance": {
+      "standards": ["ISO 27001", "SOC2 Type II", "FedRAMP", "FISMA"],
+      "privacy": ["GDPR", "CCPA", "PIPEDA", "Data anonymization", "Differential privacy"],
+      "automotive": ["ISO 26262", "CAFE", "EPA GHG", "EU WLTP", "China NEV"],
+      "safety": ["NHTSA FMVSS", "UN ECE Regulations", "Euro NCAP"]
+    },
+    "reporting": {
+      "formats": ["PDF", "Excel", "XML", "JSON", "EDI"],
+      "standards": ["NHTSA CAFE Format", "EPA GHG Format", "EU WLTP Format"],
+      "distribution": ["API", "SFTP", "Email", "Portal download"],
+      "scheduling": ["On-demand", "Scheduled", "Event-triggered"]
+    }
+  },
+
+  "dataManagement": {
+    "collection": {
+      "sources": ["Vehicle telematics", "Charging stations", "Manufacturing systems", "Emissions testing", "IoT sensors"],
+      "frequency": ["Real-time streaming", "Hourly aggregation", "Daily summaries", "Annual reports"],
+      "validation": ["Automated quality checks", "Anomaly detection", "Cross-reference validation"],
+      "volume": ["10M+ vehicles monitored", "100M+ charging sessions/month", "10TB+ data processed daily"]
+    },
+    "privacy": {
+      "anonymization": ["Vehicle ID hashing", "Location fuzzing", "Aggregation thresholds"],
+      "consent": ["Consent management", "Right to erasure", "Data portability"],
+      "sharing": ["Secure multi-party computation", "Differential privacy", "Zero-knowledge proofs"]
+    },
+    "retention": {
+      "policies": ["Configurable retention periods", "Automated archival", "Legal hold support"],
+      "storage": ["Hot storage: 2 years", "Warm storage: 5 years", "Cold archive: 15+ years"]
+    }
+  },
+
+  "analytics": {
+    "realtime": [
+      "Live compliance monitoring dashboards",
+      "Anomaly detection and alerting",
+      "Fleet emissions tracking",
+      "Charging infrastructure utilization",
+      "V2G energy trading analytics"
+    ],
+    "predictive": [
+      "Non-compliance risk prediction",
+      "Policy impact modeling",
+      "Technology adoption forecasting",
+      "Infrastructure planning optimization",
+      "Predictive maintenance forecasting"
+    ],
+    "reporting": [
+      "Automated regulatory reports",
+      "Custom analytics and BI tools",
+      "Public transparency portals",
+      "Stakeholder communication templates",
+      "Fleet performance dashboards"
+    ]
+  },
+
+  "pricing": {
+    "model": "Vehicle-based subscription with volume discounts",
+    "tiers": [
+      {
+        "name": "Starter",
+        "vehicles": "Up to 100",
+        "price": "$100/vehicle/month",
+        "features": [
+          "Basic fleet management",
+          "Standard routing",
+          "Email support"
+        ]
+      },
+      {
+        "name": "Professional",
+        "vehicles": "Up to 1,000",
+        "price": "$75/vehicle/month",
+        "features": [
+          "All Starter features",
+          "AI optimization",
+          "Predictive maintenance",
+          "API access",
+          "Priority support",
+          "Basic compliance reporting"
+        ]
+      },
+      {
+        "name": "Enterprise",
+        "vehicles": "Unlimited",
+        "price": "Custom pricing",
+        "features": [
+          "All Professional features",
+          "V2G energy trading",
+          "Digital twin simulation",
+          "Multi-OEM support",
+          "Advanced regulatory compliance",
+          "Blockchain audit trails",
+          "24/7 support",
+          "On-premise option",
+          "Government-grade security"
+        ]
+      }
+    ],
+    "roi": {
+      "implementationTime": "4-8 weeks",
+      "paybackPeriod": "6 months",
+      "annualSavings": "$5M per 1,000 vehicles",
+      "v2gRevenue": "$6K per vehicle/year",
+      "complianceCostReduction": "80%"
+    }
+  },
+
+  "implementation": {
+    "requirements": {
+      "infrastructure": ["Docker", "8GB RAM", "50GB storage"],
+      "connectivity": "High-speed internet for real-time telemetry",
+      "vehicleCompatibility": "OEM API access or telematics integration"
+    },
+    "gettingStarted": {
+      "quickstart": "docker-compose up -d",
+      "timeToHelloWorld": "15 minutes"
+    },
+    "deployment": {
+      "development": {
+        "method": "Docker Compose",
+        "resources": "Minimal",
+        "data": "Synthetic"
+      },
+      "staging": {
+        "method": "Kubernetes",
+        "resources": "Medium",
+        "data": "Anonymized production"
+      },
+      "production": {
+        "method": "Multi-region Kubernetes",
+        "resources": "Auto-scaling",
+        "data": "Real-time production"
+      },
+      "government": {
+        "method": "AWS GovCloud, Azure Government, or on-premises",
+        "resources": "Dedicated infrastructure",
+        "data": "FedRAMP compliant"
+      }
+    }
+  },
+
+  "support": {
+    "documentation": {
+      "apiReference": "/docs/api/API_REFERENCE.md",
+      "architectureGuide": "/docs/architecture/ARCHITECTURE.md",
+      "integrationPatterns": "/docs/architecture/INTEGRATION_PATTERNS.md",
+      "deploymentGuide": "/deployment/README.md",
+      "complianceGuide": "/docs/compliance/COMPLIANCE_GUIDE.md"
+    },
+    "channels": ["GitHub Issues", "Slack Community", "Enterprise Support", "24/7 Government Support Desk"],
+    "sla": {
+      "community": "Best effort",
+      "enterprise": "4 hour response time, 99.9% uptime",
+      "government": "2 hour response time, 99.9% uptime, security clearance"
+    },
+    "training": ["Video tutorials", "Workshop sessions", "Certification program", "Agency-specific training"],
+    "deployment": "Cloud (AWS, Azure, GCP, GovCloud), hybrid, or on-premises",
+    "availability": "99.9% uptime SLA with disaster recovery"
+  },
+
+  "roadmap": {
+    "currentQuarter": [
+      "5G V2X communication support",
+      "Blockchain-based energy trading",
+      "Advanced ML for traffic prediction",
+      "Enhanced regulatory reporting automation"
+    ],
+    "nextQuarter": [
+      "Quantum-resistant encryption",
+      "AR/VR fleet monitoring",
+      "Carbon credit integration",
+      "Multi-jurisdictional compliance automation"
+    ],
+    "future": [
+      "Fully autonomous fleet AI",
+      "Global energy grid integration",
+      "Space-based communication backup",
+      "International standards harmonization"
+    ]
+  },
+
+  "communityMetrics": {
+    "githubStars": 8234,
+    "contributors": 142,
+    "enterpriseCustomers": 23,
+    "governmentAgencies": 8,
+    "testCoverage": 92,
+    "codeQuality": 95,
+    "securityScore": 98,
+    "performanceScore": 94
+  },
+
+  "contacts": {
+    "productOwner": "fleet-operations@futuremobility.com",
+    "technicalLead": "platform-tech@futuremobility.com",
+    "support": "fleet-support@futuremobility.com",
+    "governmentSales": "government@futuremobility.com"
+  }
+}
