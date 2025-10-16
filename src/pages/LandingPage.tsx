@@ -8,12 +8,12 @@ const LandingPage: React.FC = () => {
       {/* Hero Section */}
       <section className="hero">
         <div className="hero-content">
-          <h1 className="hero-title">Dying Poets</h1>
+          <h1 className="hero-title">James Simon</h1>
           <p className="hero-subtitle">
-            Where innovation meets poetry. Building the future, one line of code at a time.
+            Technology and Strategy Professional
           </p>
           <div className="hero-tagline">
-            Portfolio of AI-Powered Architecture & Engineering Solutions
+            AI-Powered Architecture and Engineering Solutions for Automotive, Mobility and Advanced Manufacturing
           </div>
         </div>
       </section>
@@ -134,25 +134,97 @@ const LandingPage: React.FC = () => {
                 <div className="publication-item">
                   <div className="pub-icon">📄</div>
                   <div className="pub-content">
+                    <div className="pub-title">Software-Defined Edge Architecture for Connected Vehicles</div>
+                    <div className="pub-meta">AWS Blog | Technical Architecture</div>
+                    <div className="pub-desc">Detailed architectural patterns for edge computing in connected vehicle solutions</div>
+                  </div>
+                </div>
+                <div className="publication-item">
+                  <div className="pub-icon">📄</div>
+                  <div className="pub-content">
+                    <div className="pub-title">Feature Enrichment of Connected Mobility Solution on AWS</div>
+                    <div className="pub-meta">AWS Blog | Cloud Architecture</div>
+                    <div className="pub-desc">Guide to enhancing connected mobility platforms with cloud-native features</div>
+                  </div>
+                </div>
+                <div className="publication-item">
+                  <div className="pub-icon">📄</div>
+                  <div className="pub-content">
                     <div className="pub-title">Electric Vehicles & Battery Technology Analysis</div>
                     <div className="pub-meta">EY | Thought Leadership</div>
                     <div className="pub-desc">Developed insights on electric vehicles, battery technologies, and valuation risks in the used car market</div>
                   </div>
                 </div>
                 <div className="publication-item">
-                  <div className="pub-icon">📄</div>
+                  <div className="pub-icon">✍️</div>
                   <div className="pub-content">
-                    <div className="pub-title">Coupon Stacking: Facts and Myths</div>
-                    <div className="pub-meta">Valassis | White Paper</div>
-                    <div className="pub-desc">First white paper for digital media thought leadership initiative</div>
+                    <div className="pub-title">Software Development as a Social System</div>
+                    <div className="pub-meta">Personal Blog | Conway's Law, DDD, Team Topologies</div>
+                    <div className="pub-desc">How organizational structures shape architecture and the principles for intentional design</div>
                   </div>
                 </div>
                 <div className="publication-item">
-                  <div className="pub-icon">📄</div>
+                  <div className="pub-icon">✍️</div>
                   <div className="pub-content">
-                    <div className="pub-title">Digital Media Security</div>
-                    <div className="pub-meta">Valassis | White Paper Co-Author</div>
-                    <div className="pub-desc">Co-authored with Chief Architect on digital media security best practices</div>
+                    <div className="pub-title">Building High-Performing Engineering Organizations</div>
+                    <div className="pub-meta">Personal Blog | Leadership & Principles</div>
+                    <div className="pub-desc">The four fundamental questions, architectural principles, and tenets that guide elite teams</div>
+                  </div>
+                </div>
+                <div className="publication-item">
+                  <div className="pub-icon">✍️</div>
+                  <div className="pub-content">
+                    <div className="pub-title">Beyond Fake Agile: What True Agility Really Means</div>
+                    <div className="pub-meta">Personal Blog | Agile Transformation</div>
+                    <div className="pub-desc">Cutting through buzzwords to reveal genuine agility and the 12 non-negotiable principles</div>
+                  </div>
+                </div>
+                <div className="publication-item">
+                  <div className="pub-icon">✍️</div>
+                  <div className="pub-content">
+                    <div className="pub-title">Lean Software Development: Optimizing the Flow of Value</div>
+                    <div className="pub-meta">Personal Blog | Lean Principles</div>
+                    <div className="pub-desc">Applying lean manufacturing principles to software development for continuous improvement</div>
+                  </div>
+                </div>
+                <div className="publication-item">
+                  <div className="pub-icon">✍️</div>
+                  <div className="pub-content">
+                    <div className="pub-title">DevOps Beyond the Buzzword</div>
+                    <div className="pub-meta">Personal Blog | Culture & Practices</div>
+                    <div className="pub-desc">What DevOps really means: culture, automation, measurement, and continuous delivery</div>
+                  </div>
+                </div>
+                <div className="publication-item">
+                  <div className="pub-icon">✍️</div>
+                  <div className="pub-content">
+                    <div className="pub-title">Product Thinking: From Projects to Products</div>
+                    <div className="pub-meta">Personal Blog | Product Management</div>
+                    <div className="pub-desc">Shifting from project-based delivery to product-centric software development</div>
+                  </div>
+                </div>
+                <div className="publication-item">
+                  <div className="pub-icon">✍️</div>
+                  <div className="pub-content">
+                    <div className="pub-title">Test-First Development: A Practical Guide</div>
+                    <div className="pub-meta">Personal Blog | TDD, BDD, ATDD</div>
+                    <div className="pub-desc">Using tests as design tools, specifications, and quality gatekeepers</div>
+                  </div>
+                </div>
+                <div className="publication-item">
+                  <div className="pub-icon">✍️</div>
+                  <div className="pub-content">
+                    <div className="pub-title">Policy as Code: Automated Governance That Enables Speed</div>
+                    <div className="pub-meta">Personal Blog | Cloud Governance</div>
+                    <div className="pub-desc">Implementing automated compliance and governance without sacrificing velocity</div>
+                  </div>
+                </div>
+                <div className="publication-item">
+                  <div className="pub-icon">✍️</div>
+                  <div className="pub-content">
+                    <div className="pub-title">Team Topologies: Organizing for Fast Flow</div>
+                    <div className="pub-meta">Personal Blog | Organizational Design</div>
+                    <div className="pub-desc">Structuring teams and interactions for optimal software delivery performance</div>
                   </div>
                 </div>
               </div>
@@ -196,11 +268,27 @@ const LandingPage: React.FC = () => {
                   </div>
                 </div>
                 <div className="training-category">
-                  <h4>Training Delivery</h4>
+                  <h4>Training Delivery & Community Leadership</h4>
                   <div className="training-items">
+                    <div className="training-item">
+                      <span className="training-badge">AWS</span>
+                      <span className="training-name">Delivered 100-300 level AWS technical and executive trainings to enterprise customers</span>
+                    </div>
+                    <div className="training-item">
+                      <span className="training-badge">Cohort</span>
+                      <span className="training-name">Led The Factory Co-Op Field Training cohorts for hands-on software engineering</span>
+                    </div>
+                    <div className="training-item">
+                      <span className="training-badge">Digital</span>
+                      <span className="training-name">Facilitated Digital Transformation White Belt Training programs</span>
+                    </div>
                     <div className="training-item">
                       <span className="training-badge">Coach</span>
                       <span className="training-name">Dojo Challenges & Kata Fridays at Stellantis</span>
+                    </div>
+                    <div className="training-item">
+                      <span className="training-badge">Community</span>
+                      <span className="training-name">Founding Member of Canton Coders - Northeast Ohio developer community</span>
                     </div>
                     <div className="training-item">
                       <span className="training-badge">Mentor</span>
@@ -292,41 +380,26 @@ const LandingPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Featured Projects Teaser */}
-      <section className="featured-section">
-        <h2 className="section-title">Featured Highlights</h2>
-        <div className="highlights-grid">
-          <div className="highlight-card">
-            <h3>20+ Enterprise Solutions</h3>
-            <p>Production-ready architectures for automotive, IoT, and cloud platforms</p>
-          </div>
-          <div className="highlight-card">
-            <h3>Comprehensive APIs</h3>
-            <p>OpenAPI, GraphQL, gRPC, and AsyncAPI specifications with full documentation</p>
-          </div>
-          <div className="highlight-card">
-            <h3>AI-Powered Engineering</h3>
-            <p>Solutions designed and built by intelligent agents for modern challenges</p>
-          </div>
-        </div>
-      </section>
-
       {/* Footer */}
       <footer className="landing-footer">
         <div className="footer-content">
           <p className="footer-tagline">
-            Built with passion. Powered by innovation. Inspired by poetry.
+            Building tomorrow's solutions with today's technology
           </p>
           <div className="footer-links">
             <a href="https://github.com/jamesenki" target="_blank" rel="noopener noreferrer">
               GitHub
             </a>
             <span className="separator">•</span>
+            <a href="https://www.linkedin.com/in/jamesesimon/" target="_blank" rel="noopener noreferrer">
+              LinkedIn
+            </a>
+            <span className="separator">•</span>
             <Link to="/catalog">Catalog</Link>
             <span className="separator">•</span>
             <span className="muted">Resume (Coming Soon)</span>
             <span className="separator">•</span>
-            <span className="muted">Blog (Coming Soon)</span>
+            <span className="muted">Insights (Coming Soon)</span>
           </div>
         </div>
       </footer>
