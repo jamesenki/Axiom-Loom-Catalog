@@ -7,7 +7,7 @@
   ],
   "navigationFallback": {
     "rewrite": "/index.html",
-    "exclude": ["/images/*", "/static/*", "/repo-images/*", "/*.{png,jpg,gif,svg,ico,css,js,json}"]
+    "exclude": ["/images/*", "/static/*", "/repo-images/*", "/data/*", "/*.{png,jpg,gif,svg,ico,css,js,json}"]
   },
   "globalHeaders": {
     "X-Content-Type-Options": "nosniff",

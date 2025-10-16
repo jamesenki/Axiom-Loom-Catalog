@@ -30,8 +30,12 @@ jobs:
 
       - name: Build
         run: CI=false npm run build
-        env:
-          REACT_APP_API_URL: ${{ secrets.REACT_APP_API_URL || 'https://dying-poets-api.eastus.azurecontainer.io:3001' }}
+
+      - name: Copy static data to build
+        run: |
+          mkdir -p build/data
+          cp repository-metadata.json build/data/
+          cp -r public/repo-images build/
 
       - name: Build And Deploy
         id: builddeploy
@@ -43,8 +47,6 @@ jobs:
           app_location: "build"
           api_location: ""
           skip_app_build: true
-        env:
-          REACT_APP_API_URL: ${{ secrets.REACT_APP_API_URL || 'https://dying-poets-api.eastus.azurecontainer.io:3001' }}
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'

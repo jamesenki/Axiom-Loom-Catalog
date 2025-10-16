@@ -271,8 +271,15 @@ const RepositoryList: React.FC = () => {
   useEffect(() => {
     const fetchRepositories = async () => {
       try {
-        console.log('[RepositoryList] Fetching repositories...');
-        const response = await fetch(getApiUrl('/api/repositories'));
+        console.log('[RepositoryList] Fetching repositories from API...');
+        let response = await fetch(getApiUrl('/api/repositories'));
+
+        // If API fails, try static data fallback
+        if (!response.ok) {
+          console.log('[RepositoryList] API not available, trying static data...');
+          response = await fetch('/data/repository-metadata.json');
+        }
+
         console.log('[RepositoryList] Response status:', response.status);
         if (!response.ok) {
           throw new Error('Failed to fetch repositories');
