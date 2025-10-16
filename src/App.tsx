@@ -37,6 +37,7 @@ if (typeof window !== 'undefined') {
 
 // Lazy load components for better performance
 const LandingPage = lazy(() => import('./pages/LandingPage'));
+const ResumePage = lazy(() => import('./pages/ResumePage'));
 const RepositoryList = lazy(() => import('./components/RepositoryList'));
 const RepositoryDetail = lazy(() => import('./components/RepositoryDetailRedesigned'));
 const RepositoryView = lazy(() => import('./components/RepositoryView'));
@@ -180,6 +181,7 @@ function AppContent() {
                   <Routes>
                     {/* Public routes */}
                     <Route path="/" element={<PageTransition><LandingPage /></PageTransition>} />
+                    <Route path="/resume" element={<PageTransition><ResumePage /></PageTransition>} />
                     <Route path="/login" element={<Login />} />
                     <Route path="/auth/callback" element={<AuthCallback />} />
 

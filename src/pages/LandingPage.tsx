@@ -376,16 +376,17 @@ const LandingPage: React.FC = () => {
             <div className="card-action">Explore Catalog →</div>
           </Link>
 
-          {/* Resume - Coming Soon */}
-          <div className="nav-card coming-soon">
+          {/* Resume - Active */}
+          <Link to="/resume" className="nav-card active">
             <div className="card-icon">👤</div>
             <h2>Professional Resume</h2>
             <p>
               Comprehensive professional experience, technical expertise, and career
               achievements. A story of innovation and continuous learning.
             </p>
-            <div className="card-status upcoming">Coming Soon</div>
-          </div>
+            <div className="card-status available">Available Now</div>
+            <div className="card-action">View Resume →</div>
+          </Link>
 
           {/* Blog - Coming Soon */}
           <div className="nav-card coming-soon">
