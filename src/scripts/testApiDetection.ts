@@ -92,8 +92,8 @@ async function testApiDetection() {
     console.log('\n🔍 Validation Checks:');
     
     // Check demo-labsdashboards has GraphQL
-    const demo-labsResult = batchResults.find(r => r.repository === 'demo-labsdashboards');
-    if (demo-labsResult && demo-labsResult.apis.graphql.length > 0) {
+    const demoLabsResult = batchResults.find(r => r.repository === 'demo-labsdashboards');
+    if (demoLabsResult && demoLabsResult.apis.graphql.length > 0) {
       console.log('  ✅ demo-labsdashboards correctly detected as GraphQL repository');
     } else {
       console.log('  ❌ demo-labsdashboards GraphQL detection failed');
