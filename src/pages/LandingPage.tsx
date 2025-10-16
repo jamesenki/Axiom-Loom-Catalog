@@ -49,7 +49,7 @@ const LandingPage: React.FC = () => {
                   rel="noopener noreferrer"
                   className="profile-link"
                 >
-                  <span className="link-icon">{ '{' }</span>
+                  <span className="link-icon">gh</span>
                   GitHub
                 </a>
               </div>
