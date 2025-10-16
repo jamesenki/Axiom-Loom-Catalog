@@ -258,16 +258,6 @@ const ResumePage: React.FC = () => {
           </div>
         </section>
 
-        {/* Education */}
-        <section className="resume-section">
-          <h2>Education</h2>
-          <div className="education-item">
-            <h3>Bachelor of Science in Computer Engineering</h3>
-            <p className="school">Michigan State University</p>
-            <p className="education-details">Focus: Embedded Systems, Real-Time Computing, Digital Signal Processing</p>
-          </div>
-        </section>
-
         {/* Community Involvement */}
         <section className="resume-section">
           <h2>Community Involvement</h2>
