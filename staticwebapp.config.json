@@ -15,7 +15,8 @@
     }
   ],
   "navigationFallback": {
-    "rewrite": "/index.html"
+    "rewrite": "/index.html",
+    "exclude": ["/data/*", "/static/*", "/api/*", "*.{css,js,png,jpg,jpeg,gif,svg,ico,json,woff,woff2}"]
   },
   "globalHeaders": {
     "X-Content-Type-Options": "nosniff",
