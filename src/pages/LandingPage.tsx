@@ -308,7 +308,7 @@ const LandingPage: React.FC = () => {
                     </div>
                     <div className="training-item">
                       <span className="training-badge">Community</span>
-                      <span className="training-name">Founding Member of Canton Coders - Northeast Ohio developer community</span>
+                      <span className="training-name">Founding Member of Canton Coders - Virtual developer community originating in Southeast Michigan</span>
                     </div>
                     <div className="training-item">
                       <span className="training-badge">Mentor</span>
