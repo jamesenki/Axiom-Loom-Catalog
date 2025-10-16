@@ -284,7 +284,14 @@ const RepositoryList: React.FC = () => {
         if (!response.ok) {
           throw new Error('Failed to fetch repositories');
         }
-        const data = await response.json();
+        let data = await response.json();
+
+        // Convert object format to array if needed (for static data)
+        if (!Array.isArray(data) && typeof data === 'object') {
+          console.log('[RepositoryList] Converting object format to array');
+          data = Object.values(data);
+        }
+
         console.log('[RepositoryList] Received data:', data?.length, 'repositories');
         setRepositories(data);
       } catch (err) {
