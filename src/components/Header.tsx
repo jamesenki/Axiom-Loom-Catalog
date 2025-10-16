@@ -207,49 +207,67 @@ const Header: React.FC = () => {
     return false;
   };
 
+  // Check if we're on landing page or resume page - these should show simple header
+  const isLandingOrResume = location.pathname === '/' || location.pathname === '/resume';
+
   return (
     <HeaderContainer>
       <NavContainer>
         <LogoLink to="/">
           <AxiomLogo size="medium" showText={true} gradient={true} />
         </LogoLink>
-        
-        <NavLinks>
-          <NavLink to="/" isActive={isActive('/')}>
-            <Home size={18} />
-            Home
-          </NavLink>
-          
-          <NavLink to="/repositories" isActive={isActive('/repositories')}>
-            <Cpu size={18} />
-            Repositories
-          </NavLink>
-          
-          <NavLink to="/apis" isActive={isActive('/apis')}>
-            <Activity size={18} />
-            APIs
-          </NavLink>
-          
-          <NavLink to="/docs" isActive={isActive('/docs')}>
-            <Book size={18} />
-            Docs
-          </NavLink>
-          
-          <NavLink to="/sync" isActive={isActive('/sync')}>
-            <RefreshCw size={18} />
-            Sync
-            {location.pathname === '/sync' && <StatusIndicator />}
-          </NavLink>
-          
-          <SearchButton
-            onClick={() => setShowSearch(true)}
-            size="sm"
-          >
-            <Search size={16} />
-            Search
-            <KeyboardHint>⌘K</KeyboardHint>
-          </SearchButton>
-        </NavLinks>
+
+        {isLandingOrResume ? (
+          // Simple header for landing/resume pages
+          <NavLinks>
+            <div style={{
+              fontSize: '1.125rem',
+              fontWeight: 500,
+              color: 'rgba(255, 255, 255, 0.9)',
+              letterSpacing: '0.5px'
+            }}>
+              Professional Portfolio
+            </div>
+          </NavLinks>
+        ) : (
+          // Full navigation for catalog pages
+          <NavLinks>
+            <NavLink to="/" isActive={isActive('/')}>
+              <Home size={18} />
+              Home
+            </NavLink>
+
+            <NavLink to="/repositories" isActive={isActive('/repositories')}>
+              <Cpu size={18} />
+              Repositories
+            </NavLink>
+
+            <NavLink to="/apis" isActive={isActive('/apis')}>
+              <Activity size={18} />
+              APIs
+            </NavLink>
+
+            <NavLink to="/docs" isActive={isActive('/docs')}>
+              <Book size={18} />
+              Docs
+            </NavLink>
+
+            <NavLink to="/sync" isActive={isActive('/sync')}>
+              <RefreshCw size={18} />
+              Sync
+              {location.pathname === '/sync' && <StatusIndicator />}
+            </NavLink>
+
+            <SearchButton
+              onClick={() => setShowSearch(true)}
+              size="sm"
+            >
+              <Search size={16} />
+              Search
+              <KeyboardHint>⌘K</KeyboardHint>
+            </SearchButton>
+          </NavLinks>
+        )}
       </NavContainer>
       
       <GlobalSearchModal 
