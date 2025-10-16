@@ -43,6 +43,7 @@ jobs:
           app_location: "/"
           api_location: ""
           output_location: "build"
+          skip_app_build: true
         env:
           REACT_APP_API_URL: ${{ secrets.REACT_APP_API_URL || 'https://dying-poets-api.eastus.azurecontainer.io:3001' }}
 
