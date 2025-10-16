@@ -1,14 +1,14 @@
 {
+  "navigationFallback": {
+    "rewrite": "/index.html",
+    "exclude": ["/images/*.{png,jpg,gif,svg,ico}", "/static/*.{css,js,json}", "/repo-images/*", "/data/*"]
+  },
   "routes": [
     {
       "route": "/api/*",
       "allowedRoles": ["anonymous"]
     }
   ],
-  "navigationFallback": {
-    "rewrite": "/index.html",
-    "exclude": ["/images/*", "/static/*", "/repo-images/*", "/data/*", "/*.{png,jpg,gif,svg,ico,css,js,json}"]
-  },
   "globalHeaders": {
     "X-Content-Type-Options": "nosniff",
     "X-Frame-Options": "DENY",
