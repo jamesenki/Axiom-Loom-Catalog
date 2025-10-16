@@ -33,7 +33,12 @@ test.describe('Post-Deployment Smoke Tests', () => {
   });
 
   test('Landing page loads successfully', async ({ page }) => {
-    await page.goto(`${BASE_URL}/`);
+    await page.goto(`${BASE_URL}/`, { waitUntil: 'networkidle' });
+
+    // Wait for the page to be fully loaded
+    await page.waitForLoadState('domcontentloaded');
+
+    // Check title - should be "Axiom Loom Catalog"
     await expect(page).toHaveTitle(/Axiom Loom/);
 
     // Check for key landing page elements
@@ -76,9 +81,9 @@ test.describe('Post-Deployment Smoke Tests', () => {
     await page.goto(`${BASE_URL}/catalog`);
     await page.waitForSelector('[data-testid="repository-card"]', { timeout: 10000 });
 
-    // Click on the first repository card
+    // Double-click on the first repository card (requires double-click to navigate)
     const firstCard = page.locator('[data-testid="repository-card"]').first();
-    await firstCard.click();
+    await firstCard.dblclick();
 
     // Wait for navigation and content to load
     await page.waitForURL(/\/repository\/.+/, { timeout: 10000 });
