@@ -1,0 +1,645 @@
+version: '3.8'
+
+services:
+  # ================================
+  # API Gateway Service
+  # ================================
+  api-gateway:
+    build:
+      context: ./services/api-gateway
+      dockerfile: Dockerfile.dev
+    container_name: ai-pm-api-gateway
+    ports:
+      - "3000:3000"
+      - "9229:9229" # Debug port
+    environment:
+      - NODE_ENV=development
+      - LOG_LEVEL=debug
+      - DB_HOST=postgres
+      - DB_PORT=5432
+      - DB_NAME=ai_pm_engine_dev
+      - DB_USER=dev_user
+      - DB_PASSWORD=dev_password
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - JWT_SECRET=dev_jwt_secret_change_in_production
+      - SOVD_INTEGRATION_URL=http://sovd-integration:3002
+      - AI_ENGINE_URL=http://ai-prediction-engine:3001
+      - ENABLE_SWAGGER_UI=true
+      - ENABLE_GRAPHQL_PLAYGROUND=true
+    volumes:
+      - ./services/api-gateway:/app
+      - /app/node_modules
+      - ./logs:/app/logs
+    depends_on:
+      - postgres
+      - redis
+      - sovd-integration
+      - ai-prediction-engine
+    networks:
+      - ai-pm-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 40s
+
+  # ================================
+  # AI Prediction Engine Service
+  # ================================
+  ai-prediction-engine:
+    build:
+      context: ./services/ai-prediction-engine
+      dockerfile: Dockerfile.dev
+    container_name: ai-pm-ai-engine
+    ports:
+      - "3001:3001"
+      - "9230:9229" # Debug port
+    environment:
+      - NODE_ENV=development
+      - LOG_LEVEL=debug
+      - MODEL_STORAGE_PATH=/app/models
+      - TENSORFLOW_SERVING_URL=http://tensorflow-serving:8501
+      - MLFLOW_TRACKING_URI=http://mlflow:5000
+      - INFLUXDB_HOST=influxdb
+      - INFLUXDB_PORT=8086
+      - INFLUXDB_TOKEN=dev_token_change_in_production
+      - INFLUXDB_ORG=ai_pm_engine
+      - INFLUXDB_BUCKET=vehicle_diagnostics
+    volumes:
+      - ./services/ai-prediction-engine:/app
+      - /app/node_modules
+      - ./volumes/model-storage:/app/models
+      - ./test-data/ai-models:/app/test-models
+      - ./logs:/app/logs
+    depends_on:
+      - influxdb
+      - tensorflow-serving
+      - mlflow
+    networks:
+      - ai-pm-network
+    deploy:
+      resources:
+        limits:
+          memory: 4G
+        reservations:
+          memory: 2G
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3001/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 60s
+
+  # ================================
+  # Data Ingestion Service
+  # ================================
+  data-ingestion:
+    build:
+      context: ./services/data-ingestion
+      dockerfile: Dockerfile.dev
+    container_name: ai-pm-data-ingestion
+    ports:
+      - "3005:3005"
+      - "9231:9229" # Debug port
+    environment:
+      - NODE_ENV=development
+      - LOG_LEVEL=debug
+      - KAFKA_BROKERS=kafka:9092
+      - INFLUXDB_HOST=influxdb
+      - INFLUXDB_PORT=8086
+      - INFLUXDB_TOKEN=dev_token_change_in_production
+      - SOVD_INTEGRATION_URL=http://sovd-integration:3002
+      - BATCH_SIZE=1000
+      - FLUSH_INTERVAL=5000
+    volumes:
+      - ./services/data-ingestion:/app
+      - /app/node_modules
+      - ./logs:/app/logs
+    depends_on:
+      - kafka
+      - influxdb
+      - sovd-integration
+    networks:
+      - ai-pm-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3005/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  # ================================
+  # SOVD Integration Service
+  # ================================
+  sovd-integration:
+    build:
+      context: ./services/sovd-integration
+      dockerfile: Dockerfile.dev
+    container_name: ai-pm-sovd-integration
+    ports:
+      - "3002:3002"
+      - "9232:9229" # Debug port
+    environment:
+      - NODE_ENV=development
+      - LOG_LEVEL=debug
+      - SOVD_MOCK_URL=http://sovd-mock:8080
+      - SOVD_PROTOCOL_VERSION=1.0.0
+      - SOVD_CLIENT_ID=ai_pm_engine_dev
+      - SOVD_CLIENT_SECRET=dev_secret_change_in_production
+      - KAFKA_BROKERS=kafka:9092
+      - MAX_CONCURRENT_SESSIONS=50
+      - SESSION_TIMEOUT=300000
+    volumes:
+      - ./services/sovd-integration:/app
+      - /app/node_modules
+      - ./test-data/sovd:/app/test-data
+      - ./logs:/app/logs
+    depends_on:
+      - sovd-mock
+      - kafka
+    networks:
+      - ai-pm-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3002/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  # ================================
+  # Notification Service
+  # ================================
+  notification-service:
+    build:
+      context: ./services/notification-service
+      dockerfile: Dockerfile.dev
+    container_name: ai-pm-notification-service
+    ports:
+      - "3003:3003"
+      - "9233:9229" # Debug port
+    environment:
+      - NODE_ENV=development
+      - LOG_LEVEL=debug
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - EMAIL_PROVIDER=mock
+      - SMS_PROVIDER=mock
+      - WEBHOOK_TIMEOUT=10000
+      - RETRY_ATTEMPTS=3
+    volumes:
+      - ./services/notification-service:/app
+      - /app/node_modules
+      - ./logs:/app/logs
+    depends_on:
+      - redis
+    networks:
+      - ai-pm-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3003/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  # ================================
+  # Analytics Service
+  # ================================
+  analytics-service:
+    build:
+      context: ./services/analytics-service
+      dockerfile: Dockerfile.dev
+    container_name: ai-pm-analytics-service
+    ports:
+      - "3004:3004"
+      - "9234:9229" # Debug port
+    environment:
+      - NODE_ENV=development
+      - LOG_LEVEL=debug
+      - INFLUXDB_HOST=influxdb
+      - INFLUXDB_PORT=8086
+      - INFLUXDB_TOKEN=dev_token_change_in_production
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - CACHE_TTL=3600
+    volumes:
+      - ./services/analytics-service:/app
+      - /app/node_modules
+      - ./logs:/app/logs
+    depends_on:
+      - influxdb
+      - redis
+    networks:
+      - ai-pm-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3004/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  # ================================
+  # Authentication Service
+  # ================================
+  auth-service:
+    build:
+      context: ./services/auth-service
+      dockerfile: Dockerfile.dev
+    container_name: ai-pm-auth-service
+    ports:
+      - "3006:3006"
+      - "9235:9229" # Debug port
+    environment:
+      - NODE_ENV=development
+      - LOG_LEVEL=debug
+      - DB_HOST=postgres
+      - DB_PORT=5432
+      - DB_NAME=ai_pm_engine_dev
+      - DB_USER=dev_user
+      - DB_PASSWORD=dev_password
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - JWT_SECRET=dev_jwt_secret_change_in_production
+      - JWT_EXPIRES_IN=24h
+      - OAUTH_CLIENT_ID=ai_pm_engine_dev
+      - OAUTH_CLIENT_SECRET=dev_oauth_secret
+    volumes:
+      - ./services/auth-service:/app
+      - /app/node_modules
+      - ./logs:/app/logs
+    depends_on:
+      - postgres
+      - redis
+    networks:
+      - ai-pm-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3006/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  # ================================
+  # Mock Services
+  # ================================
+  sovd-mock:
+    build:
+      context: ./services/mock-services/sovd-mock
+      dockerfile: Dockerfile
+    container_name: ai-pm-sovd-mock
+    ports:
+      - "8080:8080"
+    environment:
+      - NODE_ENV=development
+      - LOG_LEVEL=debug
+      - MOCK_VEHICLES=10
+      - MOCK_COMPONENTS=25
+      - SIMULATION_INTERVAL=1000
+      - GENERATE_FAILURES=true
+      - FAILURE_PROBABILITY=0.05
+    volumes:
+      - ./services/mock-services/sovd-mock:/app
+      - ./test-data/sovd:/app/data
+      - ./test-data/vehicles:/app/vehicles
+    networks:
+      - ai-pm-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  vehicle-simulator:
+    build:
+      context: ./services/mock-services/vehicle-simulator
+      dockerfile: Dockerfile
+    container_name: ai-pm-vehicle-simulator
+    ports:
+      - "8081:8081"
+    environment:
+      - NODE_ENV=development
+      - LOG_LEVEL=debug
+      - SOVD_MOCK_URL=http://sovd-mock:8080
+      - SIMULATION_SPEED=1.0
+      - VEHICLE_COUNT=5
+      - ROUTE_SIMULATION=true
+    volumes:
+      - ./services/mock-services/vehicle-simulator:/app
+      - ./test-data/vehicles:/app/data
+    depends_on:
+      - sovd-mock
+    networks:
+      - ai-pm-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8081/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  # ================================
+  # Database Services
+  # ================================
+  postgres:
+    image: postgres:15-alpine
+    container_name: ai-pm-postgres
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=ai_pm_engine_dev
+      - POSTGRES_USER=dev_user
+      - POSTGRES_PASSWORD=dev_password
+      - POSTGRES_INITDB_ARGS=--encoding=UTF-8 --lc-collate=C --lc-ctype=C
+    volumes:
+      - ./volumes/postgres-data:/var/lib/postgresql/data
+      - ./database/init:/docker-entrypoint-initdb.d
+      - ./database/migrations:/migrations
+    networks:
+      - ai-pm-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U dev_user -d ai_pm_engine_dev"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    container_name: ai-pm-redis
+    ports:
+      - "6379:6379"
+    command: redis-server --appendonly yes --requirepass dev_password
+    volumes:
+      - ./volumes/redis-data:/data
+      - ./config/redis/redis.conf:/usr/local/etc/redis/redis.conf
+    networks:
+      - ai-pm-network
+    healthcheck:
+      test: ["CMD", "redis-cli", "--raw", "incr", "ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+
+  influxdb:
+    image: influxdb:2.7-alpine
+    container_name: ai-pm-influxdb
+    ports:
+      - "8086:8086"
+    environment:
+      - DOCKER_INFLUXDB_INIT_MODE=setup
+      - DOCKER_INFLUXDB_INIT_USERNAME=admin
+      - DOCKER_INFLUXDB_INIT_PASSWORD=dev_password
+      - DOCKER_INFLUXDB_INIT_ORG=ai_pm_engine
+      - DOCKER_INFLUXDB_INIT_BUCKET=vehicle_diagnostics
+      - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN=dev_token_change_in_production
+    volumes:
+      - ./volumes/influxdb-data:/var/lib/influxdb2
+      - ./config/influxdb:/etc/influxdb2
+    networks:
+      - ai-pm-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8086/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  # ================================
+  # Message Queue Services
+  # ================================
+  zookeeper:
+    image: confluentinc/cp-zookeeper:7.4.0
+    container_name: ai-pm-zookeeper
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+    volumes:
+      - ./volumes/zookeeper-data:/var/lib/zookeeper/data
+      - ./volumes/zookeeper-logs:/var/lib/zookeeper/log
+    networks:
+      - ai-pm-network
+
+  kafka:
+    image: confluentinc/cp-kafka:7.4.0
+    container_name: ai-pm-kafka
+    ports:
+      - "9092:9092"
+      - "9093:9093"
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:29092,PLAINTEXT_HOST://localhost:9092
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: true
+      KAFKA_NUM_PARTITIONS: 3
+      KAFKA_DEFAULT_REPLICATION_FACTOR: 1
+    volumes:
+      - ./volumes/kafka-data:/var/lib/kafka/data
+    depends_on:
+      - zookeeper
+    networks:
+      - ai-pm-network
+    healthcheck:
+      test: ["CMD", "kafka-broker-api-versions", "--bootstrap-server", "localhost:9092"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  # ================================
+  # AI/ML Services
+  # ================================
+  tensorflow-serving:
+    image: tensorflow/serving:2.13.0
+    container_name: ai-pm-tensorflow-serving
+    ports:
+      - "8501:8501" # REST API
+      - "8500:8500" # gRPC API
+    environment:
+      - MODEL_NAME=ai_pm_models
+      - MODEL_BASE_PATH=/models
+      - TENSORFLOW_SERVING_REQUEST_TIMEOUT=30
+    volumes:
+      - ./volumes/model-storage/tensorflow:/models
+    networks:
+      - ai-pm-network
+    command: >
+      tensorflow_model_server
+      --port=8500
+      --rest_api_port=8501
+      --model_name=ai_pm_models
+      --model_base_path=/models
+      --monitoring_config_file=""
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8501/v1/models/ai_pm_models"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 60s
+
+  mlflow:
+    image: python:3.9-slim
+    container_name: ai-pm-mlflow
+    ports:
+      - "5000:5000"
+    environment:
+      - MLFLOW_BACKEND_STORE_URI=postgresql://dev_user:dev_password@postgres:5432/ai_pm_engine_dev
+      - MLFLOW_DEFAULT_ARTIFACT_ROOT=/mlflow/artifacts
+      - MLFLOW_HOST=0.0.0.0
+      - MLFLOW_PORT=5000
+    volumes:
+      - ./volumes/mlflow-artifacts:/mlflow/artifacts
+      - ./config/mlflow:/mlflow/config
+    depends_on:
+      - postgres
+    networks:
+      - ai-pm-network
+    command: >
+      sh -c "
+        pip install mlflow==2.7.1 psycopg2-binary &&
+        mlflow server
+        --backend-store-uri postgresql://dev_user:dev_password@postgres:5432/ai_pm_engine_dev
+        --default-artifact-root /mlflow/artifacts
+        --host 0.0.0.0
+        --port 5000
+      "
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 60s
+
+  jupyter:
+    image: jupyter/tensorflow-notebook:python-3.9
+    container_name: ai-pm-jupyter
+    ports:
+      - "8888:8888"
+    environment:
+      - JUPYTER_TOKEN=dev_token
+      - JUPYTER_ENABLE_LAB=yes
+    volumes:
+      - ./notebooks:/home/jovyan/work
+      - ./test-data:/home/jovyan/data
+      - ./volumes/model-storage:/home/jovyan/models
+    networks:
+      - ai-pm-network
+    command: start-notebook.sh --NotebookApp.token=dev_token --NotebookApp.password=''
+
+  # ================================
+  # Monitoring Services
+  # ================================
+  prometheus:
+    image: prom/prometheus:v2.45.0
+    container_name: ai-pm-prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./config/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+      - ./volumes/prometheus-data:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/etc/prometheus/console_libraries'
+      - '--web.console.templates=/etc/prometheus/consoles'
+      - '--storage.tsdb.retention.time=200h'
+      - '--web.enable-lifecycle'
+    networks:
+      - ai-pm-network
+    profiles:
+      - monitoring
+
+  grafana:
+    image: grafana/grafana:10.0.0
+    container_name: ai-pm-grafana
+    ports:
+      - "3010:3000"
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=dev_password
+      - GF_INSTALL_PLUGINS=grafana-clock-panel,grafana-simple-json-datasource
+    volumes:
+      - ./volumes/grafana-data:/var/lib/grafana
+      - ./config/grafana/provisioning:/etc/grafana/provisioning
+    depends_on:
+      - prometheus
+    networks:
+      - ai-pm-network
+    profiles:
+      - monitoring
+
+  # ================================
+  # Development Tools
+  # ================================
+  mailhog:
+    image: mailhog/mailhog:v1.0.1
+    container_name: ai-pm-mailhog
+    ports:
+      - "1025:1025" # SMTP
+      - "8025:8025" # Web UI
+    networks:
+      - ai-pm-network
+    profiles:
+      - development
+
+  redis-commander:
+    image: rediscommander/redis-commander:latest
+    container_name: ai-pm-redis-commander
+    ports:
+      - "8026:8081"
+    environment:
+      - REDIS_HOSTS=local:redis:6379
+      - REDIS_PASSWORD=dev_password
+    depends_on:
+      - redis
+    networks:
+      - ai-pm-network
+    profiles:
+      - development
+
+  pgadmin:
+    image: dpage/pgadmin4:7.2
+    container_name: ai-pm-pgadmin
+    ports:
+      - "8027:80"
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@aipm.local
+      - PGADMIN_DEFAULT_PASSWORD=dev_password
+      - PGADMIN_CONFIG_SERVER_MODE=False
+    volumes:
+      - ./volumes/pgadmin-data:/var/lib/pgadmin
+      - ./config/pgadmin/servers.json:/pgadmin4/servers.json
+    depends_on:
+      - postgres
+    networks:
+      - ai-pm-network
+    profiles:
+      - development
+
+networks:
+  ai-pm-network:
+    driver: bridge
+    name: ai-pm-development
+
+volumes:
+  postgres-data:
+    driver: local
+  redis-data:
+    driver: local
+  influxdb-data:
+    driver: local
+  kafka-data:
+    driver: local
+  zookeeper-data:
+    driver: local
+  zookeeper-logs:
+    driver: local
+  mlflow-artifacts:
+    driver: local
+  prometheus-data:
+    driver: local
+  grafana-data:
+    driver: local
+  pgadmin-data:
+    driver: local
+
+# Health check configuration
+x-healthcheck-defaults: &healthcheck-defaults
+  interval: 30s
+  timeout: 10s
+  retries: 3
+  start_period: 40s

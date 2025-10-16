@@ -1,0 +1,115 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ai-predictive-maintenance-engine
+  namespace: predictive-maintenance
+  labels:
+    app: ai-engine
+    version: v1.0.0
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: ai-engine
+  template:
+    metadata:
+      labels:
+        app: ai-engine
+        version: v1.0.0
+    spec:
+      containers:
+      - name: ai-engine
+        image: ai-predictive-maintenance-engine:latest
+        ports:
+        - containerPort: 8080
+          name: http
+        - containerPort: 9090
+          name: metrics
+        env:
+        - name: NODE_ENV
+          value: "production"
+        - name: DATABASE_URL
+          valueFrom:
+            secretKeyRef:
+              name: db-credentials
+              key: url
+        - name: REDIS_URL
+          value: "redis://redis-service:6379"
+        - name: KAFKA_BROKERS
+          value: "kafka-service:9092"
+        resources:
+          requests:
+            memory: "512Mi"
+            cpu: "500m"
+          limits:
+            memory: "2Gi"
+            cpu: "2000m"
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+          initialDelaySeconds: 30
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /ready
+            port: 8080
+          initialDelaySeconds: 5
+          periodSeconds: 5
+        volumeMounts:
+        - name: models
+          mountPath: /models
+          readOnly: true
+        - name: config
+          mountPath: /config
+          readOnly: true
+      volumes:
+      - name: models
+        persistentVolumeClaim:
+          claimName: models-pvc
+      - name: config
+        configMap:
+          name: ai-engine-config
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ai-engine-service
+  namespace: predictive-maintenance
+spec:
+  selector:
+    app: ai-engine
+  ports:
+  - name: http
+    port: 8080
+    targetPort: 8080
+  - name: metrics
+    port: 9090
+    targetPort: 9090
+  type: LoadBalancer
+---
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: ai-engine-hpa
+  namespace: predictive-maintenance
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: ai-predictive-maintenance-engine
+  minReplicas: 3
+  maxReplicas: 10
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: 70
+  - type: Resource
+    resource:
+      name: memory
+      target:
+        type: Utilization
+        averageUtilization: 80

@@ -1,0 +1,405 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: postgres
+  namespace: ai-predictive-maintenance
+  labels:
+    app.kubernetes.io/name: postgres
+    app.kubernetes.io/component: database
+    app.kubernetes.io/part-of: ai-predictive-maintenance-engine
+spec:
+  serviceName: postgres-headless
+  replicas: 3
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: postgres
+      app.kubernetes.io/component: database
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: postgres
+        app.kubernetes.io/component: database
+        app.kubernetes.io/part-of: ai-predictive-maintenance-engine
+    spec:
+      containers:
+      - name: postgres
+        image: postgres:15-alpine
+        ports:
+        - name: postgresql
+          containerPort: 5432
+          protocol: TCP
+        env:
+        - name: POSTGRES_DB
+          value: ai_pm_engine
+        - name: POSTGRES_USER
+          valueFrom:
+            secretKeyRef:
+              name: postgres-credentials
+              key: username
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: postgres-credentials
+              key: password
+        - name: POSTGRES_INITDB_ARGS
+          value: "--encoding=UTF-8 --lc-collate=C --lc-ctype=C"
+        - name: PGDATA
+          value: /var/lib/postgresql/data/pgdata
+        livenessProbe:
+          exec:
+            command:
+            - /bin/sh
+            - -c
+            - pg_isready -U $POSTGRES_USER -d $POSTGRES_DB
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          timeoutSeconds: 5
+          failureThreshold: 3
+        readinessProbe:
+          exec:
+            command:
+            - /bin/sh
+            - -c
+            - pg_isready -U $POSTGRES_USER -d $POSTGRES_DB
+          initialDelaySeconds: 5
+          periodSeconds: 5
+          timeoutSeconds: 3
+          failureThreshold: 3
+        resources:
+          requests:
+            memory: "1Gi"
+            cpu: "500m"
+          limits:
+            memory: "2Gi"
+            cpu: "1000m"
+        volumeMounts:
+        - name: postgres-data
+          mountPath: /var/lib/postgresql/data
+        - name: postgres-config
+          mountPath: /etc/postgresql/postgresql.conf
+          subPath: postgresql.conf
+        - name: init-scripts
+          mountPath: /docker-entrypoint-initdb.d
+      volumes:
+      - name: postgres-config
+        configMap:
+          name: postgres-config
+      - name: init-scripts
+        configMap:
+          name: postgres-init-scripts
+  volumeClaimTemplates:
+  - metadata:
+      name: postgres-data
+    spec:
+      accessModes: ["ReadWriteOnce"]
+      storageClassName: fast-ssd
+      resources:
+        requests:
+          storage: 100Gi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgres-service
+  namespace: ai-predictive-maintenance
+  labels:
+    app.kubernetes.io/name: postgres
+    app.kubernetes.io/component: database
+spec:
+  type: ClusterIP
+  ports:
+  - name: postgresql
+    port: 5432
+    targetPort: postgresql
+    protocol: TCP
+  selector:
+    app.kubernetes.io/name: postgres
+    app.kubernetes.io/component: database
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgres-headless
+  namespace: ai-predictive-maintenance
+  labels:
+    app.kubernetes.io/name: postgres
+    app.kubernetes.io/component: database
+spec:
+  type: ClusterIP
+  clusterIP: None
+  ports:
+  - name: postgresql
+    port: 5432
+    targetPort: postgresql
+    protocol: TCP
+  selector:
+    app.kubernetes.io/name: postgres
+    app.kubernetes.io/component: database
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: postgres-config
+  namespace: ai-predictive-maintenance
+data:
+  postgresql.conf: |
+    # Connection settings
+    listen_addresses = '*'
+    max_connections = 200
+    
+    # Memory settings
+    shared_buffers = 256MB
+    effective_cache_size = 1GB
+    maintenance_work_mem = 64MB
+    work_mem = 4MB
+    
+    # WAL settings
+    wal_level = replica
+    max_wal_senders = 10
+    wal_keep_size = 1GB
+    
+    # Checkpoint settings
+    checkpoint_timeout = 5min
+    max_wal_size = 2GB
+    min_wal_size = 80MB
+    
+    # Query tuning
+    random_page_cost = 1.1
+    effective_io_concurrency = 200
+    
+    # Logging
+    log_statement = 'none'
+    log_duration = off
+    log_min_duration_statement = 1000
+    log_checkpoints = on
+    log_connections = on
+    log_disconnections = on
+    log_lock_waits = on
+    log_temp_files = 0
+    
+    # Performance tracking
+    track_activities = on
+    track_counts = on
+    track_io_timing = on
+    track_functions = all
+    
+    # Autovacuum
+    autovacuum = on
+    autovacuum_max_workers = 4
+    autovacuum_naptime = 30s
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: postgres-init-scripts
+  namespace: ai-predictive-maintenance
+data:
+  01-create-schemas.sql: |
+    -- Create schemas
+    CREATE SCHEMA IF NOT EXISTS vehicles;
+    CREATE SCHEMA IF NOT EXISTS predictions;
+    CREATE SCHEMA IF NOT EXISTS maintenance;
+    CREATE SCHEMA IF NOT EXISTS analytics;
+    CREATE SCHEMA IF NOT EXISTS auth;
+    
+    -- Create extensions
+    CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+    CREATE EXTENSION IF NOT EXISTS "pgcrypto";
+    CREATE EXTENSION IF NOT EXISTS "pg_stat_statements";
+    
+  02-create-users.sql: |
+    -- Create application users
+    CREATE USER api_gateway WITH PASSWORD 'api_gateway_password';
+    CREATE USER ai_engine WITH PASSWORD 'ai_engine_password';
+    CREATE USER analytics_service WITH PASSWORD 'analytics_password';
+    
+    -- Grant permissions
+    GRANT CONNECT ON DATABASE ai_pm_engine TO api_gateway, ai_engine, analytics_service;
+    GRANT USAGE ON SCHEMA vehicles, predictions, maintenance, analytics TO api_gateway, ai_engine, analytics_service;
+    GRANT CREATE ON SCHEMA vehicles TO api_gateway;
+    GRANT CREATE ON SCHEMA predictions TO ai_engine;
+    GRANT CREATE ON SCHEMA maintenance TO api_gateway;
+    GRANT CREATE ON SCHEMA analytics TO analytics_service;
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: postgres-credentials
+  namespace: ai-predictive-maintenance
+type: Opaque
+stringData:
+  username: "postgres"
+  password: "${POSTGRES_PASSWORD}"
+  database: "ai_pm_engine"
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: influxdb
+  namespace: ai-predictive-maintenance
+  labels:
+    app.kubernetes.io/name: influxdb
+    app.kubernetes.io/component: timeseries-db
+    app.kubernetes.io/part-of: ai-predictive-maintenance-engine
+spec:
+  serviceName: influxdb-headless
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: influxdb
+      app.kubernetes.io/component: timeseries-db
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: influxdb
+        app.kubernetes.io/component: timeseries-db
+        app.kubernetes.io/part-of: ai-predictive-maintenance-engine
+    spec:
+      containers:
+      - name: influxdb
+        image: influxdb:2.7-alpine
+        ports:
+        - name: http
+          containerPort: 8086
+          protocol: TCP
+        env:
+        - name: DOCKER_INFLUXDB_INIT_MODE
+          value: "setup"
+        - name: DOCKER_INFLUXDB_INIT_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: influxdb-credentials
+              key: admin-user
+        - name: DOCKER_INFLUXDB_INIT_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: influxdb-credentials
+              key: admin-password
+        - name: DOCKER_INFLUXDB_INIT_ORG
+          value: "ai_pm_engine"
+        - name: DOCKER_INFLUXDB_INIT_BUCKET
+          value: "vehicle_diagnostics"
+        - name: DOCKER_INFLUXDB_INIT_RETENTION
+          value: "90d"
+        - name: DOCKER_INFLUXDB_INIT_ADMIN_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: influxdb-credentials
+              key: token
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: http
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          timeoutSeconds: 5
+          failureThreshold: 3
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: http
+          initialDelaySeconds: 10
+          periodSeconds: 5
+          timeoutSeconds: 3
+          failureThreshold: 3
+        resources:
+          requests:
+            memory: "2Gi"
+            cpu: "1000m"
+          limits:
+            memory: "4Gi"
+            cpu: "2000m"
+        volumeMounts:
+        - name: influxdb-data
+          mountPath: /var/lib/influxdb2
+        - name: influxdb-config
+          mountPath: /etc/influxdb2
+      volumes:
+      - name: influxdb-config
+        configMap:
+          name: influxdb-config
+  volumeClaimTemplates:
+  - metadata:
+      name: influxdb-data
+    spec:
+      accessModes: ["ReadWriteOnce"]
+      storageClassName: fast-ssd
+      resources:
+        requests:
+          storage: 500Gi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: influxdb-service
+  namespace: ai-predictive-maintenance
+  labels:
+    app.kubernetes.io/name: influxdb
+    app.kubernetes.io/component: timeseries-db
+spec:
+  type: ClusterIP
+  ports:
+  - name: http
+    port: 8086
+    targetPort: http
+    protocol: TCP
+  selector:
+    app.kubernetes.io/name: influxdb
+    app.kubernetes.io/component: timeseries-db
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: influxdb-config
+  namespace: ai-predictive-maintenance
+data:
+  influx.toml: |
+    [meta]
+      dir = "/var/lib/influxdb2/meta"
+    
+    [data]
+      dir = "/var/lib/influxdb2/data"
+      wal-dir = "/var/lib/influxdb2/wal"
+      wal-fsync-delay = "0s"
+      index-version = "tsi1"
+      query-log-enabled = true
+      cache-max-memory-size = "2g"
+      cache-snapshot-memory-size = "256m"
+      cache-snapshot-write-cold-duration = "10m"
+      max-concurrent-compactions = 4
+    
+    [http]
+      bind-address = ":8086"
+      auth-enabled = true
+      log-enabled = true
+      write-tracing = false
+      flux-enabled = true
+      flux-log-enabled = false
+    
+    [[graphite]]
+      enabled = false
+    
+    [[collectd]]
+      enabled = false
+    
+    [[opentsdb]]
+      enabled = false
+    
+    [[udp]]
+      enabled = false
+    
+    [continuous_queries]
+      enabled = true
+      log-enabled = true
+      run-interval = "1s"
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: influxdb-credentials
+  namespace: ai-predictive-maintenance
+type: Opaque
+stringData:
+  admin-user: "admin"
+  admin-password: "${INFLUXDB_ADMIN_PASSWORD}"
+  token: "${INFLUXDB_TOKEN}"

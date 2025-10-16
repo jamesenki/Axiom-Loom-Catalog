@@ -1,0 +1,68 @@
+# Multi-stage Dockerfile for Backend API Server
+FROM node:18-alpine AS base
+
+# Install dependencies needed for building
+RUN apk add --no-cache libc6-compat python3 make g++
+WORKDIR /app
+
+# Copy package files
+COPY package*.json ./
+
+# Dependencies stage
+FROM base AS deps
+# Install all dependencies (including devDependencies for building)
+RUN npm ci
+
+# Builder stage
+FROM base AS builder
+WORKDIR /app
+COPY --from=deps /app/node_modules ./node_modules
+COPY . .
+
+# Production dependencies only
+FROM base AS prod-deps
+RUN npm ci --only=production
+
+# Runner stage
+FROM node:18-alpine AS runner
+WORKDIR /app
+
+# Install dumb-init for proper signal handling
+RUN apk add --no-cache dumb-init
+
+# Create non-root user
+RUN addgroup -g 1001 -S nodejs && adduser -S nodejs -u 1001
+
+# Copy production dependencies
+COPY --from=prod-deps /app/node_modules ./node_modules
+
+# Copy application code
+COPY --chown=nodejs:nodejs src ./src
+COPY --chown=nodejs:nodejs package*.json ./
+
+# Create or copy repositories.json
+RUN echo '[]' > repositories.json && chown nodejs:nodejs repositories.json
+
+# Create necessary directories
+RUN mkdir -p cloned-repositories logs cache && \
+    chown -R nodejs:nodejs cloned-repositories logs cache
+
+# Switch to non-root user
+USER nodejs
+
+# Expose port
+EXPOSE 3001
+
+# Environment variables
+ENV NODE_ENV=production
+ENV PORT=3001
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=10s --start-period=40s --retries=3 \
+  CMD node -e "require('http').get('http://localhost:3001/api/health', (res) => res.statusCode === 200 ? process.exit(0) : process.exit(1))"
+
+# Use dumb-init to handle signals properly
+ENTRYPOINT ["dumb-init", "--"]
+
+# Start the backend server
+CMD ["node", "src/server.js"]

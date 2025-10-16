@@ -1,0 +1,99 @@
+/* PROPER CONTRAST FIX
+   ===================
+   Stop messing with inheritance - BE EXPLICIT!
+*/
+
+/* Base rule: White background, black text for body */
+body {
+  background: #FFFFFF !important;
+  color: #000000 !important;
+}
+
+/* HEADER: Dark background, white text */
+header {
+  background: linear-gradient(
+    180deg, 
+    rgba(10, 10, 27, 0.95) 0%,
+    rgba(20, 20, 41, 0.85) 100%
+  ) !important;
+  color: #FFFFFF !important;
+}
+
+header * {
+  color: #FFFFFF !important;
+}
+
+/* MAIN HOMEPAGE CARDS: White background, black text */
+.repository-list [class*="Card"],
+main > div > div > div[class*="Card"] {
+  background: #FFFFFF !important;
+  color: #000000 !important;
+}
+
+.repository-list [class*="Card"] *,
+main > div > div > div[class*="Card"] * {
+  color: #000000 !important;
+}
+
+/* API EXPLORER PAGES: Dark theme - needs WHITE text */
+[class*="APIExplorer"],
+[class*="api-explorer"],
+div[class*="APICard"] {
+  background: #1e293b !important;
+  color: #FFFFFF !important;
+}
+
+[class*="APIExplorer"] *,
+[class*="api-explorer"] *,
+div[class*="APICard"] * {
+  color: #FFFFFF !important;
+}
+
+/* API Card specific overrides */
+div[class*="APICard"] h3,
+div[class*="APICard"] p,
+div[class*="APICard"] span {
+  color: #FFFFFF !important;
+  opacity: 1 !important;
+}
+
+/* Repository detail pages with dark backgrounds */
+[class*="PageHeader"],
+[class*="RepositoryDetail"] {
+  color: #FFFFFF !important;
+}
+
+[class*="PageHeader"] *,
+[class*="RepositoryDetail"] * {
+  color: #FFFFFF !important;
+}
+
+/* Buttons */
+button {
+  border: 1px solid currentColor !important;
+}
+
+button[class*="primary"] {
+  background: #0066CC !important;
+  color: #FFFFFF !important;
+}
+
+button[class*="accent"] {
+  background: #00A86B !important;
+  color: #FFFFFF !important;
+}
+
+/* Tags and badges */
+[class*="Badge"],
+[class*="Tag"] {
+  opacity: 1 !important;
+}
+
+/* Status badges */
+span[class*="active"] {
+  background: #00A86B !important;
+  color: #FFFFFF !important;
+}
+
+/* NO MORE INHERITANCE BREAKING */
+/* DO NOT USE color: unset or color: inherit */

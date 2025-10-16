@@ -1,0 +1,1055 @@
+{
+  "info": {
+    "name": "AI Predictive Maintenance Engine - REST API",
+    "description": "Comprehensive test suite for REST API endpoints with 100% coverage including authentication, vehicle management, diagnostics, predictions, and fleet operations",
+    "version": "1.0.0",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{auth_token}}",
+        "type": "string"
+      }
+    ]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          "// Global pre-request script for authentication and common setup",
+          "if (!pm.globals.get('auth_token')) {",
+          "    console.log('No auth token found, will authenticate first');",
+          "}"
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          "// Global test script for common assertions",
+          "pm.test('Response time is acceptable', function () {",
+          "    pm.expect(pm.response.responseTime).to.be.below(2000);",
+          "});",
+          "",
+          "pm.test('Response has correlation ID', function () {",
+          "    pm.expect(pm.response.headers.get('X-Correlation-ID')).to.exist;",
+          "});"
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "https://api.predictive-maintenance.com/v1",
+      "type": "string"
+    },
+    {
+      "key": "test_vehicle_id", 
+      "value": "TEST_VIN_123456789",
+      "type": "string"
+    },
+    {
+      "key": "test_fleet_id",
+      "value": "TEST_FLEET_001",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Authentication",
+      "item": [
+        {
+          "name": "Get Authentication Token",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 200', function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test('Response contains access token', function () {",
+                  "    const response = pm.response.json();",
+                  "    pm.expect(response).to.have.property('access_token');",
+                  "    pm.expect(response).to.have.property('token_type', 'Bearer');",
+                  "    pm.expect(response).to.have.property('expires_in');",
+                  "    ",
+                  "    // Set global auth token",
+                  "    pm.globals.set('auth_token', response.access_token);",
+                  "    pm.globals.set('token_expires_at', Date.now() + (response.expires_in * 1000));",
+                  "});",
+                  "",
+                  "pm.test('Token has required scopes', function () {",
+                  "    const response = pm.response.json();",
+                  "    pm.expect(response.scope).to.include('vehicle:read');",
+                  "    pm.expect(response.scope).to.include('diagnostics:read');",
+                  "    pm.expect(response.scope).to.include('predictions:read');",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{client_id}}",
+                  "type": "string"
+                },
+                {
+                  "key": "password", 
+                  "value": "{{client_secret}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "grant_type",
+                  "value": "client_credentials",
+                  "type": "text"
+                },
+                {
+                  "key": "scope",
+                  "value": "vehicle:read vehicle:write diagnostics:read predictions:read fleet:read alerts:read",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/token",
+              "host": ["{{base_url}}"],
+              "path": ["auth", "token"]
+            }
+          }
+        },
+        {
+          "name": "Validate Token",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Token is valid', function () {",
+                  "    pm.response.to.have.status(200);",
+                  "    const response = pm.response.json();",
+                  "    pm.expect(response.active).to.be.true;",
+                  "    pm.expect(response.client_id).to.exist;",
+                  "    pm.expect(response.scope).to.exist;",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "token",
+                  "value": "{{auth_token}}",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/introspect",
+              "host": ["{{base_url}}"],
+              "path": ["auth", "introspect"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Vehicle Management",
+      "item": [
+        {
+          "name": "Get All Vehicles",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 200', function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test('Response contains vehicles array', function () {",
+                  "    const response = pm.response.json();",
+                  "    pm.expect(response).to.have.property('vehicles');",
+                  "    pm.expect(response.vehicles).to.be.an('array');",
+                  "    pm.expect(response).to.have.property('total_count');",
+                  "    pm.expect(response).to.have.property('page_info');",
+                  "});",
+                  "",
+                  "pm.test('Vehicle objects have required fields', function () {",
+                  "    const response = pm.response.json();",
+                  "    if (response.vehicles.length > 0) {",
+                  "        const vehicle = response.vehicles[0];",
+                  "        pm.expect(vehicle).to.have.property('id');",
+                  "        pm.expect(vehicle).to.have.property('vin');",
+                  "        pm.expect(vehicle).to.have.property('make');",
+                  "        pm.expect(vehicle).to.have.property('model');",
+                  "        pm.expect(vehicle).to.have.property('year');",
+                  "        pm.expect(vehicle).to.have.property('status');",
+                  "    }",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/vehicles?limit=50&offset=0&include_health=true",
+              "host": ["{{base_url}}"],
+              "path": ["vehicles"],
+              "query": [
+                {
+                  "key": "limit",
+                  "value": "50"
+                },
+                {
+                  "key": "offset", 
+                  "value": "0"
+                },
+                {
+                  "key": "include_health",
+                  "value": "true"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Vehicle by ID",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 200', function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test('Vehicle details are complete', function () {",
+                  "    const vehicle = pm.response.json();",
+                  "    pm.expect(vehicle).to.have.property('id', pm.variables.get('test_vehicle_id'));",
+                  "    pm.expect(vehicle).to.have.property('vin');",
+                  "    pm.expect(vehicle).to.have.property('specifications');",
+                  "    pm.expect(vehicle).to.have.property('health_status');",
+                  "    pm.expect(vehicle).to.have.property('diagnostic_capabilities');",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/vehicles/{{test_vehicle_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["vehicles", "{{test_vehicle_id}}"]
+            }
+          }
+        },
+        {
+          "name": "Create New Vehicle",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "// Generate unique VIN for testing",
+                  "const timestamp = Date.now();",
+                  "const testVin = 'TEST' + timestamp.toString().slice(-10);",
+                  "pm.variables.set('new_vehicle_vin', testVin);"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 201', function () {",
+                  "    pm.response.to.have.status(201);",
+                  "});",
+                  "",
+                  "pm.test('Vehicle created successfully', function () {",
+                  "    const response = pm.response.json();",
+                  "    pm.expect(response).to.have.property('id');",
+                  "    pm.expect(response).to.have.property('vin', pm.variables.get('new_vehicle_vin'));",
+                  "    pm.expect(response).to.have.property('status', 'registered');",
+                  "    ",
+                  "    // Store created vehicle ID for cleanup",
+                  "    pm.globals.set('created_vehicle_id', response.id);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"vin\": \"{{new_vehicle_vin}}\",\n  \"make\": \"Toyota\",\n  \"model\": \"Camry\",\n  \"year\": 2023,\n  \"engine_type\": \"4-cylinder\",\n  \"transmission\": \"automatic\",\n  \"fuel_type\": \"gasoline\",\n  \"specifications\": {\n    \"engine_displacement\": \"2.5L\",\n    \"horsepower\": 203,\n    \"fuel_capacity\": 15.8,\n    \"weight\": 3340\n  },\n  \"diagnostic_capabilities\": {\n    \"obd_version\": \"OBD-II\",\n    \"can_bus\": true,\n    \"supported_protocols\": [\"ISO 14229\", \"J1939\"]\n  }\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/vehicles",
+              "host": ["{{base_url}}"],
+              "path": ["vehicles"]
+            }
+          }
+        },
+        {
+          "name": "Update Vehicle Information",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 200', function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test('Vehicle updated successfully', function () {",
+                  "    const response = pm.response.json();",
+                  "    pm.expect(response).to.have.property('id', pm.globals.get('created_vehicle_id'));",
+                  "    pm.expect(response.specifications.odometer).to.equal(15000);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"specifications\": {\n    \"odometer\": 15000,\n    \"last_service_date\": \"2024-01-01\",\n    \"next_service_due\": \"2024-04-01\"\n  },\n  \"status\": \"active\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/vehicles/{{created_vehicle_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["vehicles", "{{created_vehicle_id}}"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Vehicle Health & Diagnostics",
+      "item": [
+        {
+          "name": "Get Vehicle Health Status",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 200', function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test('Health status contains required fields', function () {",
+                  "    const health = pm.response.json();",
+                  "    pm.expect(health).to.have.property('vehicle_id');",
+                  "    pm.expect(health).to.have.property('overall_health_score');",
+                  "    pm.expect(health).to.have.property('status');",
+                  "    pm.expect(health).to.have.property('components');",
+                  "    pm.expect(health).to.have.property('last_updated');",
+                  "});",
+                  "",
+                  "pm.test('Health score is valid', function () {",
+                  "    const health = pm.response.json();",
+                  "    pm.expect(health.overall_health_score).to.be.a('number');",
+                  "    pm.expect(health.overall_health_score).to.be.within(0, 1);",
+                  "});",
+                  "",
+                  "pm.test('Components array is valid', function () {",
+                  "    const health = pm.response.json();",
+                  "    pm.expect(health.components).to.be.an('array');",
+                  "    if (health.components.length > 0) {",
+                  "        const component = health.components[0];",
+                  "        pm.expect(component).to.have.property('name');",
+                  "        pm.expect(component).to.have.property('health_score');",
+                  "        pm.expect(component).to.have.property('status');",
+                  "    }",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/vehicles/{{test_vehicle_id}}/health",
+              "host": ["{{base_url}}"],
+              "path": ["vehicles", "{{test_vehicle_id}}", "health"]
+            }
+          }
+        },
+        {
+          "name": "Get Diagnostic Data",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 200', function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test('Diagnostic data contains engine metrics', function () {",
+                  "    const data = pm.response.json();",
+                  "    pm.expect(data).to.have.property('vehicle_id');",
+                  "    pm.expect(data).to.have.property('timestamp');",
+                  "    pm.expect(data).to.have.property('engine');",
+                  "    pm.expect(data.engine).to.have.property('rpm');",
+                  "    pm.expect(data.engine).to.have.property('temperature');",
+                  "});",
+                  "",
+                  "pm.test('Data quality indicators present', function () {",
+                  "    const data = pm.response.json();",
+                  "    pm.expect(data).to.have.property('data_quality');",
+                  "    pm.expect(data.data_quality).to.have.property('overall_score');",
+                  "    pm.expect(data.data_quality).to.have.property('signal_quality');",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/vehicles/{{test_vehicle_id}}/diagnostics?include_raw=false&components=engine,transmission,brakes",
+              "host": ["{{base_url}}"],
+              "path": ["vehicles", "{{test_vehicle_id}}", "diagnostics"],
+              "query": [
+                {
+                  "key": "include_raw",
+                  "value": "false"
+                },
+                {
+                  "key": "components",
+                  "value": "engine,transmission,brakes"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Send Diagnostic Command",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 202', function () {",
+                  "    pm.response.to.have.status(202);",
+                  "});",
+                  "",
+                  "pm.test('Command accepted', function () {",
+                  "    const response = pm.response.json();",
+                  "    pm.expect(response).to.have.property('command_id');",
+                  "    pm.expect(response).to.have.property('status', 'accepted');",
+                  "    pm.expect(response).to.have.property('estimated_completion');",
+                  "    ",
+                  "    // Store command ID for follow-up",
+                  "    pm.globals.set('diagnostic_command_id', response.command_id);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"command_type\": \"read_diagnostic_codes\",\n  \"target_systems\": [\"engine\", \"transmission\"],\n  \"parameters\": {\n    \"include_pending\": true,\n    \"include_history\": false,\n    \"clear_after_read\": false\n  },\n  \"timeout_seconds\": 30\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/vehicles/{{test_vehicle_id}}/diagnostics/commands",
+              "host": ["{{base_url}}"],
+              "path": ["vehicles", "{{test_vehicle_id}}", "diagnostics", "commands"]
+            }
+          }
+        },
+        {
+          "name": "Get Command Result",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 200', function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test('Command result contains data', function () {",
+                  "    const result = pm.response.json();",
+                  "    pm.expect(result).to.have.property('command_id');",
+                  "    pm.expect(result).to.have.property('status');",
+                  "    pm.expect(result).to.have.property('completed_at');",
+                  "    ",
+                  "    if (result.status === 'completed') {",
+                  "        pm.expect(result).to.have.property('result');",
+                  "        pm.expect(result.result).to.have.property('diagnostic_codes');",
+                  "    }",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/vehicles/{{test_vehicle_id}}/diagnostics/commands/{{diagnostic_command_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["vehicles", "{{test_vehicle_id}}", "diagnostics", "commands", "{{diagnostic_command_id}}"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Predictive Maintenance",
+      "item": [
+        {
+          "name": "Get Maintenance Predictions",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 200', function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test('Predictions array is valid', function () {",
+                  "    const response = pm.response.json();",
+                  "    pm.expect(response).to.have.property('predictions');",
+                  "    pm.expect(response.predictions).to.be.an('array');",
+                  "    pm.expect(response).to.have.property('model_info');",
+                  "});",
+                  "",
+                  "pm.test('Prediction objects have required fields', function () {",
+                  "    const response = pm.response.json();",
+                  "    if (response.predictions.length > 0) {",
+                  "        const prediction = response.predictions[0];",
+                  "        pm.expect(prediction).to.have.property('component');",
+                  "        pm.expect(prediction).to.have.property('failure_probability');",
+                  "        pm.expect(prediction).to.have.property('confidence_score');",
+                  "        pm.expect(prediction).to.have.property('time_to_failure');",
+                  "        pm.expect(prediction).to.have.property('recommended_actions');",
+                  "    }",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/vehicles/{{test_vehicle_id}}/predictions?time_horizon=90&confidence_threshold=0.7",
+              "host": ["{{base_url}}"],
+              "path": ["vehicles", "{{test_vehicle_id}}", "predictions"],
+              "query": [
+                {
+                  "key": "time_horizon",
+                  "value": "90"
+                },
+                {
+                  "key": "confidence_threshold",
+                  "value": "0.7"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Generate Prediction Report",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 202', function () {",
+                  "    pm.response.to.have.status(202);",
+                  "});",
+                  "",
+                  "pm.test('Report generation initiated', function () {",
+                  "    const response = pm.response.json();",
+                  "    pm.expect(response).to.have.property('report_id');",
+                  "    pm.expect(response).to.have.property('status', 'generating');",
+                  "    pm.expect(response).to.have.property('estimated_completion');",
+                  "    ",
+                  "    pm.globals.set('prediction_report_id', response.report_id);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"report_type\": \"comprehensive\",\n  \"time_horizon_days\": 180,\n  \"include_cost_analysis\": true,\n  \"include_recommendations\": true,\n  \"format\": \"json\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/vehicles/{{test_vehicle_id}}/predictions/reports",
+              "host": ["{{base_url}}"],
+              "path": ["vehicles", "{{test_vehicle_id}}", "predictions", "reports"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Fleet Management", 
+      "item": [
+        {
+          "name": "Get Fleet Overview",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 200', function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test('Fleet overview contains metrics', function () {",
+                  "    const fleet = pm.response.json();",
+                  "    pm.expect(fleet).to.have.property('fleet_id');",
+                  "    pm.expect(fleet).to.have.property('total_vehicles');",
+                  "    pm.expect(fleet).to.have.property('health_distribution');",
+                  "    pm.expect(fleet).to.have.property('cost_metrics');",
+                  "    pm.expect(fleet).to.have.property('efficiency_metrics');",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/fleets/{{test_fleet_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["fleets", "{{test_fleet_id}}"]
+            }
+          }
+        },
+        {
+          "name": "Get Fleet Analytics",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 200', function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test('Analytics data is comprehensive', function () {",
+                  "    const analytics = pm.response.json();",
+                  "    pm.expect(analytics).to.have.property('time_period');",
+                  "    pm.expect(analytics).to.have.property('health_trends');",
+                  "    pm.expect(analytics).to.have.property('cost_analysis');",
+                  "    pm.expect(analytics).to.have.property('utilization_metrics');",
+                  "    pm.expect(analytics).to.have.property('predictive_insights');",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/fleets/{{test_fleet_id}}/analytics?period=30d&include_trends=true",
+              "host": ["{{base_url}}"],
+              "path": ["fleets", "{{test_fleet_id}}", "analytics"],
+              "query": [
+                {
+                  "key": "period",
+                  "value": "30d"
+                },
+                {
+                  "key": "include_trends",
+                  "value": "true"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Optimize Maintenance Schedule",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 200', function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test('Optimization results provided', function () {",
+                  "    const result = pm.response.json();",
+                  "    pm.expect(result).to.have.property('optimized_schedule');",
+                  "    pm.expect(result).to.have.property('cost_savings');",
+                  "    pm.expect(result).to.have.property('efficiency_improvement');",
+                  "    pm.expect(result).to.have.property('recommendations');",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"optimization_type\": \"cost_efficiency\",\n  \"time_horizon_days\": 90,\n  \"constraints\": {\n    \"max_simultaneous_vehicles\": 5,\n    \"preferred_service_windows\": [\"weekends\"],\n    \"emergency_buffer_days\": 7\n  },\n  \"objectives\": [\n    \"minimize_cost\",\n    \"minimize_downtime\",\n    \"maximize_reliability\"\n  ]\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/fleets/{{test_fleet_id}}/optimize-schedule",
+              "host": ["{{base_url}}"],
+              "path": ["fleets", "{{test_fleet_id}}", "optimize-schedule"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Alerts & Notifications",
+      "item": [
+        {
+          "name": "Get Active Alerts",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 200', function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test('Alerts response is valid', function () {",
+                  "    const response = pm.response.json();",
+                  "    pm.expect(response).to.have.property('alerts');",
+                  "    pm.expect(response.alerts).to.be.an('array');",
+                  "    pm.expect(response).to.have.property('total_count');",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/alerts?status=active&severity=high,critical&limit=50",
+              "host": ["{{base_url}}"],
+              "path": ["alerts"],
+              "query": [
+                {
+                  "key": "status",
+                  "value": "active"
+                },
+                {
+                  "key": "severity",
+                  "value": "high,critical"
+                },
+                {
+                  "key": "limit",
+                  "value": "50"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Create Alert Subscription",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 201', function () {",
+                  "    pm.response.to.have.status(201);",
+                  "});",
+                  "",
+                  "pm.test('Subscription created', function () {",
+                  "    const response = pm.response.json();",
+                  "    pm.expect(response).to.have.property('subscription_id');",
+                  "    pm.expect(response).to.have.property('status', 'active');",
+                  "    pm.globals.set('alert_subscription_id', response.subscription_id);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Critical Fleet Alerts\",\n  \"filters\": {\n    \"fleet_id\": \"{{test_fleet_id}}\",\n    \"severity_levels\": [\"high\", \"critical\"],\n    \"alert_types\": [\"predictive_maintenance\", \"system_failure\"]\n  },\n  \"notification_channels\": [\n    {\n      \"type\": \"email\",\n      \"address\": \"fleet.manager@company.com\"\n    },\n    {\n      \"type\": \"webhook\",\n      \"url\": \"https://company.com/webhooks/alerts\"\n    }\n  ],\n  \"escalation_rules\": {\n    \"auto_escalate_after\": \"1h\",\n    \"escalation_contacts\": [\"emergency.contact@company.com\"]\n  }\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/alerts/subscriptions",
+              "host": ["{{base_url}}"],
+              "path": ["alerts", "subscriptions"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Error Handling & Edge Cases",
+      "item": [
+        {
+          "name": "Test Non-existent Vehicle",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 404', function () {",
+                  "    pm.response.to.have.status(404);",
+                  "});",
+                  "",
+                  "pm.test('Error response format is correct', function () {",
+                  "    const error = pm.response.json();",
+                  "    pm.expect(error).to.have.property('error');",
+                  "    pm.expect(error.error).to.have.property('code', 'VEHICLE_NOT_FOUND');",
+                  "    pm.expect(error.error).to.have.property('message');",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/vehicles/NONEXISTENT_VIN",
+              "host": ["{{base_url}}"],
+              "path": ["vehicles", "NONEXISTENT_VIN"]
+            }
+          }
+        },
+        {
+          "name": "Test Rate Limiting",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "// This test sends multiple rapid requests to trigger rate limiting",
+                  "pm.sendRequest({",
+                  "    url: pm.variables.get('base_url') + '/vehicles',",
+                  "    method: 'GET',",
+                  "    header: { 'Authorization': 'Bearer ' + pm.globals.get('auth_token') }",
+                  "});"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Rate limiting headers present', function () {",
+                  "    pm.expect(pm.response.headers.get('X-RateLimit-Limit')).to.exist;",
+                  "    pm.expect(pm.response.headers.get('X-RateLimit-Remaining')).to.exist;",
+                  "    pm.expect(pm.response.headers.get('X-RateLimit-Reset')).to.exist;",
+                  "});",
+                  "",
+                  "pm.test('Response is successful or rate limited', function () {",
+                  "    pm.expect([200, 429]).to.include(pm.response.code);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/vehicles",
+              "host": ["{{base_url}}"],
+              "path": ["vehicles"]
+            }
+          }
+        },
+        {
+          "name": "Test Invalid Authentication",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 401', function () {",
+                  "    pm.response.to.have.status(401);",
+                  "});",
+                  "",
+                  "pm.test('Unauthorized error returned', function () {",
+                  "    const error = pm.response.json();",
+                  "    pm.expect(error).to.have.property('error');",
+                  "    pm.expect(error.error.code).to.equal('UNAUTHORIZED');",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "invalid_token_12345",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/vehicles",
+              "host": ["{{base_url}}"],
+              "path": ["vehicles"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Cleanup",
+      "item": [
+        {
+          "name": "Delete Test Vehicle",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 204', function () {",
+                  "    pm.response.to.have.status(204);",
+                  "});",
+                  "",
+                  "// Clean up global variables",
+                  "pm.globals.unset('created_vehicle_id');",
+                  "pm.globals.unset('diagnostic_command_id');",
+                  "pm.globals.unset('prediction_report_id');",
+                  "pm.globals.unset('alert_subscription_id');"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/vehicles/{{created_vehicle_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["vehicles", "{{created_vehicle_id}}"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

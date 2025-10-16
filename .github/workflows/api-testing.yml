@@ -1,0 +1,482 @@
+name: 'AI Predictive Maintenance Engine - API Testing'
+
+on:
+  push:
+    branches: [ main, develop, feature/* ]
+    paths: 
+      - 'docs/api/**'
+      - 'src/**'
+      - '.github/workflows/api-testing.yml'
+  pull_request:
+    branches: [ main, develop ]
+    paths:
+      - 'docs/api/**'
+      - 'src/**'
+  schedule:
+    # Run tests daily at 2 AM UTC
+    - cron: '0 2 * * *'
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Environment to test against'
+        required: true
+        default: 'staging'
+        type: choice
+        options:
+          - development
+          - staging
+          - production
+      test_suite:
+        description: 'Test suite to run'
+        required: true
+        default: 'all'
+        type: choice
+        options:
+          - all
+          - main-api
+          - graphql
+          - websocket
+          - performance
+          - security
+
+env:
+  NODE_VERSION: '18'
+  NEWMAN_VERSION: 'latest'
+  REPORTS_PATH: 'reports/api-testing'
+
+jobs:
+  # Validation Job - Validate collection files
+  validate-collections:
+    name: 'Validate API Collections'
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Checkout Repository'
+        uses: actions/checkout@v4
+
+      - name: 'Setup Node.js'
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: 'Install Dependencies'
+        run: |
+          npm install -g newman newman-reporter-htmlextra
+          sudo apt-get update && sudo apt-get install -y jq
+
+      - name: 'Validate Collection Syntax'
+        run: |
+          echo "Validating Postman collections..."
+          
+          # Validate main API collection
+          jq empty docs/api/postman/ai-predictive-maintenance-engine-api-collection.json
+          echo "✅ Main API collection is valid"
+          
+          # Validate GraphQL collection
+          jq empty docs/api/postman/ai-predictive-maintenance-engine-graphql-collection.json
+          echo "✅ GraphQL collection is valid"
+          
+          # Validate WebSocket collection
+          jq empty docs/api/postman/ai-predictive-maintenance-engine-websocket-collection.json
+          echo "✅ WebSocket collection is valid"
+          
+          # Validate environment files
+          for env in development staging production ci; do
+            jq empty "docs/api/postman/environment-templates/${env}.postman_environment.json"
+            echo "✅ Environment ${env} is valid"
+          done
+
+      - name: 'Upload Validation Results'
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: validation-results
+          path: |
+            docs/api/postman/*.json
+            docs/api/postman/environment-templates/*.json
+
+  # Main API Testing Job
+  test-main-api:
+    name: 'Test Main API'
+    runs-on: ubuntu-latest
+    needs: validate-collections
+    if: ${{ always() && needs.validate-collections.result == 'success' }}
+    strategy:
+      matrix:
+        environment: [development, staging]
+      fail-fast: false
+    steps:
+      - name: 'Checkout Repository'
+        uses: actions/checkout@v4
+
+      - name: 'Setup Node.js'
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: 'Install Newman'
+        run: npm install -g newman newman-reporter-htmlextra
+
+      - name: 'Create Reports Directory'
+        run: mkdir -p ${{ env.REPORTS_PATH }}/main-api/${{ matrix.environment }}
+
+      - name: 'Run Main API Tests'
+        env:
+          ENVIRONMENT: ${{ matrix.environment }}
+        run: |
+          newman run docs/api/postman/ai-predictive-maintenance-engine-api-collection.json \
+            -e docs/api/postman/environment-templates/${{ matrix.environment }}.postman_environment.json \
+            --reporters cli,htmlextra,json \
+            --reporter-htmlextra-export ${{ env.REPORTS_PATH }}/main-api/${{ matrix.environment }}/report.html \
+            --reporter-htmlextra-darkTheme \
+            --reporter-htmlextra-title "AI PM Engine - Main API Tests (${{ matrix.environment }})" \
+            --reporter-json-export ${{ env.REPORTS_PATH }}/main-api/${{ matrix.environment }}/results.json \
+            --timeout-request 30000 \
+            --timeout-script 10000 \
+            --color on \
+            --bail
+
+      - name: 'Parse Test Results'
+        if: always()
+        run: |
+          if [ -f "${{ env.REPORTS_PATH }}/main-api/${{ matrix.environment }}/results.json" ]; then
+            echo "## Main API Test Results - ${{ matrix.environment }}" >> $GITHUB_STEP_SUMMARY
+            echo "| Metric | Value |" >> $GITHUB_STEP_SUMMARY
+            echo "|--------|--------|" >> $GITHUB_STEP_SUMMARY
+            
+            TOTAL=$(jq '.run.stats.tests.total' ${{ env.REPORTS_PATH }}/main-api/${{ matrix.environment }}/results.json)
+            PASSED=$(jq '.run.stats.tests.passed' ${{ env.REPORTS_PATH }}/main-api/${{ matrix.environment }}/results.json)
+            FAILED=$(jq '.run.stats.tests.failed' ${{ env.REPORTS_PATH }}/main-api/${{ matrix.environment }}/results.json)
+            DURATION=$(jq '.run.timings.completed' ${{ env.REPORTS_PATH }}/main-api/${{ matrix.environment }}/results.json)
+            
+            echo "| Total Tests | $TOTAL |" >> $GITHUB_STEP_SUMMARY
+            echo "| Passed | $PASSED |" >> $GITHUB_STEP_SUMMARY
+            echo "| Failed | $FAILED |" >> $GITHUB_STEP_SUMMARY
+            echo "| Duration | ${DURATION}ms |" >> $GITHUB_STEP_SUMMARY
+            
+            if [ "$FAILED" -gt 0 ]; then
+              echo "❌ Some tests failed" >> $GITHUB_STEP_SUMMARY
+            else
+              echo "✅ All tests passed" >> $GITHUB_STEP_SUMMARY
+            fi
+          fi
+
+      - name: 'Upload Test Reports'
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: main-api-test-reports-${{ matrix.environment }}
+          path: ${{ env.REPORTS_PATH }}/main-api/${{ matrix.environment }}/
+          retention-days: 30
+
+  # GraphQL API Testing Job
+  test-graphql-api:
+    name: 'Test GraphQL API'
+    runs-on: ubuntu-latest
+    needs: validate-collections
+    if: ${{ always() && needs.validate-collections.result == 'success' }}
+    strategy:
+      matrix:
+        environment: [development, staging]
+      fail-fast: false
+    steps:
+      - name: 'Checkout Repository'
+        uses: actions/checkout@v4
+
+      - name: 'Setup Node.js'
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: 'Install Newman'
+        run: npm install -g newman newman-reporter-htmlextra
+
+      - name: 'Create Reports Directory'
+        run: mkdir -p ${{ env.REPORTS_PATH }}/graphql/${{ matrix.environment }}
+
+      - name: 'Run GraphQL Tests'
+        env:
+          ENVIRONMENT: ${{ matrix.environment }}
+        run: |
+          newman run docs/api/postman/ai-predictive-maintenance-engine-graphql-collection.json \
+            -e docs/api/postman/environment-templates/${{ matrix.environment }}.postman_environment.json \
+            --reporters cli,htmlextra,json \
+            --reporter-htmlextra-export ${{ env.REPORTS_PATH }}/graphql/${{ matrix.environment }}/report.html \
+            --reporter-htmlextra-darkTheme \
+            --reporter-htmlextra-title "AI PM Engine - GraphQL Tests (${{ matrix.environment }})" \
+            --reporter-json-export ${{ env.REPORTS_PATH }}/graphql/${{ matrix.environment }}/results.json \
+            --timeout-request 30000 \
+            --timeout-script 10000 \
+            --color on \
+            --bail
+
+      - name: 'Upload Test Reports'
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: graphql-test-reports-${{ matrix.environment }}
+          path: ${{ env.REPORTS_PATH }}/graphql/${{ matrix.environment }}/
+          retention-days: 30
+
+  # WebSocket API Testing Job
+  test-websocket-api:
+    name: 'Test WebSocket API'
+    runs-on: ubuntu-latest
+    needs: validate-collections
+    if: ${{ always() && needs.validate-collections.result == 'success' }}
+    strategy:
+      matrix:
+        environment: [development, staging]
+      fail-fast: false
+    steps:
+      - name: 'Checkout Repository'
+        uses: actions/checkout@v4
+
+      - name: 'Setup Node.js'
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: 'Install Newman'
+        run: npm install -g newman newman-reporter-htmlextra
+
+      - name: 'Create Reports Directory'
+        run: mkdir -p ${{ env.REPORTS_PATH }}/websocket/${{ matrix.environment }}
+
+      - name: 'Run WebSocket Tests'
+        env:
+          ENVIRONMENT: ${{ matrix.environment }}
+        run: |
+          newman run docs/api/postman/ai-predictive-maintenance-engine-websocket-collection.json \
+            -e docs/api/postman/environment-templates/${{ matrix.environment }}.postman_environment.json \
+            --reporters cli,htmlextra,json \
+            --reporter-htmlextra-export ${{ env.REPORTS_PATH }}/websocket/${{ matrix.environment }}/report.html \
+            --reporter-htmlextra-darkTheme \
+            --reporter-htmlextra-title "AI PM Engine - WebSocket Tests (${{ matrix.environment }})" \
+            --reporter-json-export ${{ env.REPORTS_PATH }}/websocket/${{ matrix.environment }}/results.json \
+            --timeout-request 45000 \
+            --timeout-script 15000 \
+            --color on \
+            --bail
+
+      - name: 'Upload Test Reports'
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: websocket-test-reports-${{ matrix.environment }}
+          path: ${{ env.REPORTS_PATH }}/websocket/${{ matrix.environment }}/
+          retention-days: 30
+
+  # Performance Testing Job
+  performance-tests:
+    name: 'Performance Tests'
+    runs-on: ubuntu-latest
+    needs: [test-main-api, test-graphql-api]
+    if: ${{ always() && (needs.test-main-api.result == 'success' || needs.test-graphql-api.result == 'success') }}
+    strategy:
+      matrix:
+        environment: [staging]
+    steps:
+      - name: 'Checkout Repository'
+        uses: actions/checkout@v4
+
+      - name: 'Setup Node.js'
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: 'Install Newman'
+        run: npm install -g newman
+
+      - name: 'Create Reports Directory'
+        run: mkdir -p ${{ env.REPORTS_PATH }}/performance/${{ matrix.environment }}
+
+      - name: 'Run Performance Tests'
+        env:
+          ENVIRONMENT: ${{ matrix.environment }}
+        run: |
+          echo "Running performance tests with multiple iterations..."
+          
+          newman run docs/api/postman/ai-predictive-maintenance-engine-api-collection.json \
+            -e docs/api/postman/environment-templates/${{ matrix.environment }}.postman_environment.json \
+            --iteration-count 10 \
+            --delay-request 100 \
+            --reporters cli,json \
+            --reporter-json-export ${{ env.REPORTS_PATH }}/performance/${{ matrix.environment }}/results.json \
+            --timeout-request 60000 \
+            --timeout-script 20000 \
+            --color on
+
+      - name: 'Analyze Performance Results'
+        if: always()
+        run: |
+          if [ -f "${{ env.REPORTS_PATH }}/performance/${{ matrix.environment }}/results.json" ]; then
+            echo "## Performance Test Results - ${{ matrix.environment }}" >> $GITHUB_STEP_SUMMARY
+            
+            # Extract performance metrics
+            AVG_RESPONSE_TIME=$(jq '.run.timings.responseAverage' ${{ env.REPORTS_PATH }}/performance/${{ matrix.environment }}/results.json)
+            MAX_RESPONSE_TIME=$(jq '.run.timings.responseMax' ${{ env.REPORTS_PATH }}/performance/${{ matrix.environment }}/results.json)
+            MIN_RESPONSE_TIME=$(jq '.run.timings.responseMin' ${{ env.REPORTS_PATH }}/performance/${{ matrix.environment }}/results.json)
+            
+            echo "| Metric | Value |" >> $GITHUB_STEP_SUMMARY
+            echo "|--------|--------|" >> $GITHUB_STEP_SUMMARY
+            echo "| Average Response Time | ${AVG_RESPONSE_TIME}ms |" >> $GITHUB_STEP_SUMMARY
+            echo "| Max Response Time | ${MAX_RESPONSE_TIME}ms |" >> $GITHUB_STEP_SUMMARY
+            echo "| Min Response Time | ${MIN_RESPONSE_TIME}ms |" >> $GITHUB_STEP_SUMMARY
+            
+            # Performance thresholds
+            if (( $(echo "$AVG_RESPONSE_TIME > 1000" | bc -l) )); then
+              echo "⚠️ Average response time exceeds 1000ms threshold" >> $GITHUB_STEP_SUMMARY
+            else
+              echo "✅ Performance tests within acceptable limits" >> $GITHUB_STEP_SUMMARY
+            fi
+          fi
+
+      - name: 'Upload Performance Reports'
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: performance-test-reports-${{ matrix.environment }}
+          path: ${{ env.REPORTS_PATH }}/performance/${{ matrix.environment }}/
+          retention-days: 30
+
+  # Security Testing Job
+  security-tests:
+    name: 'Security Tests'
+    runs-on: ubuntu-latest
+    needs: validate-collections
+    if: ${{ always() && needs.validate-collections.result == 'success' }}
+    strategy:
+      matrix:
+        environment: [staging]
+    steps:
+      - name: 'Checkout Repository'
+        uses: actions/checkout@v4
+
+      - name: 'Setup Node.js'
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: 'Install Newman and Security Tools'
+        run: |
+          npm install -g newman
+          sudo apt-get update && sudo apt-get install -y jq
+
+      - name: 'Create Reports Directory'
+        run: mkdir -p ${{ env.REPORTS_PATH }}/security/${{ matrix.environment }}
+
+      - name: 'Extract Security Tests'
+        run: |
+          # Create a focused collection with security-related tests
+          jq '.item[] | select(.name | contains("Auth") or contains("Security") or contains("Token"))' \
+            docs/api/postman/ai-predictive-maintenance-engine-api-collection.json > \
+            ${{ env.REPORTS_PATH }}/security/${{ matrix.environment }}/security-tests.json
+
+      - name: 'Run Security Tests'
+        env:
+          ENVIRONMENT: ${{ matrix.environment }}
+        run: |
+          if [ -s "${{ env.REPORTS_PATH }}/security/${{ matrix.environment }}/security-tests.json" ]; then
+            echo "Running security-focused tests..."
+            
+            newman run ${{ env.REPORTS_PATH }}/security/${{ matrix.environment }}/security-tests.json \
+              -e docs/api/postman/environment-templates/${{ matrix.environment }}.postman_environment.json \
+              --reporters cli,json \
+              --reporter-json-export ${{ env.REPORTS_PATH }}/security/${{ matrix.environment }}/results.json \
+              --timeout-request 30000 \
+              --color on
+          else
+            echo "No security-specific tests found"
+          fi
+
+      - name: 'Upload Security Reports'
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: security-test-reports-${{ matrix.environment }}
+          path: ${{ env.REPORTS_PATH }}/security/${{ matrix.environment }}/
+          retention-days: 30
+
+  # Generate Consolidated Report
+  generate-report:
+    name: 'Generate Consolidated Report'
+    runs-on: ubuntu-latest
+    needs: [test-main-api, test-graphql-api, test-websocket-api, performance-tests, security-tests]
+    if: always()
+    steps:
+      - name: 'Checkout Repository'
+        uses: actions/checkout@v4
+
+      - name: 'Download All Test Artifacts'
+        uses: actions/download-artifact@v4
+        with:
+          path: ${{ env.REPORTS_PATH }}/
+
+      - name: 'Setup Node.js'
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: 'Install Dependencies'
+        run: |
+          npm install -g newman
+          sudo apt-get update && sudo apt-get install -y jq
+
+      - name: 'Generate Consolidated Report'
+        run: |
+          mkdir -p ${{ env.REPORTS_PATH }}/consolidated
+          
+          # Use the report generation script
+          if [ -f "scripts/run-api-tests.sh" ]; then
+            chmod +x scripts/run-api-tests.sh
+            ./scripts/run-api-tests.sh report
+          fi
+
+      - name: 'Create Test Summary'
+        run: |
+          echo "# 🚀 AI Predictive Maintenance Engine - API Test Results" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "## Test Execution Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
+          # Job status summary
+          echo "| Test Suite | Status |" >> $GITHUB_STEP_SUMMARY
+          echo "|------------|--------|" >> $GITHUB_STEP_SUMMARY
+          echo "| Main API Tests | ${{ needs.test-main-api.result }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| GraphQL Tests | ${{ needs.test-graphql-api.result }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| WebSocket Tests | ${{ needs.test-websocket-api.result }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Performance Tests | ${{ needs.performance-tests.result }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Security Tests | ${{ needs.security-tests.result }} |" >> $GITHUB_STEP_SUMMARY
+          
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "## 📊 Detailed Reports" >> $GITHUB_STEP_SUMMARY
+          echo "Detailed HTML reports and JSON results are available in the artifacts section." >> $GITHUB_STEP_SUMMARY
+
+      - name: 'Upload Consolidated Reports'
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: consolidated-test-reports
+          path: ${{ env.REPORTS_PATH }}/
+          retention-days: 30
+
+  # Notify on failure
+  notify-failure:
+    name: 'Notify Test Failures'
+    runs-on: ubuntu-latest
+    needs: [test-main-api, test-graphql-api, test-websocket-api, performance-tests, security-tests]
+    if: failure()
+    steps:
+      - name: 'Create Failure Summary'
+        run: |
+          echo "# ❌ API Tests Failed" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "One or more API test suites have failed. Please check the individual job logs for details." >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "## Failed Jobs" >> $GITHUB_STEP_SUMMARY
+          echo "- Main API Tests: ${{ needs.test-main-api.result }}" >> $GITHUB_STEP_SUMMARY
+          echo "- GraphQL Tests: ${{ needs.test-graphql-api.result }}" >> $GITHUB_STEP_SUMMARY
+          echo "- WebSocket Tests: ${{ needs.test-websocket-api.result }}" >> $GITHUB_STEP_SUMMARY
+          echo "- Performance Tests: ${{ needs.performance-tests.result }}" >> $GITHUB_STEP_SUMMARY
+          echo "- Security Tests: ${{ needs.security-tests.result }}" >> $GITHUB_STEP_SUMMARY

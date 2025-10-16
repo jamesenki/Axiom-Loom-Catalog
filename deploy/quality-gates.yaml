@@ -1,0 +1,175 @@
+# Quality Gates Configuration - DevOps Agent Implementation
+# These gates MUST pass before any deployment
+
+quality_gates:
+  code_quality:
+    typescript_errors:
+      threshold: 0
+      severity: critical
+      abort_on_failure: true
+    
+    eslint_errors:
+      threshold: 0
+      severity: critical
+      abort_on_failure: true
+    
+    eslint_warnings:
+      threshold: 0
+      severity: high
+      abort_on_failure: true
+    
+    code_complexity:
+      max_cyclomatic_complexity: 10
+      max_cognitive_complexity: 15
+      severity: high
+      abort_on_failure: false
+    
+    code_duplication:
+      max_percentage: 5
+      severity: medium
+      abort_on_failure: false
+
+  test_quality:
+    unit_tests:
+      pass_rate: 100
+      coverage_threshold: 80
+      severity: critical
+      abort_on_failure: true
+    
+    integration_tests:
+      pass_rate: 100
+      severity: critical
+      abort_on_failure: true
+    
+    e2e_tests:
+      pass_rate: 100
+      browsers: [chrome, firefox, safari]
+      severity: critical
+      abort_on_failure: true
+    
+    regression_tests:
+      pass_rate: 100
+      severity: high
+      abort_on_failure: true
+
+  performance:
+    page_load_time:
+      threshold_ms: 3000
+      severity: high
+      abort_on_failure: false
+    
+    lighthouse_score:
+      performance: 80
+      accessibility: 90
+      best_practices: 90
+      seo: 90
+      severity: high
+      abort_on_failure: false
+    
+    bundle_size:
+      max_mb: 5
+      severity: medium
+      abort_on_failure: false
+    
+    memory_usage:
+      max_heap_mb: 500
+      severity: high
+      abort_on_failure: false
+
+  security:
+    vulnerabilities:
+      critical: 0
+      high: 0
+      medium: 5  # Allow some medium vulnerabilities with review
+      severity: critical
+      abort_on_failure: true
+    
+    exposed_secrets:
+      threshold: 0
+      severity: critical
+      abort_on_failure: true
+    
+    security_headers:
+      required:
+        - X-Frame-Options
+        - X-Content-Type-Options
+        - Content-Security-Policy
+        - Strict-Transport-Security
+        - X-XSS-Protection
+      severity: high
+      abort_on_failure: true
+    
+    dependency_check:
+      outdated_days: 30
+      severity: medium
+      abort_on_failure: false
+
+  deployment_readiness:
+    docker_build:
+      must_succeed: true
+      severity: critical
+      abort_on_failure: true
+    
+    health_checks:
+      all_endpoints_healthy: true
+      response_time_ms: 1000
+      severity: critical
+      abort_on_failure: true
+    
+    smoke_tests:
+      pass_rate: 100
+      severity: critical
+      abort_on_failure: true
+    
+    rollback_plan:
+      exists: true
+      tested: true
+      severity: critical
+      abort_on_failure: true
+
+# Enforcement rules
+enforcement:
+  pre_commit:
+    - typescript_errors
+    - eslint_errors
+    - unit_tests
+  
+  pre_merge:
+    - code_quality
+    - test_quality
+    - security.exposed_secrets
+  
+  pre_deployment:
+    - ALL  # Every single gate must pass
+
+# Monitoring thresholds (post-deployment)
+monitoring:
+  error_rate:
+    threshold_percentage: 1
+    window_minutes: 5
+    action: rollback
+  
+  response_time:
+    p95_threshold_ms: 2000
+    window_minutes: 5
+    action: alert
+  
+  availability:
+    threshold_percentage: 99.9
+    window_minutes: 10
+    action: rollback
+
+# Approval requirements
+approvals:
+  required_for:
+    - production_deployment
+    - rollback_override
+    - gate_threshold_override
+  
+  approvers:
+    - role: devops_lead
+    - role: qa_lead
+    - role: security_team
+  
+  min_approvals: 2
+  timeout_hours: 24

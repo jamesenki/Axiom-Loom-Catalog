@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo Coming Soon - Axiom Loom</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #0A0A0A 0%, #1A1A1A 100%);
+            color: #FFFFFF;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            max-width: 600px;
+            padding: 2rem;
+            z-index: 2;
+            position: relative;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #FFD700;
+            margin-bottom: 1rem;
+        }
+
+        .title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: none;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: #B0B0B0;
+            margin-bottom: 2rem;
+            line-height: 1.5;
+        }
+
+        .description {
+            font-size: 1.1rem;
+            color: #888;
+            margin-bottom: 3rem;
+            line-height: 1.6;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            color: #0A0A0A;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            margin: 0.5rem;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+        }
+
+        .secondary-button {
+            display: inline-block;
+            border: 2px solid #FFD700;
+            color: #FFD700;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            margin: 0.5rem;
+            background: transparent;
+        }
+
+        .secondary-button:hover {
+            background: #FFD700;
+            color: #0A0A0A;
+            transform: translateY(-2px);
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .feature {
+            text-align: center;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #FFD700;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-description {
+            font-size: 0.9rem;
+            color: #AAA;
+            line-height: 1.4;
+        }
+
+        .background-animation {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .floating-shape {
+            position: absolute;
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-shape:nth-child(1) {
+            width: 200px;
+            height: 200px;
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .floating-shape:nth-child(2) {
+            width: 150px;
+            height: 150px;
+            top: 60%;
+            right: 15%;
+            animation-delay: 2s;
+        }
+
+        .floating-shape:nth-child(3) {
+            width: 120px;
+            height: 120px;
+            bottom: 20%;
+            left: 20%;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            33% { transform: translateY(-20px) rotate(5deg); }
+            66% { transform: translateY(10px) rotate(-5deg); }
+        }
+
+        .status-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 215, 0, 0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: #FFD700;
+            margin-bottom: 2rem;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: #FFD700;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.3; }
+            100% { opacity: 1; }
+        }
+
+        @media (max-width: 768px) {
+            .title {
+                font-size: 2rem;
+            }
+            
+            .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .container {
+                padding: 1rem;
+            }
+            
+            .features {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="background-animation">
+        <div class="floating-shape"></div>
+        <div class="floating-shape"></div>
+        <div class="floating-shape"></div>
+    </div>
+    
+    <div class="container">
+        <div class="logo">⚡ Axiom Loom</div>
+        
+        <div class="status-indicator">
+            <div class="status-dot"></div>
+            Demo in Development
+        </div>
+        
+        <h1 class="title">Demo Coming Soon</h1>
+        <p class="subtitle">Interactive Demo Experience in Development</p>
+        
+        <p class="description">
+            We're crafting an immersive demo experience for the AI Predictive Maintenance Architecture. 
+            This interactive showcase will demonstrate the full capabilities, architecture patterns, 
+            and implementation workflow of this enterprise-grade solution.
+        </p>
+
+        <div class="features">
+            <div class="feature">
+                <div class="feature-icon">🏗️</div>
+                <div class="feature-title">Architecture Tour</div>
+                <div class="feature-description">Interactive exploration of system design and components</div>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🤖</div>
+                <div class="feature-title">AI Agents Showcase</div>
+                <div class="feature-description">See how specialized AI agents built this solution</div>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">📊</div>
+                <div class="feature-title">Live Metrics</div>
+                <div class="feature-description">Real-time demonstration of predictive capabilities</div>
+            </div>
+        </div>
+
+        <div style="margin-top: 2rem;">
+            <a href="/" class="cta-button">← Back to Catalog</a>
+            <a href="/repository/ai-predictive-maintenance-engine-architecture" class="secondary-button">View Repository Details</a>
+        </div>
+        
+        <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1);">
+            <p style="color: #666; font-size: 0.9rem;">
+                Need immediate access? Contact our team for a personalized demonstration.<br>
+                <strong style="color: #FFD700;">Expected Launch:</strong> Coming Soon
+            </p>
+        </div>
+    </div>
+</body>
+</html>

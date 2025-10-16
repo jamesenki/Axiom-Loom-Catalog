@@ -1,0 +1,229 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ai-prediction-engine
+  namespace: ai-predictive-maintenance
+  labels:
+    app.kubernetes.io/name: ai-prediction-engine
+    app.kubernetes.io/component: ai-engine
+    app.kubernetes.io/part-of: ai-predictive-maintenance-engine
+    app.kubernetes.io/version: "1.0.0"
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: ai-prediction-engine
+      app.kubernetes.io/component: ai-engine
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: ai-prediction-engine
+        app.kubernetes.io/component: ai-engine
+        app.kubernetes.io/part-of: ai-predictive-maintenance-engine
+        app.kubernetes.io/version: "1.0.0"
+    spec:
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 100
+            podAffinityTerm:
+              labelSelector:
+                matchExpressions:
+                - key: app.kubernetes.io/name
+                  operator: In
+                  values:
+                  - ai-prediction-engine
+              topologyKey: kubernetes.io/hostname
+      containers:
+      - name: ai-prediction-engine
+        image: ai-pm-engine/ai-prediction-engine:1.0.0
+        imagePullPolicy: IfNotPresent
+        ports:
+        - name: http
+          containerPort: 3001
+          protocol: TCP
+        - name: metrics
+          containerPort: 9091
+          protocol: TCP
+        env:
+        - name: NODE_ENV
+          value: "production"
+        - name: LOG_LEVEL
+          value: "info"
+        - name: MODEL_STORAGE_PATH
+          value: "/app/models"
+        - name: TENSORFLOW_SERVING_URL
+          value: "http://tensorflow-serving-service:8501"
+        - name: MLFLOW_TRACKING_URI
+          value: "http://mlflow-service:5000"
+        - name: INFLUXDB_HOST
+          value: "influxdb-service.ai-predictive-maintenance.svc.cluster.local"
+        - name: INFLUXDB_PORT
+          value: "8086"
+        - name: INFLUXDB_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: influxdb-credentials
+              key: token
+        - name: INFLUXDB_ORG
+          value: "ai_pm_engine"
+        - name: INFLUXDB_BUCKET
+          value: "vehicle_diagnostics"
+        - name: GPU_ENABLED
+          value: "false"
+        livenessProbe:
+          httpGet:
+            path: /health/live
+            port: http
+          initialDelaySeconds: 60
+          periodSeconds: 30
+          timeoutSeconds: 10
+          failureThreshold: 3
+        readinessProbe:
+          httpGet:
+            path: /health/ready
+            port: http
+          initialDelaySeconds: 40
+          periodSeconds: 10
+          timeoutSeconds: 5
+          failureThreshold: 3
+        resources:
+          requests:
+            memory: "2Gi"
+            cpu: "1000m"
+          limits:
+            memory: "4Gi"
+            cpu: "2000m"
+        volumeMounts:
+        - name: model-storage
+          mountPath: /app/models
+        - name: config
+          mountPath: /app/config
+          readOnly: true
+      volumes:
+      - name: model-storage
+        persistentVolumeClaim:
+          claimName: ai-models-pvc
+      - name: config
+        configMap:
+          name: ai-prediction-engine-config
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ai-prediction-engine-service
+  namespace: ai-predictive-maintenance
+  labels:
+    app.kubernetes.io/name: ai-prediction-engine
+    app.kubernetes.io/component: ai-engine
+    app.kubernetes.io/part-of: ai-predictive-maintenance-engine
+spec:
+  type: ClusterIP
+  ports:
+  - name: http
+    port: 3001
+    targetPort: http
+    protocol: TCP
+  - name: metrics
+    port: 9091
+    targetPort: metrics
+    protocol: TCP
+  selector:
+    app.kubernetes.io/name: ai-prediction-engine
+    app.kubernetes.io/component: ai-engine
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: ai-models-pvc
+  namespace: ai-predictive-maintenance
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: fast-ssd
+  resources:
+    requests:
+      storage: 50Gi
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ai-prediction-engine-config
+  namespace: ai-predictive-maintenance
+data:
+  model-config.yaml: |
+    models:
+      engine_failure:
+        type: physics_informed_nn
+        version: "2.1.0"
+        input_features: 45
+        output_classes: 12
+        confidence_threshold: 0.75
+        update_frequency: "weekly"
+      
+      transmission_wear:
+        type: lstm_autoencoder
+        version: "1.8.0"
+        sequence_length: 100
+        latent_dim: 32
+        anomaly_threshold: 0.85
+        update_frequency: "daily"
+      
+      brake_degradation:
+        type: gradient_boosting
+        version: "3.0.1"
+        n_estimators: 500
+        max_depth: 10
+        learning_rate: 0.01
+        update_frequency: "monthly"
+    
+    inference:
+      batch_size: 32
+      max_concurrent: 10
+      timeout_ms: 5000
+      cache_ttl: 300
+    
+    monitoring:
+      drift_detection:
+        enabled: true
+        method: "kolmogorov_smirnov"
+        threshold: 0.05
+        window_size: 1000
+      
+      performance_tracking:
+        enabled: true
+        metrics:
+          - accuracy
+          - precision
+          - recall
+          - f1_score
+          - auc_roc
+        evaluation_frequency: "hourly"
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: model-update-job
+  namespace: ai-predictive-maintenance
+spec:
+  schedule: "0 2 * * 0"  # Weekly at 2 AM on Sunday
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: model-updater
+            image: ai-pm-engine/model-updater:1.0.0
+            env:
+            - name: MLFLOW_TRACKING_URI
+              value: "http://mlflow-service:5000"
+            - name: MODEL_STORAGE_PATH
+              value: "/models"
+            volumeMounts:
+            - name: model-storage
+              mountPath: /models
+          volumes:
+          - name: model-storage
+            persistentVolumeClaim:
+              claimName: ai-models-pvc
+          restartPolicy: OnFailure

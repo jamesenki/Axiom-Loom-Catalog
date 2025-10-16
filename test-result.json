@@ -1,0 +1,2608 @@
+
+> eyns-ai-experience-center@0.1.0 test:e2e
+> playwright test e2e/auth-flow.spec.ts --reporter=json
+
+{
+  "config": {
+    "configFile": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/playwright.config.ts",
+    "rootDir": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e",
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 4
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 4
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 4
+        },
+        "id": "firefox",
+        "name": "firefox",
+        "testDir": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 4
+        },
+        "id": "webkit",
+        "name": "webkit",
+        "testDir": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 4
+        },
+        "id": "Mobile Chrome",
+        "name": "Mobile Chrome",
+        "testDir": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 4
+        },
+        "id": "Mobile Safari",
+        "name": "Mobile Safari",
+        "testDir": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "shard": null,
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.54.2",
+    "workers": 4,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "auth-flow.spec.ts",
+      "file": "auth-flow.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Authentication Flow",
+          "file": "auth-flow.spec.ts",
+          "line": 7,
+          "column": 6,
+          "specs": [
+            {
+              "title": "redirects to login when accessing protected route",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 5794,
+                      "error": {
+                        "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: getByText('EY AI Experience Center')\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('EY AI Experience Center')\u001b[22m\n",
+                        "stack": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: getByText('EY AI Experience Center')\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('EY AI Experience Center')\u001b[22m\n\n    at /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts:18:61",
+                        "location": {
+                          "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts",
+                          "column": 61,
+                          "line": 18
+                        },
+                        "snippet": "  16 |     // Should redirect to login\n  17 |     await expect(page).toHaveURL(/.*\\/login/);\n> 18 |     await expect(page.getByText('EY AI Experience Center')).toBeVisible();\n     |                                                             ^\n  19 |     await expect(page.getByText('Sign in to continue')).toBeVisible();\n  20 |   });\n  21 |"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts",
+                            "column": 61,
+                            "line": 18
+                          },
+                          "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: getByText('EY AI Experience Center')\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('EY AI Experience Center')\u001b[22m\n\n\n  16 |     // Should redirect to login\n  17 |     await expect(page).toHaveURL(/.*\\/login/);\n> 18 |     await expect(page.getByText('EY AI Experience Center')).toBeVisible();\n     |                                                             ^\n  19 |     await expect(page.getByText('Sign in to continue')).toBeVisible();\n  20 |   });\n  21 |\n    at /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts:18:61"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-02T11:32:36.497Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/test-results/auth-flow-Authentication-F-c52b1-n-accessing-protected-route-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/test-results/auth-flow-Authentication-F-c52b1-n-accessing-protected-route-chromium/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts",
+                        "column": 61,
+                        "line": 18
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "df6b40174562c70df515-ddd10f4e0a7eae443a39",
+              "file": "auth-flow.spec.ts",
+              "line": 12,
+              "column": 7
+            },
+            {
+              "title": "shows SSO login button",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "failed",
+                      "duration": 5872,
+                      "error": {
+                        "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: getByText('Sign in with EY SSO')\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Sign in with EY SSO')\u001b[22m\n",
+                        "stack": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: getByText('Sign in with EY SSO')\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Sign in with EY SSO')\u001b[22m\n\n    at /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts:26:29",
+                        "location": {
+                          "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts",
+                          "column": 29,
+                          "line": 26
+                        },
+                        "snippet": "  24 |     \n  25 |     const ssoButton = page.getByText('Sign in with EY SSO');\n> 26 |     await expect(ssoButton).toBeVisible();\n     |                             ^\n  27 |     await expect(ssoButton).toBeEnabled();\n  28 |   });\n  29 |"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts",
+                            "column": 29,
+                            "line": 26
+                          },
+                          "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: getByText('Sign in with EY SSO')\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Sign in with EY SSO')\u001b[22m\n\n\n  24 |     \n  25 |     const ssoButton = page.getByText('Sign in with EY SSO');\n> 26 |     await expect(ssoButton).toBeVisible();\n     |                             ^\n  27 |     await expect(ssoButton).toBeEnabled();\n  28 |   });\n  29 |\n    at /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts:26:29"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-02T11:32:36.549Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/test-results/auth-flow-Authentication-Flow-shows-SSO-login-button-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/test-results/auth-flow-Authentication-Flow-shows-SSO-login-button-chromium/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts",
+                        "column": 29,
+                        "line": 26
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "df6b40174562c70df515-d5c772f6adb79e90ea02",
+              "file": "auth-flow.spec.ts",
+              "line": 22,
+              "column": 7
+            },
+            {
+              "title": "development login form works",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts",
+                        "line": 34,
+                        "column": 12
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "skipped",
+                      "duration": 790,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-02T11:32:36.549Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "location": {
+                            "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts",
+                            "line": 34,
+                            "column": 12
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "df6b40174562c70df515-421ac7adde3b375184e2",
+              "file": "auth-flow.spec.ts",
+              "line": 30,
+              "column": 7
+            },
+            {
+              "title": "user menu appears after login",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "failed",
+                      "duration": 5869,
+                      "error": {
+                        "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: getByRole('button', { name: /User/i })\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: /User/i })\u001b[22m\n",
+                        "stack": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: getByRole('button', { name: /User/i })\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: /User/i })\u001b[22m\n\n    at /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts:62:30",
+                        "location": {
+                          "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts",
+                          "column": 30,
+                          "line": 62
+                        },
+                        "snippet": "  60 |     // Check for user menu button\n  61 |     const userButton = page.getByRole('button', { name: /User/i });\n> 62 |     await expect(userButton).toBeVisible();\n     |                              ^\n  63 |     \n  64 |     // Click to open menu\n  65 |     await userButton.click();"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts",
+                            "column": 30,
+                            "line": 62
+                          },
+                          "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: getByRole('button', { name: /User/i })\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: /User/i })\u001b[22m\n\n\n  60 |     // Check for user menu button\n  61 |     const userButton = page.getByRole('button', { name: /User/i });\n> 62 |     await expect(userButton).toBeVisible();\n     |                              ^\n  63 |     \n  64 |     // Click to open menu\n  65 |     await userButton.click();\n    at /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts:62:30"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-02T11:32:36.485Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/test-results/auth-flow-Authentication-Flow-user-menu-appears-after-login-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/test-results/auth-flow-Authentication-Flow-user-menu-appears-after-login-chromium/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts",
+                        "column": 30,
+                        "line": 62
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "df6b40174562c70df515-951d5acac1f376c99622",
+              "file": "auth-flow.spec.ts",
+              "line": 51,
+              "column": 7
+            },
+            {
+              "title": "logout works correctly",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "timedOut",
+                      "duration": 30072,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts",
+                            "column": 22,
+                            "line": 83
+                          },
+                          "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: /User/i })\u001b[22m\n\n\n  81 |     // Open user menu\n  82 |     const userButton = page.getByRole('button', { name: /User/i });\n> 83 |     await userButton.click();\n     |                      ^\n  84 |     \n  85 |     // Click sign out\n  86 |     await page.click('button:has-text(\"Sign Out\")');\n    at /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts:83:22"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-02T11:32:37.817Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/test-results/auth-flow-Authentication-Flow-logout-works-correctly-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/test-results/auth-flow-Authentication-Flow-logout-works-correctly-chromium/error-context.md"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "df6b40174562c70df515-808b06a187f39b7d6220",
+              "file": "auth-flow.spec.ts",
+              "line": 72,
+              "column": 7
+            },
+            {
+              "title": "protected routes show unauthorized message",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 3,
+                      "status": "failed",
+                      "duration": 5469,
+                      "error": {
+                        "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: getByText('Access Denied')\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Access Denied')\u001b[22m\n",
+                        "stack": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: getByText('Access Denied')\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Access Denied')\u001b[22m\n\n    at /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts:113:51",
+                        "location": {
+                          "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts",
+                          "column": 51,
+                          "line": 113
+                        },
+                        "snippet": "  111 |     \n  112 |     // Should show unauthorized message\n> 113 |     await expect(page.getByText('Access Denied')).toBeVisible();\n      |                                                   ^\n  114 |     await expect(page.getByText(/don't have the required role/)).toBeVisible();\n  115 |   });\n  116 |"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts",
+                            "column": 51,
+                            "line": 113
+                          },
+                          "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: getByText('Access Denied')\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Access Denied')\u001b[22m\n\n\n  111 |     \n  112 |     // Should show unauthorized message\n> 113 |     await expect(page.getByText('Access Denied')).toBeVisible();\n      |                                                   ^\n  114 |     await expect(page.getByText(/don't have the required role/)).toBeVisible();\n  115 |   });\n  116 |\n    at /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts:113:51"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-02T11:32:43.149Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/test-results/auth-flow-Authentication-F-8b687-s-show-unauthorized-message-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/test-results/auth-flow-Authentication-F-8b687-s-show-unauthorized-message-chromium/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts",
+                        "column": 51,
+                        "line": 113
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "df6b40174562c70df515-727401bb292fb2aa2d6d",
+              "file": "auth-flow.spec.ts",
+              "line": 103,
+              "column": 7
+            },
+            {
+              "title": "API key management is accessible for developers",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 1,
+                      "status": "failed",
+                      "duration": 5481,
+                      "error": {
+                        "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: getByText('API Key Management')\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('API Key Management')\u001b[22m\n",
+                        "stack": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: getByText('API Key Management')\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('API Key Management')\u001b[22m\n\n    at /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts:126:56",
+                        "location": {
+                          "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts",
+                          "column": 56,
+                          "line": 126
+                        },
+                        "snippet": "  124 |     \n  125 |     // Should show API key management page\n> 126 |     await expect(page.getByText('API Key Management')).toBeVisible();\n      |                                                        ^\n  127 |     await expect(page.getByText('Create New API Key')).toBeVisible();\n  128 |   });\n  129 |"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts",
+                            "column": 56,
+                            "line": 126
+                          },
+                          "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: getByText('API Key Management')\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('API Key Management')\u001b[22m\n\n\n  124 |     \n  125 |     // Should show API key management page\n> 126 |     await expect(page.getByText('API Key Management')).toBeVisible();\n      |                                                        ^\n  127 |     await expect(page.getByText('Create New API Key')).toBeVisible();\n  128 |   });\n  129 |\n    at /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts:126:56"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-02T11:32:43.169Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/test-results/auth-flow-Authentication-F-eda76-s-accessible-for-developers-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/test-results/auth-flow-Authentication-F-eda76-s-accessible-for-developers-chromium/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts",
+                        "column": 56,
+                        "line": 126
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "df6b40174562c70df515-42ef2e1970721c2f98bd",
+              "file": "auth-flow.spec.ts",
+              "line": 117,
+              "column": 7
+            },
+            {
+              "title": "security headers are present",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 6,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 489,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-02T11:32:43.167Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "df6b40174562c70df515-168d76e4b59b6ff48b55",
+              "file": "auth-flow.spec.ts",
+              "line": 130,
+              "column": 7
+            },
+            {
+              "title": "redirects to login when accessing protected route",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 7,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 6190,
+                      "error": {
+                        "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: getByText('EY AI Experience Center')\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('EY AI Experience Center')\u001b[22m\n",
+                        "stack": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: getByText('EY AI Experience Center')\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('EY AI Experience Center')\u001b[22m\n\n    at /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts:18:61",
+                        "location": {
+                          "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts",
+                          "column": 61,
+                          "line": 18
+                        },
+                        "snippet": "  16 |     // Should redirect to login\n  17 |     await expect(page).toHaveURL(/.*\\/login/);\n> 18 |     await expect(page.getByText('EY AI Experience Center')).toBeVisible();\n     |                                                             ^\n  19 |     await expect(page.getByText('Sign in to continue')).toBeVisible();\n  20 |   });\n  21 |"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts",
+                            "column": 61,
+                            "line": 18
+                          },
+                          "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: getByText('EY AI Experience Center')\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('EY AI Experience Center')\u001b[22m\n\n\n  16 |     // Should redirect to login\n  17 |     await expect(page).toHaveURL(/.*\\/login/);\n> 18 |     await expect(page.getByText('EY AI Experience Center')).toBeVisible();\n     |                                                             ^\n  19 |     await expect(page.getByText('Sign in to continue')).toBeVisible();\n  20 |   });\n  21 |\n    at /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts:18:61"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-02T11:32:44.043Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/test-results/auth-flow-Authentication-F-c52b1-n-accessing-protected-route-firefox/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/test-results/auth-flow-Authentication-F-c52b1-n-accessing-protected-route-firefox/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts",
+                        "column": 61,
+                        "line": 18
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "df6b40174562c70df515-f45cc4d4801161158f8a",
+              "file": "auth-flow.spec.ts",
+              "line": 12,
+              "column": 7
+            },
+            {
+              "title": "shows SSO login button",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 8,
+                      "parallelIndex": 3,
+                      "status": "failed",
+                      "duration": 6714,
+                      "error": {
+                        "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: getByText('Sign in with EY SSO')\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Sign in with EY SSO')\u001b[22m\n",
+                        "stack": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: getByText('Sign in with EY SSO')\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Sign in with EY SSO')\u001b[22m\n\n    at /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts:26:29",
+                        "location": {
+                          "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts",
+                          "column": 29,
+                          "line": 26
+                        },
+                        "snippet": "  24 |     \n  25 |     const ssoButton = page.getByText('Sign in with EY SSO');\n> 26 |     await expect(ssoButton).toBeVisible();\n     |                             ^\n  27 |     await expect(ssoButton).toBeEnabled();\n  28 |   });\n  29 |"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts",
+                            "column": 29,
+                            "line": 26
+                          },
+                          "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: getByText('Sign in with EY SSO')\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Sign in with EY SSO')\u001b[22m\n\n\n  24 |     \n  25 |     const ssoButton = page.getByText('Sign in with EY SSO');\n> 26 |     await expect(ssoButton).toBeVisible();\n     |                             ^\n  27 |     await expect(ssoButton).toBeEnabled();\n  28 |   });\n  29 |\n    at /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts:26:29"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-02T11:32:49.048Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/test-results/auth-flow-Authentication-Flow-shows-SSO-login-button-firefox/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/test-results/auth-flow-Authentication-Flow-shows-SSO-login-button-firefox/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts",
+                        "column": 29,
+                        "line": 26
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "df6b40174562c70df515-1d9a9ad67b7fd09bb76c",
+              "file": "auth-flow.spec.ts",
+              "line": 22,
+              "column": 7
+            },
+            {
+              "title": "development login form works",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts",
+                        "line": 34,
+                        "column": 12
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 9,
+                      "parallelIndex": 1,
+                      "status": "skipped",
+                      "duration": 1480,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-02T11:32:49.050Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "location": {
+                            "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts",
+                            "line": 34,
+                            "column": 12
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "df6b40174562c70df515-a6293efdf0ba098b289f",
+              "file": "auth-flow.spec.ts",
+              "line": 30,
+              "column": 7
+            },
+            {
+              "title": "user menu appears after login",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 9,
+                      "parallelIndex": 1,
+                      "status": "failed",
+                      "duration": 5852,
+                      "error": {
+                        "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: getByRole('button', { name: /User/i })\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: /User/i })\u001b[22m\n",
+                        "stack": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: getByRole('button', { name: /User/i })\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: /User/i })\u001b[22m\n\n    at /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts:62:30",
+                        "location": {
+                          "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts",
+                          "column": 30,
+                          "line": 62
+                        },
+                        "snippet": "  60 |     // Check for user menu button\n  61 |     const userButton = page.getByRole('button', { name: /User/i });\n> 62 |     await expect(userButton).toBeVisible();\n     |                              ^\n  63 |     \n  64 |     // Click to open menu\n  65 |     await userButton.click();"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts",
+                            "column": 30,
+                            "line": 62
+                          },
+                          "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: getByRole('button', { name: /User/i })\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: /User/i })\u001b[22m\n\n\n  60 |     // Check for user menu button\n  61 |     const userButton = page.getByRole('button', { name: /User/i });\n> 62 |     await expect(userButton).toBeVisible();\n     |                              ^\n  63 |     \n  64 |     // Click to open menu\n  65 |     await userButton.click();\n    at /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts:62:30"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-02T11:32:51.108Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/test-results/auth-flow-Authentication-Flow-user-menu-appears-after-login-firefox/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/test-results/auth-flow-Authentication-Flow-user-menu-appears-after-login-firefox/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts",
+                        "column": 30,
+                        "line": 62
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "df6b40174562c70df515-4ab88513449e6d91759f",
+              "file": "auth-flow.spec.ts",
+              "line": 51,
+              "column": 7
+            },
+            {
+              "title": "logout works correctly",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 10,
+                      "parallelIndex": 0,
+                      "status": "timedOut",
+                      "duration": 30093,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts",
+                            "column": 22,
+                            "line": 83
+                          },
+                          "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: /User/i })\u001b[22m\n\n\n  81 |     // Open user menu\n  82 |     const userButton = page.getByRole('button', { name: /User/i });\n> 83 |     await userButton.click();\n     |                      ^\n  84 |     \n  85 |     // Click sign out\n  86 |     await page.click('button:has-text(\"Sign Out\")');\n    at /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts:83:22"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-02T11:32:52.062Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/test-results/auth-flow-Authentication-Flow-logout-works-correctly-firefox/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/test-results/auth-flow-Authentication-Flow-logout-works-correctly-firefox/error-context.md"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "df6b40174562c70df515-1d27f1bee00b4193dd25",
+              "file": "auth-flow.spec.ts",
+              "line": 72,
+              "column": 7
+            },
+            {
+              "title": "protected routes show unauthorized message",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 11,
+                      "parallelIndex": 3,
+                      "status": "failed",
+                      "duration": 6158,
+                      "error": {
+                        "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: getByText('Access Denied')\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Access Denied')\u001b[22m\n",
+                        "stack": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: getByText('Access Denied')\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Access Denied')\u001b[22m\n\n    at /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts:113:51",
+                        "location": {
+                          "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts",
+                          "column": 51,
+                          "line": 113
+                        },
+                        "snippet": "  111 |     \n  112 |     // Should show unauthorized message\n> 113 |     await expect(page.getByText('Access Denied')).toBeVisible();\n      |                                                   ^\n  114 |     await expect(page.getByText(/don't have the required role/)).toBeVisible();\n  115 |   });\n  116 |"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts",
+                            "column": 51,
+                            "line": 113
+                          },
+                          "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: getByText('Access Denied')\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Access Denied')\u001b[22m\n\n\n  111 |     \n  112 |     // Should show unauthorized message\n> 113 |     await expect(page.getByText('Access Denied')).toBeVisible();\n      |                                                   ^\n  114 |     await expect(page.getByText(/don't have the required role/)).toBeVisible();\n  115 |   });\n  116 |\n    at /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts:113:51"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-02T11:32:57.274Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/test-results/auth-flow-Authentication-F-8b687-s-show-unauthorized-message-firefox/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/test-results/auth-flow-Authentication-F-8b687-s-show-unauthorized-message-firefox/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts",
+                        "column": 51,
+                        "line": 113
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "df6b40174562c70df515-87c29c0e933363ede1ed",
+              "file": "auth-flow.spec.ts",
+              "line": 103,
+              "column": 7
+            },
+            {
+              "title": "API key management is accessible for developers",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 12,
+                      "parallelIndex": 1,
+                      "status": "failed",
+                      "duration": 6266,
+                      "error": {
+                        "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: getByText('API Key Management')\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('API Key Management')\u001b[22m\n",
+                        "stack": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: getByText('API Key Management')\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('API Key Management')\u001b[22m\n\n    at /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts:126:56",
+                        "location": {
+                          "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts",
+                          "column": 56,
+                          "line": 126
+                        },
+                        "snippet": "  124 |     \n  125 |     // Should show API key management page\n> 126 |     await expect(page.getByText('API Key Management')).toBeVisible();\n      |                                                        ^\n  127 |     await expect(page.getByText('Create New API Key')).toBeVisible();\n  128 |   });\n  129 |"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts",
+                            "column": 56,
+                            "line": 126
+                          },
+                          "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: getByText('API Key Management')\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('API Key Management')\u001b[22m\n\n\n  124 |     \n  125 |     // Should show API key management page\n> 126 |     await expect(page.getByText('API Key Management')).toBeVisible();\n      |                                                        ^\n  127 |     await expect(page.getByText('Create New API Key')).toBeVisible();\n  128 |   });\n  129 |\n    at /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts:126:56"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-02T11:32:57.560Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/test-results/auth-flow-Authentication-F-eda76-s-accessible-for-developers-firefox/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/test-results/auth-flow-Authentication-F-eda76-s-accessible-for-developers-firefox/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts",
+                        "column": 56,
+                        "line": 126
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "df6b40174562c70df515-300d23a254398839f505",
+              "file": "auth-flow.spec.ts",
+              "line": 117,
+              "column": 7
+            },
+            {
+              "title": "security headers are present",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 13,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 1673,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-02T11:33:04.561Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "df6b40174562c70df515-5cc70e6f06bcdc0daee3",
+              "file": "auth-flow.spec.ts",
+              "line": 130,
+              "column": 7
+            },
+            {
+              "title": "redirects to login when accessing protected route",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 14,
+                      "parallelIndex": 1,
+                      "status": "failed",
+                      "duration": 6391,
+                      "error": {
+                        "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: getByText('EY AI Experience Center')\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('EY AI Experience Center')\u001b[22m\n",
+                        "stack": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: getByText('EY AI Experience Center')\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('EY AI Experience Center')\u001b[22m\n\n    at /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts:18:61",
+                        "location": {
+                          "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts",
+                          "column": 61,
+                          "line": 18
+                        },
+                        "snippet": "  16 |     // Should redirect to login\n  17 |     await expect(page).toHaveURL(/.*\\/login/);\n> 18 |     await expect(page.getByText('EY AI Experience Center')).toBeVisible();\n     |                                                             ^\n  19 |     await expect(page.getByText('Sign in to continue')).toBeVisible();\n  20 |   });\n  21 |"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts",
+                            "column": 61,
+                            "line": 18
+                          },
+                          "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: getByText('EY AI Experience Center')\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('EY AI Experience Center')\u001b[22m\n\n\n  16 |     // Should redirect to login\n  17 |     await expect(page).toHaveURL(/.*\\/login/);\n> 18 |     await expect(page.getByText('EY AI Experience Center')).toBeVisible();\n     |                                                             ^\n  19 |     await expect(page.getByText('Sign in to continue')).toBeVisible();\n  20 |   });\n  21 |\n    at /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts:18:61"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-02T11:33:05.118Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/test-results/auth-flow-Authentication-F-c52b1-n-accessing-protected-route-webkit/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/test-results/auth-flow-Authentication-F-c52b1-n-accessing-protected-route-webkit/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts",
+                        "column": 61,
+                        "line": 18
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "df6b40174562c70df515-358636b327cfdf041dd1",
+              "file": "auth-flow.spec.ts",
+              "line": 12,
+              "column": 7
+            },
+            {
+              "title": "shows SSO login button",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 15,
+                      "parallelIndex": 3,
+                      "status": "failed",
+                      "duration": 5629,
+                      "error": {
+                        "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: getByText('Sign in with EY SSO')\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Sign in with EY SSO')\u001b[22m\n",
+                        "stack": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: getByText('Sign in with EY SSO')\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Sign in with EY SSO')\u001b[22m\n\n    at /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts:26:29",
+                        "location": {
+                          "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts",
+                          "column": 29,
+                          "line": 26
+                        },
+                        "snippet": "  24 |     \n  25 |     const ssoButton = page.getByText('Sign in with EY SSO');\n> 26 |     await expect(ssoButton).toBeVisible();\n     |                             ^\n  27 |     await expect(ssoButton).toBeEnabled();\n  28 |   });\n  29 |"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts",
+                            "column": 29,
+                            "line": 26
+                          },
+                          "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: getByText('Sign in with EY SSO')\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Sign in with EY SSO')\u001b[22m\n\n\n  24 |     \n  25 |     const ssoButton = page.getByText('Sign in with EY SSO');\n> 26 |     await expect(ssoButton).toBeVisible();\n     |                             ^\n  27 |     await expect(ssoButton).toBeEnabled();\n  28 |   });\n  29 |\n    at /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts:26:29"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-02T11:33:07.673Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/test-results/auth-flow-Authentication-Flow-shows-SSO-login-button-webkit/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/test-results/auth-flow-Authentication-Flow-shows-SSO-login-button-webkit/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts",
+                        "column": 29,
+                        "line": 26
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "df6b40174562c70df515-a18e19509159a1d78d1b",
+              "file": "auth-flow.spec.ts",
+              "line": 22,
+              "column": 7
+            },
+            {
+              "title": "development login form works",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts",
+                        "line": 34,
+                        "column": 12
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 16,
+                      "parallelIndex": 2,
+                      "status": "skipped",
+                      "duration": 650,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-02T11:33:08.237Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "location": {
+                            "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts",
+                            "line": 34,
+                            "column": 12
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "df6b40174562c70df515-10167b6ebb2dad29374e",
+              "file": "auth-flow.spec.ts",
+              "line": 30,
+              "column": 7
+            },
+            {
+              "title": "user menu appears after login",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 16,
+                      "parallelIndex": 2,
+                      "status": "failed",
+                      "duration": 5483,
+                      "error": {
+                        "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: getByRole('button', { name: /User/i })\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: /User/i })\u001b[22m\n",
+                        "stack": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: getByRole('button', { name: /User/i })\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: /User/i })\u001b[22m\n\n    at /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts:62:30",
+                        "location": {
+                          "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts",
+                          "column": 30,
+                          "line": 62
+                        },
+                        "snippet": "  60 |     // Check for user menu button\n  61 |     const userButton = page.getByRole('button', { name: /User/i });\n> 62 |     await expect(userButton).toBeVisible();\n     |                              ^\n  63 |     \n  64 |     // Click to open menu\n  65 |     await userButton.click();"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts",
+                            "column": 30,
+                            "line": 62
+                          },
+                          "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: getByRole('button', { name: /User/i })\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: /User/i })\u001b[22m\n\n\n  60 |     // Check for user menu button\n  61 |     const userButton = page.getByRole('button', { name: /User/i });\n> 62 |     await expect(userButton).toBeVisible();\n     |                              ^\n  63 |     \n  64 |     // Click to open menu\n  65 |     await userButton.click();\n    at /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts:62:30"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-02T11:33:09.097Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/test-results/auth-flow-Authentication-Flow-user-menu-appears-after-login-webkit/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/test-results/auth-flow-Authentication-Flow-user-menu-appears-after-login-webkit/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts",
+                        "column": 30,
+                        "line": 62
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "df6b40174562c70df515-aeb0247998288f3cc3e3",
+              "file": "auth-flow.spec.ts",
+              "line": 51,
+              "column": 7
+            },
+            {
+              "title": "logout works correctly",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 17,
+                      "parallelIndex": 1,
+                      "status": "timedOut",
+                      "duration": 30152,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts",
+                            "column": 22,
+                            "line": 83
+                          },
+                          "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: /User/i })\u001b[22m\n\n\n  81 |     // Open user menu\n  82 |     const userButton = page.getByRole('button', { name: /User/i });\n> 83 |     await userButton.click();\n     |                      ^\n  84 |     \n  85 |     // Click sign out\n  86 |     await page.click('button:has-text(\"Sign Out\")');\n    at /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts:83:22"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-02T11:33:12.369Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/test-results/auth-flow-Authentication-Flow-logout-works-correctly-webkit/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/test-results/auth-flow-Authentication-Flow-logout-works-correctly-webkit/error-context.md"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "df6b40174562c70df515-fa0a50d0f0de9fca5e3f",
+              "file": "auth-flow.spec.ts",
+              "line": 72,
+              "column": 7
+            },
+            {
+              "title": "protected routes show unauthorized message",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 18,
+                      "parallelIndex": 3,
+                      "status": "failed",
+                      "duration": 5622,
+                      "error": {
+                        "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: getByText('Access Denied')\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Access Denied')\u001b[22m\n",
+                        "stack": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: getByText('Access Denied')\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Access Denied')\u001b[22m\n\n    at /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts:113:51",
+                        "location": {
+                          "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts",
+                          "column": 51,
+                          "line": 113
+                        },
+                        "snippet": "  111 |     \n  112 |     // Should show unauthorized message\n> 113 |     await expect(page.getByText('Access Denied')).toBeVisible();\n      |                                                   ^\n  114 |     await expect(page.getByText(/don't have the required role/)).toBeVisible();\n  115 |   });\n  116 |"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts",
+                            "column": 51,
+                            "line": 113
+                          },
+                          "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: getByText('Access Denied')\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Access Denied')\u001b[22m\n\n\n  111 |     \n  112 |     // Should show unauthorized message\n> 113 |     await expect(page.getByText('Access Denied')).toBeVisible();\n      |                                                   ^\n  114 |     await expect(page.getByText(/don't have the required role/)).toBeVisible();\n  115 |   });\n  116 |\n    at /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts:113:51"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-02T11:33:13.737Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/test-results/auth-flow-Authentication-F-8b687-s-show-unauthorized-message-webkit/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/test-results/auth-flow-Authentication-F-8b687-s-show-unauthorized-message-webkit/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts",
+                        "column": 51,
+                        "line": 113
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "df6b40174562c70df515-6503fae6f933fbf136df",
+              "file": "auth-flow.spec.ts",
+              "line": 103,
+              "column": 7
+            },
+            {
+              "title": "API key management is accessible for developers",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 19,
+                      "parallelIndex": 2,
+                      "status": "failed",
+                      "duration": 5613,
+                      "error": {
+                        "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: getByText('API Key Management')\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('API Key Management')\u001b[22m\n",
+                        "stack": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: getByText('API Key Management')\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('API Key Management')\u001b[22m\n\n    at /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts:126:56",
+                        "location": {
+                          "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts",
+                          "column": 56,
+                          "line": 126
+                        },
+                        "snippet": "  124 |     \n  125 |     // Should show API key management page\n> 126 |     await expect(page.getByText('API Key Management')).toBeVisible();\n      |                                                        ^\n  127 |     await expect(page.getByText('Create New API Key')).toBeVisible();\n  128 |   });\n  129 |"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts",
+                            "column": 56,
+                            "line": 126
+                          },
+                          "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: getByText('API Key Management')\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('API Key Management')\u001b[22m\n\n\n  124 |     \n  125 |     // Should show API key management page\n> 126 |     await expect(page.getByText('API Key Management')).toBeVisible();\n      |                                                        ^\n  127 |     await expect(page.getByText('Create New API Key')).toBeVisible();\n  128 |   });\n  129 |\n    at /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts:126:56"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-02T11:33:14.831Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/test-results/auth-flow-Authentication-F-eda76-s-accessible-for-developers-webkit/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/test-results/auth-flow-Authentication-F-eda76-s-accessible-for-developers-webkit/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts",
+                        "column": 56,
+                        "line": 126
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "df6b40174562c70df515-bc59b2dcf714cebee043",
+              "file": "auth-flow.spec.ts",
+              "line": 117,
+              "column": 7
+            },
+            {
+              "title": "security headers are present",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 20,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 543,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-02T11:33:19.779Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "df6b40174562c70df515-d682225ad9b77affbc3b",
+              "file": "auth-flow.spec.ts",
+              "line": 130,
+              "column": 7
+            },
+            {
+              "title": "redirects to login when accessing protected route",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [
+                    {
+                      "workerIndex": 21,
+                      "parallelIndex": 3,
+                      "status": "failed",
+                      "duration": 5464,
+                      "error": {
+                        "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: getByText('EY AI Experience Center')\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('EY AI Experience Center')\u001b[22m\n",
+                        "stack": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: getByText('EY AI Experience Center')\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('EY AI Experience Center')\u001b[22m\n\n    at /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts:18:61",
+                        "location": {
+                          "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts",
+                          "column": 61,
+                          "line": 18
+                        },
+                        "snippet": "  16 |     // Should redirect to login\n  17 |     await expect(page).toHaveURL(/.*\\/login/);\n> 18 |     await expect(page.getByText('EY AI Experience Center')).toBeVisible();\n     |                                                             ^\n  19 |     await expect(page.getByText('Sign in to continue')).toBeVisible();\n  20 |   });\n  21 |"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts",
+                            "column": 61,
+                            "line": 18
+                          },
+                          "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: getByText('EY AI Experience Center')\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('EY AI Experience Center')\u001b[22m\n\n\n  16 |     // Should redirect to login\n  17 |     await expect(page).toHaveURL(/.*\\/login/);\n> 18 |     await expect(page.getByText('EY AI Experience Center')).toBeVisible();\n     |                                                             ^\n  19 |     await expect(page.getByText('Sign in to continue')).toBeVisible();\n  20 |   });\n  21 |\n    at /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts:18:61"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-02T11:33:20.774Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/test-results/auth-flow-Authentication-F-c52b1-n-accessing-protected-route-Mobile-Chrome/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/test-results/auth-flow-Authentication-F-c52b1-n-accessing-protected-route-Mobile-Chrome/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts",
+                        "column": 61,
+                        "line": 18
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "df6b40174562c70df515-417b9da9a5a0b6d9e95e",
+              "file": "auth-flow.spec.ts",
+              "line": 12,
+              "column": 7
+            },
+            {
+              "title": "shows SSO login button",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [
+                    {
+                      "workerIndex": 22,
+                      "parallelIndex": 2,
+                      "status": "failed",
+                      "duration": 5443,
+                      "error": {
+                        "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: getByText('Sign in with EY SSO')\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Sign in with EY SSO')\u001b[22m\n",
+                        "stack": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: getByText('Sign in with EY SSO')\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Sign in with EY SSO')\u001b[22m\n\n    at /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts:26:29",
+                        "location": {
+                          "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts",
+                          "column": 29,
+                          "line": 26
+                        },
+                        "snippet": "  24 |     \n  25 |     const ssoButton = page.getByText('Sign in with EY SSO');\n> 26 |     await expect(ssoButton).toBeVisible();\n     |                             ^\n  27 |     await expect(ssoButton).toBeEnabled();\n  28 |   });\n  29 |"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts",
+                            "column": 29,
+                            "line": 26
+                          },
+                          "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: getByText('Sign in with EY SSO')\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Sign in with EY SSO')\u001b[22m\n\n\n  24 |     \n  25 |     const ssoButton = page.getByText('Sign in with EY SSO');\n> 26 |     await expect(ssoButton).toBeVisible();\n     |                             ^\n  27 |     await expect(ssoButton).toBeEnabled();\n  28 |   });\n  29 |\n    at /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts:26:29"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-02T11:33:20.873Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/test-results/auth-flow-Authentication-Flow-shows-SSO-login-button-Mobile-Chrome/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/test-results/auth-flow-Authentication-Flow-shows-SSO-login-button-Mobile-Chrome/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts",
+                        "column": 29,
+                        "line": 26
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "df6b40174562c70df515-c2cccdfc561523ef7e9f",
+              "file": "auth-flow.spec.ts",
+              "line": 22,
+              "column": 7
+            },
+            {
+              "title": "development login form works",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts",
+                        "line": 34,
+                        "column": 12
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [
+                    {
+                      "workerIndex": 23,
+                      "parallelIndex": 0,
+                      "status": "skipped",
+                      "duration": 361,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-02T11:33:23.380Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "location": {
+                            "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts",
+                            "line": 34,
+                            "column": 12
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "df6b40174562c70df515-bedd5f100097588bfc2b",
+              "file": "auth-flow.spec.ts",
+              "line": 30,
+              "column": 7
+            },
+            {
+              "title": "user menu appears after login",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [
+                    {
+                      "workerIndex": 23,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 5349,
+                      "error": {
+                        "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: getByRole('button', { name: /User/i })\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: /User/i })\u001b[22m\n",
+                        "stack": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: getByRole('button', { name: /User/i })\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: /User/i })\u001b[22m\n\n    at /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts:62:30",
+                        "location": {
+                          "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts",
+                          "column": 30,
+                          "line": 62
+                        },
+                        "snippet": "  60 |     // Check for user menu button\n  61 |     const userButton = page.getByRole('button', { name: /User/i });\n> 62 |     await expect(userButton).toBeVisible();\n     |                              ^\n  63 |     \n  64 |     // Click to open menu\n  65 |     await userButton.click();"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts",
+                            "column": 30,
+                            "line": 62
+                          },
+                          "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: getByRole('button', { name: /User/i })\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: /User/i })\u001b[22m\n\n\n  60 |     // Check for user menu button\n  61 |     const userButton = page.getByRole('button', { name: /User/i });\n> 62 |     await expect(userButton).toBeVisible();\n     |                              ^\n  63 |     \n  64 |     // Click to open menu\n  65 |     await userButton.click();\n    at /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts:62:30"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-02T11:33:23.852Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/test-results/auth-flow-Authentication-Flow-user-menu-appears-after-login-Mobile-Chrome/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/test-results/auth-flow-Authentication-Flow-user-menu-appears-after-login-Mobile-Chrome/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts",
+                        "column": 30,
+                        "line": 62
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "df6b40174562c70df515-ea75a87a863f23750e01",
+              "file": "auth-flow.spec.ts",
+              "line": 51,
+              "column": 7
+            },
+            {
+              "title": "logout works correctly",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [
+                    {
+                      "workerIndex": 24,
+                      "parallelIndex": 2,
+                      "status": "timedOut",
+                      "duration": 30139,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts",
+                            "column": 22,
+                            "line": 83
+                          },
+                          "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: /User/i })\u001b[22m\n\n\n  81 |     // Open user menu\n  82 |     const userButton = page.getByRole('button', { name: /User/i });\n> 83 |     await userButton.click();\n     |                      ^\n  84 |     \n  85 |     // Click sign out\n  86 |     await page.click('button:has-text(\"Sign Out\")');\n    at /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts:83:22"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-02T11:33:26.683Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/test-results/auth-flow-Authentication-Flow-logout-works-correctly-Mobile-Chrome/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/test-results/auth-flow-Authentication-Flow-logout-works-correctly-Mobile-Chrome/error-context.md"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "df6b40174562c70df515-d8ffac4a1cecd18f23f0",
+              "file": "auth-flow.spec.ts",
+              "line": 72,
+              "column": 7
+            },
+            {
+              "title": "protected routes show unauthorized message",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [
+                    {
+                      "workerIndex": 25,
+                      "parallelIndex": 3,
+                      "status": "failed",
+                      "duration": 5438,
+                      "error": {
+                        "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: getByText('Access Denied')\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Access Denied')\u001b[22m\n",
+                        "stack": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: getByText('Access Denied')\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Access Denied')\u001b[22m\n\n    at /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts:113:51",
+                        "location": {
+                          "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts",
+                          "column": 51,
+                          "line": 113
+                        },
+                        "snippet": "  111 |     \n  112 |     // Should show unauthorized message\n> 113 |     await expect(page.getByText('Access Denied')).toBeVisible();\n      |                                                   ^\n  114 |     await expect(page.getByText(/don't have the required role/)).toBeVisible();\n  115 |   });\n  116 |"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts",
+                            "column": 51,
+                            "line": 113
+                          },
+                          "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: getByText('Access Denied')\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Access Denied')\u001b[22m\n\n\n  111 |     \n  112 |     // Should show unauthorized message\n> 113 |     await expect(page.getByText('Access Denied')).toBeVisible();\n      |                                                   ^\n  114 |     await expect(page.getByText(/don't have the required role/)).toBeVisible();\n  115 |   });\n  116 |\n    at /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts:113:51"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-02T11:33:26.685Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/test-results/auth-flow-Authentication-F-8b687-s-show-unauthorized-message-Mobile-Chrome/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/test-results/auth-flow-Authentication-F-8b687-s-show-unauthorized-message-Mobile-Chrome/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts",
+                        "column": 51,
+                        "line": 113
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "df6b40174562c70df515-47f4eb19920dae3c490b",
+              "file": "auth-flow.spec.ts",
+              "line": 103,
+              "column": 7
+            },
+            {
+              "title": "API key management is accessible for developers",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [
+                    {
+                      "workerIndex": 26,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 5391,
+                      "error": {
+                        "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: getByText('API Key Management')\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('API Key Management')\u001b[22m\n",
+                        "stack": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: getByText('API Key Management')\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('API Key Management')\u001b[22m\n\n    at /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts:126:56",
+                        "location": {
+                          "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts",
+                          "column": 56,
+                          "line": 126
+                        },
+                        "snippet": "  124 |     \n  125 |     // Should show API key management page\n> 126 |     await expect(page.getByText('API Key Management')).toBeVisible();\n      |                                                        ^\n  127 |     await expect(page.getByText('Create New API Key')).toBeVisible();\n  128 |   });\n  129 |"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts",
+                            "column": 56,
+                            "line": 126
+                          },
+                          "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: getByText('API Key Management')\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('API Key Management')\u001b[22m\n\n\n  124 |     \n  125 |     // Should show API key management page\n> 126 |     await expect(page.getByText('API Key Management')).toBeVisible();\n      |                                                        ^\n  127 |     await expect(page.getByText('Create New API Key')).toBeVisible();\n  128 |   });\n  129 |\n    at /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts:126:56"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-02T11:33:29.439Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/test-results/auth-flow-Authentication-F-eda76-s-accessible-for-developers-Mobile-Chrome/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/test-results/auth-flow-Authentication-F-eda76-s-accessible-for-developers-Mobile-Chrome/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts",
+                        "column": 56,
+                        "line": 126
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "df6b40174562c70df515-49b7cbe869857fb8cc50",
+              "file": "auth-flow.spec.ts",
+              "line": 117,
+              "column": 7
+            },
+            {
+              "title": "security headers are present",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [
+                    {
+                      "workerIndex": 27,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 407,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-02T11:33:32.486Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "df6b40174562c70df515-8f50f14b96727d2f970d",
+              "file": "auth-flow.spec.ts",
+              "line": 130,
+              "column": 7
+            },
+            {
+              "title": "redirects to login when accessing protected route",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Safari",
+                  "projectName": "Mobile Safari",
+                  "results": [
+                    {
+                      "workerIndex": 28,
+                      "parallelIndex": 3,
+                      "status": "failed",
+                      "duration": 5722,
+                      "error": {
+                        "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: getByText('EY AI Experience Center')\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('EY AI Experience Center')\u001b[22m\n",
+                        "stack": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: getByText('EY AI Experience Center')\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('EY AI Experience Center')\u001b[22m\n\n    at /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts:18:61",
+                        "location": {
+                          "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts",
+                          "column": 61,
+                          "line": 18
+                        },
+                        "snippet": "  16 |     // Should redirect to login\n  17 |     await expect(page).toHaveURL(/.*\\/login/);\n> 18 |     await expect(page.getByText('EY AI Experience Center')).toBeVisible();\n     |                                                             ^\n  19 |     await expect(page.getByText('Sign in to continue')).toBeVisible();\n  20 |   });\n  21 |"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts",
+                            "column": 61,
+                            "line": 18
+                          },
+                          "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: getByText('EY AI Experience Center')\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('EY AI Experience Center')\u001b[22m\n\n\n  16 |     // Should redirect to login\n  17 |     await expect(page).toHaveURL(/.*\\/login/);\n> 18 |     await expect(page.getByText('EY AI Experience Center')).toBeVisible();\n     |                                                             ^\n  19 |     await expect(page.getByText('Sign in to continue')).toBeVisible();\n  20 |   });\n  21 |\n    at /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts:18:61"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-02T11:33:33.233Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/test-results/auth-flow-Authentication-F-c52b1-n-accessing-protected-route-Mobile-Safari/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/test-results/auth-flow-Authentication-F-c52b1-n-accessing-protected-route-Mobile-Safari/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts",
+                        "column": 61,
+                        "line": 18
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "df6b40174562c70df515-1d351a90296004043f6c",
+              "file": "auth-flow.spec.ts",
+              "line": 12,
+              "column": 7
+            },
+            {
+              "title": "shows SSO login button",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Safari",
+                  "projectName": "Mobile Safari",
+                  "results": [
+                    {
+                      "workerIndex": 29,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 5573,
+                      "error": {
+                        "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: getByText('Sign in with EY SSO')\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Sign in with EY SSO')\u001b[22m\n",
+                        "stack": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: getByText('Sign in with EY SSO')\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Sign in with EY SSO')\u001b[22m\n\n    at /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts:26:29",
+                        "location": {
+                          "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts",
+                          "column": 29,
+                          "line": 26
+                        },
+                        "snippet": "  24 |     \n  25 |     const ssoButton = page.getByText('Sign in with EY SSO');\n> 26 |     await expect(ssoButton).toBeVisible();\n     |                             ^\n  27 |     await expect(ssoButton).toBeEnabled();\n  28 |   });\n  29 |"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts",
+                            "column": 29,
+                            "line": 26
+                          },
+                          "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: getByText('Sign in with EY SSO')\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Sign in with EY SSO')\u001b[22m\n\n\n  24 |     \n  25 |     const ssoButton = page.getByText('Sign in with EY SSO');\n> 26 |     await expect(ssoButton).toBeVisible();\n     |                             ^\n  27 |     await expect(ssoButton).toBeEnabled();\n  28 |   });\n  29 |\n    at /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts:26:29"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-02T11:33:35.180Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/test-results/auth-flow-Authentication-Flow-shows-SSO-login-button-Mobile-Safari/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/test-results/auth-flow-Authentication-Flow-shows-SSO-login-button-Mobile-Safari/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts",
+                        "column": 29,
+                        "line": 26
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "df6b40174562c70df515-b9cb819704b67c692b68",
+              "file": "auth-flow.spec.ts",
+              "line": 22,
+              "column": 7
+            },
+            {
+              "title": "development login form works",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts",
+                        "line": 34,
+                        "column": 12
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "Mobile Safari",
+                  "projectName": "Mobile Safari",
+                  "results": [
+                    {
+                      "workerIndex": 30,
+                      "parallelIndex": 3,
+                      "status": "skipped",
+                      "duration": 508,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-02T11:33:39.373Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "location": {
+                            "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts",
+                            "line": 34,
+                            "column": 12
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "df6b40174562c70df515-d2d909226fc590d799c3",
+              "file": "auth-flow.spec.ts",
+              "line": 30,
+              "column": 7
+            },
+            {
+              "title": "user menu appears after login",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Safari",
+                  "projectName": "Mobile Safari",
+                  "results": [
+                    {
+                      "workerIndex": 30,
+                      "parallelIndex": 3,
+                      "status": "failed",
+                      "duration": 5449,
+                      "error": {
+                        "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: getByRole('button', { name: /User/i })\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: /User/i })\u001b[22m\n",
+                        "stack": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: getByRole('button', { name: /User/i })\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: /User/i })\u001b[22m\n\n    at /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts:62:30",
+                        "location": {
+                          "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts",
+                          "column": 30,
+                          "line": 62
+                        },
+                        "snippet": "  60 |     // Check for user menu button\n  61 |     const userButton = page.getByRole('button', { name: /User/i });\n> 62 |     await expect(userButton).toBeVisible();\n     |                              ^\n  63 |     \n  64 |     // Click to open menu\n  65 |     await userButton.click();"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts",
+                            "column": 30,
+                            "line": 62
+                          },
+                          "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: getByRole('button', { name: /User/i })\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: /User/i })\u001b[22m\n\n\n  60 |     // Check for user menu button\n  61 |     const userButton = page.getByRole('button', { name: /User/i });\n> 62 |     await expect(userButton).toBeVisible();\n     |                              ^\n  63 |     \n  64 |     // Click to open menu\n  65 |     await userButton.click();\n    at /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts:62:30"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-02T11:33:40.052Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/test-results/auth-flow-Authentication-Flow-user-menu-appears-after-login-Mobile-Safari/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/test-results/auth-flow-Authentication-Flow-user-menu-appears-after-login-Mobile-Safari/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts",
+                        "column": 30,
+                        "line": 62
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "df6b40174562c70df515-5078bb705ba47fa989f3",
+              "file": "auth-flow.spec.ts",
+              "line": 51,
+              "column": 7
+            },
+            {
+              "title": "logout works correctly",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Safari",
+                  "projectName": "Mobile Safari",
+                  "results": [
+                    {
+                      "workerIndex": 31,
+                      "parallelIndex": 0,
+                      "status": "timedOut",
+                      "duration": 30118,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts",
+                            "column": 22,
+                            "line": 83
+                          },
+                          "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: /User/i })\u001b[22m\n\n\n  81 |     // Open user menu\n  82 |     const userButton = page.getByRole('button', { name: /User/i });\n> 83 |     await userButton.click();\n     |                      ^\n  84 |     \n  85 |     // Click sign out\n  86 |     await page.click('button:has-text(\"Sign Out\")');\n    at /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts:83:22"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-02T11:33:41.180Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/test-results/auth-flow-Authentication-Flow-logout-works-correctly-Mobile-Safari/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/test-results/auth-flow-Authentication-Flow-logout-works-correctly-Mobile-Safari/error-context.md"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "df6b40174562c70df515-50bc3ef73972df222d24",
+              "file": "auth-flow.spec.ts",
+              "line": 72,
+              "column": 7
+            },
+            {
+              "title": "protected routes show unauthorized message",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Safari",
+                  "projectName": "Mobile Safari",
+                  "results": [
+                    {
+                      "workerIndex": 32,
+                      "parallelIndex": 1,
+                      "status": "failed",
+                      "duration": 5581,
+                      "error": {
+                        "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: getByText('Access Denied')\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Access Denied')\u001b[22m\n",
+                        "stack": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: getByText('Access Denied')\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Access Denied')\u001b[22m\n\n    at /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts:113:51",
+                        "location": {
+                          "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts",
+                          "column": 51,
+                          "line": 113
+                        },
+                        "snippet": "  111 |     \n  112 |     // Should show unauthorized message\n> 113 |     await expect(page.getByText('Access Denied')).toBeVisible();\n      |                                                   ^\n  114 |     await expect(page.getByText(/don't have the required role/)).toBeVisible();\n  115 |   });\n  116 |"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts",
+                            "column": 51,
+                            "line": 113
+                          },
+                          "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: getByText('Access Denied')\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Access Denied')\u001b[22m\n\n\n  111 |     \n  112 |     // Should show unauthorized message\n> 113 |     await expect(page.getByText('Access Denied')).toBeVisible();\n      |                                                   ^\n  114 |     await expect(page.getByText(/don't have the required role/)).toBeVisible();\n  115 |   });\n  116 |\n    at /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts:113:51"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-02T11:33:42.930Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/test-results/auth-flow-Authentication-F-8b687-s-show-unauthorized-message-Mobile-Safari/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/test-results/auth-flow-Authentication-F-8b687-s-show-unauthorized-message-Mobile-Safari/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts",
+                        "column": 51,
+                        "line": 113
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "df6b40174562c70df515-dd4de09c33f9d226d05a",
+              "file": "auth-flow.spec.ts",
+              "line": 103,
+              "column": 7
+            },
+            {
+              "title": "API key management is accessible for developers",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Safari",
+                  "projectName": "Mobile Safari",
+                  "results": [
+                    {
+                      "workerIndex": 33,
+                      "parallelIndex": 3,
+                      "status": "failed",
+                      "duration": 5579,
+                      "error": {
+                        "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: getByText('API Key Management')\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('API Key Management')\u001b[22m\n",
+                        "stack": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: getByText('API Key Management')\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('API Key Management')\u001b[22m\n\n    at /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts:126:56",
+                        "location": {
+                          "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts",
+                          "column": 56,
+                          "line": 126
+                        },
+                        "snippet": "  124 |     \n  125 |     // Should show API key management page\n> 126 |     await expect(page.getByText('API Key Management')).toBeVisible();\n      |                                                        ^\n  127 |     await expect(page.getByText('Create New API Key')).toBeVisible();\n  128 |   });\n  129 |"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts",
+                            "column": 56,
+                            "line": 126
+                          },
+                          "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: getByText('API Key Management')\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('API Key Management')\u001b[22m\n\n\n  124 |     \n  125 |     // Should show API key management page\n> 126 |     await expect(page.getByText('API Key Management')).toBeVisible();\n      |                                                        ^\n  127 |     await expect(page.getByText('Create New API Key')).toBeVisible();\n  128 |   });\n  129 |\n    at /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts:126:56"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-02T11:33:45.741Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/test-results/auth-flow-Authentication-F-eda76-s-accessible-for-developers-Mobile-Safari/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/test-results/auth-flow-Authentication-F-eda76-s-accessible-for-developers-Mobile-Safari/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/auth-flow.spec.ts",
+                        "column": 56,
+                        "line": 126
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "df6b40174562c70df515-3548d17297b8025f45cf",
+              "file": "auth-flow.spec.ts",
+              "line": 117,
+              "column": 7
+            },
+            {
+              "title": "security headers are present",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Safari",
+                  "projectName": "Mobile Safari",
+                  "results": [
+                    {
+                      "workerIndex": 34,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 533,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-02T11:33:48.932Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "df6b40174562c70df515-5024bd3707b9e695052d",
+              "file": "auth-flow.spec.ts",
+              "line": 130,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2025-08-02T11:32:36.017Z",
+    "duration": 95484.051,
+    "expected": 5,
+    "skipped": 5,
+    "unexpected": 30,
+    "flaky": 0
+  }
+}

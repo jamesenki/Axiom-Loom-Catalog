@@ -1,0 +1,534 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+  release:
+    types: [ published ]
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+
+jobs:
+  # ====================================
+  # Code Quality and Linting
+  # ====================================
+  code-quality:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          npm install
+          pip install -r requirements.txt
+          pip install black flake8 mypy pytest
+
+      - name: Run ESLint
+        run: npm run lint
+
+      - name: Run Prettier
+        run: npm run format:check
+
+      - name: Run Python Black
+        run: black --check .
+
+      - name: Run Flake8
+        run: flake8 .
+
+      - name: Run MyPy
+        run: mypy .
+
+      - name: Security scan
+        uses: github/super-linter@v4
+        env:
+          DEFAULT_BRANCH: main
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  # ====================================
+  # Unit Tests
+  # ====================================
+  unit-tests:
+    runs-on: ubuntu-latest
+    needs: code-quality
+    strategy:
+      matrix:
+        test-suite: [frontend, backend, ai-models]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        if: matrix.test-suite == 'frontend' || matrix.test-suite == 'backend'
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Set up Python
+        if: matrix.test-suite == 'ai-models'
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+          cache: 'pip'
+
+      - name: Install frontend dependencies
+        if: matrix.test-suite == 'frontend'
+        run: |
+          cd frontend
+          npm install
+
+      - name: Install backend dependencies
+        if: matrix.test-suite == 'backend'
+        run: |
+          cd backend
+          npm install
+
+      - name: Install AI/ML dependencies
+        if: matrix.test-suite == 'ai-models'
+        run: |
+          cd ai-models
+          pip install -r requirements.txt
+          pip install pytest pytest-cov
+
+      - name: Run frontend tests
+        if: matrix.test-suite == 'frontend'
+        run: |
+          cd frontend
+          npm test -- --coverage --watchAll=false
+
+      - name: Run backend tests
+        if: matrix.test-suite == 'backend'
+        run: |
+          cd backend
+          npm test -- --coverage
+
+      - name: Run AI/ML tests
+        if: matrix.test-suite == 'ai-models'
+        run: |
+          cd ai-models
+          pytest --cov=. --cov-report=xml
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v3
+        with:
+          file: ./coverage.xml
+          flags: ${{ matrix.test-suite }}
+          name: ${{ matrix.test-suite }}-coverage
+          fail_ci_if_error: true
+
+  # ====================================
+  # Integration Tests
+  # ====================================
+  integration-tests:
+    runs-on: ubuntu-latest
+    needs: unit-tests
+    services:
+      mongodb:
+        image: mongo:6.0
+        ports:
+          - 27017:27017
+        env:
+          MONGO_INITDB_ROOT_USERNAME: admin
+          MONGO_INITDB_ROOT_PASSWORD: password
+      redis:
+        image: redis:7-alpine
+        ports:
+          - 6379:6379
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          npm install
+          pip install -r requirements.txt
+
+      - name: Wait for services
+        run: |
+          timeout 60 bash -c 'until curl -f http://localhost:27017; do sleep 2; done'
+          timeout 60 bash -c 'until redis-cli ping; do sleep 2; done'
+
+      - name: Run integration tests
+        env:
+          MONGODB_URI: mongodb://admin:password@localhost:27017/test
+          REDIS_URL: redis://localhost:6379
+          NODE_ENV: test
+        run: |
+          npm run test:integration
+
+      - name: Upload test results
+        uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: integration-test-results
+          path: test-results/
+
+  # ====================================
+  # AI Model Validation
+  # ====================================
+  ai-model-validation:
+    runs-on: ubuntu-latest
+    needs: unit-tests
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+          cache: 'pip'
+
+      - name: Install ML dependencies
+        run: |
+          cd ai-models
+          pip install -r requirements.txt
+          pip install pytest-benchmark
+
+      - name: Download test datasets
+        run: |
+          cd ai-models
+          python scripts/download_test_data.py
+
+      - name: Validate model accuracy
+        run: |
+          cd ai-models
+          python tests/model_validation/test_accuracy.py
+
+      - name: Validate physics constraints
+        run: |
+          cd ai-models
+          python tests/model_validation/test_physics_constraints.py
+
+      - name: Performance benchmarks
+        run: |
+          cd ai-models
+          pytest tests/performance/ --benchmark-only
+
+      - name: Upload model metrics
+        uses: actions/upload-artifact@v3
+        with:
+          name: model-validation-results
+          path: ai-models/validation-results/
+
+  # ====================================
+  # Security Scanning
+  # ====================================
+  security-scan:
+    runs-on: ubuntu-latest
+    needs: code-quality
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run Snyk to check for vulnerabilities
+        uses: snyk/actions/node@master
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+
+      - name: Run Trivy vulnerability scanner
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: 'fs'
+          scan-ref: '.'
+          format: 'sarif'
+          output: 'trivy-results.sarif'
+
+      - name: Upload Trivy scan results to GitHub Security tab
+        uses: github/codeql-action/upload-sarif@v2
+        with:
+          sarif_file: 'trivy-results.sarif'
+
+      - name: OWASP ZAP Baseline Scan
+        uses: zaproxy/action-baseline@v0.7.0
+        with:
+          target: 'http://localhost:3000'
+
+  # ====================================
+  # Build and Push Docker Images
+  # ====================================
+  build-and-push:
+    runs-on: ubuntu-latest
+    needs: [integration-tests, ai-model-validation, security-scan]
+    if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop')
+    strategy:
+      matrix:
+        service: [api-gateway, vehicle-service, prediction-service, notification-service, web-dashboard]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Log in to Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Extract metadata
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}/${{ matrix.service }}
+          tags: |
+            type=ref,event=branch
+            type=ref,event=pr
+            type=sha
+            type=raw,value=latest,enable={{is_default_branch}}
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: ./docker/${{ matrix.service }}/Dockerfile
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+  # ====================================
+  # End-to-End Tests
+  # ====================================
+  e2e-tests:
+    runs-on: ubuntu-latest
+    needs: build-and-push
+    if: github.event_name == 'push' && github.ref == 'refs/heads/develop'
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Install Playwright
+        run: npx playwright install --with-deps
+
+      - name: Start test environment
+        run: |
+          docker-compose -f docker-compose.test.yml up -d
+          sleep 30
+
+      - name: Run E2E tests
+        run: |
+          npm run test:e2e
+
+      - name: Upload E2E test results
+        uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: e2e-test-results
+          path: |
+            test-results/
+            playwright-report/
+
+      - name: Stop test environment
+        if: always()
+        run: |
+          docker-compose -f docker-compose.test.yml down -v
+
+  # ====================================
+  # Performance Testing
+  # ====================================
+  performance-tests:
+    runs-on: ubuntu-latest
+    needs: build-and-push
+    if: github.event_name == 'push' && github.ref == 'refs/heads/develop'
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up K6
+        run: |
+          sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys C5AD17C747E3415A3642D57D77C6C491D6AC1D69
+          echo "deb https://dl.k6.io/deb stable main" | sudo tee /etc/apt/sources.list.d/k6.list
+          sudo apt-get update
+          sudo apt-get install k6
+
+      - name: Start performance test environment
+        run: |
+          docker-compose -f docker-compose.perf.yml up -d
+          sleep 60
+
+      - name: Run API performance tests
+        run: |
+          k6 run tests/performance/api-load-test.js
+
+      - name: Run AI prediction performance tests
+        run: |
+          k6 run tests/performance/prediction-load-test.js
+
+      - name: Upload performance results
+        uses: actions/upload-artifact@v3
+        with:
+          name: performance-test-results
+          path: performance-results/
+
+  # ====================================
+  # Deploy to Staging
+  # ====================================
+  deploy-staging:
+    runs-on: ubuntu-latest
+    needs: [e2e-tests, performance-tests]
+    if: github.event_name == 'push' && github.ref == 'refs/heads/develop'
+    environment:
+      name: staging
+      url: https://staging.predictive-maintenance.com
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up kubectl
+        uses: azure/setup-kubectl@v3
+        with:
+          version: 'v1.28.0'
+
+      - name: Configure kubectl
+        run: |
+          echo "${{ secrets.KUBE_CONFIG_STAGING }}" | base64 -d > kubeconfig
+          export KUBECONFIG=kubeconfig
+
+      - name: Deploy to staging
+        run: |
+          kubectl apply -f k8s/staging/
+          kubectl set image deployment/api-gateway api-gateway=${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}/api-gateway:${{ github.sha }}
+          kubectl set image deployment/vehicle-service vehicle-service=${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}/vehicle-service:${{ github.sha }}
+          kubectl set image deployment/prediction-service prediction-service=${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}/prediction-service:${{ github.sha }}
+          kubectl set image deployment/notification-service notification-service=${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}/notification-service:${{ github.sha }}
+          kubectl set image deployment/web-dashboard web-dashboard=${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}/web-dashboard:${{ github.sha }}
+
+      - name: Wait for rollout
+        run: |
+          kubectl rollout status deployment/api-gateway
+          kubectl rollout status deployment/vehicle-service
+          kubectl rollout status deployment/prediction-service
+          kubectl rollout status deployment/notification-service
+          kubectl rollout status deployment/web-dashboard
+
+      - name: Run staging smoke tests
+        run: |
+          npm run test:smoke:staging
+
+  # ====================================
+  # Deploy to Production
+  # ====================================
+  deploy-production:
+    runs-on: ubuntu-latest
+    needs: build-and-push
+    if: github.event_name == 'release' && github.event.action == 'published'
+    environment:
+      name: production
+      url: https://app.predictive-maintenance.com
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up kubectl
+        uses: azure/setup-kubectl@v3
+        with:
+          version: 'v1.28.0'
+
+      - name: Configure kubectl
+        run: |
+          echo "${{ secrets.KUBE_CONFIG_PRODUCTION }}" | base64 -d > kubeconfig
+          export KUBECONFIG=kubeconfig
+
+      - name: Deploy to production
+        run: |
+          kubectl apply -f k8s/production/
+          kubectl set image deployment/api-gateway api-gateway=${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}/api-gateway:${{ github.ref_name }}
+          kubectl set image deployment/vehicle-service vehicle-service=${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}/vehicle-service:${{ github.ref_name }}
+          kubectl set image deployment/prediction-service prediction-service=${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}/prediction-service:${{ github.ref_name }}
+          kubectl set image deployment/notification-service notification-service=${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}/notification-service:${{ github.ref_name }}
+          kubectl set image deployment/web-dashboard web-dashboard=${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}/web-dashboard:${{ github.ref_name }}
+
+      - name: Wait for rollout
+        run: |
+          kubectl rollout status deployment/api-gateway
+          kubectl rollout status deployment/vehicle-service
+          kubectl rollout status deployment/prediction-service
+          kubectl rollout status deployment/notification-service
+          kubectl rollout status deployment/web-dashboard
+
+      - name: Run production smoke tests
+        run: |
+          npm run test:smoke:production
+
+      - name: Notify deployment success
+        uses: 8398a7/action-slack@v3
+        if: success()
+        with:
+          status: success
+          channel: '#deployments'
+          text: |
+            🚀 Production deployment successful!
+            Version: ${{ github.ref_name }}
+            Commit: ${{ github.sha }}
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+
+      - name: Notify deployment failure
+        uses: 8398a7/action-slack@v3
+        if: failure()
+        with:
+          status: failure
+          channel: '#deployments'
+          text: |
+            ❌ Production deployment failed!
+            Version: ${{ github.ref_name }}
+            Commit: ${{ github.sha }}
+            Check: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+
+  # ====================================
+  # Cleanup
+  # ====================================
+  cleanup:
+    runs-on: ubuntu-latest
+    needs: [deploy-staging, deploy-production]
+    if: always()
+    steps:
+      - name: Clean up old container images
+        run: |
+          # Keep only last 5 images for each service
+          echo "Cleaning up old container images..."
+          # This would be implemented based on your container registry

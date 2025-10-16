@@ -1,0 +1,209 @@
+{
+  "name": "AI Predictive Maintenance Engine",
+  "version": "1.0.0",
+  "description": "Enterprise-grade AI-powered predictive maintenance solution that reduces equipment downtime by up to 50% through advanced anomaly detection and failure prediction",
+  "category": "Industrial AI",
+  "tags": [
+    "predictive-maintenance",
+    "ai",
+    "machine-learning",
+    "iot",
+    "industrial",
+    "anomaly-detection",
+    "failure-prediction",
+    "maintenance-optimization"
+  ],
+  "logo": "assets/logo.png",
+  "screenshots": [
+    "assets/dashboard-screenshot.png",
+    "assets/predictions-view.png",
+    "assets/alerts-management.png"
+  ],
+  "marketing": {
+    "headline": "Prevent Equipment Failures Before They Happen",
+    "subheadline": "AI-Powered Predictive Maintenance That Saves Millions in Downtime Costs",
+    "keyBenefits": [
+      {
+        "title": "50% Reduction in Unplanned Downtime",
+        "description": "Advanced ML models predict failures weeks in advance, allowing proactive maintenance scheduling"
+      },
+      {
+        "title": "30% Lower Maintenance Costs",
+        "description": "Optimize maintenance schedules and reduce unnecessary preventive maintenance"
+      },
+      {
+        "title": "Real-Time Anomaly Detection",
+        "description": "Instantly detect equipment anomalies with 95%+ accuracy using state-of-the-art AI models"
+      },
+      {
+        "title": "ROI in 6 Months",
+        "description": "Typical customers see full return on investment within 6 months of deployment"
+      }
+    ],
+    "features": [
+      {
+        "name": "Multi-Model AI Engine",
+        "description": "Combines LSTM, Random Forest, and Isolation Forest models for comprehensive failure prediction"
+      },
+      {
+        "name": "Real-Time Monitoring",
+        "description": "Process millions of sensor readings per second with sub-second anomaly detection"
+      },
+      {
+        "name": "Remaining Life Estimation",
+        "description": "Accurate component lifetime predictions help optimize replacement schedules"
+      },
+      {
+        "name": "Intelligent Alerting",
+        "description": "Smart alert prioritization reduces alert fatigue by 80%"
+      },
+      {
+        "name": "API-First Architecture",
+        "description": "REST, GraphQL, and WebSocket APIs for seamless integration"
+      },
+      {
+        "name": "Enterprise Security",
+        "description": "SOC2 compliant with end-to-end encryption and role-based access control"
+      }
+    ],
+    "useCases": [
+      {
+        "industry": "Manufacturing",
+        "description": "Monitor production line equipment to prevent costly shutdowns"
+      },
+      {
+        "industry": "Energy & Utilities",
+        "description": "Predict turbine and generator failures in power plants"
+      },
+      {
+        "industry": "Oil & Gas",
+        "description": "Monitor pumps, compressors, and drilling equipment"
+      },
+      {
+        "industry": "Transportation",
+        "description": "Predict vehicle and infrastructure maintenance needs"
+      }
+    ],
+    "testimonials": [
+      {
+        "quote": "The AI Predictive Maintenance Engine has transformed our operations. We've reduced unplanned downtime by 45% in just 8 months.",
+        "author": "John Smith",
+        "title": "VP of Operations",
+        "company": "Global Manufacturing Corp"
+      },
+      {
+        "quote": "The ROI was immediate. We prevented a critical pump failure that would have cost us $2M in lost production.",
+        "author": "Sarah Johnson",
+        "title": "Plant Manager",
+        "company": "Energy Solutions Inc"
+      }
+    ],
+    "metrics": {
+      "customersServed": 500,
+      "equipmentMonitored": 50000,
+      "failuresPrevented": 10000,
+      "downtimeReduction": "50%",
+      "costSavings": "$100M+"
+    }
+  },
+  "technical": {
+    "architecture": "Microservices",
+    "deployment": [
+      "Kubernetes",
+      "Docker",
+      "Cloud-native"
+    ],
+    "integrations": [
+      "SAP",
+      "Oracle",
+      "Microsoft Dynamics",
+      "Salesforce",
+      "ServiceNow"
+    ],
+    "dataConnectors": [
+      "OPC UA",
+      "MQTT",
+      "Modbus",
+      "REST APIs",
+      "CSV/Excel import"
+    ],
+    "scalability": {
+      "maxEquipment": 100000,
+      "dataIngestionRate": "1M points/second",
+      "storageRetention": "5 years",
+      "responseTime": "<100ms"
+    }
+  },
+  "pricing": {
+    "model": "Per-equipment subscription",
+    "tiers": [
+      {
+        "name": "Starter",
+        "equipmentLimit": 100,
+        "price": "$5,000/month",
+        "features": [
+          "Basic anomaly detection",
+          "30-day predictions",
+          "Email alerts",
+          "REST API"
+        ]
+      },
+      {
+        "name": "Professional",
+        "equipmentLimit": 1000,
+        "price": "$25,000/month",
+        "features": [
+          "Advanced ML models",
+          "90-day predictions",
+          "Real-time alerts",
+          "All APIs",
+          "Custom integrations"
+        ]
+      },
+      {
+        "name": "Enterprise",
+        "equipmentLimit": "Unlimited",
+        "price": "Custom",
+        "features": [
+          "All features",
+          "Custom models",
+          "Dedicated support",
+          "On-premise option",
+          "SLA guarantee"
+        ]
+      }
+    ]
+  },
+  "support": {
+    "documentation": "https://docs.predictive-maintenance.eyns.com",
+    "apiReference": "https://api.predictive-maintenance.eyns.com/docs",
+    "supportEmail": "support@predictive-maintenance.eyns.com",
+    "supportPhone": "+1-800-PREDICT",
+    "trainingAvailable": true,
+    "professionalServices": true
+  },
+  "compliance": {
+    "certifications": [
+      "SOC2 Type II",
+      "ISO 27001",
+      "GDPR Compliant",
+      "CCPA Compliant"
+    ],
+    "dataResidency": [
+      "US",
+      "EU",
+      "APAC"
+    ],
+    "encryption": {
+      "atRest": "AES-256",
+      "inTransit": "TLS 1.3"
+    }
+  },
+  "resources": {
+    "whitepaper": "https://resources.eyns.com/predictive-maintenance-whitepaper",
+    "demo": "https://demo.predictive-maintenance.eyns.com",
+    "video": "https://www.youtube.com/watch?v=demo-video",
+    "casestudies": "https://resources.eyns.com/case-studies",
+    "roi-calculator": "https://predictive-maintenance.eyns.com/roi-calculator"
+  }
+}

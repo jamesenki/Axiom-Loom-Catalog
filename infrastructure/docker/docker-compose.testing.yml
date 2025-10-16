@@ -1,0 +1,267 @@
+version: '3.8'
+
+services:
+  # Newman Test Runner for CI/CD
+  newman-runner:
+    image: postman/newman:alpine
+    container_name: ai-pm-newman-runner
+    volumes:
+      - ./docs/api/postman:/etc/newman/collections:ro
+      - ./reports:/etc/newman/reports
+    environment:
+      - NEWMAN_COLLECTION_DIR=/etc/newman/collections
+      - NEWMAN_REPORTS_DIR=/etc/newman/reports
+    command: >
+      sh -c "
+        echo 'Starting AI Predictive Maintenance Engine API Tests...' &&
+        
+        # Create reports directory structure
+        mkdir -p /etc/newman/reports/main-api /etc/newman/reports/graphql /etc/newman/reports/websocket &&
+        
+        # Run Main API Collection Tests
+        echo 'Running Main API Collection Tests...' &&
+        newman run /etc/newman/collections/ai-predictive-maintenance-engine-api-collection.json \
+          -e /etc/newman/collections/environment-templates/ci.postman_environment.json \
+          --reporters cli,htmlextra,json \
+          --reporter-htmlextra-export /etc/newman/reports/main-api/test-report.html \
+          --reporter-htmlextra-darkTheme \
+          --reporter-htmlextra-title 'AI PM Engine - Main API Tests' \
+          --reporter-json-export /etc/newman/reports/main-api/results.json \
+          --timeout-request 30000 \
+          --timeout-script 10000 \
+          --color on &&
+        
+        # Run GraphQL Collection Tests
+        echo 'Running GraphQL Collection Tests...' &&
+        newman run /etc/newman/collections/ai-predictive-maintenance-engine-graphql-collection.json \
+          -e /etc/newman/collections/environment-templates/ci.postman_environment.json \
+          --reporters cli,htmlextra,json \
+          --reporter-htmlextra-export /etc/newman/reports/graphql/test-report.html \
+          --reporter-htmlextra-darkTheme \
+          --reporter-htmlextra-title 'AI PM Engine - GraphQL Tests' \
+          --reporter-json-export /etc/newman/reports/graphql/results.json \
+          --timeout-request 30000 \
+          --timeout-script 10000 \
+          --color on &&
+        
+        # Run WebSocket Collection Tests
+        echo 'Running WebSocket Collection Tests...' &&
+        newman run /etc/newman/collections/ai-predictive-maintenance-engine-websocket-collection.json \
+          -e /etc/newman/collections/environment-templates/ci.postman_environment.json \
+          --reporters cli,htmlextra,json \
+          --reporter-htmlextra-export /etc/newman/reports/websocket/test-report.html \
+          --reporter-htmlextra-darkTheme \
+          --reporter-htmlextra-title 'AI PM Engine - WebSocket Tests' \
+          --reporter-json-export /etc/newman/reports/websocket/results.json \
+          --timeout-request 45000 \
+          --timeout-script 15000 \
+          --color on &&
+        
+        echo 'All API tests completed successfully!'
+      "
+    networks:
+      - ai-pm-network
+    depends_on:
+      - api-server
+      - graphql-server
+      - websocket-server
+
+  # Mock API Server for Testing
+  api-server:
+    image: mockoon/cli:latest
+    container_name: ai-pm-mock-api
+    ports:
+      - "3001:3001"
+    volumes:
+      - ./test-mocks/api-mock.json:/data/api-mock.json:ro
+    command: ["--data", "/data/api-mock.json", "--port", "3001"]
+    environment:
+      - MOCKOON_OBJECT_LISTENING=true
+    networks:
+      - ai-pm-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3001/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Mock GraphQL Server for Testing
+  graphql-server:
+    image: node:18-alpine
+    container_name: ai-pm-mock-graphql
+    ports:
+      - "4000:4000"
+    volumes:
+      - ./test-mocks/graphql-mock-server.js:/app/server.js:ro
+      - ./test-mocks/package.json:/app/package.json:ro
+    working_dir: /app
+    command: >
+      sh -c "
+        npm install &&
+        node server.js
+      "
+    environment:
+      - NODE_ENV=test
+      - PORT=4000
+    networks:
+      - ai-pm-network
+    healthcheck:
+      test: ["CMD", "wget", "-q", "--spider", "http://localhost:4000/graphql"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Mock WebSocket Server for Testing
+  websocket-server:
+    image: node:18-alpine
+    container_name: ai-pm-mock-websocket
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./test-mocks/websocket-mock-server.js:/app/server.js:ro
+      - ./test-mocks/package.json:/app/package.json:ro
+    working_dir: /app
+    command: >
+      sh -c "
+        npm install &&
+        node server.js
+      "
+    environment:
+      - NODE_ENV=test
+      - PORT=8080
+    networks:
+      - ai-pm-network
+    healthcheck:
+      test: ["CMD", "wget", "-q", "--spider", "http://localhost:8080/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Test Data Generator
+  test-data-generator:
+    image: node:18-alpine
+    container_name: ai-pm-test-data-generator
+    volumes:
+      - ./test-mocks/data-generator.js:/app/generator.js:ro
+      - ./test-mocks/package.json:/app/package.json:ro
+      - ./docs/api/postman/test-data:/app/output
+    working_dir: /app
+    command: >
+      sh -c "
+        npm install &&
+        node generator.js &&
+        echo 'Test data generation completed'
+      "
+    environment:
+      - NODE_ENV=test
+      - OUTPUT_DIR=/app/output
+    networks:
+      - ai-pm-network
+
+  # Performance Test Runner
+  performance-tester:
+    image: postman/newman:alpine
+    container_name: ai-pm-performance-tester
+    volumes:
+      - ./docs/api/postman:/etc/newman/collections:ro
+      - ./reports:/etc/newman/reports
+    command: >
+      sh -c "
+        echo 'Running Performance Tests...' &&
+        mkdir -p /etc/newman/reports/performance &&
+        
+        # Run performance tests with multiple iterations
+        newman run /etc/newman/collections/ai-predictive-maintenance-engine-api-collection.json \
+          -e /etc/newman/collections/environment-templates/ci.postman_environment.json \
+          --iteration-count 50 \
+          --delay-request 100 \
+          --reporters cli,json \
+          --reporter-json-export /etc/newman/reports/performance/results.json \
+          --timeout-request 60000 \
+          --timeout-script 20000 \
+          --color on &&
+        
+        echo 'Performance tests completed!'
+      "
+    networks:
+      - ai-pm-network
+    depends_on:
+      - api-server
+      - graphql-server
+      - websocket-server
+    profiles:
+      - performance
+
+  # Security Test Runner
+  security-tester:
+    image: postman/newman:alpine
+    container_name: ai-pm-security-tester
+    volumes:
+      - ./docs/api/postman:/etc/newman/collections:ro
+      - ./reports:/etc/newman/reports
+      - ./test-mocks/security-collection.json:/etc/newman/security-tests.json:ro
+    command: >
+      sh -c "
+        echo 'Running Security Tests...' &&
+        mkdir -p /etc/newman/reports/security &&
+        
+        # Run security-focused tests
+        newman run /etc/newman/security-tests.json \
+          -e /etc/newman/collections/environment-templates/ci.postman_environment.json \
+          --reporters cli,json \
+          --reporter-json-export /etc/newman/reports/security/results.json \
+          --timeout-request 30000 \
+          --color on &&
+        
+        echo 'Security tests completed!'
+      "
+    networks:
+      - ai-pm-network
+    depends_on:
+      - api-server
+      - graphql-server
+    profiles:
+      - security
+
+  # Report Generator
+  report-generator:
+    image: node:18-alpine
+    container_name: ai-pm-report-generator
+    volumes:
+      - ./reports:/app/reports
+      - ./test-mocks/report-generator.js:/app/generator.js:ro
+      - ./test-mocks/package.json:/app/package.json:ro
+    working_dir: /app
+    command: >
+      sh -c "
+        npm install &&
+        node generator.js &&
+        echo 'Consolidated report generated!'
+      "
+    environment:
+      - NODE_ENV=test
+      - REPORTS_DIR=/app/reports
+    networks:
+      - ai-pm-network
+    depends_on:
+      - newman-runner
+    profiles:
+      - reporting
+
+networks:
+  ai-pm-network:
+    driver: bridge
+    name: ai-pm-testing-network
+
+volumes:
+  test-reports:
+    driver: local
+  test-data:
+    driver: local
+
+# Health check configuration
+x-healthcheck-defaults: &healthcheck-defaults
+  interval: 30s
+  timeout: 10s
+  retries: 3
+  start_period: 40s

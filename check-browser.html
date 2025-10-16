@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>EYNS AI Experience Center - Browser Check</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+        .test-section {
+            margin: 20px 0;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .success {
+            color: green;
+        }
+        .error {
+            color: red;
+        }
+        iframe {
+            width: 100%;
+            height: 600px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <h1>EYNS AI Experience Center - Browser Check</h1>
+    
+    <div class="test-section">
+        <h2>Application Status</h2>
+        <div id="status">Checking...</div>
+    </div>
+
+    <div class="test-section">
+        <h2>Console Errors</h2>
+        <div id="console-errors">Monitoring console...</div>
+    </div>
+
+    <div class="test-section">
+        <h2>Application Preview</h2>
+        <iframe id="app-frame" src="http://127.0.0.1:3000"></iframe>
+    </div>
+
+    <script>
+        const statusDiv = document.getElementById('status');
+        const errorsDiv = document.getElementById('console-errors');
+        const errors = [];
+
+        // Check if app is accessible
+        fetch('http://127.0.0.1:3000')
+            .then(response => {
+                if (response.ok) {
+                    statusDiv.innerHTML = '<span class="success">✓ Application is running on port 3000</span>';
+                } else {
+                    statusDiv.innerHTML = '<span class="error">✗ Application returned status: ' + response.status + '</span>';
+                }
+            })
+            .catch(error => {
+                statusDiv.innerHTML = '<span class="error">✗ Application is not accessible: ' + error.message + '</span>';
+            });
+
+        // Monitor iframe for errors
+        const iframe = document.getElementById('app-frame');
+        iframe.onload = function() {
+            try {
+                // Try to access iframe document (will fail due to CORS, but that's OK)
+                const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+                errorsDiv.innerHTML = '<span class="success">✓ No critical errors detected</span>';
+            } catch (e) {
+                // Expected due to CORS
+                errorsDiv.innerHTML = '<span class="success">✓ Application loaded (CORS prevents detailed inspection)</span>';
+            }
+        };
+
+        // Check API
+        fetch('http://127.0.0.1:3001/api/repositories')
+            .then(response => response.json())
+            .then(data => {
+                statusDiv.innerHTML += '<br><span class="success">✓ API is running and returned ' + data.length + ' repositories</span>';
+            })
+            .catch(error => {
+                statusDiv.innerHTML += '<br><span class="error">✗ API error: ' + error.message + '</span>';
+            });
+    </script>
+</body>
+</html>

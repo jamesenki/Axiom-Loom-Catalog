@@ -1,0 +1,64 @@
+name: Deploy Backend API to Azure Container Instances
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'src/server.js'
+      - 'src/api/**'
+      - 'src/middleware/**'
+      - 'src/services/**'
+      - 'Dockerfile'
+      - 'package*.json'
+      - 'repository-metadata.json'
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    name: Build and Deploy Backend
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Login to Azure
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Build and Push to Azure Container Registry
+        run: |
+          az acr build \
+            --registry dyingpoetsregistry \
+            --image catalog-backend:${{ github.sha }} \
+            --image catalog-backend:latest \
+            --file Dockerfile \
+            .
+
+      - name: Restart Azure Container Instance
+        run: |
+          az container restart \
+            --resource-group axiom-loom-rg \
+            --name catalog-api
+
+      - name: Wait for Container to Start
+        run: sleep 30
+
+      - name: Verify Deployment
+        run: |
+          FQDN=$(az container show \
+            --resource-group axiom-loom-rg \
+            --name catalog-api \
+            --query ipAddress.fqdn -o tsv)
+
+          echo "Testing API at https://${FQDN}:3001/api/repositories"
+
+          # Test API endpoint
+          response=$(curl -s -o /dev/null -w "%{http_code}" "https://${FQDN}:3001/api/repositories" || echo "000")
+
+          if [ "$response" = "200" ]; then
+            echo "✅ API deployment successful!"
+          else
+            echo "❌ API deployment failed - HTTP $response"
+            exit 1
+          fi

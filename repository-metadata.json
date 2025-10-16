@@ -1,0 +1,827 @@
+{
+  "ai-predictive-maintenance-engine-architecture": {
+    "id": "ai-predictive-maintenance-engine-architecture",
+    "name": "ai-predictive-maintenance-engine-architecture",
+    "displayName": "AI Predictive Maintenance Architecture",
+    "description": "Complete AI-powered predictive maintenance solution with engine, platform, and architecture",
+    "marketingDescription": "Transform your maintenance operations with our complete AI-powered predictive maintenance solution. Combining advanced machine learning engines, comprehensive platform capabilities, and enterprise-ready architecture, this integrated solution prevents equipment failures, reduces downtime by up to 70%, and extends equipment lifespan across your entire operation.",
+    "category": "Architecture",
+    "status": "active",
+    "demoUrl": "/demo/ai-maintenance-architecture",
+    "tags": [
+      "Architecture",
+      "AI/ML",
+      "Enterprise",
+      "Blueprint"
+    ],
+    "metrics": {
+      "apiCount": 20,
+      "postmanCollections": 16,
+      "lastUpdated": "2025-09-02T10:00:30.023391Z"
+    },
+    "apiTypes": {
+      "hasOpenAPI": true,
+      "hasGraphQL": true,
+      "hasGrpc": false,
+      "hasPostman": true
+    },
+    "url": "https://github.com/jamesenki/ai-predictive-maintenance-engine-architecture",
+    "businessValue": {
+      "targetMarket": "Manufacturing, Automotive, Aerospace, Energy, and Transportation companies with critical equipment assets",
+      "roi": "300-500% ROI within 18 months through reduced downtime, extended equipment life, and optimized maintenance schedules",
+      "keyBenefits": [
+        "Reduce unplanned downtime by up to 70%",
+        "Extend equipment lifespan by 20-30%",
+        "Decrease maintenance costs by 25-40%",
+        "Improve asset reliability and performance",
+        "Enable condition-based maintenance strategies",
+        "Real-time anomaly detection and alerts",
+        "Comprehensive ML model library for common failure modes",
+        "Scalable cloud-native architecture"
+      ],
+      "useCases": [
+        "Manufacturing equipment predictive maintenance",
+        "Fleet vehicle health monitoring",
+        "Industrial IoT sensor data analysis",
+        "Rotating equipment (pumps, motors, turbines) condition monitoring",
+        "Production line optimization",
+        "Quality assurance and defect prediction",
+        "Energy consumption optimization",
+        "Supply chain logistics and warehouse automation"
+      ]
+    },
+    "pricing": {
+      "suggestedRetailPrice": 400000,
+      "tier": "Tier 4: Strategic",
+      "valueScore": 90,
+      "displayPrice": "$400,000",
+      "lastAssessed": "2025-09-02T10:00:30.023391Z",
+      "currency": "USD",
+      "licensingModel": "Perpetual License",
+      "supportIncluded": "90 days",
+      "customizationAvailable": true
+    }
+  },
+  "cloudtwin-simulation-platform-architecture": {
+    "id": "cloudtwin-simulation-platform-architecture",
+    "name": "cloudtwin-simulation-platform-architecture",
+    "displayName": "cloudtwin-simulation-platform-architecture",
+    "description": "Revolutionize product development with digital twin technology that enables virtual testing and validation in the cloud. Test thousands of scenarios in minutes, not months, reducing physical testing costs by 90% while improving product quality and time to market.",
+    "marketingDescription": "Revolutionize product development with digital twin technology that enables virtual testing and validation in the cloud. Test thousands of scenarios in minutes, not months, reducing physical testing costs by 90% while improving product quality and time to market.",
+    "category": "Digital Twin Platform",
+    "status": "active",
+    "demoUrl": "https://demo.axiom-loom.com/cloudtwin-simulation",
+    "tags": [],
+    "metrics": {
+      "apiCount": 10,
+      "postmanCollections": 8,
+      "lastUpdated": "2025-09-02T10:00:30.023391Z"
+    },
+    "apiTypes": {
+      "hasOpenAPI": true,
+      "hasGraphQL": true,
+      "hasGrpc": true,
+      "hasPostman": true
+    },
+    "url": "https://github.com/jamesenki/cloudtwin-simulation-platform-architecture",
+    "pricing": {
+      "suggestedRetailPrice": 150000,
+      "tier": "Tier 3: Enterprise",
+      "valueScore": 82,
+      "displayPrice": "$150,000",
+      "lastAssessed": "2025-09-02T10:00:30.023391Z",
+      "currency": "USD",
+      "licensingModel": "Perpetual License",
+      "supportIncluded": "90 days",
+      "customizationAvailable": true
+    }
+  },
+  "deploymaster-sdv-ota-platform": {
+    "id": "deploymaster-sdv-ota-platform",
+    "name": "deploymaster-sdv-ota-platform",
+    "displayName": "DeployMaster SDV OTA Platform",
+    "description": "Enterprise-grade Over-The-Air update platform for Software-Defined Vehicles",
+    "marketingDescription": "Deploy software updates to millions of vehicles safely and efficiently. Our enterprise-grade over-the-air (OTA) platform ensures secure, reliable software delivery with zero downtime, enabling continuous improvement of vehicle features and functionality.",
+    "category": "Platform",
+    "status": "active",
+    "demoUrl": "https://demo.axiom-loom.com/deploymaster-ota",
+    "tags": [
+      "OTA",
+      "SDV",
+      "Fleet Management",
+      "Automotive"
+    ],
+    "metrics": {
+      "apiCount": 16,
+      "postmanCollections": 12,
+      "lastUpdated": "2025-09-02T10:00:30.023391Z"
+    },
+    "apiTypes": {
+      "hasOpenAPI": true,
+      "hasGraphQL": true,
+      "hasGrpc": false,
+      "hasPostman": true
+    },
+    "url": "https://github.com/jamesenki/deploymaster-sdv-ota-platform",
+    "pricing": {
+      "suggestedRetailPrice": 250000,
+      "tier": "Tier 4: Strategic",
+      "valueScore": 82,
+      "displayPrice": "$250,000",
+      "lastAssessed": "2025-09-02T10:00:30.023391Z",
+      "currency": "USD",
+      "licensingModel": "Perpetual License",
+      "supportIncluded": "90 days",
+      "customizationAvailable": true
+    }
+  },
+  "diagnostic-as-code-platform-architecture": {
+    "id": "diagnostic-as-code-platform-architecture",
+    "name": "diagnostic-as-code-platform-architecture",
+    "displayName": "diagnostic-as-code-platform-architecture",
+    "description": "Transform vehicle diagnostics with code-driven automation. Define diagnostic procedures as code, version control your diagnostic logic, and deploy updates instantly across your entire fleet. Reduce diagnostic time by 80% while ensuring consistent, accurate results.",
+    "marketingDescription": "Transform vehicle diagnostics with code-driven automation. Define diagnostic procedures as code, version control your diagnostic logic, and deploy updates instantly across your entire fleet. Reduce diagnostic time by 80% while ensuring consistent, accurate results.",
+    "category": "Diagnostics Platform",
+    "status": "active",
+    "demoUrl": "https://demo.axiom-loom.com/diagnostics-as-code",
+    "tags": [],
+    "metrics": {
+      "apiCount": 10,
+      "postmanCollections": 8,
+      "lastUpdated": "2025-09-02T10:00:30.023391Z"
+    },
+    "apiTypes": {
+      "hasOpenAPI": true,
+      "hasGraphQL": true,
+      "hasGrpc": true,
+      "hasPostman": true
+    },
+    "url": "https://github.com/jamesenki/diagnostic-as-code-platform-architecture",
+    "pricing": {
+      "suggestedRetailPrice": 150000,
+      "tier": "Tier 3: Enterprise",
+      "valueScore": 84,
+      "displayPrice": "$150,000",
+      "lastAssessed": "2025-09-02T10:00:30.023391Z",
+      "currency": "USD",
+      "licensingModel": "Perpetual License",
+      "supportIncluded": "90 days",
+      "customizationAvailable": true
+    }
+  },
+  "fleet-digital-twin-platform-architecture": {
+    "id": "fleet-digital-twin-platform-architecture",
+    "name": "fleet-digital-twin-platform-architecture",
+    "displayName": "Fleet Digital Twin Platform Architecture",
+    "description": "Enterprise-grade digital twin platform for fleet-wide predictive analytics, optimization, and real-time monitoring",
+    "marketingDescription": "Create digital twins of your entire fleet for predictive analytics, optimization, and real-time monitoring. Reduce maintenance costs by 40%, improve fuel efficiency by 15%, and enhance fleet utilization through AI-powered insights.",
+    "category": "Fleet Digital Twin",
+    "status": "active",
+    "demoUrl": "https://demo.axiom-loom.com/fleet-digital-twin",
+    "tags": [],
+    "metrics": {
+      "apiCount": 8,
+      "postmanCollections": 2,
+      "lastUpdated": "2025-09-02T10:00:30.023391Z"
+    },
+    "apiTypes": {
+      "hasOpenAPI": true,
+      "hasGraphQL": true,
+      "hasGrpc": true,
+      "hasPostman": true
+    },
+    "url": "https://github.com/jamesenki/fleet-digital-twin-platform-architecture",
+    "pricing": {
+      "suggestedRetailPrice": 135000,
+      "tier": "Tier 3: Enterprise",
+      "valueScore": 75,
+      "displayPrice": "$135,000",
+      "lastAssessed": "2025-09-02T10:00:30.023391Z",
+      "currency": "USD",
+      "licensingModel": "Perpetual License",
+      "supportIncluded": "90 days",
+      "customizationAvailable": true
+    }
+  },
+  "mobility-architecture-package-orchestrator": {
+    "id": "mobility-architecture-package-orchestrator",
+    "name": "mobility-architecture-package-orchestrator",
+    "displayName": "mobility-architecture-package-orchestrator",
+    "description": "Orchestrate complex mobility ecosystems with intelligent package management.",
+    "marketingDescription": "Orchestrate complex mobility ecosystems with intelligent package management, automated deployment, and comprehensive monitoring. Manage interconnected mobility services at scale.",
+    "category": "Architecture Orchestration",
+    "status": "active",
+    "demoUrl": "https://demo.axiom-loom.com/mobility-orchestrator",
+    "tags": [],
+    "metrics": {
+      "apiCount": 4,
+      "postmanCollections": 1,
+      "lastUpdated": "2025-09-02T10:00:30.023391Z"
+    },
+    "apiTypes": {
+      "hasOpenAPI": true,
+      "hasGraphQL": false,
+      "hasGrpc": false,
+      "hasPostman": true
+    },
+    "url": "https://github.com/jamesenki/mobility-architecture-package-orchestrator",
+    "pricing": {
+      "suggestedRetailPrice": 25000,
+      "tier": "Tier 2: Professional",
+      "valueScore": 58,
+      "displayPrice": "$25,000",
+      "lastAssessed": "2025-09-02T10:00:30.023391Z",
+      "currency": "USD",
+      "licensingModel": "Perpetual License",
+      "supportIncluded": "90 days",
+      "customizationAvailable": true
+    }
+  },
+  "remote-diagnostic-assistance-platform-architecture": {
+    "id": "remote-diagnostic-assistance-platform-architecture",
+    "name": "remote-diagnostic-assistance-platform-architecture",
+    "displayName": "Remote Diagnostic Assistance Platform Architecture",
+    "description": "AI-powered remote diagnostic platform with video collaboration and real-time vehicle data analysis",
+    "marketingDescription": "Provide expert diagnostic assistance remotely with AI-powered troubleshooting, video collaboration, and real-time vehicle data analysis. Reduce service visits by 60% and improve first-time fix rates.",
+    "category": "Remote Diagnostics",
+    "status": "active",
+    "demoUrl": "https://demo.axiom-loom.com/remote-diagnostics",
+    "tags": [],
+    "metrics": {
+      "apiCount": 6,
+      "postmanCollections": 6,
+      "lastUpdated": "2025-09-02T10:00:30.023391Z"
+    },
+    "apiTypes": {
+      "hasOpenAPI": true,
+      "hasGraphQL": false,
+      "hasGrpc": false,
+      "hasPostman": true
+    },
+    "url": "https://github.com/jamesenki/remote-diagnostic-assistance-platform-architecture",
+    "pricing": {
+      "suggestedRetailPrice": 35000,
+      "tier": "Tier 2: Professional",
+      "valueScore": 61,
+      "displayPrice": "$35,000",
+      "lastAssessed": "2025-09-02T10:00:30.023391Z",
+      "currency": "USD",
+      "licensingModel": "Perpetual License",
+      "supportIncluded": "90 days",
+      "customizationAvailable": true
+    }
+  },
+  "rentalFleets": {
+    "id": "rentalFleets",
+    "name": "rentalFleets",
+    "displayName": "Rental Fleet Management",
+    "description": "Comprehensive rental fleet operations and customer experience platform",
+    "marketingDescription": "Revolutionize fleet rental operations with AI-powered management, predictive maintenance, dynamic pricing, and enhanced customer experiences. Maximize fleet utilization and profitability.",
+    "category": "Fleet",
+    "status": "active",
+    "demoUrl": "https://demo.axiom-loom.com/rental-fleet",
+    "tags": [
+      "Rental",
+      "Fleet",
+      "Customer Experience",
+      "Analytics"
+    ],
+    "metrics": {
+      "apiCount": 27,
+      "postmanCollections": 20,
+      "lastUpdated": "2025-09-02T10:00:30.023391Z"
+    },
+    "apiTypes": {
+      "hasOpenAPI": true,
+      "hasGraphQL": false,
+      "hasGrpc": false,
+      "hasPostman": true
+    },
+    "url": "https://github.com/jamesenki/rentalFleets",
+    "pricing": {
+      "suggestedRetailPrice": 120000,
+      "tier": "Tier 3: Enterprise",
+      "valueScore": 75,
+      "displayPrice": "$120,000",
+      "lastAssessed": "2025-09-02T10:00:30.023391Z",
+      "currency": "USD",
+      "licensingModel": "Perpetual License",
+      "supportIncluded": "90 days",
+      "customizationAvailable": true
+    }
+  },
+  "sdv-architecture-orchestration": {
+    "id": "sdv-architecture-orchestration",
+    "name": "sdv-architecture-orchestration",
+    "displayName": "SDV Architecture Orchestration",
+    "description": "Cloud-native orchestration platform for Software-Defined Vehicle architectures",
+    "marketingDescription": "Orchestrate complex software-defined vehicle architectures with cloud-native scalability and reliability. Manage microservices, APIs, and data flows across distributed automotive systems with enterprise-grade orchestration.",
+    "category": "Architecture",
+    "status": "active",
+    "demoUrl": "https://demo.axiom-loom.com/sdv-orchestration",
+    "tags": [
+      "SDV",
+      "Architecture",
+      "Orchestration",
+      "Cloud-Native"
+    ],
+    "metrics": {
+      "apiCount": 5,
+      "postmanCollections": 1,
+      "lastUpdated": "2025-09-02T10:00:30.023391Z"
+    },
+    "apiTypes": {
+      "hasOpenAPI": true,
+      "hasGraphQL": false,
+      "hasGrpc": false,
+      "hasPostman": true
+    },
+    "url": "https://github.com/jamesenki/sdv-architecture-orchestration",
+    "pricing": {
+      "suggestedRetailPrice": 45000,
+      "tier": "Tier 2: Professional",
+      "valueScore": 64,
+      "displayPrice": "$45,000",
+      "lastAssessed": "2025-09-02T10:00:30.023391Z",
+      "currency": "USD",
+      "licensingModel": "Perpetual License",
+      "supportIncluded": "90 days",
+      "customizationAvailable": true
+    }
+  },
+  "sovd-diagnostic-ecosystem-platform-architecture": {
+    "id": "sovd-diagnostic-ecosystem-platform-architecture",
+    "name": "sovd-diagnostic-ecosystem-platform-architecture",
+    "displayName": "Sovd Diagnostic Ecosystem Platform Architecture",
+    "description": "Comprehensive test suite for SOVD Diagnostic Ecosystem Platform APIs",
+    "marketingDescription": "Implement comprehensive SOVD (Service-Oriented Vehicle Diagnostics) ecosystem with standardized APIs, real-time monitoring, and advanced diagnostic capabilities. Streamline vehicle maintenance and repair operations.",
+    "category": "Vehicle Diagnostics",
+    "status": "active",
+    "demoUrl": "https://demo.axiom-loom.com/sovd-diagnostics",
+    "tags": [],
+    "metrics": {
+      "apiCount": 5,
+      "postmanCollections": 4,
+      "lastUpdated": "2025-09-02T10:00:30.023391Z"
+    },
+    "apiTypes": {
+      "hasOpenAPI": true,
+      "hasGraphQL": false,
+      "hasGrpc": false,
+      "hasPostman": true
+    },
+    "url": "https://github.com/jamesenki/sovd-diagnostic-ecosystem-platform-architecture",
+    "pricing": {
+      "suggestedRetailPrice": 95000,
+      "tier": "Tier 3: Enterprise",
+      "valueScore": 72,
+      "displayPrice": "$95,000",
+      "lastAssessed": "2025-09-02T10:00:30.023391Z",
+      "currency": "USD",
+      "licensingModel": "Perpetual License",
+      "supportIncluded": "90 days",
+      "customizationAvailable": true
+    }
+  },
+  "velocityforge-sdv-platform-architecture": {
+    "id": "velocityforge-sdv-platform-architecture",
+    "name": "velocityforge-sdv-platform-architecture",
+    "displayName": "VelocityForge SDV Platform Architecture",
+    "description": "High-performance SDV platform enabling rapid development and deployment of vehicle software",
+    "marketingDescription": "Accelerate software-defined vehicle development with our high-performance platform architecture. Enable rapid development, testing, and deployment of vehicle software with enterprise-grade scalability, security, and performance optimization.",
+    "category": "Platform",
+    "status": "active",
+    "demoUrl": "https://demo.axiom-loom.com/velocityforge-sdv",
+    "tags": [
+      "SDV",
+      "Platform",
+      "Development",
+      "High-Performance"
+    ],
+    "metrics": {
+      "apiCount": 8,
+      "postmanCollections": 7,
+      "lastUpdated": "2025-09-02T10:00:30.023391Z"
+    },
+    "apiTypes": {
+      "hasOpenAPI": true,
+      "hasGraphQL": true,
+      "hasGrpc": false,
+      "hasPostman": true
+    },
+    "url": "https://github.com/jamesenki/velocityforge-sdv-platform-architecture",
+    "pricing": {
+      "suggestedRetailPrice": 150000,
+      "tier": "Tier 3: Enterprise",
+      "valueScore": 83,
+      "displayPrice": "$150,000",
+      "lastAssessed": "2025-09-02T10:00:30.023391Z",
+      "currency": "USD",
+      "licensingModel": "Perpetual License",
+      "supportIncluded": "90 days",
+      "customizationAvailable": true
+    }
+  },
+  "future-mobility-platform-suite": {
+    "id": "future-mobility-platform-suite",
+    "name": "future-mobility-platform-suite",
+    "displayName": "Future Mobility Platform Suite",
+    "description": "Comprehensive mobility ecosystem platform for consumers, fleets, OEMs, and utilities",
+    "marketingDescription": "Transform the future of mobility with our comprehensive platform suite that serves 2+ billion consumers, fleet operators, automotive OEMs, and utility providers. Integrate electric vehicle management, smart charging infrastructure, regulatory compliance, and advanced analytics in one unified ecosystem.",
+    "category": "Platform Suite",
+    "status": "active",
+    "demoUrl": "https://demo.axiom-loom.com/mobility-suite",
+    "tags": [
+      "Future Mobility",
+      "EV Management",
+      "Fleet Operations",
+      "Smart Grid",
+      "Regulatory Compliance",
+      "Analytics"
+    ],
+    "metrics": {
+      "apiCount": 207,
+      "postmanCollections": 206,
+      "lastUpdated": "2025-09-02T10:00:30.023391Z"
+    },
+    "apiTypes": {
+      "hasOpenAPI": true,
+      "hasGraphQL": true,
+      "hasGrpc": false,
+      "hasPostman": true
+    },
+    "url": "https://github.com/jamesenki/future-mobility-platform-suite",
+    "pricing": {
+      "suggestedRetailPrice": 450000,
+      "tier": "Tier 4: Strategic",
+      "valueScore": 74,
+      "displayPrice": "$450,000",
+      "lastAssessed": "2025-09-02T10:00:30.023391Z",
+      "currency": "USD",
+      "licensingModel": "Perpetual License",
+      "supportIncluded": "90 days",
+      "customizationAvailable": true
+    },
+    "consolidatedFrom": [
+      {
+        "id": "future-mobility-consumer-platform",
+        "name": "Future Mobility Consumer Platform",
+        "apis": 22,
+        "collections": 30,
+        "value": 77
+      },
+      {
+        "id": "future-mobility-fleet-platform",
+        "name": "Future Mobility Fleet Platform",
+        "apis": 48,
+        "collections": 42,
+        "value": 77
+      },
+      {
+        "id": "future-mobility-oems-platform",
+        "name": "future-mobility-oems-platform",
+        "apis": 65,
+        "collections": 60,
+        "value": 74
+      },
+      {
+        "id": "future-mobility-tech-platform",
+        "name": "future-mobility-tech-platform",
+        "apis": 23,
+        "collections": 30,
+        "value": 73
+      },
+      {
+        "id": "future-mobility-utilities-platform",
+        "name": "future-mobility-utilities-platform",
+        "apis": 38,
+        "collections": 27,
+        "value": 73
+      },
+      {
+        "id": "future-mobility-regulatory-platform",
+        "name": "future-mobility-regulatory-platform",
+        "apis": 11,
+        "collections": 17,
+        "value": 74
+      }
+    ]
+  },
+  "axiom-loom-iot-core": {
+    "id": "axiom-loom-iot-core",
+    "name": "axiom-loom-iot-core",
+    "displayName": "Axiom Loom IoT Core",
+    "description": "Enterprise IoT platform with GraphQL APIs, MQTT integration, and device management",
+    "marketingDescription": "Build scalable IoT solutions with our enterprise-grade core platform. Features real-time GraphQL APIs, secure MQTT communication, comprehensive device management, and advanced analytics. Perfect for industrial monitoring, smart buildings, and connected device ecosystems.",
+    "category": "IoT Core Platform",
+    "status": "active",
+    "demoUrl": "https://demo.axiom-loom.com/iot-core",
+    "tags": [
+      "IoT",
+      "GraphQL",
+      "MQTT",
+      "Device Management",
+      "Real-time"
+    ],
+    "metrics": {
+      "apiCount": 15,
+      "postmanCollections": 8,
+      "lastUpdated": "2025-09-02T10:00:30.023391Z"
+    },
+    "apiTypes": {
+      "hasOpenAPI": true,
+      "hasGraphQL": true,
+      "hasGrpc": false,
+      "hasPostman": true
+    },
+    "url": "https://github.com/jamesenki/axiom-loom-iot-core",
+    "pricing": {
+      "suggestedRetailPrice": 180000,
+      "tier": "Tier 3: Enterprise",
+      "valueScore": 85,
+      "displayPrice": "$180,000",
+      "lastAssessed": "2025-09-02T10:00:30.023391Z",
+      "currency": "USD",
+      "licensingModel": "Perpetual License",
+      "supportIncluded": "90 days",
+      "customizationAvailable": true
+    }
+  },
+  "appliances-co-water-heater-platform": {
+    "id": "appliances-co-water-heater-platform",
+    "name": "appliances-co-water-heater-platform",
+    "displayName": "Appliances Co Water Heater Platform",
+    "description": "Comprehensive water heater management with predictive maintenance and fleet optimization",
+    "marketingDescription": "Revolutionize water heater operations with AI-powered predictive maintenance, cost optimization, and fleet management. Monitor thousands of units in real-time, predict failures before they happen, and optimize energy consumption across your entire portfolio.",
+    "category": "Appliance Management",
+    "status": "active",
+    "demoUrl": "/coming-soon/demo/appliances-co-water-heater-platform",
+    "tags": [
+      "Water Heaters",
+      "Predictive Maintenance",
+      "Fleet Management",
+      "Analytics"
+    ],
+    "metrics": {
+      "apiCount": 12,
+      "postmanCollections": 6,
+      "lastUpdated": "2025-09-02T10:00:30.023391Z"
+    },
+    "apiTypes": {
+      "hasOpenAPI": true,
+      "hasGraphQL": true,
+      "hasGrpc": false,
+      "hasPostman": true
+    },
+    "url": "https://github.com/jamesenki/appliances-co-water-heater-platform",
+    "pricing": {
+      "suggestedRetailPrice": 145000,
+      "tier": "Tier 3: Enterprise",
+      "valueScore": 78,
+      "displayPrice": "$145,000",
+      "lastAssessed": "2025-09-02T10:00:30.023391Z",
+      "currency": "USD",
+      "licensingModel": "Perpetual License",
+      "supportIncluded": "90 days",
+      "customizationAvailable": true
+    }
+  },
+  "axiom-loom-iot-intelligence": {
+    "id": "axiom-loom-iot-intelligence",
+    "name": "axiom-loom-iot-intelligence",
+    "displayName": "Axiom Loom IoT Intelligence",
+    "description": "Advanced machine learning and AI platform for IoT analytics and autonomous systems",
+    "marketingDescription": "Unlock the power of AI for your IoT ecosystem. Our advanced ML platform provides AI agents, predictive analytics, RAG-powered knowledge management, and autonomous system capabilities. Transform raw sensor data into intelligent insights and automated actions.",
+    "category": "IoT AI Platform",
+    "status": "active",
+    "demoUrl": "https://demo.axiom-loom.com/iot-intelligence",
+    "tags": [
+      "AI/ML",
+      "IoT Analytics",
+      "Autonomous Systems",
+      "RAG",
+      "Predictive Analytics"
+    ],
+    "metrics": {
+      "apiCount": 10,
+      "postmanCollections": 6,
+      "lastUpdated": "2025-09-02T10:00:30.023391Z"
+    },
+    "apiTypes": {
+      "hasOpenAPI": true,
+      "hasGraphQL": true,
+      "hasGrpc": false,
+      "hasPostman": true
+    },
+    "url": "https://github.com/jamesenki/axiom-loom-iot-intelligence",
+    "pricing": {
+      "suggestedRetailPrice": 220000,
+      "tier": "Tier 4: Strategic",
+      "valueScore": 88,
+      "displayPrice": "$220,000",
+      "lastAssessed": "2025-09-02T10:00:30.023391Z",
+      "currency": "USD",
+      "licensingModel": "Perpetual License",
+      "supportIncluded": "90 days",
+      "customizationAvailable": true
+    }
+  },
+  "industrial-lubricants-platform": {
+    "id": "industrial-lubricants-platform",
+    "name": "industrial-lubricants-platform",
+    "displayName": "Industrial Lubricants Platform",
+    "description": "Industrial lubricant monitoring and optimization platform for manufacturing operations",
+    "marketingDescription": "Optimize your industrial lubricant operations with real-time monitoring, predictive maintenance, and performance analytics. Reduce equipment wear, extend machinery life, and minimize operational downtime across your manufacturing facilities.",
+    "category": "Industrial Monitoring",
+    "status": "active",
+    "demoUrl": "https://demo.axiom-loom.com/industrial-lubricants",
+    "tags": [
+      "Industrial",
+      "Lubricants",
+      "Manufacturing",
+      "Predictive Maintenance"
+    ],
+    "metrics": {
+      "apiCount": 8,
+      "postmanCollections": 5,
+      "lastUpdated": "2025-09-02T10:00:30.023391Z"
+    },
+    "apiTypes": {
+      "hasOpenAPI": true,
+      "hasGraphQL": false,
+      "hasGrpc": false,
+      "hasPostman": true
+    },
+    "url": "https://github.com/jamesenki/industrial-lubricants-platform",
+    "pricing": {
+      "suggestedRetailPrice": 95000,
+      "tier": "Tier 3: Enterprise",
+      "valueScore": 72,
+      "displayPrice": "$95,000",
+      "lastAssessed": "2025-09-02T10:00:30.023391Z",
+      "currency": "USD",
+      "licensingModel": "Perpetual License",
+      "supportIncluded": "90 days",
+      "customizationAvailable": true
+    }
+  },
+  "motorbike-oem-platform": {
+    "id": "motorbike-oem-platform",
+    "name": "motorbike-oem-platform",
+    "displayName": "Motorbike OEM Platform",
+    "description": "Electric motorcycle fleet management and optimization platform for OEMs",
+    "marketingDescription": "Accelerate your electric motorcycle business with comprehensive fleet management, battery optimization, and performance analytics. Monitor vehicle health, optimize charging patterns, and deliver exceptional customer experiences.",
+    "category": "Vehicle Management",
+    "status": "active",
+    "demoUrl": "https://demo.axiom-loom.com/motorbike-oem",
+    "tags": [
+      "Electric Motorcycles",
+      "Fleet Management",
+      "Battery Optimization",
+      "OEM"
+    ],
+    "metrics": {
+      "apiCount": 6,
+      "postmanCollections": 4,
+      "lastUpdated": "2025-09-02T10:00:30.023391Z"
+    },
+    "apiTypes": {
+      "hasOpenAPI": true,
+      "hasGraphQL": false,
+      "hasGrpc": false,
+      "hasPostman": true
+    },
+    "url": "https://github.com/jamesenki/motorbike-oem-platform",
+    "pricing": {
+      "suggestedRetailPrice": 85000,
+      "tier": "Tier 2: Professional",
+      "valueScore": 68,
+      "displayPrice": "$85,000",
+      "lastAssessed": "2025-09-02T10:00:30.023391Z",
+      "currency": "USD",
+      "licensingModel": "Perpetual License",
+      "supportIncluded": "90 days",
+      "customizationAvailable": true
+    }
+  },
+  "axiom-loom-iot-simulators": {
+    "id": "axiom-loom-iot-simulators",
+    "name": "axiom-loom-iot-simulators",
+    "displayName": "Axiom Loom IoT Simulators",
+    "description": "Comprehensive device simulation and testing framework for IoT development",
+    "marketingDescription": "Accelerate IoT development with realistic device simulators and comprehensive testing frameworks. Test at scale, validate integrations, and ensure reliability before deploying to production environments.",
+    "category": "IoT Development Tools",
+    "status": "active",
+    "demoUrl": "https://demo.axiom-loom.com/iot-simulators",
+    "tags": [
+      "Device Simulation",
+      "Testing",
+      "IoT Development",
+      "Integration Testing"
+    ],
+    "metrics": {
+      "apiCount": 5,
+      "postmanCollections": 4,
+      "lastUpdated": "2025-09-02T10:00:30.023391Z"
+    },
+    "apiTypes": {
+      "hasOpenAPI": true,
+      "hasGraphQL": false,
+      "hasGrpc": false,
+      "hasPostman": true
+    },
+    "url": "https://github.com/jamesenki/axiom-loom-iot-simulators",
+    "pricing": {
+      "suggestedRetailPrice": 45000,
+      "tier": "Tier 2: Professional",
+      "valueScore": 62,
+      "displayPrice": "$45,000",
+      "lastAssessed": "2025-09-02T10:00:30.023391Z",
+      "currency": "USD",
+      "licensingModel": "Perpetual License",
+      "supportIncluded": "90 days",
+      "customizationAvailable": true
+    }
+  },
+  "vehicle-to-cloud-communications-architecture": {
+    "id": "vehicle-to-cloud-communications-architecture",
+    "name": "vehicle-to-cloud-communications-architecture",
+    "displayName": "Vehicle-to-Cloud Communications Architecture",
+    "description": "Production-ready MQTT 5.0 communications architecture for connected vehicles with comprehensive Protocol Buffer message specifications",
+    "marketingDescription": "Enterprise-grade MQTT 5.0 vehicle-to-cloud communications platform with complete Protocol Buffer specifications, AsyncAPI documentation, and FMEA-validated architecture. Supports real-time telemetry, remote commands, OTA updates, and diagnostic operations with industry-standard security (ISO 21434, mTLS, certificate lifecycle management). Includes bandwidth optimization through message batching (96% reduction), topic aliases, and QoS-based priority handling. Production-tested architecture patterns with comprehensive failure mode analysis and recovery strategies.",
+    "category": "Vehicle Connectivity",
+    "status": "active",
+    "demoUrl": "https://demo.axiom-loom.com/vehicle-to-cloud",
+    "tags": [
+      "MQTT 5.0",
+      "Vehicle Connectivity",
+      "Protocol Buffers",
+      "AsyncAPI",
+      "Connected Vehicles",
+      "Telematics",
+      "IoT Platform",
+      "ISO 21434",
+      "OTA Updates",
+      "Remote Diagnostics"
+    ],
+    "useCases": [
+      {
+        "title": "Real-Time Vehicle Telemetry",
+        "description": "Stream high-frequency sensor data from vehicles to cloud with 96% bandwidth reduction through intelligent batching and Protocol Buffer serialization"
+      },
+      {
+        "title": "Remote Vehicle Commands",
+        "description": "Execute secure remote commands (door lock/unlock, horn activation, lights control) with request-response tracking and timeout handling"
+      },
+      {
+        "title": "Over-The-Air (OTA) Software Updates",
+        "description": "Coordinate ECU firmware updates with delta compression, chunk-based delivery, rollback support, and real-time progress tracking"
+      },
+      {
+        "title": "Remote Diagnostics & DTC Retrieval",
+        "description": "Request and retrieve diagnostic trouble codes (DTCs) from vehicle ECUs for predictive maintenance and troubleshooting"
+      },
+      {
+        "title": "Fleet Management & Monitoring",
+        "description": "Monitor vehicle health, location, and status across entire fleets with scalable MQTT topic hierarchy and QoS-based prioritization"
+      },
+      {
+        "title": "Emergency & Critical Alerts",
+        "description": "Handle high-priority safety alerts (airbag deployment, collision detection, breakdown assistance) with dedicated QoS 2 messaging paths"
+      },
+      {
+        "title": "Vehicle State Synchronization",
+        "description": "Maintain consistent vehicle state across cloud services and mobile apps using last-will messages and retained topics"
+      },
+      {
+        "title": "Regulatory Compliance Reporting",
+        "description": "Capture and audit all vehicle communications for ISO 21434 cybersecurity compliance with comprehensive audit logging"
+      }
+    ],
+    "metrics": {
+      "apiCount": 1,
+      "postmanCollections": 0,
+      "lastUpdated": "2025-10-09T16:45:00.000Z"
+    },
+    "apiTypes": {
+      "hasOpenAPI": false,
+      "hasGraphQL": false,
+      "hasGrpc": false,
+      "hasAsyncAPI": true,
+      "hasPostman": false
+    },
+    "asyncApiSpec": "asyncapi.yaml",
+    "url": "https://github.com/jamesenki/vehicle-to-cloud-communications-architecture",
+    "pricing": {
+      "suggestedRetailPrice": 125000,
+      "tier": "Tier 3: Enterprise",
+      "valueScore": 85,
+      "displayPrice": "$125,000",
+      "lastAssessed": "2025-10-09T16:45:00.000Z",
+      "currency": "USD",
+      "licensingModel": "Perpetual License",
+      "supportIncluded": "90 days",
+      "customizationAvailable": true
+    }
+  }
+}

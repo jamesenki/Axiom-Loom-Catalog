@@ -1,0 +1,327 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: prometheus-config
+  namespace: ai-predictive-maintenance
+  labels:
+    app.kubernetes.io/name: prometheus
+    app.kubernetes.io/component: monitoring
+    app.kubernetes.io/part-of: ai-predictive-maintenance-engine
+data:
+  prometheus.yml: |
+    global:
+      scrape_interval: 15s
+      evaluation_interval: 15s
+      external_labels:
+        cluster: 'ai-pm-production'
+        env: 'production'
+    
+    alerting:
+      alertmanagers:
+        - static_configs:
+            - targets:
+              - alertmanager:9093
+    
+    rule_files:
+      - '/etc/prometheus/rules/*.yml'
+    
+    scrape_configs:
+      # API Gateway metrics
+      - job_name: 'api-gateway'
+        kubernetes_sd_configs:
+          - role: pod
+            namespaces:
+              names:
+                - ai-predictive-maintenance
+        relabel_configs:
+          - source_labels: [__meta_kubernetes_pod_label_app_kubernetes_io_name]
+            action: keep
+            regex: api-gateway
+          - source_labels: [__meta_kubernetes_pod_annotation_prometheus_io_scrape]
+            action: keep
+            regex: true
+          - source_labels: [__meta_kubernetes_pod_annotation_prometheus_io_path]
+            action: replace
+            target_label: __metrics_path__
+            regex: (.+)
+          - source_labels: [__address__, __meta_kubernetes_pod_annotation_prometheus_io_port]
+            action: replace
+            regex: ([^:]+)(?::\d+)?;(\d+)
+            replacement: $1:$2
+            target_label: __address__
+          - action: labelmap
+            regex: __meta_kubernetes_pod_label_(.+)
+          - source_labels: [__meta_kubernetes_namespace]
+            action: replace
+            target_label: kubernetes_namespace
+          - source_labels: [__meta_kubernetes_pod_name]
+            action: replace
+            target_label: kubernetes_pod_name
+      
+      # AI Prediction Engine metrics
+      - job_name: 'ai-prediction-engine'
+        kubernetes_sd_configs:
+          - role: pod
+            namespaces:
+              names:
+                - ai-predictive-maintenance
+        relabel_configs:
+          - source_labels: [__meta_kubernetes_pod_label_app_kubernetes_io_name]
+            action: keep
+            regex: ai-prediction-engine
+          - source_labels: [__address__]
+            action: replace
+            regex: ([^:]+)(?::\d+)?
+            replacement: $1:9091
+            target_label: __address__
+          - action: labelmap
+            regex: __meta_kubernetes_pod_label_(.+)
+      
+      # Data Ingestion metrics
+      - job_name: 'data-ingestion'
+        kubernetes_sd_configs:
+          - role: pod
+            namespaces:
+              names:
+                - ai-predictive-maintenance
+        relabel_configs:
+          - source_labels: [__meta_kubernetes_pod_label_app_kubernetes_io_name]
+            action: keep
+            regex: data-ingestion
+          - source_labels: [__address__]
+            action: replace
+            regex: ([^:]+)(?::\d+)?
+            replacement: $1:9095
+            target_label: __address__
+          - action: labelmap
+            regex: __meta_kubernetes_pod_label_(.+)
+      
+      # Kafka metrics
+      - job_name: 'kafka'
+        static_configs:
+          - targets:
+            - kafka-0.kafka-headless:9308
+            - kafka-1.kafka-headless:9308
+            - kafka-2.kafka-headless:9308
+      
+      # PostgreSQL metrics
+      - job_name: 'postgres'
+        static_configs:
+          - targets:
+            - postgres-exporter:9187
+      
+      # InfluxDB metrics
+      - job_name: 'influxdb'
+        static_configs:
+          - targets:
+            - influxdb-service:8086
+        metrics_path: '/metrics'
+      
+      # Redis metrics
+      - job_name: 'redis'
+        static_configs:
+          - targets:
+            - redis-exporter:9121
+      
+      # Node exporter
+      - job_name: 'node-exporter'
+        kubernetes_sd_configs:
+          - role: node
+        relabel_configs:
+          - source_labels: [__address__]
+            regex: '(.*):10250'
+            replacement: '${1}:9100'
+            target_label: __address__
+          - action: labelmap
+            regex: __meta_kubernetes_node_label_(.+)
+          - source_labels: [__meta_kubernetes_node_name]
+            action: replace
+            target_label: instance
+      
+      # Kubernetes metrics
+      - job_name: 'kubernetes-apiservers'
+        kubernetes_sd_configs:
+          - role: endpoints
+        scheme: https
+        tls_config:
+          ca_file: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
+        bearer_token_file: /var/run/secrets/kubernetes.io/serviceaccount/token
+        relabel_configs:
+          - source_labels: [__meta_kubernetes_namespace, __meta_kubernetes_service_name, __meta_kubernetes_endpoint_port_name]
+            action: keep
+            regex: default;kubernetes;https
+      
+      - job_name: 'kubernetes-cadvisor'
+        kubernetes_sd_configs:
+          - role: node
+        scheme: https
+        tls_config:
+          ca_file: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
+        bearer_token_file: /var/run/secrets/kubernetes.io/serviceaccount/token
+        relabel_configs:
+          - action: labelmap
+            regex: __meta_kubernetes_node_label_(.+)
+          - source_labels: [__address__]
+            regex: '(.*)'
+            replacement: '${1}:10250'
+            target_label: __address__
+        metrics_path: /metrics/cadvisor
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: prometheus-rules
+  namespace: ai-predictive-maintenance
+  labels:
+    app.kubernetes.io/name: prometheus
+    app.kubernetes.io/component: monitoring
+data:
+  api-rules.yml: |
+    groups:
+      - name: api_gateway
+        interval: 30s
+        rules:
+          - alert: APIHighErrorRate
+            expr: rate(http_requests_total{job="api-gateway",status=~"5.."}[5m]) > 0.05
+            for: 5m
+            labels:
+              severity: critical
+              component: api-gateway
+            annotations:
+              summary: "High error rate on API Gateway"
+              description: "API Gateway error rate is {{ $value | humanizePercentage }} for the last 5 minutes"
+          
+          - alert: APIHighLatency
+            expr: histogram_quantile(0.95, rate(http_request_duration_seconds_bucket{job="api-gateway"}[5m])) > 1
+            for: 5m
+            labels:
+              severity: warning
+              component: api-gateway
+            annotations:
+              summary: "High API latency detected"
+              description: "95th percentile latency is {{ $value | humanizeDuration }}"
+          
+          - alert: APIGatewayDown
+            expr: up{job="api-gateway"} == 0
+            for: 1m
+            labels:
+              severity: critical
+              component: api-gateway
+            annotations:
+              summary: "API Gateway is down"
+              description: "API Gateway instance {{ $labels.instance }} is down"
+  
+  ai-engine-rules.yml: |
+    groups:
+      - name: ai_prediction_engine
+        interval: 30s
+        rules:
+          - alert: PredictionHighLatency
+            expr: histogram_quantile(0.95, rate(prediction_duration_seconds_bucket[5m])) > 5
+            for: 5m
+            labels:
+              severity: warning
+              component: ai-engine
+            annotations:
+              summary: "High prediction latency"
+              description: "95th percentile prediction latency is {{ $value | humanizeDuration }}"
+          
+          - alert: ModelDriftDetected
+            expr: model_drift_score > 0.1
+            for: 10m
+            labels:
+              severity: warning
+              component: ai-engine
+            annotations:
+              summary: "Model drift detected"
+              description: "Model {{ $labels.model_name }} drift score is {{ $value }}"
+          
+          - alert: PredictionAccuracyLow
+            expr: model_accuracy < 0.85
+            for: 15m
+            labels:
+              severity: critical
+              component: ai-engine
+            annotations:
+              summary: "Low prediction accuracy"
+              description: "Model {{ $labels.model_name }} accuracy is {{ $value | humanizePercentage }}"
+  
+  data-ingestion-rules.yml: |
+    groups:
+      - name: data_ingestion
+        interval: 30s
+        rules:
+          - alert: KafkaConsumerLag
+            expr: kafka_consumer_lag > 10000
+            for: 5m
+            labels:
+              severity: warning
+              component: data-ingestion
+            annotations:
+              summary: "High Kafka consumer lag"
+              description: "Consumer group {{ $labels.consumer_group }} lag is {{ $value }} messages"
+          
+          - alert: DataIngestionRateDropped
+            expr: rate(data_points_ingested_total[5m]) < 1000
+            for: 10m
+            labels:
+              severity: warning
+              component: data-ingestion
+            annotations:
+              summary: "Data ingestion rate dropped"
+              description: "Current ingestion rate is {{ $value }} points/sec"
+          
+          - alert: DataValidationFailures
+            expr: rate(data_validation_failures_total[5m]) > 100
+            for: 5m
+            labels:
+              severity: critical
+              component: data-ingestion
+            annotations:
+              summary: "High data validation failure rate"
+              description: "Data validation failure rate is {{ $value }} failures/sec"
+  
+  infrastructure-rules.yml: |
+    groups:
+      - name: infrastructure
+        interval: 30s
+        rules:
+          - alert: NodeHighCPU
+            expr: (1 - avg(irate(node_cpu_seconds_total{mode="idle"}[5m])) by (instance)) > 0.85
+            for: 10m
+            labels:
+              severity: warning
+              component: infrastructure
+            annotations:
+              summary: "High CPU usage on node"
+              description: "Node {{ $labels.instance }} CPU usage is {{ $value | humanizePercentage }}"
+          
+          - alert: NodeHighMemory
+            expr: (1 - node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes) > 0.85
+            for: 10m
+            labels:
+              severity: warning
+              component: infrastructure
+            annotations:
+              summary: "High memory usage on node"
+              description: "Node {{ $labels.instance }} memory usage is {{ $value | humanizePercentage }}"
+          
+          - alert: PodCrashLooping
+            expr: rate(kube_pod_container_status_restarts_total[15m]) > 0
+            for: 5m
+            labels:
+              severity: critical
+              component: infrastructure
+            annotations:
+              summary: "Pod crash looping"
+              description: "Pod {{ $labels.namespace }}/{{ $labels.pod }} is crash looping"
+          
+          - alert: PersistentVolumeFull
+            expr: (kubelet_volume_stats_used_bytes / kubelet_volume_stats_capacity_bytes) > 0.9
+            for: 5m
+            labels:
+              severity: critical
+              component: infrastructure
+            annotations:
+              summary: "Persistent volume almost full"
+              description: "PV {{ $labels.persistentvolumeclaim }} is {{ $value | humanizePercentage }} full"

@@ -1,0 +1,802 @@
+
+attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+test-results/comprehensive-repository-t-16596-wagger-UI-for-OpenAPI-specs-Mobile-Safari/test-failed-1.png
+────────────────────────────────────────────────────────────────────────────────────────────────
+
+attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+test-results/comprehensive-repository-t-16596-wagger-UI-for-OpenAPI-specs-Mobile-Safari/video.webm
+────────────────────────────────────────────────────────────────────────────────────────────────
+
+Error Context: test-results/comprehensive-repository-t-16596-wagger-UI-for-OpenAPI-specs-Mobile-Safari/error-context.md
+
+165) [Mobile Safari] › tests/comprehensive-repository-tests.spec.ts:198:11 › Comprehensive Repository Testing Suite › Repository: future-mobility-regulatory-platform › should generate and display Postman collections 
+
+TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
+Call log:
+  - waiting for locator('[data-testid="postman-collection-content"]') to be visible
+
+
+  209 |           
+  210 |           // Verify collection content loads (not just loading state)
+> 211 |           await page.waitForSelector('[data-testid="postman-collection-content"]', { timeout: 10000 });
+      |                      ^
+  212 |           const collectionContent = await page.locator('[data-testid="postman-collection-content"]').textContent();
+  213 |           
+  214 |           expect(collectionContent).not.toContain('Loading collection...');
+    at /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/tests/comprehensive-repository-tests.spec.ts:211:22
+
+attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+test-results/comprehensive-repository-t-c07c9-display-Postman-collections-Mobile-Safari/test-failed-1.png
+────────────────────────────────────────────────────────────────────────────────────────────────
+
+attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+test-results/comprehensive-repository-t-c07c9-display-Postman-collections-Mobile-Safari/video.webm
+────────────────────────────────────────────────────────────────────────────────────────────────
+
+Error Context: test-results/comprehensive-repository-t-c07c9-display-Postman-collections-Mobile-Safari/error-context.md
+
+166) [Mobile Safari] › tests/comprehensive-repository-tests.spec.ts:110:11 › Comprehensive Repository Testing Suite › Repository: sample-arch-package › should detect correct API count via backend specs endpoint 
+
+Error: apiRequestContext.get: connect ECONNREFUSED ::1:3005
+Call log:
+  - → GET http://localhost:3005/api/repository/sample-arch-package/specs
+    - user-agent: Mozilla/5.0 (iPhone; CPU iPhone OS 14_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.0 Mobile/15E148 Safari/604.1
+    - accept: */*
+    - accept-encoding: gzip,deflate,br
+
+    at apiRequestContext.get: connect ECONNREFUSED ::1:3005
+    at /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/tests/comprehensive-repository-tests.spec.ts:112:45
+
+attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+test-results/comprehensive-repository-t-ecaa7--via-backend-specs-endpoint-Mobile-Safari/test-failed-1.png
+────────────────────────────────────────────────────────────────────────────────────────────────
+
+attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+test-results/comprehensive-repository-t-ecaa7--via-backend-specs-endpoint-Mobile-Safari/video.webm
+────────────────────────────────────────────────────────────────────────────────────────────────
+
+Error Context: test-results/comprehensive-repository-t-ecaa7--via-backend-specs-endpoint-Mobile-Safari/error-context.md
+
+167) [Mobile Safari] › tests/comprehensive-repository-tests.spec.ts:110:11 › Comprehensive Repository Testing Suite › Repository: copilot-architecture-template › should detect correct API count via backend specs endpoint 
+
+Error: apiRequestContext.get: connect ECONNREFUSED ::1:3005
+Call log:
+  - → GET http://localhost:3005/api/repository/copilot-architecture-template/specs
+    - user-agent: Mozilla/5.0 (iPhone; CPU iPhone OS 14_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.0 Mobile/15E148 Safari/604.1
+    - accept: */*
+    - accept-encoding: gzip,deflate,br
+
+    at apiRequestContext.get: connect ECONNREFUSED ::1:3005
+    at /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/tests/comprehensive-repository-tests.spec.ts:112:45
+
+attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+test-results/comprehensive-repository-t-12f61--via-backend-specs-endpoint-Mobile-Safari/test-failed-1.png
+────────────────────────────────────────────────────────────────────────────────────────────────
+
+attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+test-results/comprehensive-repository-t-12f61--via-backend-specs-endpoint-Mobile-Safari/video.webm
+────────────────────────────────────────────────────────────────────────────────────────────────
+
+Error Context: test-results/comprehensive-repository-t-12f61--via-backend-specs-endpoint-Mobile-Safari/error-context.md
+
+168) [Mobile Safari] › tests/comprehensive-repository-tests.spec.ts:238:9 › Comprehensive Repository Testing Suite › Cross-Repository Validation › should maintain consistent navigation across all repositories 
+
+Error: expect.toBeVisible: Error: strict mode violation: locator('nav') resolved to 2 elements:
+    1) <nav class="hidden md:flex items-center space-x-8">…</nav> aka getByText('HomePlatformsAPIsAll')
+    2) <nav class="mb-6 text-sm">…</nav> aka getByText('Home/Repositories/Industrial Monitoring Co')
+
+Call log:
+  - Expect "toBeVisible" with timeout 10000ms
+  - waiting for locator('nav')
+
+
+  244 |         
+  245 |         // Verify consistent navigation elements
+> 246 |         await expect(page.locator('nav')).toBeVisible();
+      |                                           ^
+  247 |         await expect(page.locator('[data-testid="repository-navigation"]')).toBeVisible();
+  248 |         
+  249 |         // Verify repository name is displayed correctly
+    at /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/tests/comprehensive-repository-tests.spec.ts:246:43
+
+attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+test-results/comprehensive-repository-t-fb8c4-ion-across-all-repositories-Mobile-Safari/test-failed-1.png
+────────────────────────────────────────────────────────────────────────────────────────────────
+
+attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+test-results/comprehensive-repository-t-fb8c4-ion-across-all-repositories-Mobile-Safari/video.webm
+────────────────────────────────────────────────────────────────────────────────────────────────
+
+Error Context: test-results/comprehensive-repository-t-fb8c4-ion-across-all-repositories-Mobile-Safari/error-context.md
+
+169) [Mobile Safari] › tests/comprehensive-repository-tests.spec.ts:254:9 › Comprehensive Repository Testing Suite › Cross-Repository Validation › should have consistent API detection behavior 
+
+Error: apiRequestContext.get: connect ECONNREFUSED ::1:3005
+Call log:
+  - → GET http://localhost:3005/api/repository/demo-labsdashboards/specs
+    - user-agent: Mozilla/5.0 (iPhone; CPU iPhone OS 14_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.0 Mobile/15E148 Safari/604.1
+    - accept: */*
+    - accept-encoding: gzip,deflate,br
+
+    at apiRequestContext.get: connect ECONNREFUSED ::1:3005
+    at /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/tests/comprehensive-repository-tests.spec.ts:259:45
+
+attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+test-results/comprehensive-repository-t-0134e-tent-API-detection-behavior-Mobile-Safari/test-failed-1.png
+────────────────────────────────────────────────────────────────────────────────────────────────
+
+attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+test-results/comprehensive-repository-t-0134e-tent-API-detection-behavior-Mobile-Safari/video.webm
+────────────────────────────────────────────────────────────────────────────────────────────────
+
+Error Context: test-results/comprehensive-repository-t-0134e-tent-API-detection-behavior-Mobile-Safari/error-context.md
+
+170) [Mobile Safari] › tests/comprehensive-repository-tests.spec.ts:302:9 › Comprehensive Repository Testing Suite › Performance Validation › should respond to API requests within acceptable time limits 
+
+Error: apiRequestContext.get: connect ECONNREFUSED ::1:3005
+Call log:
+  - → GET http://localhost:3005/api/repository/demo-labsdashboards/specs
+    - user-agent: Mozilla/5.0 (iPhone; CPU iPhone OS 14_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.0 Mobile/15E148 Safari/604.1
+    - accept: */*
+    - accept-encoding: gzip,deflate,br
+
+    at apiRequestContext.get: connect ECONNREFUSED ::1:3005
+    at /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/tests/comprehensive-repository-tests.spec.ts:308:45
+
+attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+test-results/comprehensive-repository-t-ba619-thin-acceptable-time-limits-Mobile-Safari/test-failed-1.png
+────────────────────────────────────────────────────────────────────────────────────────────────
+
+attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+test-results/comprehensive-repository-t-ba619-thin-acceptable-time-limits-Mobile-Safari/video.webm
+────────────────────────────────────────────────────────────────────────────────────────────────
+
+Error Context: test-results/comprehensive-repository-t-ba619-thin-acceptable-time-limits-Mobile-Safari/error-context.md
+
+171) [Mobile Safari] › tests/e2e/repository-detail.spec.ts:34:7 › Repository Detail Page - Real Functionality Tests › GraphQL Playground should actually load schema content 
+
+Error: expect(received).toContain(expected) // indexOf
+
+Expected substring: "type"
+Received string:    "
+    You need to enable JavaScript to run this app.
+    EYEYNS AI Experience CenterHomePlatformsAPIsAll RepositoriesRepository SyncAboutLast sync: Just nowAdd RepositorySync FailedBack to RepositoryGraphQL PlaygroundNslabsdashboardsGraphQL EndpointStatus:UnknownGraphQL server management for demo-labsdashboardsCheck StatusStart ServerQuerySample QueriesSchema IntrospectionBasic QueryRun QueryResponse// Query response will appear hereLoading GraphQL schema...Instructions1. Make sure your GraphQL server is running on the configured endpoint2. Enter your GraphQL query in the left panel3. Click \"Run Query\" to execute and see the response4. Use the sample queries to explore the API schemaAbout EYNSErnst & Young Network Services Innovation Hub - Driving digital transformation through cutting-edge technology solutions.Quick LinksPlatformsAPIsAll RepositoriesAbout UsResourcesGitHub OrganizationDocumentationAPI ReferenceContact UsInnovation LabErnst & Young LLPInnovation HubFor inquiries:innovation@eyns.com© 2025 Ernst & Young LLP. All rights reserved.Privacy PolicyTerms of UseAccessibilityLoading: falseError: Local server not available. Using offline data.LastSync: Offline ModeRepos: 12Time: 2025-07-26T05:35:11.131Z·········
+"
+
+  47 |     
+  48 |     // Should contain actual GraphQL schema content
+> 49 |     expect(pageContent).toContain('type');
+     |                         ^
+  50 |     expect(pageContent).toContain('schema');
+  51 |     
+  52 |     // Should NOT contain HTML error pages
+    at /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/tests/e2e/repository-detail.spec.ts:49:25
+
+attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+test-results/e2e-repository-detail-Repo-313b0-ctually-load-schema-content-Mobile-Safari/test-failed-1.png
+────────────────────────────────────────────────────────────────────────────────────────────────
+
+attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+test-results/e2e-repository-detail-Repo-313b0-ctually-load-schema-content-Mobile-Safari/video.webm
+────────────────────────────────────────────────────────────────────────────────────────────────
+
+Error Context: test-results/e2e-repository-detail-Repo-313b0-ctually-load-schema-content-Mobile-Safari/error-context.md
+
+172) [Mobile Safari] › tests/e2e/repository-detail.spec.ts:82:7 › Repository Detail Page - Real Functionality Tests › Backend API endpoints should return actual data 
+
+Error: apiRequestContext.get: connect ECONNREFUSED ::1:3005
+Call log:
+  - → GET http://localhost:3005/api/file/demo-labsdashboards/src/iotplatform_gql/schema/knowledgebase_schema.graphql
+    - user-agent: Mozilla/5.0 (iPhone; CPU iPhone OS 14_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.0 Mobile/15E148 Safari/604.1
+    - accept: */*
+    - accept-encoding: gzip,deflate,br
+
+    at apiRequestContext.get: connect ECONNREFUSED ::1:3005
+    at /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/tests/e2e/repository-detail.spec.ts:84:41
+
+attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+test-results/e2e-repository-detail-Repo-75670-s-should-return-actual-data-Mobile-Safari/test-failed-1.png
+────────────────────────────────────────────────────────────────────────────────────────────────
+
+attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+test-results/e2e-repository-detail-Repo-75670-s-should-return-actual-data-Mobile-Safari/video.webm
+────────────────────────────────────────────────────────────────────────────────────────────────
+
+Error Context: test-results/e2e-repository-detail-Repo-75670-s-should-return-actual-data-Mobile-Safari/error-context.md
+
+173) [Mobile Safari] › tests/e2e/repository-detail.spec.ts:96:7 › Repository Detail Page - Real Functionality Tests › Postman generation API should work 
+
+Error: apiRequestContext.post: connect ECONNREFUSED ::1:3005
+Call log:
+  - → POST http://localhost:3005/api/postman/generate
+    - user-agent: Mozilla/5.0 (iPhone; CPU iPhone OS 14_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.0 Mobile/15E148 Safari/604.1
+    - accept: */*
+    - accept-encoding: gzip,deflate,br
+    - content-type: application/json
+    - content-length: 161
+
+    at apiRequestContext.post: connect ECONNREFUSED ::1:3005
+    at /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/tests/e2e/repository-detail.spec.ts:98:41
+
+attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+test-results/e2e-repository-detail-Repo-7a172--generation-API-should-work-Mobile-Safari/test-failed-1.png
+────────────────────────────────────────────────────────────────────────────────────────────────
+
+attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+test-results/e2e-repository-detail-Repo-7a172--generation-API-should-work-Mobile-Safari/video.webm
+────────────────────────────────────────────────────────────────────────────────────────────────
+
+Error Context: test-results/e2e-repository-detail-Repo-7a172--generation-API-should-work-Mobile-Safari/error-context.md
+
+174) [Mobile Safari] › tests/graphql-playground-comprehensive.spec.ts:41:7 › GraphQL Playground Comprehensive Tests › Backend API should detect all GraphQL schemas and samples 
+
+Error: apiRequestContext.get: connect ECONNREFUSED ::1:3005
+Call log:
+  - → GET http://localhost:3005/api/repository/demo-labsdashboards/specs
+    - user-agent: Mozilla/5.0 (iPhone; CPU iPhone OS 14_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.0 Mobile/15E148 Safari/604.1
+    - accept: */*
+    - accept-encoding: gzip,deflate,br
+
+    at apiRequestContext.get: connect ECONNREFUSED ::1:3005
+    at /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/tests/graphql-playground-comprehensive.spec.ts:43:41
+
+attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+test-results/graphql-playground-compreh-f2fe8-GraphQL-schemas-and-samples-Mobile-Safari/test-failed-1.png
+────────────────────────────────────────────────────────────────────────────────────────────────
+
+attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+test-results/graphql-playground-compreh-f2fe8-GraphQL-schemas-and-samples-Mobile-Safari/video.webm
+────────────────────────────────────────────────────────────────────────────────────────────────
+
+Error Context: test-results/graphql-playground-compreh-f2fe8-GraphQL-schemas-and-samples-Mobile-Safari/error-context.md
+
+175) [Mobile Safari] › tests/graphql-playground-comprehensive.spec.ts:70:7 › GraphQL Playground Comprehensive Tests › GraphQL Playground should load and display schema selection 
+
+Error: expect(received).toMatch(expected)
+
+Expected pattern: /\(\d+ available\)/
+Received string:  "Loading GraphQL schema..."
+
+  85 |     // Check if schema count is displayed
+  86 |     const schemaText = await schemaLabel.textContent();
+> 87 |     expect(schemaText).toMatch(/\(\d+ available\)/); // Should show "(X available)"
+     |                        ^
+  88 |     
+  89 |     // Schema selector should be present
+  90 |     const schemaSelector = page.locator('select').first();
+    at /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/tests/graphql-playground-comprehensive.spec.ts:87:24
+
+attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+test-results/graphql-playground-compreh-4bc34-nd-display-schema-selection-Mobile-Safari/test-failed-1.png
+────────────────────────────────────────────────────────────────────────────────────────────────
+
+attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+test-results/graphql-playground-compreh-4bc34-nd-display-schema-selection-Mobile-Safari/video.webm
+────────────────────────────────────────────────────────────────────────────────────────────────
+
+Error Context: test-results/graphql-playground-compreh-4bc34-nd-display-schema-selection-Mobile-Safari/error-context.md
+
+176) [Mobile Safari] › tests/graphql-playground-comprehensive.spec.ts:176:7 › GraphQL Playground Comprehensive Tests › GraphQL endpoint configuration should be functional 
+
+Error: expect(received).toContain(expected) // indexOf
+
+Expected substring: "localhost"
+Received string:    ""
+
+  184 |     // Should have a default endpoint value
+  185 |     const endpointValue = await endpointInput.inputValue();
+> 186 |     expect(endpointValue).toContain('localhost');
+      |                           ^
+  187 |     expect(endpointValue).toContain('graphql');
+  188 |     
+  189 |     // Should show server status
+    at /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/tests/graphql-playground-comprehensive.spec.ts:186:27
+
+attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+test-results/graphql-playground-compreh-f0b57-ration-should-be-functional-Mobile-Safari/test-failed-1.png
+────────────────────────────────────────────────────────────────────────────────────────────────
+
+attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+test-results/graphql-playground-compreh-f0b57-ration-should-be-functional-Mobile-Safari/video.webm
+────────────────────────────────────────────────────────────────────────────────────────────────
+
+Error Context: test-results/graphql-playground-compreh-f0b57-ration-should-be-functional-Mobile-Safari/error-context.md
+
+177) [Mobile Safari] › tests/graphql-playground-comprehensive.spec.ts:223:7 › GraphQL Playground Comprehensive Tests › All GraphQL files should be accessible via file serving 
+
+Error: apiRequestContext.get: connect ECONNREFUSED ::1:3005
+Call log:
+  - → GET http://localhost:3005/api/file/demo-labsdashboards/src/iotplatform_gql/schema/knowledgebase_schema.graphql
+    - user-agent: Mozilla/5.0 (iPhone; CPU iPhone OS 14_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.0 Mobile/15E148 Safari/604.1
+    - accept: */*
+    - accept-encoding: gzip,deflate,br
+
+    at apiRequestContext.get: connect ECONNREFUSED ::1:3005
+    at /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/tests/graphql-playground-comprehensive.spec.ts:226:43
+
+attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+test-results/graphql-playground-compreh-fff45-accessible-via-file-serving-Mobile-Safari/test-failed-1.png
+────────────────────────────────────────────────────────────────────────────────────────────────
+
+attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+test-results/graphql-playground-compreh-fff45-accessible-via-file-serving-Mobile-Safari/video.webm
+────────────────────────────────────────────────────────────────────────────────────────────────
+
+Error Context: test-results/graphql-playground-compreh-fff45-accessible-via-file-serving-Mobile-Safari/error-context.md
+
+178) [Mobile Safari] › tests/graphql-playground-comprehensive.spec.ts:258:7 › GraphQL Playground Comprehensive Tests › GraphQL Playground should be responsive and accessible 
+
+Error: Timed out 10000ms waiting for expect(locator).toBeVisible()
+
+Locator: locator('text=Schema').first()
+Expected: visible
+Received: hidden
+Call log:
+  - Expect "toBeVisible" with timeout 10000ms
+  - waiting for locator('text=Schema').first()
+    12 × locator resolved to <option value="Schema Introspection">Schema Introspection</option>
+       - unexpected value "hidden"
+
+
+  269 |     
+  270 |     for (const selector of keyElements) {
+> 271 |       await expect(page.locator(selector).first()).toBeVisible();
+      |                                                    ^
+  272 |     }
+  273 |     
+  274 |     // Test keyboard navigation
+    at /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/tests/graphql-playground-comprehensive.spec.ts:271:52
+
+attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+test-results/graphql-playground-compreh-724dd-e-responsive-and-accessible-Mobile-Safari/test-failed-1.png
+────────────────────────────────────────────────────────────────────────────────────────────────
+
+attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+test-results/graphql-playground-compreh-724dd-e-responsive-and-accessible-Mobile-Safari/video.webm
+────────────────────────────────────────────────────────────────────────────────────────────────
+
+Error Context: test-results/graphql-playground-compreh-724dd-e-responsive-and-accessible-Mobile-Safari/error-context.md
+
+179) [Mobile Safari] › tests/postman-failure-test.spec.ts:13:7 › Postman Collection Failure Reproduction › Reproduce exact user failure: future-mobility-consumer-platform Postman 404 
+
+Error: expect(received).not.toContain(expected) // indexOf
+
+Expected substring: not "Error loading collections"
+Received string:        "
+    You need to enable JavaScript to run this app.
+    EYEYNS AI Experience CenterHomePlatformsAPIsAll RepositoriesRepository SyncAboutLast sync: Just nowAdd RepositorySync FailedBack to RepositoryPostman Collectionsfuture-mobility-consumer-platform • 0 collectionsError loading collections: Load failedAbout EYNSErnst & Young Network Services Innovation Hub - Driving digital transformation through cutting-edge technology solutions.Quick LinksPlatformsAPIsAll RepositoriesAbout UsResourcesGitHub OrganizationDocumentationAPI ReferenceContact UsInnovation LabErnst & Young LLPInnovation HubFor inquiries:innovation@eyns.com© 2025 Ernst & Young LLP. All rights reserved.Privacy PolicyTerms of UseAccessibilityLoading: falseError: Local server not available. Using offline data.LastSync: Offline ModeRepos: 12Time: 2025-07-26T05:35:39.202Z
+    
+  
+
+"
+
+  54 |     } else {
+  55 |       console.log('❌ User failure still exists - Error loading collections');
+> 56 |       expect(pageContent).not.toContain('Error loading collections');
+     |                               ^
+  57 |       console.log('The exact user failure is still occurring - Postman collections are not loading for future-mobility-consumer-platform');
+  58 |     }
+  59 |   });
+    at /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/tests/postman-failure-test.spec.ts:56:31
+
+attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+test-results/postman-failure-test-Postm-316ad-nsumer-platform-Postman-404-Mobile-Safari/test-failed-1.png
+────────────────────────────────────────────────────────────────────────────────────────────────
+
+attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+test-results/postman-failure-test-Postm-316ad-nsumer-platform-Postman-404-Mobile-Safari/video.webm
+────────────────────────────────────────────────────────────────────────────────────────────────
+
+Error Context: test-results/postman-failure-test-Postm-316ad-nsumer-platform-Postman-404-Mobile-Safari/error-context.md
+
+180) [Mobile Safari] › tests/postman-failure-test.spec.ts:61:7 › Postman Collection Failure Reproduction › Test all repositories for Postman collection failures 
+
+Error: expect(received).toBe(expected) // Object.is equality
+
+Expected: 0
+Received: 4
+
+  105 |       });
+  106 |       
+> 107 |       expect(failures.length).toBe(0);
+      |                               ^
+  108 |       console.log(`Found ${failures.length} Postman collection failures: ${failures.map(f => f.repository).join(', ')}`);
+  109 |     } else {
+  110 |       console.log('\n✅ All Postman collections working correctly');
+    at /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/tests/postman-failure-test.spec.ts:107:31
+
+attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+test-results/postman-failure-test-Postm-33949-Postman-collection-failures-Mobile-Safari/test-failed-1.png
+────────────────────────────────────────────────────────────────────────────────────────────────
+
+attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+test-results/postman-failure-test-Postm-33949-Postman-collection-failures-Mobile-Safari/video.webm
+────────────────────────────────────────────────────────────────────────────────────────────────
+
+Error Context: test-results/postman-failure-test-Postm-33949-Postman-collection-failures-Mobile-Safari/error-context.md
+
+181) [Mobile Safari] › tests/postman-failure-test.spec.ts:114:7 › Postman Collection Failure Reproduction › Test backend Postman generation API directly 
+
+Error: apiRequestContext.post: connect ECONNREFUSED ::1:3005
+Call log:
+  - → POST http://localhost:3005/api/postman/generate
+    - user-agent: Mozilla/5.0 (iPhone; CPU iPhone OS 14_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.0 Mobile/15E148 Safari/604.1
+    - accept: */*
+    - accept-encoding: gzip,deflate,br
+    - content-type: application/json
+    - content-length: 161
+
+    at apiRequestContext.post: connect ECONNREFUSED ::1:3005
+    at /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/tests/postman-failure-test.spec.ts:141:43
+
+attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+test-results/postman-failure-test-Postm-21428-man-generation-API-directly-Mobile-Safari/test-failed-1.png
+────────────────────────────────────────────────────────────────────────────────────────────────
+
+attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+test-results/postman-failure-test-Postm-21428-man-generation-API-directly-Mobile-Safari/video.webm
+────────────────────────────────────────────────────────────────────────────────────────────────
+
+182) [Mobile Safari] › tests/real-user-experience-tests.spec.ts:34:9 › Real User Experience Validation › Complete User Journeys - All Repositories › User Journey: Homepage → Repository → Postman Collections (REAL CONTENT) 
+
+TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
+Call log:
+  - waiting for locator('[data-testid="postman-collection-content"]') to be visible
+
+
+  64 |             
+  65 |             // Step 5: Verify actual Postman content loads (not just loading state)
+> 66 |             await page.waitForSelector('[data-testid="postman-collection-content"]', { timeout: 10000 });
+     |                        ^
+  67 |             const content = await page.locator('[data-testid="postman-collection-content"]').textContent();
+  68 |             
+  69 |             expect(content).toBeTruthy();
+    at /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/tests/real-user-experience-tests.spec.ts:66:24
+
+attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+test-results/real-user-experience-tests-4baa4-n-Collections-REAL-CONTENT--Mobile-Safari/test-failed-1.png
+────────────────────────────────────────────────────────────────────────────────────────────────
+
+attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+test-results/real-user-experience-tests-4baa4-n-Collections-REAL-CONTENT--Mobile-Safari/video.webm
+────────────────────────────────────────────────────────────────────────────────────────────────
+
+Error Context: test-results/real-user-experience-tests-4baa4-n-Collections-REAL-CONTENT--Mobile-Safari/error-context.md
+
+183) [Mobile Safari] › tests/real-user-experience-tests.spec.ts:86:9 › Real User Experience Validation › Complete User Journeys - All Repositories › User Journey: Homepage → Repository → GraphQL Playground (REAL CONTENT) 
+
+Error: expect(received).not.toContain(expected) // indexOf
+
+Expected substring: not "Error"
+Received string:        "
+    You need to enable JavaScript to run this app.
+    EYEYNS AI Experience CenterHomePlatformsAPIsAll RepositoriesRepository SyncAboutLast sync: Just nowAdd RepositorySyncBack to RepositoryGraphQL PlaygroundNslabsdashboardsGraphQL EndpointStatus:UnknownGraphQL server management for demo-labsdashboardsCheck StatusStart ServerQuerySample QueriesSchema IntrospectionBasic QueryRun QueryResponse// Query response will appear hereLoading GraphQL schema...Instructions1. Make sure your GraphQL server is running on the configured endpoint2. Enter your GraphQL query in the left panel3. Click \"Run Query\" to execute and see the response4. Use the sample queries to explore the API schemaAbout EYNSErnst & Young Network Services Innovation Hub - Driving digital transformation through cutting-edge technology solutions.Quick LinksPlatformsAPIsAll RepositoriesAbout UsResourcesGitHub OrganizationDocumentationAPI ReferenceContact UsInnovation LabErnst & Young LLPInnovation HubFor inquiries:innovation@eyns.com© 2025 Ernst & Young LLP. All rights reserved.Privacy PolicyTerms of UseAccessibilityLoading: falseError: noneLastSync: Offline ModeRepos: 12Time: 2025-07-26T05:36:00.737Z
+    
+  
+
+"
+
+  103 |         // Step 3: Verify NO ERROR MESSAGES
+  104 |         const pageText = await page.locator('body').textContent();
+> 105 |         expect(pageText).not.toContain('Error');
+      |                              ^
+  106 |         expect(pageText).not.toContain('404');
+  107 |         expect(pageText).not.toContain('Failed');
+  108 |         
+    at /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/tests/real-user-experience-tests.spec.ts:105:30
+
+attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+test-results/real-user-experience-tests-a108b-QL-Playground-REAL-CONTENT--Mobile-Safari/test-failed-1.png
+────────────────────────────────────────────────────────────────────────────────────────────────
+
+attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+test-results/real-user-experience-tests-a108b-QL-Playground-REAL-CONTENT--Mobile-Safari/video.webm
+────────────────────────────────────────────────────────────────────────────────────────────────
+
+Error Context: test-results/real-user-experience-tests-a108b-QL-Playground-REAL-CONTENT--Mobile-Safari/error-context.md
+
+184) [Mobile Safari] › tests/real-user-experience-tests.spec.ts:127:9 › Real User Experience Validation › Complete User Journeys - All Repositories › User Journey: Homepage → Repository → API Explorer (REAL API COUNTS) 
+
+Error: expect(received).not.toContain(expected) // indexOf
+
+Expected substring: not "Error"
+Received string:        "
+    You need to enable JavaScript to run this app.
+    EYEYNS AI Experience CenterHomePlatformsAPIsAll RepositoriesRepository SyncAboutLast sync: Just nowAdd RepositorySyncHome/demo-labsdashboards/API ExplorerAPI ExplorerExplore API specifications for demo-labsdashboardsAvailable APIs (0)No API specifications foundSelect an API to exploreChoose an API specification from the sidebar to view its documentationAbout EYNSErnst & Young Network Services Innovation Hub - Driving digital transformation through cutting-edge technology solutions.Quick LinksPlatformsAPIsAll RepositoriesAbout UsResourcesGitHub OrganizationDocumentationAPI ReferenceContact UsInnovation LabErnst & Young LLPInnovation HubFor inquiries:innovation@eyns.com© 2025 Ernst & Young LLP. All rights reserved.Privacy PolicyTerms of UseAccessibilityLoading: falseError: noneLastSync: Offline ModeRepos: 12Time: 2025-07-26T05:36:02.482Z
+    
+  
+
+"
+
+  160 |           // Verify page loads without errors
+  161 |           const pageText = await page.locator('body').textContent();
+> 162 |           expect(pageText).not.toContain('Error');
+      |                                ^
+  163 |           expect(pageText).not.toContain('404');
+  164 |           expect(pageText).not.toContain('Failed');
+  165 |         }
+    at /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/tests/real-user-experience-tests.spec.ts:162:32
+
+attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+test-results/real-user-experience-tests-84302-I-Explorer-REAL-API-COUNTS--Mobile-Safari/test-failed-1.png
+────────────────────────────────────────────────────────────────────────────────────────────────
+
+attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+test-results/real-user-experience-tests-84302-I-Explorer-REAL-API-COUNTS--Mobile-Safari/video.webm
+────────────────────────────────────────────────────────────────────────────────────────────────
+
+Error Context: test-results/real-user-experience-tests-84302-I-Explorer-REAL-API-COUNTS--Mobile-Safari/error-context.md
+
+185) [Mobile Safari] › tests/real-user-experience-tests.spec.ts:172:9 › Real User Experience Validation › Real Error Detection and User Experience › Detect and Report Real User-Facing Errors 
+
+Error: expect(received).toHaveLength(expected)
+
+Expected length: 0
+Received length: 84
+Received array:  ["Console Error: Failed to load resource: Could not connect to the server.", "Console Error: Failed to load resource: Could not connect to the server.", "Console Error: Error fetching repository specs: TypeError: Load failed", "Console Error: Error fetching repository specs: TypeError: Load failed", "Console Error: Failed to load resource: Could not connect to the server.", "Console Error: Failed to load resource: Could not connect to the server.", "Console Error: [LocalAPI] Get repository error: TypeError: Load failed", "Console Error: Error discovering API specs for demo-labsdashboards: TypeError: Load failed", "Console Error: [LocalAPI] Get repository error: TypeError: Load failed", "Console Error: Error discovering API specs for demo-labsdashboards: TypeError: Load failed", …]
+
+  219 |         
+  220 |         // Fail the test if there are user-facing errors
+> 221 |         expect(userErrors).toHaveLength(0, `Found ${userErrors.length} user-facing errors: ${userErrors.join(', ')}`);
+      |                            ^
+  222 |       } else {
+  223 |         console.log('\n✅ No user-facing errors detected across all repositories');
+  224 |       }
+    at /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/tests/real-user-experience-tests.spec.ts:221:28
+
+attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+test-results/real-user-experience-tests-41e5c-ort-Real-User-Facing-Errors-Mobile-Safari/test-failed-1.png
+────────────────────────────────────────────────────────────────────────────────────────────────
+
+attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+test-results/real-user-experience-tests-41e5c-ort-Real-User-Facing-Errors-Mobile-Safari/video.webm
+────────────────────────────────────────────────────────────────────────────────────────────────
+
+Error Context: test-results/real-user-experience-tests-41e5c-ort-Real-User-Facing-Errors-Mobile-Safari/error-context.md
+
+186) [Mobile Safari] › tests/real-user-experience-tests.spec.ts:230:9 › Real User Experience Validation › Content Generation and Download Validation › Validate Postman Collection Generation Actually Works 
+
+TimeoutError: page.waitForSelector: Timeout 15000ms exceeded.
+Call log:
+  - waiting for locator('[data-testid="postman-collection-content"]') to be visible
+
+
+  240 |         
+  241 |         // Wait for content to load
+> 242 |         await page.waitForSelector('[data-testid="postman-collection-content"]', { timeout: 15000 });
+      |                    ^
+  243 |         
+  244 |         // Verify no error messages
+  245 |         const errorText = await page.locator('body').textContent();
+    at /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/tests/real-user-experience-tests.spec.ts:242:20
+
+attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+test-results/real-user-experience-tests-c1715-n-Generation-Actually-Works-Mobile-Safari/test-failed-1.png
+────────────────────────────────────────────────────────────────────────────────────────────────
+
+attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+test-results/real-user-experience-tests-c1715-n-Generation-Actually-Works-Mobile-Safari/video.webm
+────────────────────────────────────────────────────────────────────────────────────────────────
+
+Error Context: test-results/real-user-experience-tests-c1715-n-Generation-Actually-Works-Mobile-Safari/error-context.md
+
+187) [Mobile Safari] › tests/real-user-experience-tests.spec.ts:262:9 › Real User Experience Validation › Cross-Repository User Experience Consistency › All Repository Pages Load and Function Consistently 
+
+Error: expect.toBeVisible: Error: strict mode violation: locator('nav') resolved to 2 elements:
+    1) <nav class="hidden md:flex items-center space-x-8">…</nav> aka getByText('HomePlatformsAPIsAll')
+    2) <nav class="mb-6 text-sm">…</nav> aka getByText('Home/Repositories/Industrial Monitoring Co')
+
+Call log:
+  - Expect "toBeVisible" with timeout 10000ms
+  - waiting for locator('nav')
+
+
+  270 |         // Verify basic page structure
+  271 |         await expect(page.locator('h1')).toBeVisible();
+> 272 |         await expect(page.locator('nav')).toBeVisible();
+      |                                           ^
+  273 |         
+  274 |         // Verify no broken links or 404s
+  275 |         const links = page.locator('a[href^="/"]');
+    at /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/tests/real-user-experience-tests.spec.ts:272:43
+
+attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+test-results/real-user-experience-tests-45175-d-and-Function-Consistently-Mobile-Safari/test-failed-1.png
+────────────────────────────────────────────────────────────────────────────────────────────────
+
+attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+test-results/real-user-experience-tests-45175-d-and-Function-Consistently-Mobile-Safari/video.webm
+────────────────────────────────────────────────────────────────────────────────────────────────
+
+Error Context: test-results/real-user-experience-tests-45175-d-and-Function-Consistently-Mobile-Safari/error-context.md
+
+187 failed
+[chromium] › tests/add-repository.spec.ts:10:7 › Add Repository Functionality › should open Add Repository modal from header 
+[chromium] › tests/add-repository.spec.ts:110:7 › Add Repository Functionality › should handle submission loading state 
+[chromium] › tests/comprehensive-repository-tests.spec.ts:110:11 › Comprehensive Repository Testing Suite › Repository: demo-labsdashboards › should detect correct API count via backend specs endpoint 
+[chromium] › tests/comprehensive-repository-tests.spec.ts:127:11 › Comprehensive Repository Testing Suite › Repository: demo-labsdashboards › should display correct API Explorer content 
+[chromium] › tests/comprehensive-repository-tests.spec.ts:198:11 › Comprehensive Repository Testing Suite › Repository: demo-labsdashboards › should generate and display Postman collections 
+[chromium] › tests/comprehensive-repository-tests.spec.ts:110:11 › Comprehensive Repository Testing Suite › Repository: future-mobility-fleet-platform › should detect correct API count via backend specs endpoint 
+[chromium] › tests/comprehensive-repository-tests.spec.ts:127:11 › Comprehensive Repository Testing Suite › Repository: future-mobility-fleet-platform › should display correct API Explorer content 
+[chromium] › tests/comprehensive-repository-tests.spec.ts:179:13 › Comprehensive Repository Testing Suite › Repository: future-mobility-fleet-platform › should load Swagger UI for OpenAPI specs 
+[chromium] › tests/comprehensive-repository-tests.spec.ts:198:11 › Comprehensive Repository Testing Suite › Repository: future-mobility-fleet-platform › should generate and display Postman collections 
+[chromium] › tests/comprehensive-repository-tests.spec.ts:110:11 › Comprehensive Repository Testing Suite › Repository: future-mobility-consumer-platform › should detect correct API count via backend specs endpoint 
+[chromium] › tests/comprehensive-repository-tests.spec.ts:127:11 › Comprehensive Repository Testing Suite › Repository: future-mobility-consumer-platform › should display correct API Explorer content 
+[chromium] › tests/comprehensive-repository-tests.spec.ts:179:13 › Comprehensive Repository Testing Suite › Repository: future-mobility-consumer-platform › should load Swagger UI for OpenAPI specs 
+[chromium] › tests/comprehensive-repository-tests.spec.ts:198:11 › Comprehensive Repository Testing Suite › Repository: future-mobility-consumer-platform › should generate and display Postman collections 
+[chromium] › tests/comprehensive-repository-tests.spec.ts:110:11 › Comprehensive Repository Testing Suite › Repository: future-mobility-regulatory-platform › should detect correct API count via backend specs endpoint 
+[chromium] › tests/comprehensive-repository-tests.spec.ts:127:11 › Comprehensive Repository Testing Suite › Repository: future-mobility-regulatory-platform › should display correct API Explorer content 
+[chromium] › tests/comprehensive-repository-tests.spec.ts:179:13 › Comprehensive Repository Testing Suite › Repository: future-mobility-regulatory-platform › should load Swagger UI for OpenAPI specs 
+[chromium] › tests/comprehensive-repository-tests.spec.ts:198:11 › Comprehensive Repository Testing Suite › Repository: future-mobility-regulatory-platform › should generate and display Postman collections 
+[chromium] › tests/comprehensive-repository-tests.spec.ts:110:11 › Comprehensive Repository Testing Suite › Repository: sample-arch-package › should detect correct API count via backend specs endpoint 
+[chromium] › tests/comprehensive-repository-tests.spec.ts:110:11 › Comprehensive Repository Testing Suite › Repository: copilot-architecture-template › should detect correct API count via backend specs endpoint 
+[chromium] › tests/comprehensive-repository-tests.spec.ts:238:9 › Comprehensive Repository Testing Suite › Cross-Repository Validation › should maintain consistent navigation across all repositories 
+[chromium] › tests/comprehensive-repository-tests.spec.ts:254:9 › Comprehensive Repository Testing Suite › Cross-Repository Validation › should have consistent API detection behavior 
+[chromium] › tests/comprehensive-repository-tests.spec.ts:302:9 › Comprehensive Repository Testing Suite › Performance Validation › should respond to API requests within acceptable time limits 
+[chromium] › tests/e2e/repository-detail.spec.ts:58:7 › Repository Detail Page - Real Functionality Tests › Postman Collection page should actually load collection content 
+[chromium] › tests/graphql-playground-comprehensive.spec.ts:41:7 › GraphQL Playground Comprehensive Tests › Backend API should detect all GraphQL schemas and samples 
+[chromium] › tests/graphql-playground-comprehensive.spec.ts:70:7 › GraphQL Playground Comprehensive Tests › GraphQL Playground should load and display schema selection 
+[chromium] › tests/graphql-playground-comprehensive.spec.ts:98:7 › GraphQL Playground Comprehensive Tests › Schema selection should work and load different schemas 
+[chromium] › tests/postman-failure-test.spec.ts:13:7 › Postman Collection Failure Reproduction › Reproduce exact user failure: future-mobility-consumer-platform Postman 404 
+[chromium] › tests/postman-failure-test.spec.ts:61:7 › Postman Collection Failure Reproduction › Test all repositories for Postman collection failures 
+[chromium] › tests/real-user-experience-tests.spec.ts:34:9 › Real User Experience Validation › Complete User Journeys - All Repositories › User Journey: Homepage → Repository → Postman Collections (REAL CONTENT) 
+[chromium] › tests/real-user-experience-tests.spec.ts:86:9 › Real User Experience Validation › Complete User Journeys - All Repositories › User Journey: Homepage → Repository → GraphQL Playground (REAL CONTENT) 
+[chromium] › tests/real-user-experience-tests.spec.ts:127:9 › Real User Experience Validation › Complete User Journeys - All Repositories › User Journey: Homepage → Repository → API Explorer (REAL API COUNTS) 
+[chromium] › tests/real-user-experience-tests.spec.ts:172:9 › Real User Experience Validation › Real Error Detection and User Experience › Detect and Report Real User-Facing Errors 
+[chromium] › tests/real-user-experience-tests.spec.ts:230:9 › Real User Experience Validation › Content Generation and Download Validation › Validate Postman Collection Generation Actually Works 
+[chromium] › tests/real-user-experience-tests.spec.ts:262:9 › Real User Experience Validation › Cross-Repository User Experience Consistency › All Repository Pages Load and Function Consistently 
+[firefox] › tests/add-repository.spec.ts:10:7 › Add Repository Functionality › should open Add Repository modal from header 
+[firefox] › tests/add-repository.spec.ts:316:7 › EY-NS Branding Integration › should maintain EY yellow branding throughout interface 
+[firefox] › tests/comprehensive-repository-tests.spec.ts:97:11 › Comprehensive Repository Testing Suite › Repository: demo-labsdashboards › should load repository detail page correctly 
+[firefox] › tests/comprehensive-repository-tests.spec.ts:110:11 › Comprehensive Repository Testing Suite › Repository: demo-labsdashboards › should detect correct API count via backend specs endpoint 
+[firefox] › tests/comprehensive-repository-tests.spec.ts:127:11 › Comprehensive Repository Testing Suite › Repository: demo-labsdashboards › should display correct API Explorer content 
+[firefox] › tests/comprehensive-repository-tests.spec.ts:198:11 › Comprehensive Repository Testing Suite › Repository: demo-labsdashboards › should generate and display Postman collections 
+[firefox] › tests/comprehensive-repository-tests.spec.ts:97:11 › Comprehensive Repository Testing Suite › Repository: future-mobility-fleet-platform › should load repository detail page correctly 
+[firefox] › tests/comprehensive-repository-tests.spec.ts:110:11 › Comprehensive Repository Testing Suite › Repository: future-mobility-fleet-platform › should detect correct API count via backend specs endpoint 
+[firefox] › tests/comprehensive-repository-tests.spec.ts:127:11 › Comprehensive Repository Testing Suite › Repository: future-mobility-fleet-platform › should display correct API Explorer content 
+[firefox] › tests/comprehensive-repository-tests.spec.ts:179:13 › Comprehensive Repository Testing Suite › Repository: future-mobility-fleet-platform › should load Swagger UI for OpenAPI specs 
+[firefox] › tests/comprehensive-repository-tests.spec.ts:198:11 › Comprehensive Repository Testing Suite › Repository: future-mobility-fleet-platform › should generate and display Postman collections 
+[firefox] › tests/comprehensive-repository-tests.spec.ts:97:11 › Comprehensive Repository Testing Suite › Repository: future-mobility-consumer-platform › should load repository detail page correctly 
+[firefox] › tests/comprehensive-repository-tests.spec.ts:110:11 › Comprehensive Repository Testing Suite › Repository: future-mobility-consumer-platform › should detect correct API count via backend specs endpoint 
+[firefox] › tests/comprehensive-repository-tests.spec.ts:127:11 › Comprehensive Repository Testing Suite › Repository: future-mobility-consumer-platform › should display correct API Explorer content 
+[firefox] › tests/comprehensive-repository-tests.spec.ts:179:13 › Comprehensive Repository Testing Suite › Repository: future-mobility-consumer-platform › should load Swagger UI for OpenAPI specs 
+[firefox] › tests/comprehensive-repository-tests.spec.ts:198:11 › Comprehensive Repository Testing Suite › Repository: future-mobility-consumer-platform › should generate and display Postman collections 
+[firefox] › tests/comprehensive-repository-tests.spec.ts:97:11 › Comprehensive Repository Testing Suite › Repository: future-mobility-regulatory-platform › should load repository detail page correctly 
+[firefox] › tests/comprehensive-repository-tests.spec.ts:110:11 › Comprehensive Repository Testing Suite › Repository: future-mobility-regulatory-platform › should detect correct API count via backend specs endpoint 
+[firefox] › tests/comprehensive-repository-tests.spec.ts:127:11 › Comprehensive Repository Testing Suite › Repository: future-mobility-regulatory-platform › should display correct API Explorer content 
+[firefox] › tests/comprehensive-repository-tests.spec.ts:179:13 › Comprehensive Repository Testing Suite › Repository: future-mobility-regulatory-platform › should load Swagger UI for OpenAPI specs 
+[firefox] › tests/comprehensive-repository-tests.spec.ts:198:11 › Comprehensive Repository Testing Suite › Repository: future-mobility-regulatory-platform › should generate and display Postman collections 
+[firefox] › tests/comprehensive-repository-tests.spec.ts:110:11 › Comprehensive Repository Testing Suite › Repository: sample-arch-package › should detect correct API count via backend specs endpoint 
+[firefox] › tests/comprehensive-repository-tests.spec.ts:110:11 › Comprehensive Repository Testing Suite › Repository: copilot-architecture-template › should detect correct API count via backend specs endpoint 
+[firefox] › tests/comprehensive-repository-tests.spec.ts:238:9 › Comprehensive Repository Testing Suite › Cross-Repository Validation › should maintain consistent navigation across all repositories 
+[firefox] › tests/comprehensive-repository-tests.spec.ts:254:9 › Comprehensive Repository Testing Suite › Cross-Repository Validation › should have consistent API detection behavior 
+[firefox] › tests/comprehensive-repository-tests.spec.ts:274:9 › Comprehensive Repository Testing Suite › Cross-Repository Validation › should handle error states gracefully across all repositories 
+[firefox] › tests/comprehensive-repository-tests.spec.ts:286:9 › Comprehensive Repository Testing Suite › Performance Validation › should load repository pages within acceptable time limits 
+[firefox] › tests/comprehensive-repository-tests.spec.ts:302:9 › Comprehensive Repository Testing Suite › Performance Validation › should respond to API requests within acceptable time limits 
+[firefox] › tests/e2e/repository-detail.spec.ts:58:7 › Repository Detail Page - Real Functionality Tests › Postman Collection page should actually load collection content 
+[firefox] › tests/graphql-playground-comprehensive.spec.ts:41:7 › GraphQL Playground Comprehensive Tests › Backend API should detect all GraphQL schemas and samples 
+[firefox] › tests/graphql-playground-comprehensive.spec.ts:70:7 › GraphQL Playground Comprehensive Tests › GraphQL Playground should load and display schema selection 
+[firefox] › tests/graphql-playground-comprehensive.spec.ts:98:7 › GraphQL Playground Comprehensive Tests › Schema selection should work and load different schemas 
+[firefox] › tests/postman-failure-test.spec.ts:13:7 › Postman Collection Failure Reproduction › Reproduce exact user failure: future-mobility-consumer-platform Postman 404 
+[firefox] › tests/postman-failure-test.spec.ts:61:7 › Postman Collection Failure Reproduction › Test all repositories for Postman collection failures 
+[firefox] › tests/real-user-experience-tests.spec.ts:34:9 › Real User Experience Validation › Complete User Journeys - All Repositories › User Journey: Homepage → Repository → Postman Collections (REAL CONTENT) 
+[firefox] › tests/real-user-experience-tests.spec.ts:86:9 › Real User Experience Validation › Complete User Journeys - All Repositories › User Journey: Homepage → Repository → GraphQL Playground (REAL CONTENT) 
+[firefox] › tests/real-user-experience-tests.spec.ts:127:9 › Real User Experience Validation › Complete User Journeys - All Repositories › User Journey: Homepage → Repository → API Explorer (REAL API COUNTS) 
+[firefox] › tests/real-user-experience-tests.spec.ts:172:9 › Real User Experience Validation › Real Error Detection and User Experience › Detect and Report Real User-Facing Errors 
+[firefox] › tests/real-user-experience-tests.spec.ts:230:9 › Real User Experience Validation › Content Generation and Download Validation › Validate Postman Collection Generation Actually Works 
+[firefox] › tests/real-user-experience-tests.spec.ts:262:9 › Real User Experience Validation › Cross-Repository User Experience Consistency › All Repository Pages Load and Function Consistently 
+[webkit] › tests/add-repository.spec.ts:10:7 › Add Repository Functionality › should open Add Repository modal from header 
+[webkit] › tests/comprehensive-repository-tests.spec.ts:110:11 › Comprehensive Repository Testing Suite › Repository: demo-labsdashboards › should detect correct API count via backend specs endpoint 
+[webkit] › tests/comprehensive-repository-tests.spec.ts:127:11 › Comprehensive Repository Testing Suite › Repository: demo-labsdashboards › should display correct API Explorer content 
+[webkit] › tests/comprehensive-repository-tests.spec.ts:198:11 › Comprehensive Repository Testing Suite › Repository: demo-labsdashboards › should generate and display Postman collections 
+[webkit] › tests/comprehensive-repository-tests.spec.ts:110:11 › Comprehensive Repository Testing Suite › Repository: future-mobility-fleet-platform › should detect correct API count via backend specs endpoint 
+[webkit] › tests/comprehensive-repository-tests.spec.ts:127:11 › Comprehensive Repository Testing Suite › Repository: future-mobility-fleet-platform › should display correct API Explorer content 
+[webkit] › tests/comprehensive-repository-tests.spec.ts:179:13 › Comprehensive Repository Testing Suite › Repository: future-mobility-fleet-platform › should load Swagger UI for OpenAPI specs 
+[webkit] › tests/comprehensive-repository-tests.spec.ts:198:11 › Comprehensive Repository Testing Suite › Repository: future-mobility-fleet-platform › should generate and display Postman collections 
+[webkit] › tests/comprehensive-repository-tests.spec.ts:110:11 › Comprehensive Repository Testing Suite › Repository: future-mobility-consumer-platform › should detect correct API count via backend specs endpoint 
+[webkit] › tests/comprehensive-repository-tests.spec.ts:127:11 › Comprehensive Repository Testing Suite › Repository: future-mobility-consumer-platform › should display correct API Explorer content 
+[webkit] › tests/comprehensive-repository-tests.spec.ts:179:13 › Comprehensive Repository Testing Suite › Repository: future-mobility-consumer-platform › should load Swagger UI for OpenAPI specs 
+[webkit] › tests/comprehensive-repository-tests.spec.ts:198:11 › Comprehensive Repository Testing Suite › Repository: future-mobility-consumer-platform › should generate and display Postman collections 
+[webkit] › tests/comprehensive-repository-tests.spec.ts:110:11 › Comprehensive Repository Testing Suite › Repository: future-mobility-regulatory-platform › should detect correct API count via backend specs endpoint 
+[webkit] › tests/comprehensive-repository-tests.spec.ts:127:11 › Comprehensive Repository Testing Suite › Repository: future-mobility-regulatory-platform › should display correct API Explorer content 
+[webkit] › tests/comprehensive-repository-tests.spec.ts:179:13 › Comprehensive Repository Testing Suite › Repository: future-mobility-regulatory-platform › should load Swagger UI for OpenAPI specs 
+[webkit] › tests/comprehensive-repository-tests.spec.ts:198:11 › Comprehensive Repository Testing Suite › Repository: future-mobility-regulatory-platform › should generate and display Postman collections 
+[webkit] › tests/comprehensive-repository-tests.spec.ts:110:11 › Comprehensive Repository Testing Suite › Repository: sample-arch-package › should detect correct API count via backend specs endpoint 
+[webkit] › tests/comprehensive-repository-tests.spec.ts:110:11 › Comprehensive Repository Testing Suite › Repository: copilot-architecture-template › should detect correct API count via backend specs endpoint 
+[webkit] › tests/comprehensive-repository-tests.spec.ts:238:9 › Comprehensive Repository Testing Suite › Cross-Repository Validation › should maintain consistent navigation across all repositories 
+[webkit] › tests/comprehensive-repository-tests.spec.ts:254:9 › Comprehensive Repository Testing Suite › Cross-Repository Validation › should have consistent API detection behavior 
+[webkit] › tests/comprehensive-repository-tests.spec.ts:302:9 › Comprehensive Repository Testing Suite › Performance Validation › should respond to API requests within acceptable time limits 
+[webkit] › tests/e2e/repository-detail.spec.ts:58:7 › Repository Detail Page - Real Functionality Tests › Postman Collection page should actually load collection content 
+[webkit] › tests/graphql-playground-comprehensive.spec.ts:41:7 › GraphQL Playground Comprehensive Tests › Backend API should detect all GraphQL schemas and samples 
+[webkit] › tests/graphql-playground-comprehensive.spec.ts:70:7 › GraphQL Playground Comprehensive Tests › GraphQL Playground should load and display schema selection 
+[webkit] › tests/graphql-playground-comprehensive.spec.ts:98:7 › GraphQL Playground Comprehensive Tests › Schema selection should work and load different schemas 
+[webkit] › tests/postman-failure-test.spec.ts:13:7 › Postman Collection Failure Reproduction › Reproduce exact user failure: future-mobility-consumer-platform Postman 404 
+[webkit] › tests/postman-failure-test.spec.ts:61:7 › Postman Collection Failure Reproduction › Test all repositories for Postman collection failures 
+[webkit] › tests/real-user-experience-tests.spec.ts:34:9 › Real User Experience Validation › Complete User Journeys - All Repositories › User Journey: Homepage → Repository → Postman Collections (REAL CONTENT) 
+[webkit] › tests/real-user-experience-tests.spec.ts:86:9 › Real User Experience Validation › Complete User Journeys - All Repositories › User Journey: Homepage → Repository → GraphQL Playground (REAL CONTENT) 
+[webkit] › tests/real-user-experience-tests.spec.ts:127:9 › Real User Experience Validation › Complete User Journeys - All Repositories › User Journey: Homepage → Repository → API Explorer (REAL API COUNTS) 
+[webkit] › tests/real-user-experience-tests.spec.ts:172:9 › Real User Experience Validation › Real Error Detection and User Experience › Detect and Report Real User-Facing Errors 
+[webkit] › tests/real-user-experience-tests.spec.ts:230:9 › Real User Experience Validation › Content Generation and Download Validation › Validate Postman Collection Generation Actually Works 
+[webkit] › tests/real-user-experience-tests.spec.ts:262:9 › Real User Experience Validation › Cross-Repository User Experience Consistency › All Repository Pages Load and Function Consistently 
+[Mobile Chrome] › tests/add-repository.spec.ts:10:7 › Add Repository Functionality › should open Add Repository modal from header 
+[Mobile Chrome] › tests/add-repository.spec.ts:98:7 › Add Repository Functionality › should close modal when X button is clicked 
+[Mobile Chrome] › tests/add-repository.spec.ts:110:7 › Add Repository Functionality › should handle submission loading state 
+[Mobile Chrome] › tests/comprehensive-repository-tests.spec.ts:110:11 › Comprehensive Repository Testing Suite › Repository: demo-labsdashboards › should detect correct API count via backend specs endpoint 
+[Mobile Chrome] › tests/comprehensive-repository-tests.spec.ts:127:11 › Comprehensive Repository Testing Suite › Repository: demo-labsdashboards › should display correct API Explorer content 
+[Mobile Chrome] › tests/comprehensive-repository-tests.spec.ts:198:11 › Comprehensive Repository Testing Suite › Repository: demo-labsdashboards › should generate and display Postman collections 
+[Mobile Chrome] › tests/comprehensive-repository-tests.spec.ts:110:11 › Comprehensive Repository Testing Suite › Repository: future-mobility-fleet-platform › should detect correct API count via backend specs endpoint 
+[Mobile Chrome] › tests/comprehensive-repository-tests.spec.ts:127:11 › Comprehensive Repository Testing Suite › Repository: future-mobility-fleet-platform › should display correct API Explorer content 
+[Mobile Chrome] › tests/comprehensive-repository-tests.spec.ts:179:13 › Comprehensive Repository Testing Suite › Repository: future-mobility-fleet-platform › should load Swagger UI for OpenAPI specs 
+[Mobile Chrome] › tests/comprehensive-repository-tests.spec.ts:198:11 › Comprehensive Repository Testing Suite › Repository: future-mobility-fleet-platform › should generate and display Postman collections 
+[Mobile Chrome] › tests/comprehensive-repository-tests.spec.ts:110:11 › Comprehensive Repository Testing Suite › Repository: future-mobility-consumer-platform › should detect correct API count via backend specs endpoint 
+[Mobile Chrome] › tests/comprehensive-repository-tests.spec.ts:127:11 › Comprehensive Repository Testing Suite › Repository: future-mobility-consumer-platform › should display correct API Explorer content 
+[Mobile Chrome] › tests/comprehensive-repository-tests.spec.ts:179:13 › Comprehensive Repository Testing Suite › Repository: future-mobility-consumer-platform › should load Swagger UI for OpenAPI specs 
+[Mobile Chrome] › tests/comprehensive-repository-tests.spec.ts:198:11 › Comprehensive Repository Testing Suite › Repository: future-mobility-consumer-platform › should generate and display Postman collections 
+[Mobile Chrome] › tests/comprehensive-repository-tests.spec.ts:110:11 › Comprehensive Repository Testing Suite › Repository: future-mobility-regulatory-platform › should detect correct API count via backend specs endpoint 
+[Mobile Chrome] › tests/comprehensive-repository-tests.spec.ts:127:11 › Comprehensive Repository Testing Suite › Repository: future-mobility-regulatory-platform › should display correct API Explorer content 
+[Mobile Chrome] › tests/comprehensive-repository-tests.spec.ts:179:13 › Comprehensive Repository Testing Suite › Repository: future-mobility-regulatory-platform › should load Swagger UI for OpenAPI specs 
+[Mobile Chrome] › tests/comprehensive-repository-tests.spec.ts:198:11 › Comprehensive Repository Testing Suite › Repository: future-mobility-regulatory-platform › should generate and display Postman collections 
+[Mobile Chrome] › tests/comprehensive-repository-tests.spec.ts:110:11 › Comprehensive Repository Testing Suite › Repository: sample-arch-package › should detect correct API count via backend specs endpoint 
+[Mobile Chrome] › tests/comprehensive-repository-tests.spec.ts:127:11 › Comprehensive Repository Testing Suite › Repository: sample-arch-package › should display correct API Explorer content 
+[Mobile Chrome] › tests/comprehensive-repository-tests.spec.ts:198:11 › Comprehensive Repository Testing Suite › Repository: sample-arch-package › should generate and display Postman collections 
+[Mobile Chrome] › tests/comprehensive-repository-tests.spec.ts:222:11 › Comprehensive Repository Testing Suite › Repository: sample-arch-package › should handle file serving correctly 
+[Mobile Chrome] › tests/comprehensive-repository-tests.spec.ts:110:11 › Comprehensive Repository Testing Suite › Repository: copilot-architecture-template › should detect correct API count via backend specs endpoint 
+[Mobile Chrome] › tests/comprehensive-repository-tests.spec.ts:238:9 › Comprehensive Repository Testing Suite › Cross-Repository Validation › should maintain consistent navigation across all repositories 
+[Mobile Chrome] › tests/comprehensive-repository-tests.spec.ts:254:9 › Comprehensive Repository Testing Suite › Cross-Repository Validation › should have consistent API detection behavior 
+[Mobile Chrome] › tests/comprehensive-repository-tests.spec.ts:302:9 › Comprehensive Repository Testing Suite › Performance Validation › should respond to API requests within acceptable time limits 
+[Mobile Chrome] › tests/e2e/repository-detail.spec.ts:58:7 › Repository Detail Page - Real Functionality Tests › Postman Collection page should actually load collection content 
+[Mobile Chrome] › tests/graphql-playground-comprehensive.spec.ts:41:7 › GraphQL Playground Comprehensive Tests › Backend API should detect all GraphQL schemas and samples 
+[Mobile Chrome] › tests/graphql-playground-comprehensive.spec.ts:70:7 › GraphQL Playground Comprehensive Tests › GraphQL Playground should load and display schema selection 
+[Mobile Chrome] › tests/graphql-playground-comprehensive.spec.ts:98:7 › GraphQL Playground Comprehensive Tests › Schema selection should work and load different schemas 
+[Mobile Chrome] › tests/postman-failure-test.spec.ts:13:7 › Postman Collection Failure Reproduction › Reproduce exact user failure: future-mobility-consumer-platform Postman 404 
+[Mobile Chrome] › tests/postman-failure-test.spec.ts:61:7 › Postman Collection Failure Reproduction › Test all repositories for Postman collection failures 
+[Mobile Chrome] › tests/real-user-experience-tests.spec.ts:34:9 › Real User Experience Validation › Complete User Journeys - All Repositories › User Journey: Homepage → Repository → Postman Collections (REAL CONTENT) 
+[Mobile Chrome] › tests/real-user-experience-tests.spec.ts:86:9 › Real User Experience Validation › Complete User Journeys - All Repositories › User Journey: Homepage → Repository → GraphQL Playground (REAL CONTENT) 
+[Mobile Chrome] › tests/real-user-experience-tests.spec.ts:127:9 › Real User Experience Validation › Complete User Journeys - All Repositories › User Journey: Homepage → Repository → API Explorer (REAL API COUNTS) 
+[Mobile Chrome] › tests/real-user-experience-tests.spec.ts:172:9 › Real User Experience Validation › Real Error Detection and User Experience › Detect and Report Real User-Facing Errors 
+[Mobile Chrome] › tests/real-user-experience-tests.spec.ts:230:9 › Real User Experience Validation › Content Generation and Download Validation › Validate Postman Collection Generation Actually Works 
+[Mobile Chrome] › tests/real-user-experience-tests.spec.ts:262:9 › Real User Experience Validation › Cross-Repository User Experience Consistency › All Repository Pages Load and Function Consistently 
+[Mobile Safari] › tests/add-repository.spec.ts:10:7 › Add Repository Functionality › should open Add Repository modal from header 
+[Mobile Safari] › tests/add-repository.spec.ts:98:7 › Add Repository Functionality › should close modal when X button is clicked 
+[Mobile Safari] › tests/add-repository.spec.ts:110:7 › Add Repository Functionality › should handle submission loading state 
+[Mobile Safari] › tests/comprehensive-repository-tests.spec.ts:110:11 › Comprehensive Repository Testing Suite › Repository: demo-labsdashboards › should detect correct API count via backend specs endpoint 
+[Mobile Safari] › tests/comprehensive-repository-tests.spec.ts:127:11 › Comprehensive Repository Testing Suite › Repository: demo-labsdashboards › should display correct API Explorer content 
+[Mobile Safari] › tests/comprehensive-repository-tests.spec.ts:150:13 › Comprehensive Repository Testing Suite › Repository: demo-labsdashboards › should load GraphQL Playground with actual schema content 
+[Mobile Safari] › tests/comprehensive-repository-tests.spec.ts:198:11 › Comprehensive Repository Testing Suite › Repository: demo-labsdashboards › should generate and display Postman collections 
+[Mobile Safari] › tests/comprehensive-repository-tests.spec.ts:222:11 › Comprehensive Repository Testing Suite › Repository: demo-labsdashboards › should handle file serving correctly 
+[Mobile Safari] › tests/comprehensive-repository-tests.spec.ts:110:11 › Comprehensive Repository Testing Suite › Repository: future-mobility-fleet-platform › should detect correct API count via backend specs endpoint 
+[Mobile Safari] › tests/comprehensive-repository-tests.spec.ts:127:11 › Comprehensive Repository Testing Suite › Repository: future-mobility-fleet-platform › should display correct API Explorer content 
+[Mobile Safari] › tests/comprehensive-repository-tests.spec.ts:179:13 › Comprehensive Repository Testing Suite › Repository: future-mobility-fleet-platform › should load Swagger UI for OpenAPI specs 
+[Mobile Safari] › tests/comprehensive-repository-tests.spec.ts:198:11 › Comprehensive Repository Testing Suite › Repository: future-mobility-fleet-platform › should generate and display Postman collections 
+[Mobile Safari] › tests/comprehensive-repository-tests.spec.ts:110:11 › Comprehensive Repository Testing Suite › Repository: future-mobility-consumer-platform › should detect correct API count via backend specs endpoint 
+[Mobile Safari] › tests/comprehensive-repository-tests.spec.ts:127:11 › Comprehensive Repository Testing Suite › Repository: future-mobility-consumer-platform › should display correct API Explorer content 
+[Mobile Safari] › tests/comprehensive-repository-tests.spec.ts:179:13 › Comprehensive Repository Testing Suite › Repository: future-mobility-consumer-platform › should load Swagger UI for OpenAPI specs 
+[Mobile Safari] › tests/comprehensive-repository-tests.spec.ts:198:11 › Comprehensive Repository Testing Suite › Repository: future-mobility-consumer-platform › should generate and display Postman collections 
+[Mobile Safari] › tests/comprehensive-repository-tests.spec.ts:110:11 › Comprehensive Repository Testing Suite › Repository: future-mobility-regulatory-platform › should detect correct API count via backend specs endpoint 
+[Mobile Safari] › tests/comprehensive-repository-tests.spec.ts:127:11 › Comprehensive Repository Testing Suite › Repository: future-mobility-regulatory-platform › should display correct API Explorer content 
+[Mobile Safari] › tests/comprehensive-repository-tests.spec.ts:179:13 › Comprehensive Repository Testing Suite › Repository: future-mobility-regulatory-platform › should load Swagger UI for OpenAPI specs 
+[Mobile Safari] › tests/comprehensive-repository-tests.spec.ts:198:11 › Comprehensive Repository Testing Suite › Repository: future-mobility-regulatory-platform › should generate and display Postman collections 
+[Mobile Safari] › tests/comprehensive-repository-tests.spec.ts:110:11 › Comprehensive Repository Testing Suite › Repository: sample-arch-package › should detect correct API count via backend specs endpoint 
+[Mobile Safari] › tests/comprehensive-repository-tests.spec.ts:110:11 › Comprehensive Repository Testing Suite › Repository: copilot-architecture-template › should detect correct API count via backend specs endpoint 
+[Mobile Safari] › tests/comprehensive-repository-tests.spec.ts:238:9 › Comprehensive Repository Testing Suite › Cross-Repository Validation › should maintain consistent navigation across all repositories 
+[Mobile Safari] › tests/comprehensive-repository-tests.spec.ts:254:9 › Comprehensive Repository Testing Suite › Cross-Repository Validation › should have consistent API detection behavior 
+[Mobile Safari] › tests/comprehensive-repository-tests.spec.ts:302:9 › Comprehensive Repository Testing Suite › Performance Validation › should respond to API requests within acceptable time limits 
+[Mobile Safari] › tests/e2e/repository-detail.spec.ts:34:7 › Repository Detail Page - Real Functionality Tests › GraphQL Playground should actually load schema content 
+[Mobile Safari] › tests/e2e/repository-detail.spec.ts:82:7 › Repository Detail Page - Real Functionality Tests › Backend API endpoints should return actual data 
+[Mobile Safari] › tests/e2e/repository-detail.spec.ts:96:7 › Repository Detail Page - Real Functionality Tests › Postman generation API should work 
+[Mobile Safari] › tests/graphql-playground-comprehensive.spec.ts:41:7 › GraphQL Playground Comprehensive Tests › Backend API should detect all GraphQL schemas and samples 
+[Mobile Safari] › tests/graphql-playground-comprehensive.spec.ts:70:7 › GraphQL Playground Comprehensive Tests › GraphQL Playground should load and display schema selection 
+[Mobile Safari] › tests/graphql-playground-comprehensive.spec.ts:176:7 › GraphQL Playground Comprehensive Tests › GraphQL endpoint configuration should be functional 
+[Mobile Safari] › tests/graphql-playground-comprehensive.spec.ts:223:7 › GraphQL Playground Comprehensive Tests › All GraphQL files should be accessible via file serving 
+[Mobile Safari] › tests/graphql-playground-comprehensive.spec.ts:258:7 › GraphQL Playground Comprehensive Tests › GraphQL Playground should be responsive and accessible 
+[Mobile Safari] › tests/postman-failure-test.spec.ts:13:7 › Postman Collection Failure Reproduction › Reproduce exact user failure: future-mobility-consumer-platform Postman 404 
+[Mobile Safari] › tests/postman-failure-test.spec.ts:61:7 › Postman Collection Failure Reproduction › Test all repositories for Postman collection failures 
+[Mobile Safari] › tests/postman-failure-test.spec.ts:114:7 › Postman Collection Failure Reproduction › Test backend Postman generation API directly 
+[Mobile Safari] › tests/real-user-experience-tests.spec.ts:34:9 › Real User Experience Validation › Complete User Journeys - All Repositories › User Journey: Homepage → Repository → Postman Collections (REAL CONTENT) 
+[Mobile Safari] › tests/real-user-experience-tests.spec.ts:86:9 › Real User Experience Validation › Complete User Journeys - All Repositories › User Journey: Homepage → Repository → GraphQL Playground (REAL CONTENT) 
+[Mobile Safari] › tests/real-user-experience-tests.spec.ts:127:9 › Real User Experience Validation › Complete User Journeys - All Repositories › User Journey: Homepage → Repository → API Explorer (REAL API COUNTS) 
+[Mobile Safari] › tests/real-user-experience-tests.spec.ts:172:9 › Real User Experience Validation › Real Error Detection and User Experience › Detect and Report Real User-Facing Errors 
+[Mobile Safari] › tests/real-user-experience-tests.spec.ts:230:9 › Real User Experience Validation › Content Generation and Download Validation › Validate Postman Collection Generation Actually Works 
+[Mobile Safari] › tests/real-user-experience-tests.spec.ts:262:9 › Real User Experience Validation › Cross-Repository User Experience Consistency › All Repository Pages Load and Function Consistently 
+223 passed (23.9m)
+lisasimon@Lisas-Mac-mini eyns-ai-experience-center %  å

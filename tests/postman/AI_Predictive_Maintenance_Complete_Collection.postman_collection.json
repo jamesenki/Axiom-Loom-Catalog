@@ -1,0 +1,663 @@
+{
+  "info": {
+    "name": "AI Predictive Maintenance Engine - Complete API Collection",
+    "description": "Comprehensive test collection for all APIs including REST, GraphQL, gRPC gateway, and WebSocket protocols",
+    "version": "1.0.0",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.predictive-maintenance.com",
+      "type": "string"
+    },
+    {
+      "key": "apiKey",
+      "value": "{{API_KEY}}",
+      "type": "string"
+    },
+    {
+      "key": "bearerToken",
+      "value": "{{BEARER_TOKEN}}",
+      "type": "string"
+    },
+    {
+      "key": "vehicleId",
+      "value": "VEH123456789",
+      "type": "string"
+    },
+    {
+      "key": "fleetId",
+      "value": "FLEET_ABC123",
+      "type": "string"
+    },
+    {
+      "key": "graphqlEndpoint",
+      "value": "{{baseUrl}}/graphql",
+      "type": "string"
+    },
+    {
+      "key": "grpcGatewayUrl",
+      "value": "{{baseUrl}}/v1",
+      "type": "string"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "item": [
+    {
+      "name": "Authentication",
+      "item": [
+        {
+          "name": "Get JWT Token",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"{{username}}\",\n  \"password\": \"{{password}}\",\n  \"scope\": \"vehicle:read vehicle:write predictions:read fleet:read\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/auth/token",
+              "host": ["{{baseUrl}}"],
+              "path": ["auth", "token"]
+            }
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status code is 200', function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test('Response has access token', function () {",
+                  "    const responseJson = pm.response.json();",
+                  "    pm.expect(responseJson).to.have.property('access_token');",
+                  "    pm.collectionVariables.set('bearerToken', responseJson.access_token);",
+                  "});",
+                  "",
+                  "pm.test('Token has correct scope', function () {",
+                  "    const responseJson = pm.response.json();",
+                  "    pm.expect(responseJson.scope).to.include('vehicle:read');",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Validate API Key",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/auth/validate",
+              "host": ["{{baseUrl}}"],
+              "path": ["auth", "validate"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "REST API - Vehicles",
+      "item": [
+        {
+          "name": "Get Vehicle Health",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/vehicles/{{vehicleId}}/health",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "vehicles", "{{vehicleId}}", "health"]
+            }
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status code is 200', function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test('Response has health score', function () {",
+                  "    const responseJson = pm.response.json();",
+                  "    pm.expect(responseJson).to.have.property('health_score');",
+                  "    pm.expect(responseJson.health_score).to.be.a('number');",
+                  "    pm.expect(responseJson.health_score).to.be.within(0, 100);",
+                  "});",
+                  "",
+                  "pm.test('Response time is less than 500ms', function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(500);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Get Vehicle Diagnostics",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/vehicles/{{vehicleId}}/diagnostics?components=engine,transmission,brakes",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "vehicles", "{{vehicleId}}", "diagnostics"],
+              "query": [
+                {
+                  "key": "components",
+                  "value": "engine,transmission,brakes"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Vehicle Predictions",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/vehicles/{{vehicleId}}/predictions?timeframe=30d&severity=high",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "vehicles", "{{vehicleId}}", "predictions"],
+              "query": [
+                {
+                  "key": "timeframe",
+                  "value": "30d"
+                },
+                {
+                  "key": "severity",
+                  "value": "high"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Schedule Maintenance",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"vehicle_id\": \"{{vehicleId}}\",\n  \"maintenance_type\": \"predictive\",\n  \"priority\": \"high\",\n  \"scheduled_date\": \"2024-02-15T09:00:00Z\",\n  \"estimated_duration\": \"PT4H\",\n  \"components\": [\"engine\", \"transmission\"],\n  \"notes\": \"Predicted engine cooling system maintenance\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/maintenance/schedule",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "maintenance", "schedule"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "GraphQL API",
+      "item": [
+        {
+          "name": "Get Vehicle with Health Score",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"query\": \"query GetVehicle($id: ID!) {\\n    vehicle(id: $id) {\\n      id\\n      vin\\n      healthScore\\n      status\\n      lastUpdate\\n      diagnosticData {\\n        timestamp\\n        quality {\\n          overallScore\\n          completeness\\n        }\\n        engine {\\n          rpm\\n          coolantTemperature\\n          oilPressure\\n        }\\n      }\\n      predictions {\\n        id\\n        component\\n        probability\\n        confidence\\n        timeToFailure\\n        recommendedAction\\n      }\\n    }\\n  }\",\n  \"variables\": {\n    \"id\": \"{{vehicleId}}\"\n  }\n}"
+            },
+            "url": {
+              "raw": "{{graphqlEndpoint}}",
+              "host": ["{{graphqlEndpoint}}"]
+            }
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('GraphQL query successful', function () {",
+                  "    pm.response.to.have.status(200);",
+                  "    const responseJson = pm.response.json();",
+                  "    pm.expect(responseJson).to.not.have.property('errors');",
+                  "    pm.expect(responseJson).to.have.property('data');",
+                  "});",
+                  "",
+                  "pm.test('Vehicle data returned', function () {",
+                  "    const responseJson = pm.response.json();",
+                  "    pm.expect(responseJson.data.vehicle).to.have.property('id');",
+                  "    pm.expect(responseJson.data.vehicle).to.have.property('healthScore');",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Get Fleet Analytics",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"query\": \"query GetFleetAnalytics($fleetId: ID!, $timeRange: TimeRange!) {\\n    fleetAnalytics(fleetId: $fleetId, timeRange: $timeRange) {\\n      totalVehicles\\n      healthTrends {\\n        period\\n        averageHealthScore\\n        trend\\n      }\\n      costAnalysis {\\n        totalMaintenanceCost\\n        costPerVehicle\\n        projectedSavings\\n      }\\n      predictiveInsights {\\n        category\\n        insight\\n        confidence\\n        impact\\n      }\\n    }\\n  }\",\n  \"variables\": {\n    \"fleetId\": \"{{fleetId}}\",\n    \"timeRange\": {\n      \"start\": \"2024-01-01T00:00:00Z\",\n      \"end\": \"2024-02-01T00:00:00Z\"\n    }\n  }\n}"
+            },
+            "url": {
+              "raw": "{{graphqlEndpoint}}",
+              "host": ["{{graphqlEndpoint}}"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Trigger Prediction Generation",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"query\": \"mutation TriggerPrediction($input: PredictionTriggerInput!) {\\n    triggerPrediction(input: $input) {\\n      success\\n      predictionId\\n      status\\n      estimatedCompletionTime\\n      message\\n    }\\n  }\",\n  \"variables\": {\n    \"input\": {\n      \"vehicleId\": \"{{vehicleId}}\",\n      \"components\": [\"engine\", \"transmission\", \"brakes\"],\n      \"analysisType\": \"COMPREHENSIVE\",\n      \"priority\": \"HIGH\"\n    }\n  }\n}"
+            },
+            "url": {
+              "raw": "{{graphqlEndpoint}}",
+              "host": ["{{graphqlEndpoint}}"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "gRPC Gateway",
+      "item": [
+        {
+          "name": "Get Vehicle Health (gRPC)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{grpcGatewayUrl}}/vehicles/{{vehicleId}}/health?include_predictions=true&include_diagnostics=true",
+              "host": ["{{grpcGatewayUrl}}"],
+              "path": ["vehicles", "{{vehicleId}}", "health"],
+              "query": [
+                {
+                  "key": "include_predictions",
+                  "value": "true"
+                },
+                {
+                  "key": "include_diagnostics",
+                  "value": "true"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Stream Diagnostic Data (gRPC Gateway)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/event-stream"
+              }
+            ],
+            "url": {
+              "raw": "{{grpcGatewayUrl}}/vehicles/{{vehicleId}}/diagnostic-stream?components=engine&components=transmission&sample_rate_ms=1000",
+              "host": ["{{grpcGatewayUrl}}"],
+              "path": ["vehicles", "{{vehicleId}}", "diagnostic-stream"],
+              "query": [
+                {
+                  "key": "components",
+                  "value": "engine"
+                },
+                {
+                  "key": "components",
+                  "value": "transmission"
+                },
+                {
+                  "key": "sample_rate_ms",
+                  "value": "1000"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Fleet Analytics (gRPC)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{grpcGatewayUrl}}/fleets/{{fleetId}}/analytics?time_range.start=2024-01-01T00:00:00Z&time_range.end=2024-02-01T00:00:00Z",
+              "host": ["{{grpcGatewayUrl}}"],
+              "path": ["fleets", "{{fleetId}}", "analytics"],
+              "query": [
+                {
+                  "key": "time_range.start",
+                  "value": "2024-01-01T00:00:00Z"
+                },
+                {
+                  "key": "time_range.end",
+                  "value": "2024-02-01T00:00:00Z"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Train AI Model (gRPC)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"model_type\": \"NEURAL_NETWORK\",\n  \"training_config\": {\n    \"data_sources\": [\"diagnostic_data\", \"maintenance_records\"],\n    \"validation_strategy\": \"TIME_SERIES_SPLIT\",\n    \"hyperparameters\": {\n      \"learning_rate\": 0.001,\n      \"batch_size\": 32,\n      \"epochs\": 100\n    }\n  },\n  \"target_components\": [\"engine\", \"transmission\"]\n}"
+            },
+            "url": {
+              "raw": "{{grpcGatewayUrl}}/ai-models/train",
+              "host": ["{{grpcGatewayUrl}}"],
+              "path": ["ai-models", "train"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "WebSocket Protocol Tests",
+      "item": [
+        {
+          "name": "WebSocket Connection Test",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/ws/test",
+              "host": ["{{baseUrl}}"],
+              "path": ["ws", "test"]
+            }
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "// WebSocket connection test simulation",
+                  "const testWebSocket = () => {",
+                  "    const wsUrl = pm.collectionVariables.get('baseUrl').replace('https://', 'wss://') + '/ws';",
+                  "    console.log('Testing WebSocket connection to:', wsUrl);",
+                  "    ",
+                  "    // Note: Postman doesn't support native WebSocket connections",
+                  "    // This is a placeholder for WebSocket testing documentation",
+                  "    pm.collectionVariables.set('wsUrl', wsUrl);",
+                  "};"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Performance Tests",
+      "item": [
+        {
+          "name": "Load Test - Vehicle Health",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/vehicles/{{vehicleId}}/health",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "vehicles", "{{vehicleId}}", "health"]
+            }
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Response time is acceptable', function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(200);",
+                  "});",
+                  "",
+                  "pm.test('No rate limiting', function () {",
+                  "    pm.expect(pm.response.code).to.not.equal(429);",
+                  "});",
+                  "",
+                  "// Performance metrics collection",
+                  "const responseTime = pm.response.responseTime;",
+                  "pm.collectionVariables.set('lastResponseTime', responseTime);",
+                  "",
+                  "// Log performance data",
+                  "console.log('Response Time:', responseTime + 'ms');"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Stress Test - Multiple Predictions",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/fleets/{{fleetId}}/predictions?severity=all&timeframe=7d&limit=1000",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "fleets", "{{fleetId}}", "predictions"],
+              "query": [
+                {
+                  "key": "severity",
+                  "value": "all"
+                },
+                {
+                  "key": "timeframe",
+                  "value": "7d"
+                },
+                {
+                  "key": "limit",
+                  "value": "1000"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Error Handling Tests",
+      "item": [
+        {
+          "name": "Invalid Vehicle ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/vehicles/INVALID_ID/health",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "vehicles", "INVALID_ID", "health"]
+            }
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Returns 404 for invalid vehicle ID', function () {",
+                  "    pm.response.to.have.status(404);",
+                  "});",
+                  "",
+                  "pm.test('Error response has correct format', function () {",
+                  "    const responseJson = pm.response.json();",
+                  "    pm.expect(responseJson).to.have.property('error');",
+                  "    pm.expect(responseJson.error).to.have.property('code');",
+                  "    pm.expect(responseJson.error).to.have.property('message');",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Unauthorized Access",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/vehicles/{{vehicleId}}/health",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "vehicles", "{{vehicleId}}", "health"]
+            },
+            "auth": {
+              "type": "noauth"
+            }
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Returns 401 for unauthorized access', function () {",
+                  "    pm.response.to.have.status(401);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Rate Limit Test",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/vehicles/{{vehicleId}}/health",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "vehicles", "{{vehicleId}}", "health"]
+            }
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Rate limit headers present', function () {",
+                  "    pm.expect(pm.response.headers.get('X-RateLimit-Limit')).to.exist;",
+                  "    pm.expect(pm.response.headers.get('X-RateLimit-Remaining')).to.exist;",
+                  "    pm.expect(pm.response.headers.get('X-RateLimit-Reset')).to.exist;",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "exec": [
+          "// Global pre-request script",
+          "// Set timestamps for requests",
+          "pm.collectionVariables.set('timestamp', new Date().toISOString());",
+          "",
+          "// Log request details",
+          "console.log('Request URL:', pm.request.url.toString());",
+          "console.log('Request Method:', pm.request.method);"
+        ],
+        "type": "text/javascript"
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "exec": [
+          "// Global test script",
+          "pm.test('Response has correct content type', function () {",
+          "    if (pm.response.code === 200) {",
+          "        pm.expect(pm.response.headers.get('Content-Type')).to.include('application/json');",
+          "    }",
+          "});",
+          "",
+          "pm.test('Response has correlation ID', function () {",
+          "    pm.expect(pm.response.headers.get('X-Correlation-ID')).to.exist;",
+          "});"
+        ],
+        "type": "text/javascript"
+      }
+    }
+  ]
+}

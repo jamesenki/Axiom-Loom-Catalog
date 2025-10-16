@@ -1,0 +1,291 @@
+# Axiom Loom Catalog - Project Specification
+
+**Version**: 1.0  
+**Date**: July 28, 2025  
+**Status**: In Development
+
+## 🎯 Project Overview
+
+### Purpose
+A **lab marketing portal** serving as a centralized developer experience hub for showcasing EY's innovation repositories, APIs, and documentation to stakeholders and potential clients. The portal will be used to demonstrate EY's innovation capabilities to potential clients and partners. 
+
+### Primary Stakeholders
+- **Axiom Loom Innovation Labs**: Marketing and demonstration teams
+- **Developers**: Technical teams using the repositories
+- **Clients/Prospects**: Viewing capabilities and architecture
+- **Management**: Oversight and progress tracking
+
+## 📋 Functional Requirements Checklist
+
+### 🔄 Repository Management
+- [x] **Auto-sync on Application Load** ✅
+  - [x] Fetch latest repository metadata on startup ✅
+  - [x] Update local cache with fresh content ✅
+  - [x] Display sync status to user ✅
+  - [x] Handle sync failures gracefully ✅
+
+- [x] **Manual Repository Addition** ✅
+  - [x] UI form for adding new repositories ✅
+  - [x] Repository name validation ✅
+  - [x] GitHub API integration for repo verification ✅
+  - [x] Add to local configuration ✅
+  - [x] Immediate sync after addition ✅
+
+- [x] **Manual Sync Button** ✅
+  - [x] Prominent sync button in UI ✅
+  - [x] Progress indicator during sync ✅
+  - [x] Batch sync all repositories ✅
+  - [ ] Individual repository sync option
+  - [x] Last sync timestamp display ✅
+
+- [x] **Local Content Serving** ✅
+  - [x] Local repository content cache ✅
+  - [x] Optimized file serving (no live GitHub calls) ✅
+  - [x] Content versioning and updates ✅
+  - [x] Offline capability for cached content ✅
+
+### 📚 Documentation System
+- [x] **Unicode Emoji Rendering** ✅
+  - [x] TextDecoder UTF-8 implementation
+  - [x] Perfect emoji display matching GitHub
+  - [x] Validated across all repositories
+
+- [x] **Documentation Link Integrity** ✅
+  - [x] 263+ broken links fixed across 10 repositories
+  - [x] Relative to absolute path conversion
+  - [x] Web viewer path formatting
+  - [x] GitHub issue/discussion links fixed
+
+- [x] **Markdown Viewer Enhancement** ✅
+  - [x] Syntax highlighting for code blocks ✅
+  - [x] Table of contents generation ✅
+  - [x] Search within documents ✅
+  - [x] Print/export functionality ✅
+  - [x] Mobile-responsive design ✅
+
+- [x] **Mermaid Integration** ✅
+  - [x] Frontend-only rendering (no backend needed) ✅
+  - [x] Frontend integration with markdown ✅
+  - [x] Multiple diagram types support ✅
+  - [x] Error handling for invalid syntax ✅
+  - [x] Browser-based rendering (automatic caching) ✅
+  
+- [x] **PlantUML Integration** ✅
+  - [x] Backend JAR rendering endpoint ✅
+  - [x] Frontend integration with markdown ✅
+  - [x] C4 diagram support validation ✅
+  - [x] Error handling for invalid UML ✅
+  - [x] Caching of rendered diagrams ✅
+
+### 🔌 API Documentation Hub
+- [x] **Multi-format API Support** ✅
+  - [x] Swagger/OpenAPI integration ✅
+  - [x] GraphQL schema display ✅
+  - [x] Postman collection viewer ✅
+  - [x] REST API documentation ✅
+  - [x] API versioning support ✅
+  - [x] gRPC UI support ✅
+
+- [ ] **API Explorer Interface**
+  - [ ] Interactive API testing
+  - [ ] Request/response examples
+  - [ ] Authentication handling
+  - [ ] Rate limiting information
+  - [ ] API health status
+
+- [ ] **API Count Accuracy**
+  - [x] Display 85+ APIs correctly ✅
+  - [ ] Real-time count updates
+  - [ ] Categorization by type
+  - [ ] Search and filter APIs
+  - [ ] API popularity metrics
+
+### 🎨 User Interface
+- [ ] **Marketing-Focused Design**
+  - [ ] Professional, clean aesthetic
+  - [ ] Axiom Loom branding integration
+  - [ ] Demo-friendly layout
+  - [ ] High-contrast, accessible design
+  - [ ] Responsive across devices
+
+- [x] **Navigation & Discovery** ✅
+  - [ ] Repository categorization
+  - [x] Search across all content ✅
+  - [x] Filtering by technology/type ✅
+  - [ ] Recently viewed/updated
+  - [ ] Bookmarking functionality
+
+- [x] **Performance Optimization** ✅
+  - [x] < 2 second initial load time ✅
+  - [x] < 5 second repository sync ✅
+  - [x] Lazy loading for large content ✅
+  - [x] Optimized image/asset delivery ✅
+  - [x] Progressive web app features ✅
+
+## 🏗️ Technical Requirements Checklist
+
+### 🧪 Testing & Quality Assurance
+- [ ] **100% Test Coverage**
+  - [ ] Unit tests for all components
+  - [ ] Integration tests for API calls
+  - [ ] End-to-end user experience tests
+  - [ ] Performance testing
+  - [ ] Accessibility testing (WCAG 2.1 AA)
+
+- [ ] **Playwright E2E Testing**
+  - [ ] User journey automation
+  - [ ] Cross-browser compatibility
+  - [ ] Mobile device testing
+  - [ ] Visual regression testing
+  - [ ] Load testing scenarios
+
+- [ ] **Code Quality**
+  - [ ] TypeScript strict mode (no `any` types)
+  - [ ] ESLint configuration and compliance
+  - [ ] Prettier code formatting
+  - [ ] Husky pre-commit hooks
+  - [ ] SonarQube integration
+
+### 🚀 Deployment & DevOps
+- [ ] **Continuous Delivery**
+  - [ ] Automated build pipeline
+  - [ ] Multi-environment deployment
+  - [ ] Zero-downtime deployments
+  - [ ] Rollback capabilities
+  - [ ] Environment-specific configurations
+
+- [ ] **Infrastructure**
+  - [ ] Docker containerization
+  - [ ] Kubernetes deployment manifests
+  - [ ] Load balancer configuration
+  - [ ] SSL/TLS certificate management
+  - [ ] Monitoring and alerting
+
+- [ ] **Network Configuration**
+  - [ ] Lab network accessibility (192.168.1.101:3002)
+  - [ ] Firewall rules and security
+  - [ ] CDN integration for assets
+  - [ ] Backup and disaster recovery
+  - [ ] Performance monitoring
+
+### 🔧 Architecture & Development
+- [ ] **Clean Architecture Implementation**
+  - [ ] Domain-driven design patterns
+  - [ ] Repository pattern for data access
+  - [ ] Command Query Separation
+  - [ ] Dependency injection
+  - [ ] SOLID principles adherence
+
+- [ ] **Technology Stack**
+  - [x] React + TypeScript frontend ✅
+  - [x] Tailwind CSS styling ✅
+  - [x] Zustand state management ✅
+  - [ ] GitHub CLI integration
+  - [ ] PlantUML JAR backend
+  - [ ] Express.js API server
+
+- [ ] **Version Control & Workflow**
+  - [x] GitHub repository established ✅
+  - [ ] Trunk-based development workflow
+  - [ ] Feature flag implementation
+  - [ ] Code review process
+  - [ ] Automated changelog generation
+
+## 🔍 Repository Integration Checklist
+
+### 📦 Repository Discovery & Cloning
+- [ ] **Account Repository Audit**
+  - [ ] List all repositories in jamesenki account
+  - [ ] Clone all repositories locally
+  - [ ] Categorize by project type
+  - [ ] Identify API documentation patterns
+  - [ ] Map repository relationships
+
+- [ ] **Content Analysis**
+  - [ ] README.md analysis for each repo
+  - [ ] API specification discovery
+  - [ ] Documentation structure mapping
+  - [ ] Technology stack identification
+  - [ ] Dependency analysis
+
+### 🔄 Sync Implementation
+- [ ] **GitHub CLI Integration**
+  - [ ] Authentication setup
+  - [ ] Repository cloning automation
+  - [ ] Content fetching optimization
+  - [ ] Error handling and retry logic
+  - [ ] Rate limiting compliance
+
+- [ ] **Local Cache Management**
+  - [ ] File system organization
+  - [ ] Content versioning
+  - [ ] Cache invalidation strategy
+  - [ ] Storage optimization
+  - [ ] Backup and recovery
+
+## 📊 Success Metrics
+
+### 🎯 Performance Targets
+- [ ] **Load Time**: < 2 seconds initial page load
+- [ ] **Sync Performance**: < 5 seconds for full repository sync
+- [ ] **API Response**: < 500ms average response time
+- [ ] **Uptime**: 99.9% availability
+- [ ] **Test Coverage**: 100% (enforced)
+
+### 📈 User Experience Metrics
+- [ ] **Accessibility**: WCAG 2.1 AA compliance
+- [ ] **Mobile Responsiveness**: 100% feature parity
+- [ ] **Browser Compatibility**: Chrome, Firefox, Safari, Edge
+- [ ] **Lighthouse Score**: > 90 across all categories
+- [ ] **User Satisfaction**: Positive feedback from lab demos
+
+## 🚦 Project Phases
+
+### Phase 1: Foundation (Completed) ✅
+- [x] GitHub repository setup ✅
+- [x] Initial documentation ✅
+- [x] Development rules establishment ✅
+- [x] Repository cloning and analysis ✅
+- [x] Basic UI framework ✅
+
+### Phase 2: Core Features (Completed) ✅
+- [x] Repository sync implementation ✅
+- [x] Manual repository addition ✅
+- [x] Documentation viewer ✅
+- [x] API documentation hub ✅
+- [x] Basic testing framework ✅
+
+### Phase 3: Enhancement (In Progress)
+- [x] PlantUML integration ✅
+- [x] Mermaid diagram support ✅
+- [x] Advanced search and filtering ✅
+- [ ] Performance optimization
+- [ ] Comprehensive testing
+- [ ] Marketing-focused UI polish
+
+### Phase 4: Production
+- [ ] Deployment pipeline
+- [ ] Monitoring and alerting
+- [ ] Documentation completion
+- [ ] User training materials
+- [ ] Go-live preparation
+
+## 📝 Notes & Assumptions
+
+### Technical Assumptions
+- GitHub API rate limits will not be exceeded
+- Local storage capacity is sufficient for all repositories
+- Network connectivity is reliable in lab environment
+- PlantUML JAR backend is stable and performant
+
+### Business Assumptions
+- Repository structure remains relatively stable
+- Marketing requirements won't change significantly
+- Lab demonstration scenarios are well-defined
+- Stakeholder feedback will be incorporated iteratively
+
+---
+
+**Last Updated**: July 28, 2025  
+**Next Review**: After Phase 1 completion  
+**Responsible**: Development Team

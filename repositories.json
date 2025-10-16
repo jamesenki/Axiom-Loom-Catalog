@@ -1,0 +1,179 @@
+{
+  "repositories": [
+    {
+      "name": "ai-predictive-maintenance-engine",
+      "account": "jamesenki",
+      "addedAt": "2025-07-31T03:48:00.000Z",
+      "status": "pending_sync"
+    },
+    {
+      "name": "ai-predictive-maintenance-engine-architecture",
+      "account": "jamesenki",
+      "addedAt": "2025-07-31T03:48:00.000Z",
+      "status": "pending_sync"
+    },
+    {
+      "name": "ai-predictive-maintenance-platform",
+      "account": "jamesenki",
+      "addedAt": "2025-07-31T03:48:00.000Z",
+      "status": "pending_sync"
+    },
+    {
+      "name": "ai-transformations",
+      "account": "jamesenki",
+      "addedAt": "2025-07-31T03:48:00.000Z",
+      "status": "pending_sync"
+    },
+    {
+      "name": "cloudtwin-simulation-platform-architecture",
+      "account": "jamesenki",
+      "addedAt": "2025-07-31T03:48:00.000Z",
+      "status": "pending_sync"
+    },
+    {
+      "name": "copilot-architecture-template",
+      "account": "jamesenki",
+      "addedAt": "2025-07-31T03:48:00.000Z",
+      "status": "pending_sync"
+    },
+    {
+      "name": "deploymaster-sdv-ota-platform",
+      "account": "jamesenki",
+      "addedAt": "2025-07-31T03:48:00.000Z",
+      "status": "pending_sync"
+    },
+    {
+      "name": "diagnostic-as-code-platform-architecture",
+      "account": "jamesenki",
+      "addedAt": "2025-07-31T03:48:00.000Z",
+      "status": "pending_sync"
+    },
+    {
+      "name": "ecosystem-platform-architecture",
+      "account": "jamesenki",
+      "addedAt": "2025-07-31T03:48:00.000Z",
+      "status": "pending_sync"
+    },
+    {
+      "name": "eyns-ai-experience-center",
+      "account": "jamesenki",
+      "addedAt": "2025-07-31T03:48:00.000Z",
+      "status": "pending_sync"
+    },
+    {
+      "name": "fleet-digital-twin-platform-architecture",
+      "account": "jamesenki",
+      "addedAt": "2025-07-31T03:48:00.000Z",
+      "status": "pending_sync"
+    },
+    {
+      "name": "future-mobility-consumer-platform",
+      "account": "jamesenki",
+      "addedAt": "2025-07-31T03:48:00.000Z",
+      "status": "pending_sync"
+    },
+    {
+      "name": "future-mobility-energy-platform",
+      "account": "jamesenki",
+      "addedAt": "2025-07-31T03:48:00.000Z",
+      "status": "pending_sync"
+    },
+    {
+      "name": "future-mobility-financial-platform",
+      "account": "jamesenki",
+      "addedAt": "2025-07-31T03:48:00.000Z",
+      "status": "pending_sync"
+    },
+    {
+      "name": "future-mobility-fleet-platform",
+      "account": "jamesenki",
+      "addedAt": "2025-07-31T03:48:00.000Z",
+      "status": "pending_sync"
+    },
+    {
+      "name": "future-mobility-infrastructure-platform",
+      "account": "jamesenki",
+      "addedAt": "2025-07-31T03:48:00.000Z",
+      "status": "pending_sync"
+    },
+    {
+      "name": "future-mobility-oems-platform",
+      "account": "jamesenki",
+      "addedAt": "2025-07-31T03:48:00.000Z",
+      "status": "pending_sync"
+    },
+    {
+      "name": "future-mobility-regulatory-platform",
+      "account": "jamesenki",
+      "addedAt": "2025-07-31T03:48:00.000Z",
+      "status": "pending_sync"
+    },
+    {
+      "name": "future-mobility-tech-platform",
+      "account": "jamesenki",
+      "addedAt": "2025-07-31T03:48:00.000Z",
+      "status": "pending_sync"
+    },
+    {
+      "name": "future-mobility-users-platform",
+      "account": "jamesenki",
+      "addedAt": "2025-07-31T03:48:00.000Z",
+      "status": "pending_sync"
+    },
+    {
+      "name": "future-mobility-utilities-platform",
+      "account": "jamesenki",
+      "addedAt": "2025-07-31T03:48:00.000Z",
+      "status": "pending_sync"
+    },
+    {
+      "name": "mobility-architecture-package-orchestrator",
+      "account": "jamesenki",
+      "addedAt": "2025-07-31T03:48:00.000Z",
+      "status": "pending_sync"
+    },
+    {
+      "name": "demo-labsdashboards",
+      "account": "jamesenki",
+      "addedAt": "2025-07-31T03:48:00.000Z",
+      "status": "pending_sync",
+      "branch": "james-update"
+    },
+    {
+      "name": "remote-diagnostic-assistance-platform-architecture",
+      "account": "jamesenki",
+      "addedAt": "2025-07-31T03:48:00.000Z",
+      "status": "pending_sync"
+    },
+    {
+      "name": "rentalFleets",
+      "account": "jamesenki",
+      "addedAt": "2025-07-31T03:48:00.000Z",
+      "status": "pending_sync"
+    },
+    {
+      "name": "sample-arch-package",
+      "account": "jamesenki",
+      "addedAt": "2025-07-31T03:48:00.000Z",
+      "status": "pending_sync"
+    },
+    {
+      "name": "sdv-architecture-orchestration",
+      "account": "jamesenki",
+      "addedAt": "2025-07-31T03:48:00.000Z",
+      "status": "pending_sync"
+    },
+    {
+      "name": "sovd-diagnostic-ecosystem-platform-architecture",
+      "account": "jamesenki",
+      "addedAt": "2025-07-31T03:48:00.000Z",
+      "status": "pending_sync"
+    },
+    {
+      "name": "velocityforge-sdv-platform-architecture",
+      "account": "jamesenki",
+      "addedAt": "2025-07-31T03:48:00.000Z",
+      "status": "pending_sync"
+    }
+  ]
+}

@@ -1,0 +1,248 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sovd-integration
+  namespace: ai-predictive-maintenance
+  labels:
+    app.kubernetes.io/name: sovd-integration
+    app.kubernetes.io/component: integration
+    app.kubernetes.io/part-of: ai-predictive-maintenance-engine
+    app.kubernetes.io/version: "1.0.0"
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: sovd-integration
+      app.kubernetes.io/component: integration
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: sovd-integration
+        app.kubernetes.io/component: integration
+        app.kubernetes.io/part-of: ai-predictive-maintenance-engine
+        app.kubernetes.io/version: "1.0.0"
+    spec:
+      containers:
+      - name: sovd-integration
+        image: ai-pm-engine/sovd-integration:1.0.0
+        imagePullPolicy: IfNotPresent
+        ports:
+        - name: http
+          containerPort: 3002
+          protocol: TCP
+        - name: metrics
+          containerPort: 9092
+          protocol: TCP
+        env:
+        - name: NODE_ENV
+          value: "production"
+        - name: LOG_LEVEL
+          value: "info"
+        - name: SOVD_GATEWAY_URL
+          valueFrom:
+            configMapKeyRef:
+              name: sovd-integration-config
+              key: gateway-url
+        - name: SOVD_PROTOCOL_VERSION
+          value: "1.0.0"
+        - name: SOVD_CLIENT_ID
+          valueFrom:
+            secretKeyRef:
+              name: sovd-credentials
+              key: client-id
+        - name: SOVD_CLIENT_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: sovd-credentials
+              key: client-secret
+        - name: KAFKA_BROKERS
+          value: "kafka-0.kafka-headless:9092,kafka-1.kafka-headless:9092,kafka-2.kafka-headless:9092"
+        - name: MAX_CONCURRENT_SESSIONS
+          value: "100"
+        - name: SESSION_TIMEOUT
+          value: "300000"
+        - name: REDIS_HOST
+          value: "redis-service.ai-predictive-maintenance.svc.cluster.local"
+        - name: REDIS_PORT
+          value: "6379"
+        - name: REDIS_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: redis-credentials
+              key: password
+        livenessProbe:
+          httpGet:
+            path: /health/live
+            port: http
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          timeoutSeconds: 5
+          failureThreshold: 3
+        readinessProbe:
+          httpGet:
+            path: /health/ready
+            port: http
+          initialDelaySeconds: 20
+          periodSeconds: 5
+          timeoutSeconds: 3
+          failureThreshold: 3
+        resources:
+          requests:
+            memory: "512Mi"
+            cpu: "500m"
+          limits:
+            memory: "1Gi"
+            cpu: "1000m"
+        volumeMounts:
+        - name: config
+          mountPath: /app/config
+          readOnly: true
+        - name: certificates
+          mountPath: /app/certs
+          readOnly: true
+      volumes:
+      - name: config
+        configMap:
+          name: sovd-integration-config
+      - name: certificates
+        secret:
+          secretName: sovd-certificates
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: sovd-integration-service
+  namespace: ai-predictive-maintenance
+  labels:
+    app.kubernetes.io/name: sovd-integration
+    app.kubernetes.io/component: integration
+    app.kubernetes.io/part-of: ai-predictive-maintenance-engine
+spec:
+  type: ClusterIP
+  ports:
+  - name: http
+    port: 3002
+    targetPort: http
+    protocol: TCP
+  - name: metrics
+    port: 9092
+    targetPort: metrics
+    protocol: TCP
+  selector:
+    app.kubernetes.io/name: sovd-integration
+    app.kubernetes.io/component: integration
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: sovd-integration-config
+  namespace: ai-predictive-maintenance
+data:
+  gateway-url: "https://sovd-gateway.automotive-cloud.com"
+  sovd-config.yaml: |
+    sovd:
+      protocol:
+        version: "1.0.0"
+        encoding: "protobuf"
+        compression: "gzip"
+      
+      connection:
+        timeout: 30000
+        keepAlive: true
+        maxRetries: 3
+        retryDelay: 1000
+        poolSize: 50
+      
+      authentication:
+        method: "oauth2"
+        tokenEndpoint: "/auth/token"
+        refreshBuffer: 300  # seconds before expiry
+      
+      services:
+        vehicle_discovery:
+          endpoint: "/api/v1/vehicles"
+          cache_ttl: 3600
+        
+        diagnostic_session:
+          endpoint: "/api/v1/sessions"
+          heartbeat_interval: 10000
+          max_duration: 3600000
+        
+        parameter_read:
+          endpoint: "/api/v1/parameters"
+          batch_size: 100
+          timeout: 5000
+        
+        dtc_read:
+          endpoint: "/api/v1/dtc"
+          include_history: true
+          max_codes: 1000
+        
+        flash_programming:
+          endpoint: "/api/v1/flash"
+          chunk_size: 4096
+          verify_checksum: true
+      
+      data_mapping:
+        parameters:
+          engine_speed:
+            sovd_id: "0x0C"
+            unit: "rpm"
+            scale: 0.25
+            offset: 0
+          
+          vehicle_speed:
+            sovd_id: "0x0D"
+            unit: "km/h"
+            scale: 1
+            offset: 0
+          
+          coolant_temp:
+            sovd_id: "0x05"
+            unit: "celsius"
+            scale: 1
+            offset: -40
+          
+          oil_pressure:
+            sovd_id: "0x23"
+            unit: "kPa"
+            scale: 1
+            offset: 0
+      
+      error_handling:
+        retry_codes:
+          - "TIMEOUT"
+          - "NETWORK_ERROR"
+          - "SERVICE_UNAVAILABLE"
+        
+        non_retry_codes:
+          - "INVALID_VEHICLE"
+          - "UNAUTHORIZED"
+          - "INVALID_PARAMETER"
+        
+        circuit_breaker:
+          enabled: true
+          failure_threshold: 5
+          reset_timeout: 60000
+          half_open_requests: 3
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: sovd-credentials
+  namespace: ai-predictive-maintenance
+type: Opaque
+stringData:
+  client-id: "${SOVD_CLIENT_ID}"
+  client-secret: "${SOVD_CLIENT_SECRET}"
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: sovd-certificates
+  namespace: ai-predictive-maintenance
+type: Opaque
+data:
+  ca.crt: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCi4uLgotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0t
+  client.crt: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCi4uLgotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0t
+  client.key: LS0tLS1CRUdJTiBQUklWQVRFIEtFWS0tLS0tCi4uLgotLS0tLUVORCBQUklWQVRFIEtFWS0tLS0t

@@ -1,0 +1,289 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: kafka-headless
+  namespace: ai-predictive-maintenance
+  labels:
+    app.kubernetes.io/name: kafka
+    app.kubernetes.io/component: messaging
+    app.kubernetes.io/part-of: ai-predictive-maintenance-engine
+spec:
+  type: ClusterIP
+  clusterIP: None
+  ports:
+  - name: tcp-kafka-int
+    port: 9092
+    targetPort: kafka
+    protocol: TCP
+  - name: tcp-kafka-ctrl
+    port: 9093
+    targetPort: kafka-ctrl
+    protocol: TCP
+  selector:
+    app.kubernetes.io/name: kafka
+    app.kubernetes.io/component: messaging
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: kafka
+  namespace: ai-predictive-maintenance
+  labels:
+    app.kubernetes.io/name: kafka
+    app.kubernetes.io/component: messaging
+    app.kubernetes.io/part-of: ai-predictive-maintenance-engine
+spec:
+  serviceName: kafka-headless
+  replicas: 3
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: kafka
+      app.kubernetes.io/component: messaging
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: kafka
+        app.kubernetes.io/component: messaging
+        app.kubernetes.io/part-of: ai-predictive-maintenance-engine
+    spec:
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: app.kubernetes.io/name
+                operator: In
+                values:
+                - kafka
+            topologyKey: kubernetes.io/hostname
+      containers:
+      - name: kafka
+        image: confluentinc/cp-kafka:7.4.0
+        ports:
+        - name: kafka
+          containerPort: 9092
+          protocol: TCP
+        - name: kafka-ctrl
+          containerPort: 9093
+          protocol: TCP
+        env:
+        - name: KAFKA_NODE_ID
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.name
+        - name: KAFKA_CLUSTER_ID
+          value: "ai-pm-kafka-cluster"
+        - name: KAFKA_CONTROLLER_QUORUM_VOTERS
+          value: "kafka-0@kafka-0.kafka-headless:9093,kafka-1@kafka-1.kafka-headless:9093,kafka-2@kafka-2.kafka-headless:9093"
+        - name: KAFKA_LISTENERS
+          value: "PLAINTEXT://:9092,CONTROLLER://:9093"
+        - name: KAFKA_INTER_BROKER_LISTENER_NAME
+          value: "PLAINTEXT"
+        - name: KAFKA_CONTROLLER_LISTENER_NAMES
+          value: "CONTROLLER"
+        - name: KAFKA_LISTENER_SECURITY_PROTOCOL_MAP
+          value: "CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT"
+        - name: KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS
+          value: "0"
+        - name: KAFKA_PROCESS_ROLES
+          value: "broker,controller"
+        - name: KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR
+          value: "3"
+        - name: KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR
+          value: "3"
+        - name: KAFKA_TRANSACTION_STATE_LOG_MIN_ISR
+          value: "2"
+        - name: KAFKA_LOG_DIRS
+          value: "/var/lib/kafka/data"
+        - name: KAFKA_AUTO_CREATE_TOPICS_ENABLE
+          value: "true"
+        - name: KAFKA_DELETE_TOPIC_ENABLE
+          value: "true"
+        - name: KAFKA_DEFAULT_REPLICATION_FACTOR
+          value: "3"
+        - name: KAFKA_MIN_INSYNC_REPLICAS
+          value: "2"
+        - name: KAFKA_NUM_PARTITIONS
+          value: "6"
+        - name: KAFKA_LOG_RETENTION_HOURS
+          value: "168"
+        - name: KAFKA_LOG_SEGMENT_BYTES
+          value: "1073741824"
+        - name: KAFKA_LOG_RETENTION_CHECK_INTERVAL_MS
+          value: "300000"
+        - name: KAFKA_COMPRESSION_TYPE
+          value: "producer"
+        - name: KAFKA_MESSAGE_MAX_BYTES
+          value: "1048576"
+        livenessProbe:
+          tcpSocket:
+            port: kafka
+          initialDelaySeconds: 60
+          periodSeconds: 30
+          timeoutSeconds: 10
+          failureThreshold: 3
+        readinessProbe:
+          tcpSocket:
+            port: kafka
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          timeoutSeconds: 5
+          failureThreshold: 3
+        resources:
+          requests:
+            memory: "2Gi"
+            cpu: "1000m"
+          limits:
+            memory: "4Gi"
+            cpu: "2000m"
+        volumeMounts:
+        - name: kafka-data
+          mountPath: /var/lib/kafka/data
+        - name: kafka-config
+          mountPath: /etc/kafka
+      volumes:
+      - name: kafka-config
+        configMap:
+          name: kafka-config
+  volumeClaimTemplates:
+  - metadata:
+      name: kafka-data
+    spec:
+      accessModes: ["ReadWriteOnce"]
+      storageClassName: fast-ssd
+      resources:
+        requests:
+          storage: 200Gi
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: kafka-config
+  namespace: ai-predictive-maintenance
+data:
+  server.properties: |
+    # Server Basics
+    broker.id.generation.enable=true
+    reserved.broker.max.id=1000
+    
+    # Socket Server Settings
+    num.network.threads=8
+    num.io.threads=8
+    socket.send.buffer.bytes=102400
+    socket.receive.buffer.bytes=102400
+    socket.request.max.bytes=104857600
+    
+    # Log Basics
+    num.recovery.threads.per.data.dir=1
+    
+    # Internal Topic Settings
+    offsets.topic.num.partitions=50
+    transaction.state.log.num.partitions=50
+    transaction.state.log.min.isr=2
+    
+    # Log Flush Policy
+    log.flush.interval.messages=10000
+    log.flush.interval.ms=1000
+    
+    # Log Retention Policy
+    log.retention.hours=168
+    log.retention.bytes=1073741824
+    log.segment.bytes=1073741824
+    log.retention.check.interval.ms=300000
+    
+    # Producer Defaults
+    compression.type=producer
+    
+    # Group Coordinator Settings
+    group.initial.rebalance.delay.ms=3000
+    
+    # Performance Tuning
+    num.replica.fetchers=4
+    replica.fetch.min.bytes=1
+    replica.fetch.wait.max.ms=500
+    
+    # Security
+    security.inter.broker.protocol=PLAINTEXT
+    
+  topics-init.sh: |
+    #!/bin/bash
+    
+    # Wait for Kafka to be ready
+    echo "Waiting for Kafka to be ready..."
+    kafka-topics --bootstrap-server kafka-headless:9092 --list
+    
+    # Create topics
+    echo "Creating Kafka topics..."
+    
+    # Vehicle sensor data topic
+    kafka-topics --bootstrap-server kafka-headless:9092 \
+      --create --if-not-exists \
+      --topic vehicle-sensor-data \
+      --partitions 12 \
+      --replication-factor 3 \
+      --config retention.ms=604800000 \
+      --config compression.type=snappy
+    
+    # Diagnostic data topic
+    kafka-topics --bootstrap-server kafka-headless:9092 \
+      --create --if-not-exists \
+      --topic diagnostic-data \
+      --partitions 6 \
+      --replication-factor 3 \
+      --config retention.ms=604800000
+    
+    # SOVD events topic
+    kafka-topics --bootstrap-server kafka-headless:9092 \
+      --create --if-not-exists \
+      --topic sovd-events \
+      --partitions 6 \
+      --replication-factor 3 \
+      --config retention.ms=259200000
+    
+    # Processed data topic
+    kafka-topics --bootstrap-server kafka-headless:9092 \
+      --create --if-not-exists \
+      --topic vehicle-data-processed \
+      --partitions 12 \
+      --replication-factor 3 \
+      --config retention.ms=2592000000
+    
+    # Predictions topic
+    kafka-topics --bootstrap-server kafka-headless:9092 \
+      --create --if-not-exists \
+      --topic predictions \
+      --partitions 6 \
+      --replication-factor 3 \
+      --config retention.ms=7776000000
+    
+    # Alerts topic
+    kafka-topics --bootstrap-server kafka-headless:9092 \
+      --create --if-not-exists \
+      --topic alerts \
+      --partitions 3 \
+      --replication-factor 3 \
+      --config retention.ms=2592000000
+    
+    echo "Topics created successfully!"
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: kafka-topics-init
+  namespace: ai-predictive-maintenance
+spec:
+  template:
+    spec:
+      containers:
+      - name: kafka-init
+        image: confluentinc/cp-kafka:7.4.0
+        command: ["/bin/bash", "/scripts/topics-init.sh"]
+        volumeMounts:
+        - name: scripts
+          mountPath: /scripts
+      volumes:
+      - name: scripts
+        configMap:
+          name: kafka-config
+          defaultMode: 0755
+      restartPolicy: OnFailure

@@ -1,0 +1,176 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ai-pm-ingress
+  namespace: ai-predictive-maintenance
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    nginx.ingress.kubernetes.io/rate-limit: "100"
+    nginx.ingress.kubernetes.io/proxy-body-size: "10m"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "300"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "300"
+    nginx.ingress.kubernetes.io/enable-cors: "true"
+    nginx.ingress.kubernetes.io/cors-allow-origin: "https://app.predictive-maintenance.com,https://dashboard.predictive-maintenance.com"
+    nginx.ingress.kubernetes.io/cors-allow-methods: "GET, POST, PUT, DELETE, OPTIONS"
+    nginx.ingress.kubernetes.io/cors-allow-headers: "DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Authorization,X-API-Key"
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+  labels:
+    app.kubernetes.io/name: ai-pm-ingress
+    app.kubernetes.io/component: ingress
+    app.kubernetes.io/part-of: ai-predictive-maintenance-engine
+spec:
+  tls:
+  - hosts:
+    - api.predictive-maintenance.com
+    secretName: api-tls-cert
+  - hosts:
+    - ws.predictive-maintenance.com
+    secretName: ws-tls-cert
+  rules:
+  - host: api.predictive-maintenance.com
+    http:
+      paths:
+      - path: /v1
+        pathType: Prefix
+        backend:
+          service:
+            name: api-gateway-service
+            port:
+              number: 80
+      - path: /graphql
+        pathType: Exact
+        backend:
+          service:
+            name: api-gateway-service
+            port:
+              number: 80
+      - path: /health
+        pathType: Exact
+        backend:
+          service:
+            name: api-gateway-service
+            port:
+              number: 80
+  - host: ws.predictive-maintenance.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: websocket-service
+            port:
+              number: 8080
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ai-pm-ingress-grpc
+  namespace: ai-predictive-maintenance
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    nginx.ingress.kubernetes.io/backend-protocol: "GRPC"
+    nginx.ingress.kubernetes.io/grpc-backend: "true"
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+  labels:
+    app.kubernetes.io/name: ai-pm-ingress-grpc
+    app.kubernetes.io/component: ingress
+    app.kubernetes.io/part-of: ai-predictive-maintenance-engine
+spec:
+  tls:
+  - hosts:
+    - grpc.predictive-maintenance.com
+    secretName: grpc-tls-cert
+  rules:
+  - host: grpc.predictive-maintenance.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: grpc-gateway-service
+            port:
+              number: 50051
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: api-tls-cert
+  namespace: ai-predictive-maintenance
+spec:
+  secretName: api-tls-cert
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  dnsNames:
+  - api.predictive-maintenance.com
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: ws-tls-cert
+  namespace: ai-predictive-maintenance
+spec:
+  secretName: ws-tls-cert
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  dnsNames:
+  - ws.predictive-maintenance.com
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: grpc-tls-cert
+  namespace: ai-predictive-maintenance
+spec:
+  secretName: grpc-tls-cert
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  dnsNames:
+  - grpc.predictive-maintenance.com
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: websocket-service
+  namespace: ai-predictive-maintenance
+  labels:
+    app.kubernetes.io/name: websocket-gateway
+    app.kubernetes.io/component: gateway
+    app.kubernetes.io/part-of: ai-predictive-maintenance-engine
+spec:
+  type: ClusterIP
+  ports:
+  - name: websocket
+    port: 8080
+    targetPort: 8080
+    protocol: TCP
+  selector:
+    app.kubernetes.io/name: api-gateway
+    app.kubernetes.io/component: gateway
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: grpc-gateway-service
+  namespace: ai-predictive-maintenance
+  labels:
+    app.kubernetes.io/name: grpc-gateway
+    app.kubernetes.io/component: gateway
+    app.kubernetes.io/part-of: ai-predictive-maintenance-engine
+spec:
+  type: ClusterIP
+  ports:
+  - name: grpc
+    port: 50051
+    targetPort: 50051
+    protocol: TCP
+  selector:
+    app.kubernetes.io/name: api-gateway
+    app.kubernetes.io/component: gateway
