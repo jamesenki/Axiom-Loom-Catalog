@@ -67,6 +67,7 @@
     "test:debug": "react-app-rewired --inspect-brk test --runInBand --no-cache",
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
+    "test:deployment": "playwright test e2e/post-deployment-smoke-test.spec.ts",
     "eject": "react-scripts eject",
     "server": "node src/server.js",
     "dev": "concurrently \"npm run server\" \"npm run start\"",

@@ -313,12 +313,32 @@ const RepositoryDetailRedesigned: React.FC = () => {
   useEffect(() => {
     const fetchRepositoryDetails = async () => {
       try {
-        const response = await fetch(getApiUrl(`/api/repository/${repoName}/public`));
+        console.log('[RepositoryDetail] Fetching repository details for:', repoName);
+        let response = await fetch(getApiUrl(`/api/repository/${repoName}/public`));
+
+        // If API fails, try static data fallback
+        if (!response.ok) {
+          console.log('[RepositoryDetail] API not available, trying static data...');
+          response = await fetch('/data/repository-metadata.json');
+        }
+
         if (!response.ok) {
           throw new Error('Failed to fetch repository details');
         }
-        const data = await response.json();
-        
+
+        let data = await response.json();
+
+        // If we got the full metadata object, extract the specific repository
+        if (!Array.isArray(data) && typeof data === 'object' && !data.name) {
+          console.log('[RepositoryDetail] Converting object format to specific repository');
+          // Find the repository by name
+          const repoData = Object.values(data).find((repo: any) => repo.name === repoName);
+          if (!repoData) {
+            throw new Error(`Repository "${repoName}" not found in static data`);
+          }
+          data = repoData;
+        }
+
         // Enhance with business data - prioritize API data over hardcoded defaults
         const enhanced = {
           ...data,
@@ -331,9 +351,11 @@ const RepositoryDetailRedesigned: React.FC = () => {
             useCases: ['API development', 'System integration', 'Cloud deployment']
           }
         };
-        
+
+        console.log('[RepositoryDetail] Loaded repository data:', enhanced.displayName);
         setRepository(enhanced);
       } catch (err) {
+        console.error('[RepositoryDetail] Error fetching:', err);
         setError(err instanceof Error ? err.message : 'Unknown error');
       } finally {
         setLoading(false);
