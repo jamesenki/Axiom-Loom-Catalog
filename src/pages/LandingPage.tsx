@@ -13,7 +13,7 @@ const LandingPage: React.FC = () => {
             Technology and Strategy Professional
           </p>
           <div className="hero-tagline">
-            AI-Powered Architecture and Engineering Solutions for Automotive, Mobility and Advanced Manufacturing
+            Welcome to My Portfolio of AI-Powered Architecture and Engineering Solutions for Automotive, Mobility and Advanced Manufacturing
           </div>
         </div>
       </section>
@@ -23,7 +23,11 @@ const LandingPage: React.FC = () => {
         <div className="profile-container">
           <div className="profile-header">
             <div className="profile-avatar">
-              <div className="avatar-placeholder">JS</div>
+              <img
+                src="https://media.licdn.com/dms/image/v2/C4E03AQG6fU1AupR3Vg/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1627405478975?e=2147483647&v=beta&t=EibnXPvaaCzduCWbDDcMtEY8IQgYRaFOfwppEwBQ-OA"
+                alt="James Simon"
+                className="avatar-image"
+              />
             </div>
             <div className="profile-title-area">
               <h2 className="profile-name">James Simon</h2>
@@ -54,10 +58,26 @@ const LandingPage: React.FC = () => {
 
           <div className="profile-summary">
             <p>
-              Technology leader with 10+ years of automotive industry experience, specializing in
-              Software-Defined Vehicles (SDV), connected vehicle solutions, and cloud architecture.
-              Currently leading advanced manufacturing and mobility projects at EY while providing
-              technical leadership for the EY-Nottingham Spirk Lab, transforming it into an AI Experience Hub.
+              Innovation leader with deep expertise in automotive technology transformation,
+              specializing in Software-Defined Vehicles (SDV), connected mobility platforms, and
+              cloud-native architecture. With over a decade of experience spanning OEM engineering,
+              cloud solution architecture at AWS, and innovation consulting at EY, I bridge the gap
+              between cutting-edge technology and practical business value.
+            </p>
+            <p>
+              My approach combines systems thinking with hands-on technical leadership. I architect
+              end-to-end solutions—from vehicle edge computing and telematics to cloud platforms and
+              AI-powered analytics—while championing engineering excellence through DevOps, agile
+              methodologies, and continuous delivery practices. Currently transforming the EY-Nottingham
+              Spirk Lab into an AI Experience Hub, I create working demonstrations that showcase the
+              art of the possible in connected vehicle services, predictive maintenance, digital twin
+              technology, and autonomous systems.
+            </p>
+            <p>
+              Whether authoring architectural guidance for AWS's Connected Mobility Lens, leading
+              multi-million dollar mobility opportunities, or mentoring engineering teams through
+              technical transformations, I focus on delivering solutions that are not only technically
+              sound but also commercially viable and operationally sustainable.
             </p>
           </div>
 

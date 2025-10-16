@@ -97,6 +97,15 @@
   box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
 }
 
+.avatar-image {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+}
+
 .profile-title-area {
   flex: 1;
 }
@@ -538,6 +547,7 @@
   font-size: 1.75rem;
   font-weight: 600;
   margin: 0 0 1rem 0;
+  color: rgba(255, 255, 255, 0.95);
   position: relative;
   z-index: 1;
 }
