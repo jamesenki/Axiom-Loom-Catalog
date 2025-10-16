@@ -36,6 +36,7 @@ jobs:
           mkdir -p build/data
           cp repository-metadata.json build/data/
           cp -r public/repo-images build/
+          cp staticwebapp.config.json build/
 
       - name: Build And Deploy
         id: builddeploy
