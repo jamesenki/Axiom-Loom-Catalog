@@ -1,4 +1,4 @@
-name: Deploy Backend API to Azure Container Instances
+name: Deploy Backend to Azure Container Instance
 
 on:
   push:
@@ -7,58 +7,205 @@ on:
     paths:
       - 'src/server.js'
       - 'src/api/**'
-      - 'src/middleware/**'
       - 'src/services/**'
-      - 'Dockerfile'
-      - 'package*.json'
+      - 'Dockerfile.backend'
+      - 'scripts/clone-repositories.sh'
       - 'repository-metadata.json'
+      - '.github/workflows/deploy-backend.yml'
   workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Deployment environment'
+        required: true
+        default: 'production'
+        type: choice
+        options:
+          - production
+          - staging
+
+env:
+  RESOURCE_GROUP: axiom-loom-rg
+  LOCATION: eastus
+  ACR_NAME: axiomloomacr
+  CONTAINER_NAME: catalog-backend
+  IMAGE_NAME: axiom-loom-catalog-backend
+  DNS_NAME: axiom-catalog-api
 
 jobs:
-  deploy:
+  deploy-backend:
+    name: Deploy Backend to Azure
     runs-on: ubuntu-latest
-    name: Build and Deploy Backend
-    steps:
-      - uses: actions/checkout@v3
 
-      - name: Login to Azure
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Azure Login
         uses: azure/login@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-      - name: Build and Push to Azure Container Registry
+      - name: Create Resource Group
         run: |
-          az acr build \
-            --registry dyingpoetsregistry \
-            --image catalog-backend:${{ github.sha }} \
-            --image catalog-backend:latest \
-            --file Dockerfile \
-            .
+          echo "Creating resource group if it doesn't exist..."
+          az group create \
+            --name ${{ env.RESOURCE_GROUP }} \
+            --location ${{ env.LOCATION }} \
+            --output table || echo "Resource group already exists"
 
-      - name: Restart Azure Container Instance
+      - name: Create Azure Container Registry
         run: |
-          az container restart \
-            --resource-group axiom-loom-rg \
-            --name catalog-api
+          echo "Creating ACR if it doesn't exist..."
+          if ! az acr show --name ${{ env.ACR_NAME }} --resource-group ${{ env.RESOURCE_GROUP }} &>/dev/null; then
+            az acr create \
+              --resource-group ${{ env.RESOURCE_GROUP }} \
+              --name ${{ env.ACR_NAME }} \
+              --sku Basic \
+              --admin-enabled true
+            echo "✅ Created ACR: ${{ env.ACR_NAME }}"
+          else
+            echo "✓ ACR already exists: ${{ env.ACR_NAME }}"
+          fi
+
+      - name: Build and Push Docker Image
+        run: |
+          echo "Building and pushing Docker image..."
+          az acr build \
+            --registry ${{ env.ACR_NAME }} \
+            --image ${{ env.IMAGE_NAME }}:${{ github.sha }} \
+            --image ${{ env.IMAGE_NAME }}:latest \
+            --file Dockerfile.backend \
+            .
+          echo "✅ Image built and pushed"
+
+      - name: Get ACR Credentials
+        id: acr-creds
+        run: |
+          ACR_LOGIN_SERVER=$(az acr show --name ${{ env.ACR_NAME }} --query loginServer --output tsv)
+          ACR_USERNAME=$(az acr credential show --name ${{ env.ACR_NAME }} --query username --output tsv)
+          ACR_PASSWORD=$(az acr credential show --name ${{ env.ACR_NAME }} --query passwords[0].value --output tsv)
+
+          echo "login-server=$ACR_LOGIN_SERVER" >> $GITHUB_OUTPUT
+          echo "::add-mask::$ACR_PASSWORD"
+          echo "username=$ACR_USERNAME" >> $GITHUB_OUTPUT
+          echo "password=$ACR_PASSWORD" >> $GITHUB_OUTPUT
+
+      - name: Delete Existing Container (if exists)
+        run: |
+          echo "Checking for existing container..."
+          if az container show \
+            --resource-group ${{ env.RESOURCE_GROUP }} \
+            --name ${{ env.CONTAINER_NAME }} &>/dev/null; then
+            echo "Deleting existing container..."
+            az container delete \
+              --resource-group ${{ env.RESOURCE_GROUP }} \
+              --name ${{ env.CONTAINER_NAME }} \
+              --yes
+            echo "✅ Deleted existing container"
+          else
+            echo "✓ No existing container to delete"
+          fi
+
+      - name: Deploy to Azure Container Instance
+        run: |
+          echo "Deploying to Azure Container Instance..."
+          az container create \
+            --resource-group ${{ env.RESOURCE_GROUP }} \
+            --name ${{ env.CONTAINER_NAME }} \
+            --image ${{ steps.acr-creds.outputs.login-server }}/${{ env.IMAGE_NAME }}:latest \
+            --cpu 1 \
+            --memory 1.5 \
+            --registry-login-server ${{ steps.acr-creds.outputs.login-server }} \
+            --registry-username ${{ steps.acr-creds.outputs.username }} \
+            --registry-password ${{ steps.acr-creds.outputs.password }} \
+            --dns-name-label ${{ env.DNS_NAME }} \
+            --ports 3001 \
+            --environment-variables \
+              NODE_ENV=production \
+              PORT=3001 \
+              BYPASS_AUTH=true
+          echo "✅ Container deployed"
+
+      - name: Get Container URL
+        id: container-url
+        run: |
+          CONTAINER_FQDN=$(az container show \
+            --resource-group ${{ env.RESOURCE_GROUP }} \
+            --name ${{ env.CONTAINER_NAME }} \
+            --query ipAddress.fqdn \
+            --output tsv)
+
+          echo "fqdn=$CONTAINER_FQDN" >> $GITHUB_OUTPUT
+          echo "url=http://$CONTAINER_FQDN:3001" >> $GITHUB_OUTPUT
 
       - name: Wait for Container to Start
-        run: sleep 30
-
-      - name: Verify Deployment
         run: |
-          FQDN=$(az container show \
-            --resource-group axiom-loom-rg \
-            --name catalog-api \
-            --query ipAddress.fqdn -o tsv)
+          echo "Waiting for container to become healthy..."
+          sleep 30
 
-          echo "Testing API at https://${FQDN}:3001/api/repositories"
+          MAX_ATTEMPTS=20
+          ATTEMPT=1
 
-          # Test API endpoint
-          response=$(curl -s -o /dev/null -w "%{http_code}" "https://${FQDN}:3001/api/repositories" || echo "000")
+          while [ $ATTEMPT -le $MAX_ATTEMPTS ]; do
+            echo "Health check attempt $ATTEMPT/$MAX_ATTEMPTS..."
 
-          if [ "$response" = "200" ]; then
-            echo "✅ API deployment successful!"
+            if curl -f -s "${{ steps.container-url.outputs.url }}/api/health" > /dev/null; then
+              echo "✅ Container is healthy!"
+              break
+            fi
+
+            if [ $ATTEMPT -eq $MAX_ATTEMPTS ]; then
+              echo "❌ Container failed to become healthy"
+              echo "Fetching container logs..."
+              az container logs \
+                --resource-group ${{ env.RESOURCE_GROUP }} \
+                --name ${{ env.CONTAINER_NAME }}
+              exit 1
+            fi
+
+            ATTEMPT=$((ATTEMPT + 1))
+            sleep 10
+          done
+
+      - name: Test Health Endpoint
+        run: |
+          echo "Testing health endpoint..."
+          RESPONSE=$(curl -s "${{ steps.container-url.outputs.url }}/api/health")
+          echo "Health check response: $RESPONSE"
+
+          if echo "$RESPONSE" | grep -q '"status":"ok"'; then
+            echo "✅ Health check passed"
           else
-            echo "❌ API deployment failed - HTTP $response"
+            echo "❌ Health check failed"
             exit 1
           fi
+
+      - name: Display Deployment Summary
+        run: |
+          echo "======================================"
+          echo "🎉 Deployment Complete!"
+          echo "======================================"
+          echo ""
+          echo "Backend API URL: ${{ steps.container-url.outputs.url }}"
+          echo "Health Check: ${{ steps.container-url.outputs.url }}/api/health"
+          echo ""
+          echo "Git Commit: ${{ github.sha }}"
+          echo "Deployed by: ${{ github.actor }}"
+          echo "Workflow: ${{ github.workflow }}"
+          echo ""
+          echo "Next steps:"
+          echo "1. Update frontend REACT_APP_API_URL to: ${{ steps.container-url.outputs.url }}"
+          echo "2. Redeploy frontend to connect to backend"
+          echo "3. Test at: https://technical.axiomloom-loom.net"
+          echo ""
+          echo "Useful commands:"
+          echo "  View logs: az container logs --resource-group ${{ env.RESOURCE_GROUP }} --name ${{ env.CONTAINER_NAME }}"
+          echo "  Restart:   az container restart --resource-group ${{ env.RESOURCE_GROUP }} --name ${{ env.CONTAINER_NAME }}"
+          echo "======================================"
+
+      - name: Create GitHub Deployment
+        uses: chrnorm/deployment-action@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          environment: production
+          environment-url: ${{ steps.container-url.outputs.url }}
