@@ -13,27 +13,26 @@ cd /app/cloned-repositories
 # GitHub username
 GITHUB_USER="jamesenki"
 
-# List of repositories to clone (from repository-metadata.json)
+# List of repositories to clone (corrected to match actual GitHub repositories)
 REPOSITORIES="
 ai-predictive-maintenance-engine-architecture
-cloudtwin-ai
-diagnostic-as-code
-distributed-ledger-for-auto-insurance
+cloudtwin-simulation-platform-architecture
+deploymaster-sdv-ota-platform
+diagnostic-as-code-platform-architecture
+fleet-digital-twin-platform-architecture
 future-mobility-consumer-platform
-future-mobility-fleet-operations-platform
-future-mobility-oems-tech-platform
-iot-platform-axiom-loom
-lambda-layer-pipeline
-open-smart-mobility-platform
-predictive-maintenance-model
-serverless-application-pipeline
-smart-vending-machine-platform
-terraform-aws-cloud-infrastructure
-vehicle-health-tracker
+future-mobility-fleet-platform
+future-mobility-oems-platform
+future-mobility-regulatory-platform
+future-mobility-tech-platform
+mobility-architecture-package-orchestrator
+nslabsdashboards
+remote-diagnostic-assistance-platform-architecture
+rentalFleets
+sdv-architecture-orchestration
+sovd-diagnostic-ecosystem-platform-architecture
 vehicle-to-cloud-communications-architecture
-water-heater-platform
-voice-enabled-vehicle-assistance
-weather-dashboard
+velocityforge-sdv-platform-architecture
 "
 
 # Clone each repository
