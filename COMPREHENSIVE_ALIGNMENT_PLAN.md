@@ -20,11 +20,11 @@ Align GitHub repository names, local folder names, clone scripts, and metadata t
 
 | Current Clone Script Name | Actual GitHub Name | Action | Priority |
 |---|---|---|---|
-| cloudtwin-ai | cloudtwin-simulation-platform-architecture | ✅ Update script | PAUTOMOTIVE_MANUFACTURER |
-| diagnostic-as-code | diagnostic-as-code-platform-architecture | ✅ Update script | PAUTOMOTIVE_MANUFACTURER |
-| future-mobility-fleet-operations-platform | future-mobility-fleet-platform | ✅ Update script | PAUTOMOTIVE_MANUFACTURER |
-| future-mobility-oems-tech-platform | Split: future-mobility-oems-platform + future-mobility-tech-platform | ✅ Update script | PAUTOMOTIVE_MANUFACTURER |
-| iot-platform-axiom-loom | nslabsdashboards | ✅ Update script | PAUTOMOTIVE_MANUFACTURER |
+| cloudtwin-ai | cloudtwin-simulation-platform-architecture | ✅ Update script | P0 |
+| diagnostic-as-code | diagnostic-as-code-platform-architecture | ✅ Update script | P0 |
+| future-mobility-fleet-operations-platform | future-mobility-fleet-platform | ✅ Update script | P0 |
+| future-mobility-oems-tech-platform | Split: future-mobility-oems-platform + future-mobility-tech-platform | ✅ Update script | P0 |
+| iot-platform-axiom-loom | nslabsdashboards | ✅ Update script | P0 |
 | distributed-ledger-for-auto-insurance | N/A | ❌ Remove | P1 |
 | lambda-layer-pipeline | N/A | ❌ Remove | P1 |
 | open-smart-mobility-platform | ecosystem-platform-architecture | ❓ Verify | P1 |
@@ -157,7 +157,7 @@ Based on `vehicle-to-cloud-communications-architecture/.portal/metadata.json` (t
 ```json
 {
   "name": "Human-Friendly Repository Name",
-  "version": "1.AUTOMOTIVE_MANUFACTURER.AUTOMOTIVE_MANUFACTURER",
+  "version": "1.0.0",
   "description": "Comprehensive technical description for developers",
   "category": "Primary Category",
   "status": "production-ready-alpha | beta | production",
@@ -206,9 +206,9 @@ Based on `vehicle-to-cloud-communications-architecture/.portal/metadata.json` (t
   },
 
   "integration": {
-    "protocols": ["MQTT 5.AUTOMOTIVE_MANUFACTURER", "HTTPS", "GraphQL"],
+    "protocols": ["MQTT 5.0", "HTTPS", "GraphQL"],
     "formats": ["Protocol Buffers", "JSON", "YAML"],
-    "authentication": ["mTLS", "JWT", "OAuth 2.AUTOMOTIVE_MANUFACTURER"],
+    "authentication": ["mTLS", "JWT", "OAuth 2.0"],
     "sdks": ["Java", "Python", "TypeScript"],
     "codeGeneration": "Gradle | Maven | npm"
   },
@@ -241,7 +241,7 @@ mkdir -p cloned-repositories/ai-predictive-maintenance-engine-architecture/.port
 cat > cloned-repositories/ai-predictive-maintenance-engine-architecture/.portal/metadata.json <<'EOF'
 {
   "name": "AI Predictive Maintenance Architecture",
-  "version": "1.AUTOMOTIVE_MANUFACTURER.AUTOMOTIVE_MANUFACTURER",
+  "version": "1.0.0",
   "description": "Complete AI-powered predictive maintenance solution with engine, platform, and architecture",
   "category": "AI/ML Architecture",
   "status": "production-ready",
@@ -249,23 +249,23 @@ cat > cloned-repositories/ai-predictive-maintenance-engine-architecture/.portal/
 
   "marketing": {
     "headline": "Transform Maintenance Operations with AI-Powered Predictive Analytics",
-    "subheadline": "Reduce unplanned downtime by 7AUTOMOTIVE_MANUFACTURER% and extend equipment lifespan by 3AUTOMOTIVE_MANUFACTURER%",
+    "subheadline": "Reduce unplanned downtime by 70% and extend equipment lifespan by 30%",
 
     "keyBenefits": [
       {
-        "title": "7AUTOMOTIVE_MANUFACTURER% Reduction in Unplanned Downtime",
+        "title": "70% Reduction in Unplanned Downtime",
         "description": "Advanced ML algorithms predict equipment failures before they occur, enabling proactive maintenance and dramatically reducing costly unplanned outages"
       },
       {
-        "title": "2AUTOMOTIVE_MANUFACTURER-3AUTOMOTIVE_MANUFACTURER% Extended Equipment Lifespan",
+        "title": "20-30% Extended Equipment Lifespan",
         "description": "Optimize maintenance schedules based on actual equipment condition rather than fixed intervals, extending asset life and maximizing ROI"
       },
       {
-        "title": "25-4AUTOMOTIVE_MANUFACTURER% Decrease in Maintenance Costs",
+        "title": "25-40% Decrease in Maintenance Costs",
         "description": "Eliminate unnecessary preventive maintenance and reduce emergency repairs through accurate failure prediction and optimal resource allocation"
       },
       {
-        "title": "3AUTOMOTIVE_MANUFACTURERAUTOMOTIVE_MANUFACTURER-5AUTOMOTIVE_MANUFACTURERAUTOMOTIVE_MANUFACTURER% ROI Within 18 Months",
+        "title": "300-500% ROI Within 18 Months",
         "description": "Proven return on investment through reduced downtime, extended equipment life, and optimized maintenance operations across manufacturing, automotive, and energy sectors"
       }
     ],
@@ -294,8 +294,8 @@ cat > cloned-repositories/ai-predictive-maintenance-engine-architecture/.portal/
     "architecture": "Cloud-native AI/ML architecture with real-time streaming analytics, edge computing support, and enterprise data integration",
     "core": {
       "protocols": ["MQTT", "HTTPS", "WebSocket"],
-      "standards": ["ISO 13374", "ISO 55AUTOMOTIVE_MANUFACTURERAUTOMOTIVE_MANUFACTURERAUTOMOTIVE_MANUFACTURER", "IEEE 1451"],
-      "security": ["mTLS", "OAuth 2.AUTOMOTIVE_MANUFACTURER", "RBAC", "Data Encryption"],
+      "standards": ["ISO 13374", "ISO 55000", "IEEE 1451"],
+      "security": ["mTLS", "OAuth 2.0", "RBAC", "Data Encryption"],
       "buildSystem": ["Gradle", "Maven", "Docker"],
       "cloudPlatforms": ["AWS", "Azure", "GCP"],
       "mlFrameworks": ["TensorFlow", "PyTorch", "scikit-learn"]
@@ -319,14 +319,14 @@ cat > cloned-repositories/ai-predictive-maintenance-engine-architecture/.portal/
   "integration": {
     "protocols": ["MQTT", "HTTPS", "REST"],
     "formats": ["JSON", "Protocol Buffers", "Avro"],
-    "authentication": ["OAuth 2.AUTOMOTIVE_MANUFACTURER", "API Keys", "mTLS"],
+    "authentication": ["OAuth 2.0", "API Keys", "mTLS"],
     "sdks": ["Python", "Java", "JavaScript"],
     "dataSources": ["IoT Sensors", "SCADA", "Historian", "ERP"]
   },
 
   "compliance": [
     "ISO 13374 (Condition Monitoring)",
-    "ISO 55AUTOMOTIVE_MANUFACTURERAUTOMOTIVE_MANUFACTURERAUTOMOTIVE_MANUFACTURER (Asset Management)",
+    "ISO 55000 (Asset Management)",
     "GDPR (Data Privacy)",
     "SOC 2 Type II"
   ]
@@ -366,7 +366,7 @@ Update backend server to **ONLY** read from `.portal/metadata.json` files, ignor
 
 **Current Behavior:**
 ```javascript
-// Line 24AUTOMOTIVE_MANUFACTURER-246: Fallback to global metadata
+// Line 240-246: Fallback to global metadata
 const metadata = repositoryMetadata[dirent.name] || {};
 ```
 
@@ -409,7 +409,7 @@ const apiTypes = {
                metadata.apiTypes?.hasAsyncAPI ??
                false,
   hasPostman: portalMetadata?.technical?.documentation?.postman != null ||
-              postmanCount > AUTOMOTIVE_MANUFACTURER
+              postmanCount > 0
 };
 ```
 
@@ -434,7 +434,7 @@ app.get('/api/repository/:repoName/documentation', (req, res) => {
       available: Object.keys(docs)
     });
   } else {
-    res.status(4AUTOMOTIVE_MANUFACTURER4).json({ error: 'No metadata found' });
+    res.status(404).json({ error: 'No metadata found' });
   }
 });
 ```
@@ -473,7 +473,7 @@ app.get('/api/repository/:repoName/docs-structure', authenticate, (req, res) => 
   );
 
   if (!fs.existsSync(portalMetadataPath)) {
-    return res.status(4AUTOMOTIVE_MANUFACTURER4).json({ error: 'Repository metadata not found' });
+    return res.status(404).json({ error: 'Repository metadata not found' });
   }
 
   const metadata = JSON.parse(fs.readFileSync(portalMetadataPath, 'utf8'));
@@ -652,7 +652,7 @@ async function detectRepositoryApis(repoPath, repoName) {
         protoFiles.forEach(file => {
           const content = fs.readFileSync(path.join(repoPath, file), 'utf8');
           const services = extractGrpcServices(content);
-          if (services.length > AUTOMOTIVE_MANUFACTURER) {
+          if (services.length > 0) {
             result.apis.grpc.push({
               file,
               services,
@@ -661,7 +661,7 @@ async function detectRepositoryApis(repoPath, repoName) {
           }
         });
 
-        if (result.apis.grpc.length > AUTOMOTIVE_MANUFACTURER) {
+        if (result.apis.grpc.length > 0) {
           result.recommendedButtons.push('grpc');
         }
       }
@@ -694,10 +694,10 @@ async function detectRepositoryApis(repoPath, repoName) {
       }
     }
 
-    result.hasAnyApis = result.apis.rest.length > AUTOMOTIVE_MANUFACTURER ||
-                        result.apis.graphql.length > AUTOMOTIVE_MANUFACTURER ||
-                        result.apis.grpc.length > AUTOMOTIVE_MANUFACTURER ||
-                        result.apis.asyncapi.length > AUTOMOTIVE_MANUFACTURER;
+    result.hasAnyApis = result.apis.rest.length > 0 ||
+                        result.apis.graphql.length > 0 ||
+                        result.apis.grpc.length > 0 ||
+                        result.apis.asyncapi.length > 0;
 
     return result;
   }
@@ -785,8 +785,8 @@ For each repository with APIs:
 
 ```bash
 # Test each repository
-curl http://localhost:3AUTOMOTIVE_MANUFACTURERAUTOMOTIVE_MANUFACTURER1/api/repository/vehicle-to-cloud-communications-architecture/apis | jq
-curl http://localhost:3AUTOMOTIVE_MANUFACTURERAUTOMOTIVE_MANUFACTURER1/api/repository/ai-predictive-maintenance-engine-architecture/apis | jq
+curl http://localhost:3001/api/repository/vehicle-to-cloud-communications-architecture/apis | jq
+curl http://localhost:3001/api/repository/ai-predictive-maintenance-engine-architecture/apis | jq
 # ... test all 18 repos
 ```
 
@@ -1119,20 +1119,20 @@ git push
 
 ```bash
 # Wait for cloning to complete (2-3 minutes)
-sleep 18AUTOMOTIVE_MANUFACTURER
+sleep 180
 
 # Check repository count
-curl http://axiom-catalog-api.eastus.azurecontainer.io:3AUTOMOTIVE_MANUFACTURERAUTOMOTIVE_MANUFACTURER1/api/repositories | jq 'length'
+curl http://axiom-catalog-api.eastus.azurecontainer.io:3001/api/repositories | jq 'length'
 # Expected: 18
 
 # Check each repository
-curl http://axiom-catalog-api.eastus.azurecontainer.io:3AUTOMOTIVE_MANUFACTURERAUTOMOTIVE_MANUFACTURER1/api/repositories | jq '.[] | {name: .name, hasMetadata: .apiTypes}'
+curl http://axiom-catalog-api.eastus.azurecontainer.io:3001/api/repositories | jq '.[] | {name: .name, hasMetadata: .apiTypes}'
 
 # Test API detection
-curl http://axiom-catalog-api.eastus.azurecontainer.io:3AUTOMOTIVE_MANUFACTURERAUTOMOTIVE_MANUFACTURER1/api/repository/vehicle-to-cloud-communications-architecture/apis | jq
+curl http://axiom-catalog-api.eastus.azurecontainer.io:3001/api/repository/vehicle-to-cloud-communications-architecture/apis | jq
 
 # Test documentation structure
-curl http://axiom-catalog-api.eastus.azurecontainer.io:3AUTOMOTIVE_MANUFACTURERAUTOMOTIVE_MANUFACTURER1/api/repository/vehicle-to-cloud-communications-architecture/docs-structure | jq
+curl http://axiom-catalog-api.eastus.azurecontainer.io:3001/api/repository/vehicle-to-cloud-communications-architecture/docs-structure | jq
 ```
 
 ### 6.2 Frontend Testing
@@ -1160,7 +1160,7 @@ Once backend is deployed:
 cat > scripts/test-deployment.sh <<'EOF'
 #!/bin/bash
 
-API_URL="http://axiom-catalog-api.eastus.azurecontainer.io:3AUTOMOTIVE_MANUFACTURERAUTOMOTIVE_MANUFACTURER1"
+API_URL="http://axiom-catalog-api.eastus.azurecontainer.io:3001"
 FRONTEND_URL="https://technical.axiomloom-loom.net"
 
 echo "=== Backend API Tests ==="
@@ -1191,7 +1191,7 @@ curl -s "$API_URL/api/repository/vehicle-to-cloud-communications-architecture/do
 
 # Test 6: File serving
 echo "Test 6: File serving"
-curl -s "$API_URL/api/repository/vehicle-to-cloud-communications-architecture/files" | jq '.[AUTOMOTIVE_MANUFACTURER].name' | grep -q "docs" && echo "✅ PASS" || echo "❌ FAIL"
+curl -s "$API_URL/api/repository/vehicle-to-cloud-communications-architecture/files" | jq '.[0].name' | grep -q "docs" && echo "✅ PASS" || echo "❌ FAIL"
 
 echo ""
 echo "=== Frontend Tests ==="
@@ -1340,13 +1340,13 @@ Co-Authored-By: Claude <noreply@anthropic.com>
 
 | Phase | Tasks | Estimated Time |
 |-------|-------|----------------|
-| Phase 1: Repository Alignment | Update clone script, test | 3AUTOMOTIVE_MANUFACTURER minutes |
+| Phase 1: Repository Alignment | Update clone script, test | 30 minutes |
 | Phase 2: Metadata Standard | Create 4 missing metadata files | 2 hours |
 | Phase 3: Backend Integration | Update server.js, test | 1 hour |
 | Phase 4: API Standardization | Restructure APIs, update detection | 3 hours |
 | Phase 5: Documentation | Audit, reorganize all 18 repos | 6 hours |
 | Phase 6: Deployment & Testing | Deploy, test, fix issues | 2 hours |
-| Phase 7: Deprecation | Remove centralized metadata | 3AUTOMOTIVE_MANUFACTURER minutes |
+| Phase 7: Deprecation | Remove centralized metadata | 30 minutes |
 | **Total** | | **15 hours** |
 
 With proper planning and Claude Code assistance: **2-3 working days**

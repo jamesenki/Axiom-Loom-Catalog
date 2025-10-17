@@ -21,7 +21,7 @@ The Axiom Loom Catalog worked perfectly locally with 17 repositories but only 3 
 7. ❌ future-mobility-oems-tech-platform (DOESN'T EXIST)
 8. ❌ iot-platform-axiom-loom (DOESN'T EXIST)
 9. ❌ lambda-layer-pipeline (DOESN'T EXIST)
-1AUTOMOTIVE_MANUFACTURER. ❌ open-smart-mobility-platform (DOESN'T EXIST)
+10. ❌ open-smart-mobility-platform (DOESN'T EXIST)
 11. ❌ predictive-maintenance-model (DOESN'T EXIST)
 12. ❌ serverless-application-pipeline (DOESN'T EXIST)
 13. ❌ smart-vending-machine-platform (DOESN'T EXIST)
@@ -43,7 +43,7 @@ The Axiom Loom Catalog worked perfectly locally with 17 repositories but only 3 
 7. ✅ fleet-digital-twin-platform-architecture
 8. ✅ future-mobility-consumer-platform
 9. ❌ future-mobility-enterprise-platform (CONSOLIDATED - NOT in metadata)
-1AUTOMOTIVE_MANUFACTURER. ❌ future-mobility-utilities-platform (CONSOLIDATED - NOT in metadata)
+10. ❌ future-mobility-utilities-platform (CONSOLIDATED - NOT in metadata)
 11. ✅ mobility-architecture-package-orchestrator
 12. ❌ nslabsdashboards (RENAMED - NOT in metadata)
 13. ✅ remote-diagnostic-assistance-platform-architecture
@@ -63,7 +63,7 @@ Relevant repositories:
 7. ✅ future-mobility-fleet-platform (Private) - NOT future-mobility-fleet-operations-platform
 8. ✅ future-mobility-oems-platform (Private) - NOT future-mobility-oems-tech-platform
 9. ✅ future-mobility-tech-platform (Private)
-1AUTOMOTIVE_MANUFACTURER. ✅ future-mobility-regulatory-platform (Private)
+10. ✅ future-mobility-regulatory-platform (Private)
 11. ✅ mobility-architecture-package-orchestrator (Private)
 12. ✅ nslabsdashboards (Private) - Renamed to axiom-loom-iot-core in metadata
 13. ✅ remote-diagnostic-assistance-platform-architecture (Private)

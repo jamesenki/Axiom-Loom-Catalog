@@ -1,6 +1,6 @@
 # Verified Fixes Report - Vehicle-to-Cloud Documentation
 
-**Date:** October 9, 2AUTOMOTIVE_MANUFACTURER25
+**Date:** October 9, 2025
 **Branch:** curation
 **Test Results:** Comprehensive browser and backend testing completed
 
@@ -23,7 +23,7 @@
 **Backend Test Results:**
 ```bash
 ✅ PNG MIME Type: image/png (correct)
-✅ Image accessible: HTTP 2AUTOMOTIVE_MANUFACTURERAUTOMOTIVE_MANUFACTURER OK
+✅ Image accessible: HTTP 200 OK
 ✅ File path: src/main/doc/images/C4_Project_Architecture.png
 ✅ File size: 59,324 bytes
 ```
@@ -46,7 +46,7 @@
 // Added to DocumentationView.tsx
 <aside className={styles.docSidebar}>
   <h3 className={styles.sidebarTitle}>📁 Documentation Files</h3>
-  {fileTree.length > AUTOMOTIVE_MANUFACTURER ? (
+  {fileTree.length > 0 ? (
     <div className={styles.fileTree}>
       {renderFileTree(fileTree)}
     </div>
@@ -79,9 +79,9 @@
 **Backend Test Results:**
 ```bash
 ✅ AsyncAPI specs detected: 1 (correct)
-✅ gRPC services detected: AUTOMOTIVE_MANUFACTURER (correct - was 189, now fixed)
-✅ REST APIs: AUTOMOTIVE_MANUFACTURER
-✅ GraphQL APIs: AUTOMOTIVE_MANUFACTURER
+✅ gRPC services detected: 0 (correct - was 189, now fixed)
+✅ REST APIs: 0
+✅ GraphQL APIs: 0
 ```
 
 **Metadata Status:**
@@ -117,7 +117,7 @@
 ✅ PROTOCOL_BUFFERS.md is accessible: true (8,113 lines)
 ✅ PNG diagram is accessible: true (C4_Project_Architecture.png)
 ✅ API detection shows AsyncAPI: true (1 spec)
-✅ gRPC services: AUTOMOTIVE_MANUFACTURER (correctly excludes proto files without services)
+✅ gRPC services: 0 (correctly excludes proto files without services)
 ```
 
 ### 3. File Serving
@@ -127,7 +127,7 @@
    - Markdown: text/markdown ✅
    - AsyncAPI YAML: text/yaml ✅
 
-✅ All files return HTTP 2AUTOMOTIVE_MANUFACTURERAUTOMOTIVE_MANUFACTURER OK
+✅ All files return HTTP 200 OK
 ✅ Content-Length headers present
 ✅ X-Content-Type-Options: nosniff
 ```
@@ -136,7 +136,7 @@
 
 ## Frontend Fixes Applied
 
-### 1. DocumentationView.tsx (src/components/DocumentationView.tsx:18AUTOMOTIVE_MANUFACTURER-19AUTOMOTIVE_MANUFACTURER)
+### 1. DocumentationView.tsx (src/components/DocumentationView.tsx:180-190)
 **Change:** Added file tree sidebar
 
 **Before:**
@@ -152,7 +152,7 @@
   {/* File Tree Sidebar */}
   <aside className={styles.docSidebar}>
     <h3 className={styles.sidebarTitle}>📁 Documentation Files</h3>
-    {fileTree.length > AUTOMOTIVE_MANUFACTURER ? (
+    {fileTree.length > 0 ? (
       <div className={styles.fileTree}>
         {renderFileTree(fileTree)}
       </div>
@@ -171,7 +171,7 @@
 
 ## What You Should See Now
 
-### 1. Documentation Page (http://localhost:3AUTOMOTIVE_MANUFACTURERAUTOMOTIVE_MANUFACTURERAUTOMOTIVE_MANUFACTURER/docs/vehicle-to-cloud-communications-architecture)
+### 1. Documentation Page (http://localhost:3000/docs/vehicle-to-cloud-communications-architecture)
 
 **Left Sidebar (NEW):**
 ```
@@ -213,7 +213,7 @@
 7. future-mobility-tech-platform
 8. future-mobility-utilities-platform
 9. nslabsdashboards
-1AUTOMOTIVE_MANUFACTURER. sample-arch-package
+10. sample-arch-package
 11. smartpath
 
 **Total:** 22 repositories (up from 11)
@@ -234,7 +234,7 @@
 
 **Required API URL:**
 ```
-http://localhost:3AUTOMOTIVE_MANUFACTURERAUTOMOTIVE_MANUFACTURER1/api/repository/vehicle-to-cloud-communications-architecture/file?path=src/main/doc/images/C4_Project_Architecture.png
+http://localhost:3001/api/repository/vehicle-to-cloud-communications-architecture/file?path=src/main/doc/images/C4_Project_Architecture.png
 ```
 
 **Verify:** Check if EnhancedMarkdownViewer transforms relative paths to API URLs
@@ -255,7 +255,7 @@ http://localhost:3AUTOMOTIVE_MANUFACTURERAUTOMOTIVE_MANUFACTURER1/api/repository
 ```bash
 commit fbce529b
 Author: Claude <noreply@anthropic.com>
-Date: Oct 9 2AUTOMOTIVE_MANUFACTURER25
+Date: Oct 9 2025
 
 fix: Restore file tree sidebar in DocumentationView to enable navigation
 
@@ -273,16 +273,16 @@ Files changed: 1
 ### Backend Tests
 ```bash
 # Test API detection
-curl http://localhost:3AUTOMOTIVE_MANUFACTURERAUTOMOTIVE_MANUFACTURER1/api/detect-apis/vehicle-to-cloud-communications-architecture | jq '.apis'
+curl http://localhost:3001/api/detect-apis/vehicle-to-cloud-communications-architecture | jq '.apis'
 
 # Test PROTOCOL_BUFFERS.md
-curl -I http://localhost:3AUTOMOTIVE_MANUFACTURERAUTOMOTIVE_MANUFACTURER1/api/repository/vehicle-to-cloud-communications-architecture/file?path=docs/PROTOCOL_BUFFERS.md
+curl -I http://localhost:3001/api/repository/vehicle-to-cloud-communications-architecture/file?path=docs/PROTOCOL_BUFFERS.md
 
 # Test image serving
-curl -I http://localhost:3AUTOMOTIVE_MANUFACTURERAUTOMOTIVE_MANUFACTURER1/api/repository/vehicle-to-cloud-communications-architecture/file?path=src/main/doc/images/C4_Project_Architecture.png
+curl -I http://localhost:3001/api/repository/vehicle-to-cloud-communications-architecture/file?path=src/main/doc/images/C4_Project_Architecture.png
 
 # Verify repository count
-curl http://localhost:3AUTOMOTIVE_MANUFACTURERAUTOMOTIVE_MANUFACTURER1/api/repositories | jq 'length'
+curl http://localhost:3001/api/repositories | jq 'length'
 ```
 
 ### Frontend Test

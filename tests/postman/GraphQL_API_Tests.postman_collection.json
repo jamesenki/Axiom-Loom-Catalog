@@ -1,9 +1,9 @@
 {
   "info": {
     "name": "AI Predictive Maintenance Engine - GraphQL API",
-    "description": "Comprehensive GraphQL API test suite with 1AUTOMOTIVE_MANUFACTURERAUTOMOTIVE_MANUFACTURER% coverage including queries, mutations, subscriptions, and error handling scenarios",
-    "version": "1.AUTOMOTIVE_MANUFACTURER.AUTOMOTIVE_MANUFACTURER",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.AUTOMOTIVE_MANUFACTURER/collection.json"
+    "description": "Comprehensive GraphQL API test suite with 100% coverage including queries, mutations, subscriptions, and error handling scenarios",
+    "version": "1.0.0",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
   "auth": {
     "type": "bearer",
@@ -39,7 +39,7 @@
         "exec": [
           "// Global GraphQL response validation",
           "pm.test('Response time is acceptable', function () {",
-          "    pm.expect(pm.response.responseTime).to.be.below(2AUTOMOTIVE_MANUFACTURERAUTOMOTIVE_MANUFACTURERAUTOMOTIVE_MANUFACTURER);",
+          "    pm.expect(pm.response.responseTime).to.be.below(2000);",
           "});",
           "",
           "pm.test('Response is valid JSON', function () {",
@@ -69,7 +69,7 @@
     },
     {
       "key": "test_fleet_id",
-      "value": "TEST_FLEET_AUTOMOTIVE_MANUFACTURERAUTOMOTIVE_MANUFACTURER1",
+      "value": "TEST_FLEET_001",
       "type": "string"
     }
   ],
@@ -85,8 +85,8 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test('Status code is 2AUTOMOTIVE_MANUFACTURERAUTOMOTIVE_MANUFACTURER', function () {",
-                  "    pm.response.to.have.status(2AUTOMOTIVE_MANUFACTURERAUTOMOTIVE_MANUFACTURER);",
+                  "pm.test('Status code is 200', function () {",
+                  "    pm.response.to.have.status(200);",
                   "});",
                   "",
                   "pm.test('Schema introspection successful', function () {",
@@ -139,8 +139,8 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test('Status code is 2AUTOMOTIVE_MANUFACTURERAUTOMOTIVE_MANUFACTURER', function () {",
-                  "    pm.response.to.have.status(2AUTOMOTIVE_MANUFACTURERAUTOMOTIVE_MANUFACTURER);",
+                  "pm.test('Status code is 200', function () {",
+                  "    pm.response.to.have.status(200);",
                   "});",
                   "",
                   "pm.test('Vehicle data is complete', function () {",
@@ -190,8 +190,8 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test('Status code is 2AUTOMOTIVE_MANUFACTURERAUTOMOTIVE_MANUFACTURER', function () {",
-                  "    pm.response.to.have.status(2AUTOMOTIVE_MANUFACTURERAUTOMOTIVE_MANUFACTURER);",
+                  "pm.test('Status code is 200', function () {",
+                  "    pm.response.to.have.status(200);",
                   "});",
                   "",
                   "pm.test('Vehicles list is returned', function () {",
@@ -223,7 +223,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"query\": \"query GetVehicles($first: Int, $after: String, $filter: VehicleFilter) { vehicles(first: $first, after: $after, filter: $filter) { nodes { id vin make model year status healthStatus { overallScore status } } pageInfo { hasNextPage hasPreviousPage startCursor endCursor } totalCount } }\",\n  \"variables\": {\n    \"first\": 1AUTOMOTIVE_MANUFACTURER,\n    \"filter\": {\n      \"status\": [\"ACTIVE\", \"MAINTENANCE_REQUIRED\"],\n      \"healthScoreRange\": {\n        \"min\": AUTOMOTIVE_MANUFACTURER.5,\n        \"max\": 1.AUTOMOTIVE_MANUFACTURER\n      },\n      \"yearRange\": {\n        \"min\": 2AUTOMOTIVE_MANUFACTURER2AUTOMOTIVE_MANUFACTURER,\n        \"max\": 2AUTOMOTIVE_MANUFACTURER24\n      }\n    }\n  }\n}"
+              "raw": "{\n  \"query\": \"query GetVehicles($first: Int, $after: String, $filter: VehicleFilter) { vehicles(first: $first, after: $after, filter: $filter) { nodes { id vin make model year status healthStatus { overallScore status } } pageInfo { hasNextPage hasPreviousPage startCursor endCursor } totalCount } }\",\n  \"variables\": {\n    \"first\": 10,\n    \"filter\": {\n      \"status\": [\"ACTIVE\", \"MAINTENANCE_REQUIRED\"],\n      \"healthScoreRange\": {\n        \"min\": 0.5,\n        \"max\": 1.0\n      },\n      \"yearRange\": {\n        \"min\": 2020,\n        \"max\": 2024\n      }\n    }\n  }\n}"
             },
             "url": {
               "raw": "{{graphql_endpoint}}",
@@ -239,15 +239,15 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test('Status code is 2AUTOMOTIVE_MANUFACTURERAUTOMOTIVE_MANUFACTURER', function () {",
-                  "    pm.response.to.have.status(2AUTOMOTIVE_MANUFACTURERAUTOMOTIVE_MANUFACTURER);",
+                  "pm.test('Status code is 200', function () {",
+                  "    pm.response.to.have.status(200);",
                   "});",
                   "",
                   "pm.test('Search results contain relevance scores', function () {",
                   "    const response = pm.response.json();",
                   "    pm.expect(response.data).to.have.property('searchVehicles');",
-                  "    if (response.data.searchVehicles.length > AUTOMOTIVE_MANUFACTURER) {",
-                  "        const result = response.data.searchVehicles[AUTOMOTIVE_MANUFACTURER];",
+                  "    if (response.data.searchVehicles.length > 0) {",
+                  "        const result = response.data.searchVehicles[0];",
                   "        pm.expect(result).to.have.property('vehicle');",
                   "        pm.expect(result).to.have.property('relevanceScore');",
                   "        pm.expect(result).to.have.property('matchedFields');",
@@ -267,7 +267,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"query\": \"query SearchVehicles($query: String!, $limit: Int) { searchVehicles(query: $query, limit: $limit) { vehicle { id vin make model year } relevanceScore matchedFields highlightedText } }\",\n  \"variables\": {\n    \"query\": \"Toyota Camry 2AUTOMOTIVE_MANUFACTURER23\",\n    \"limit\": 2AUTOMOTIVE_MANUFACTURER\n  }\n}"
+              "raw": "{\n  \"query\": \"query SearchVehicles($query: String!, $limit: Int) { searchVehicles(query: $query, limit: $limit) { vehicle { id vin make model year } relevanceScore matchedFields highlightedText } }\",\n  \"variables\": {\n    \"query\": \"Toyota Camry 2023\",\n    \"limit\": 20\n  }\n}"
             },
             "url": {
               "raw": "{{graphql_endpoint}}",
@@ -288,8 +288,8 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test('Status code is 2AUTOMOTIVE_MANUFACTURERAUTOMOTIVE_MANUFACTURER', function () {",
-                  "    pm.response.to.have.status(2AUTOMOTIVE_MANUFACTURERAUTOMOTIVE_MANUFACTURER);",
+                  "pm.test('Status code is 200', function () {",
+                  "    pm.response.to.have.status(200);",
                   "});",
                   "",
                   "pm.test('Diagnostic data is comprehensive', function () {",
@@ -339,8 +339,8 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test('Status code is 2AUTOMOTIVE_MANUFACTURERAUTOMOTIVE_MANUFACTURER', function () {",
-                  "    pm.response.to.have.status(2AUTOMOTIVE_MANUFACTURERAUTOMOTIVE_MANUFACTURER);",
+                  "pm.test('Status code is 200', function () {",
+                  "    pm.response.to.have.status(200);",
                   "});",
                   "",
                   "pm.test('Historical data contains time series', function () {",
@@ -363,7 +363,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"query\": \"query GetDiagnosticHistory($vehicleId: ID!, $timeRange: TimeRangeInput!, $interval: AggregationInterval) { diagnosticHistory(vehicleId: $vehicleId, timeRange: $timeRange, interval: $interval) { dataPoints { timestamp engine { rpm temperature oilPressure } transmission { fluidTemperature currentGear } dataQuality { overallScore } } aggregations { averages { engineRpm engineTemperature } maximums { engineRpm engineTemperature } minimums { engineRpm engineTemperature } } metadata { totalPoints dataQuality intervalMs } } }\",\n  \"variables\": {\n    \"vehicleId\": \"{{test_vehicle_id}}\",\n    \"timeRange\": {\n      \"startTime\": \"2AUTOMOTIVE_MANUFACTURER24-AUTOMOTIVE_MANUFACTURER1-AUTOMOTIVE_MANUFACTURER1TAUTOMOTIVE_MANUFACTURERAUTOMOTIVE_MANUFACTURER:AUTOMOTIVE_MANUFACTURERAUTOMOTIVE_MANUFACTURER:AUTOMOTIVE_MANUFACTURERAUTOMOTIVE_MANUFACTURERZ\",\n      \"endTime\": \"2AUTOMOTIVE_MANUFACTURER24-AUTOMOTIVE_MANUFACTURER1-15T23:59:59Z\"\n    },\n    \"interval\": \"HOUR\"\n  }\n}"
+              "raw": "{\n  \"query\": \"query GetDiagnosticHistory($vehicleId: ID!, $timeRange: TimeRangeInput!, $interval: AggregationInterval) { diagnosticHistory(vehicleId: $vehicleId, timeRange: $timeRange, interval: $interval) { dataPoints { timestamp engine { rpm temperature oilPressure } transmission { fluidTemperature currentGear } dataQuality { overallScore } } aggregations { averages { engineRpm engineTemperature } maximums { engineRpm engineTemperature } minimums { engineRpm engineTemperature } } metadata { totalPoints dataQuality intervalMs } } }\",\n  \"variables\": {\n    \"vehicleId\": \"{{test_vehicle_id}}\",\n    \"timeRange\": {\n      \"startTime\": \"2024-01-01T00:00:00Z\",\n      \"endTime\": \"2024-01-15T23:59:59Z\"\n    },\n    \"interval\": \"HOUR\"\n  }\n}"
             },
             "url": {
               "raw": "{{graphql_endpoint}}",
@@ -384,16 +384,16 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test('Status code is 2AUTOMOTIVE_MANUFACTURERAUTOMOTIVE_MANUFACTURER', function () {",
-                  "    pm.response.to.have.status(2AUTOMOTIVE_MANUFACTURERAUTOMOTIVE_MANUFACTURER);",
+                  "pm.test('Status code is 200', function () {",
+                  "    pm.response.to.have.status(200);",
                   "});",
                   "",
                   "pm.test('Predictions contain AI model info', function () {",
                   "    const response = pm.response.json();",
                   "    pm.expect(response.data).to.have.property('vehicle');",
                   "    const predictions = response.data.vehicle.maintenancePredictions;",
-                  "    if (predictions.length > AUTOMOTIVE_MANUFACTURER) {",
-                  "        const prediction = predictions[AUTOMOTIVE_MANUFACTURER];",
+                  "    if (predictions.length > 0) {",
+                  "        const prediction = predictions[0];",
                   "        pm.expect(prediction).to.have.property('component');",
                   "        pm.expect(prediction).to.have.property('failureProbability');",
                   "        pm.expect(prediction).to.have.property('confidenceScore');",
@@ -415,7 +415,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"query\": \"query GetMaintenancePredictions($vehicleId: ID!, $filters: PredictionFilters) { vehicle(id: $vehicleId) { id maintenancePredictions(filters: $filters) { id component failureType failureProbability confidenceScore timeToFailure severity estimatedCost recommendedActions { action priority estimatedTime estimatedCost description } evidence { type description data weight confidence } aiModelInfo { modelId version accuracy lastTrained } createdAt validUntil } } }\",\n  \"variables\": {\n    \"vehicleId\": \"{{test_vehicle_id}}\",\n    \"filters\": {\n      \"confidenceThreshold\": AUTOMOTIVE_MANUFACTURER.7,\n      \"timeHorizonDays\": 9AUTOMOTIVE_MANUFACTURER,\n      \"severityLevels\": [\"MEDIUM\", \"HIGH\", \"CRITICAL\"]\n    }\n  }\n}"
+              "raw": "{\n  \"query\": \"query GetMaintenancePredictions($vehicleId: ID!, $filters: PredictionFilters) { vehicle(id: $vehicleId) { id maintenancePredictions(filters: $filters) { id component failureType failureProbability confidenceScore timeToFailure severity estimatedCost recommendedActions { action priority estimatedTime estimatedCost description } evidence { type description data weight confidence } aiModelInfo { modelId version accuracy lastTrained } createdAt validUntil } } }\",\n  \"variables\": {\n    \"vehicleId\": \"{{test_vehicle_id}}\",\n    \"filters\": {\n      \"confidenceThreshold\": 0.7,\n      \"timeHorizonDays\": 90,\n      \"severityLevels\": [\"MEDIUM\", \"HIGH\", \"CRITICAL\"]\n    }\n  }\n}"
             },
             "url": {
               "raw": "{{graphql_endpoint}}",
@@ -431,8 +431,8 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test('Status code is 2AUTOMOTIVE_MANUFACTURERAUTOMOTIVE_MANUFACTURER', function () {",
-                  "    pm.response.to.have.status(2AUTOMOTIVE_MANUFACTURERAUTOMOTIVE_MANUFACTURER);",
+                  "pm.test('Status code is 200', function () {",
+                  "    pm.response.to.have.status(200);",
                   "});",
                   "",
                   "pm.test('Fleet predictions include aggregations', function () {",
@@ -457,7 +457,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"query\": \"query GetFleetPredictions($fleetId: ID!, $timeHorizonDays: Int) { fleet(id: $fleetId) { id name predictiveInsights(timeHorizonDays: $timeHorizonDays) { pattern description affectedVehicleCount riskLevel confidence recommendations estimatedImpact { costSavings downtimeReduction } } upcomingMaintenance(timeHorizonDays: $timeHorizonDays) { vehicleId component predictedDate severity estimatedCost } riskAssessment { overallRiskScore highRiskVehicles { vehicleId riskScore primaryConcerns } riskByComponent { component riskScore affectedVehicles } } } }\",\n  \"variables\": {\n    \"fleetId\": \"{{test_fleet_id}}\",\n    \"timeHorizonDays\": 6AUTOMOTIVE_MANUFACTURER\n  }\n}"
+              "raw": "{\n  \"query\": \"query GetFleetPredictions($fleetId: ID!, $timeHorizonDays: Int) { fleet(id: $fleetId) { id name predictiveInsights(timeHorizonDays: $timeHorizonDays) { pattern description affectedVehicleCount riskLevel confidence recommendations estimatedImpact { costSavings downtimeReduction } } upcomingMaintenance(timeHorizonDays: $timeHorizonDays) { vehicleId component predictedDate severity estimatedCost } riskAssessment { overallRiskScore highRiskVehicles { vehicleId riskScore primaryConcerns } riskByComponent { component riskScore affectedVehicles } } } }\",\n  \"variables\": {\n    \"fleetId\": \"{{test_fleet_id}}\",\n    \"timeHorizonDays\": 60\n  }\n}"
             },
             "url": {
               "raw": "{{graphql_endpoint}}",
@@ -478,8 +478,8 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test('Status code is 2AUTOMOTIVE_MANUFACTURERAUTOMOTIVE_MANUFACTURER', function () {",
-                  "    pm.response.to.have.status(2AUTOMOTIVE_MANUFACTURERAUTOMOTIVE_MANUFACTURER);",
+                  "pm.test('Status code is 200', function () {",
+                  "    pm.response.to.have.status(200);",
                   "});",
                   "",
                   "pm.test('Fleet overview contains all metrics', function () {",
@@ -522,8 +522,8 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test('Status code is 2AUTOMOTIVE_MANUFACTURERAUTOMOTIVE_MANUFACTURER', function () {",
-                  "    pm.response.to.have.status(2AUTOMOTIVE_MANUFACTURERAUTOMOTIVE_MANUFACTURER);",
+                  "pm.test('Status code is 200', function () {",
+                  "    pm.response.to.have.status(200);",
                   "});",
                   "",
                   "pm.test('Analytics include time series data', function () {",
@@ -548,7 +548,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"query\": \"query GetFleetAnalytics($fleetId: ID!, $timeRange: TimeRangeInput!, $interval: AggregationInterval!) { fleetAnalytics(fleetId: $fleetId, timeRange: $timeRange, interval: $interval) { timePeriod healthTrends { timestamp averageHealthScore vehicleDistribution { healthy degraded warning critical } } costTrends { timestamp totalCost maintenanceCost fuelCost operationalCost } utilizationTrends { timestamp utilizationRate downtimeHours activeVehicles } benchmarkComparison { metric value industryAverage percentile trend } insights { type insight impact confidence recommendations } } }\",\n  \"variables\": {\n    \"fleetId\": \"{{test_fleet_id}}\",\n    \"timeRange\": {\n      \"startTime\": \"2AUTOMOTIVE_MANUFACTURER24-AUTOMOTIVE_MANUFACTURER1-AUTOMOTIVE_MANUFACTURER1TAUTOMOTIVE_MANUFACTURERAUTOMOTIVE_MANUFACTURER:AUTOMOTIVE_MANUFACTURERAUTOMOTIVE_MANUFACTURER:AUTOMOTIVE_MANUFACTURERAUTOMOTIVE_MANUFACTURERZ\",\n      \"endTime\": \"2AUTOMOTIVE_MANUFACTURER24-AUTOMOTIVE_MANUFACTURER1-15T23:59:59Z\"\n    },\n    \"interval\": \"DAY\"\n  }\n}"
+              "raw": "{\n  \"query\": \"query GetFleetAnalytics($fleetId: ID!, $timeRange: TimeRangeInput!, $interval: AggregationInterval!) { fleetAnalytics(fleetId: $fleetId, timeRange: $timeRange, interval: $interval) { timePeriod healthTrends { timestamp averageHealthScore vehicleDistribution { healthy degraded warning critical } } costTrends { timestamp totalCost maintenanceCost fuelCost operationalCost } utilizationTrends { timestamp utilizationRate downtimeHours activeVehicles } benchmarkComparison { metric value industryAverage percentile trend } insights { type insight impact confidence recommendations } } }\",\n  \"variables\": {\n    \"fleetId\": \"{{test_fleet_id}}\",\n    \"timeRange\": {\n      \"startTime\": \"2024-01-01T00:00:00Z\",\n      \"endTime\": \"2024-01-15T23:59:59Z\"\n    },\n    \"interval\": \"DAY\"\n  }\n}"
             },
             "url": {
               "raw": "{{graphql_endpoint}}",
@@ -581,8 +581,8 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test('Status code is 2AUTOMOTIVE_MANUFACTURERAUTOMOTIVE_MANUFACTURER', function () {",
-                  "    pm.response.to.have.status(2AUTOMOTIVE_MANUFACTURERAUTOMOTIVE_MANUFACTURER);",
+                  "pm.test('Status code is 200', function () {",
+                  "    pm.response.to.have.status(200);",
                   "});",
                   "",
                   "pm.test('Vehicle created successfully', function () {",
@@ -611,7 +611,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"query\": \"mutation CreateVehicle($input: CreateVehicleInput!) { createVehicle(input: $input) { success message vehicle { id vin make model year status createdAt } errors { field message code } } }\",\n  \"variables\": {\n    \"input\": {\n      \"vin\": \"{{new_vehicle_vin}}\",\n      \"make\": \"Axiom\",\n      \"model\": \"Accord\",\n      \"year\": 2AUTOMOTIVE_MANUFACTURER23,\n      \"engineType\": \"FOUR_CYLINDER\",\n      \"transmissionType\": \"AUTOMATIC\",\n      \"fuelType\": \"GASOLINE\",\n      \"specifications\": {\n        \"engineDisplacement\": \"2.AUTOMOTIVE_MANUFACTURERL\",\n        \"horsepower\": 192,\n        \"fuelCapacity\": 14.8,\n        \"weight\": 32AUTOMOTIVE_MANUFACTURERAUTOMOTIVE_MANUFACTURER\n      },\n      \"diagnosticCapabilities\": {\n        \"obdVersion\": \"OBD_II\",\n        \"canBusSupported\": true,\n        \"supportedProtocols\": [\"ISO_14229\", \"J1939\"]\n      }\n    }\n  }\n}"
+              "raw": "{\n  \"query\": \"mutation CreateVehicle($input: CreateVehicleInput!) { createVehicle(input: $input) { success message vehicle { id vin make model year status createdAt } errors { field message code } } }\",\n  \"variables\": {\n    \"input\": {\n      \"vin\": \"{{new_vehicle_vin}}\",\n      \"make\": \"Axiom\",\n      \"model\": \"Accord\",\n      \"year\": 2023,\n      \"engineType\": \"FOUR_CYLINDER\",\n      \"transmissionType\": \"AUTOMATIC\",\n      \"fuelType\": \"GASOLINE\",\n      \"specifications\": {\n        \"engineDisplacement\": \"2.0L\",\n        \"horsepower\": 192,\n        \"fuelCapacity\": 14.8,\n        \"weight\": 3200\n      },\n      \"diagnosticCapabilities\": {\n        \"obdVersion\": \"OBD_II\",\n        \"canBusSupported\": true,\n        \"supportedProtocols\": [\"ISO_14229\", \"J1939\"]\n      }\n    }\n  }\n}"
             },
             "url": {
               "raw": "{{graphql_endpoint}}",
@@ -627,8 +627,8 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test('Status code is 2AUTOMOTIVE_MANUFACTURERAUTOMOTIVE_MANUFACTURER', function () {",
-                  "    pm.response.to.have.status(2AUTOMOTIVE_MANUFACTURERAUTOMOTIVE_MANUFACTURER);",
+                  "pm.test('Status code is 200', function () {",
+                  "    pm.response.to.have.status(200);",
                   "});",
                   "",
                   "pm.test('Vehicle status updated', function () {",
@@ -652,7 +652,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"query\": \"mutation UpdateVehicleStatus($vehicleId: ID!, $status: VehicleStatus!, $reason: String) { updateVehicleStatus(vehicleId: $vehicleId, status: $status, reason: $reason) { success message vehicle { id status updatedAt } errors { field message code } } }\",\n  \"variables\": {\n    \"vehicleId\": \"{{gql_created_vehicle_id}}\",\n    \"status\": \"MAINTENANCE_SCHEDULED\",\n    \"reason\": \"Scheduled 3AUTOMOTIVE_MANUFACTURERk mile service\"\n  }\n}"
+              "raw": "{\n  \"query\": \"mutation UpdateVehicleStatus($vehicleId: ID!, $status: VehicleStatus!, $reason: String) { updateVehicleStatus(vehicleId: $vehicleId, status: $status, reason: $reason) { success message vehicle { id status updatedAt } errors { field message code } } }\",\n  \"variables\": {\n    \"vehicleId\": \"{{gql_created_vehicle_id}}\",\n    \"status\": \"MAINTENANCE_SCHEDULED\",\n    \"reason\": \"Scheduled 30k mile service\"\n  }\n}"
             },
             "url": {
               "raw": "{{graphql_endpoint}}",
@@ -668,8 +668,8 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test('Status code is 2AUTOMOTIVE_MANUFACTURERAUTOMOTIVE_MANUFACTURER', function () {",
-                  "    pm.response.to.have.status(2AUTOMOTIVE_MANUFACTURERAUTOMOTIVE_MANUFACTURER);",
+                  "pm.test('Status code is 200', function () {",
+                  "    pm.response.to.have.status(200);",
                   "});",
                   "",
                   "pm.test('Alert subscription created', function () {",
@@ -722,8 +722,8 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test('Status code is 2AUTOMOTIVE_MANUFACTURERAUTOMOTIVE_MANUFACTURER', function () {",
-                  "    pm.response.to.have.status(2AUTOMOTIVE_MANUFACTURERAUTOMOTIVE_MANUFACTURER);",
+                  "pm.test('Status code is 200', function () {",
+                  "    pm.response.to.have.status(200);",
                   "});",
                   "",
                   "// Note: This test may fail if alert doesn't exist, which is expected in test environment",
@@ -773,7 +773,7 @@
                   "    // Since we're testing over HTTP, we expect an error about subscription protocol",
                   "    const response = pm.response.json();",
                   "    pm.expect(response).to.have.property('errors');",
-                  "    const error = response.errors[AUTOMOTIVE_MANUFACTURER];",
+                  "    const error = response.errors[0];",
                   "    pm.expect(error.message).to.include('subscription');",
                   "});",
                   "",
@@ -813,7 +813,7 @@
                   "pm.test('Subscription query structure is valid', function () {",
                   "    const response = pm.response.json();",
                   "    pm.expect(response).to.have.property('errors');",
-                  "    const error = response.errors[AUTOMOTIVE_MANUFACTURER];",
+                  "    const error = response.errors[0];",
                   "    pm.expect(error.message).to.include('subscription');",
                   "});",
                   "",
@@ -853,17 +853,17 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test('Status code is 2AUTOMOTIVE_MANUFACTURERAUTOMOTIVE_MANUFACTURER (GraphQL errors in response)', function () {",
-                  "    pm.response.to.have.status(2AUTOMOTIVE_MANUFACTURERAUTOMOTIVE_MANUFACTURER);",
+                  "pm.test('Status code is 200 (GraphQL errors in response)', function () {",
+                  "    pm.response.to.have.status(200);",
                   "});",
                   "",
                   "pm.test('GraphQL error returned for invalid ID', function () {",
                   "    const response = pm.response.json();",
                   "    pm.expect(response).to.have.property('errors');",
                   "    pm.expect(response.errors).to.be.an('array');",
-                  "    pm.expect(response.errors.length).to.be.greaterThan(AUTOMOTIVE_MANUFACTURER);",
+                  "    pm.expect(response.errors.length).to.be.greaterThan(0);",
                   "    ",
-                  "    const error = response.errors[AUTOMOTIVE_MANUFACTURER];",
+                  "    const error = response.errors[0];",
                   "    pm.expect(error).to.have.property('message');",
                   "    pm.expect(error).to.have.property('extensions');",
                   "    pm.expect(error.extensions).to.have.property('code', 'VEHICLE_NOT_FOUND');",
@@ -900,14 +900,14 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test('Status code is 2AUTOMOTIVE_MANUFACTURERAUTOMOTIVE_MANUFACTURER (GraphQL validation errors)', function () {",
-                  "    pm.response.to.have.status(2AUTOMOTIVE_MANUFACTURERAUTOMOTIVE_MANUFACTURER);",
+                  "pm.test('Status code is 200 (GraphQL validation errors)', function () {",
+                  "    pm.response.to.have.status(200);",
                   "});",
                   "",
                   "pm.test('Validation errors returned', function () {",
                   "    const response = pm.response.json();",
                   "    pm.expect(response).to.have.property('errors');",
-                  "    const error = response.errors[AUTOMOTIVE_MANUFACTURER];",
+                  "    const error = response.errors[0];",
                   "    pm.expect(error.extensions).to.have.property('code', 'VALIDATION_ERROR');",
                   "});",
                   "",
@@ -926,7 +926,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"query\": \"mutation CreateVehicle($input: CreateVehicleInput!) { createVehicle(input: $input) { success message errors { field message code } } }\",\n  \"variables\": {\n    \"input\": {\n      \"vin\": \"\",\n      \"make\": \"\",\n      \"model\": \"\",\n      \"year\": 18AUTOMOTIVE_MANUFACTURERAUTOMOTIVE_MANUFACTURER\n    }\n  }\n}"
+              "raw": "{\n  \"query\": \"mutation CreateVehicle($input: CreateVehicleInput!) { createVehicle(input: $input) { success message errors { field message code } } }\",\n  \"variables\": {\n    \"input\": {\n      \"vin\": \"\",\n      \"make\": \"\",\n      \"model\": \"\",\n      \"year\": 1800\n    }\n  }\n}"
             },
             "url": {
               "raw": "{{graphql_endpoint}}",
@@ -969,7 +969,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"query\": \"query ComplexQuery { vehicles(first: 1AUTOMOTIVE_MANUFACTURERAUTOMOTIVE_MANUFACTURER) { nodes { id vin fleet { id vehicles(first: 1AUTOMOTIVE_MANUFACTURERAUTOMOTIVE_MANUFACTURER) { nodes { id healthStatus { components { parameters { normalRange { min max } } } } currentDiagnostics { engine { diagnosticCodes { code } } transmission { diagnosticCodes { code } } brakes { diagnosticCodes { code } } } maintenancePredictions { evidence { data } aiModelInfo { modelId } } } } } } } }\"\n}"
+              "raw": "{\n  \"query\": \"query ComplexQuery { vehicles(first: 100) { nodes { id vin fleet { id vehicles(first: 100) { nodes { id healthStatus { components { parameters { normalRange { min max } } } } currentDiagnostics { engine { diagnosticCodes { code } } transmission { diagnosticCodes { code } } brakes { diagnosticCodes { code } } } maintenancePredictions { evidence { data } aiModelInfo { modelId } } } } } } } }\"\n}"
             },
             "url": {
               "raw": "{{graphql_endpoint}}",
@@ -991,11 +991,11 @@
                   "});",
                   "",
                   "pm.test('Response is successful or rate limited', function () {",
-                  "    pm.expect([2AUTOMOTIVE_MANUFACTURERAUTOMOTIVE_MANUFACTURER, 429]).to.include(pm.response.code);",
+                  "    pm.expect([200, 429]).to.include(pm.response.code);",
                   "    ",
                   "    if (pm.response.code === 429) {",
                   "        const response = pm.response.json();",
-                  "        pm.expect(response.errors[AUTOMOTIVE_MANUFACTURER].extensions.code).to.equal('RATE_LIMIT_EXCEEDED');",
+                  "        pm.expect(response.errors[0].extensions.code).to.equal('RATE_LIMIT_EXCEEDED');",
                   "    }",
                   "});"
                 ]
@@ -1033,8 +1033,8 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test('Status code is 2AUTOMOTIVE_MANUFACTURERAUTOMOTIVE_MANUFACTURER', function () {",
-                  "    pm.response.to.have.status(2AUTOMOTIVE_MANUFACTURERAUTOMOTIVE_MANUFACTURER);",
+                  "pm.test('Status code is 200', function () {",
+                  "    pm.response.to.have.status(200);",
                   "});",
                   "",
                   "pm.test('Vehicle deleted successfully', function () {",

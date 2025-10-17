@@ -24,7 +24,7 @@
 7. ✓ future-mobility-utilities-platform (local only - consolidated)
 8. ✓ mobility-architecture-package-orchestrator
 9. ✓ nslabsdashboards
-1AUTOMOTIVE_MANUFACTURER. ✓ remote-diagnostic-assistance-platform-architecture
+10. ✓ remote-diagnostic-assistance-platform-architecture
 11. ✓ sovd-diagnostic-ecosystem-platform-architecture
 12. ✓ vehicle-to-cloud-communications-architecture
 13. ✓ velocityforge-sdv-platform-architecture
@@ -94,7 +94,7 @@ For each of the 6 repos:
 ```json
 {
   "name": "Repository Name",
-  "version": "1.AUTOMOTIVE_MANUFACTURER.AUTOMOTIVE_MANUFACTURER",
+  "version": "1.0.0",
   "description": "Clear, business-focused description",
   "category": "Category Name",
   "status": "production-ready-alpha",
@@ -136,7 +136,7 @@ For each of the 6 repos:
       "architecture": "/docs/ARCHITECTURE.md"
     }
   },
-  "compliance": ["GDPR", "ISO 27AUTOMOTIVE_MANUFACTURERAUTOMOTIVE_MANUFACTURER1"]
+  "compliance": ["GDPR", "ISO 27001"]
 }
 ```
 
@@ -176,11 +176,11 @@ Modify `src/server.js` to:
 npm run server
 
 # Check API returns correct repos
-curl http://localhost:3AUTOMOTIVE_MANUFACTURERAUTOMOTIVE_MANUFACTURER1/api/repositories | jq 'length'
+curl http://localhost:3001/api/repositories | jq 'length'
 # Should return: 18
 
 # Check metadata is from .portal files
-curl http://localhost:3AUTOMOTIVE_MANUFACTURERAUTOMOTIVE_MANUFACTURER1/api/repository/vehicle-to-cloud-communications-architecture | jq '.metadata_source'
+curl http://localhost:3001/api/repository/vehicle-to-cloud-communications-architecture | jq '.metadata_source'
 # Should return: ".portal/metadata.json"
 ```
 
@@ -191,7 +191,7 @@ curl http://localhost:3AUTOMOTIVE_MANUFACTURERAUTOMOTIVE_MANUFACTURER1/api/repos
 ./scripts/deploy-backend-azure.sh
 
 # Verify in Azure
-curl http://axiom-catalog-api.eastus.azurecontainer.io:3AUTOMOTIVE_MANUFACTURERAUTOMOTIVE_MANUFACTURER1/api/repositories | jq 'length'
+curl http://axiom-catalog-api.eastus.azurecontainer.io:3001/api/repositories | jq 'length'
 # Should return: 18
 ```
 
@@ -209,7 +209,7 @@ curl http://axiom-catalog-api.eastus.azurecontainer.io:3AUTOMOTIVE_MANUFACTURERA
 7. remote-diagnostic-assistance-platform-architecture
 8. sovd-diagnostic-ecosystem-platform-architecture
 9. vehicle-to-cloud-communications-architecture
-1AUTOMOTIVE_MANUFACTURER. velocityforge-sdv-platform-architecture
+10. velocityforge-sdv-platform-architecture
 11. future-mobility-consumer-platform
 
 **Future Mobility Platforms (4):**
@@ -223,7 +223,7 @@ curl http://axiom-catalog-api.eastus.azurecontainer.io:3AUTOMOTIVE_MANUFACTURERA
 17. sdv-architecture-orchestration
 18. (one more to identify)
 
-### Metadata Coverage: 1AUTOMOTIVE_MANUFACTURERAUTOMOTIVE_MANUFACTURER%
+### Metadata Coverage: 100%
 
 All 18 repositories will have `.portal/metadata.json` files with:
 - Complete marketing information
@@ -234,12 +234,12 @@ All 18 repositories will have `.portal/metadata.json` files with:
 
 ## Timeline Estimate
 
-- **Step 1-2**: Clone and check metadata - 3AUTOMOTIVE_MANUFACTURER minutes
+- **Step 1-2**: Clone and check metadata - 30 minutes
 - **Step 3**: Create missing metadata - 2-3 hours (depends on how many are missing)
 - **Step 4-5**: Cleanup local repos - 15 minutes
 - **Step 6**: Update backend logic - 1 hour
-- **Step 7**: Local testing - 3AUTOMOTIVE_MANUFACTURER minutes
-- **Step 8**: Deploy to Azure - 3AUTOMOTIVE_MANUFACTURER minutes
+- **Step 7**: Local testing - 30 minutes
+- **Step 8**: Deploy to Azure - 30 minutes
 
 **Total**: 5-6 hours
 
