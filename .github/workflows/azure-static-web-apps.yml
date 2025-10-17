@@ -30,6 +30,8 @@ jobs:
 
       - name: Build
         run: CI=false npm run build
+        env:
+          REACT_APP_API_URL: http://axiom-catalog-api.eastus.azurecontainer.io:3001
 
       - name: Copy static data to build
         run: |
