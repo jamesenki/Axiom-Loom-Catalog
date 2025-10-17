@@ -42,7 +42,14 @@ for repo in $REPOSITORIES; do
     echo "✓ $repo already exists, skipping..."
   else
     echo "Cloning $repo..."
-    if git clone "https://github.com/$GITHUB_USER/$repo.git" "$repo" 2>/dev/null; then
+    # Use GITHUB_TOKEN if available for private repos
+    if [ -n "$GITHUB_TOKEN" ]; then
+      CLONE_URL="https://$GITHUB_TOKEN@github.com/$GITHUB_USER/$repo.git"
+    else
+      CLONE_URL="https://github.com/$GITHUB_USER/$repo.git"
+    fi
+
+    if git clone "$CLONE_URL" "$repo" 2>/dev/null; then
       echo "✅ Cloned: $repo"
     else
       echo "⚠️  Failed to clone: $repo (might be private or not exist)"
