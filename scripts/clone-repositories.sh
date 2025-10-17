@@ -13,18 +13,19 @@ cd /app/cloned-repositories
 # GitHub username
 GITHUB_USER="jamesenki"
 
-# List of repositories to clone (corrected to match actual GitHub repositories)
+# List of repositories to clone (consolidated platforms)
+# Future Mobility platforms consolidated:
+#   - future-mobility-enterprise-platform (replaces: oems, tech)
+#   - future-mobility-utilities-platform (replaces: fleet, regulatory)
+#   - future-mobility-consumer-platform (unchanged)
 REPOSITORIES="
-ai-predictive-maintenance-engine-architecture
 cloudtwin-simulation-platform-architecture
 deploymaster-sdv-ota-platform
 diagnostic-as-code-platform-architecture
 fleet-digital-twin-platform-architecture
 future-mobility-consumer-platform
-future-mobility-fleet-platform
-future-mobility-oems-platform
-future-mobility-regulatory-platform
-future-mobility-tech-platform
+future-mobility-enterprise-platform
+future-mobility-utilities-platform
 mobility-architecture-package-orchestrator
 nslabsdashboards
 remote-diagnostic-assistance-platform-architecture
