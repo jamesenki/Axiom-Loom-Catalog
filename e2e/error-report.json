@@ -1,6 +1,6 @@
 {
   "config": {
-    "rootDir": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e",
+    "rootDir": "/Users/lisasimon/repos/axiom-innovation-repos/axiom-ai-experience-center/e2e",
     "forbidOnly": false,
     "fullyParallel": false,
     "globalSetup": null,
@@ -25,7 +25,7 @@
     "quiet": false,
     "projects": [
       {
-        "outputDir": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/test-results",
+        "outputDir": "/Users/lisasimon/repos/axiom-innovation-repos/axiom-ai-experience-center/test-results",
         "repeatEach": 1,
         "retries": 0,
         "metadata": {
@@ -33,7 +33,7 @@
         },
         "id": "",
         "name": "",
-        "testDir": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e",
+        "testDir": "/Users/lisasimon/repos/axiom-innovation-repos/axiom-ai-experience-center/e2e",
         "testIgnore": [],
         "testMatch": [
           "**/*.@(spec|test).?(c|m)[jt]s?(x)"
@@ -81,9 +81,9 @@
                       "duration": 1067,
                       "error": {
                         "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m0\u001b[39m\nReceived:   \u001b[31m0\u001b[39m",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m0\u001b[39m\nReceived:   \u001b[31m0\u001b[39m\n    at /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/verify-deployment.spec.ts:35:29",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m0\u001b[39m\nReceived:   \u001b[31m0\u001b[39m\n    at /Users/lisasimon/repos/axiom-innovation-repos/axiom-ai-experience-center/e2e/verify-deployment.spec.ts:35:29",
                         "location": {
-                          "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/verify-deployment.spec.ts",
+                          "file": "/Users/lisasimon/repos/axiom-innovation-repos/axiom-ai-experience-center/e2e/verify-deployment.spec.ts",
                           "column": 29,
                           "line": 35
                         },
@@ -92,11 +92,11 @@
                       "errors": [
                         {
                           "location": {
-                            "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/verify-deployment.spec.ts",
+                            "file": "/Users/lisasimon/repos/axiom-innovation-repos/axiom-ai-experience-center/e2e/verify-deployment.spec.ts",
                             "column": 29,
                             "line": 35
                           },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m0\u001b[39m\nReceived:   \u001b[31m0\u001b[39m\n\n  33 |     const bodyText = await page.locator('body').innerText();\n  34 |     console.log('Body text length:', bodyText.length);\n> 35 |     expect(bodyText.length).toBeGreaterThan(0);\n     |                             ^\n  36 |   });\n  37 |   \n  38 |   test('check for JavaScript errors and blank page', async ({ page }) => {\n    at /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/verify-deployment.spec.ts:35:29"
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m0\u001b[39m\nReceived:   \u001b[31m0\u001b[39m\n\n  33 |     const bodyText = await page.locator('body').innerText();\n  34 |     console.log('Body text length:', bodyText.length);\n> 35 |     expect(bodyText.length).toBeGreaterThan(0);\n     |                             ^\n  36 |   });\n  37 |   \n  38 |   test('check for JavaScript errors and blank page', async ({ page }) => {\n    at /Users/lisasimon/repos/axiom-innovation-repos/axiom-ai-experience-center/e2e/verify-deployment.spec.ts:35:29"
                         }
                       ],
                       "stdout": [
@@ -116,7 +116,7 @@
                       "annotations": [],
                       "attachments": [],
                       "errorLocation": {
-                        "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/verify-deployment.spec.ts",
+                        "file": "/Users/lisasimon/repos/axiom-innovation-repos/axiom-ai-experience-center/e2e/verify-deployment.spec.ts",
                         "column": 29,
                         "line": 35
                       }
@@ -149,9 +149,9 @@
                       "duration": 3230,
                       "error": {
                         "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m0\u001b[39m\nReceived:   \u001b[31m0\u001b[39m",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m0\u001b[39m\nReceived:   \u001b[31m0\u001b[39m\n    at /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/verify-deployment.spec.ts:65:23",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m0\u001b[39m\nReceived:   \u001b[31m0\u001b[39m\n    at /Users/lisasimon/repos/axiom-innovation-repos/axiom-ai-experience-center/e2e/verify-deployment.spec.ts:65:23",
                         "location": {
-                          "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/verify-deployment.spec.ts",
+                          "file": "/Users/lisasimon/repos/axiom-innovation-repos/axiom-ai-experience-center/e2e/verify-deployment.spec.ts",
                           "column": 23,
                           "line": 65
                         },
@@ -160,11 +160,11 @@
                       "errors": [
                         {
                           "location": {
-                            "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/verify-deployment.spec.ts",
+                            "file": "/Users/lisasimon/repos/axiom-innovation-repos/axiom-ai-experience-center/e2e/verify-deployment.spec.ts",
                             "column": 23,
                             "line": 65
                           },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m0\u001b[39m\nReceived:   \u001b[31m0\u001b[39m\n\n  63 |     const reactRoot = await page.locator('#root > *').count();\n  64 |     console.log('React root children count:', reactRoot);\n> 65 |     expect(reactRoot).toBeGreaterThan(0);\n     |                       ^\n  66 |   });\n  67 |   \n  68 |   test('API endpoints are accessible', async ({ page }) => {\n    at /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/verify-deployment.spec.ts:65:23"
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m0\u001b[39m\nReceived:   \u001b[31m0\u001b[39m\n\n  63 |     const reactRoot = await page.locator('#root > *').count();\n  64 |     console.log('React root children count:', reactRoot);\n> 65 |     expect(reactRoot).toBeGreaterThan(0);\n     |                       ^\n  66 |   });\n  67 |   \n  68 |   test('API endpoints are accessible', async ({ page }) => {\n    at /Users/lisasimon/repos/axiom-innovation-repos/axiom-ai-experience-center/e2e/verify-deployment.spec.ts:65:23"
                         }
                       ],
                       "stdout": [
@@ -184,7 +184,7 @@
                       "annotations": [],
                       "attachments": [],
                       "errorLocation": {
-                        "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/verify-deployment.spec.ts",
+                        "file": "/Users/lisasimon/repos/axiom-innovation-repos/axiom-ai-experience-center/e2e/verify-deployment.spec.ts",
                         "column": 23,
                         "line": 65
                       }
@@ -217,9 +217,9 @@
                       "duration": 110,
                       "error": {
                         "message": "Error: apiRequestContext.get: read ECONNRESET\nCall log:\n\u001b[2m  - → GET http://localhost:3001/api/health\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/139.0.7258.5 Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m  - ← 301 Moved Permanently\u001b[22m\n\u001b[2m    - x-powered-by: Express\u001b[22m\n\u001b[2m    - location: https://localhost/api/health\u001b[22m\n\u001b[2m    - vary: Accept\u001b[22m\n\u001b[2m    - content-type: text/plain; charset=utf-8\u001b[22m\n\u001b[2m    - content-length: 62\u001b[22m\n\u001b[2m    - date: Fri, 01 Aug 2025 16:31:49 GMT\u001b[22m\n\u001b[2m    - connection: keep-alive\u001b[22m\n\u001b[2m    - keep-alive: timeout=5\u001b[22m\n\u001b[2m  - → GET https://localhost/api/health\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/139.0.7258.5 Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n",
-                        "stack": "Error: apiRequestContext.get: read ECONNRESET\nCall log:\n\u001b[2m  - → GET http://localhost:3001/api/health\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/139.0.7258.5 Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m  - ← 301 Moved Permanently\u001b[22m\n\u001b[2m    - x-powered-by: Express\u001b[22m\n\u001b[2m    - location: https://localhost/api/health\u001b[22m\n\u001b[2m    - vary: Accept\u001b[22m\n\u001b[2m    - content-type: text/plain; charset=utf-8\u001b[22m\n\u001b[2m    - content-length: 62\u001b[22m\n\u001b[2m    - date: Fri, 01 Aug 2025 16:31:49 GMT\u001b[22m\n\u001b[2m    - connection: keep-alive\u001b[22m\n\u001b[2m    - keep-alive: timeout=5\u001b[22m\n\u001b[2m  - → GET https://localhost/api/health\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/139.0.7258.5 Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\n    at /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/verify-deployment.spec.ts:70:44",
+                        "stack": "Error: apiRequestContext.get: read ECONNRESET\nCall log:\n\u001b[2m  - → GET http://localhost:3001/api/health\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/139.0.7258.5 Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m  - ← 301 Moved Permanently\u001b[22m\n\u001b[2m    - x-powered-by: Express\u001b[22m\n\u001b[2m    - location: https://localhost/api/health\u001b[22m\n\u001b[2m    - vary: Accept\u001b[22m\n\u001b[2m    - content-type: text/plain; charset=utf-8\u001b[22m\n\u001b[2m    - content-length: 62\u001b[22m\n\u001b[2m    - date: Fri, 01 Aug 2025 16:31:49 GMT\u001b[22m\n\u001b[2m    - connection: keep-alive\u001b[22m\n\u001b[2m    - keep-alive: timeout=5\u001b[22m\n\u001b[2m  - → GET https://localhost/api/health\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/139.0.7258.5 Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\n    at /Users/lisasimon/repos/axiom-innovation-repos/axiom-ai-experience-center/e2e/verify-deployment.spec.ts:70:44",
                         "location": {
-                          "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/verify-deployment.spec.ts",
+                          "file": "/Users/lisasimon/repos/axiom-innovation-repos/axiom-ai-experience-center/e2e/verify-deployment.spec.ts",
                           "column": 44,
                           "line": 70
                         },
@@ -228,11 +228,11 @@
                       "errors": [
                         {
                           "location": {
-                            "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/verify-deployment.spec.ts",
+                            "file": "/Users/lisasimon/repos/axiom-innovation-repos/axiom-ai-experience-center/e2e/verify-deployment.spec.ts",
                             "column": 44,
                             "line": 70
                           },
-                          "message": "Error: apiRequestContext.get: read ECONNRESET\nCall log:\n\u001b[2m  - → GET http://localhost:3001/api/health\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/139.0.7258.5 Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m  - ← 301 Moved Permanently\u001b[22m\n\u001b[2m    - x-powered-by: Express\u001b[22m\n\u001b[2m    - location: https://localhost/api/health\u001b[22m\n\u001b[2m    - vary: Accept\u001b[22m\n\u001b[2m    - content-type: text/plain; charset=utf-8\u001b[22m\n\u001b[2m    - content-length: 62\u001b[22m\n\u001b[2m    - date: Fri, 01 Aug 2025 16:31:49 GMT\u001b[22m\n\u001b[2m    - connection: keep-alive\u001b[22m\n\u001b[2m    - keep-alive: timeout=5\u001b[22m\n\u001b[2m  - → GET https://localhost/api/health\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/139.0.7258.5 Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\n\n  68 |   test('API endpoints are accessible', async ({ page }) => {\n  69 |     // Test the API health endpoint\n> 70 |     const apiResponse = await page.request.get('http://localhost:3001/api/health');\n     |                                            ^\n  71 |     console.log('API health status:', apiResponse.status());\n  72 |     console.log('API health response:', await apiResponse.text());\n  73 |     \n    at /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/verify-deployment.spec.ts:70:44"
+                          "message": "Error: apiRequestContext.get: read ECONNRESET\nCall log:\n\u001b[2m  - → GET http://localhost:3001/api/health\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/139.0.7258.5 Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m  - ← 301 Moved Permanently\u001b[22m\n\u001b[2m    - x-powered-by: Express\u001b[22m\n\u001b[2m    - location: https://localhost/api/health\u001b[22m\n\u001b[2m    - vary: Accept\u001b[22m\n\u001b[2m    - content-type: text/plain; charset=utf-8\u001b[22m\n\u001b[2m    - content-length: 62\u001b[22m\n\u001b[2m    - date: Fri, 01 Aug 2025 16:31:49 GMT\u001b[22m\n\u001b[2m    - connection: keep-alive\u001b[22m\n\u001b[2m    - keep-alive: timeout=5\u001b[22m\n\u001b[2m  - → GET https://localhost/api/health\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/139.0.7258.5 Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\n\n  68 |   test('API endpoints are accessible', async ({ page }) => {\n  69 |     // Test the API health endpoint\n> 70 |     const apiResponse = await page.request.get('http://localhost:3001/api/health');\n     |                                            ^\n  71 |     console.log('API health status:', apiResponse.status());\n  72 |     console.log('API health response:', await apiResponse.text());\n  73 |     \n    at /Users/lisasimon/repos/axiom-innovation-repos/axiom-ai-experience-center/e2e/verify-deployment.spec.ts:70:44"
                         }
                       ],
                       "stdout": [],
@@ -242,7 +242,7 @@
                       "annotations": [],
                       "attachments": [],
                       "errorLocation": {
-                        "file": "/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/verify-deployment.spec.ts",
+                        "file": "/Users/lisasimon/repos/axiom-innovation-repos/axiom-ai-experience-center/e2e/verify-deployment.spec.ts",
                         "column": 44,
                         "line": 70
                       }

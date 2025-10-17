@@ -38,7 +38,7 @@ az acr create \
 az staticwebapp create \
   --name axiom-loom-catalog \
   --resource-group axiom-loom-rg \
-  --source https://github.com/jamesenki/eyns-ai-experience-center \
+  --source https://github.com/jamesenki/axiom-ai-experience-center \
   --location eastus2 \
   --branch main \
   --app-location "/" \
@@ -148,7 +148,7 @@ az ad sp create-for-rbac \
 
 ### Add to GitHub
 
-1. Go to: https://github.com/jamesenki/eyns-ai-experience-center/settings/secrets/actions
+1. Go to: https://github.com/jamesenki/axiom-ai-experience-center/settings/secrets/actions
 2. Click **New repository secret**
 3. Add these secrets:
    - **Name**: `AZURE_STATIC_WEB_APPS_API_TOKEN`
@@ -172,7 +172,7 @@ git push origin main
 ```
 
 ### Watch deployment:
-- Frontend: https://github.com/jamesenki/eyns-ai-experience-center/actions
+- Frontend: https://github.com/jamesenki/axiom-ai-experience-center/actions
 - Wait ~3-5 minutes for first deployment
 
 ---

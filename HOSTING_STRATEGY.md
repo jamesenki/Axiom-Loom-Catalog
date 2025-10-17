@@ -202,7 +202,7 @@ az group create \
 az staticwebapp create \
   --name axiom-loom-catalog \
   --resource-group axiom-loom-rg \
-  --source https://github.com/jamesenki/eyns-ai-experience-center \
+  --source https://github.com/jamesenki/axiom-ai-experience-center \
   --branch main \
   --app-location "/build" \
   --api-location "" \

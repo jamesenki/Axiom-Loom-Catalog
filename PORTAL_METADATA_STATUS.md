@@ -1,6 +1,6 @@
 # Portal Metadata Status Report
 
-**Generated:** 2025-10-14
+**Generated:** 2AUTOMOTIVE_MANUFACTURER25-1AUTOMOTIVE_MANUFACTURER-14
 **Purpose:** Track which repositories have `.portal/metadata.json` for businessValue display
 
 ---
@@ -53,7 +53,7 @@ These repositories will display **hardcoded placeholder data** until they get th
 
 1. **vehicle-to-cloud-communications-architecture** ⚠️ HIGH PRIORITY
    - Has comprehensive FMEA documentation
-   - Should showcase MQTT 5.0, Protocol Buffers, AsyncAPI capabilities
+   - Should showcase MQTT 5.AUTOMOTIVE_MANUFACTURER, Protocol Buffers, AsyncAPI capabilities
 
 2. **velocityforge-sdv-platform-architecture**
    - SDV platform architecture
@@ -77,7 +77,7 @@ These repositories will display **hardcoded placeholder data** until they get th
 
 ### Lower Priority
 
-10. **mobility-architecture-package-orchestrator**
+1AUTOMOTIVE_MANUFACTURER. **mobility-architecture-package-orchestrator**
 11. **claude-code-sub-agents**
 12. **copilot-architecture-template**
 13. **sample-arch-package**

@@ -154,7 +154,7 @@ kubectl scale deployment axiom-loom-ai-experience-center --replicas=5
 docker swarm init
 
 # Deploy stack
-docker stack deploy -c deploy/docker-compose.production.yml eyns
+docker stack deploy -c deploy/docker-compose.production.yml axiom
 
 # Check services
 docker service ls

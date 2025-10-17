@@ -1,5 +1,5 @@
 
-> eyns-ai-experience-center@0.1.0 test
+> axiom-ai-experience-center@0.1.0 test
 > react-app-rewired test --no-watch --testTimeout=20000
 
 FAIL src/components/__tests__/RepositoryView.test.tsx
@@ -11316,7 +11316,7 @@ FAIL src/components/__tests__/GlobalSearchModal.test.tsx
 
       heading:
 
-      Name "Search EYNS AI Experience Center":
+      Name "Search Axiom AI Experience Center":
       [36m<h2[39m
         [33mclass[39m=[32m"sc-ggWZvA cFmAWC"[39m
       [36m/>[39m
@@ -11384,7 +11384,7 @@ FAIL src/components/__tests__/GlobalSearchModal.test.tsx
                     [33md[39m=[32m"m21 21-4.3-4.3"[39m
                   [36m/>[39m
                 [36m</svg>[39m
-                [0mSearch EYNS AI Experience Center[0m
+                [0mSearch Axiom AI Experience Center[0m
               [36m</h2>[39m
               [36m<button[39m
                 [33maria-label[39m=[32m"Close search modal"[39m
@@ -13579,7 +13579,7 @@ FAIL src/api/__tests__/repositoryFiles.test.js
       at Server.<anonymous> (node_modules/supertest/lib/test.js:152:11)
 
 FAIL src/components/styled/__tests__/Header.test.tsx
-  ● Header Component › renders the header with EY branding
+  ● Header Component › renders the header with Axiom branding
 
     useAuth must be used within an AuthProvider
 
@@ -17185,7 +17185,7 @@ FAIL src/__tests__/enhancedViewerIntegration.test.tsx
 
     Details:
 
-    /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/node_modules/remark-gfm/index.js:6
+    /Users/lisasimon/repos/axiom-innovation-repos/axiom-ai-experience-center/node_modules/remark-gfm/index.js:6
     import {gfm} from 'micromark-extension-gfm'
     ^^^^^^
 
@@ -17228,7 +17228,7 @@ FAIL src/components/__tests__/EnhancedMarkdownViewer.test.tsx
 
     Details:
 
-    /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/node_modules/remark-gfm/index.js:6
+    /Users/lisasimon/repos/axiom-innovation-repos/axiom-ai-experience-center/node_modules/remark-gfm/index.js:6
     import {gfm} from 'micromark-extension-gfm'
     ^^^^^^
 
@@ -17271,7 +17271,7 @@ FAIL src/components/__tests__/DocumentationView.test.tsx
 
     Details:
 
-    /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/node_modules/remark-gfm/index.js:6
+    /Users/lisasimon/repos/axiom-innovation-repos/axiom-ai-experience-center/node_modules/remark-gfm/index.js:6
     import {gfm} from 'micromark-extension-gfm'
     ^^^^^^
 
@@ -20375,7 +20375,7 @@ FAIL src/components/__tests__/GlobalSearchModal.test.tsx
 
       heading:
 
-      Name "Search EYNS AI Experience Center":
+      Name "Search Axiom AI Experience Center":
       [36m<h2[39m
         [33mclass[39m=[32m"sc-ggWZvA cFmAWC"[39m
       [36m/>[39m
@@ -20443,7 +20443,7 @@ FAIL src/components/__tests__/GlobalSearchModal.test.tsx
                     [33md[39m=[32m"m21 21-4.3-4.3"[39m
                   [36m/>[39m
                 [36m</svg>[39m
-                [0mSearch EYNS AI Experience Center[0m
+                [0mSearch Axiom AI Experience Center[0m
               [36m</h2>[39m
               [36m<button[39m
                 [33maria-label[39m=[32m"Close search modal"[39m
@@ -22638,7 +22638,7 @@ FAIL src/api/__tests__/repositoryFiles.test.js
       at Server.<anonymous> (node_modules/supertest/lib/test.js:152:11)
 
 FAIL src/components/styled/__tests__/Header.test.tsx
-  ● Header Component › renders the header with EY branding
+  ● Header Component › renders the header with Axiom branding
 
     useAuth must be used within an AuthProvider
 
@@ -25947,7 +25947,7 @@ FAIL src/__tests__/enhancedViewerIntegration.test.tsx
 
     Details:
 
-    /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/node_modules/remark-gfm/index.js:6
+    /Users/lisasimon/repos/axiom-innovation-repos/axiom-ai-experience-center/node_modules/remark-gfm/index.js:6
     import {gfm} from 'micromark-extension-gfm'
     ^^^^^^
 
@@ -25990,7 +25990,7 @@ FAIL src/components/__tests__/EnhancedMarkdownViewer.test.tsx
 
     Details:
 
-    /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/node_modules/remark-gfm/index.js:6
+    /Users/lisasimon/repos/axiom-innovation-repos/axiom-ai-experience-center/node_modules/remark-gfm/index.js:6
     import {gfm} from 'micromark-extension-gfm'
     ^^^^^^
 
@@ -26033,7 +26033,7 @@ FAIL src/components/__tests__/DocumentationView.test.tsx
 
     Details:
 
-    /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/node_modules/remark-gfm/index.js:6
+    /Users/lisasimon/repos/axiom-innovation-repos/axiom-ai-experience-center/node_modules/remark-gfm/index.js:6
     import {gfm} from 'micromark-extension-gfm'
     ^^^^^^
 

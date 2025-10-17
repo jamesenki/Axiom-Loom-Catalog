@@ -2,7 +2,7 @@
 
 ## Overview
 Generated: $(date)
-Location: /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories
+Location: /Users/lisasimon/repos/axiom-innovation-repos/axiom-ai-experience-center/cloned-repositories
 
 ## Repository List
 

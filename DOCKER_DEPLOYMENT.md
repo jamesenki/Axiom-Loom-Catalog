@@ -86,7 +86,7 @@ REACT_APP_API_URL=http://localhost:3001
 # Database
 MONGO_ROOT_USER=admin
 MONGO_ROOT_PASSWORD=strong-password
-MONGO_DATABASE=eyns
+MONGO_DATABASE=axiom
 
 # Redis
 REDIS_PASSWORD=redis-password

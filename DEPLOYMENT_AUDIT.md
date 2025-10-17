@@ -234,7 +234,7 @@ GitHub Actions Secrets (stored in GitHub repo):
 - [ ] Correct subscription selected
 
 #### GitHub Setup
-- [ ] Repository exists (jamesenki/eyns-ai-experience-center)
+- [ ] Repository exists (jamesenki/axiom-ai-experience-center)
 - [ ] Write access to repository confirmed
 - [ ] GitHub CLI installed (optional but helpful)
 

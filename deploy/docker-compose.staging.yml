@@ -4,7 +4,7 @@ services:
     build:
       context: ..
       dockerfile: Dockerfile
-    container_name: eyns-ai-center-staging
+    container_name: axiom-ai-center-staging
     ports:
       - "8080:8080"
     environment:
@@ -13,7 +13,7 @@ services:
       - REACT_APP_ENVIRONMENT=staging
     restart: unless-stopped
     networks:
-      - eyns-network
+      - axiom-network
     healthcheck:
       test: ["CMD", "/usr/local/bin/health-check.sh"]
       interval: 30s
@@ -24,14 +24,14 @@ services:
   # Redis for caching
   redis:
     image: redis:7-alpine
-    container_name: eyns-redis-staging
+    container_name: axiom-redis-staging
     ports:
       - "6379:6379"
     volumes:
       - redis_data:/data
     restart: unless-stopped
     networks:
-      - eyns-network
+      - axiom-network
     command: redis-server --appendonly yes
 
 volumes:
@@ -39,5 +39,5 @@ volumes:
     driver: local
 
 networks:
-  eyns-network:
+  axiom-network:
     driver: bridge

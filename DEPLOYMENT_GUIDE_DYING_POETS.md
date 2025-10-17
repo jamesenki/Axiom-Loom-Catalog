@@ -106,7 +106,7 @@ az acr credential show --name dyingpoetsregistry
 az staticwebapp create \
   --name axiom-loom-catalog \
   --resource-group axiom-loom-rg \
-  --source https://github.com/jamesenki/eyns-ai-experience-center \
+  --source https://github.com/jamesenki/axiom-ai-experience-center \
   --location eastus2 \
   --branch main \
   --app-location "/" \
@@ -195,7 +195,7 @@ EOF
 
 ```bash
 # Navigate to your project directory
-cd /Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center
+cd /Users/lisasimon/repos/axiom-innovation-repos/axiom-ai-experience-center
 
 # Build and push image to Azure Container Registry
 az acr build \
@@ -371,7 +371,7 @@ az staticwebapp secrets list \
 
 ### Step 2: Add GitHub Secret
 
-1. Go to your GitHub repository: https://github.com/jamesenki/eyns-ai-experience-center
+1. Go to your GitHub repository: https://github.com/jamesenki/axiom-ai-experience-center
 2. Click **Settings** → **Secrets and variables** → **Actions**
 3. Click **New repository secret**
 4. Name: `AZURE_STATIC_WEB_APPS_API_TOKEN`
@@ -533,7 +533,7 @@ git push origin main
 
 ### Step 2: Monitor GitHub Actions
 
-1. Go to: https://github.com/jamesenki/eyns-ai-experience-center/actions
+1. Go to: https://github.com/jamesenki/axiom-ai-experience-center/actions
 2. Watch the workflows run
 3. Both should complete successfully (green checkmarks)
 

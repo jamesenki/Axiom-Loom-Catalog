@@ -4,7 +4,7 @@
 
 **Test Date:** October 10, 2025
 **Test Duration:** 14.66 seconds
-**Test File:** `/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/test-all-markdown-links.spec.ts`
+**Test File:** `/Users/lisasimon/repos/axiom-innovation-repos/axiom-ai-experience-center/e2e/test-all-markdown-links.spec.ts`
 
 ---
 
@@ -219,7 +219,7 @@ All 18 broken links are **image references** with incorrect relative paths. The 
 
 ## Files Generated
 
-1. **Test Report (JSON):** `/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/test-results/markdown-link-validation-report.json`
+1. **Test Report (JSON):** `/Users/lisasimon/repos/axiom-innovation-repos/axiom-ai-experience-center/test-results/markdown-link-validation-report.json`
    - Machine-readable detailed report
    - Contains all link data and test results
    - Can be processed by other tools
@@ -258,7 +258,7 @@ All 18 broken links are **image references** with incorrect relative paths. The 
 - **Test Framework:** Playwright
 - **Timeout:** 10 minutes (600,000ms)
 - **Base URL:** http://localhost:3000
-- **Repository Path:** `/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/cloned-repositories/vehicle-to-cloud-communications-architecture`
+- **Repository Path:** `/Users/lisasimon/repos/axiom-innovation-repos/axiom-ai-experience-center/cloned-repositories/vehicle-to-cloud-communications-architecture`
 
 ### Performance Metrics
 - **Total Test Duration:** 14.66 seconds
@@ -279,7 +279,7 @@ All 18 broken links are **image references** with incorrect relative paths. The 
 
 The comprehensive test file is located at:
 ```
-/Users/lisasimon/repos/eyns-innovation-repos/eyns-ai-experience-center/e2e/test-all-markdown-links.spec.ts
+/Users/lisasimon/repos/axiom-innovation-repos/axiom-ai-experience-center/e2e/test-all-markdown-links.spec.ts
 ```
 
 To run the test:

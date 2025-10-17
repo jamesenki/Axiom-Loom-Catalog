@@ -1,10 +1,10 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: eyns-ai-experience-center
+  name: axiom-ai-experience-center
   namespace: default
   labels:
-    app: eyns-ai-experience-center
+    app: axiom-ai-experience-center
     environment: production
 spec:
   replicas: 3
@@ -15,16 +15,16 @@ spec:
       maxUnavailable: 0
   selector:
     matchLabels:
-      app: eyns-ai-experience-center
+      app: axiom-ai-experience-center
   template:
     metadata:
       labels:
-        app: eyns-ai-experience-center
+        app: axiom-ai-experience-center
         environment: production
     spec:
       containers:
       - name: web
-        image: eyns-ai-experience-center:latest
+        image: axiom-ai-experience-center:latest
         ports:
         - containerPort: 8080
           name: http
@@ -77,17 +77,17 @@ spec:
                 - key: app
                   operator: In
                   values:
-                  - eyns-ai-experience-center
+                  - axiom-ai-experience-center
               topologyKey: kubernetes.io/hostname
 
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: eyns-ai-experience-center-service
+  name: axiom-ai-experience-center-service
   namespace: default
   labels:
-    app: eyns-ai-experience-center
+    app: axiom-ai-experience-center
 spec:
   type: ClusterIP
   ports:
@@ -96,13 +96,13 @@ spec:
     protocol: TCP
     name: http
   selector:
-    app: eyns-ai-experience-center
+    app: axiom-ai-experience-center
 
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: eyns-ai-experience-center-ingress
+  name: axiom-ai-experience-center-ingress
   namespace: default
   annotations:
     kubernetes.io/ingress.class: "nginx"
@@ -113,17 +113,17 @@ metadata:
 spec:
   tls:
   - hosts:
-    - eyns-ai-center.example.com
-    secretName: eyns-ai-center-tls
+    - axiom-ai-center.example.com
+    secretName: axiom-ai-center-tls
   rules:
-  - host: eyns-ai-center.example.com
+  - host: axiom-ai-center.example.com
     http:
       paths:
       - path: /
         pathType: Prefix
         backend:
           service:
-            name: eyns-ai-experience-center-service
+            name: axiom-ai-experience-center-service
             port:
               number: 80
 
@@ -131,13 +131,13 @@ spec:
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
-  name: eyns-ai-experience-center-hpa
+  name: axiom-ai-experience-center-hpa
   namespace: default
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: eyns-ai-experience-center
+    name: axiom-ai-experience-center
   minReplicas: 2
   maxReplicas: 10
   metrics:

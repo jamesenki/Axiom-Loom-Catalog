@@ -13,7 +13,7 @@ Before starting, ensure you have:
 - [x] Azure account created
 - [x] Azure CLI installed (`brew install azure-cli`)
 - [x] Logged into Azure (`az login`)
-- [x] GitHub repository access (jamesenki/eyns-ai-experience-center)
+- [x] GitHub repository access (jamesenki/axiom-ai-experience-center)
 - [x] Run `./scripts/deploy-to-azure.sh` (this generates all credentials)
 
 ---
@@ -31,7 +31,7 @@ Before starting, ensure you have:
 
 ### Step 2: Add Credentials to GitHub
 
-1. Go to: https://github.com/jamesenki/eyns-ai-experience-center/settings/secrets/actions
+1. Go to: https://github.com/jamesenki/axiom-ai-experience-center/settings/secrets/actions
 2. Click **New repository secret**
 3. Add these two secrets from `azure-deployment-credentials.txt`:
 

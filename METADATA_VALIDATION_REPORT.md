@@ -1,6 +1,6 @@
 # Portal Metadata Validation Report
 
-**Generated:** 2025-10-14
+**Generated:** 2AUTOMOTIVE_MANUFACTURER25-1AUTOMOTIVE_MANUFACTURER-14
 **Purpose:** Validate existing .portal/metadata.json files for structure, completeness, and compliance with standard
 
 ---
@@ -8,9 +8,9 @@
 ## Executive Summary
 
 - **Total Repositories Validated:** 8
-- **✅ Fully Compliant:** 4 (50%)
-- **⚠️ Requires Restructuring:** 4 (50%)
-- **❌ Missing Critical Fields:** 0 (0%)
+- **✅ Fully Compliant:** 4 (5AUTOMOTIVE_MANUFACTURER%)
+- **⚠️ Requires Restructuring:** 4 (5AUTOMOTIVE_MANUFACTURER%)
+- **❌ Missing Critical Fields:** AUTOMOTIVE_MANUFACTURER (AUTOMOTIVE_MANUFACTURER%)
 
 ---
 
@@ -79,8 +79,8 @@ All `.portal/metadata.json` files MUST follow this structure:
 **Status:** GOLD STANDARD - Perfect structure
 
 - ✅ Has marketing.keyBenefits (4 items)
-  - "50% Reduction in Unplanned Downtime"
-  - "30% Lower Maintenance Costs"
+  - "5AUTOMOTIVE_MANUFACTURER% Reduction in Unplanned Downtime"
+  - "3AUTOMOTIVE_MANUFACTURER% Lower Maintenance Costs"
   - "Real-Time Anomaly Detection"
   - "ROI in 6 Months"
 - ✅ Has marketing.useCases (4 items)
@@ -93,9 +93,9 @@ All `.portal/metadata.json` files MUST follow this structure:
 
 - ✅ Has marketing.keyBenefits (4 items)
   - "99.99% Deployment Success Rate"
-  - "Deploy to 10M+ Vehicles"
-  - "30-Second Emergency Rollback"
-  - "90% Bandwidth Reduction"
+  - "Deploy to 1AUTOMOTIVE_MANUFACTURERM+ Vehicles"
+  - "3AUTOMOTIVE_MANUFACTURER-Second Emergency Rollback"
+  - "9AUTOMOTIVE_MANUFACTURER% Bandwidth Reduction"
 - ✅ Has marketing.useCases (5 items)
   - Automotive OEMs, Fleet Operators, Autonomous Vehicle Companies, EV Manufacturers, Connected Car Services
 - ✅ Extensive technical, pricing, implementation sections
@@ -105,9 +105,9 @@ All `.portal/metadata.json` files MUST follow this structure:
 **Status:** GOLD STANDARD - Excellent documentation
 
 - ✅ Has marketing.keyBenefits (4 items)
-  - "60% Faster Diagnostic Resolution"
+  - "6AUTOMOTIVE_MANUFACTURER% Faster Diagnostic Resolution"
   - "SOVD Multi-Client Leadership"
-  - "90%+ First-Time Fix Rate"
+  - "9AUTOMOTIVE_MANUFACTURER%+ First-Time Fix Rate"
   - "AI-Enhanced Expert Routing"
 - ✅ Has marketing.useCases (6 items)
   - Independent Service Centers, Dealership Networks, Fleet Providers, Mobile Services, Training Orgs, OEM Support
@@ -119,9 +119,9 @@ All `.portal/metadata.json` files MUST follow this structure:
 
 - ✅ Has marketing.keyBenefits (4 items)
   - "Universal Compatibility"
-  - "70% Faster Development"
+  - "7AUTOMOTIVE_MANUFACTURER% Faster Development"
   - "Enterprise-Grade Security"
-  - "$50M+ Cost Savings"
+  - "$5AUTOMOTIVE_MANUFACTURERM+ Cost Savings"
 - ✅ Has marketing.useCases (5 items)
   - OEMs, Tier 1 Suppliers, Independent Repair Shops, Fleet Operators, Insurance Companies
 - ✅ Extensive technical and marketplace documentation
@@ -148,7 +148,7 @@ All `.portal/metadata.json` files MUST follow this structure:
       {
         "title": "Predictive Fleet Maintenance",
         "description": "...",
-        "impact": "80% reduction..."
+        "impact": "8AUTOMOTIVE_MANUFACTURER% reduction..."
       }
     ]
   }
@@ -187,7 +187,7 @@ All `.portal/metadata.json` files MUST follow this structure:
 {
   "businessValue": {
     "marketSize": "$12.4B",
-    "roi": "30% reduction in unplanned downtime",
+    "roi": "3AUTOMOTIVE_MANUFACTURER% reduction in unplanned downtime",
     "innovation": "..."
   },
   "useCases": [
@@ -217,7 +217,7 @@ All `.portal/metadata.json` files MUST follow this structure:
 {
   "businessValue": {
     "primary": "Maximize fleet utilization by 65%",
-    "metrics": ["90% faster rental processing", ...],
+    "metrics": ["9AUTOMOTIVE_MANUFACTURER% faster rental processing", ...],
     "useCases": [
       "Car rental operations",
       "Corporate fleet management"
@@ -237,14 +237,14 @@ All `.portal/metadata.json` files MUST follow this structure:
 
 Each repository was validated against these criteria:
 
-| Criteria | Weight | deploymaster | remote-diag | sovd-diag | ai-predict | fleet-twin | future-mob | nslabs | rental |
+| Criteria | Weight | deploymaster | remote-diag | sovd-diag | ai-predict | fleet-twin | future-mob | axiom | rental |
 |----------|--------|--------------|-------------|-----------|------------|------------|------------|--------|--------|
 | Has marketing section | 25% | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ⚠️ | ❌ |
 | keyBenefits format | 25% | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
 | useCases format | 25% | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ⚠️ | ❌ |
 | Complete technical section | 15% | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ⚠️ | ⚠️ |
-| Has pricing | 10% | ✅ | ✅ | ✅ | ⚠️ | ✅ | ⚠️ | ✅ | ⚠️ |
-| **Total Score** | | **100%** | **100%** | **100%** | **95%** | **40%** | **40%** | **50%** | **35%** |
+| Has pricing | 1AUTOMOTIVE_MANUFACTURER% | ✅ | ✅ | ✅ | ⚠️ | ✅ | ⚠️ | ✅ | ⚠️ |
+| **Total Score** | | **1AUTOMOTIVE_MANUFACTURERAUTOMOTIVE_MANUFACTURER%** | **1AUTOMOTIVE_MANUFACTURERAUTOMOTIVE_MANUFACTURER%** | **1AUTOMOTIVE_MANUFACTURERAUTOMOTIVE_MANUFACTURER%** | **95%** | **4AUTOMOTIVE_MANUFACTURER%** | **4AUTOMOTIVE_MANUFACTURER%** | **5AUTOMOTIVE_MANUFACTURER%** | **35%** |
 
 ---
 
@@ -258,7 +258,7 @@ Each repository was validated against these criteria:
    - nslabsdashboards
    - rentalFleets
 
-2. **Verify data displays correctly on portal** (Est. 30 mins)
+2. **Verify data displays correctly on portal** (Est. 3AUTOMOTIVE_MANUFACTURER mins)
    - Test each fixed repository's detail page
    - Ensure keyBenefits and useCases render properly
 
@@ -292,7 +292,7 @@ Based on analysis of the 4 compliant repositories, here's the recommended templa
 ```json
 {
   "name": "Repository Display Name",
-  "version": "1.0.0",
+  "version": "1.AUTOMOTIVE_MANUFACTURER.AUTOMOTIVE_MANUFACTURER",
   "tagline": "One-sentence value proposition",
   "description": "2-3 paragraph detailed description of the platform, its purpose, and core capabilities.",
   "category": "Platform Category",
@@ -444,5 +444,5 @@ const businessValue = {
 ---
 
 **Report Generated By:** Claude Code
-**Validation Standard Version:** 1.0.0
-**Last Updated:** 2025-10-14
+**Validation Standard Version:** 1.AUTOMOTIVE_MANUFACTURER.AUTOMOTIVE_MANUFACTURER
+**Last Updated:** 2AUTOMOTIVE_MANUFACTURER25-1AUTOMOTIVE_MANUFACTURER-14

@@ -7,7 +7,7 @@
 ## 🎯 Project Overview
 
 ### Purpose
-A **lab marketing portal** serving as a centralized developer experience hub for showcasing EY's innovation repositories, APIs, and documentation to stakeholders and potential clients. The portal will be used to demonstrate EY's innovation capabilities to potential clients and partners. 
+A **lab marketing portal** serving as a centralized developer experience hub for showcasing Axiom's innovation repositories, APIs, and documentation to stakeholders and potential clients. The portal will be used to demonstrate Axiom's innovation capabilities to potential clients and partners. 
 
 ### Primary Stakeholders
 - **Axiom Loom Innovation Labs**: Marketing and demonstration teams

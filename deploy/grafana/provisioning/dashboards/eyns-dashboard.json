@@ -481,7 +481,7 @@
   "refresh": "5s",
   "schemaVersion": 27,
   "style": "dark",
-  "tags": ["eyns", "monitoring"],
+  "tags": ["axiom", "monitoring"],
   "templating": {
     "list": []
   },
@@ -504,7 +504,7 @@
     ]
   },
   "timezone": "",
-  "title": "EYNS AI Experience Center",
-  "uid": "eyns-dashboard",
+  "title": "Axiom AI Experience Center",
+  "uid": "axiom-dashboard",
   "version": 0
 }

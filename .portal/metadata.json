@@ -175,9 +175,9 @@
     ]
   },
   "support": {
-    "documentation": "https://docs.predictive-maintenance.eyns.com",
-    "apiReference": "https://api.predictive-maintenance.eyns.com/docs",
-    "supportEmail": "support@predictive-maintenance.eyns.com",
+    "documentation": "https://docs.predictive-maintenance.axiom.com",
+    "apiReference": "https://api.predictive-maintenance.axiom.com/docs",
+    "supportEmail": "support@predictive-maintenance.axiom.com",
     "supportPhone": "+1-800-PREDICT",
     "trainingAvailable": true,
     "professionalServices": true
@@ -200,10 +200,10 @@
     }
   },
   "resources": {
-    "whitepaper": "https://resources.eyns.com/predictive-maintenance-whitepaper",
-    "demo": "https://demo.predictive-maintenance.eyns.com",
+    "whitepaper": "https://resources.axiom.com/predictive-maintenance-whitepaper",
+    "demo": "https://demo.predictive-maintenance.axiom.com",
     "video": "https://www.youtube.com/watch?v=demo-video",
-    "casestudies": "https://resources.eyns.com/case-studies",
-    "roi-calculator": "https://predictive-maintenance.eyns.com/roi-calculator"
+    "casestudies": "https://resources.axiom.com/case-studies",
+    "roi-calculator": "https://predictive-maintenance.axiom.com/roi-calculator"
   }
 }
