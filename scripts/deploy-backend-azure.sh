@@ -63,8 +63,19 @@ ACR_PASSWORD=$(az acr credential show --name $ACR_NAME --query passwords[0].valu
 echo "✓ ACR credentials retrieved"
 echo ""
 
-# Step 5: Deploy container to Azure Container Instance
-echo "Step 5: Deploying to Azure Container Instance..."
+# Step 5: Get GitHub token
+echo "Step 5: Getting GitHub token..."
+GITHUB_TOKEN=$(GITHUB_TOKEN="" gh auth token 2>/dev/null || echo "")
+if [ -z "$GITHUB_TOKEN" ]; then
+    echo "⚠️  Warning: No GitHub token found. Private repositories won't be cloned."
+    echo "   Run 'gh auth login' to authenticate."
+else
+    echo "✓ GitHub token retrieved"
+fi
+echo ""
+
+# Step 6: Deploy container to Azure Container Instance
+echo "Step 6: Deploying to Azure Container Instance..."
 az container create \
     --resource-group $RESOURCE_GROUP \
     --name $CONTAINER_NAME \
@@ -80,12 +91,14 @@ az container create \
     --environment-variables \
         NODE_ENV=production \
         PORT=3001 \
-        BYPASS_AUTH=true
+        BYPASS_AUTH=true \
+        GITHUB_TOKEN=$GITHUB_TOKEN \
+        GITHUB_ORGANIZATION=jamesenki
         
 echo "✅ Container deployed: $CONTAINER_NAME"
 echo ""
 
-# Step 6: Get container URL
+# Step 7: Get container URL
 CONTAINER_FQDN=$(az container show \
     --resource-group $RESOURCE_GROUP \
     --name $CONTAINER_NAME \
