@@ -505,6 +505,45 @@ app.get('/api/repository/:repoName/public', (req, res) => {
   }
 });
 
+// Public GraphQL schemas endpoint (no auth required)
+app.get('/api/repository/:repoName/graphql-schemas/public', (req, res) => {
+  const { repoName } = req.params;
+  const reposPath = path.join(__dirname, '../cloned-repositories');
+  const repoPath = path.join(reposPath, repoName);
+
+  if (!fs.existsSync(repoPath)) {
+    return res.status(404).json({ error: 'Repository not found' });
+  }
+
+  try {
+    const schemas = [];
+
+    const findSchemas = (dir, basePath = '') => {
+      try {
+        const files = fs.readdirSync(dir, { withFileTypes: true });
+        files.forEach(file => {
+          const relativePath = basePath ? `${basePath}/${file.name}` : file.name;
+
+          if (file.isFile() && /\.(graphql|gql)$/i.test(file.name)) {
+            schemas.push({
+              name: file.name,
+              path: relativePath
+            });
+          } else if (file.isDirectory() && !file.name.startsWith('.') && file.name !== 'node_modules') {
+            findSchemas(path.join(dir, file.name), relativePath);
+          }
+        });
+      } catch (e) {}
+    };
+
+    findSchemas(repoPath);
+    res.json(schemas);
+  } catch (error) {
+    console.error('Error finding GraphQL schemas:', error);
+    res.status(500).json({ error: 'Failed to find GraphQL schemas' });
+  }
+});
+
 // Demo Coming Soon page route
 app.get('/demo/:repoName/*', (req, res) => {
   const demoPath = path.join(__dirname, '../public/demo-coming-soon.html');

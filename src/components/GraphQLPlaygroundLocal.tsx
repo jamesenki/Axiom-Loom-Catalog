@@ -237,7 +237,7 @@ const GraphQLPlaygroundLocal: React.FC = () => {
 
   const fetchSchemas = async () => {
     try {
-      const response = await fetch(getApiUrl(`/api/repository/${repoName}/graphql-schemas`));
+      const response = await fetch(getApiUrl(`/api/repository/${repoName}/graphql-schemas/public`));
       if (!response.ok) {
         throw new Error('Failed to fetch GraphQL schemas');
       }

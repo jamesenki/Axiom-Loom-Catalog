@@ -408,7 +408,7 @@ test.describe('100% Coverage Tests - EYNS AI Experience Center', () => {
         `/api/repository/${ALL_REPOSITORIES[0]}/details`,
         `/api/detect-apis/${ALL_REPOSITORIES[0]}`,
         `/api/repository/${REPOS_WITH_POSTMAN[0]}/postman-collections`,
-        `/api/repository/${REPOS_WITH_GRAPHQL[0]}/graphql-schemas`
+        `/api/repository/${REPOS_WITH_GRAPHQL[0]}/graphql-schemas/public`
       ];
       
       for (const endpoint of endpoints) {
