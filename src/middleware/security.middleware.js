@@ -50,8 +50,10 @@ const getCSPDirectives = () => {
     workerSrc: ["'self'", "blob:"],
     formAction: ["'self'"],
     baseUri: ["'self'"],
-    manifestSrc: ["'self'"],
-    upgradeInsecureRequests: !isDevelopment ? [] : null
+    manifestSrc: ["'self'"]
+    // NOTE: upgradeInsecureRequests disabled to allow HTTP backend API calls
+    // TODO: Re-enable once backend supports HTTPS
+    // upgradeInsecureRequests: !isDevelopment ? [] : null
   };
 };
 
