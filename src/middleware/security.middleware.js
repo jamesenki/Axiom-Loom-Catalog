@@ -108,6 +108,8 @@ const getCorsOptions = () => {
     'http://0.0.0.0:3000',
     'http://0.0.0.0:3001',
     'https://axiom-loom.ai',
+    'https://technical.axiomloom-loom.net',
+    'https://axiom-loom-catalog.azurestaticapps.net',
     process.env.FRONTEND_URL,
     process.env.PUBLIC_URL
   ].filter(Boolean);
