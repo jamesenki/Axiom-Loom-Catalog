@@ -59,9 +59,16 @@ const getCSPDirectives = () => {
 
 // Security headers middleware
 const securityHeaders = () => {
+  const isDevelopment = process.env.NODE_ENV === 'development';
+
   return helmet({
     contentSecurityPolicy: {
-      directives: getCSPDirectives()
+      directives: {
+        ...getCSPDirectives(),
+        // Explicitly disable upgradeInsecureRequests to allow HTTP backend API calls
+        // This is needed because the backend is HTTP and the frontend is HTTPS
+        upgradeInsecureRequests: null
+      }
     },
     hsts: {
       maxAge: 31536000,
