@@ -9,9 +9,7 @@ echo ""
 # Configuration
 RESOURCE_GROUP="axiom-loom-rg"
 LOCATION="eastus"
-ACR_NAME="axiomlooma
-
-cr"
+ACR_NAME="axiomlooma"
 CONTAINER_NAME="catalog-backend"
 IMAGE_NAME="axiom-loom-catalog-backend"
 DNS_NAME="axiom-catalog-api"
@@ -71,6 +69,7 @@ az container create \
     --resource-group $RESOURCE_GROUP \
     --name $CONTAINER_NAME \
     --image $ACR_LOGIN_SERVER/$IMAGE_NAME:latest \
+    --os-type Linux \
     --cpu 1 \
     --memory 1.5 \
     --registry-login-server $ACR_LOGIN_SERVER \

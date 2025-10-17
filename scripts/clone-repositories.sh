@@ -2,7 +2,8 @@
 # Clone all repositories for the Axiom Loom Catalog
 # This script runs on container startup
 
-set -e
+# Don't exit on errors - we want the server to start even if some clones fail
+set +e
 
 echo "=== Cloning Axiom Loom Repositories ==="
 echo "Target directory: /app/cloned-repositories"

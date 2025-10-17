@@ -19,6 +19,7 @@ RUN npm ci --only=production
 COPY src/server.js ./src/
 COPY src/api/ ./src/api/
 COPY src/services/ ./src/services/
+COPY src/middleware/ ./src/middleware/
 
 # Copy startup script
 COPY scripts/clone-repositories.sh ./scripts/

@@ -80,16 +80,18 @@ const securityHeaders = () => {
 
 // HTTPS enforcement middleware
 const enforceHTTPS = (req, res, next) => {
-  // Skip in development and test environments
-  if (process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'test') {
+  // Skip in development, test environments, and when BYPASS_AUTH is enabled
+  if (process.env.NODE_ENV === 'development' ||
+      process.env.NODE_ENV === 'test' ||
+      process.env.BYPASS_AUTH === 'true') {
     return next();
   }
-  
+
   // Check if request is already HTTPS
   if (req.secure || req.headers['x-forwarded-proto'] === 'https') {
     return next();
   }
-  
+
   // Redirect to HTTPS
   res.redirect(301, `https://${req.hostname}${req.url}`);
 };
