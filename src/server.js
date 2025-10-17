@@ -276,12 +276,13 @@ app.get('/api/repositories', (req, res) => {
             valueScore: business.valueScore || metadata.pricing?.valueScore || 70
           },
           apiTypes: {
-            hasOpenAPI: technical.apis?.types?.rest ?? metadata.apiTypes?.hasOpenAPI ?? hasOpenAPI,
-            hasGraphQL: technical.apis?.types?.graphql ?? metadata.apiTypes?.hasGraphQL ?? hasGraphQL,
-            hasGrpc: technical.apis?.types?.grpc ?? metadata.apiTypes?.hasGrpc ?? hasGrpc,
-            hasWebSocket: technical.apis?.types?.websocket ?? metadata.apiTypes?.hasWebSocket ?? false,
-            hasAsyncAPI: technical.apis?.types?.asyncapi ?? metadata.apiTypes?.hasAsyncAPI ?? false,
-            hasPostman: technical.integrations?.postman?.available ?? metadata.apiTypes?.hasPostman ?? (postmanCount > 0)
+            // Prioritize actual file detection over metadata, but allow metadata override if explicitly true
+            hasOpenAPI: hasOpenAPI || technical.apis?.types?.rest || metadata.apiTypes?.hasOpenAPI || false,
+            hasGraphQL: hasGraphQL || technical.apis?.types?.graphql || metadata.apiTypes?.hasGraphQL || false,
+            hasGrpc: hasGrpc || technical.apis?.types?.grpc || metadata.apiTypes?.hasGrpc || false,
+            hasWebSocket: technical.apis?.types?.websocket || metadata.apiTypes?.hasWebSocket || false,
+            hasAsyncAPI: technical.apis?.types?.asyncapi || metadata.apiTypes?.hasAsyncAPI || false,
+            hasPostman: (postmanCount > 0) || technical.integrations?.postman?.available || metadata.apiTypes?.hasPostman || false
           },
           integrations: {
             postman: technical.integrations?.postman || { available: postmanCount > 0, collections: postmanCount },
@@ -466,11 +467,12 @@ app.get('/api/repository/:repoName/public', (req, res) => {
         valueScore: business.valueScore || metadata.pricing?.valueScore || 70
       },
       apiTypes: {
-        hasOpenAPI: technical.apis?.types?.rest || hasOpenAPI,
-        hasGraphQL: technical.apis?.types?.graphql || hasGraphQL,
-        hasGrpc: technical.apis?.types?.grpc || hasGrpc,
+        // Prioritize actual file detection over metadata, but allow metadata override if explicitly true
+        hasOpenAPI: hasOpenAPI || technical.apis?.types?.rest || false,
+        hasGraphQL: hasGraphQL || technical.apis?.types?.graphql || false,
+        hasGrpc: hasGrpc || technical.apis?.types?.grpc || false,
         hasWebSocket: technical.apis?.types?.websocket || false,
-        hasPostman: technical.integrations?.postman?.available || (postmanCount > 0)
+        hasPostman: (postmanCount > 0) || technical.integrations?.postman?.available || false
       },
       integrations: {
         postman: technical.integrations?.postman || { available: postmanCount > 0, collections: postmanCount },
