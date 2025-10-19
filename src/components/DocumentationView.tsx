@@ -238,7 +238,7 @@ const DocumentationView: React.FC = () => {
   return (
     <div className={styles.documentationView}>
       <div className={styles.docHeader}>
-        <Link to="/" className={styles.backLink}>← Back to Repositories</Link>
+        <Link to="/repositories" className={styles.backLink}>← Back to Repositories</Link>
         <h1>📚 Documentation: {repoName}</h1>
         
         {/* Breadcrumb navigation */}
