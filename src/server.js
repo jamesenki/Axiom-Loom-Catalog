@@ -242,6 +242,48 @@ app.get('/api/repositories', (req, res) => {
           }
         }
 
+        // Extract businessValue from .portal/metadata.json if available
+        let businessValue = null;
+        if (portalMetadata) {
+          // Support both formats: marketing.keyBenefits OR root-level useCases/keyBenefits
+          const marketing = portalMetadata.marketing || {};
+
+          // Get keyBenefits from either marketing.keyBenefits OR root-level
+          let keyBenefits = [];
+          if (marketing.keyBenefits) {
+            keyBenefits = marketing.keyBenefits.map(b => b.title || b.description) || [];
+          } else if (Array.isArray(portalMetadata.technicalHighlights)) {
+            // Use technicalHighlights as fallback for keyBenefits
+            keyBenefits = portalMetadata.technicalHighlights;
+          }
+
+          // Get useCases from either marketing.useCases OR root-level useCases array
+          let useCases = [];
+          if (marketing.useCases) {
+            useCases = marketing.useCases.map(uc => {
+              if (uc.industry && uc.description) {
+                return `${uc.industry}: ${uc.description}`;
+              }
+              return uc.description || uc.industry || '';
+            }) || [];
+          } else if (Array.isArray(portalMetadata.useCases)) {
+            // Transform root-level useCases array (objects with industry, devices, value)
+            useCases = portalMetadata.useCases.map(uc => {
+              if (uc.industry && uc.value) {
+                return `${uc.industry}: ${uc.value}`;
+              }
+              return uc.industry || uc.value || '';
+            });
+          }
+
+          businessValue = {
+            targetMarket: marketing.headline || marketing.subheadline || portalMetadata.description || null,
+            roi: marketing.metrics?.costSavings || portalMetadata.businessValue?.roi || null,
+            keyBenefits: keyBenefits,
+            useCases: useCases
+          };
+        }
+
         // Fallback to global metadata
         const metadata = repositoryMetadata[dirent.name] || {};
 
