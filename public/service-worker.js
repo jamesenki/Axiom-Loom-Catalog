@@ -177,10 +177,11 @@ async function syncRepositories() {
     if (response.ok) {
       // Notify clients of successful sync
       const clients = await self.clients.matchAll();
+      const data = await response.json();
       clients.forEach(client => {
         client.postMessage({
           type: 'SYNC_COMPLETE',
-          data: await response.json()
+          data: data
         });
       });
     }
