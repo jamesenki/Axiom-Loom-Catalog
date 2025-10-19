@@ -339,6 +339,7 @@ app.get('/api/repositories', (req, res) => {
             github: urls.github || `https://github.com/${process.env.GITHUB_ORGANIZATION || 'jamesenki'}/${dirent.name}`
           },
           pricing: business.pricing || metadata.pricing || null,
+          businessValue: businessValue || metadata.businessValue || null,
           content: repoConfig.content || {
             keyFeatures: ['Enterprise-grade architecture', 'Comprehensive API coverage', 'Professional support'],
             benefits: ['Reduce operational costs', 'Improve efficiency', 'Scale seamlessly']
