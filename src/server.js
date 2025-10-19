@@ -476,9 +476,62 @@ app.get('/api/repository/:repoName/public', (req, res) => {
       }
     }
     
+    // Load .portal/metadata.json if it exists
+    let portalMetadata = null;
+    const portalMetadataPath = path.join(repoPath, '.portal', 'metadata.json');
+    if (fs.existsSync(portalMetadataPath)) {
+      try {
+        portalMetadata = JSON.parse(fs.readFileSync(portalMetadataPath, 'utf8'));
+      } catch (e) {
+        console.error(`Error reading .portal/metadata.json for ${repoName}:`, e.message);
+      }
+    }
+
+    // Extract businessValue from .portal/metadata.json if available
+    let businessValue = null;
+    if (portalMetadata) {
+      // Support both formats: marketing.keyBenefits OR root-level useCases/keyBenefits
+      const marketing = portalMetadata.marketing || {};
+
+      // Get keyBenefits from either marketing.keyBenefits OR root-level
+      let keyBenefits = [];
+      if (marketing.keyBenefits) {
+        keyBenefits = marketing.keyBenefits.map(b => b.title || b.description) || [];
+      } else if (Array.isArray(portalMetadata.technicalHighlights)) {
+        // Use technicalHighlights as fallback for keyBenefits
+        keyBenefits = portalMetadata.technicalHighlights;
+      }
+
+      // Get useCases from either marketing.useCases OR root-level useCases array
+      let useCases = [];
+      if (marketing.useCases) {
+        useCases = marketing.useCases.map(uc => {
+          if (uc.industry && uc.description) {
+            return `${uc.industry}: ${uc.description}`;
+          }
+          return uc.description || uc.industry || '';
+        }) || [];
+      } else if (Array.isArray(portalMetadata.useCases)) {
+        // Transform root-level useCases array (objects with industry, devices, value)
+        useCases = portalMetadata.useCases.map(uc => {
+          if (uc.industry && uc.value) {
+            return `${uc.industry}: ${uc.value}`;
+          }
+          return uc.industry || uc.value || '';
+        });
+      }
+
+      businessValue = {
+        targetMarket: marketing.headline || marketing.subheadline || portalMetadata.description || null,
+        roi: marketing.metrics?.costSavings || portalMetadata.businessValue?.roi || null,
+        keyBenefits: keyBenefits,
+        useCases: useCases
+      };
+    }
+
     // Fallback to global metadata
     const metadata = repositoryMetadata[repoName] || {};
-    
+
     // Extract normalized data from axiom.json
     const repo = repoConfig.repository || {};
     const desc = repoConfig.description || {};
@@ -486,7 +539,7 @@ app.get('/api/repository/:repoName/public', (req, res) => {
     const technical = repoConfig.technical || {};
     const business = repoConfig.business || {};
     const urls = repoConfig.urls || {};
-    
+
     const result = {
       id: repoName,
       name: repoName,
@@ -530,6 +583,7 @@ app.get('/api/repository/:repoName/public', (req, res) => {
         github: urls.github || `https://github.com/${process.env.GITHUB_ORGANIZATION || 'jamesenki'}/${repoName}`
       },
       pricing: business.pricing || metadata.pricing || null,
+      businessValue: businessValue || metadata.businessValue || null,
       content: repoConfig.content || {
         keyFeatures: ['Enterprise-grade architecture', 'Comprehensive API coverage', 'Professional support'],
         benefits: ['Reduce operational costs', 'Improve efficiency', 'Scale seamlessly']
