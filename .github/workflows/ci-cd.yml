@@ -1,12 +1,9 @@
 name: CI/CD Pipeline
 
+# Disabled - this workflow is for a multi-service architecture with Docker builds
+# This project uses Azure Static Web Apps workflow instead
 on:
-  push:
-    branches: [ main, develop ]
-  pull_request:
-    branches: [ main, develop ]
-  release:
-    types: [ published ]
+  workflow_dispatch:  # Manual trigger only
 
 env:
   REGISTRY: ghcr.io
