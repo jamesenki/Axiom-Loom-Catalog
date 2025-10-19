@@ -701,19 +701,41 @@ app.get('/api/repository/:repoName/details', authenticate, authorize('read:apis'
 
     // Extract businessValue from .portal/metadata.json if available
     let businessValue = null;
-    if (portalMetadata && portalMetadata.marketing) {
-      // Transform marketing.keyBenefits and marketing.useCases into simpler format
-      const keyBenefits = portalMetadata.marketing.keyBenefits?.map(b => b.title || b.description) || [];
-      const useCases = portalMetadata.marketing.useCases?.map(uc => {
-        if (uc.industry && uc.description) {
-          return `${uc.industry}: ${uc.description}`;
-        }
-        return uc.description || uc.industry || '';
-      }) || [];
+    if (portalMetadata) {
+      // Support both formats: marketing.keyBenefits OR root-level useCases/keyBenefits
+      const marketing = portalMetadata.marketing || {};
+
+      // Get keyBenefits from either marketing.keyBenefits OR root-level
+      let keyBenefits = [];
+      if (marketing.keyBenefits) {
+        keyBenefits = marketing.keyBenefits.map(b => b.title || b.description) || [];
+      } else if (Array.isArray(portalMetadata.technicalHighlights)) {
+        // Use technicalHighlights as fallback for keyBenefits
+        keyBenefits = portalMetadata.technicalHighlights;
+      }
+
+      // Get useCases from either marketing.useCases OR root-level useCases array
+      let useCases = [];
+      if (marketing.useCases) {
+        useCases = marketing.useCases.map(uc => {
+          if (uc.industry && uc.description) {
+            return `${uc.industry}: ${uc.description}`;
+          }
+          return uc.description || uc.industry || '';
+        }) || [];
+      } else if (Array.isArray(portalMetadata.useCases)) {
+        // Transform root-level useCases array (objects with industry, devices, value)
+        useCases = portalMetadata.useCases.map(uc => {
+          if (uc.industry && uc.value) {
+            return `${uc.industry}: ${uc.value}`;
+          }
+          return uc.industry || uc.value || '';
+        });
+      }
 
       businessValue = {
-        targetMarket: portalMetadata.marketing.headline || portalMetadata.marketing.subheadline || null,
-        roi: portalMetadata.marketing.metrics?.costSavings || null,
+        targetMarket: marketing.headline || marketing.subheadline || portalMetadata.description || null,
+        roi: marketing.metrics?.costSavings || portalMetadata.businessValue?.roi || null,
         keyBenefits: keyBenefits,
         useCases: useCases
       };
