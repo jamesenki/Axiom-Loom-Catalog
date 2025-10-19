@@ -387,7 +387,7 @@ const RepositoryDetailRedesigned: React.FC = () => {
     <>
       <PageHeader>
         <Container maxWidth="lg">
-          <BackButton as={Link} to="/">
+          <BackButton as={Link} to="/repositories">
             <ArrowLeft size={20} />
             Back to Repositories
           </BackButton>
