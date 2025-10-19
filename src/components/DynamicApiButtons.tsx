@@ -43,8 +43,7 @@ export const DynamicApiButtons: React.FC<DynamicApiButtonsProps> = ({
       setError(null);
       const response = await fetch(getApiUrl(`/api/detect-apis/${repositoryName}`), {
         headers: {
-          'x-dev-mode': 'true',
-          'x-bypass-auth': 'true'
+          'x-dev-mode': 'true'
         }
       });
       if (!response.ok) {

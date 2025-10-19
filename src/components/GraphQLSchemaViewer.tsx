@@ -161,8 +161,7 @@ const GraphQLSchemaViewer: React.FC = () => {
       // First, detect APIs to see if there are GraphQL schemas
       const detectResponse = await fetch(getApiUrl(`/api/detect-apis/${repoName}`), {
         headers: {
-          'x-dev-mode': 'true',
-          'x-bypass-auth': 'true'
+          'x-dev-mode': 'true'
         }
       });
       if (!detectResponse.ok) {
@@ -183,8 +182,7 @@ const GraphQLSchemaViewer: React.FC = () => {
           // Try to fetch the schema content
           const contentResponse = await fetch(getApiUrl(`/api/repository/${repoName}/file?path=${encodeURIComponent(schema.file)}`), {
             headers: {
-              'x-dev-mode': 'true',
-              'x-bypass-auth': 'true'
+              'x-dev-mode': 'true'
             }
           });
           let content = '';

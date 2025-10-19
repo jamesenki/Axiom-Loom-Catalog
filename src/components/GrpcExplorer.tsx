@@ -257,8 +257,7 @@ const GrpcExplorer: React.FC = () => {
     try {
       const response = await fetch(getApiUrl(`/api/repository/${repoName}/file?path=${encodeURIComponent(path)}`), {
         headers: {
-          'x-dev-mode': 'true',
-          'x-bypass-auth': 'true'
+          'x-dev-mode': 'true'
         }
       });
       if (!response.ok) {
@@ -294,8 +293,7 @@ const GrpcExplorer: React.FC = () => {
     try {
       const response = await fetch(getApiUrl(`/api/detect-apis/${repoName}`), {
         headers: {
-          'x-dev-mode': 'true',
-          'x-bypass-auth': 'true'
+          'x-dev-mode': 'true'
         }
       });
       
