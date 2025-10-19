@@ -543,9 +543,9 @@ app.get('/api/repository/:repoName/public', (req, res) => {
     const result = {
       id: repoName,
       name: repoName,
-      displayName: repo.displayName || metadata.displayName || friendlyName,
-      shortName: repo.shortName || repo.displayName || friendlyName,
-      brandName: repo.brandName || repo.displayName || friendlyName,
+      displayName: portalMetadata?.name || portalMetadata?.displayName || repo.displayName || metadata.displayName || friendlyName,
+      shortName: portalMetadata?.displayName || repo.shortName || repo.displayName || friendlyName,
+      brandName: portalMetadata?.name || repo.brandName || repo.displayName || friendlyName,
       description: stripMarkdown(desc.summary || metadata.description || marketingDescription || description) || `${friendlyName} Solution`,
       tagline: desc.tagline || `${friendlyName} solution`,
       marketingDescription: desc.marketingPitch || marketingDescription,
