@@ -5,7 +5,7 @@
  */
 
 import React, { useState, useEffect } from 'react';
-import { useParams, Link, useSearchParams } from 'react-router-dom';
+import { useParams, Link, useSearchParams, useNavigate } from 'react-router-dom';
 import EnhancedMarkdownViewer from './EnhancedMarkdownViewer';
 import styles from './DocumentationView.module.css';
 import { getApiUrl } from '../utils/apiConfig';
@@ -20,6 +20,7 @@ interface FileItem {
 const DocumentationView: React.FC = () => {
   const { repoName, '*': filePath } = useParams<{ repoName: string, '*': string }>();
   const [searchParams] = useSearchParams();
+  const navigate = useNavigate();
   const pathParam = searchParams.get('path');
   
   // Use file path from URL params first, then query params, then default to README.md
@@ -335,9 +336,12 @@ const DocumentationView: React.FC = () => {
                 if (!targetPath.endsWith('.md')) {
                   targetPath += '.md';
                 }
-                
+
                 console.log('Resolved target path for file:', targetPath);
                 setSelectedFile(targetPath);
+
+                // Update browser URL to reflect navigation
+                navigate(`/docs/${repoName}?file=${encodeURIComponent(targetPath)}`);
               }}
             />
           ) : (
