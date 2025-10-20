@@ -1,8 +1,19 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './LandingPage.css';
 
 const LandingPage: React.FC = () => {
+  const [articleCount, setArticleCount] = useState<number | null>(null);
+
+  useEffect(() => {
+    // Fetch article count from API
+    const apiUrl = process.env.REACT_APP_API_URL || '';
+    fetch(`${apiUrl}/api/articles`)
+      .then(res => res.json())
+      .then(data => setArticleCount(data.length))
+      .catch(err => console.error('Failed to fetch article count:', err));
+  }, []);
+
   return (
     <div className="landing-page">
       {/* Hero Section */}
@@ -415,7 +426,9 @@ const LandingPage: React.FC = () => {
               and technical practices. Deep dives into agile transformation, DevOps culture,
               and building high-performing teams.
             </p>
-            <div className="card-status available">37 Articles Available</div>
+            <div className="card-status available">
+              {articleCount !== null ? `${articleCount} Articles Available` : 'Loading...'}
+            </div>
             <div className="card-action">Read Articles →</div>
           </Link>
         </div>
