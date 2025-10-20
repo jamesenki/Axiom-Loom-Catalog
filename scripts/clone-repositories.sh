@@ -1,6 +1,7 @@
 #!/bin/sh
 # Clone all repositories for the Axiom Loom Catalog
 # This script runs on container startup
+# Updated: 2025-10-20 - Added profile repository for blog articles
 
 # Don't exit on errors - we want the server to start even if some clones fail
 set +e
