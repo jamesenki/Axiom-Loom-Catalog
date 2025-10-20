@@ -5,7 +5,8 @@
   "routes": [
     {
       "route": "/api/*",
-      "allowedRoles": ["anonymous"]
+      "allowedRoles": ["anonymous"],
+      "rewrite": "http://axiom-catalog-api.eastus.azurecontainer.io:3001/api/{*}"
     },
     {
       "route": "/static/*",
