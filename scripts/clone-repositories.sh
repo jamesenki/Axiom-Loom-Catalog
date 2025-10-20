@@ -19,6 +19,7 @@ GITHUB_USER="jamesenki"
 #   - future-mobility-utilities-platform (replaces: fleet, regulatory)
 #   - future-mobility-consumer-platform (unchanged)
 REPOSITORIES="
+axiomloom-iot-platform
 cloudtwin-simulation-platform-architecture
 deploymaster-sdv-ota-platform
 diagnostic-as-code-platform-architecture
@@ -27,7 +28,6 @@ future-mobility-consumer-platform
 future-mobility-enterprise-platform
 future-mobility-utilities-platform
 mobility-architecture-package-orchestrator
-nslabsdashboards
 remote-diagnostic-assistance-platform-architecture
 rentalFleets
 sdv-architecture-orchestration
