@@ -22,7 +22,7 @@ const DocumentationView: React.FC = () => {
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
   const pathParam = searchParams.get('path');
-  
+
   // Use file path from URL params first, then query params, then default to README.md
   const defaultFile = filePath || pathParam || 'README.md';
   const [selectedFile, setSelectedFile] = useState<string>(defaultFile);
@@ -31,6 +31,7 @@ const DocumentationView: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   const [fileTree, setFileTree] = useState<FileItem[]>([]);
   const [expandedDirs, setExpandedDirs] = useState<Set<string>>(new Set());
+  const [displayName, setDisplayName] = useState<string | null>(null);
 
   // Update selected file when path param changes
   useEffect(() => {
@@ -39,6 +40,25 @@ const DocumentationView: React.FC = () => {
       setSelectedFile(newFile);
     }
   }, [filePath, pathParam]);
+
+  // Fetch repository metadata for display name
+  useEffect(() => {
+    if (repoName) {
+      fetch(getApiUrl(`/api/repository/${repoName}/public`), {
+        headers: {
+          'x-dev-mode': 'true'
+        }
+      })
+        .then(res => res.json())
+        .then(data => {
+          setDisplayName(data.displayName || data.name || repoName);
+        })
+        .catch(err => {
+          console.error('Failed to fetch display name:', err);
+          setDisplayName(repoName); // Fallback to repo name
+        });
+    }
+  }, [repoName]);
 
   // Fetch file tree
   useEffect(() => {
@@ -180,12 +200,12 @@ const DocumentationView: React.FC = () => {
     
     // Always include repository home link
     breadcrumbs.push(
-      <Link 
-        key="repo-home" 
-        to={`/repository/${repoName}`} 
+      <Link
+        key="repo-home"
+        to={`/repository/${repoName}`}
         className={styles.breadcrumbLink}
       >
-        🏠 {repoName}
+        🏠 {displayName || repoName}
       </Link>
     );
     
@@ -240,7 +260,7 @@ const DocumentationView: React.FC = () => {
     <div className={styles.documentationView}>
       <div className={styles.docHeader}>
         <Link to="/repositories" className={styles.backLink}>← Back to Repositories</Link>
-        <h1>📚 Documentation: {repoName}</h1>
+        <h1>📚 Documentation: {displayName || repoName}</h1>
         
         {/* Breadcrumb navigation */}
         <nav className={styles.breadcrumbNav} aria-label="Documentation breadcrumb">
