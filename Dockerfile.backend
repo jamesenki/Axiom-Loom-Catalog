@@ -1,5 +1,6 @@
 # Dockerfile for Axiom Loom Catalog Backend
 # Runs Node.js server with cloned repositories
+# Build: 2025-10-20-v3
 
 FROM node:18-alpine
 
