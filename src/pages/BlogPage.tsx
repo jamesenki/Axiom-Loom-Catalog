@@ -7,6 +7,7 @@ interface Article {
   title: string;
   excerpt: string;
   category: string;
+  categoryName: string;
   tags: string[];
   date: string;
   readingTime: number;
@@ -111,7 +112,7 @@ const BlogPage: React.FC = () => {
           articles.map(article => (
             <article key={article.slug} className="article-card">
               <div className="article-meta">
-                <span className="category-badge">{article.category}</span>
+                <span className="category-badge">{article.categoryName}</span>
                 <span className="reading-time">{article.readingTime} min read</span>
               </div>
               <h3>

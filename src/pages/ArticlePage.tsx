@@ -10,6 +10,7 @@ interface Article {
   title: string;
   excerpt: string;
   category: string;
+  categoryName: string;
   tags: string[];
   date: string;
   readingTime: number;
@@ -58,7 +59,7 @@ const ArticlePage: React.FC = () => {
       <div className="article-header">
         <Link to="/blog" className="back-to-blog">← Back to Blog</Link>
         <div className="article-meta">
-          <span className="category-badge">{article.category}</span>
+          <span className="category-badge">{article.categoryName}</span>
           <span className="reading-time">{article.readingTime} min read</span>
           {article.date && (
             <span className="article-date">
