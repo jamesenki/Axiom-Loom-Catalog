@@ -2,10 +2,10 @@ import { test, expect } from '@playwright/test';
 
 const BASE_URL = 'https://technical.axiomloom-loom.net';
 
-test.describe('Verify nslabsdashboards Repository Fixes', () => {
+test.describe('Verify Axiom Loom IoT Platform Repository Fixes', () => {
   test('should display correct displayName and business value data', async ({ page }) => {
     // Navigate to the repository detail page
-    await page.goto(`${BASE_URL}/docs/nslabsdashboards`, { waitUntil: 'networkidle' });
+    await page.goto(`${BASE_URL}/docs/axiomloom-iot-platform`, { waitUntil: 'networkidle' });
 
     // Wait for page to load
     await page.waitForTimeout(2000);
@@ -64,7 +64,7 @@ test.describe('Verify nslabsdashboards Repository Fixes', () => {
   });
 
   test('should display populated Use Cases list', async ({ page }) => {
-    await page.goto(`${BASE_URL}/docs/nslabsdashboards`, { waitUntil: 'networkidle' });
+    await page.goto(`${BASE_URL}/docs/axiomloom-iot-platform`, { waitUntil: 'networkidle' });
     await page.waitForTimeout(2000);
 
     // Count how many use case items are displayed
@@ -76,7 +76,7 @@ test.describe('Verify nslabsdashboards Repository Fixes', () => {
   });
 
   test('should display populated Key Benefits list', async ({ page }) => {
-    await page.goto(`${BASE_URL}/docs/nslabsdashboards`, { waitUntil: 'networkidle' });
+    await page.goto(`${BASE_URL}/docs/axiomloom-iot-platform`, { waitUntil: 'networkidle' });
     await page.waitForTimeout(2000);
 
     // Count how many key benefit items are displayed
