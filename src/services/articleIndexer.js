@@ -39,6 +39,27 @@ const CATEGORIES = {
 };
 
 /**
+ * Check if a filename should be excluded from article indexing
+ * @param {string} filename - Name of the file
+ * @returns {boolean} True if file should be excluded
+ */
+function shouldExcludeFile(filename) {
+  const exclusionPatterns = [
+    'README.md',
+    /^SESSION_CONTEXT/i,  // Session context logs
+    /^CONTEXT_/i,          // Context files
+    /^\./,                 // Hidden files
+  ];
+
+  return exclusionPatterns.some(pattern => {
+    if (typeof pattern === 'string') {
+      return filename === pattern;
+    }
+    return pattern.test(filename);
+  });
+}
+
+/**
  * Recursively find all markdown files in directory
  * @param {string} dir - Directory to scan
  * @returns {string[]} Array of file paths
@@ -54,7 +75,7 @@ function findMarkdownFiles(dir) {
 
       if (entry.isDirectory()) {
         scan(fullPath);
-      } else if (entry.isFile() && entry.name.endsWith('.md') && entry.name !== 'README.md') {
+      } else if (entry.isFile() && entry.name.endsWith('.md') && !shouldExcludeFile(entry.name)) {
         files.push(fullPath);
       }
     }
