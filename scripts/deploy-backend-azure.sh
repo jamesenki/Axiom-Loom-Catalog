@@ -46,36 +46,37 @@ else
 fi
 echo ""
 
-# Step 3: Build and push Docker image
-echo "Step 3: Building and pushing Docker image..."
+# Step 3: Get GitHub token for Docker build
+echo "Step 3: Getting GitHub token for Docker build..."
+GITHUB_TOKEN=$(GITHUB_TOKEN="" gh auth token 2>/dev/null || echo "")
+if [ -z "$GITHUB_TOKEN" ]; then
+    echo "⚠️  Warning: No GitHub token found. Private repositories won't be cloned during build."
+    echo "   Run 'gh auth login' to authenticate."
+else
+    echo "✓ GitHub token retrieved for Docker build"
+fi
+echo ""
+
+# Step 4: Build and push Docker image with GitHub token
+echo "Step 4: Building and pushing Docker image with GitHub token..."
 az acr build --registry $ACR_NAME \
     --image $IMAGE_NAME:latest \
     --file Dockerfile.backend \
+    --build-arg GITHUB_TOKEN=$GITHUB_TOKEN \
     .
 echo "✅ Image built and pushed: $IMAGE_NAME:latest"
 echo ""
 
-# Step 4: Get ACR credentials
-echo "Step 4: Getting ACR credentials..."
+# Step 6: Get ACR credentials
+echo "Step 6: Getting ACR credentials..."
 ACR_LOGIN_SERVER=$(az acr show --name $ACR_NAME --query loginServer --output tsv)
 ACR_USERNAME=$(az acr credential show --name $ACR_NAME --query username --output tsv)
 ACR_PASSWORD=$(az acr credential show --name $ACR_NAME --query passwords[0].value --output tsv)
 echo "✓ ACR credentials retrieved"
 echo ""
 
-# Step 5: Get GitHub token
-echo "Step 5: Getting GitHub token..."
-GITHUB_TOKEN=$(GITHUB_TOKEN="" gh auth token 2>/dev/null || echo "")
-if [ -z "$GITHUB_TOKEN" ]; then
-    echo "⚠️  Warning: No GitHub token found. Private repositories won't be cloned."
-    echo "   Run 'gh auth login' to authenticate."
-else
-    echo "✓ GitHub token retrieved"
-fi
-echo ""
-
-# Step 6: Deploy container to Azure Container Instance
-echo "Step 6: Deploying to Azure Container Instance..."
+# Step 7: Deploy container to Azure Container Instance
+echo "Step 7: Deploying to Azure Container Instance..."
 az container create \
     --resource-group $RESOURCE_GROUP \
     --name $CONTAINER_NAME \
