@@ -30,7 +30,8 @@ const BlogPage: React.FC = () => {
 
   // Fetch categories on mount
   useEffect(() => {
-    fetch('/api/article-categories')
+    const apiUrl = process.env.REACT_APP_API_URL || '';
+    fetch(`${apiUrl}/api/article-categories`)
       .then(res => res.json())
       .then(data => setCategories(data.sort((a, b) => a.order - b.order)))
       .catch(err => setError('Failed to load categories'));
@@ -39,7 +40,8 @@ const BlogPage: React.FC = () => {
   // Fetch articles when category changes
   useEffect(() => {
     setLoading(true);
-    const endpoint = category ? `/api/articles/${category}` : '/api/articles';
+    const apiUrl = process.env.REACT_APP_API_URL || '';
+    const endpoint = category ? `${apiUrl}/api/articles/${category}` : `${apiUrl}/api/articles`;
 
     fetch(endpoint)
       .then(res => res.json())

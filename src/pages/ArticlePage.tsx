@@ -23,7 +23,8 @@ const ArticlePage: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    fetch(`/api/articles/${category}/${slug}`)
+    const apiUrl = process.env.REACT_APP_API_URL || '';
+    fetch(`${apiUrl}/api/articles/${category}/${slug}`)
       .then(res => {
         if (!res.ok) throw new Error('Article not found');
         return res.json();
