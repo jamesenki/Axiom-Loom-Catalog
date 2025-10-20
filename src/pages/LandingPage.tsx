@@ -178,7 +178,9 @@ const LandingPage: React.FC = () => {
                 <div className="publication-item">
                   <div className="pub-icon">✍️</div>
                   <div className="pub-content">
-                    <div className="pub-title">Software Development as a Social System</div>
+                    <Link to="/blog/organizational-foundations/1.1-software-development-as-social-system" className="pub-title-link">
+                      <div className="pub-title">Software Development as a Social System</div>
+                    </Link>
                     <div className="pub-meta">Personal Blog | Conway's Law, DDD, Team Topologies</div>
                     <div className="pub-desc">How organizational structures shape architecture and the principles for intentional design</div>
                   </div>
@@ -186,7 +188,9 @@ const LandingPage: React.FC = () => {
                 <div className="publication-item">
                   <div className="pub-icon">✍️</div>
                   <div className="pub-content">
-                    <div className="pub-title">Building High-Performing Engineering Organizations</div>
+                    <Link to="/blog/organizational-foundations/1.2-building-high-performing-engineering-organizations" className="pub-title-link">
+                      <div className="pub-title">Building High-Performing Engineering Organizations</div>
+                    </Link>
                     <div className="pub-meta">Personal Blog | Leadership & Principles</div>
                     <div className="pub-desc">The four fundamental questions, architectural principles, and tenets that guide elite teams</div>
                   </div>
@@ -194,7 +198,9 @@ const LandingPage: React.FC = () => {
                 <div className="publication-item">
                   <div className="pub-icon">✍️</div>
                   <div className="pub-content">
-                    <div className="pub-title">Beyond Fake Agile: What True Agility Really Means</div>
+                    <Link to="/blog/practices-and-principles/2.1-beyond-fake-agile" className="pub-title-link">
+                      <div className="pub-title">Beyond Fake Agile: What True Agility Really Means</div>
+                    </Link>
                     <div className="pub-meta">Personal Blog | Agile Transformation</div>
                     <div className="pub-desc">Cutting through buzzwords to reveal genuine agility and the 12 non-negotiable principles</div>
                   </div>
@@ -202,7 +208,9 @@ const LandingPage: React.FC = () => {
                 <div className="publication-item">
                   <div className="pub-icon">✍️</div>
                   <div className="pub-content">
-                    <div className="pub-title">Lean Software Development: Optimizing the Flow of Value</div>
+                    <Link to="/blog/practices-and-principles/2.2-lean-software-development" className="pub-title-link">
+                      <div className="pub-title">Lean Software Development: Optimizing the Flow of Value</div>
+                    </Link>
                     <div className="pub-meta">Personal Blog | Lean Principles</div>
                     <div className="pub-desc">Applying lean manufacturing principles to software development for continuous improvement</div>
                   </div>
@@ -210,7 +218,9 @@ const LandingPage: React.FC = () => {
                 <div className="publication-item">
                   <div className="pub-icon">✍️</div>
                   <div className="pub-content">
-                    <div className="pub-title">DevOps Beyond the Buzzword</div>
+                    <Link to="/blog/practices-and-principles/2.3-devops-beyond-buzzword" className="pub-title-link">
+                      <div className="pub-title">DevOps Beyond the Buzzword</div>
+                    </Link>
                     <div className="pub-meta">Personal Blog | Culture & Practices</div>
                     <div className="pub-desc">What DevOps really means: culture, automation, measurement, and continuous delivery</div>
                   </div>
@@ -218,7 +228,9 @@ const LandingPage: React.FC = () => {
                 <div className="publication-item">
                   <div className="pub-icon">✍️</div>
                   <div className="pub-content">
-                    <div className="pub-title">Product Thinking: From Projects to Products</div>
+                    <Link to="/blog/practices-and-principles/2.4-product-thinking" className="pub-title-link">
+                      <div className="pub-title">Product Thinking: From Projects to Products</div>
+                    </Link>
                     <div className="pub-meta">Personal Blog | Product Management</div>
                     <div className="pub-desc">Shifting from project-based delivery to product-centric software development</div>
                   </div>
@@ -226,7 +238,9 @@ const LandingPage: React.FC = () => {
                 <div className="publication-item">
                   <div className="pub-icon">✍️</div>
                   <div className="pub-content">
-                    <div className="pub-title">Test-First Development: A Practical Guide</div>
+                    <Link to="/blog/technical-practices/3.1-test-first-development" className="pub-title-link">
+                      <div className="pub-title">Test-First Development: A Practical Guide</div>
+                    </Link>
                     <div className="pub-meta">Personal Blog | TDD, BDD, ATDD</div>
                     <div className="pub-desc">Using tests as design tools, specifications, and quality gatekeepers</div>
                   </div>
@@ -234,7 +248,9 @@ const LandingPage: React.FC = () => {
                 <div className="publication-item">
                   <div className="pub-icon">✍️</div>
                   <div className="pub-content">
-                    <div className="pub-title">Policy as Code: Automated Governance That Enables Speed</div>
+                    <Link to="/blog/technical-practices/3.2-policy-as-code" className="pub-title-link">
+                      <div className="pub-title">Policy as Code: Automated Governance That Enables Speed</div>
+                    </Link>
                     <div className="pub-meta">Personal Blog | Cloud Governance</div>
                     <div className="pub-desc">Implementing automated compliance and governance without sacrificing velocity</div>
                   </div>
@@ -242,7 +258,9 @@ const LandingPage: React.FC = () => {
                 <div className="publication-item">
                   <div className="pub-icon">✍️</div>
                   <div className="pub-content">
-                    <div className="pub-title">Team Topologies: Organizing for Fast Flow</div>
+                    <Link to="/blog/team-structures/4.1-team-topologies" className="pub-title-link">
+                      <div className="pub-title">Team Topologies: Organizing for Fast Flow</div>
+                    </Link>
                     <div className="pub-meta">Personal Blog | Organizational Design</div>
                     <div className="pub-desc">Structuring teams and interactions for optimal software delivery performance</div>
                   </div>
@@ -388,16 +406,18 @@ const LandingPage: React.FC = () => {
             <div className="card-action">View Resume →</div>
           </Link>
 
-          {/* Blog - Coming Soon */}
-          <div className="nav-card coming-soon">
+          {/* Blog - NOW ACTIVE */}
+          <Link to="/blog" className="nav-card active">
             <div className="card-icon">✍️</div>
             <h2>Thought Leadership</h2>
             <p>
-              Insights on AI, cloud architecture, software engineering, and the future of
-              technology. Essays, tutorials, and deep dives into modern development.
+              Insights on engineering excellence, organizational design, AI integration,
+              and technical practices. Deep dives into agile transformation, DevOps culture,
+              and building high-performing teams.
             </p>
-            <div className="card-status upcoming">Coming Soon</div>
-          </div>
+            <div className="card-status available">37 Articles Available</div>
+            <div className="card-action">Read Articles →</div>
+          </Link>
         </div>
       </section>
 

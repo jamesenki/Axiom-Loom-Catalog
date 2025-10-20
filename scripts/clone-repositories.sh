@@ -34,6 +34,7 @@ sdv-architecture-orchestration
 sovd-diagnostic-ecosystem-platform-architecture
 vehicle-to-cloud-communications-architecture
 velocityforge-sdv-platform-architecture
+profile
 "
 
 # Clone each repository

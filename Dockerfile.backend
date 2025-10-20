@@ -20,6 +20,7 @@ COPY src/server.js ./src/
 COPY src/api/ ./src/api/
 COPY src/services/ ./src/services/
 COPY src/middleware/ ./src/middleware/
+COPY src/utils/ ./src/utils/
 
 # Copy startup script
 COPY scripts/clone-repositories.sh ./scripts/
@@ -28,8 +29,14 @@ RUN chmod +x ./scripts/clone-repositories.sh
 # Create directory for cloned repositories
 RUN mkdir -p /app/cloned-repositories
 
+# Create directory for blog articles
+RUN mkdir -p /app/blog-articles
+
 # Copy repository metadata
 COPY repository-metadata.json ./
+
+# Set environment variable for blog articles path
+ENV BLOG_ARTICLES_PATH=/app/blog-articles/articles
 
 # Expose port
 EXPOSE 3001

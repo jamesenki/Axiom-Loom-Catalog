@@ -38,6 +38,8 @@ if (typeof window !== 'undefined') {
 // Lazy load components for better performance
 const LandingPage = lazy(() => import('./pages/LandingPage'));
 const ResumePage = lazy(() => import('./pages/ResumePage'));
+const BlogPage = lazy(() => import('./pages/BlogPage'));
+const ArticlePage = lazy(() => import('./pages/ArticlePage'));
 const RepositoryList = lazy(() => import('./components/RepositoryList'));
 const RepositoryDetail = lazy(() => import('./components/RepositoryDetailRedesigned'));
 const RepositoryView = lazy(() => import('./components/RepositoryView'));
@@ -182,6 +184,10 @@ function AppContent() {
                     {/* Public routes */}
                     <Route path="/" element={<PageTransition><LandingPage /></PageTransition>} />
                     <Route path="/resume" element={<PageTransition><ResumePage /></PageTransition>} />
+                    <Route path="/blog" element={<PageTransition><BlogPage /></PageTransition>} />
+                    <Route path="/blog/category/:category" element={<PageTransition><BlogPage /></PageTransition>} />
+                    <Route path="/blog/:category/:slug" element={<PageTransition><ArticlePage /></PageTransition>} />
+                    <Route path="/thought-leadership" element={<PageTransition><BlogPage /></PageTransition>} />
                     <Route path="/login" element={<Login />} />
                     <Route path="/auth/callback" element={<AuthCallback />} />
 

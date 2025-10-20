@@ -333,11 +333,23 @@
   flex: 1;
 }
 
+.pub-title-link {
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.2s ease;
+}
+
+.pub-title-link:hover .pub-title {
+  color: #6366f1;
+  transform: translateX(4px);
+}
+
 .pub-title {
   font-weight: 600;
   font-size: 1.125rem;
   color: rgba(255, 255, 255, 0.95);
   margin-bottom: 0.5rem;
+  transition: all 0.2s ease;
 }
 
 .pub-meta {

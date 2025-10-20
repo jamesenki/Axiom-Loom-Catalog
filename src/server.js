@@ -16,6 +16,12 @@ const plantUmlRoutes = require('./api/plantUmlRenderer');
 const searchRoutes = require('./api/searchApi');
 const authRoutes = require('./api/authRoutes');
 
+// Blog articles path configuration
+const BLOG_ARTICLES_PATH = process.env.BLOG_ARTICLES_PATH ||
+  (process.env.NODE_ENV === 'production'
+    ? '/app/blog-articles/articles'
+    : '/Users/lisasimon/repos/profile/articles');
+
 // Load repository metadata
 let repositoryMetadata = {};
 try {
@@ -26,6 +32,21 @@ try {
 } catch (error) {
   console.warn('Repository metadata file not found or invalid, using defaults:', error.message);
 }
+
+// Initialize blog articles index
+const { buildArticleIndex, CATEGORIES } = require('./services/articleIndexer');
+let blogArticleIndex = null;
+try {
+  if (fs.existsSync(BLOG_ARTICLES_PATH)) {
+    blogArticleIndex = buildArticleIndex(BLOG_ARTICLES_PATH);
+    console.log(`📝 Indexed ${blogArticleIndex.articles.length} blog articles`);
+  } else {
+    console.warn(`Blog articles directory not found at: ${BLOG_ARTICLES_PATH}`);
+  }
+} catch (error) {
+  console.error('Failed to index blog articles:', error);
+}
+
 const healthCheckRoutes = require('./api/healthCheck');
 const analyticsApiRoutes = require('./api/analyticsApi');
 const { 
@@ -600,6 +621,83 @@ app.get('/api/repository/:repoName/public', (req, res) => {
     console.error('Error getting repository details:', error);
     res.status(500).json({ error: 'Failed to get repository details' });
   }
+});
+
+// Blog API Endpoints (no auth required - public content)
+
+// Get all article categories with counts
+app.get('/api/article-categories', (req, res) => {
+  if (!blogArticleIndex) {
+    return res.status(503).json({ error: 'Blog articles not indexed yet' });
+  }
+
+  const categories = Object.keys(CATEGORIES).map(key => ({
+    slug: key,
+    ...CATEGORIES[key],
+    articleCount: blogArticleIndex.byCategory[key]?.length || 0
+  }));
+
+  res.json(categories);
+});
+
+// Get all articles (summary only)
+app.get('/api/articles', (req, res) => {
+  if (!blogArticleIndex) {
+    return res.status(503).json({ error: 'Blog articles not indexed yet' });
+  }
+
+  const articles = blogArticleIndex.articles.map(article => ({
+    slug: article.slug,
+    title: article.title,
+    excerpt: article.excerpt,
+    category: article.category,
+    tags: article.tags,
+    date: article.date,
+    readingTime: article.readingTime
+  }));
+
+  res.json(articles);
+});
+
+// Get articles by category
+app.get('/api/articles/:category', (req, res) => {
+  if (!blogArticleIndex) {
+    return res.status(503).json({ error: 'Blog articles not indexed yet' });
+  }
+
+  const { category } = req.params;
+
+  if (!blogArticleIndex.byCategory[category]) {
+    return res.status(404).json({ error: 'Category not found' });
+  }
+
+  const articles = blogArticleIndex.byCategory[category].map(article => ({
+    slug: article.slug,
+    title: article.title,
+    excerpt: article.excerpt,
+    category: article.category,
+    tags: article.tags,
+    date: article.date,
+    readingTime: article.readingTime
+  }));
+
+  res.json(articles);
+});
+
+// Get individual article with full content
+app.get('/api/articles/:category/:slug', (req, res) => {
+  if (!blogArticleIndex) {
+    return res.status(503).json({ error: 'Blog articles not indexed yet' });
+  }
+
+  const { slug } = req.params;
+  const article = blogArticleIndex.bySlug[slug];
+
+  if (!article) {
+    return res.status(404).json({ error: 'Article not found' });
+  }
+
+  res.json(article);
 });
 
 // Public GraphQL schemas endpoint (no auth required)
