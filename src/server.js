@@ -338,7 +338,7 @@ app.get('/api/repositories', (req, res) => {
             website: urls.website || null,
             github: urls.github || `https://github.com/${process.env.GITHUB_ORGANIZATION || 'jamesenki'}/${dirent.name}`
           },
-          pricing: business.pricing || metadata.pricing || null,
+          pricing: portalMetadata?.pricing || business.pricing || metadata.pricing || null,
           businessValue: businessValue || metadata.businessValue || null,
           content: repoConfig.content || {
             keyFeatures: ['Enterprise-grade architecture', 'Comprehensive API coverage', 'Professional support'],
@@ -582,7 +582,7 @@ app.get('/api/repository/:repoName/public', (req, res) => {
         website: urls.website || null,
         github: urls.github || `https://github.com/${process.env.GITHUB_ORGANIZATION || 'jamesenki'}/${repoName}`
       },
-      pricing: business.pricing || metadata.pricing || null,
+      pricing: portalMetadata?.pricing || business.pricing || metadata.pricing || null,
       businessValue: businessValue || metadata.businessValue || null,
       content: repoConfig.content || {
         keyFeatures: ['Enterprise-grade architecture', 'Comprehensive API coverage', 'Professional support'],
@@ -866,7 +866,7 @@ app.get('/api/repository/:repoName/details', authenticate, authorize('read:apis'
       },
       apis: apis,
       postmanCollections: postmanCollections,
-      pricing: metadata.pricing || centralMetadata.pricing || null,
+      pricing: portalMetadata?.pricing || metadata.pricing || centralMetadata.pricing || null,
       businessValue: businessValue || centralMetadata.businessValue || null,
       techStack: metadata.technical || centralMetadata.techStack || null
     });
