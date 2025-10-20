@@ -1,6 +1,6 @@
 # Dockerfile for Axiom Loom Catalog Backend
 # Runs Node.js server with cloned repositories
-# Build: 2025-10-20-v3
+# Build: 2025-10-20-v4 - Clone profile repo during Docker build
 
 FROM node:18-alpine
 
@@ -27,18 +27,20 @@ COPY src/utils/ ./src/utils/
 COPY scripts/clone-repositories.sh ./scripts/
 RUN chmod +x ./scripts/clone-repositories.sh
 
-# WORKAROUND: Explicitly add profile to REPOSITORIES list
-# This ensures profile repo is always included even if file copy fails
-RUN sed -i '/velocityforge-sdv-platform-architecture/a profile' ./scripts/clone-repositories.sh
-
 # Create directory for cloned repositories
 RUN mkdir -p /app/cloned-repositories
+
+# CRITICAL FIX: Clone profile repository during Docker build
+# This ensures blog articles are baked into the image
+RUN cd /app/cloned-repositories && \
+    git clone https://github.com/jamesenki/profile.git profile 2>/dev/null || \
+    echo "Warning: Could not clone profile repo (might be private)"
 
 # Copy repository metadata
 COPY repository-metadata.json ./
 
 # Set environment variable for blog articles path
-# Profile repo is cloned to /app/cloned-repositories/profile by the clone script
+# Profile repo is now guaranteed to exist at build time
 ENV BLOG_ARTICLES_PATH=/app/cloned-repositories/profile/articles
 
 # Expose port
