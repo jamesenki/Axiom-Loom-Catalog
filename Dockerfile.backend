@@ -27,6 +27,10 @@ COPY src/utils/ ./src/utils/
 COPY scripts/clone-repositories.sh ./scripts/
 RUN chmod +x ./scripts/clone-repositories.sh
 
+# WORKAROUND: Explicitly add profile to REPOSITORIES list
+# This ensures profile repo is always included even if file copy fails
+RUN sed -i '/velocityforge-sdv-platform-architecture/a profile' ./scripts/clone-repositories.sh
+
 # Create directory for cloned repositories
 RUN mkdir -p /app/cloned-repositories
 
