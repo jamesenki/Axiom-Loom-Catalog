@@ -29,14 +29,12 @@ RUN chmod +x ./scripts/clone-repositories.sh
 # Create directory for cloned repositories
 RUN mkdir -p /app/cloned-repositories
 
-# Create directory for blog articles
-RUN mkdir -p /app/blog-articles
-
 # Copy repository metadata
 COPY repository-metadata.json ./
 
 # Set environment variable for blog articles path
-ENV BLOG_ARTICLES_PATH=/app/blog-articles/articles
+# Profile repo is cloned to /app/cloned-repositories/profile by the clone script
+ENV BLOG_ARTICLES_PATH=/app/cloned-repositories/profile/articles
 
 # Expose port
 EXPOSE 3001
