@@ -109,40 +109,153 @@ const BlogPage: React.FC = () => {
         ) : articles.length === 0 ? (
           <div className="no-articles">No articles found in this category.</div>
         ) : (
-          articles.map(article => (
-            <article key={article.slug} className="article-card">
-              <div className="article-meta">
-                <span className="category-badge">{article.categoryName}</span>
-                <span className="reading-time">{article.readingTime} min read</span>
-              </div>
-              <h3>
-                <Link to={`/blog/${article.category}/${article.slug}`}>
-                  {article.title}
-                </Link>
-              </h3>
-              <p className="article-excerpt">{article.excerpt}</p>
-              <div className="article-footer">
-                {article.date && (
-                  <span className="article-date">
-                    {new Date(article.date).toLocaleDateString()}
-                  </span>
-                )}
-                {article.tags.length > 0 && (
-                  <div className="article-tags">
-                    {article.tags.slice(0, 3).map(tag => (
-                      <span key={tag} className="tag">{tag}</span>
+          <>
+            {/* Featured Transformation Stories Section */}
+            {!category && articles.filter(a => a.category === 'transformation-stories').length > 0 && (
+              <div className="featured-stories-section">
+                <h2 className="section-title">
+                  <span className="featured-badge">Featured</span>
+                  Transformation Stories
+                </h2>
+                <p className="section-description">
+                  Real-world transformation journeys from legacy to modern software organizations
+                </p>
+                <div className="featured-stories-grid">
+                  {articles
+                    .filter(a => a.category === 'transformation-stories')
+                    .map(article => (
+                      <article key={article.slug} className="article-card featured">
+                        <div className="featured-indicator">
+                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" fill="currentColor"/>
+                          </svg>
+                          Featured Story
+                        </div>
+                        <div className="article-meta">
+                          <span className="category-badge transformation">{article.categoryName}</span>
+                          <span className="reading-time">{article.readingTime} min read</span>
+                        </div>
+                        <h3>
+                          <Link to={`/blog/${article.category}/${article.slug}`}>
+                            {article.title}
+                          </Link>
+                        </h3>
+                        <p className="article-excerpt">{article.excerpt}</p>
+                        <div className="article-footer">
+                          {article.date && (
+                            <span className="article-date">
+                              {new Date(article.date).toLocaleDateString()}
+                            </span>
+                          )}
+                          {article.tags.length > 0 && (
+                            <div className="article-tags">
+                              {article.tags.slice(0, 3).map(tag => (
+                                <span key={tag} className="tag">{tag}</span>
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                        <Link
+                          to={`/blog/${article.category}/${article.slug}`}
+                          className="read-more featured"
+                        >
+                          Read Transformation Story →
+                        </Link>
+                      </article>
                     ))}
+                </div>
+              </div>
+            )}
+
+            {/* Other Articles Section */}
+            {!category && articles.filter(a => a.category !== 'transformation-stories').length > 0 && (
+              <div className="other-articles-section">
+                <h2 className="section-title">All Articles</h2>
+                {articles
+                  .filter(a => a.category !== 'transformation-stories')
+                  .map(article => (
+                    <article key={article.slug} className="article-card">
+                      <div className="article-meta">
+                        <span className="category-badge">{article.categoryName}</span>
+                        <span className="reading-time">{article.readingTime} min read</span>
+                      </div>
+                      <h3>
+                        <Link to={`/blog/${article.category}/${article.slug}`}>
+                          {article.title}
+                        </Link>
+                      </h3>
+                      <p className="article-excerpt">{article.excerpt}</p>
+                      <div className="article-footer">
+                        {article.date && (
+                          <span className="article-date">
+                            {new Date(article.date).toLocaleDateString()}
+                          </span>
+                        )}
+                        {article.tags.length > 0 && (
+                          <div className="article-tags">
+                            {article.tags.slice(0, 3).map(tag => (
+                              <span key={tag} className="tag">{tag}</span>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                      <Link
+                        to={`/blog/${article.category}/${article.slug}`}
+                        className="read-more"
+                      >
+                        Read Article →
+                      </Link>
+                    </article>
+                  ))}
+              </div>
+            )}
+
+            {/* Category View - Show all articles including transformation stories */}
+            {category && articles.map(article => (
+              <article key={article.slug} className={`article-card ${article.category === 'transformation-stories' ? 'featured' : ''}`}>
+                {article.category === 'transformation-stories' && (
+                  <div className="featured-indicator">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" fill="currentColor"/>
+                    </svg>
+                    Featured Story
                   </div>
                 )}
-              </div>
-              <Link
-                to={`/blog/${article.category}/${article.slug}`}
-                className="read-more"
-              >
-                Read Article →
-              </Link>
-            </article>
-          ))
+                <div className="article-meta">
+                  <span className={`category-badge ${article.category === 'transformation-stories' ? 'transformation' : ''}`}>
+                    {article.categoryName}
+                  </span>
+                  <span className="reading-time">{article.readingTime} min read</span>
+                </div>
+                <h3>
+                  <Link to={`/blog/${article.category}/${article.slug}`}>
+                    {article.title}
+                  </Link>
+                </h3>
+                <p className="article-excerpt">{article.excerpt}</p>
+                <div className="article-footer">
+                  {article.date && (
+                    <span className="article-date">
+                      {new Date(article.date).toLocaleDateString()}
+                    </span>
+                  )}
+                  {article.tags.length > 0 && (
+                    <div className="article-tags">
+                      {article.tags.slice(0, 3).map(tag => (
+                        <span key={tag} className="tag">{tag}</span>
+                      ))}
+                    </div>
+                  )}
+                </div>
+                <Link
+                  to={`/blog/${article.category}/${article.slug}`}
+                  className={`read-more ${article.category === 'transformation-stories' ? 'featured' : ''}`}
+                >
+                  {article.category === 'transformation-stories' ? 'Read Transformation Story →' : 'Read Article →'}
+                </Link>
+              </article>
+            ))}
+          </>
         )}
       </div>
     </div>

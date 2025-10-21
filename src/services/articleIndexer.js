@@ -6,6 +6,12 @@ const { parseArticle } = require('../utils/articleParser');
  * Category definitions with display names
  */
 const CATEGORIES = {
+  'transformation-stories': {
+    name: 'Transformation Stories',
+    description: 'Real-world transformation journeys from legacy to modern software organizations',
+    order: 0,
+    featured: true
+  },
   'organizational-foundations': {
     name: 'Organizational Foundations',
     description: 'Building effective engineering organizations and culture',

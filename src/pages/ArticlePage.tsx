@@ -1,9 +1,47 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
+import mermaid from 'mermaid';
 import './ArticlePage.css';
+
+// Initialize mermaid
+mermaid.initialize({
+  startOnLoad: false,
+  theme: 'default',
+  securityLevel: 'loose',
+});
+
+// Mermaid diagram component
+const MermaidDiagram: React.FC<{ chart: string }> = ({ chart }) => {
+  const elementRef = useRef<HTMLDivElement>(null);
+  const [svg, setSvg] = useState<string>('');
+
+  useEffect(() => {
+    if (elementRef.current && chart) {
+      const renderDiagram = async () => {
+        try {
+          const id = `mermaid-${Math.random().toString(36).substr(2, 9)}`;
+          const { svg } = await mermaid.render(id, chart);
+          setSvg(svg);
+        } catch (error) {
+          console.error('Mermaid rendering error:', error);
+          setSvg(`<pre>Error rendering diagram: ${error}</pre>`);
+        }
+      };
+      renderDiagram();
+    }
+  }, [chart]);
+
+  return (
+    <div
+      ref={elementRef}
+      className="mermaid-diagram"
+      dangerouslySetInnerHTML={{ __html: svg }}
+    />
+  );
+};
 
 interface Article {
   slug: string;
@@ -93,12 +131,21 @@ const ArticlePage: React.FC = () => {
                 />
               );
             },
-            // Custom rendering for code blocks
-            code: ({ node, inline, ...props }) => (
-              inline ?
-                <code className="inline-code" {...props} /> :
-                <code className="code-block" {...props} />
-            )
+            // Custom rendering for code blocks with Mermaid support
+            code: ({ node, inline, className, children, ...props }) => {
+              const match = /language-(\w+)/.exec(className || '');
+              const language = match ? match[1] : '';
+
+              // Render Mermaid diagrams
+              if (!inline && language === 'mermaid') {
+                return <MermaidDiagram chart={String(children).trim()} />;
+              }
+
+              // Regular code blocks
+              return inline ?
+                <code className="inline-code" {...props}>{children}</code> :
+                <code className={`code-block ${className || ''}`} {...props}>{children}</code>;
+            }
           }}
         >
           {article.content}

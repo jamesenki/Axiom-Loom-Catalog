@@ -170,6 +170,24 @@
   margin: 1.5rem 0;
 }
 
+/* Mermaid diagram styling */
+.article-content .mermaid-diagram {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background: #f7fafc;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  overflow-x: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.article-content .mermaid-diagram svg {
+  max-width: 100%;
+  height: auto;
+}
+
 .article-footer {
   max-width: 800px;
   margin: 0 auto;
