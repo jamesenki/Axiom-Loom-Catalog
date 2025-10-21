@@ -59,10 +59,13 @@ echo ""
 
 # Step 4: Build and push Docker image with GitHub token
 echo "Step 4: Building and pushing Docker image with GitHub token..."
+CACHE_BUST=$(date +%s)
+echo "   Cache bust value: $CACHE_BUST (forces fresh git clone)"
 az acr build --registry $ACR_NAME \
     --image $IMAGE_NAME:latest \
     --file Dockerfile.backend \
     --build-arg GITHUB_TOKEN=$GITHUB_TOKEN \
+    --build-arg CACHE_BUST=$CACHE_BUST \
     .
 echo "✅ Image built and pushed: $IMAGE_NAME:latest"
 echo ""

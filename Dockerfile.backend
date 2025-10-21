@@ -10,6 +10,9 @@ RUN apk add --no-cache git
 # Accept GitHub token as build argument for cloning private repos
 ARG GITHUB_TOKEN
 
+# Cache-busting argument to force git clone refresh
+ARG CACHE_BUST=unknown
+
 # Set working directory
 WORKDIR /app
 
@@ -32,6 +35,9 @@ RUN chmod +x ./scripts/clone-repositories.sh
 
 # Create directory for cloned repositories
 RUN mkdir -p /app/cloned-repositories
+
+# Use CACHE_BUST to force re-cloning of repositories when content changes
+RUN echo "Cache bust: $CACHE_BUST"
 
 # CRITICAL FIX: Clone profile repository during Docker build using GitHub token
 # This ensures blog articles are baked into the image
