@@ -16,18 +16,31 @@ mermaid.initialize({
 // Mermaid diagram component
 const MermaidDiagram: React.FC<{ chart: string }> = ({ chart }) => {
   const elementRef = useRef<HTMLDivElement>(null);
-  const [svg, setSvg] = useState<string>('');
 
   useEffect(() => {
     if (elementRef.current && chart) {
       const renderDiagram = async () => {
         try {
-          const id = `mermaid-${Math.random().toString(36).substr(2, 9)}`;
-          const { svg } = await mermaid.render(id, chart);
-          setSvg(svg);
+          // Clear previous content
+          if (elementRef.current) {
+            elementRef.current.innerHTML = '';
+
+            // Create a temporary div for mermaid to render into
+            const tempDiv = document.createElement('div');
+            tempDiv.className = 'mermaid';
+            tempDiv.textContent = chart;
+            elementRef.current.appendChild(tempDiv);
+
+            // Run mermaid on this element
+            await mermaid.run({
+              nodes: [tempDiv],
+            });
+          }
         } catch (error) {
           console.error('Mermaid rendering error:', error);
-          setSvg(`<pre>Error rendering diagram: ${error}</pre>`);
+          if (elementRef.current) {
+            elementRef.current.innerHTML = `<pre class="mermaid-error">Error rendering diagram: ${error}</pre>`;
+          }
         }
       };
       renderDiagram();
@@ -38,7 +51,6 @@ const MermaidDiagram: React.FC<{ chart: string }> = ({ chart }) => {
     <div
       ref={elementRef}
       className="mermaid-diagram"
-      dangerouslySetInnerHTML={{ __html: svg }}
     />
   );
 };
