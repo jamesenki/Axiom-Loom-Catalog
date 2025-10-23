@@ -202,6 +202,68 @@
   font-size: 0.9rem;
 }
 
+/* Social media sharing styling */
+.social-sharing {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: white;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.social-sharing .share-label {
+  font-weight: 600;
+  color: #4a5568;
+  font-size: 0.9rem;
+}
+
+.social-sharing .share-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  transition: all 0.2s;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+}
+
+.social-sharing .share-button:hover {
+  transform: translateY(-2px);
+}
+
+.social-sharing .share-button.twitter {
+  color: #1da1f2;
+  background: rgba(29, 161, 242, 0.1);
+}
+
+.social-sharing .share-button.twitter:hover {
+  background: rgba(29, 161, 242, 0.2);
+}
+
+.social-sharing .share-button.linkedin {
+  color: #0077b5;
+  background: rgba(0, 119, 181, 0.1);
+}
+
+.social-sharing .share-button.linkedin:hover {
+  background: rgba(0, 119, 181, 0.2);
+}
+
+.social-sharing .share-button.copy {
+  color: #718096;
+  background: rgba(113, 128, 150, 0.1);
+}
+
+.social-sharing .share-button.copy:hover {
+  background: rgba(113, 128, 150, 0.2);
+}
+
 .article-footer {
   max-width: 800px;
   margin: 0 auto;
