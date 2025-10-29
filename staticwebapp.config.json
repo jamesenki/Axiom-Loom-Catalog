@@ -1,4 +1,5 @@
 {
+  "_comment": "Proxies /api/* to backend container for blog articles and repository data",
   "platform": {
     "apiRuntime": "node:18"
   },
