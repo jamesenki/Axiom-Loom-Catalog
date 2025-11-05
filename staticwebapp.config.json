@@ -1,5 +1,5 @@
 {
-  "_comment": "Proxies /api/* to backend container for blog articles and repository data",
+  "_comment": "Proxies /api/* to backend container for blog articles and repository data - Updated to force Azure config reload",
   "platform": {
     "apiRuntime": "node:18"
   },
