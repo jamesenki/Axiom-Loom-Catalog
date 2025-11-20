@@ -67,6 +67,10 @@ interface RepositoryDetails {
     name: string;
     path: string;
   }>;
+  workshopPresentations?: Array<{
+    title: string;
+    url: string;
+  }>;
 }
 
 const PageHeader = styled.div`
@@ -333,6 +337,46 @@ const RepositoryDetail: React.FC = () => {
               </Flex>
             </CardContent>
           </Card>
+
+          {/* Workshop Presentations */}
+          {repository.workshopPresentations && repository.workshopPresentations.length > 0 && (
+            <Card style={{ marginTop: theme.spacing[8] }}>
+              <CardHeader>
+                <CardTitle>Workshop Presentations</CardTitle>
+                <CardDescription>
+                  Learn the technical concepts powering this architecture through interactive workshop presentations
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <ApiList>
+                  {repository.workshopPresentations.map((presentation, index) => (
+                    <ApiItem key={index}>
+                      <Flex align="center" gap={3}>
+                        <BookOpen size={24} color={theme.colors.primary.yellow} />
+                        <div>
+                          <Text weight="semibold">{presentation.title}</Text>
+                          <Text color="secondary" style={{ fontSize: theme.typography.fontSize.sm }}>
+                            Interactive workshop presentation
+                          </Text>
+                        </div>
+                      </Flex>
+                      <Button
+                        as="a"
+                        href={presentation.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        variant="outline"
+                        style={{ padding: `${theme.spacing[2]} ${theme.spacing[4]}` }}
+                      >
+                        <ExternalLink size={16} />
+                        View Presentation
+                      </Button>
+                    </ApiItem>
+                  ))}
+                </ApiList>
+              </CardContent>
+            </Card>
+          )}
 
           {/* API List */}
           {repository.apis && repository.apis.length > 0 && (

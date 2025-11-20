@@ -966,7 +966,8 @@ app.get('/api/repository/:repoName/details', authenticate, authorize('read:apis'
       postmanCollections: postmanCollections,
       pricing: portalMetadata?.pricing || metadata.pricing || centralMetadata.pricing || null,
       businessValue: businessValue || centralMetadata.businessValue || null,
-      techStack: metadata.technical || centralMetadata.techStack || null
+      techStack: metadata.technical || centralMetadata.techStack || null,
+      workshopPresentations: portalMetadata?.resources?.workshopPresentations || []
     });
   } catch (error) {
     console.error('Error getting repository details:', error);
