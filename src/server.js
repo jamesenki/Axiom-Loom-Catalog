@@ -613,9 +613,10 @@ app.get('/api/repository/:repoName/public', (req, res) => {
         targetMarket: business.targetMarket || ['Enterprise'],
         competitiveAdvantage: business.competitiveAdvantage || ['AI-Powered', 'Scalable'],
         valueScore: business.valueScore || metadata.pricing?.valueScore || 70
-      }
+      },
+      workshopPresentations: portalMetadata?.resources?.workshopPresentations || []
     };
-    
+
     res.json(result);
   } catch (error) {
     console.error('Error getting repository details:', error);
@@ -886,6 +887,14 @@ app.get('/api/repository/:repoName/details', authenticate, authorize('read:apis'
       try {
         portalMetadata = JSON.parse(fs.readFileSync(portalMetadataPath, 'utf8'));
         console.log(`Loaded .portal/metadata.json for ${repoName}`);
+        // Debug: Log the keys and resources for presentations debugging
+        console.log(`  Top-level keys: ${Object.keys(portalMetadata).join(', ')}`);
+        if (portalMetadata.resources) {
+          console.log(`  resources keys: ${Object.keys(portalMetadata.resources).join(', ')}`);
+          console.log(`  workshopPresentations count: ${portalMetadata.resources.workshopPresentations?.length || 0}`);
+        } else {
+          console.log(`  No resources field in metadata`);
+        }
       } catch (e) {
         console.error(`Error reading .portal/metadata.json for ${repoName}:`, e.message);
       }
