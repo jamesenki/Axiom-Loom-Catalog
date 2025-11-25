@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { getApiUrl } from '../utils/apiConfig';
-import { 
-  ArrowLeft, 
+import {
+  ArrowLeft,
   Target,
   TrendingUp,
   Users,
@@ -21,7 +21,8 @@ import {
   Code,
   BarChart3,
   Layers,
-  ExternalLink
+  ExternalLink,
+  Presentation
 } from 'lucide-react';
 import { theme } from '../styles/design-system';
 import {
@@ -198,6 +199,10 @@ interface RepositoryDetails {
     codeQuality?: number;
     securityScore?: number;
   };
+  workshopPresentations?: Array<{
+    title: string;
+    url: string;
+  }>;
 }
 
 const PageHeader = styled.div`
@@ -882,6 +887,58 @@ const RepositoryDetailRedesigned: React.FC = () => {
               </Grid>
             </CardContent>
           </Card>
+
+          {/* Workshop Presentations Section */}
+          {repository.workshopPresentations && repository.workshopPresentations.length > 0 && (
+            <Card style={{ marginTop: theme.spacing[8] }}>
+              <CardHeader>
+                <IconWrapper color={theme.colors.accent.purple}>
+                  <Presentation size={24} />
+                </IconWrapper>
+                <CardTitle>Workshop Presentations</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <Grid columns={2} gap="medium">
+                  {repository.workshopPresentations.map((presentation, idx) => (
+                    <a
+                      key={idx}
+                      href={presentation.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{
+                        display: 'block',
+                        padding: theme.spacing[4],
+                        background: theme.colors.background.secondary,
+                        borderRadius: theme.borderRadius.md,
+                        borderLeft: `3px solid ${theme.colors.accent.purple}`,
+                        textDecoration: 'none',
+                        transition: 'all 0.2s ease',
+                        cursor: 'pointer'
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.background = theme.colors.background.tertiary;
+                        e.currentTarget.style.transform = 'translateX(4px)';
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.background = theme.colors.background.secondary;
+                        e.currentTarget.style.transform = 'translateX(0)';
+                      }}
+                    >
+                      <Flex align="start" gap={3}>
+                        <ExternalLink size={20} color={theme.colors.accent.purple} style={{ marginTop: '2px', flexShrink: 0 }} />
+                        <div>
+                          <Text weight="semibold" style={{ color: theme.colors.text.primary, marginBottom: theme.spacing[1] }}>
+                            {presentation.title}
+                          </Text>
+                          <Text size="small" color="secondary">View Presentation</Text>
+                        </div>
+                      </Flex>
+                    </a>
+                  ))}
+                </Grid>
+              </CardContent>
+            </Card>
+          )}
 
           {/* Technical Overview */}
           <Card style={{ marginTop: theme.spacing[8] }}>
