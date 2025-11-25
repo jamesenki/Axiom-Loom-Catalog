@@ -19,8 +19,8 @@ WORKDIR /app
 # Copy package files
 COPY package*.json ./
 
-# Install dependencies including PM2
-RUN npm ci --only=production && npm install -g pm2
+# Install dependencies (no PM2 needed)
+RUN npm ci --only=production
 
 # Copy server code
 COPY src/server.js ./src/
@@ -29,10 +29,9 @@ COPY src/services/ ./src/services/
 COPY src/middleware/ ./src/middleware/
 COPY src/utils/ ./src/utils/
 
-# Copy startup script and PM2 ecosystem config
+# Copy startup script (no longer needed at runtime)
 COPY scripts/clone-repositories.sh ./scripts/
 RUN chmod +x ./scripts/clone-repositories.sh
-COPY ecosystem.config.js ./
 
 # Create directory for cloned repositories
 RUN mkdir -p /app/cloned-repositories
@@ -40,15 +39,35 @@ RUN mkdir -p /app/cloned-repositories
 # Use CACHE_BUST to force re-cloning of repositories when content changes
 RUN echo "Cache bust: $CACHE_BUST"
 
-# CRITICAL FIX: Clone profile repository during Docker build using GitHub token
-# This ensures blog articles are baked into the image
+# Clone ALL repositories during Docker build
+# This ensures all repos are baked into the image with their metadata
 RUN cd /app/cloned-repositories && \
     if [ -n "$GITHUB_TOKEN" ]; then \
-        git clone https://$GITHUB_TOKEN@github.com/jamesenki/profile.git profile && \
-        echo "✅ Successfully cloned profile repository"; \
+        echo "=== Cloning all repositories with GitHub token ===" && \
+        for repo in \
+            axiomloom-iot-platform \
+            cloudtwin-simulation-platform-architecture \
+            deploymaster-sdv-ota-platform \
+            diagnostic-as-code-platform-architecture \
+            fleet-digital-twin-platform-architecture \
+            future-mobility-consumer-platform \
+            future-mobility-enterprise-platform \
+            future-mobility-utilities-platform \
+            mobility-architecture-package-orchestrator \
+            remote-diagnostic-assistance-platform-architecture \
+            rentalFleets \
+            sdv-architecture-orchestration \
+            sovd-diagnostic-ecosystem-platform-architecture \
+            vehicle-to-cloud-communications-architecture \
+            velocityforge-sdv-platform-architecture \
+            profile; do \
+            echo "Cloning $repo..." && \
+            git clone "https://$GITHUB_TOKEN@github.com/jamesenki/$repo.git" "$repo" 2>/dev/null || echo "⚠️  Failed to clone $repo"; \
+        done && \
+        echo "✅ Repository cloning complete" && \
+        ls -l | grep "^d" | wc -l | xargs echo "Total repositories:"; \
     else \
-        echo "⚠️  No GITHUB_TOKEN provided, attempting public clone..."; \
-        git clone https://github.com/jamesenki/profile.git profile; \
+        echo "⚠️  No GITHUB_TOKEN provided - cannot clone private repos"; \
     fi
 
 # Copy repository metadata
@@ -65,5 +84,5 @@ EXPOSE 3001
 HEALTHCHECK --interval=30s --timeout=3s --start-period=40s --retries=3 \
   CMD node -e "require('http').get('http://localhost:3001/api/health', (r) => {process.exit(r.statusCode === 200 ? 0 : 1)})"
 
-# Start PM2 with ecosystem config that clones repos then starts server
-CMD ["pm2-runtime", "start", "ecosystem.config.js"]
+# Start server directly (all repos are pre-cloned at build time)
+CMD ["node", "src/server.js"]
