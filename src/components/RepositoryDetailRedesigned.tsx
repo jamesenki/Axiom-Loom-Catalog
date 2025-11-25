@@ -49,6 +49,7 @@ interface RepositoryDetails {
   name: string;
   displayName: string;
   description: string;
+  tagline?: string;
   marketingDescription?: string;
   category: string;
   status: string;
@@ -86,15 +87,29 @@ interface RepositoryDetails {
     hasPostman: boolean;
   };
   pricing?: {
-    suggestedRetailPrice: number;
-    tier: string;
-    valueScore: number;
-    displayPrice: string;
-    lastAssessed: string;
-    currency: string;
-    licensingModel: string;
-    supportIncluded: string;
-    customizationAvailable: boolean;
+    model?: string;
+    tiers?: Array<{
+      name: string;
+      vehicles?: string;
+      price: string;
+      features: string[];
+    }>;
+    roi?: {
+      implementationTime?: string;
+      paybackPeriod?: string;
+      annualSavings?: string;
+      downtimeReduction?: string;
+    };
+    // Legacy fields for backward compatibility
+    suggestedRetailPrice?: number;
+    tier?: string;
+    valueScore?: number;
+    displayPrice?: string;
+    lastAssessed?: string;
+    currency?: string;
+    licensingModel?: string;
+    supportIncluded?: string;
+    customizationAvailable?: boolean;
   };
   content?: {
     keyFeatures?: string[];
@@ -113,6 +128,75 @@ interface RepositoryDetails {
     targetMarket?: string[];
     competitiveAdvantage?: string[];
     valueScore?: number;
+  };
+  // New metadata fields from .portal/metadata.json
+  marketing?: {
+    headline?: string;
+    subheadline?: string;
+    keyBenefits?: Array<{
+      title: string;
+      description: string;
+    }>;
+    useCases?: Array<{
+      industry: string;
+      description: string;
+    }>;
+    features?: Array<{
+      name: string;
+      description: string;
+    }>;
+    metrics?: {
+      activeDeployments?: number;
+      vehiclesMonitored?: number;
+      uptimePercentage?: number;
+      customerSatisfaction?: string;
+    };
+  };
+  technical?: {
+    architecture?: string;
+    deployment?: string;
+    core?: {
+      languages?: string[];
+      frameworks?: string[];
+      databases?: string[];
+      messaging?: string[];
+      infrastructure?: string[];
+    };
+    protocols?: string[];
+    scalability?: {
+      diagnosticThroughput?: string;
+      simulationCapacity?: string;
+      maxFleetSize?: string;
+    };
+    performance?: {
+      diagnosticThroughput?: string;
+      predictionLatency?: string;
+      syncAccuracy?: string;
+      uptime?: string;
+    };
+  };
+  implementation?: {
+    requirements?: {
+      infrastructure?: string[];
+      connectivity?: string;
+    };
+    gettingStarted?: {
+      quickstart?: string;
+      timeToFirstTwin?: string;
+    };
+  };
+  roadmap?: {
+    currentQuarter?: string[];
+    nextQuarter?: string[];
+    future?: string[];
+  };
+  communityMetrics?: {
+    githubStars?: number;
+    contributors?: number;
+    enterpriseCustomers?: number;
+    testCoverage?: number;
+    codeQuality?: number;
+    securityScore?: number;
   };
 }
 
@@ -395,9 +479,9 @@ const RepositoryDetailRedesigned: React.FC = () => {
           <H1 style={{ color: theme.colors.primary.white, marginBottom: theme.spacing[4], position: 'relative', zIndex: 1 }}>
             {repository.displayName}
           </H1>
-          
+
           <Lead style={{ color: 'rgba(255, 255, 255, 0.9)', marginBottom: theme.spacing[6], position: 'relative', zIndex: 1 }}>
-            {repository.marketingDescription || repository.description}
+            {repository.marketing?.headline || repository.tagline || repository.marketingDescription || repository.description}
           </Lead>
           
           <Flex gap={3} wrap style={{ position: 'relative', zIndex: 1 }}>
@@ -425,41 +509,86 @@ const RepositoryDetailRedesigned: React.FC = () => {
                 <CardContent>
                   <Flex direction="column" gap={4}>
                     <div style={{ textAlign: 'center', padding: theme.spacing[4] }}>
+                      {/* Show pricing from .portal/metadata.json tiers OR legacy displayPrice */}
                       <H2 style={{ color: theme.colors.primary.yellow, marginBottom: theme.spacing[2] }}>
-                        {repository.pricing.displayPrice}
+                        {repository.pricing.tiers && repository.pricing.tiers.length > 0
+                          ? repository.pricing.tiers[0].price
+                          : repository.pricing.displayPrice || repository.pricing.model || "Contact for Pricing"}
                       </H2>
                       <Badge variant="success" style={{ marginBottom: theme.spacing[3] }}>
-                        {repository.pricing.tier}
+                        {repository.pricing.tiers && repository.pricing.tiers.length > 0
+                          ? repository.pricing.tiers[0].name
+                          : repository.pricing.tier || "Enterprise"}
                       </Badge>
                     </div>
-                    
-                    <div>
-                      <Text weight="semibold" style={{ marginBottom: theme.spacing[1] }}>
-                        <Shield size={16} style={{ marginRight: theme.spacing[2], verticalAlign: 'middle' }} />
-                        Licensing
-                      </Text>
-                      <Text size="small">{repository.pricing.licensingModel}</Text>
-                    </div>
-                    
-                    <div>
-                      <Text weight="semibold" style={{ marginBottom: theme.spacing[1] }}>
-                        <Settings size={16} style={{ marginRight: theme.spacing[2], verticalAlign: 'middle' }} />
-                        Support Included
-                      </Text>
-                      <Text size="small">{repository.pricing.supportIncluded}</Text>
-                    </div>
-                    
+
+                    {/* Show features from tiers if available */}
+                    {repository.pricing.tiers && repository.pricing.tiers[0]?.features && (
+                      <div>
+                        <Text weight="semibold" style={{ marginBottom: theme.spacing[2] }}>
+                          Included Features
+                        </Text>
+                        <ul style={{ margin: 0, paddingLeft: theme.spacing[5], fontSize: theme.typography.fontSize.sm }}>
+                          {repository.pricing.tiers[0].features.slice(0, 3).map((feature, idx) => (
+                            <li key={idx}>{feature}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+
+                    {/* Legacy fields for backward compatibility */}
+                    {!repository.pricing.tiers && repository.pricing.licensingModel && (
+                      <div>
+                        <Text weight="semibold" style={{ marginBottom: theme.spacing[1] }}>
+                          <Shield size={16} style={{ marginRight: theme.spacing[2], verticalAlign: 'middle' }} />
+                          Licensing
+                        </Text>
+                        <Text size="small">{repository.pricing.licensingModel}</Text>
+                      </div>
+                    )}
+
+                    {!repository.pricing.tiers && repository.pricing.supportIncluded && (
+                      <div>
+                        <Text weight="semibold" style={{ marginBottom: theme.spacing[1] }}>
+                          <Settings size={16} style={{ marginRight: theme.spacing[2], verticalAlign: 'middle' }} />
+                          Support Included
+                        </Text>
+                        <Text size="small">{repository.pricing.supportIncluded}</Text>
+                      </div>
+                    )}
+
                     {repository.pricing.customizationAvailable && (
                       <div>
                         <Badge variant="info">Customization Available</Badge>
                       </div>
                     )}
-                    
-                    <div style={{ marginTop: theme.spacing[2] }}>
-                      <Text size="small" color="secondary">
-                        Value Score: {repository.pricing.valueScore}/100
-                      </Text>
-                    </div>
+
+                    {/* Show ROI data if available */}
+                    {repository.pricing.roi && (
+                      <div style={{ marginTop: theme.spacing[2], padding: theme.spacing[3], background: theme.colors.background.secondary, borderRadius: theme.borderRadius.md }}>
+                        <Text size="small" weight="semibold" style={{ marginBottom: theme.spacing[1] }}>
+                          ROI Highlights
+                        </Text>
+                        {repository.pricing.roi.paybackPeriod && (
+                          <Text size="small" color="secondary">
+                            Payback: {repository.pricing.roi.paybackPeriod}
+                          </Text>
+                        )}
+                        {repository.pricing.roi.annualSavings && (
+                          <Text size="small" color="secondary">
+                            Annual Savings: {repository.pricing.roi.annualSavings}
+                          </Text>
+                        )}
+                      </div>
+                    )}
+
+                    {repository.pricing.valueScore && (
+                      <div style={{ marginTop: theme.spacing[2] }}>
+                        <Text size="small" color="secondary">
+                          Value Score: {repository.pricing.valueScore}/100
+                        </Text>
+                      </div>
+                    )}
                   </Flex>
                 </CardContent>
               </BusinessCard>
@@ -501,12 +630,34 @@ const RepositoryDetailRedesigned: React.FC = () => {
               </CardHeader>
               <CardContent>
                 <BenefitList>
-                  {repository.content?.benefits?.map((benefit, idx) => (
-                    <li key={idx}>{benefit}</li>
-                  ))}
-                  {repository.businessValue?.keyBenefits?.map((benefit, idx) => (
-                    <li key={`fallback-${idx}`}>{benefit}</li>
-                  ))}
+                  {/* Priority 1: marketing.keyBenefits from .portal/metadata.json */}
+                  {repository.marketing?.keyBenefits && repository.marketing.keyBenefits.length > 0 ? (
+                    repository.marketing.keyBenefits.map((benefit, idx) => (
+                      <li key={idx}>
+                        <strong>{benefit.title}</strong>
+                        {benefit.description && <div style={{ fontSize: theme.typography.fontSize.sm, marginTop: theme.spacing[1], color: theme.colors.text.secondary }}>{benefit.description}</div>}
+                      </li>
+                    ))
+                  ) : (
+                    <>
+                      {/* Priority 2: content.benefits (legacy) */}
+                      {repository.content?.benefits?.map((benefit, idx) => (
+                        <li key={idx}>{benefit}</li>
+                      ))}
+                      {/* Priority 3: businessValue.keyBenefits (legacy) */}
+                      {!repository.content?.benefits && repository.businessValue?.keyBenefits?.map((benefit, idx) => (
+                        <li key={`fallback-${idx}`}>{benefit}</li>
+                      ))}
+                      {/* Priority 4: Generic defaults if nothing else */}
+                      {!repository.content?.benefits && !repository.businessValue?.keyBenefits && (
+                        <>
+                          <li>Enterprise-grade architecture</li>
+                          <li>Comprehensive API coverage</li>
+                          <li>Professional support</li>
+                        </>
+                      )}
+                    </>
+                  )}
                 </BenefitList>
               </CardContent>
             </BusinessCard>
@@ -689,12 +840,45 @@ const RepositoryDetailRedesigned: React.FC = () => {
             </CardHeader>
             <CardContent>
               <Grid columns={2} gap="medium">
-                {(repository.content?.useCases || repository.businessValue?.useCases || []).map((useCase, idx) => (
-                  <Flex key={idx} align="center" gap={3}>
-                    <Zap size={20} color={theme.colors.primary.yellow} />
-                    <Text>{useCase}</Text>
-                  </Flex>
-                ))}
+                {/* Priority 1: marketing.useCases from .portal/metadata.json */}
+                {repository.marketing?.useCases && repository.marketing.useCases.length > 0 ? (
+                  repository.marketing.useCases.map((useCase, idx) => (
+                    <div key={idx} style={{ padding: theme.spacing[3], background: theme.colors.background.secondary, borderRadius: theme.borderRadius.md, borderLeft: `3px solid ${theme.colors.primary.yellow}` }}>
+                      <Flex align="start" gap={3}>
+                        <Zap size={20} color={theme.colors.primary.yellow} style={{ marginTop: '2px', flexShrink: 0 }} />
+                        <div>
+                          <Text weight="semibold" style={{ color: theme.colors.primary.yellow, marginBottom: theme.spacing[1] }}>
+                            {useCase.industry}
+                          </Text>
+                          <Text size="small">{useCase.description}</Text>
+                        </div>
+                      </Flex>
+                    </div>
+                  ))
+                ) : (
+                  <>
+                    {/* Priority 2 & 3: Legacy use cases */}
+                    {(repository.content?.useCases || repository.businessValue?.useCases || []).map((useCase, idx) => (
+                      <Flex key={idx} align="center" gap={3}>
+                        <Zap size={20} color={theme.colors.primary.yellow} />
+                        <Text>{useCase}</Text>
+                      </Flex>
+                    ))}
+                    {/* Priority 4: Generic defaults if nothing else */}
+                    {!repository.content?.useCases && !repository.businessValue?.useCases && (
+                      <>
+                        <Flex align="center" gap={3}>
+                          <Zap size={20} color={theme.colors.primary.yellow} />
+                          <Text>API development and integration</Text>
+                        </Flex>
+                        <Flex align="center" gap={3}>
+                          <Zap size={20} color={theme.colors.primary.yellow} />
+                          <Text>System modernization</Text>
+                        </Flex>
+                      </>
+                    )}
+                  </>
+                )}
               </Grid>
             </CardContent>
           </Card>

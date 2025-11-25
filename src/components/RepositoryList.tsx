@@ -25,6 +25,7 @@ interface Repository {
   name: string;
   displayName: string;
   description: string;
+  tagline?: string;
   category: string;
   status: string;
   metrics: {
@@ -37,6 +38,10 @@ interface Repository {
     hasGraphQL: boolean;
     hasGrpc: boolean;
     hasPostman: boolean;
+  };
+  marketing?: {
+    headline?: string;
+    subheadline?: string;
   };
 }
 
@@ -363,8 +368,8 @@ const RepositoryList: React.FC = () => {
               <CardTitle>{repo.displayName}</CardTitle>
               <StatusBadge status={repo.status}>{repo.status}</StatusBadge>
             </CardHeader>
-            
-            <Description>{repo.description}</Description>
+
+            <Description>{repo.tagline || repo.marketing?.headline || repo.description}</Description>
             
             <Metrics>
               <MetricItem>
