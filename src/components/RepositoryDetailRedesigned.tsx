@@ -22,7 +22,9 @@ import {
   BarChart3,
   Layers,
   ExternalLink,
-  Presentation
+  Presentation,
+  AlertCircle,
+  CheckCircle
 } from 'lucide-react';
 import { theme } from '../styles/design-system';
 import {
@@ -202,6 +204,20 @@ interface RepositoryDetails {
   workshopPresentations?: Array<{
     title: string;
     url: string;
+  }>;
+  // Enhanced metadata fields for top-level access
+  keyBenefits?: Array<{
+    title: string;
+    description: string;
+  }>;
+  useCases?: Array<{
+    industry: string;
+    description?: string;
+    devices?: string;
+    value?: string;
+    // Enhanced challenge/solution/value structure
+    challenge?: string;
+    solution?: string;
   }>;
 }
 
@@ -504,97 +520,151 @@ const RepositoryDetailRedesigned: React.FC = () => {
           <Grid columns={repository.pricing ? 3 : 2} gap="large">
             {/* Pricing Card - Display first if available */}
             {repository.pricing && (
-              <BusinessCard>
+              <BusinessCard style={{ gridColumn: repository.pricing.tiers && repository.pricing.tiers.length > 1 ? 'span 3' : 'span 1' }}>
                 <CardHeader>
                   <IconWrapper>
                     <DollarSign size={24} />
                   </IconWrapper>
                   <CardTitle>Architecture Package Pricing</CardTitle>
+                  <CardDescription>
+                    {repository.pricing.tiers && repository.pricing.tiers.length > 1
+                      ? 'Choose the tier that fits your needs'
+                      : repository.pricing.displayPrice || repository.pricing.model || 'Contact for pricing details'}
+                  </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <Flex direction="column" gap={4}>
-                    <div style={{ textAlign: 'center', padding: theme.spacing[4] }}>
-                      {/* Show pricing from .portal/metadata.json tiers OR legacy displayPrice */}
-                      <H2 style={{ color: theme.colors.primary.yellow, marginBottom: theme.spacing[2] }}>
-                        {repository.pricing.tiers && repository.pricing.tiers.length > 0
-                          ? repository.pricing.tiers[0].price
-                          : repository.pricing.displayPrice || repository.pricing.model || "Contact for Pricing"}
-                      </H2>
-                      <Badge variant="success" style={{ marginBottom: theme.spacing[3] }}>
-                        {repository.pricing.tiers && repository.pricing.tiers.length > 0
-                          ? repository.pricing.tiers[0].name
-                          : repository.pricing.tier || "Enterprise"}
-                      </Badge>
-                    </div>
-
-                    {/* Show features from tiers if available */}
-                    {repository.pricing.tiers && repository.pricing.tiers[0]?.features && (
-                      <div>
-                        <Text weight="semibold" style={{ marginBottom: theme.spacing[2] }}>
-                          Included Features
-                        </Text>
-                        <ul style={{ margin: 0, paddingLeft: theme.spacing[5], fontSize: theme.typography.fontSize.sm }}>
-                          {repository.pricing.tiers[0].features.slice(0, 3).map((feature, idx) => (
-                            <li key={idx}>{feature}</li>
-                          ))}
-                        </ul>
+                  {/* Enhanced Multi-Tier Display */}
+                  {repository.pricing.tiers && repository.pricing.tiers.length > 1 ? (
+                    <Grid columns={Math.min(repository.pricing.tiers.length, 3)} gap="medium">
+                      {repository.pricing.tiers.map((tier, idx) => (
+                        <div
+                          key={idx}
+                          style={{
+                            background: idx === 1 ? `linear-gradient(135deg, ${theme.colors.primary.yellow}10, ${theme.colors.primary.yellow}05)` : theme.colors.background.secondary,
+                            border: idx === 1 ? `2px solid ${theme.colors.primary.yellow}` : `1px solid ${theme.colors.border.light}`,
+                            borderRadius: theme.borderRadius.lg,
+                            padding: theme.spacing[5],
+                            display: 'flex',
+                            flexDirection: 'column',
+                            position: 'relative'
+                          }}
+                        >
+                          {idx === 1 && (
+                            <Badge variant="warning" style={{ position: 'absolute', top: theme.spacing[3], right: theme.spacing[3] }}>
+                              RECOMMENDED
+                            </Badge>
+                          )}
+                          <H3 style={{ marginBottom: theme.spacing[2], color: theme.colors.text.primary }}>{tier.name}</H3>
+                          {tier.vehicles && (
+                            <Text size="small" color="secondary" style={{ marginBottom: theme.spacing[3] }}>
+                              {tier.vehicles}
+                            </Text>
+                          )}
+                          <div style={{ marginBottom: theme.spacing[4] }}>
+                            <H2 style={{ color: idx === 1 ? theme.colors.primary.yellow : theme.colors.text.primary }}>
+                              {tier.price}
+                            </H2>
+                          </div>
+                          <div style={{ flex: 1 }}>
+                            <Text weight="semibold" style={{ marginBottom: theme.spacing[3] }}>Features:</Text>
+                            <ul style={{ margin: 0, paddingLeft: theme.spacing[5], fontSize: theme.typography.fontSize.sm }}>
+                              {tier.features.map((feature, fIdx) => (
+                                <li key={fIdx} style={{ marginBottom: theme.spacing[2] }}>{feature}</li>
+                              ))}
+                            </ul>
+                          </div>
+                          <Button
+                            variant={idx === 1 ? "primary" : "outline"}
+                            fullWidth
+                            style={{ marginTop: theme.spacing[4] }}
+                          >
+                            {idx === 2 ? 'Contact Sales' : 'Get Started'}
+                          </Button>
+                        </div>
+                      ))}
+                    </Grid>
+                  ) : (
+                    // Single Tier or Legacy Pricing Display
+                    <Flex direction="column" gap={4}>
+                      <div style={{ textAlign: 'center', padding: theme.spacing[4] }}>
+                        <H2 style={{ color: theme.colors.primary.yellow, marginBottom: theme.spacing[2] }}>
+                          {repository.pricing.tiers && repository.pricing.tiers.length > 0
+                            ? repository.pricing.tiers[0].price
+                            : repository.pricing.displayPrice || repository.pricing.model || "Contact for Pricing"}
+                        </H2>
+                        <Badge variant="success" style={{ marginBottom: theme.spacing[3] }}>
+                          {repository.pricing.tiers && repository.pricing.tiers.length > 0
+                            ? repository.pricing.tiers[0].name
+                            : repository.pricing.tier || "Enterprise"}
+                        </Badge>
                       </div>
-                    )}
 
-                    {/* Legacy fields for backward compatibility */}
-                    {!repository.pricing.tiers && repository.pricing.licensingModel && (
-                      <div>
-                        <Text weight="semibold" style={{ marginBottom: theme.spacing[1] }}>
-                          <Shield size={16} style={{ marginRight: theme.spacing[2], verticalAlign: 'middle' }} />
-                          Licensing
-                        </Text>
-                        <Text size="small">{repository.pricing.licensingModel}</Text>
-                      </div>
-                    )}
-
-                    {!repository.pricing.tiers && repository.pricing.supportIncluded && (
-                      <div>
-                        <Text weight="semibold" style={{ marginBottom: theme.spacing[1] }}>
-                          <Settings size={16} style={{ marginRight: theme.spacing[2], verticalAlign: 'middle' }} />
-                          Support Included
-                        </Text>
-                        <Text size="small">{repository.pricing.supportIncluded}</Text>
-                      </div>
-                    )}
-
-                    {repository.pricing.customizationAvailable && (
-                      <div>
-                        <Badge variant="info">Customization Available</Badge>
-                      </div>
-                    )}
-
-                    {/* Show ROI data if available */}
-                    {repository.pricing.roi && (
-                      <div style={{ marginTop: theme.spacing[2], padding: theme.spacing[3], background: theme.colors.background.secondary, borderRadius: theme.borderRadius.md }}>
-                        <Text size="small" weight="semibold" style={{ marginBottom: theme.spacing[1] }}>
-                          ROI Highlights
-                        </Text>
-                        {repository.pricing.roi.paybackPeriod && (
-                          <Text size="small" color="secondary">
-                            Payback: {repository.pricing.roi.paybackPeriod}
+                      {repository.pricing.tiers && repository.pricing.tiers[0]?.features && (
+                        <div>
+                          <Text weight="semibold" style={{ marginBottom: theme.spacing[2] }}>
+                            Included Features
                           </Text>
-                        )}
-                        {repository.pricing.roi.annualSavings && (
-                          <Text size="small" color="secondary">
-                            Annual Savings: {repository.pricing.roi.annualSavings}
-                          </Text>
-                        )}
-                      </div>
-                    )}
+                          <ul style={{ margin: 0, paddingLeft: theme.spacing[5], fontSize: theme.typography.fontSize.sm }}>
+                            {repository.pricing.tiers[0].features.slice(0, 3).map((feature, idx) => (
+                              <li key={idx}>{feature}</li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
 
-                    {repository.pricing.valueScore && (
-                      <div style={{ marginTop: theme.spacing[2] }}>
-                        <Text size="small" color="secondary">
-                          Value Score: {repository.pricing.valueScore}/100
-                        </Text>
-                      </div>
-                    )}
-                  </Flex>
+                      {!repository.pricing.tiers && repository.pricing.licensingModel && (
+                        <div>
+                          <Text weight="semibold" style={{ marginBottom: theme.spacing[1] }}>
+                            <Shield size={16} style={{ marginRight: theme.spacing[2], verticalAlign: 'middle' }} />
+                            Licensing
+                          </Text>
+                          <Text size="small">{repository.pricing.licensingModel}</Text>
+                        </div>
+                      )}
+
+                      {!repository.pricing.tiers && repository.pricing.supportIncluded && (
+                        <div>
+                          <Text weight="semibold" style={{ marginBottom: theme.spacing[1] }}>
+                            <Settings size={16} style={{ marginRight: theme.spacing[2], verticalAlign: 'middle' }} />
+                            Support Included
+                          </Text>
+                          <Text size="small">{repository.pricing.supportIncluded}</Text>
+                        </div>
+                      )}
+
+                      {repository.pricing.customizationAvailable && (
+                        <div>
+                          <Badge variant="info">Customization Available</Badge>
+                        </div>
+                      )}
+
+                      {repository.pricing.roi && (
+                        <div style={{ marginTop: theme.spacing[2], padding: theme.spacing[3], background: theme.colors.background.secondary, borderRadius: theme.borderRadius.md }}>
+                          <Text size="small" weight="semibold" style={{ marginBottom: theme.spacing[1] }}>
+                            ROI Highlights
+                          </Text>
+                          {repository.pricing.roi.paybackPeriod && (
+                            <Text size="small" color="secondary">
+                              Payback: {repository.pricing.roi.paybackPeriod}
+                            </Text>
+                          )}
+                          {repository.pricing.roi.annualSavings && (
+                            <Text size="small" color="secondary">
+                              Annual Savings: {repository.pricing.roi.annualSavings}
+                            </Text>
+                          )}
+                        </div>
+                      )}
+
+                      {repository.pricing.valueScore && (
+                        <div style={{ marginTop: theme.spacing[2] }}>
+                          <Text size="small" color="secondary">
+                            Value Score: {repository.pricing.valueScore}/100
+                          </Text>
+                        </div>
+                      )}
+                    </Flex>
+                  )}
                 </CardContent>
               </BusinessCard>
             )}
@@ -632,28 +702,94 @@ const RepositoryDetailRedesigned: React.FC = () => {
                   <Shield size={24} />
                 </IconWrapper>
                 <CardTitle>Key Benefits</CardTitle>
+                <CardDescription>Value delivered to your organization</CardDescription>
               </CardHeader>
               <CardContent>
-                <BenefitList>
-                  {/* Priority 1: marketing.keyBenefits from .portal/metadata.json */}
-                  {repository.marketing?.keyBenefits && repository.marketing.keyBenefits.length > 0 ? (
-                    repository.marketing.keyBenefits.map((benefit, idx) => (
-                      <li key={idx}>
-                        <strong>{benefit.title}</strong>
-                        {benefit.description && <div style={{ fontSize: theme.typography.fontSize.sm, marginTop: theme.spacing[1], color: theme.colors.text.secondary }}>{benefit.description}</div>}
-                      </li>
-                    ))
+                {/* Priority 1: Enhanced repository.keyBenefits with title + description + icon */}
+                {repository.keyBenefits && repository.keyBenefits.length > 0 && repository.keyBenefits.some(kb => kb.title && kb.description) ? (
+                  <Grid columns={repository.keyBenefits.length === 1 ? 1 : 2} gap="medium">
+                    {repository.keyBenefits.map((benefit, idx) => {
+                      // Smart icon selection based on keywords
+                      const getIcon = () => {
+                        const title = benefit.title.toLowerCase();
+                        const desc = (benefit.description || '').toLowerCase();
+                        const combined = `${title} ${desc}`;
+
+                        if (combined.includes('cost') || combined.includes('save') || combined.includes('reduction')) return DollarSign;
+                        if (combined.includes('security') || combined.includes('compliance') || combined.includes('safe')) return Shield;
+                        if (combined.includes('performance') || combined.includes('speed') || combined.includes('fast') || combined.includes('optimize')) return TrendingUp;
+                        if (combined.includes('scale') || combined.includes('growth') || combined.includes('expand')) return BarChart3;
+                        if (combined.includes('integrate') || combined.includes('compatible') || combined.includes('universal')) return Package;
+                        if (combined.includes('time') || combined.includes('rapid') || combined.includes('quick')) return Zap;
+                        if (combined.includes('ai') || combined.includes('intelligent') || combined.includes('smart')) return Cpu;
+                        if (combined.includes('cloud') || combined.includes('infrastructure')) return Cloud;
+                        return CheckCircle; // Default icon
+                      };
+
+                      const Icon = getIcon();
+                      const iconColor = idx % 4 === 0 ? theme.colors.accent.green :
+                                       idx % 4 === 1 ? theme.colors.accent.blue :
+                                       idx % 4 === 2 ? theme.colors.primary.yellow :
+                                       theme.colors.accent.purple;
+
+                      return (
+                        <div
+                          key={idx}
+                          style={{
+                            background: theme.colors.background.secondary,
+                            borderRadius: theme.borderRadius.md,
+                            padding: theme.spacing[4],
+                            border: `1px solid ${theme.colors.border.light}`,
+                            transition: 'all 0.2s ease'
+                          }}
+                          onMouseEnter={(e) => {
+                            e.currentTarget.style.borderColor = iconColor;
+                            e.currentTarget.style.transform = 'translateY(-2px)';
+                            e.currentTarget.style.boxShadow = `0 4px 12px ${iconColor}20`;
+                          }}
+                          onMouseLeave={(e) => {
+                            e.currentTarget.style.borderColor = theme.colors.border.light;
+                            e.currentTarget.style.transform = 'translateY(0)';
+                            e.currentTarget.style.boxShadow = 'none';
+                          }}
+                        >
+                          <Flex align="start" gap={3}>
+                            <div style={{ flexShrink: 0, marginTop: '2px' }}>
+                              <Icon size={20} color={iconColor} />
+                            </div>
+                            <div style={{ flex: 1 }}>
+                              <Text weight="semibold" style={{ color: theme.colors.text.primary, marginBottom: theme.spacing[2] }}>
+                                {benefit.title}
+                              </Text>
+                              <Text size="small" color="secondary">
+                                {benefit.description}
+                              </Text>
+                            </div>
+                          </Flex>
+                        </div>
+                      );
+                    })}
+                  </Grid>
+                ) : (
+                  /* Priority 2: marketing.keyBenefits from .portal/metadata.json */
+                  repository.marketing?.keyBenefits && repository.marketing.keyBenefits.length > 0 ? (
+                    <BenefitList>
+                      {repository.marketing.keyBenefits.map((benefit, idx) => (
+                        <li key={idx}>
+                          <strong>{benefit.title}</strong>
+                          {benefit.description && <div style={{ fontSize: theme.typography.fontSize.sm, marginTop: theme.spacing[1], color: theme.colors.text.secondary }}>{benefit.description}</div>}
+                        </li>
+                      ))}
+                    </BenefitList>
                   ) : (
-                    <>
-                      {/* Priority 2: content.benefits (legacy) */}
+                    /* Priority 3 & 4: Legacy benefits or defaults */
+                    <BenefitList>
                       {repository.content?.benefits?.map((benefit, idx) => (
                         <li key={idx}>{benefit}</li>
                       ))}
-                      {/* Priority 3: businessValue.keyBenefits (legacy) */}
                       {!repository.content?.benefits && repository.businessValue?.keyBenefits?.map((benefit, idx) => (
                         <li key={`fallback-${idx}`}>{benefit}</li>
                       ))}
-                      {/* Priority 4: Generic defaults if nothing else */}
                       {!repository.content?.benefits && !repository.businessValue?.keyBenefits && (
                         <>
                           <li>Enterprise-grade architecture</li>
@@ -661,9 +797,9 @@ const RepositoryDetailRedesigned: React.FC = () => {
                           <li>Professional support</li>
                         </>
                       )}
-                    </>
-                  )}
-                </BenefitList>
+                    </BenefitList>
+                  )
+                )}
               </CardContent>
             </BusinessCard>
           </Grid>
@@ -835,42 +971,135 @@ const RepositoryDetailRedesigned: React.FC = () => {
             </Card>
           )}
 
-          {/* Use Cases Section */}
+          {/* Use Cases Section - Enhanced with Challenge/Solution/Value Structure */}
           <Card style={{ marginTop: theme.spacing[8] }}>
             <CardHeader>
               <IconWrapper color={theme.colors.accent.blue}>
                 <Layers size={24} />
               </IconWrapper>
               <CardTitle>Use Cases & Applications</CardTitle>
+              <CardDescription>Real-world applications and business impact</CardDescription>
             </CardHeader>
             <CardContent>
-              <Grid columns={2} gap="medium">
-                {/* Priority 1: marketing.useCases from .portal/metadata.json */}
-                {repository.marketing?.useCases && repository.marketing.useCases.length > 0 ? (
-                  repository.marketing.useCases.map((useCase, idx) => (
-                    <div key={idx} style={{ padding: theme.spacing[3], background: theme.colors.background.secondary, borderRadius: theme.borderRadius.md, borderLeft: `3px solid ${theme.colors.primary.yellow}` }}>
-                      <Flex align="start" gap={3}>
-                        <Zap size={20} color={theme.colors.primary.yellow} style={{ marginTop: '2px', flexShrink: 0 }} />
-                        <div>
-                          <Text weight="semibold" style={{ color: theme.colors.primary.yellow, marginBottom: theme.spacing[1] }}>
-                            {useCase.industry}
+              {/* Priority 1: Enhanced useCases with challenge/solution/value structure */}
+              {repository.useCases && repository.useCases.length > 0 && repository.useCases.some(uc => uc.challenge || uc.solution) ? (
+                <Grid columns={repository.useCases.length === 1 ? 1 : 2} gap="large">
+                  {repository.useCases.map((useCase, idx) => (
+                    <div
+                      key={idx}
+                      style={{
+                        background: `linear-gradient(135deg, ${theme.colors.accent.blue}08, ${theme.colors.accent.purple}05)`,
+                        borderRadius: theme.borderRadius.lg,
+                        padding: theme.spacing[5],
+                        border: `1px solid ${theme.colors.accent.blue}20`,
+                        transition: 'all 0.2s ease'
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.borderColor = theme.colors.accent.blue;
+                        e.currentTarget.style.transform = 'translateY(-2px)';
+                        e.currentTarget.style.boxShadow = `0 4px 12px ${theme.colors.accent.blue}20`;
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.borderColor = `${theme.colors.accent.blue}20`;
+                        e.currentTarget.style.transform = 'translateY(0)';
+                        e.currentTarget.style.boxShadow = 'none';
+                      }}
+                    >
+                      {/* Industry Header */}
+                      <Flex align="center" gap={2} style={{ marginBottom: theme.spacing[4] }}>
+                        <Target size={20} color={theme.colors.accent.blue} />
+                        <H3 style={{ color: theme.colors.accent.blue, margin: 0 }}>
+                          {useCase.industry}
+                        </H3>
+                      </Flex>
+
+                      {/* Challenge Section */}
+                      {useCase.challenge && (
+                        <div style={{ marginBottom: theme.spacing[4] }}>
+                          <Flex align="start" gap={2} style={{ marginBottom: theme.spacing[2] }}>
+                            <AlertCircle size={16} color={theme.colors.accent.red} style={{ marginTop: '2px', flexShrink: 0 }} />
+                            <Text size="small" weight="semibold" style={{ color: theme.colors.accent.red }}>
+                              Challenge
+                            </Text>
+                          </Flex>
+                          <Text size="small" style={{ paddingLeft: theme.spacing[6] }}>
+                            {useCase.challenge}
                           </Text>
-                          <Text size="small">{useCase.description}</Text>
                         </div>
-                      </Flex>
+                      )}
+
+                      {/* Solution Section */}
+                      {useCase.solution && (
+                        <div style={{ marginBottom: theme.spacing[4] }}>
+                          <Flex align="start" gap={2} style={{ marginBottom: theme.spacing[2] }}>
+                            <CheckCircle size={16} color={theme.colors.accent.green} style={{ marginTop: '2px', flexShrink: 0 }} />
+                            <Text size="small" weight="semibold" style={{ color: theme.colors.accent.green }}>
+                              Solution
+                            </Text>
+                          </Flex>
+                          <Text size="small" style={{ paddingLeft: theme.spacing[6] }}>
+                            {useCase.solution}
+                          </Text>
+                        </div>
+                      )}
+
+                      {/* Value Section */}
+                      {useCase.value && (
+                        <div>
+                          <Flex align="start" gap={2} style={{ marginBottom: theme.spacing[2] }}>
+                            <TrendingUp size={16} color={theme.colors.primary.yellow} style={{ marginTop: '2px', flexShrink: 0 }} />
+                            <Text size="small" weight="semibold" style={{ color: theme.colors.primary.yellow }}>
+                              Business Value
+                            </Text>
+                          </Flex>
+                          <Text size="small" style={{ paddingLeft: theme.spacing[6] }}>
+                            {useCase.value}
+                          </Text>
+                        </div>
+                      )}
+
+                      {/* Legacy fallback: devices field */}
+                      {!useCase.challenge && !useCase.solution && useCase.devices && (
+                        <div style={{ marginBottom: theme.spacing[3] }}>
+                          <Text size="small" color="secondary" style={{ marginBottom: theme.spacing[1] }}>
+                            Target Devices:
+                          </Text>
+                          <Text size="small">{useCase.devices}</Text>
+                        </div>
+                      )}
                     </div>
-                  ))
-                ) : (
-                  <>
-                    {/* Priority 2 & 3: Legacy use cases */}
-                    {(repository.content?.useCases || repository.businessValue?.useCases || []).map((useCase, idx) => (
-                      <Flex key={idx} align="center" gap={3}>
-                        <Zap size={20} color={theme.colors.primary.yellow} />
-                        <Text>{useCase}</Text>
-                      </Flex>
+                  ))}
+                </Grid>
+              ) : (
+                /* Priority 2: marketing.useCases from .portal/metadata.json */
+                repository.marketing?.useCases && repository.marketing.useCases.length > 0 ? (
+                  <Grid columns={2} gap="medium">
+                    {repository.marketing.useCases.map((useCase, idx) => (
+                      <div key={idx} style={{ padding: theme.spacing[4], background: theme.colors.background.secondary, borderRadius: theme.borderRadius.md, borderLeft: `3px solid ${theme.colors.primary.yellow}` }}>
+                        <Flex align="start" gap={3}>
+                          <Zap size={20} color={theme.colors.primary.yellow} style={{ marginTop: '2px', flexShrink: 0 }} />
+                          <div>
+                            <Text weight="semibold" style={{ color: theme.colors.primary.yellow, marginBottom: theme.spacing[1] }}>
+                              {useCase.industry}
+                            </Text>
+                            <Text size="small">{useCase.description}</Text>
+                          </div>
+                        </Flex>
+                      </div>
                     ))}
-                    {/* Priority 4: Generic defaults if nothing else */}
-                    {!repository.content?.useCases && !repository.businessValue?.useCases && (
+                  </Grid>
+                ) : (
+                  /* Priority 3 & 4: Legacy use cases or generic defaults */
+                  <Grid columns={2} gap="medium">
+                    {(repository.content?.useCases || repository.businessValue?.useCases || []).length > 0 ? (
+                      (repository.content?.useCases || repository.businessValue?.useCases || []).map((useCase: any, idx: number) => (
+                        <Flex key={idx} align="center" gap={3}>
+                          <Zap size={20} color={theme.colors.primary.yellow} />
+                          <Text>{typeof useCase === 'string' ? useCase : useCase.industry || useCase.value || 'Use case'}</Text>
+                        </Flex>
+                      ))
+                    ) : (
+                      /* Priority 5: Generic defaults */
                       <>
                         <Flex align="center" gap={3}>
                           <Zap size={20} color={theme.colors.primary.yellow} />
@@ -882,9 +1111,9 @@ const RepositoryDetailRedesigned: React.FC = () => {
                         </Flex>
                       </>
                     )}
-                  </>
-                )}
-              </Grid>
+                  </Grid>
+                )
+              )}
             </CardContent>
           </Card>
 
