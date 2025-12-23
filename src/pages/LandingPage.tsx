@@ -35,7 +35,7 @@ const LandingPage: React.FC = () => {
           <div className="profile-header">
             <div className="profile-avatar">
               <img
-                src="https://media.licdn.com/dms/image/v2/C4E03AQG6fU1AupR3Vg/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1627405478975?e=2147483647&v=beta&t=EibnXPvaaCzduCWbDDcMtEY8IQgYRaFOfwppEwBQ-OA"
+                src="/images/profile-photo.png"
                 alt="James Simon"
                 className="avatar-image"
               />
