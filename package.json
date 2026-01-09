@@ -43,7 +43,7 @@
     "react-countup": "^6.5.3",
     "react-dom": "^18.2.0",
     "react-markdown": "^8.0.7",
-    "react-router-dom": "^6.3.0",
+    "react-router-dom": "^6.30.3",
     "react-scripts": "5.0.1",
     "recharts": "^2.15.4",
     "rehype-autolink-headings": "^7.1.0",
